@@ -1,0 +1,35 @@
+ul.menu li.menu {
+	margin-top: 1em;
+}
+
+ul.menu li.menu {
+	margin-top: 1em;
+}
+
+ul.menu h2 {
+	font-size: 20px;
+	font-weight: 500;
+	margin: 1em;
+	display: inline;
+	line-height: 1.5em;
+}
+
+ul.menu h1 {
+	font-size: 50px;
+	font-weight: 500;
+	margin: 1em;
+	display: inline;
+	line-height: 1.5em;
+}
+
+body {
+    background-color: #eeeeee;
+}
+
+a {
+    color: #BF4D28;
+}
+
+a:hover {
+    color: red;
+}

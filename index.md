@@ -10,8 +10,6 @@ to the members of [The Rust Project](https://www.rust-lang.org).
 
 <hr/>
 
-* [User groups](user-groups.html).
-
 * [Release history](releases.html). Links to previous release
   artifacts.
 
