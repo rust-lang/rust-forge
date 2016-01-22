@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<!-- Page last generated 2016-01-22 01:43:25 +0000 -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Rust and IDEs &middot; The Rust Forge</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Rust, Rust programming language, rustlang, rust-lang, Mozilla Rust">
+    <meta name="description" content="A systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+
+  <body class="container">
+
+    <header>
+
+    <ul class="row menu">
+      <li class="col-xs-12 col-md-2">
+        <a href="index.html">
+          <img class="img-responsive" src="logos/rust-logo-256x256-blk.png" height="128" width="128" alt="Rust logo" />
+        </a>
+      </li>
+      <li class="col-xs-12 col-md-10 menu">
+	<h2>Rust: Forged from Blood and Iron in the Fires of Hell</h2>
+      </li>
+    </ul>
+    </header>
+
+    <div class="content"><h1>Rust and IDEs</h1>
+
+<p>Modern IDEs can give developers a massive increase in
+productivity. Good IDE support is an essential part of the tooling for
+a new programming language. Several community projects have provided
+an excellent start towards IDE support. Over the next few quarters,
+providing better IDE support is a high priority for the Rust teams and
+we hope to see big leaps in the power and usability of Rust IDEs.</p>
+
+<p>Good IDE support requires a number of components - the compiler must
+be modified to operate in a different mode, we must provide name and
+type information from the compiler to the IDE, and we must write
+plugins for the IDEs themselves so they know what to do with Rust
+projects. We&#39;re going to work on all three of these components in
+parallel and there is a lot of scope for useful input from the
+community.</p>
+
+<p><a id="plan"></a></p>
+
+<h2>The plan</h2>
+
+<p>To work with an IDE, the compiler must respond to changes made by the
+users in milliseconds and be able to cope with incomplete code. To
+manage this we propose modifying the compiler to support incremental
+and lazy compilation, and in the long-run, operate as a long-running
+daemon process. The compiler must also be more robust and be able to
+continue compilation in the face of parsing and name resolution
+errors.</p>
+
+<p>We propose a new tool, an &#39;oracle&#39; which takes input from the
+compiler, maintains a project-wide view of the code and it&#39;s type
+information, and provides data about the project to IDEs and other
+tools. The oracle is a long-running daemon and presents an API via
+IPC.</p>
+
+<p>We hope to provide support for IntelliJ IDEA, Eclipse, and Visual
+Studio. There are existing projects started in the community for all
+three of these IDEs. We want to support these efforts however we
+can. Between these IDEs we should have good platform coverage and
+cover most programmers&#39; preferences. Depending on how things develop
+we may focus or broaden our efforts in the future.</p>
+
+<p><a id="status"></a></p>
+
+<h2>Current status</h2>
+
+<p>There is <a href="https://github.com/rust-lang/rfcs/pull/1317">an RFC PR</a> for
+the compiler-side components. The RFC spells out in detail the changes
+to the compiler and the plan for the &#39;oracle&#39; tool. Comments are very
+welcome.</p>
+
+<p>Available IDE plugins:</p>
+
+<ul>
+<li><a href="https://github.com/RustDT/RustDT">Eclipse</a></li>
+<li><a href="https://github.com/PistonDevelopers/VisualRust">Visual Studio</a></li>
+</ul>
+
+<p>Editor plugins:</p>
+
+<ul>
+<li><a href="https://github.com/rust-lang/rust-mode">Emacs</a></li>
+<li><a href="https://github.com/rust-lang/rust.vim">Vim</a></li>
+<li><a href="https://packagecontrol.io/packages/Rust">Sublime Text</a></li>
+<li><a href="https://atom.io/packages/language-rust">Atom</a></li>
+</ul>
+
+<p>Code completion is available via
+<a href="https://github.com/phildawes/racer">Racer</a>.  See
+<a href="http://areweideyet.com/">areweideyet.com</a> for more details on editor
+plugins and integration with Racer.</p>
+
+<p>The next steps are to finalise the plan as described in the RFC. Then
+begin implementation work on the compiler and oracle, and continue
+work on the IDE plugins.</p>
+
+<p><a id="help"></a></p>
+
+<h2>How to help</h2>
+
+<ul>
+<li>Comment on the <a href="https://github.com/rust-lang/rfcs/pull/1317">RFC PR</a>,</li>
+<li>Use the IDEs (see links below), file issues,</li>
+<li>Contribute code:</li>
+</ul>
+
+<h3>The compiler</h3>
+
+<p>The tracking issue for the IDE RFC will list useful issues to
+tackle. Generally, these issues require some experience with the Rust
+compiler. But some could be mentored bugs if you have an interest in
+compilers. All written in Rust.</p>
+
+<p>Repository: <a href="">https://github.com/rust-lang/rust</a></p>
+
+<p>Tracking issue: TBA</p>
+
+<p>Contact: Nick Cameron (nrc on GitHub and irc, nrc@mozilla.com)</p>
+
+<h3>The Oracle</h3>
+
+<p>The oracle is also written in Rust, but should be a much easier project to get to grips with than the compiler, since it is in a much earlier stage of development and is smaller.</p>
+
+<p>Repository: TBA</p>
+
+<p>Issues: TBA</p>
+
+<p>List of good first bugs: TBA</p>
+
+<p>Contact: Nick Cameron (nrc on GitHub and irc, nrc@mozilla.com)</p>
+
+<h3>IDE plugins</h3>
+
+<p>The Visual Studio plugin is written in C#, the other IDE plugins are written in Java. In any case, experience dealing with the IDE in question is probably more important than knowing the Rust compiler in depth, however, some knowledge of the AST, etc. will be useful.</p>
+
+<p><strong>Eclipse (RustDT)</strong></p>
+
+<p>Installation instructions: <a href="">https://github.com/RustDT/RustDT/blob/latest/documentation/Installation.md</a></p>
+
+<p>Download: <a href="">http://rustdt.github.io/releases</a> (via Eclipse)</p>
+
+<p>Repository: <a href="">https://github.com/RustDT/RustDT</a></p>
+
+<p>Issues: <a href="">https://github.com/RustDT/RustDT/issues</a></p>
+
+<p>Contact: Bruno Medeiros</p>
+
+<p><strong>IntelliJ IDEA</strong></p>
+
+<p>Repository: <a href="">https://github.com/alexeykudinkin/intellij-rust</a></p>
+
+<p>Issues: <a href="">https://github.com/alexeykudinkin/intellij-rust/issues</a></p>
+
+<p>Contact: <a href="">https://groups.google.com/d/forum/intellij-rust</a></p>
+
+<p><strong>Visual Studio (Visual Rust)</strong></p>
+
+<p>Download: <a href="">https://visualstudiogallery.msdn.microsoft.com/c6075d2f-8864-47c0-8333-92f183d3e640</a></p>
+
+<p>Repository: <a href="">https://github.com/PistonDevelopers/VisualRust</a></p>
+
+<p>Issues: <a href="">https://github.com/PistonDevelopers/VisualRust/issues</a></p>
+
+<p>Contact: <a href="">https://github.com/vosen/</a> (vosen@vosen.pl)</p>
+</div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-58390457-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>

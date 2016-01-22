@@ -1,0 +1,4 @@
+name: The Rust Programming Language
+markdown: redcarpet
+redcarpet:
+  extensions: ["tables"]

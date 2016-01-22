@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<!-- Page last generated 2016-01-22 01:43:25 +0000 -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Rust Platform Support &middot; The Rust Programming Language</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Rust, Rust programming language, rustlang, rust-lang, Mozilla Rust">
+    <meta name="description" content="A systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+
+  <body class="container">
+
+    <header>
+
+    <ul class="row menu">
+      <li class="col-xs-12 col-md-2">
+        <a href="index.html">
+          <img class="img-responsive" src="logos/rust-logo-256x256-blk.png" height="128" width="128" alt="Rust logo" />
+        </a>
+      </li>
+      <li class="col-xs-12 col-md-10 menu">
+	<h2>Rust: Forged from Blood and Iron in the Fires of Hell</h2>
+      </li>
+    </ul>
+    </header>
+
+    <div class="content"><h1>Rust Platform Support</h1>
+
+<p>The Rust compiler runs on, and compiles to, a great number of platforms, though
+not all platforms are equally supported. Rust&#39;s support levels are organized
+into three tiers, each with a different set of guarantees.</p>
+
+<p>Platforms are identified by their &quot;target triple&quot; which is the string to inform
+the compiler what kind of output should be produced. The columns below indicate
+whether the corresponding component works on the specified platform.</p>
+
+<h2>Tier 1</h2>
+
+<p>Tier 1 platforms can be thought of as &quot;guaranteed to build and work&quot;.
+Specifically they will each satisfy the following requirements:</p>
+
+<ul>
+<li>Automated testing is set up to run tests for the platform.</li>
+<li>Landing changes to the <code>rust-lang/rust</code> repository&#39;s master branch is gated on
+tests passing.</li>
+<li>Official release artifacts are provided for the platform.</li>
+<li>Documentation for how to use and how to build the platform is available.</li>
+</ul>
+
+<table><thead>
+<tr>
+<th>Target</th>
+<th>std</th>
+<th>rustc</th>
+<th>cargo</th>
+<th>notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>x86_64-pc-windows-msvc</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>64-bit MSVC (Windows 7+)</td>
+</tr>
+<tr>
+<td><code>i686-pc-windows-gnu</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>32-bit MinGW (Windows 7+)</td>
+</tr>
+<tr>
+<td><code>x86_64-pc-windows-gnu</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>64-bit MinGW (Windows 7+)</td>
+</tr>
+<tr>
+<td><code>i686-apple-darwin</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>32-bit OSX (10.7+, Lion+)</td>
+</tr>
+<tr>
+<td><code>x86_64-apple-darwin</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>64-bit OSX (10.7+, Lion+)</td>
+</tr>
+<tr>
+<td><code>i686-unknown-linux-gnu</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>32-bit Linux (2.6.18+)</td>
+</tr>
+<tr>
+<td><code>x86_64-unknown-linux-gnu</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>64-bit Linux (2.6.18+)</td>
+</tr>
+</tbody></table>
+
+<h2>Tier 2</h2>
+
+<p>Tier 2 platforms can be thought of as &quot;guaranteed to build&quot;. Automated tests
+are not run so it&#39;s not guaranteed to produce a working build, but platforms
+often work to quite a good degree and patches are always welcome! Specifically,
+these platforms are required to have each of the following:</p>
+
+<ul>
+<li>Automated building is set up, but may not be running tests.</li>
+<li>Landing changes to the <code>rust-lang/rust</code> repository&#39;s master branch is gated on
+platforms <strong>building</strong>. Note that this means for some platforms only the
+standard library is compiled, but for others the full bootstrap is run.</li>
+<li>Official release artifacts are provided for the platform.</li>
+</ul>
+
+<table><thead>
+<tr>
+<th>Target</th>
+<th>std</th>
+<th>rustc</th>
+<th>cargo</th>
+<th>notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>i686-pc-windows-msvc</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>32-bit MSVC (Windows 7+)</td>
+</tr>
+<tr>
+<td><code>x86_64-unknown-linux-musl</code></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>64-bit Linux with MUSL</td>
+</tr>
+<tr>
+<td><code>arm-linux-androideabi</code></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>ARM Android</td>
+</tr>
+<tr>
+<td><code>arm-unknown-linux-gnueabi</code></td>
+<td>✓</td>
+<td>✓</td>
+<td></td>
+<td>ARM Linux (2.6.18+)</td>
+</tr>
+<tr>
+<td><code>arm-unknown-linux-gnueabihf</code></td>
+<td>✓</td>
+<td>✓</td>
+<td></td>
+<td>ARM Linux (2.6.18+)</td>
+</tr>
+<tr>
+<td><code>aarch64-unknown-linux-gnu</code></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>ARM64 Linux (2.6.18+)</td>
+</tr>
+<tr>
+<td><code>mips-unknown-linux-gnu</code></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>MIPS Linux (2.6.18+)</td>
+</tr>
+<tr>
+<td><code>mipsel-unknown-linux-gnu</code></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>MIPS (LE) Linux (2.6.18+)</td>
+</tr>
+</tbody></table>
+
+<h2>Tier 3</h2>
+
+<p>Tier 3 platforms are those which Rust has support for, but landing changes is
+not gated on the platform either building or passing tests. Working builds for
+these platforms may be spotty as their reliability is often defined in terms of
+community contributions. Additionally, release artifacts and installers are not
+provided, but there may be community infrastructure producing these in
+unofficial locations.</p>
+
+<table><thead>
+<tr>
+<th>Target</th>
+<th>std</th>
+<th>rustc</th>
+<th>cargo</th>
+<th>notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>i686-linux-android</code></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>32-bit x86 Android</td>
+</tr>
+<tr>
+<td><code>aarch64-linux-android</code></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>ARM64 Android</td>
+</tr>
+<tr>
+<td><code>powerpc-unknown-linux-gnu</code></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>PowerPC Linux (2.6.18+)</td>
+</tr>
+<tr>
+<td><code>i386-apple-ios</code></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>32-bit x86 iOS</td>
+</tr>
+<tr>
+<td><code>x86_64-apple-ios</code></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>64-bit x86 iOS</td>
+</tr>
+<tr>
+<td><code>armv7-apple-ios</code></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>ARM iOS</td>
+</tr>
+<tr>
+<td><code>armv7s-apple-ios</code></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>ARM iOS</td>
+</tr>
+<tr>
+<td><code>aarch64-apple-ios</code></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>ARM64 iOS</td>
+</tr>
+<tr>
+<td><code>i686-unknown-freebsd</code></td>
+<td>✓</td>
+<td>✓</td>
+<td></td>
+<td>32-bit FreeBSD</td>
+</tr>
+<tr>
+<td><code>x86_64-unknown-freebsd</code></td>
+<td>✓</td>
+<td>✓</td>
+<td></td>
+<td>64-bit FreeBSD</td>
+</tr>
+<tr>
+<td><code>x86_64-unknown-openbsd</code></td>
+<td>✓</td>
+<td>✓</td>
+<td></td>
+<td>64-bit OpenBSD</td>
+</tr>
+<tr>
+<td><code>x86_64-unknown-netbsd</code></td>
+<td>✓</td>
+<td>✓</td>
+<td></td>
+<td>64-bit NetBSD</td>
+</tr>
+<tr>
+<td><code>x86_64-unknown-bitrig</code></td>
+<td>✓</td>
+<td>✓</td>
+<td></td>
+<td>64-bit Bitrig</td>
+</tr>
+<tr>
+<td><code>x86_64-unknown-dragonfly</code></td>
+<td>✓</td>
+<td>✓</td>
+<td></td>
+<td>64-bit DragonFlyBSD</td>
+</tr>
+<tr>
+<td><code>x86_64-rumprun-netbsd</code></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>64-bit NetBSD Rump Kernel</td>
+</tr>
+<tr>
+<td><code>i686-pc-windows-msvc</code> (XP)</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>Windows XP support</td>
+</tr>
+<tr>
+<td><code>x86_64-pc-windows-msvc</code> (XP)</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>Windows XP support</td>
+</tr>
+</tbody></table>
+
+<p>Note that this table can be expanded over time, this isn&#39;t the exhaustive set of
+tier 3 platforms that will ever be!</p>
+</div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-58390457-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>

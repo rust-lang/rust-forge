@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<!-- Page last generated 2016-01-22 01:43:25 +0000 -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>The Rust Test Suite &middot; The Rust Programming Language</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Rust, Rust programming language, rustlang, rust-lang, Mozilla Rust">
+    <meta name="description" content="A systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+
+  <body class="container">
+
+    <header>
+
+    <ul class="row menu">
+      <li class="col-xs-12 col-md-2">
+        <a href="index.html">
+          <img class="img-responsive" src="logos/rust-logo-256x256-blk.png" height="128" width="128" alt="Rust logo" />
+        </a>
+      </li>
+      <li class="col-xs-12 col-md-10 menu">
+	<h2>Rust: Forged from Blood and Iron in the Fires of Hell</h2>
+      </li>
+    </ul>
+    </header>
+
+    <div class="content"><h1>The Rust test suite</h1>
+
+<p>The rust test suite has several sets of tests for different purposes. As the compiler is built over multiple stages, and with varying host and target combinations, debugging and profiling settings, the tests can be run in many different ways.</p>
+
+<h2>Recipes</h2>
+
+<ul>
+<li>Run the test suite: <code>make check</code>. This runs all stage2 tests. This is the criterion for a successful build.</li>
+<li>Run the test suite with benchmarks: <code>make check PLEASE_BENCH=1</code></li>
+<li>Run only ignored (broken) tests: <code>make check CHECK_IGNORED=1</code></li>
+<li>Run with verbose output: <code>make check VERBOSE=1</code>. This will print useful information like the exact commands being run.</li>
+<li>Run with valgrind: <code>make check CFG_ENABLE_VALGRIND=1</code></li>
+<li>Run a specific test: <code>make check TESTNAME=[...]</code>
+
+<ul>
+<li>The pattern <code>[...]</code> can be a complete path to a test, such as
+<code>run-pass/foobar.rs</code>; it can also be any substring of a path.
+For instance, <code>make check TESTNAME=foo</code> will run all tests that
+have <code>foo</code> in some part of their filename.</li>
+<li>Note that while this will run only tests matching the given
+pattern, it will still execute all test runners - most of them
+will just not execute any tests. For more precise control, call
+<code>make</code> on one of the targets below.</li>
+<li>You may need to <code>touch</code> the test source file to ensure that <code>make</code>
+runs the necessary test runners.</li>
+</ul></li>
+<li>Run without parallelism: <code>make check RUST_TEST_TASKS=1</code> - This can make it easier to understand failure output.</li>
+<li>Build and test std without re-bootstrapping: <code>make check-stage1-std NO_REBUILD=1</code> - This makes the build/test cycle <strong>much</strong> faster. (Note: <code>NO_REBUILD</code> can also prevent compile tests from being rebuilt. If you want to rebuild those but not the compiler, look for files with the <code>.ok</code> extension in the <code>tmp</code> subdirectory and remove the appropriate ones.)</li>
+</ul>
+
+<p>These options can be combined.  For instance, <code>make check CHECK_IGNORED=1 TESTNAME=test/run-pass/foobar.rs</code> runs the ignored test <code>foobar.rs</code> in the <code>run-pass</code> directory.</p>
+
+<h2>Language and compiler tests</h2>
+
+<p>These are tests of the compiler against Rust source code. They typically have a <code>main</code> function that takes no arguments and may have directives that instruct the test runner how to run the test. These tests may be compiled and executed, pretty-printed, jitted, etc. depending on the test configuration.</p>
+
+<p>The test runner for these tests is at src/test/compiletest and is compiled to test/compiletest.stage[N].</p>
+
+<p>A typical test might look like:</p>
+<div class="highlight"><pre><code class="language-rust" data-lang="rust"><span class="c">// ignore-pretty 'bool' doesn't pretty-print (#XXX)</span>
+<span class="c">// Regression test for issue #YYY</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+   <span class="k">let</span> <span class="n">a</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c">//~ ERROR mismatched types</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>There are seven different modes for compile tests. Each test is run under one or more modes:</p>
+
+<ul>
+<li>compile-fail - The test should fail to compile. Must include at least one expected error.</li>
+<li>run-fail - The test should compile but fail at runtime. Must include at least one error-pattern directive.</li>
+<li>run-pass - The test should compile and run successfully</li>
+<li>run-pass-valgrind - The test should compile and run (under Valgrind, where possible) successfully</li>
+<li>pretty - The test should round-trip through the pretty-printer and then compile successfully</li>
+<li>debug_info - The test will be compiled with debuginfo and an embedded <code>gdb</code> command script will be run to query the debuginfo</li>
+<li>codegen - The test will be compiled to LLVM bitcode, and a companion test written in C++ will be compiled to LLVM bitcode with <code>clang</code>, and the number of instructions will be compared</li>
+</ul>
+
+<p>Valid directives include:</p>
+
+<ul>
+<li><code>compile-flags:[...]</code> - Additional arguments to pass to the compiler</li>
+<li><code>pp-exact</code> - The test should pretty-print exactly as written</li>
+<li><code>pp-exact:[filename]</code> - The pretty-printed test should match the example in <code>filename</code></li>
+<li><code>ignore-test</code> - Test is broken, don&#39;t run it</li>
+<li><code>ignore-pretty</code> - Test doesn&#39;t pretty-print correctly</li>
+<li><code>error-pattern:[...]</code> - A message that should be expected on standard out. If multiple patterns are provided then they must all be matched, in order (<strong>Note:</strong> error-patterns are somewhat deprecated, see the section on Expected Errors below).</li>
+<li><code>no-reformat</code> - Don&#39;t reformat the code when running the test through the pretty-printer</li>
+<li><code>aux-build:foo.rs</code> - Compiles an auxiliary library for use in multi-crate tests.  See the section on multi-crate testing below.</li>
+<li><code>exec-env:NAME</code> or <code>exec-env:NAME=VALUE</code> - Sets an environment variable during test execution</li>
+<li><code>debugger:CMD</code> - Issues a command to the debugger in <code>debuginfo</code> mode</li>
+<li><code>check:RESULT</code> - Checks the result of a previous <code>debugger:</code> directive in <code>debuginfo</code> mode</li>
+</ul>
+
+<p>There are eight directories containing compile tests, living in the src/tests directory:</p>
+
+<ul>
+<li>run-pass - Tests that are expected to compile and run successfully. Also used for pretty-print testing.</li>
+<li>run-pass-valgrind - Tests that are expected to compile and run successfully under Valgrind. Also used for pretty-print testing.</li>
+<li>run-fail - Tests that are expected compile but fail when run. Also used for pretty-print testing.</li>
+<li>compile-fail - Tests that are expected not to compile</li>
+<li>bench - Benchmarks and miscellaneous snippets of code that are expected to compile and run successfully. Also used for pretty-print testing.</li>
+<li>pretty - Pretty-print tests</li>
+<li>debug-info - Debuginfo tests</li>
+<li>codegen - Codegen tests</li>
+<li>auxiliary - libraries used in multi-crate testing. See the section on this topic below.</li>
+</ul>
+
+<p>And finally, build targets:</p>
+
+<ul>
+<li><code>check-stage[N]-rpass</code> - The tests in the run-pass directory, in run-pass mode</li>
+<li><code>check-stage[N]-rpass-valgrind</code> - The tests in the run-pass-valgrind directory, in run-pass-valgrind mode</li>
+<li><code>check-stage[N]-rfail</code> - The tests in the run-fail-directory, in run-fail mode</li>
+<li><code>check-stage[N]-cfail</code> - The tests in the compile-fail directory, in compile-fail mode</li>
+<li><code>check-stage[N]-bench</code> - The tests in the bench directory, in run-pass mode</li>
+<li><code>check-stage[N]-pretty</code> - All the pretty-print tests</li>
+<li><code>check-stage[N]-pretty-rpass</code> - The tests in the run-pass directory, in pretty mode</li>
+<li><code>check-stage[N]-pretty-rpass-valgrind</code> - The tests in the run-pass-valgrind directory, in pretty mode</li>
+<li><code>check-stage[N]-pretty-rfail</code> - The tests in the run-fail directory, in pretty mode</li>
+<li><code>check-stage[N]-pretty-bench</code> - The tests in the bench directory, in pretty mode</li>
+<li><code>check-stage[N]-pretty-pretty</code> - The tests in the pretty directory, in pretty mode</li>
+<li><code>check-stage[N]-debuginfo</code> - The tests in the debuginfo directory</li>
+<li><code>check-stage[N]-codegen</code> - The tests in the codegen directory</li>
+</ul>
+
+<h3>Specifying the expected errors and warnings</h3>
+
+<p>When writing a compile-fail test, you must specify at least one
+expected error or warning message.  The preferred way to do this is to
+place a comment with the form <code>//~ ERROR msg</code> or <code>//~ WARNING msg</code> on
+the line where the error or warning is expected to occur.  You may
+have as many of these comments as you like.  The test harness will
+verify that the compiler reports precisely the errors/warnings that are
+specified, no more and no less.  An example of using the error/warning
+messages is:
+```rust
+// Regression test for issue #XXX</p>
+
+<p>fn main() {
+   let a: bool = 10; //~ ERROR mismatched types
+   log (debug, b);
+}
+``<code>
+In fact, this test would fail, because there are two errors: the type
+mismatch and the undefined variable</code>b`.  </p>
+
+<p>Sometimes it is not possible or not convenient to place the <code>//~</code>
+comment on precisely the line where the error occurs. For those cases,
+you may make a comment of the form <code>//~^</code> where the caret <code>^</code>
+indicates that the error is expected to appear on the line above.  You
+may have as many caret as you like, so <code>//~^^^ ERROR foo</code> indicates
+that the error message <code>foo</code> is expected to be reported 3 lines above
+the comment.  We could therefore correct the above test like so:
+```rust
+// Regression test for issue #XXX</p>
+
+<p>fn main() {
+   let a: bool = 10; //~ ERROR mismatched types
+   log (debug, b);
+   //~^ ERROR undefined variable <code>b</code>
+}
+```</p>
+
+<p>The older technique for specifying error messages was to use an
+<code>error-pattern</code> directive.  These directives are placed at the top of
+the file and each message found in an <code>error-pattern</code> directive must
+appear in the output. </p>
+
+<p>Using error comments is preferred, however, because it is a more
+thorough test:</p>
+
+<ul>
+<li>It verifies that the error is reported on the expected line number.</li>
+<li>It verifies that no additional errors or warnings are reported.</li>
+</ul>
+
+<h3>Multi-crate testing</h3>
+
+<p>Sometimes it is useful to write tests that make use of more than one crate.  We have limited support for this scenario.  Basically, you can write and add modules into the <code>src/test/auxiliary</code> directory. These files are not built nor tested directly.  Instead, you write a main test in one of the other directories (<code>run-pass</code>, <code>compile-fail</code>, etc) and add a <code>aux-build</code> directive at the head of the main test.  When running the main test, the test framework will build the files it is directed to build from the auxiliary directory.  These builds <em>must</em> succeed or the test will fail.  You can then include <code>use</code> and <code>import</code> commands to make use of the byproducts from these builds as you wish.  </p>
+
+<p>An example consisting of two files:
+```rust
+auxiliary/cci<em>iter</em>lib.rs:
+  #[inline]
+  fn iter<T>(v: [T], f: fn(T)) {...}</p>
+
+<p>run-pass/cci<em>iter</em>exe.rs:
+  // aux-build:cci<em>iter</em>lib.rs
+  extern crate cci<em>iter</em>lib;
+  fn main() {
+    cci<em>iter</em>lib::iter([1, 2, 3]) {|i| ... }
+  }
+```</p>
+
+<h3>Recipes</h3>
+
+<ul>
+<li>Running the run-pass tests for stage1: <code>make check-stage1-rpass</code></li>
+<li>Running a specific compile-fail test: <code>make check-stage2-cfail TESTNAME=type-mismatch</code></li>
+<li>Finding the command to compile a failing test: <code>make check-stage1-rpass TESTNAME=hello VERBOSE=1</code></li>
+<li>Running ignored tests: <code>make check-stage1-rpass CHECK_IGNORED=1</code></li>
+</ul>
+
+<h2>Unit Tests</h2>
+
+<p>Most crates include <a href="https://github.com/mozilla/rust/wiki/Doc-unit-testing">unit tests</a> which are part of the crate they test. These crates are built with the <code>--test</code> flag and run as part of <code>make check</code>.</p>
+
+<p><code>libcore</code> has its tests in a separate crate, named <code>libcoretest</code>.</p>
+
+<p>All tests in a module should go in an inner module named <code>test</code>, with the attribute <code>#[cfg(test)]</code>. Placing tests in their own module is a practical issue - because test cases are not included in normal builds, building with <code>--test</code> require a different set of imports than without, and that causes &#39;unused import&#39; errors.</p>
+<div class="highlight"><pre><code class="language-rust" data-lang="rust"><span class="k">use</span> <span class="nn">std</span><span class="p">::</span><span class="n">option</span><span class="p">;</span>
+
+<span class="k">fn</span> <span class="nf">do_something</span><span class="p">()</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span>
+
+<span class="cp">#[cfg(test)]</span>
+<span class="k">mod</span> <span class="n">test</span> <span class="p">{</span>
+   <span class="k">use</span> <span class="nn">std</span><span class="p">::</span><span class="n">vec</span><span class="p">;</span>
+
+   <span class="k">fn</span> <span class="nf">helper_fn</span><span class="p">()</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span>
+
+   <span class="cp">#[test]</span>
+   <span class="k">fn</span> <span class="nf">resolve_fn_types</span><span class="p">()</span> <span class="p">{</span>
+     <span class="err">...</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3>Build targets</h3>
+
+<ul>
+<li><code>make check-stage[N]-crates</code></li>
+<li><code>make check-stage[N]-[crate name]test</code></li>
+</ul>
+
+<h2>Documentation tests</h2>
+
+<p>The build system is able to extract Rust code snippets from documentation and run them using the compiletest driver. Currently the tutorial and reference manual are tested this way. The targets are <code>make check-stage[N]-doc-tutorial</code> and <code>make check-stage[N]-doc-rust</code>, respectively. There are also several auxiliary guides; to run the tests extracted from them, do:</p>
+
+<ul>
+<li><code>make check-stage[N]-doc-guide-borrowed-ptr</code></li>
+<li><code>make check-stage[N]-doc-guide-tasks</code></li>
+<li><code>make check-stage[N]-doc-guide-ffi</code></li>
+<li><code>make check-stage[N]-doc-guide-macros</code></li>
+<li><code>make check-stage[N]-doc-guide-testing</code></li>
+</ul>
+
+<p>Crate API docs are tested as well:</p>
+
+<ul>
+<li><code>make check-stage[N]-doc-crate-std</code></li>
+</ul>
+
+<p>To run all doc tests use <code>make check-stage[N]-doc</code>.</p>
+
+<h2>Minimal (but faster) checking on windows</h2>
+
+<p>Because Windows has slow process spawning running <code>make check</code> on that platform can take a long time. For this reason we have a <code>make check-lite</code> target that the Windows build servers run to keep the cycle time down. This is a stripped-down target which only checks run-pass, run-fail, compile-fail, run-make and target libraries.</p>
+
+<h2>Benchmarks, saved metrics and ratchets</h2>
+
+<p>All benchmark metrics are saved by default. Depending on configuration, some benchmark metrics are ratcheted. The <code>codegen</code> compile tests are always ratcheted if they run, since they are deterministic / low-noise. See [[Doc unit testing]] for details on metrics and ratchets.</p>
+</div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-58390457-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
