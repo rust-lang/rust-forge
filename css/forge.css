@@ -1,9 +1,5 @@
 ul.menu li.menu {
-	margin-top: 1em;
-}
-
-ul.menu li.menu {
-	margin-top: 1em;
+	margin-top: 2em;
 }
 
 ul.menu h2 {
@@ -15,7 +11,7 @@ ul.menu h2 {
 }
 
 ul.menu h1 {
-	font-size: 50px;
+	font-size: 40px;
 	font-weight: 500;
 	margin: 1em;
 	display: inline;

@@ -3,8 +3,6 @@ layout: default
 title: The Rust Forge
 ---
 
-# The Rust Forge
-
 This site contains supplementary documentation useful
 to the members of [The Rust Project](https://www.rust-lang.org).
 
