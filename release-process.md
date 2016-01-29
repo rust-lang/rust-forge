@@ -72,7 +72,7 @@ s3cmd sync -P s3://static-rust-lang-org/doc/1.3.0/ ./doc-1.3.0/
 s3cmd put -P ./final-1.3.0/* s3://static-rust-lang-org/dist/2015-09-17/
 # Sync docs to s3 stable/
 # Do this in a screen session in case you lose network access to AWS!
-s3cmd sync -P ./doc-1.3.0/ s3://static-rust-lang-org/doc/stable/
+s3cmd sync -P --delete-removed ./doc-1.3.0/ s3://static-rust-lang-org/doc/stable/
 # Sync bins to release channel
 # Do this in a screen session in case you lose network access to AWS!
 s3cmd put -P ./final-1.3.0/* s3://static-rust-lang-org/dist/
