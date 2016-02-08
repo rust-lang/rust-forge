@@ -109,6 +109,7 @@ have as many of these comments as you like.  The test harness will
 verify that the compiler reports precisely the errors/warnings that are
 specified, no more and no less.  An example of using the error/warning
 messages is:
+
 ```rust
 // Regression test for issue #XXX
 
@@ -117,6 +118,7 @@ fn main() {
    log (debug, b);
 }
 ```
+
 In fact, this test would fail, because there are two errors: the type
 mismatch and the undefined variable `b`.  
 
@@ -127,6 +129,7 @@ indicates that the error is expected to appear on the line above.  You
 may have as many caret as you like, so `//~^^^ ERROR foo` indicates
 that the error message `foo` is expected to be reported 3 lines above
 the comment.  We could therefore correct the above test like so:
+
 ```rust
 // Regression test for issue #XXX
 
@@ -153,6 +156,7 @@ thorough test:
 Sometimes it is useful to write tests that make use of more than one crate.  We have limited support for this scenario.  Basically, you can write and add modules into the `src/test/auxiliary` directory. These files are not built nor tested directly.  Instead, you write a main test in one of the other directories (`run-pass`, `compile-fail`, etc) and add a `aux-build` directive at the head of the main test.  When running the main test, the test framework will build the files it is directed to build from the auxiliary directory.  These builds *must* succeed or the test will fail.  You can then include `use` and `import` commands to make use of the byproducts from these builds as you wish.  
 
 An example consisting of two files:
+
 ```rust
 auxiliary/cci_iter_lib.rs:
   #[inline]
