@@ -10,6 +10,16 @@ occasionally recognize people who have made outstanding contributions
 to The Rust Project, its ecosystem, and its community. These people
 are 'friends of the tree', archived here for eternal glory.
 
+## 2016-02-12 Jeffrey Seyfried (@jseyfried)
+
+**This week's friend of the tree is Jeffrey Seyfried (@jseyfried)!**
+
+Jeffrey Seyfried (@jseyfried) has made some awesome contributions to
+name resolution. He has fixed a ton of bugs, reported previously
+unknown edge cases, and done some big refactorings, all of which have
+helped improve a complex and somewhat neglected part of the
+compiler.
+
 ## 2015-12-04 Vadim Petrochenkov @petrochenkov
 
 This week we'd like to nominate @petrochenkov for Friend of the
