@@ -10,6 +10,23 @@ occasionally recognize people who have made outstanding contributions
 to The Rust Project, its ecosystem, and its community. These people
 are 'friends of the tree', archived here for eternal glory.
 
+## 2016-02-26 @mitaa
+
+This week wed'd like to nominate @mitaa as Friend of the Tree. Recently @mitaa
+[has][rd1] [went][rd2] [a][rd3] [wave][rd4] [of][rd5] [fixes][rd6]
+[to][rd7] [rustdoc][rd8] (yes those are all separate links) with even more on
+the way! Rustdoc has historically been a tool in need of some love, and the
+extra help in fixing bugs is especially appreciated. Thanks @mitaa!
+
+[rd1]: https://github.com/rust-lang/rust/pull/31837
+[rd2]: https://github.com/rust-lang/rust/pull/31835
+[rd3]: https://github.com/rust-lang/rust/pull/31839
+[rd4]: https://github.com/rust-lang/rust/pull/31715
+[rd5]: https://github.com/rust-lang/rust/pull/31626
+[rd6]: https://github.com/rust-lang/rust/pull/31614
+[rd7]: https://github.com/rust-lang/rust/pull/31602
+[rd8]: https://github.com/rust-lang/rust/pull/31596
+
 ## 2016-02-12 Jeffrey Seyfried (@jseyfried)
 
 **This week's friend of the tree is Jeffrey Seyfried (@jseyfried)!**
