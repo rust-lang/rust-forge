@@ -59,6 +59,12 @@ Test multirust with
 RUSTUP_DIST_SERVER=https://static.rust-lang.org/dist/staging multirust update stable
 ```
 
+or multirust-rs with
+
+```sh
+MULTIRUST_DIST_ROOT=https://static.rust-lang.org/dist/staging/dist multirust update stable
+```
+
 ## Release day
 
 This is on the buildmaster again.
