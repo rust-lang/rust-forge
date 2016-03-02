@@ -53,7 +53,13 @@ Regenerate the index.
 
 Post a message to irlo asking for testing. The index is http://static-rust-lang-org.s3.amazonaws.com/dist/staging/dist/index.html
 
-Test multirust with
+Test rustup.sh with
+
+```sh
+curl -sSf https://static.rust-lang.org/rustup.sh | RUSTUP_DIST_SERVER=https://static.rust-lang.org/dist/staging sh
+```
+
+or multirust.sh with
 
 ```sh
 RUSTUP_DIST_SERVER=https://static.rust-lang.org/dist/staging multirust update stable
