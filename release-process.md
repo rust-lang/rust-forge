@@ -24,6 +24,10 @@ $ git push rust-lang rust-lang/beta:stable -f
 $ git push rust-lang rust-lang/master:beta -f
 ```
 
+Move any new targets we added support for in `rust-lang/rust-buildbot`'s
+`master.cfg` from beta to stable and nightly to beta. This is currently
+primarily found in the `*_lincross_targets` arrays near the top of the file.
+
 Manually start the `beta-dist-rustc-trigger` and `stable-dist-rustc-trigger`
 builds on buildbot.rust-lang.org.  You've got around 48 hours to ensure that
 both these succeed.
