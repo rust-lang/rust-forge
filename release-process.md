@@ -5,14 +5,18 @@ title: The Rust Release Process &middot; The Rust Programming Language
 
 # The Rust Release Process
 
-The Rust release process is mostly in my head right now, so I took notes on how it went this time (1.3.0).
+The Rust release process is mostly in my head right now, so I took notes on how
+it went this time (1.3.0).
 
 ## Channel promotion and new beta/stable builds (T-2 days)
 
-Tag a new Cargo release that will be included with the new beta build (same tagging instructions as for Rust below). Then edit the `cargo-revs.txt` file [in rust-packaging](https://github.com/rust-lang/rust-packaging) to update the Cargo version for the beta you're about to build.
+Tag a new Cargo release that will be included with the new beta build (same
+tagging instructions as for Rust below). Then edit the `cargo-revs.txt` file [in
+rust-packaging](https://github.com/rust-lang/rust-packaging) to update the Cargo
+version for the beta you're about to build.
 
 Promote beta to stable, then nightly to beta as follows.
-This is local, in your Rust repo, assuming you have push access to rust-lang. 
+This is local, in your Rust repo, assuming you have push access to rust-lang.
 
 ```sh
 $ git fetch rust-lang
@@ -20,14 +24,17 @@ $ git push rust-lang rust-lang/beta:stable -f
 $ git push rust-lang rust-lang/master:beta -f
 ```
 
-Manually start the `beta-dist-rustc-trigger` and `stable-dist-rustc-trigger` builds on buildbot.rust-lang.org.
-You've got around 48 hours to ensure that both these succeed.
+Manually start the `beta-dist-rustc-trigger` and `stable-dist-rustc-trigger`
+builds on buildbot.rust-lang.org.  You've got around 48 hours to ensure that
+both these succeed.
 
-The beta will deploy automatically, the stable not. Precisely, the stable build will upload docs to
-the s3 bin under `doc/$version`, but *not* `doc/stable`, and will not upload the bins anywhere,
-instead leaving them staged in the `tmp/dist/packaging-stable/final` subdirectory of the buildbot master.
+The beta will deploy automatically, the stable not. Precisely, the stable build
+will upload docs to the s3 bin under `doc/$version`, but *not* `doc/stable`, and
+will not upload the bins anywhere, instead leaving them staged in the
+`tmp/dist/packaging-stable/final` subdirectory of the buildbot master.
 
-Make and submit a patch against master that bumps the version number in `mk/main.mk`.
+Make and submit a patch against master that bumps the version number in
+`mk/main.mk`.
 
 ## Prerelease testing (T-1 day)
 
@@ -51,7 +58,8 @@ Regenerate the index.
 (cd && sh update-rust-dist-index.sh)
 ```
 
-Post a message to irlo asking for testing. The index is http://static-rust-lang-org.s3.amazonaws.com/dist/staging/dist/index.html
+Post a message to irlo asking for testing. The index is
+http://static-rust-lang-org.s3.amazonaws.com/dist/staging/dist/index.html
 
 Test rustup.sh with
 
@@ -96,7 +104,8 @@ Next merge the website. It takes a while to deploy.
 
 Merge blog post.
 
-Locally, tag the new release and upload it. Use "x.y.z release" as the commit message.
+Locally, tag the new release and upload it. Use "x.y.z release" as the commit
+message.
 
 ```sh
 $ git tag -u FA1BE5FE 1.3.0 $COMMIT_SHA
