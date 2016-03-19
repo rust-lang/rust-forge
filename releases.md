@@ -13,6 +13,60 @@ This is an archive of all the existing Rust release artifacts. Each release is s
 
 TODO: Update me
 
+## 1.7.0
+
+* [Announcement][1.7.0-announce]
+
+[1.7.0-announce]: http://blog.rust-lang.org/2016/03/02/Rust-1.7.html
+
+## 1.6.0
+
+* [Announcement][1.6.0-announce]
+
+[1.6.0-announce]: http://blog.rust-lang.org/2016/01/21/Rust-1.6.html
+
+## 1.5.0
+
+* [Announcement][1.5.0-announce]
+
+[1.5.0-announce]: http://blog.rust-lang.org/2015/12/10/Rust-1.5.html
+
+## 1.4.0
+
+* [Announcement][1.4.0-announce]
+
+[1.4.0-announce]: http://blog.rust-lang.org/2015/10/29/Rust-1.4.html
+
+## 1.3.0
+
+* [Announcement][1.3.0-announce]
+
+[1.3.0-announce]: http://blog.rust-lang.org/2015/09/17/Rust-1.3.html
+
+## 1.2.0
+
+* [Announcement][1.2.0-announce]
+
+[1.2.0-announce]: http://blog.rust-lang.org/2015/08/06/Rust-1.2.html
+
+## 1.1.0
+
+* [Announcement][1.1.0-announce]
+
+[1.1.0-announce]: http://blog.rust-lang.org/2015/06/25/Rust-1.1.html
+
+## 1.0.0
+
+* [Announcement][1.0.0-announce]
+
+[1.0.0-announce]: http://blog.rust-lang.org/2015/05/15/Rust-1.0.html
+
+## 1.0.0-beta
+
+* [Announcement][1.0.0-beta-announce]
+
+[1.0-beta-announce]: http://blog.rust-lang.org/2015/04/03/Rust-1.0-beta.html
+
 ## 1.0.0-alpha.2
 
 * [Announcement][1.0.0-alpha.2-announce]
