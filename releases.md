@@ -16,56 +16,72 @@ TODO: Update me
 ## 1.7.0
 
 * [Announcement][1.7.0-announce]
+* [Release notes][1.7.0-notes]
 
 [1.7.0-announce]: http://blog.rust-lang.org/2016/03/02/Rust-1.7.html
+[1.7.0-notes]: https://github.com/rust-lang/rust/blob/stable/RELEASES.md#version-170-2016-03-03
 
 ## 1.6.0
 
 * [Announcement][1.6.0-announce]
+* [Release notes][1.6.0-notes]
 
 [1.6.0-announce]: http://blog.rust-lang.org/2016/01/21/Rust-1.6.html
+[1.6.0-notes]: https://github.com/rust-lang/rust/blob/stable/RELEASES.md#version-160-2016-01-21
 
 ## 1.5.0
 
 * [Announcement][1.5.0-announce]
+* [Release notes][1.5.0-notes]
 
 [1.5.0-announce]: http://blog.rust-lang.org/2015/12/10/Rust-1.5.html
+[1.5.0-notes]: https://github.com/rust-lang/rust/blob/stable/RELEASES.md#version-150-2015-12-10
 
 ## 1.4.0
 
 * [Announcement][1.4.0-announce]
+* [Release notes][1.4.0-notes]
 
 [1.4.0-announce]: http://blog.rust-lang.org/2015/10/29/Rust-1.4.html
+[1.4.0-notes]: https://github.com/rust-lang/rust/blob/8ab8581f6921bc7a8e3fa4defffd2814372dcb15/RELEASES.md#version-140-october-2015
 
 ## 1.3.0
 
 * [Announcement][1.3.0-announce]
+* [Release notes][1.3.0-notes]
 
 [1.3.0-announce]: http://blog.rust-lang.org/2015/09/17/Rust-1.3.html
+[1.3.0-notes]: https://github.com/rust-lang/rust/blob/master/RELEASES.md#version-130-september-2015
 
 ## 1.2.0
 
 * [Announcement][1.2.0-announce]
+* [Release notes][1.2.0-notes]
 
 [1.2.0-announce]: http://blog.rust-lang.org/2015/08/06/Rust-1.2.html
+[1.2.0-notes]: https://github.com/rust-lang/rust/blob/master/RELEASES.md#version-120-2015-08-07
 
 ## 1.1.0
 
 * [Announcement][1.1.0-announce]
+* [Release notes][1.1.0-notes]
 
 [1.1.0-announce]: http://blog.rust-lang.org/2015/06/25/Rust-1.1.html
+[1.1.0-notes]: https://github.com/rust-lang/rust/blob/master/RELEASES.md#version-110-2015-06-25
 
 ## 1.0.0
 
 * [Announcement][1.0.0-announce]
+* [Release notes][1.0.0-notes]
 
 [1.0.0-announce]: http://blog.rust-lang.org/2015/05/15/Rust-1.0.html
+[1.0.0-notes]: https://github.com/rust-lang/rust/blob/master/RELEASES.md#version-100-2015-05-15
 
 ## 1.0.0-beta
 
 * [Announcement][1.0.0-beta-announce]
 
-[1.0-beta-announce]: http://blog.rust-lang.org/2015/04/03/Rust-1.0-beta.html
+[1.0.0-beta-announce]: http://blog.rust-lang.org/2015/04/03/Rust-1.0-beta.html
 
 ## 1.0.0-alpha.2
 
