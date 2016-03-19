@@ -1,0 +1,72 @@
+language: ruby
+rvm:
+- 2.1
+  
+# Containers are cool!  
+sudo: false
+
+install: 
+- gem install jekyll -v 2.5.3
+- pip install --user awscli
+- ~/.local/bin/aws configure set preview.cloudfront true
+
+# Build and deploy the site to the S3 bucket on push to master, unless PR
+script: jekyll build
+branches:
+  only:
+  - master
+deploy:
+  provider: s3
+  access_key_id: AKIAIR4V3CAS724EMHFQ
+  secret_access_key:
+    secure: "nj/rlJpDcnu7YC1e80MCnkOAcjB9xCF7wTBI5xYeK02JroCBFmvX1CjTL2w3j/bvWEldWfkaQ8prcZKgHElCy8x51x7xrv2V6PmObSV0vh4fnyCgAQnipIh2PxcdD1R3otMG4VMusXwgMg82bzKNx0IkSzl+TTQNY/cKgvJLcgjSEsonFiXLgZrCKve4Zc7y17UYChPGiCEhsjFOiB0MUj1ABmn7TfTybKv3+BavyZve0cKbQClqbcCaiGX9qmjE9RN/sNTGQXNql1Or+ssW8b6fcmx0he19+9zB82F2wLqRMi2HPt2ZFd8EQ/MVXxNjLe9HN4yI2yslPqrG0fmZupvDsi8wWwcyQJgcgay4voWznXlyhOk67JWcchxR4a+CXErCUAgmNnewWtbw+mxpVVGftduefeEBTZ1OhslczY+zXHj8TmVgIlFKO3IamNIl9NTn9Jyc4sVDFCJo1F1D77EAJji8DlM3AXJ0A0fGs8319rJshX73GLagoZaa2q3j3IBRWsF3rtY7yxxEx3kVNM7ITH+4tv17V7jSrRDfihX3gc/1z6RPC2pLWTkcQe+X0U2gxEhqnPXuIKWqfQp9T+oXiJ63aYe+XQBYRU8GjGoMv/QhTooro6OlGKG0o+61h8AvomNsBx0zxkW1lsSj1pK6hYL8nvUiqtdgzOLBX04="
+  bucket: forge-rust-lang-org
+  acl: public_read
+  skip_cleanup: true
+  local_dir: _site
+  region: us-west-1
+  on:
+    branch: master
+    condition: $TRAVIS_PULL_REQUEST = "false"
+
+# Cloudfront invalidation: If not PR, decrypt credentials, then build
+# invalidation payload with `travis/inval-list.py` and use locally-installed
+# awscli to submit it
+after_success: 
+- '[[ $TRAVIS_PULL_REQUEST == "false" ]] && python travis/inval-list.py'
+
+after_deploy:
+- '[[ $TRAVIS_PULL_REQUEST == "false" ]] && ~/.local/bin/aws cloudfront create-invalidation
+  --invalidation-batch file://payload.json --distribution-id EKPJCD7EL5ICI'
+
+# How the magic numbers work and where to put them:
+#
+# The AWS CLI that you get from pip is the tool likeliest to be up to date
+# with the API. It uses some environment variables described in its docs:
+# http://docs.aws.amazon.com/cli/latest/topic/config-vars.html
+#
+# We set them by going to the Travis UI at
+# https://travis-ci.org/rust-lang/rust-www/settings and creating the variables
+# AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY with the appropriate values. 
+#
+# The values in those env vars come from the Travis account's IAM credentials,
+# which you can get from
+# https://console.aws.amazon.com/iam/home?region=us-west-1#users if you're
+# logged in as someone with the appropriate permissions. The
+# cloudfront distribution-id is listed in the ID field of the distribution for
+# www-rust-lang-org on the console at
+# https://console.aws.amazon.com/cloudfront/home?region=us-west-1. 
+#
+# For the deploy step, the secret access key is encrypted on the command line. 
+# Encryption uses the Travis CLI, so on your laptop, 
+# 
+#   $ gem install travis
+#
+# The string you encrypt for the SECRET_ACCESS_KEY will be the same as the
+# string in the AWS_SECRET_ACCESS_KEY variable that you set earlier.
+# To encrypt the single variable: 
+#
+#   $ travis encrypt -r rust-lang/rust-www "abc123"
+#
+# The output of that command will contain a `secure: "7890wxyzPQR"` line which
+# you then add to `.travis.yml` under `secret_access_key`. 
