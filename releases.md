@@ -17,9 +17,51 @@ TODO: Update me
 
 * [Announcement][1.7.0-announce]
 * [Release notes][1.7.0-notes]
+* [Source code][1.7.0-tar] ([signature][1.7.0-tar-sig])
+* [Windows x86_64 .exe gnu installer][1.7.0-windows-x64] ([signature][1.7.0-windows-x64-sig])
+* [Windows x86_64 .msi gnu installer][1.7.0-windows-msi-x64] ([signature][1.7.0-windows-msi-x64-sig])
+* [Windows x86_64 .exe MSVC installer][1.7.0-windows-msvc-exe-x64] ([signature][1.7.0-windows-msvc-exe-x64-sig])
+* [Windows x86_64 .msi MSVC installer][1.7.0-windows-msvc-msi-x64] ([signature][1.7.0-windows-msvc-msi-x64-sig])
+* [Windows i686 .exe gnu installer][1.7.0-windows-x32] ([signature][1.7.0-windows-x32-sig])
+* [Windows i686 .msi gnu installer][1.7.0-windows-msi-x32] ([signature][1.7.0-windows-msi-x32-sig])
+* [Windows i686 .exe MSVC installer][1.7.0-windows-msvc-exe-x32] ([signature][1.7.0-windows-msvc-exe-x32-sig])
+* [Windows i686 .msi MSVC installer][1.7.0-windows-msvc-msi-x32] ([signature][1.7.0-windows-msvc-msi-x32-sig])
+* [Linux x86_64 tarball][1.7.0-linux-x64] ([signature][1.7.0-linux-x64-sig])
+* [Linux i686 tarball][1.7.0-linux-x32] ([signature][1.7.0-linux-x32-sig])
+* [Mac OS X i686 pkg][1.7.0-osx-x32-pkg] ([signature][1.7.0-osx-x32-pkg-sig])
+* [Mac OS X i686 tarball][1.7.0-osx-x32-tar] ([signature][1.7.0-osx-x32-tar-sig])
+* [Mac OS X x86_64 pkg][1.7.0-osx-x64-pkg] ([signature][1.7.0-osx-x64-pkg-sig])
 
 [1.7.0-announce]: http://blog.rust-lang.org/2016/03/02/Rust-1.7.html
 [1.7.0-notes]: https://github.com/rust-lang/rust/blob/stable/RELEASES.md#version-170-2016-03-03
+[1.7.0-tar]: https://static.rust-lang.org/dist/rustc-1.7.0-src.tar.gz
+[1.7.0-tar-sig]: https://static.rust-lang.org/dist/rustc-1.7.0-src.tar.gz.asc
+[1.7.0-windows-x64]: https://static.rust-lang.org/dist/rust-1.7.0-x86_64-pc-windows-gnu.exe
+[1.7.0-windows-x64-sig]: https://static.rust-lang.org/dist/rust-1.7.0-x86_64-pc-windows-gnu.exe.asc
+[1.7.0-windows-msi-x64]: https://static.rust-lang.org/dist/rust-1.7.0-x86_64-pc-windows-gnu.msi
+[1.7.0-windows-msi-x64-sig]: https://static.rust-lang.org/dist/rust-1.7.0-x86_64-pc-windows-gnu.msi.asc
+[1.7.0-windows-msvc-exe-x64]: https://static.rust-lang.org/dist/rust-1.7.0-x86_64-pc-windows-msvc.exe
+[1.7.0-windows-msvc-exe-x64-sig]: https://static.rust-lang.org/dist/rust-1.7.0-x86_64-pc-windows-msvc.exe.asc
+[1.7.0-windows-msvc-msi-x64]: https://static.rust-lang.org/dist/rust-1.7.0-x86_64-pc-windows-msvc.msi
+[1.7.0-windows-msvc-msi-x64-sig]: https://static.rust-lang.org/dist/rust-1.7.0-x86_64-pc-windows-msvc.msi.asc
+[1.7.0-windows-x32]: https://static.rust-lang.org/dist/rust-1.7.0-i686-pc-windows-gnu.exe
+[1.7.0-windows-x32-sig]: https://static.rust-lang.org/dist/rust-1.7.0-i686-pc-windows-gnu.exe.asc
+[1.7.0-windows-msi-x32]: https://static.rust-lang.org/dist/rust-1.7.0-i686-pc-windows-gnu.msi
+[1.7.0-windows-msi-x32-sig]: https://static.rust-lang.org/dist/rust-1.7.0-i686-pc-windows-gnu.msi.asc
+[1.7.0-windows-msvc-exe-x32]: https://static.rust-lang.org/dist/rust-1.7.0-i686-pc-windows-msvc.exe
+[1.7.0-windows-msvc-exe-x32-sig]: https://static.rust-lang.org/dist/rust-1.7.0-i686-pc-windows-msvc.exe.asc
+[1.7.0-windows-msvc-msi-x32]: https://static.rust-lang.org/dist/rust-1.7.0-i686-pc-windows-msvc.msi
+[1.7.0-windows-msvc-msi-x32-sig]: https://static.rust-lang.org/dist/rust-1.7.0-i686-pc-windows-msvc.msi.asc
+[1.7.0-linux-x32]: https://static.rust-lang.org/dist/rust-1.7.0-i686-unknown-linux-gnu.tar.gz
+[1.7.0-linux-x32-sig]: https://static.rust-lang.org/dist/rust-1.7.0-i686-unknown-linux-gnu.tar.gz.asc
+[1.7.0-linux-x64]: https://static.rust-lang.org/dist/rust-1.7.0-x86_64-unknown-linux-gnu.tar.gz
+[1.7.0-linux-x64-sig]: https://static.rust-lang.org/dist/rust-1.7.0-x86_64-unknown-linux-gnu.tar.gz.asc
+[1.7.0-osx-x32-pkg]: https://static.rust-lang.org/dist/rust-1.7.0-i686-apple-darwin.pkg
+[1.7.0-osx-x32-pkg-sig]: https://static.rust-lang.org/dist/rust-1.7.0-i686-apple-darwin.pkg.asc
+[1.7.0-osx-x32-tar]: https://static.rust-lang.org/dist/rust-1.7.0-i686-apple-darwin.tar.gz
+[1.7.0-osx-x32-tar-sig]: https://static.rust-lang.org/dist/rust-1.7.0-i686-apple-darwin.tar.gz.asc
+[1.7.0-osx-x64-pkg]: https://static.rust-lang.org/dist/rust-1.7.0-x86_64-apple-darwin.pkg
+[1.7.0-osx-x64-pkg-sig]: https://static.rust-lang.org/dist/rust-1.7.0-x86_64-apple-darwin.pkg.asc
 
 ## 1.6.0
 
