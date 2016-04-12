@@ -77,10 +77,11 @@ or multirust.sh with
 RUSTUP_DIST_SERVER=https://static.rust-lang.org/dist/staging multirust update stable
 ```
 
-or multirust-rs with
+or rustup with
 
 ```sh
-MULTIRUST_DIST_ROOT=https://static.rust-lang.org/dist/staging/dist multirust update stable
+RUSTUP_DIST_ROOT=https://static.rust-lang.org/dist/staging/dist rustup update stable
+RUSTUP_DIST_ROOT=https://static.rust-lang.org/dist/staging/dist rustup update 1.8.0
 ```
 
 ## Release day
