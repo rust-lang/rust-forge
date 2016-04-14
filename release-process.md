@@ -94,6 +94,7 @@ cd ~/rust-buildbot/master/tmp/dist/packaging-stable
 mkdir ./doc-1.3.0
 s3cmd sync -P s3://static-rust-lang-org/doc/1.3.0/ ./doc-1.3.0/
 # Sync bins to s3 archives
+# NOTE! This date is *not* the release date but the date mentioned in the manifest! Don't screw it up.
 s3cmd put -P ./final-1.3.0/* s3://static-rust-lang-org/dist/2015-09-17/
 # Sync docs to s3 stable/
 # Do this in a screen session in case you lose network access to AWS!
