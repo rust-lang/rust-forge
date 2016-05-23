@@ -8,7 +8,7 @@ title: The Rust Release Process &middot; The Rust Programming Language
 The Rust release process is mostly in my head right now, so I took notes on how
 it went this time (1.3.0).
 
-## Promote beta to stable (T-3 days)
+## Promote beta to stable (T-3 days, Monday)
 
 Promote beta to stable.  This is local, in your Rust repo, assuming you have
 push access to rust-lang.
@@ -31,7 +31,7 @@ will upload docs to the s3 bin under `doc/$version`, but *not* `doc/stable`, and
 will not upload the bins anywhere, instead leaving them staged in the
 `tmp/dist/packaging-stable/final` subdirectory of the buildbot master.
 
-## Promote master to beta (T-2 days)
+## Promote master to beta (T-2 days, Tuesday)
 
 Deploy the new stable artifacts to the archives (**not outside the archives!**)
 
@@ -72,7 +72,7 @@ automatically.
 Make and submit a patch against master that bumps the version number in
 `mk/main.mk`.
 
-## Prerelease testing (T-1 day)
+## Prerelease testing (T-1 day, Wednesday)
 
 Write a new blog post and update rust-www. Submit PRs for tomorrow.
 
@@ -119,7 +119,7 @@ RUSTUP_DIST_ROOT=https://static.rust-lang.org/dist/staging/dist rustup update 1.
 Send a PR to the master branch to start bootstrapping from the new beta produced
 yesterday.
 
-## Release day
+## Release day (Thursday)
 
 This is on the buildmaster again.
 
