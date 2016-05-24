@@ -33,15 +33,6 @@ will not upload the bins anywhere, instead leaving them staged in the
 
 ## Promote master to beta (T-2 days, Tuesday)
 
-Deploy the new stable artifacts to the archives (**not outside the archives!**)
-
-```sh
-cd ~/rust-buildbot/master/tmp/dist/packaging-stable
-# Sync bins to s3 archives
-# NOTE! This date is *not* the release date but the date mentioned in the manifest! Don't screw it up.
-s3cmd put -P ./final-1.3.0/* s3://static-rust-lang-org/dist/2015-09-17/
-```
-
 Tag a new Cargo release that will be included with the new beta build (same
 tagging instructions as for Rust below). Then edit the `cargo-revs.txt` file [in
 rust-packaging](https://github.com/rust-lang/rust-packaging) to update the Cargo
@@ -128,6 +119,9 @@ cd ~/rust-buildbot/master/tmp/dist/packaging-stable
 # Sync docs from s3 versioned dir to local
 mkdir ./doc-1.3.0
 s3cmd sync -P s3://static-rust-lang-org/doc/1.3.0/ ./doc-1.3.0/
+# Sync bins to s3 archives
+# NOTE! This date is *not* the release date but the date mentioned in the manifest!
+s3cmd put -P ./final-1.3.0/* s3://static-rust-lang-org/dist/2015-09-17/
 # Sync docs to s3 stable/
 # Do this in a screen session in case you lose network access to AWS!
 s3cmd sync -P --delete-removed ./doc-1.3.0/ s3://static-rust-lang-org/doc/stable/
