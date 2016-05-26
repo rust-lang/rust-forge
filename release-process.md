@@ -33,8 +33,7 @@ will not upload the bins anywhere, instead leaving them staged in the
 
 ## Promote master to beta (T-2 days, Tuesday)
 
-Tag a new Cargo release that will be included with the new beta build (same
-tagging instructions as for Rust below). Then edit the `cargo-revs.txt` file [in
+Edit the `cargo-revs.txt` file [in
 rust-packaging](https://github.com/rust-lang/rust-packaging) to update the Cargo
 version for the beta you're about to build.
 
@@ -144,6 +143,7 @@ $ git tag -u FA1BE5FE 1.3.0 $COMMIT_SHA
 $ git push rust-lang 1.3.0
 ```
 
-Run `cargo publish` for the Cargo tag created in the first step.
+Also tag Cargo the same way and then run `cargo publish` for the tag you just
+created.
 
 Bask in your success.
