@@ -25,7 +25,8 @@ Please contact [Alex Crichton](https://github.com/alexcrichton) if something goe
 
 TODO: Describe these better.
 
-* [perf.rust-lang.org](http://perf.rust-lang.org/). Maintained by nrc.[Source](https://github.com/nrc/rustc-perf).
+* [perf.rust-lang.org](http://perf.rust-lang.org/). Maintained by nrc. [Source](https://github.com/nrc/rustc-perf).
 * [Rust Release Explorer](http://ashleygwilliams.github.io/rust-release-explorer/)
 * [rusty-dash.com](http://rusty-dash.com/). [Source](https://github.com/dikaiosune/rust-dashboard).
 * [buildbot.rust-lang.org](http://buildbot.rust-lang.org/). [Source](https://github.com/rust-lang/rust-buildbot). Maintained by brson and acrichto.
+* [crater.rust-lang.or](https://crater.rust-lang.org/). [Source](https://github.com/brson/taskcluster-crater). Maintained by brson.
