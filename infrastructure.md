@@ -29,4 +29,4 @@ TODO: Describe these better.
 * [Rust Release Explorer](http://ashleygwilliams.github.io/rust-release-explorer/)
 * [rusty-dash.com](http://rusty-dash.com/). [Source](https://github.com/dikaiosune/rust-dashboard).
 * [buildbot.rust-lang.org](http://buildbot.rust-lang.org/). [Source](https://github.com/rust-lang/rust-buildbot). Maintained by brson and acrichto.
-* [crater.rust-lang.or](https://crater.rust-lang.org/). [Source](https://github.com/brson/taskcluster-crater). Maintained by brson.
+* [crater.rust-lang.org](https://crater.rust-lang.org/). [Source](https://github.com/brson/taskcluster-crater). Maintained by brson.
