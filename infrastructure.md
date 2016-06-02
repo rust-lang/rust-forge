@@ -30,3 +30,4 @@ TODO: Describe these better.
 * [rusty-dash.com](http://rusty-dash.com/). [Source](https://github.com/dikaiosune/rust-dashboard).
 * [buildbot.rust-lang.org](http://buildbot.rust-lang.org/). [Source](https://github.com/rust-lang/rust-buildbot). Maintained by brson and acrichto.
 * [crater.rust-lang.org](https://crater.rust-lang.org/). [Source](https://github.com/brson/taskcluster-crater). Maintained by brson.
+* [play.rust-lang.org](http://play.rust-lang.org/) and and playbot on IRC. [Source](https://github.com/rust-lang/rust-playpen).
