@@ -20,3 +20,12 @@ title: Rust Infrastructure &middot; The Rust Programming Language
 Documentation on homu commands can be found [here](http://buildbot.rust-lang.org/homu/). If you wish to use homu for your own repository, try out [homu.io](http://homu.io/).
 
 Please contact [Alex Crichton](https://github.com/alexcrichton) if something goes wrong with the bot.
+
+## Others
+
+TODO: Describe these better.
+
+* [perf.rust-lang.org](http://perf.rust-lang.org/). Maintained by nrc.[Source](https://github.com/nrc/rustc-perf).
+* [Rust Release Explorer](http://ashleygwilliams.github.io/rust-release-explorer/)
+* [rusty-dash.com](http://rusty-dash.com/). [Source](https://github.com/dikaiosune/rust-dashboard).
+* [buildbot.rust-lang.org](http://buildbot.rust-lang.org/). [Source](https://github.com/rust-lang/rust-buildbot). Maintained by brson and acrichto.
