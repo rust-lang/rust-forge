@@ -73,9 +73,9 @@ This happens on the buildmaster under the rustbuild user.
 cd ~/rust-buildbot/master/tmp/dist/packaging-stable
 # Move final staged bins to another directory. This clears out 'final' for the next release.
 mv final final-1.3.0
-# Upload final to s3 staging for testing
-s3cmd del s3://static-rust-lang-org/dist/staging/ --recursive
-s3cmd put -P ./final-1.3.0/* s3://static-rust-lang-org/dist/staging/dist/
+# Sync bins to s3 archives
+# NOTE! This date is *not* the release date but the date mentioned in the manifest!
+s3cmd put --dry-run -P ./final-1.3.0/* s3://static-rust-lang-org/dist/2015-09-17/
 ```
 
 Regenerate the index.
@@ -85,25 +85,24 @@ Regenerate the index.
 ```
 
 Post a message to irlo asking for testing. The index is
-http://static-rust-lang-org.s3.amazonaws.com/dist/staging/dist/index.html
+https://static-rust-lang-org.s3.amazonaws.com/dist/2015-09-17/index.html
 
 Test rustup.sh with
 
 ```sh
-curl -sSf https://static.rust-lang.org/rustup.sh | RUSTUP_DIST_SERVER=https://static.rust-lang.org/dist/staging sh
+curl -sSf https://static.rust-lang.org/rustup.sh | sh -s -- --spec=stable-2015-09-17
 ```
 
 or multirust.sh with
 
 ```sh
-RUSTUP_DIST_SERVER=https://static.rust-lang.org/dist/staging multirust update stable
+multirust update stable-2015-09-17
 ```
 
 or rustup with
 
 ```sh
-RUSTUP_DIST_ROOT=https://static.rust-lang.org/dist/staging/dist rustup update stable
-RUSTUP_DIST_ROOT=https://static.rust-lang.org/dist/staging/dist rustup update 1.8.0
+rustup update stable-2015-09-17
 ```
 
 Send a PR to the master branch to start bootstrapping from the new beta produced
@@ -117,16 +116,13 @@ This is on the buildmaster again.
 cd ~/rust-buildbot/master/tmp/dist/packaging-stable
 # Sync docs from s3 versioned dir to local
 mkdir ./doc-1.3.0
-s3cmd sync -P s3://static-rust-lang-org/doc/1.3.0/ ./doc-1.3.0/
-# Sync bins to s3 archives
-# NOTE! This date is *not* the release date but the date mentioned in the manifest!
-s3cmd put -P ./final-1.3.0/* s3://static-rust-lang-org/dist/2015-09-17/
+s3cmd sync --dry-run -P s3://static-rust-lang-org/doc/1.3.0/ ./doc-1.3.0/
 # Sync docs to s3 stable/
 # Do this in a screen session in case you lose network access to AWS!
-s3cmd sync -P --delete-removed ./doc-1.3.0/ s3://static-rust-lang-org/doc/stable/
+s3cmd sync --dry-run -P --delete-removed ./doc-1.3.0/ s3://static-rust-lang-org/doc/stable/
 # Sync bins to release channel
 # Do this in a screen session in case you lose network access to AWS!
-s3cmd put -P ./final-1.3.0/* s3://static-rust-lang-org/dist/
+s3cmd put --dry-run -P ./final-1.3.0/* s3://static-rust-lang-org/dist/
 # Invalidate the CDN
 sh ~/invalidate.sh
 ```
