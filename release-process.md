@@ -49,8 +49,9 @@ included on the beta channel.
 
 Send a commit to the freshly created beta branch of rust-lang/rust which updates
 src/stage0.txt to bootstrap from this new stable compiler. This should involve
-essentially no changes, so you shouldn't need a PR. Be sure to update the
-bootstrap key as well, printed out as follows:
+essentially no changes, so you shouldn't need a PR. Do not update the Cargo
+version in this file. Be sure to update the bootstrap key as well, printed out
+as follows:
 
 ```
 echo -n 1.9.0 | md5sum | head -c 8
@@ -106,7 +107,7 @@ rustup update stable-2015-09-17
 ```
 
 Send a PR to the master branch to start bootstrapping from the new beta produced
-yesterday.
+yesterday. Also update with the Cargo version selected yesterday as well.
 
 ## Release day (Thursday)
 
