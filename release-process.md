@@ -86,24 +86,19 @@ Regenerate the index.
 ```
 
 Post a message to irlo asking for testing. The index is
-https://static-rust-lang-org.s3.amazonaws.com/dist/2015-09-17/index.html
+https://static-rust-lang-org.s3.amazonaws.com/dist/2015-09-17/index.html and our
+URL is then https://static.rust-lang.org/dist/2015-09-17/index.html.
 
-Test rustup.sh with
-
-```sh
-curl -sSf https://static.rust-lang.org/rustup.sh | sh -s -- --spec=stable-2015-09-17
-```
-
-or multirust.sh with
-
-```sh
-multirust update stable-2015-09-17
-```
-
-or rustup with
+Test rustup with
 
 ```sh
 rustup update stable-2015-09-17
+```
+
+or rustup.sh with
+
+```sh
+curl -sSf https://static.rust-lang.org/rustup.sh | sh -s -- --spec=stable-2015-09-17
 ```
 
 Send a PR to the master branch to start bootstrapping from the new beta produced
