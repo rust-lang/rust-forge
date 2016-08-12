@@ -90,7 +90,7 @@ tackle. Generally, these issues require some experience with the Rust
 compiler. But some could be mentored bugs if you have an interest in
 compilers. All written in Rust.
 
-Repository: [https://github.com/rust-lang/rust]()
+Repository: [https://github.com/rust-lang/rust](https://github.com/rust-lang/rust)
 
 Tracking issue: TBA
 
@@ -114,30 +114,30 @@ The Visual Studio plugin is written in C#, the other IDE plugins are written in 
 
 **Eclipse (RustDT)**
 
-Installation instructions: [https://github.com/RustDT/RustDT/blob/latest/documentation/Installation.md]()
+Installation instructions: [https://github.com/RustDT/RustDT/blob/latest/documentation/Installation.md](https://github.com/RustDT/RustDT/blob/latest/documentation/Installation.md)
 
-Download: [http://rustdt.github.io/releases]() (via Eclipse)
+Download: [http://rustdt.github.io/releases](http://rustdt.github.io/releases) (via Eclipse)
 
-Repository: [https://github.com/RustDT/RustDT]()
+Repository: [https://github.com/RustDT/RustDT](https://github.com/RustDT/RustDT)
 
-Issues: [https://github.com/RustDT/RustDT/issues]()
+Issues: [https://github.com/RustDT/RustDT/issues](https://github.com/RustDT/RustDT/issues)
 
 Contact: Bruno Medeiros
 
 **IntelliJ IDEA**
 
-Repository: [https://github.com/alexeykudinkin/intellij-rust]()
+Repository: [https://github.com/alexeykudinkin/intellij-rust](https://github.com/alexeykudinkin/intellij-rust)
 
-Issues: [https://github.com/alexeykudinkin/intellij-rust/issues]()
+Issues: [https://github.com/alexeykudinkin/intellij-rust/issues](https://github.com/alexeykudinkin/intellij-rust/issues)
 
-Contact: [https://groups.google.com/d/forum/intellij-rust]()
+Contact: [https://groups.google.com/d/forum/intellij-rust](https://groups.google.com/d/forum/intellij-rust)
 
 **Visual Studio (Visual Rust)**
 
-Download: [https://visualstudiogallery.msdn.microsoft.com/c6075d2f-8864-47c0-8333-92f183d3e640]()
+Download: [https://visualstudiogallery.msdn.microsoft.com/c6075d2f-8864-47c0-8333-92f183d3e640](https://visualstudiogallery.msdn.microsoft.com/c6075d2f-8864-47c0-8333-92f183d3e640)
 
-Repository: [https://github.com/PistonDevelopers/VisualRust]()
+Repository: [https://github.com/PistonDevelopers/VisualRust](https://github.com/PistonDevelopers/VisualRust)
 
-Issues: [https://github.com/PistonDevelopers/VisualRust/issues]()
+Issues: [https://github.com/PistonDevelopers/VisualRust/issues](https://github.com/PistonDevelopers/VisualRust/issues)
 
 Contact: [https://github.com/vosen/]() (vosen@vosen.pl)
