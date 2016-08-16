@@ -47,17 +47,22 @@ $ git push rust-lang rust-lang/master:beta -f
 Like yesterday, promote any nightly-only `*_cross_targets` arrays to also be
 included on the beta channel.
 
-Send a commit to the freshly created beta branch of rust-lang/rust which updates
-src/stage0.txt to bootstrap from this new stable compiler. This should involve
-essentially no changes, so you shouldn't need a PR. Do not update the Cargo
-version in this file. Be sure to update the bootstrap key as well, printed out
-as follows:
+Send a commit to the freshly created beta branch of rust-lang/rust
+which updates src/stage0.txt to bootstrap from this new stable
+compiler. The format is "X.Y.Z-YYYY-MM-DD", and the date is the
+archive date of the new stable build, which can be found in the
+manifests sitting in the
+tmp/packaging-stable/final/channel-rust-stable.toml file on the build
+master. Do not update the Cargo version in this file. Be sure to
+update the bootstrap key as well, printed out as follows:
 
 ```
 echo -n 1.9.0 | md5sum | head -c 8
 ```
 
-Manually start the `beta-dist-rustc-trigger`. The beta will deploy
+Manually start the `beta-dist-rustc-trigger`. The beta build will use
+the rustc binaries that already exist in the archives (only the
+combined 'rust' package hasn't been uploaded). The beta will deploy
 automatically.
 
 Make and submit a patch against master that bumps the version number in
@@ -101,8 +106,9 @@ or rustup.sh with
 curl -sSf https://static.rust-lang.org/rustup.sh | sh -s -- --spec=stable-2015-09-17
 ```
 
-Send a PR to the master branch to start bootstrapping from the new beta produced
-yesterday. Also update with the Cargo version selected yesterday as well.
+Send a PR to the master branch to start bootstrapping from the new
+beta produced yesterday by modifying src/stage0.txt. Also update with
+the Cargo version selected yesterday as well.
 
 ## Release day (Thursday)
 
