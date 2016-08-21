@@ -65,6 +65,7 @@ Editor plugins:
 * [Vim](https://github.com/rust-lang/rust.vim)
 * [Sublime Text](https://packagecontrol.io/packages/Rust)
 * [Atom](https://atom.io/packages/language-rust)
+* [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=saviorisdead.RustyCode)
 
 Code completion is available via
 [Racer](https://github.com/phildawes/racer).  See
@@ -75,6 +76,8 @@ The next steps are to finalise the plan as described in the RFC. Then
 begin implementation work on the compiler and oracle, and continue
 work on the IDE plugins.
 
+Formatting source code is available via
+[rustfmt](https://github.com/rust-lang-nursery/rustfmt)
 
 <a id="help"></a>
 ## How to help
@@ -141,3 +144,18 @@ Repository: [https://github.com/PistonDevelopers/VisualRust]()
 Issues: [https://github.com/PistonDevelopers/VisualRust/issues]()
 
 Contact: [https://github.com/vosen/]() (vosen@vosen.pl)
+
+### Editor Plugins
+
+**Visual Studio Code (RustyCode)**
+
+Installation instructions: [https://marketplace.visualstudio.com/items?itemName=saviorisdead.RustyCode]()
+
+Download: [https://marketplace.visualstudio.com/items?itemName=saviorisdead.RustyCode]() (search rust via package manager)
+
+Repository: [https://github.com/saviorisdead/RustyCode]()
+
+Issues: [https://github.com/saviorisdead/RustyCode/issues]()
+
+Contact: [https://github.com/saviorisdead/](Konstantin Akhantev)
+
