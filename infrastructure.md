@@ -21,6 +21,14 @@ Documentation on homu commands can be found [here](http://buildbot.rust-lang.org
 
 Please contact [Alex Crichton](https://github.com/alexcrichton) if something goes wrong with the bot.
 
+## rfcbot
+
+[rfcbot](https://github.com/dikaiosune/rust-dashboard) is a bot ([bot user account](https://github.com/rfcbot)) which helps manage async decision making on issues and PRs (typically RFCs). Team members can view any pending requests for review on [the FCP dashboard](http://rusty-dash.com/fcp).
+
+Documentation on rfcbot commands can be found [in the dashboard repository](https://github.com/dikaiosune/rust-dashboard/blob/master/RFCBOT.md).
+
+Please contact [Adam Perry](https://github.com/dikaiosune) ("dikaiosune" on IRC) if something goes wrong with the bot, or open an issue on [the dashboard repository](https://github.com/dikaiosune/rust-dashboard/).
+
 ## Others
 
 TODO: Describe these better.
