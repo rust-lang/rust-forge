@@ -58,6 +58,7 @@ Available IDE plugins:
 
 * [Eclipse](https://github.com/RustDT/RustDT)
 * [Visual Studio](https://github.com/PistonDevelopers/VisualRust)
+* [IntelliJ IDEA](https://intellij-rust.github.io)
 
 Editor plugins:
 
@@ -129,11 +130,13 @@ Contact: Bruno Medeiros
 
 **IntelliJ IDEA**
 
-Repository: [https://github.com/alexeykudinkin/intellij-rust](https://github.com/alexeykudinkin/intellij-rust)
+Documentation: [https://intellij-rust.github.io](https://intellij-rust.github.io)
 
-Issues: [https://github.com/alexeykudinkin/intellij-rust/issues](https://github.com/alexeykudinkin/intellij-rust/issues)
+Repository: [https://github.com/intellij-rust/intellij-rust](https://github.com/intellij-rust/intellij-rust)
 
-Contact: [https://groups.google.com/d/forum/intellij-rust](https://groups.google.com/d/forum/intellij-rust)
+Issues: [https://github.com/intellij-rust/intellij-rust/issues](https://github.com/intellij-rust/intellij-rust/issues)
+
+Contact: [https://gitter.im/intellij-rust/intellij-rust](https://gitter.im/intellij-rust/intellij-rust)
 
 **Visual Studio (Visual Rust)**
 
@@ -158,4 +161,3 @@ Repository: [https://github.com/saviorisdead/RustyCode]()
 Issues: [https://github.com/saviorisdead/RustyCode/issues]()
 
 Contact: [https://github.com/saviorisdead/](Konstantin Akhantev)
-
