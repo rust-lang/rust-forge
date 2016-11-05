@@ -15,13 +15,13 @@ whether the corresponding component works on the specified platform.
 
 ## Tier 1
 
-Tier 1 platforms can be thought of as "guaranteed to build and work".
+Tier 1 platforms can be thought of as "guaranteed to work".
 Specifically they will each satisfy the following requirements:
 
+* Official binary releases are provided for the platform.
 * Automated testing is set up to run tests for the platform.
 * Landing changes to the `rust-lang/rust` repository's master branch is gated on
   tests passing.
-* Official release artifacts are provided for the platform.
 * Documentation for how to use and how to build the platform is available.
 
 |  Target                       | std |rustc|cargo| notes                      |
@@ -42,11 +42,11 @@ are not run so it's not guaranteed to produce a working build, but platforms
 often work to quite a good degree and patches are always welcome! Specifically,
 these platforms are required to have each of the following:
 
+* Official binary releases are provided for the platform.
 * Automated building is set up, but may not be running tests.
 * Landing changes to the `rust-lang/rust` repository's master branch is gated on
-  platforms **building**. Note that this means for some platforms only the
-  standard library is compiled, but for others the full bootstrap is run.
-* Official release artifacts are provided for the platform.
+  platforms **building**. For some platforms only the standard library is
+  compiled, but for others `rustc` and `cargo` are too.
 
 |  Target                         | std |rustc|cargo| notes                      |
 |---------------------------------|-----|-----|-----|----------------------------|
@@ -75,12 +75,9 @@ these platforms are required to have each of the following:
 
 ## Tier 3
 
-Tier 3 platforms are those which Rust has support for, but landing changes is
-not gated on the platform either building or passing tests. Working builds for
-these platforms may be spotty as their reliability is often defined in terms of
-community contributions. Additionally, release artifacts and installers are not
-provided, but there may be community infrastructure producing these in
-unofficial locations.
+Tier 3 platforms are those which the Rust codebase has support for, but
+which are not built or tested automatically, and may not work.
+Official builds are not available.
 
 |  Target                       | std |rustc|cargo| notes                      |
 |-------------------------------|-----|-----|-----|----------------------------|
@@ -95,6 +92,9 @@ unofficial locations.
 | `x86_64-unknown-dragonfly`    |  ✓  |  ✓  |     | 64-bit DragonFlyBSD        |
 | `x86_64-unknown-openbsd`      |  ✓  |  ✓  |     | 64-bit OpenBSD             |
 
-Note that this table can be expanded over time, this isn't the exhaustive set of
-tier 3 platforms that will ever be!
+But those aren't the only platforms Rust can compile to, those are the ones that
+require the standard library. When linking only to the core library, Rust can
+target "bare metal" in the x86, ARM, MIPS, and PowerPC families, and thus applied
+to a variety of problems. It may require defining custom target specifications
+to do so. All such scenarios are tier 3.
 
