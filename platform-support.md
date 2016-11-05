@@ -15,7 +15,7 @@ whether the corresponding component works on the specified platform.
 
 ## Tier 1
 
-Tier 1 platforms can be thought of as "guaranteed to build and work".
+Tier 1 platforms can be thought of as "guaranteed to work".
 Specifically they will each satisfy the following requirements:
 
 * Automated testing is set up to run tests for the platform.
