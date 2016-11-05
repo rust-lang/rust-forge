@@ -92,6 +92,4 @@ Official builds are not available.
 | `x86_64-unknown-dragonfly`    |  ✓  |  ✓  |     | 64-bit DragonFlyBSD        |
 | `x86_64-unknown-openbsd`      |  ✓  |  ✓  |     | 64-bit OpenBSD             |
 
-Note that this table can be expanded over time, this isn't the exhaustive set of
-tier 3 platforms that will ever be!
 
