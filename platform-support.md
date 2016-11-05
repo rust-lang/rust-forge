@@ -92,4 +92,9 @@ Official builds are not available.
 | `x86_64-unknown-dragonfly`    |  ✓  |  ✓  |     | 64-bit DragonFlyBSD        |
 | `x86_64-unknown-openbsd`      |  ✓  |  ✓  |     | 64-bit OpenBSD             |
 
+But those aren't the only platforms Rust can compile to, those are the ones that
+require the standard library. When linking only to the core library, Rust can
+target "bare metal" in the x86, ARM, MIPS, and PowerPC families, and thus applied
+to a variety of problems. It may require defining custom target specifications
+to do so. All such scenarios are tier 3.
 
