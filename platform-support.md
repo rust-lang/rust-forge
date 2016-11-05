@@ -18,10 +18,10 @@ whether the corresponding component works on the specified platform.
 Tier 1 platforms can be thought of as "guaranteed to work".
 Specifically they will each satisfy the following requirements:
 
+* Official binary releases are provided for the platform.
 * Automated testing is set up to run tests for the platform.
 * Landing changes to the `rust-lang/rust` repository's master branch is gated on
   tests passing.
-* Official release artifacts are provided for the platform.
 * Documentation for how to use and how to build the platform is available.
 
 |  Target                       | std |rustc|cargo| notes                      |
@@ -42,11 +42,11 @@ are not run so it's not guaranteed to produce a working build, but platforms
 often work to quite a good degree and patches are always welcome! Specifically,
 these platforms are required to have each of the following:
 
+* Official binary releases are provided for the platform.
 * Automated building is set up, but may not be running tests.
 * Landing changes to the `rust-lang/rust` repository's master branch is gated on
   platforms **building**. For some platforms only the standard library is
   compiled, but for others `rustc` and `cargo` are too.
-* Official release artifacts are provided for the platform.
 
 |  Target                         | std |rustc|cargo| notes                      |
 |---------------------------------|-----|-----|-----|----------------------------|
