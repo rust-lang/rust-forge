@@ -44,8 +44,8 @@ these platforms are required to have each of the following:
 
 * Automated building is set up, but may not be running tests.
 * Landing changes to the `rust-lang/rust` repository's master branch is gated on
-  platforms **building**. Note that this means for some platforms only the
-  standard library is compiled, but for others the full bootstrap is run.
+  platforms **building**. For some platforms only the standard library is
+  compiled, but for others `rustc` and `cargo` are too.
 * Official release artifacts are provided for the platform.
 
 |  Target                         | std |rustc|cargo| notes                      |
