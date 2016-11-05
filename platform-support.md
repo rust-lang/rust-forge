@@ -75,12 +75,9 @@ these platforms are required to have each of the following:
 
 ## Tier 3
 
-Tier 3 platforms are those which Rust has support for, but landing changes is
-not gated on the platform either building or passing tests. Working builds for
-these platforms may be spotty as their reliability is often defined in terms of
-community contributions. Additionally, release artifacts and installers are not
-provided, but there may be community infrastructure producing these in
-unofficial locations.
+Tier 3 platforms are those which the Rust codebase has support for, but
+which are not built or tested automatically, and may not work.
+Official builds are not available.
 
 |  Target                       | std |rustc|cargo| notes                      |
 |-------------------------------|-----|-----|-----|----------------------------|
