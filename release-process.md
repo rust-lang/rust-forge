@@ -53,12 +53,7 @@ compiler. The format is "X.Y.Z-YYYY-MM-DD", and the date is the
 archive date of the new stable build, which can be found in the
 manifests sitting in the
 tmp/packaging-stable/final/channel-rust-stable.toml file on the build
-master. Do not update the Cargo version in this file. Be sure to
-update the bootstrap key as well, printed out as follows:
-
-```
-echo -n 1.9.0 | md5sum | head -c 8
-```
+master. Do not update the Cargo version in this file.
 
 Manually start the `beta-dist-rustc-trigger`. The beta build will use
 the rustc binaries that already exist in the archives (only the
