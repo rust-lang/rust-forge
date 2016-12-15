@@ -146,18 +146,18 @@ Repository: [https://github.com/PistonDevelopers/VisualRust](https://github.com/
 
 Issues: [https://github.com/PistonDevelopers/VisualRust/issues](https://github.com/PistonDevelopers/VisualRust/issues)
 
-Contact: [https://github.com/vosen/]() (vosen@vosen.pl)
+Contact: [vosen@vosen.pl](https://github.com/vosen/)
 
 ### Editor Plugins
 
 **Visual Studio Code (RustyCode)**
 
-Installation instructions: [https://marketplace.visualstudio.com/items?itemName=saviorisdead.RustyCode]()
+Installation instructions: [https://marketplace.visualstudio.com/items?itemName=saviorisdead.RustyCode](https://marketplace.visualstudio.com/items?itemName=saviorisdead.RustyCode)
 
-Download: [https://marketplace.visualstudio.com/items?itemName=saviorisdead.RustyCode]() (search rust via package manager)
+Download: [https://marketplace.visualstudio.com/items?itemName=saviorisdead.RustyCode](https://marketplace.visualstudio.com/items?itemName=saviorisdead.RustyCode) (search rust via package manager)
 
-Repository: [https://github.com/saviorisdead/RustyCode]()
+Repository: [https://github.com/saviorisdead/RustyCode](https://github.com/saviorisdead/RustyCode)
 
-Issues: [https://github.com/saviorisdead/RustyCode/issues]()
+Issues: [https://github.com/saviorisdead/RustyCode/issues](https://github.com/saviorisdead/RustyCode/issues)
 
-Contact: [https://github.com/saviorisdead/](Konstantin Akhantev)
+Contact: [Konstantin Akhantev](https://github.com/saviorisdead/)
