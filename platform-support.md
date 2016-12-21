@@ -48,38 +48,38 @@ these platforms are required to have each of the following:
   platforms **building**. For some platforms only the standard library is
   compiled, but for others `rustc` and `cargo` are too.
 
-|  Target                           | std |rustc|cargo| notes                      |
-|-----------------------------------|-----|-----|-----|----------------------------|
-| `aarch64-apple-ios`               |  ✓  |     |     | ARM64 iOS                  |
-| `aarch64-unknown-linux-gnu`       |  ✓  |  ✓  |  ✓  | ARM64 Linux (2.6.18+)      |
-| `arm-linux-androideabi`           |  ✓  |     |     | ARM Android                |
-| `arm-unknown-linux-gnueabi`       |  ✓  |  ✓  |  ✓  | ARM Linux (2.6.18+)        |
-| `arm-unknown-linux-musleabi`      |  ✓  |     |     | ARM Linux with MUSL        |
-| `arm-unknown-linux-gnueabihf`     |  ✓  |  ✓  |  ✓  | ARM Linux (2.6.18+)        |
-| `arm-unknown-linux-musleabihf`    |  ✓  |     |     | ARM Linux with MUSL        |
-| `armv7-apple-ios`                 |  ✓  |     |     | ARM iOS                    |
-| `armv7-unknown-linux-gnueabihf`   |  ✓  |  ✓  |  ✓  | ARM Linux (2.6.18+)        |
-| `armv7-unknown-linux-musleabihf`  |  ✓  |     |     | ARM Linux with MUSL        |
-| `armv7s-apple-ios`                |  ✓  |     |     | ARM iOS                    |
-| `asmjs-unknown-emscripten`        |  ✓  |     |     | asm.js via Emscripten      |
-| `i386-apple-ios`                  |  ✓  |     |     | 32-bit x86 iOS             |
-| `i586-pc-windows-msvc`            |  ✓  |     |     | 32-bit Windows w/o SSE     |
-| `i686-unknown-linux-musl`         |  ✓  |     |     | 32-bit Linux with MUSL     |
-| `mips-unknown-linux-gnu`          |  ✓  |  ✓  |  ✓  | MIPS Linux (2.6.18+)       |
-| `mips-unknown-linux-musl`         |  ✓  |     |     | MIPS Linux with MUSL       |
-| `mipsel-unknown-linux-gnu`        |  ✓  |  ✓  |  ✓  | MIPS (LE) Linux (2.6.18+)  |
-| `mipsel-unknown-linux-musl`       |  ✓  |     |     | MIPS (LE) Linux with MUSL  |
-| `mips64-unknown-linux-gnuabi64`   |  ✓  |  ✓  |  ✓  | MIPS Linux (2.6.18+)       |
-| `mips64el-unknown-linux-gnuabi64` |  ✓  |  ✓  |  ✓  | MIPS (LE) Linux (2.6.18+)  |
-| `powerpc-unknown-linux-gnu`       |  ✓  |     |     | PowerPC Linux (2.6.18+)    |
-| `powerpc64-unknown-linux-gnu`     |  ✓  |     |     | PPC64 Linux (2.6.18+)      |
-| `powerpc64el-unknown-linux-gnu`   |  ✓  |     |     | PPC64LE Linux (2.6.18+)    |
-| `wasm32-unknown-emscripten`       |  ✓  |     |     | WebAssembly via Emscripten |
-| `x86_64-apple-ios`                |  ✓  |     |     | 64-bit x86 iOS             |
-| `x86_64-rumprun-netbsd`           |  ✓  |     |     | 64-bit NetBSD Rump Kernel  |
-| `x86_64-unknown-freebsd`          |  ✓  |  ✓  |  ✓  | 64-bit FreeBSD             |
-| `x86_64-unknown-linux-musl`       |  ✓  |     |     | 64-bit Linux with MUSL     |
-| `x86_64-unknown-netbsd`           |  ✓  |  ✓  |  ✓  | 64-bit NetBSD              |
+|  Target                           | std |rustc|cargo| notes                        |
+|-----------------------------------|-----|-----|-----|------------------------------|
+| `aarch64-apple-ios`               |  ✓  |     |     | ARM64 iOS                    |
+| `aarch64-unknown-linux-gnu`       |  ✓  |  ✓  |  ✓  | ARM64 Linux                  |
+| `arm-linux-androideabi`           |  ✓  |     |     | ARMv7 Android                |
+| `arm-unknown-linux-gnueabi`       |  ✓  |  ✓  |  ✓  | ARMv6 Linux                  |
+| `arm-unknown-linux-musleabi`      |  ✓  |     |     | ARMv6 Linux with MUSL        |
+| `arm-unknown-linux-gnueabihf`     |  ✓  |  ✓  |  ✓  | ARMv6 Linux, hardfloat       |
+| `arm-unknown-linux-musleabihf`    |  ✓  |     |     | ARMv6 Linux, MUSL, hardfloat |
+| `armv7-apple-ios`                 |  ✓  |     |     | ARMv7 iOS, Cortex-a8         |
+| `armv7-unknown-linux-gnueabihf`   |  ✓  |  ✓  |  ✓  | ARMv7 Linux                  |
+| `armv7-unknown-linux-musleabihf`  |  ✓  |     |     | ARMv7 Linux with MUSL        |
+| `armv7s-apple-ios`                |  ✓  |     |     | ARMv7 iOS, Cortex-a9         |
+| `asmjs-unknown-emscripten`        |  ✓  |     |     | asm.js via Emscripten        |
+| `i386-apple-ios`                  |  ✓  |     |     | 32-bit x86 iOS               |
+| `i586-pc-windows-msvc`            |  ✓  |     |     | 32-bit Windows w/o SSE       |
+| `i686-unknown-linux-musl`         |  ✓  |     |     | 32-bit Linux with MUSL       |
+| `mips-unknown-linux-gnu`          |  ✓  |  ✓  |  ✓  | MIPS Linux                   |
+| `mips-unknown-linux-musl`         |  ✓  |     |     | MIPS Linux with MUSL         |
+| `mipsel-unknown-linux-gnu`        |  ✓  |  ✓  |  ✓  | MIPS (LE) Linux              |
+| `mipsel-unknown-linux-musl`       |  ✓  |     |     | MIPS (LE) Linux with MUSL    |
+| `mips64-unknown-linux-gnuabi64`   |  ✓  |  ✓  |  ✓  | MIPS Linux                   |
+| `mips64el-unknown-linux-gnuabi64` |  ✓  |  ✓  |  ✓  | MIPS (LE) Linux              |
+| `powerpc-unknown-linux-gnu`       |  ✓  |     |     | PowerPC Linux                |
+| `powerpc64-unknown-linux-gnu`     |  ✓  |     |     | PPC64 Linux                  |
+| `powerpc64el-unknown-linux-gnu`   |  ✓  |     |     | PPC64LE Linux                |
+| `wasm32-unknown-emscripten`       |  ✓  |     |     | WebAssembly via Emscripten   |
+| `x86_64-apple-ios`                |  ✓  |     |     | 64-bit x86 iOS               |
+| `x86_64-rumprun-netbsd`           |  ✓  |     |     | 64-bit NetBSD Rump Kernel    |
+| `x86_64-unknown-freebsd`          |  ✓  |  ✓  |  ✓  | 64-bit FreeBSD               |
+| `x86_64-unknown-linux-musl`       |  ✓  |     |     | 64-bit Linux with MUSL       |
+| `x86_64-unknown-netbsd`           |  ✓  |  ✓  |  ✓  | 64-bit NetBSD                |
 
 ## Tier 3
 
@@ -87,22 +87,35 @@ Tier 3 platforms are those which the Rust codebase has support for, but
 which are not built or tested automatically, and may not work.
 Official builds are not available.
 
-|  Target                       | std |rustc|cargo| notes                      |
-|-------------------------------|-----|-----|-----|----------------------------|
-| `aarch64-linux-android`       |  ✓  |     |     | ARM64 Android              |
-| `armv7-linux-androideabi`     |  ✓  |     |     | ARM-v7a Android            |
-| `i686-linux-android`          |  ✓  |     |     | 32-bit x86 Android         |
-| `i686-pc-windows-msvc` (XP)   |  ✓  |     |     | Windows XP support         |
-| `i686-unknown-freebsd`        |  ✓  |  ✓  |  ✓  | 32-bit FreeBSD             |
-| `x86_64-pc-windows-msvc` (XP) |  ✓  |     |     | Windows XP support         |
-| `x86_64-sun-solaris`          |  ✓  |  ✓  |     | 64-bit Solaris/SunOS       |
-| `x86_64-unknown-bitrig`       |  ✓  |  ✓  |     | 64-bit Bitrig              |
-| `x86_64-unknown-dragonfly`    |  ✓  |  ✓  |     | 64-bit DragonFlyBSD        |
-| `x86_64-unknown-openbsd`      |  ✓  |  ✓  |     | 64-bit OpenBSD             |
+|  Target                         | std |rustc|cargo| notes                                |
+|---------------------------------|-----|-----|-----|--------------------------------------|
+| `aarch64-linux-android`         |  ✓  |     |     | ARM64 Android                        |
+| `aarch64-linux-fuchsia`         |  ✓  |     |     | Fuchsia OS                           |
+| `armv5te-unknown-linux-gnueabi` |  ✓  |     |     | ARMv5TE                              |
+| `armv7-linux-androideabi`       |  ✓  |     |     | ARMv7a Android                       |
+| `i586-unknown-linux-gnu`        |  ✓  |     |     | 32-bit Linux w/o SSE                 |
+| `i686-linux-android`            |  ✓  |     |     | 32-bit x86 Android                   |
+| `i686-pc-windows-msvc` (XP)     |  ✓  |     |     | Windows XP support                   |
+| `i686-unknown-freebsd`          |  ✓  |  ✓  |  ✓  | 32-bit FreeBSD                       |
+| `i686-unknown-haiku`            |  ✓  |     |     | Haiku OS                             |
+| `le32-unknown-nacl`             |  ✓  |     |     | PNaCl sandbox                        |
+| `mips-unknown-linux-uclibc`     |  ✓  |     |     | MIPS Linux with uClibc               |
+| `mipsel-unknown-linux-uclibc`   |  ✓  |     |     | MIPS (LE) Linux with uClibc          |
+| `thumbv6m-none-eabi`            |  ✓  |     |     | Bare Cortex-M0, M0+, M1              |
+| `thumbv7em-none-eabi`           |  ✓  |     |     | Bare Cortex-M4, M7                   |
+| `thumbv7em-none-eabihf`         |  ✓  |     |     | Bare Cortex-M4F, M7F, FPU, hardfloat |
+| `thumbv7m-none-eabi`            |  ✓  |     |     | Bare Cortex-M3                       |
+| `x86_64-pc-windows-msvc` (XP)   |  ✓  |     |     | Windows XP support                   |
+| `x86_64-sun-solaris`            |  ✓  |  ✓  |     | 64-bit Solaris/SunOS                 |
+| `x86_64-unknown-bitrig`         |  ✓  |  ✓  |     | 64-bit Bitrig                        |
+| `x86_64-unknown-dragonfly`      |  ✓  |  ✓  |     | 64-bit DragonFlyBSD                  |
+| `x86_64-linux-fuchsia`          |  ✓  |     |     | Fuchsia OS                           |
+| `x86_64-unknown-haiku`          |  ✓  |     |     | Haiku OS                             |
+| `x86_64-unknown-openbsd`        |  ✓  |  ✓  |     | 64-bit OpenBSD                       |
 
-But those aren't the only platforms Rust can compile to, those are the ones that
-require the standard library. When linking only to the core library, Rust can
-target "bare metal" in the x86, ARM, MIPS, and PowerPC families, and thus applied
-to a variety of problems. It may require defining custom target specifications
-to do so. All such scenarios are tier 3.
+But those aren't the only platforms Rust can compile to! Those are the ones with
+built-in target definitions and/or standard library support. When linking only
+to the core library, Rust can also target "bare metal" in the x86, ARM, MIPS, and
+PowerPC families, though it may require defining custom target specifications to
+do so. All such scenarios are tier 3.
 
