@@ -51,29 +51,29 @@ these platforms are required to have each of the following:
 |  Target                           | std |rustc|cargo| notes                      |
 |-----------------------------------|-----|-----|-----|----------------------------|
 | `aarch64-apple-ios`               |  ✓  |     |     | ARM64 iOS                  |
-| `aarch64-unknown-linux-gnu`       |  ✓  |  ✓  |  ✓  | ARM64 Linux (2.6.18+)      |
+| `aarch64-unknown-linux-gnu`       |  ✓  |  ✓  |  ✓  | ARM64 Linux                |
 | `arm-linux-androideabi`           |  ✓  |     |     | ARM Android                |
-| `arm-unknown-linux-gnueabi`       |  ✓  |  ✓  |  ✓  | ARM Linux (2.6.18+)        |
+| `arm-unknown-linux-gnueabi`       |  ✓  |  ✓  |  ✓  | ARM Linux                  |
 | `arm-unknown-linux-musleabi`      |  ✓  |     |     | ARM Linux with MUSL        |
-| `arm-unknown-linux-gnueabihf`     |  ✓  |  ✓  |  ✓  | ARM Linux (2.6.18+)        |
+| `arm-unknown-linux-gnueabihf`     |  ✓  |  ✓  |  ✓  | ARM Linux                  |
 | `arm-unknown-linux-musleabihf`    |  ✓  |     |     | ARM Linux with MUSL        |
 | `armv7-apple-ios`                 |  ✓  |     |     | ARM iOS                    |
-| `armv7-unknown-linux-gnueabihf`   |  ✓  |  ✓  |  ✓  | ARM Linux (2.6.18+)        |
+| `armv7-unknown-linux-gnueabihf`   |  ✓  |  ✓  |  ✓  | ARM Linux                  |
 | `armv7-unknown-linux-musleabihf`  |  ✓  |     |     | ARM Linux with MUSL        |
 | `armv7s-apple-ios`                |  ✓  |     |     | ARM iOS                    |
 | `asmjs-unknown-emscripten`        |  ✓  |     |     | asm.js via Emscripten      |
 | `i386-apple-ios`                  |  ✓  |     |     | 32-bit x86 iOS             |
 | `i586-pc-windows-msvc`            |  ✓  |     |     | 32-bit Windows w/o SSE     |
 | `i686-unknown-linux-musl`         |  ✓  |     |     | 32-bit Linux with MUSL     |
-| `mips-unknown-linux-gnu`          |  ✓  |  ✓  |  ✓  | MIPS Linux (2.6.18+)       |
+| `mips-unknown-linux-gnu`          |  ✓  |  ✓  |  ✓  | MIPS Linux                 |
 | `mips-unknown-linux-musl`         |  ✓  |     |     | MIPS Linux with MUSL       |
-| `mipsel-unknown-linux-gnu`        |  ✓  |  ✓  |  ✓  | MIPS (LE) Linux (2.6.18+)  |
+| `mipsel-unknown-linux-gnu`        |  ✓  |  ✓  |  ✓  | MIPS (LE) Linux            |
 | `mipsel-unknown-linux-musl`       |  ✓  |     |     | MIPS (LE) Linux with MUSL  |
-| `mips64-unknown-linux-gnuabi64`   |  ✓  |  ✓  |  ✓  | MIPS Linux (2.6.18+)       |
-| `mips64el-unknown-linux-gnuabi64` |  ✓  |  ✓  |  ✓  | MIPS (LE) Linux (2.6.18+)  |
-| `powerpc-unknown-linux-gnu`       |  ✓  |     |     | PowerPC Linux (2.6.18+)    |
-| `powerpc64-unknown-linux-gnu`     |  ✓  |     |     | PPC64 Linux (2.6.18+)      |
-| `powerpc64el-unknown-linux-gnu`   |  ✓  |     |     | PPC64LE Linux (2.6.18+)    |
+| `mips64-unknown-linux-gnuabi64`   |  ✓  |  ✓  |  ✓  | MIPS Linux                 |
+| `mips64el-unknown-linux-gnuabi64` |  ✓  |  ✓  |  ✓  | MIPS (LE) Linux            |
+| `powerpc-unknown-linux-gnu`       |  ✓  |     |     | PowerPC Linux              |
+| `powerpc64-unknown-linux-gnu`     |  ✓  |     |     | PPC64 Linux                |
+| `powerpc64el-unknown-linux-gnu`   |  ✓  |     |     | PPC64LE Linux              |
 | `wasm32-unknown-emscripten`       |  ✓  |     |     | WebAssembly via Emscripten |
 | `x86_64-apple-ios`                |  ✓  |     |     | 64-bit x86 iOS             |
 | `x86_64-rumprun-netbsd`           |  ✓  |     |     | 64-bit NetBSD Rump Kernel  |
