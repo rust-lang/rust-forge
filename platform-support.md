@@ -109,6 +109,7 @@ Official builds are not available.
 | `x86_64-sun-solaris`           |  ✓  |  ✓  |     | 64-bit Solaris/SunOS        |
 | `x86_64-unknown-bitrig`        |  ✓  |  ✓  |     | 64-bit Bitrig               |
 | `x86_64-unknown-dragonfly`     |  ✓  |  ✓  |     | 64-bit DragonFlyBSD         |
+| `x86_64-linux-fuchsia`         |  ✓  |     |     | Fuchsia OS                  |
 | `x86_64-unknown-haiku`         |  ✓  |     |     | Haiku OS                    |
 | `x86_64-unknown-openbsd`       |  ✓  |  ✓  |     | 64-bit OpenBSD              |
 
