@@ -101,10 +101,10 @@ Official builds are not available.
 | `le32-unknown-nacl`            |  ✓  |     |     | PNaCl sandbox               |
 | `mips-unknown-linux-uclibc`    |  ✓  |     |     | MIPS Linux with uClibc      |
 | `mipsel-unknown-linux-uclibc`  |  ✓  |     |     | MIPS (LE) Linux with uClibc |
-| `thumbv6m-none-eabi`           |  ✓  |     |     | Cortex-M0, M0+, M1          |
-| `thumbv7em-none-eabi`          |  ✓  |     |     | Cortex-M4, M7               |
-| `thumbv7em-none-eabihf`        |  ✓  |     |     | Cortex-M4F, M7F             |
-| `thumbv7m-none-eabi`           |  ✓  |     |     | Cortex-M3                   |
+| `thumbv6m-none-eabi`           |  ✓  |     |     | Bare Cortex-M0, M0+, M1     |
+| `thumbv7em-none-eabi`          |  ✓  |     |     | Bare Cortex-M4, M7          |
+| `thumbv7em-none-eabihf`        |  ✓  |     |     | Bare Cortex-M4F, M7F        |
+| `thumbv7m-none-eabi`           |  ✓  |     |     | Bare Cortex-M3              |
 | `x86_64-pc-windows-msvc` (XP)  |  ✓  |     |     | Windows XP support          |
 | `x86_64-sun-solaris`           |  ✓  |  ✓  |     | 64-bit Solaris/SunOS        |
 | `x86_64-unknown-bitrig`        |  ✓  |  ✓  |     | 64-bit Bitrig               |
@@ -113,9 +113,9 @@ Official builds are not available.
 | `x86_64-unknown-haiku`         |  ✓  |     |     | Haiku OS                    |
 | `x86_64-unknown-openbsd`       |  ✓  |  ✓  |     | 64-bit OpenBSD              |
 
-But those aren't the only platforms Rust can compile to, those are the ones that
-require the standard library. When linking only to the core library, Rust can
-target "bare metal" in the x86, ARM, MIPS, and PowerPC families, and thus applied
-to a variety of problems. It may require defining custom target specifications
-to do so. All such scenarios are tier 3.
+But those aren't the only platforms Rust can compile to! Those are the ones with
+built-in target definitions and/or standard library support. When linking only
+to the core library, Rust can also target "bare metal" in the x86, ARM, MIPS, and
+PowerPC families, though it may require defining custom target specifications to
+do so. All such scenarios are tier 3.
 
