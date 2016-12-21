@@ -74,6 +74,7 @@ these platforms are required to have each of the following:
 | `powerpc-unknown-linux-gnu`       |  ✓  |     |     | PowerPC Linux                |
 | `powerpc64-unknown-linux-gnu`     |  ✓  |     |     | PPC64 Linux                  |
 | `powerpc64el-unknown-linux-gnu`   |  ✓  |     |     | PPC64LE Linux                |
+| `s390x-unknown-linux-gnu`         |  ✓  |     |     | S390x Linux                  |
 | `wasm32-unknown-emscripten`       |  ✓  |     |     | WebAssembly via Emscripten   |
 | `x86_64-apple-ios`                |  ✓  |     |     | 64-bit x86 iOS               |
 | `x86_64-rumprun-netbsd`           |  ✓  |     |     | 64-bit NetBSD Rump Kernel    |
