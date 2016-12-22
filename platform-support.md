@@ -91,7 +91,7 @@ Official builds are not available.
 |  Target                         | std |rustc|cargo| notes                                |
 |---------------------------------|-----|-----|-----|--------------------------------------|
 | `aarch64-linux-android`         |  ✓  |     |     | ARM64 Android                        |
-| `aarch64-linux-fuchsia`         |  ✓  |     |     | Fuchsia OS                           |
+| `aarch64-unknown-fuchsia`       |  ✓  |     |     | Fuchsia OS                           |
 | `armv5te-unknown-linux-gnueabi` |  ✓  |     |     | ARMv5TE                              |
 | `armv7-linux-androideabi`       |  ✓  |     |     | ARMv7a Android                       |
 | `i586-unknown-linux-gnu`        |  ✓  |     |     | 32-bit Linux w/o SSE                 |
@@ -110,7 +110,7 @@ Official builds are not available.
 | `x86_64-sun-solaris`            |  ✓  |  ✓  |     | 64-bit Solaris/SunOS                 |
 | `x86_64-unknown-bitrig`         |  ✓  |  ✓  |     | 64-bit Bitrig                        |
 | `x86_64-unknown-dragonfly`      |  ✓  |  ✓  |     | 64-bit DragonFlyBSD                  |
-| `x86_64-linux-fuchsia`          |  ✓  |     |     | Fuchsia OS                           |
+| `x86_64-unknown-fuchsia`        |  ✓  |     |     | Fuchsia OS                           |
 | `x86_64-unknown-haiku`          |  ✓  |     |     | Haiku OS                             |
 | `x86_64-unknown-openbsd`        |  ✓  |  ✓  |     | 64-bit OpenBSD                       |
 
