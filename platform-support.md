@@ -113,6 +113,7 @@ Official builds are not available.
 | `x86_64-unknown-fuchsia`        |  ✓  |     |     | Fuchsia OS                           |
 | `x86_64-unknown-haiku`          |  ✓  |     |     | Haiku OS                             |
 | `x86_64-unknown-openbsd`        |  ✓  |  ✓  |     | 64-bit OpenBSD                       |
+| `x86_64-unknown-redox`          |  ✓  |     |     | Redox OS                             |
 
 <em>*</em> These are bare-metal microcontroller targets that only have access to
 the core library, not std.
