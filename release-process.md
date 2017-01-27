@@ -10,14 +10,6 @@ it went this time (1.3.0).
 
 ## Promote beta to stable (T-3 days, Monday)
 
-Branch a cargo commit for the release
-
-```sh
-$ cd cargo
-$ git fetch rust-lang
-$ git push rust-lang rust-lang/master:rust-1.14.0
-```
-
 Promote beta to stable.  This is local, in your Rust repo, assuming you have
 push access to rust-lang.
 
@@ -40,6 +32,14 @@ will not upload the bins anywhere, instead leaving them staged in the
 `tmp/dist/packaging-stable/final` subdirectory of the buildbot master.
 
 ## Promote master to beta (T-2 days, Tuesday)
+
+Branch a cargo commit for the Rust beta:
+
+```sh
+$ cd cargo
+$ git fetch rust-lang
+$ git push rust-lang rust-lang/master:rust-1.14.0
+```
 
 Promote master to beta as with yesterday:
 
