@@ -69,8 +69,8 @@ these platforms are required to have each of the following:
 | `mips-unknown-linux-musl`         |  ✓  |     |     | MIPS Linux with MUSL         |
 | `mipsel-unknown-linux-gnu`        |  ✓  |  ✓  |  ✓  | MIPS (LE) Linux              |
 | `mipsel-unknown-linux-musl`       |  ✓  |     |     | MIPS (LE) Linux with MUSL    |
-| `mips64-unknown-linux-gnuabi64`   |  ✓  |  ✓  |  ✓  | MIPS Linux                   |
-| `mips64el-unknown-linux-gnuabi64` |  ✓  |  ✓  |  ✓  | MIPS (LE) Linux              |
+| `mips64-unknown-linux-gnuabi64`   |  ✓  |  ✓  |  ✓  | MIPS64 Linux, n64 ABI        |
+| `mips64el-unknown-linux-gnuabi64` |  ✓  |  ✓  |  ✓  | MIPS64 (LE) Linux, n64 ABI   |
 | `powerpc-unknown-linux-gnu`       |  ✓  |  ✓  |  ✓  | PowerPC Linux                |
 | `powerpc64-unknown-linux-gnu`     |  ✓  |  ✓  |  ✓  | PPC64 Linux                  |
 | `powerpc64le-unknown-linux-gnu`   |  ✓  |  ✓  |  ✓  | PPC64LE Linux                |
