@@ -33,7 +33,7 @@ will not upload the bins anywhere, instead leaving them staged in the
 `tmp/dist/packaging-stable/final` subdirectory of the buildbot master.
 
 
-## Archive upload and prerelease testing (T-2 day, Wednesday)
+## Archive upload and prerelease testing (T-2 days, Tuesday)
 
 Now upload the bins to an s3 staging directory for testing as follows.
 This happens on the buildmaster under the rustbuild user.
@@ -116,6 +116,15 @@ Send a PR to the master branch to:
 - modify src/stage0.txt to bootstrap from yesterday's beta
 - modify src/stage0.txt to bootstrap from yesterday's beta's cargo
 - modify mk/main.mk with the new version number
+
+Tag (without signing) the release. This lets thanks.rust-lang.org pick
+it up.  We'll sign tomorrow. Use "x.y.z release" as the commit
+message.
+
+```sh
+$ git tag 1.3.0 $COMMIT_SHA
+$ git push rust-lang 1.3.0
+```
 
 
 ## Release day (Thursday)
