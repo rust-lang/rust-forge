@@ -33,7 +33,7 @@ will not upload the bins anywhere, instead leaving them staged in the
 `tmp/dist/packaging-stable/final` subdirectory of the buildbot master.
 
 
-## Archive upload and prerelease testing (T-2 day, Wednesday)
+## Archive upload and prerelease testing (T-2 days, Tuesday)
 
 Now upload the bins to an s3 staging directory for testing as follows.
 This happens on the buildmaster under the rustbuild user.
