@@ -1,4 +1,9 @@
-# Cross compilation
+---
+layout: default
+title: Cross compilation
+---
+
+# {{ page.title }}
 
 A list of resources for cross compiling.
 

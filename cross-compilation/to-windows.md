@@ -1,4 +1,9 @@
-# Cross compilation to Windows
+---
+layout: default
+title: "Cross compilation: to Windows"
+---
+
+# {{ page.title }}
 
 1. Acquire LLD somehow. Either your distro provides it or you have to build it from source.
 2. You'll need an lld-link wrapper, which is just lld using the link flavor so it accepts the same flags as link.exe. You may either have a binary called lld-link, or you may have to write some sort of script to wrap lld.
