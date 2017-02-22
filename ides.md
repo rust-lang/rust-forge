@@ -59,6 +59,7 @@ Available IDE plugins:
 * [Eclipse](https://github.com/RustDT/RustDT)
 * [Visual Studio](https://github.com/PistonDevelopers/VisualRust)
 * [IntelliJ IDEA](https://intellij-rust.github.io)
+* [GNOME Builder](https://wiki.gnome.org/Apps/Builder)
 
 Editor plugins:
 
@@ -147,6 +148,18 @@ Repository: [https://github.com/PistonDevelopers/VisualRust](https://github.com/
 Issues: [https://github.com/PistonDevelopers/VisualRust/issues](https://github.com/PistonDevelopers/VisualRust/issues)
 
 Contact: [vosen@vosen.pl](https://github.com/vosen/)
+
+**GNOME Builder**
+
+Installation instructions: [https://wiki.gnome.org/Apps/Builder/Downloads](https://wiki.gnome.org/Apps/Builder/Downloads)
+
+Download: [https://wiki.gnome.org/Apps/Builder/Downloads](https://wiki.gnome.org/Apps/Builder/Downloads)
+
+Repository: [https://git.gnome.org/browse/gnome-builder](https://git.gnome.org/browse/gnome-builder)
+
+Issues: [https://bugzilla.gnome.org](https://bugzilla.gnome.org/buglist.cgi?quicksearch=product:gnome-builder)
+
+Contact: [Christian Hergert](https://github.com/chergert/)
 
 ### Editor Plugins
 
