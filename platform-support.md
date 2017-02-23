@@ -88,41 +88,50 @@ Tier 3 platforms are those which the Rust codebase has support for, but
 which are not built or tested automatically, and may not work.
 Official builds are not available.
 
-|  Target                         | std |rustc|cargo| notes                                |
-|---------------------------------|-----|-----|-----|--------------------------------------|
-| `aarch64-linux-android`         |  ✓  |     |     | ARM64 Android                        |
-| `aarch64-unknown-fuchsia`       |  ✓  |     |     | Fuchsia OS                           |
-| `armv5te-unknown-linux-gnueabi` |  ✓  |     |     | ARMv5TE                              |
-| `armv7-linux-androideabi`       |  ✓  |     |     | ARMv7a Android                       |
-| `i586-unknown-linux-gnu`        |  ✓  |     |     | 32-bit Linux w/o SSE                 |
-| `i686-linux-android`            |  ✓  |     |     | 32-bit x86 Android                   |
-| `i686-pc-windows-msvc` (XP)     |  ✓  |     |     | Windows XP support                   |
-| `i686-unknown-freebsd`          |  ✓  |  ✓  |  ✓  | 32-bit FreeBSD                       |
-| `i686-unknown-haiku`            |  ✓  |     |     | Haiku OS                             |
-| `le32-unknown-nacl`             |  ✓  |     |     | PNaCl sandbox                        |
-| `mips-unknown-linux-uclibc`     |  ✓  |     |     | MIPS Linux with uClibc               |
-| `mipsel-unknown-linux-uclibc`   |  ✓  |     |     | MIPS (LE) Linux with uClibc          |
-| `sparc64-unknown-linux-gnu`     |  ✓  |     |     | SPARC Linux                          |
-| `sparc64-unknown-netbsd`        |  ✓  |     |     | SPARC NetBSD                         |
-| `thumbv6m-none-eabi`            |  *  |     |     | Bare Cortex-M0, M0+, M1              |
-| `thumbv7em-none-eabi`           |  *  |     |     | Bare Cortex-M4, M7                   |
-| `thumbv7em-none-eabihf`         |  *  |     |     | Bare Cortex-M4F, M7F, FPU, hardfloat |
-| `thumbv7m-none-eabi`            |  *  |     |     | Bare Cortex-M3                       |
-| `x86_64-pc-windows-msvc` (XP)   |  ✓  |     |     | Windows XP support                   |
-| `x86_64-sun-solaris`            |  ✓  |  ✓  |     | 64-bit Solaris/SunOS                 |
-| `x86_64-unknown-bitrig`         |  ✓  |  ✓  |     | 64-bit Bitrig                        |
-| `x86_64-unknown-dragonfly`      |  ✓  |  ✓  |     | 64-bit DragonFlyBSD                  |
-| `x86_64-unknown-fuchsia`        |  ✓  |     |     | Fuchsia OS                           |
-| `x86_64-unknown-haiku`          |  ✓  |     |     | Haiku OS                             |
-| `x86_64-unknown-openbsd`        |  ✓  |  ✓  |     | 64-bit OpenBSD                       |
-| `x86_64-unknown-redox`          |  ✓  |     |     | Redox OS                             |
+|  Target                         | std |rustc|cargo| notes                                                    |
+|---------------------------------|-----|-----|-----|----------------------------------------------------------|
+| `aarch64-linux-android`         |  ✓  |     |     | ARM64 Android                                            |
+| `aarch64-unknown-fuchsia`       |  ✓  |     |     | Fuchsia OS                                               |
+| `armv5te-unknown-linux-gnueabi` |  ✓  |     |     | ARMv5TE                                                  |
+| `armv7-linux-androideabi`       |  ✓  |     |     | ARMv7a Android                                           |
+| `i586-unknown-linux-gnu`        |  ✓  |     |     | 32-bit Linux w/o SSE                                     |
+| `i686-linux-android`            |  ✓  |     |     | 32-bit x86 Android                                       |
+| `i686-pc-windows-msvc` (XP)     |  ✓  |     |     | Windows XP support                                       |
+| `i686-unknown-freebsd`          |  ✓  |  ✓  |  ✓  | 32-bit FreeBSD                                           |
+| `i686-unknown-haiku`            |  ✓  |     |     | Haiku OS                                                 |
+| `le32-unknown-nacl`             |  ✓  |     |     | PNaCl sandbox                                            |
+| `mips-unknown-linux-uclibc`     |  ✓  |     |     | MIPS Linux with uClibc                                   |
+| `mipsel-unknown-linux-uclibc`   |  ✓  |     |     | MIPS (LE) Linux with uClibc                              |
+| `mipsel-unknown-linux-uclibc`   |  ✓  |     |     | MIPS (LE) Linux with uClibc                              |
+| `sparc64-unknown-linux-gnu`     |  ✓  |     |     | SPARC Linux                                              |
+| `sparc64-unknown-netbsd`        |  ✓  |     |     | SPARC NetBSD                                             |
+| `thumbv6m-none-eabi`            |  *  |     |     | Bare Cortex-M0, M0+, M1                                  |
+| `thumbv7em-none-eabi`           |  *  |     |     | Bare Cortex-M4, M7                                       |
+| `thumbv7em-none-eabihf`         |  *  |     |     | Bare Cortex-M4F, M7F, FPU, hardfloat                     |
+| `thumbv7m-none-eabi`            |  *  |     |     | Bare Cortex-M3                                           |
+| `x86_64-pc-windows-msvc` (XP)   |  ✓  |     |     | Windows XP support                                       |
+| `x86_64-sun-solaris`            |  ✓  |  ✓  |     | 64-bit Solaris/SunOS                                     |
+| `x86_64-unknown-bitrig`         |  ✓  |  ✓  |     | 64-bit Bitrig                                            |
+| `x86_64-unknown-dragonfly`      |  ✓  |  ✓  |     | 64-bit DragonFlyBSD                                      |
+| `x86_64-unknown-fuchsia`        |  ✓  |     |     | Fuchsia OS                                               |
+| `x86_64-unknown-haiku`          |  ✓  |     |     | Haiku OS                                                 |
+| `x86_64-unknown-openbsd`        |  ✓  |  ✓  |     | 64-bit OpenBSD                                           |
+| `x86_64-unknown-redox`          |  ✓  |     |     | Redox OS                                                 |
+| [MSP430]                        |  ** |     |     | 16-bit MSP430 microcontroller                            |
+| [NVPTX]                         |  ** |     |     | `--emit=asm` generates PTX code that runs on NVIDIA GPUs |
+
+[MSP430]: https://github.com/pftbest/rust_on_msp/blob/master/msp430.json
+[NVPTX]: https://github.com/japaric/nvptx#targets
 
 <em>*</em> These are bare-metal microcontroller targets that only have access to
 the core library, not std.
+
+<em>**</em> There's backend support for these targets but no target built into
+`rustc` (yet). You'll have to write your own target specification file (see the
+links in the table). These targets only support the core library.
 
 But those aren't the only platforms Rust can compile to! Those are the ones with
 built-in target definitions and/or standard library support. When linking only
 to the core library, Rust can also target "bare metal" in the x86, ARM, MIPS, and
 PowerPC families, though it may require defining custom target specifications to
 do so. All such scenarios are tier 3.
-
