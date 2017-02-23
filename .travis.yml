@@ -6,12 +6,12 @@ rvm:
 sudo: false
 
 install: 
-- gem install jekyll -v 2.5.3
+- bundle install
 - pip install --user awscli
 - ~/.local/bin/aws configure set preview.cloudfront true
 
 # Build and deploy the site to the S3 bucket on push to master, unless PR
-script: jekyll build
+script: bundle exec jekyll build
 branches:
   only:
   - master
