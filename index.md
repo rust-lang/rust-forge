@@ -29,6 +29,10 @@ PR's against [rust-lang-nursery/rust-forge].
 
 * [The Rust test suite](test-suite.html).
 
+* [Rustc bug fix procedure](rustc-bug-fix-procedure): Describes the
+  process for bug fixes that may cause existing code to stop
+  compiling.
+
 * [Bots, websites and infrastructure](infrastructure.html). A catalog
   of the IRC bots, websites and other infrastructure used by the
   project, what they do, and who maintains them (i.e. who to contact
