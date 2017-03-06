@@ -102,7 +102,6 @@ Official builds are not available.
 | `le32-unknown-nacl`             |  ✓  |     |     | PNaCl sandbox                                            |
 | `mips-unknown-linux-uclibc`     |  ✓  |     |     | MIPS Linux with uClibc                                   |
 | `mipsel-unknown-linux-uclibc`   |  ✓  |     |     | MIPS (LE) Linux with uClibc                              |
-| `mipsel-unknown-linux-uclibc`   |  ✓  |     |     | MIPS (LE) Linux with uClibc                              |
 | `sparc64-unknown-linux-gnu`     |  ✓  |     |     | SPARC Linux                                              |
 | `sparc64-unknown-netbsd`        |  ✓  |     |     | SPARC NetBSD                                             |
 | `thumbv6m-none-eabi`            |  *  |     |     | Bare Cortex-M0, M0+, M1                                  |
