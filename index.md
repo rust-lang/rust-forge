@@ -29,11 +29,11 @@ PR's against [rust-lang-nursery/rust-forge].
 
 * [The Rust test suite](test-suite.html).
 
-* [Rustc bug fix procedure](rustc-bug-fix-procedure): Describes the
+* [Rustc bug fix procedure](rustc-bug-fix-procedure.html): Describes the
   process for bug fixes that may cause existing code to stop
   compiling.
 
-* [So you want to stabilize a feature?](stabilization-guide): Describes
+* [So you want to stabilize a feature?](stabilization-guide.html): Describes
   the procedure for stabilizing features in rustc.
 
 * [Bots, websites and infrastructure](infrastructure.html). A catalog
