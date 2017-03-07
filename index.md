@@ -33,6 +33,9 @@ PR's against [rust-lang-nursery/rust-forge].
   process for bug fixes that may cause existing code to stop
   compiling.
 
+* [So you want to stabilize a feature?](stabilization-guide): Describes
+  the procedure for stabilizing features in rustc.
+
 * [Bots, websites and infrastructure](infrastructure.html). A catalog
   of the IRC bots, websites and other infrastructure used by the
   project, what they do, and who maintains them (i.e. who to contact
