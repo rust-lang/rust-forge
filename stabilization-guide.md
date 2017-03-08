@@ -5,7 +5,7 @@ title: So you want to stabilize a feature?
 
 Once we have decided to **stabilize** a feature, we need to have a PR that actually makes that stabilization happen. These kinds of PRs are a great way to get involved in Rust, as they take you on a little tour through the source code. Here is a general guide to how to stabilize a feature -- every feature is different, of course, so some features may require steps beyond what this guide talks about.
 
-**IMPORTANT:** Before we stabilize any feature, note that we also have a rule that it should appear in the documentation. This is often overlooked. =)
+**IMPORTANT:** Before we stabilize any feature, note that we also have a rule that it should appear in the documentation. This is often overlooked. =) How to do this is the last section of this guide.
 
 ### Updating the feature-gate listing
 
@@ -62,3 +62,22 @@ if self.tcx.sess.features.borrow().pub_restricted && something { /* XXX */ }
 if something { /* XXX */ }
 ```
 
+### Updating documentation
+
+If any documentation for this feature exists, it should be in the `Unstable Book`, located at `src/doc/unstable-book`.
+Regardless of its existence, the page for the feature gate should be removed.
+
+If there was documentation there, integrating it into the existing documentation is needed.
+
+If there wasn't documentation there, it needs to be added.
+
+Places that may need updated documentation:
+
+* [The Reference](https://github.com/rust-lang-nursery/reference): this must be updated, in full detail.
+* [The Book](https://github.com/rust-lang/book): this may or may not need
+  updating, depending. If you're not sure, please open an issue on this
+  repository and it can be discussed.
+* standard library documentation: as needed. Language features often don't need this, but if it's a
+  feature that changes how good examples are written, such as when `?` was added to the language,
+  updating examples is important.
+* [Rust by Example](https://github.com/rust-lang/rust-by-example): as needed.
