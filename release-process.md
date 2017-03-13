@@ -72,7 +72,7 @@ curl -sSf https://static.rust-lang.org/rustup.sh | sh -s -- --spec=stable-2015-0
 
 ## Promote master to beta (T-2 days, Tuesday)
 
-Branch a cargo commit for the Rust beta:
+Branch a rust-lang/cargo commit for the new beta:
 
 ```sh
 $ cd cargo
@@ -80,17 +80,14 @@ $ git fetch rust-lang
 $ git push rust-lang rust-lang/master:rust-1.14.0
 ```
 
-Promote master to beta as with yesterday:
+Promote rust-lang/rust's master branch to beta as with yesterday:
 
 ```sh
 $ git fetch rust-lang
 $ git push rust-lang rust-lang/master:beta -f
 ```
 
-Like yesterday, promote any nightly-only `*_cross_targets` arrays to also be
-included on the beta channel.
-
-Send a commit to the freshly created beta branch of rust-lang/rust
+Send a PR to the freshly created beta branch of rust-lang/rust
 which:
 
 - updates src/stage0.txt to bootstrap from this new stable
@@ -101,11 +98,7 @@ which:
   build master. Do not update the Cargo version in this file.
 - Also update src/ci/run.sh to pass "--release-channel=beta".
 
-Manually start the `beta-dist-rustc-trigger`. The beta build will use
-the rustc binaries that already exist in the archives (only the
-combined 'rust' package hasn't been uploaded). The beta will deploy
-automatically.
-
+After this PR merges (through @bors) the beta should be automatically released.
 
 # Master bootstrap update (T-1 day, Wednesday)
 
