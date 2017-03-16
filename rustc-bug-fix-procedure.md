@@ -244,33 +244,6 @@ to the PR and avoid directly merging it. In the future we may develop
 a more polished procedure here, but the hope is that this is a
 relatively temporary state of affairs.
 
-# Drawbacks
-[drawbacks]: #drawbacks
-
-Following this policy can require substantial effort and slows the
-time it takes for a change to become final. However, this is far
-outweighed by the benefits of avoiding sharp disruptions in the
-ecosystem.
-
-# Alternatives
-[alternatives]: #alternatives
-
-There are obviously many points that we could tweak in this policy:
-
-- Eliminate the tracking issue.
-- Change the stabilization schedule.
-
-Two other obvious (and rather extreme) alternatives are not having a
-policy and not making any sort of breaking change at all:
-
-- Not having a policy at all (as is the case today) encourages
-  inconsistent treatment of issues.
-- Not making any sorts of breaking changes would mean that Rust simply
-  has to stop evolving, or else would issue new major versions quite
-  frequently, causing undue disruption.
-
-# Unresolved questions
-[unresolved]: #unresolved-questions
 
 N/A
 
