@@ -230,23 +230,6 @@ process that we use for unstable features:
 Ideally, breaking changes should have landed on the **stable branch**
 of the compiler before they are finalized.
 
-### Batching breaking changes to libsyntax
-
-Due to the lack of stable plugins, making changes to libsyntax can
-currently be quite disruptive to the ecosystem that relies on plugins.
-In an effort to ease this pain, we generally try to batch up such
-changes so that they occur all at once, rather than occuring in a
-piecemeal fashion. In practice, this means that you should add:
-
-    cc #31645 @Manishearth
-    
-to the PR and avoid directly merging it. In the future we may develop
-a more polished procedure here, but the hope is that this is a
-relatively temporary state of affairs.
-
-
-N/A
-
 <!-- -Links--------------------------------------------------------------------- -->
 
 [RFC 1122]: https://github.com/rust-lang/rfcs/blob/master/text/1122-language-semver.md
