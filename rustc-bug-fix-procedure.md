@@ -230,49 +230,115 @@ process that we use for unstable features:
 Ideally, breaking changes should have landed on the **stable branch**
 of the compiler before they are finalized.
 
-### Batching breaking changes to libsyntax
+<a name="guide">
 
-Due to the lack of stable plugins, making changes to libsyntax can
-currently be quite disruptive to the ecosystem that relies on plugins.
-In an effort to ease this pain, we generally try to batch up such
-changes so that they occur all at once, rather than occuring in a
-piecemeal fashion. In practice, this means that you should add:
+### Removing a lint
 
-    cc #31645 @Manishearth
-    
-to the PR and avoid directly merging it. In the future we may develop
-a more polished procedure here, but the hope is that this is a
-relatively temporary state of affairs.
+Once we have decided to make a "future warning" into a hard error, we
+need a PR that removes the custom lint. As an example, here are the
+steps required to remove the `overlapping_inherent_impls`
+compatibility lint. First, convert the name of the lint to uppercase
+(`OVERLAPPING_INHERENT_IMPLS`) ripgrep thorugh the source for that
+string. We will basically by converting each place where this lint
+name is mentioned (in the compiler, we use the upper-case name, and a
+macro automatically generates the lower-case string; so searching for
+`overlapping_inherent_impls` would not find much).
 
-# Drawbacks
-[drawbacks]: #drawbacks
+#### Remove the lint.
 
-Following this policy can require substantial effort and slows the
-time it takes for a change to become final. However, this is far
-outweighed by the benefits of avoiding sharp disruptions in the
-ecosystem.
+The first reference you will likely find is the lint definition
+[in `librustc/lint/builtin.rs` that resembles this][defsource]:
 
-# Alternatives
-[alternatives]: #alternatives
+[defsource]: https://github.com/rust-lang/rust/blob/085d71c3efe453863739c1fb68fd9bd1beff214f/src/librustc/lint/builtin.rs#L171-L175
+  
+```rust
+declare_lint! {
+    pub OVERLAPPING_INHERENT_IMPLS,
+    Deny, // this may also say Warning
+    "two overlapping inherent impls define an item with the same name were erroneously allowed"
+}
+```
 
-There are obviously many points that we could tweak in this policy:
+This `declare_lint!` macro creates the relevant data
+structures. Remove it. You will also find that there is a mention of
+`OVERLAPPING_INHERENT_IMPLS` later in the file as
+[part of a `lint_array!`][lintarraysource]; remove it too,
 
-- Eliminate the tracking issue.
-- Change the stabilization schedule.
+[lintarraysource]: https://github.com/rust-lang/rust/blob/085d71c3efe453863739c1fb68fd9bd1beff214f/src/librustc/lint/builtin.rs#L252-L290
 
-Two other obvious (and rather extreme) alternatives are not having a
-policy and not making any sort of breaking change at all:
+Next, you see see
+[a reference to `OVERLAPPING_INHERENT_IMPLS` in `librustc_lint/lib.rs`][futuresource]. This
+defining the lint as a "future compatibility lint":
 
-- Not having a policy at all (as is the case today) encourages
-  inconsistent treatment of issues.
-- Not making any sorts of breaking changes would mean that Rust simply
-  has to stop evolving, or else would issue new major versions quite
-  frequently, causing undue disruption.
+```rust
+FutureIncompatibleInfo {
+    id: LintId::of(OVERLAPPING_INHERENT_IMPLS),
+    reference: "issue #36889 <https://github.com/rust-lang/rust/issues/36889>",
+},
+```
 
-# Unresolved questions
-[unresolved]: #unresolved-questions
+Remove this too.
 
-N/A
+#### Add the lint to the list of removed lists.
+
+In `src/librustc_lint/lib.rs` there is a list of "renamed and removed
+lints". You can add this lint to the list:
+
+```rust
+store.register_removed("overlapping_inherent_impls", "converted into hard error, see #36889");
+```
+
+where `#36889` is the tracking issue for your lint.
+
+#### Update the places that issue the lint
+
+Finally, the last class of references you will see are the places that
+actually **trigger** the lint itself (i.e., what causes the warnings
+to appear). These you do not want to delete. Instead, you want to
+convert them into errors. In this case, the
+[`add_lint` call][addlintsource] looks like this:
+
+```rust
+self.tcx.sess.add_lint(lint::builtin::OVERLAPPING_INHERENT_IMPLS,
+                       node_id,
+                       self.tcx.span_of_impl(item1).unwrap(),
+                       msg);
+```
+
+We want to convert this into an error. In some cases, there may be an
+existing error for this scenario. In others, we will need to allocate
+a fresh diagnostic
+code. [Instructions for allocating a fresh diagnostic code can be found here.](rustc-diagnostic-code.html)
+You may want to mention in the extended descripiton that the compiler
+behavior changed on this point, and include a reference to the
+tracking issue for the change.
+
+Let's say that we've adopted `E0592` as our code. Then we can change
+the `add_lint()` call above to something like:
+
+```rust
+struct_span_err!(self.tcx.sess, self.tcx.span_of_impl(item1).unwrap(), msg)
+    .emit();
+```
+
+#### Update tests
+
+Finally, run the test suite. These should be some tests that used to
+reference the `overlapping_inherent_impls` lint, those will need to be
+updated. In general, if the test used to have
+`#[deny(overlapping_inherent_impls)]`, that can just be removed.
+
+```
+./x.py test
+```
+
+#### All done!
+
+Open a PR. =)
+
+[addlintsource]: https://github.com/rust-lang/rust/blob/085d71c3efe453863739c1fb68fd9bd1beff214f/src/librustc_typeck/coherence/inherent.rs#L300-L303
+
+[futuresource]: https://github.com/rust-lang/rust/blob/085d71c3efe453863739c1fb68fd9bd1beff214f/src/librustc_lint/lib.rs#L202-L205
 
 <!-- -Links--------------------------------------------------------------------- -->
 
