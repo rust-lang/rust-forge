@@ -5,7 +5,7 @@ title: The Rust Forge
 
 This site contains supplementary documentation useful to the members
 of [The Rust Project](https://www.rust-lang.org). To edit it submit
-PR's against [rust-lang-nursery/rust-forge].
+PRs against [rust-lang-nursery/rust-forge].
 
 [rust-lang-nursery/rust-forge]: https://github.com/rust-lang-nursery/rust-forge
 
