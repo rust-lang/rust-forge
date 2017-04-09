@@ -22,6 +22,7 @@ community.
 
 
 <a id="plan"></a>
+
 ## The plan
 
 To work with an IDE, the compiler must respond to changes made by the
@@ -47,6 +48,7 @@ we may focus or broaden our efforts in the future.
 
 
 <a id="status"></a>
+
 ## Current status
 
 There is [an RFC PR](https://github.com/rust-lang/rfcs/pull/1317) for
@@ -82,6 +84,7 @@ Formatting source code is available via
 [rustfmt](https://github.com/rust-lang-nursery/rustfmt)
 
 <a id="help"></a>
+
 ## How to help
 
 * Comment on the [RFC PR](https://github.com/rust-lang/rfcs/pull/1317),
