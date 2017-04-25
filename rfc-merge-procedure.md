@@ -4,11 +4,11 @@ title: RFC Merge Procedure
 ---
 
 Once an RFC has been accepted (i.e., the final comment period is
-complete), it must be merged. Right now this is a manual process, and
-can only be done by a subteam member with push rights (though others
-could open a PR to do it, it would just have to be merged by a subteam
-member). Here is the complete set of steps to merge an RFC -- in some
-cases, not all the steps will be applicable.
+complete), it must be merged. Right now this is a manual process,
+though just about anyone can do it (if you're not a subteam member,
+though, you'll have to open a PR rather than merge the RFC
+manually). Here is the complete set of steps to merge an RFC -- in
+some cases, not all the steps will be applicable.
 
 ### Step 1: Open tracking issue
 
@@ -41,16 +41,19 @@ Add the following labels to the issue:
 - `B-unstable`
 - the approriate `T-XXX` label
 
+(If you don't have permissions to do so, leave a note cc'ing the
+appropriate team and asking them to do so.)
+
 ### Step 2: Merge the RFC PR itself
 
 In your local git checkout:
 
-- Merge the RFC PR into master, locally
+- Merge the RFC PR into master in your fork
 - Add a commit that moves the file name from 0000- to its RFC number
 - Edit the new file to include links to the RFC PR and the tracking issue you just created
   in the header
-- Push directly to the master branch  
-  
+- Open a PR or push directly to the master branch on rust-lang/rfcs, as appropriate
+ 
 ### Step 3: Leave a comment
 
 Leave a final comment on the PR directing everyone to the tracking
