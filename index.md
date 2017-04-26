@@ -42,3 +42,5 @@ PRs against [rust-lang-nursery/rust-forge].
   when they malfunction and go on a bot rampage).
 
 * [Cross compilation resources](cross-compilation/index.html)
+
+* [RFC merge procedure](rfc-merge-procedure.html)
