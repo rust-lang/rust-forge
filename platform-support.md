@@ -98,7 +98,7 @@ Official builds are not available.
 | `i686-linux-android`            |  ✓  |     |     | 32-bit x86 Android                                       |
 | `i686-pc-windows-msvc` (XP)     |  ✓  |     |     | Windows XP support                                       |
 | `i686-unknown-freebsd`          |  ✓  |  ✓  |  ✓  | 32-bit FreeBSD                                           |
-| `i686-unknown-haiku`            |  ✓  |     |     | Haiku OS                                                 |
+| `i686-unknown-haiku`            |  ✓  |     |     | 32-bit Haiku                                             |
 | `le32-unknown-nacl`             |  ✓  |     |     | PNaCl sandbox                                            |
 | `mips-unknown-linux-uclibc`     |  ✓  |     |     | MIPS Linux with uClibc                                   |
 | `mipsel-unknown-linux-uclibc`   |  ✓  |     |     | MIPS (LE) Linux with uClibc                              |
@@ -113,7 +113,7 @@ Official builds are not available.
 | `x86_64-unknown-bitrig`         |  ✓  |  ✓  |     | 64-bit Bitrig                                            |
 | `x86_64-unknown-dragonfly`      |  ✓  |  ✓  |     | 64-bit DragonFlyBSD                                      |
 | `x86_64-unknown-fuchsia`        |  ✓  |     |     | Fuchsia OS                                               |
-| `x86_64-unknown-haiku`          |  ✓  |     |     | Haiku OS                                                 |
+| `x86_64-unknown-haiku`          |  ✓  |     |     | 64-bit Haiku                                             |
 | `x86_64-unknown-openbsd`        |  ✓  |  ✓  |     | 64-bit OpenBSD                                           |
 | `x86_64-unknown-redox`          |  ✓  |     |     | Redox OS                                                 |
 | [MSP430]                        |  ** |     |     | 16-bit MSP430 microcontroller                            |
