@@ -123,4 +123,7 @@ created.
 Also tag RLS the same way and then run `cargo publish` for the tag you just
 created.
 
+Once published, go send a PR to the beta branch to comment out `dev: 1` again
+and update the date to download from (modifying `src/stage0.txt`).
+
 Bask in your success.
