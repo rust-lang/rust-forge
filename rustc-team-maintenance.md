@@ -6,7 +6,7 @@ Places that will need to be updated:
 - the rust-lang/TEAM and rust-lang-nursery/TEAM team on github
 - rfcbot has a separate list of people on a team that is maintained in a database
     - you can ping dikaiosune on IRC, or else prepare a migration
-    - [here is an example migration that was adding Carol to the core team](https://github.com/dikaiosune/rust-dashboard/tree/master/migrations/20170222224139_carols10cents_tools_team)
+    - [here is an example migration that was adding Carol to the tools team](https://github.com/dikaiosune/rust-dashboard/tree/master/migrations/20170222224139_carols10cents_tools_team)
     - to remove someone, simply reverse the up/down steps
 - the easydns service has an e-mail alias (`compiler-team@rust-lang.org`) that needs to be updated
     - best here is to ask around in #rust-infra
