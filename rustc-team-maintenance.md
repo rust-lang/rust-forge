@@ -10,3 +10,4 @@ Places that will need to be updated:
     - to remove someone, simply reverse the up/down steps
 - the easydns service has an e-mail alias (`compiler-team@rust-lang.org`) that needs to be updated
     - best here is to ask around in #rust-infra
+- the [internals discussion board has per-team groups](https://internals.rust-lang.org/admin/groups/custom)
