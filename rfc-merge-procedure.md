@@ -4,7 +4,7 @@ title: RFC Merge Procedure
 ---
 
 Once an RFC has been accepted (i.e., the final comment period is
-complete), it must be merged. Right now this is a manual process,
+complete, and no major issues were raised), it must be merged. Right now this is a manual process,
 though just about anyone can do it (if you're not a subteam member,
 though, you'll have to open a PR rather than merge the RFC
 manually). Here is the complete set of steps to merge an RFC -- in
@@ -38,7 +38,6 @@ XXX --- list all the "unresolved questions" found in the RFC
 Add the following labels to the issue:
 
 - `B-rfc-approved`
-- `B-unstable`
 - the approriate `T-XXX` label
 
 (If you don't have permissions to do so, leave a note cc'ing the
