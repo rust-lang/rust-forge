@@ -4,7 +4,7 @@ The roster of the Rust subteams is always in flux. From time to time, new people
 
 If just giving r+ rights, the following places need to be modified:
 
-- bors
+- the [homu template on rust-central-station](https://github.com/alexcrichton/rust-central-station/blob/master/homu.toml.template)
 
 ### Full feam membership
 
