@@ -11,7 +11,7 @@ If just giving r+ rights, the following places need to be modified:
 To make a full team member, the following places need to be modified:
 
 - the [team roster page](https://github.com/rust-lang/rust-www/blob/master/team.md)
-- the rust-lang/TEAM and rust-lang-nursery/TEAM team on github
+- the [rust-lang/TEAM](https://github.com/orgs/rust-lang/teams) and (in some cases) [rust-lang-nursery/TEAM](https://github.com/orgs/rust-lang-nursery/teams) teams on github must be updated
 - rfcbot has a separate list of people on a team that is maintained in a database
     - you can ping dikaiosune on IRC, or else prepare a migration
     - [here is an example migration that was adding Carol to the tools team](https://github.com/dikaiosune/rust-dashboard/tree/master/migrations/20170222224139_carols10cents_tools_team)
