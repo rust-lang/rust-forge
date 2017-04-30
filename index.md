@@ -27,6 +27,8 @@ PRs against [rust-lang-nursery/rust-forge].
 * [Release process](release-process.html). How to make releases of
   Rust.
 
+* [How to prepare Rust release notes](release-notes.html).
+
 * [The Rust test suite](test-suite.html).
 
 * [Rustc bug fix procedure](rustc-bug-fix-procedure.html): Describes the
