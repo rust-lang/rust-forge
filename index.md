@@ -46,3 +46,5 @@ PRs against [rust-lang-nursery/rust-forge].
 * [Cross compilation resources](cross-compilation/index.html)
 
 * [RFC merge procedure](rfc-merge-procedure.html)
+
+* [Team maintenance](rustc-team-maintenance.html)
