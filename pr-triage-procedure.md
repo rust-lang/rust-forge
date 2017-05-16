@@ -4,6 +4,7 @@ title: PR Triage Procedure
 ---
 
 Status tag meanings:
+
  - [S-waiting-on-review]: Review is incomplete
  - [S-waiting-on-author]: Author needs to make changes to address reviewer comments, or merge
    conflicts/test failures are present. This also covers more obscure cases, like a PR being blocked
