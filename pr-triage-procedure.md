@@ -30,7 +30,8 @@ choose a reviewer from the team by manually assigning in GitHub.
 
 When **no review has happened**, if the PR is a work in progress (e.g., test failures, merge
 conflict) mark S-waiting-on-author. Otherwise, mark S-waiting-on-review. If no human has checked in
-yet, leave a comment saying something like "Thanks for the PR! We’ll periodically check in on it to
+yet and you don't recognise the submitter as a regular contributor, leave a comment saying something
+like "Thanks for the PR! We’ll periodically check in on it to
 make sure that @reviewer or someone else from the team reviews it soon."
 
 At this point, all PRs must have a tag applied.
