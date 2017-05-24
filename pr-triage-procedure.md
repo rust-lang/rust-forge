@@ -5,13 +5,13 @@ title: PR Triage Procedure
 
 Status tag meanings:
 
- - [S-waiting-on-review]: Review is incomplete
- - [S-waiting-on-author]: Author needs to make changes to address reviewer comments, or merge
+ - [S-waiting-on-review] - Review is incomplete
+ - [S-waiting-on-author] - Author needs to make changes to address reviewer comments, or merge
    conflicts/test failures are present. This also covers more obscure cases, like a PR being blocked
    on another, or waiting for a crater run -- it is the author's responsibility to push the PR
    forward.
- - [S-waiting-on-team]: A T- label is marked, and team has been cc-ed for feedback.
- - [S-waiting-on-bors]: Currently approved, waiting to merge.
+ - [S-waiting-on-team] - A T- label is marked, and team has been cc-ed for feedback.
+ - [S-waiting-on-bors] - Currently approved, waiting to merge.
 
 [S-waiting-on-review]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-review
 [S-waiting-on-author]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-author
