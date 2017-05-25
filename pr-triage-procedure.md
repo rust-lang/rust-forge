@@ -5,17 +5,17 @@ title: PR Triage Procedure
 
 Status tag meanings:
 
- - [S-waiting-on-review]: Review is incomplete
- - [S-waiting-on-author]: Author needs to make changes to address reviewer comments, or merge
+ - [S-waiting-on-review] - Review is incomplete
+ - [S-waiting-on-author] - Author needs to make changes to address reviewer comments, or merge
    conflicts/test failures are present. This also covers more obscure cases, like a PR being blocked
    on another, or waiting for a crater run -- it is the author's responsibility to push the PR
    forward.
- - [S-waiting-on-team]: A T- label is marked, and team has been cc-ed for feedback.
- - [S-waiting-on-bors]: Currently approved, waiting to merge.
+ - [S-waiting-on-team] - A T- label is marked, and team has been cc-ed for feedback.
+ - [S-waiting-on-bors] - Currently approved, waiting to merge.
 
 [S-waiting-on-review]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-review
 [S-waiting-on-author]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-author
-[S-waiting-on-team]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-team+sort%3Aupdated-asc
+[S-waiting-on-team]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-team+sort%3Aupdated-desc
 [S-waiting-on-bors]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-bors+sort%3Aupdated-asc
 
 # Procedure:
@@ -80,11 +80,14 @@ If the **review is incomplete**:
 
 ## [S-waiting-on-team PRs]
 
-All PRs should be processed. First, ensure that the status tag matches the current state of the PR.
-Change the tag if necessary, and apply the procedure for the new tag now. Verify that there is a T- tag
+PRs active within the last 4 days need to be processed. These can be found by looking at
+the "updated X days ago" on GitHub's PR list.
+
+First, ensure that the status tag matches the current state of the PR. Change the tag if necessary,
+and apply the procedure for the new tag now. Verify that there is a T- tag
 for all PRs that remain in this category.
 
-[S-waiting-on-team PRs]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-team+sort%3Aupdated-asc
+[S-waiting-on-team PRs]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-team+sort%3Aupdated-desc
 
 ## [S-waiting-on-bors PRs]
 
