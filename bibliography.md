@@ -90,3 +90,4 @@ Language](http://www.cs.indiana.edu/~eholk/papers/hips2013.pdf). Early GPU work 
 * [Safe, Correct, and Fast Low-Level Networking](https://octarineparrot.com/assets/msci_paper.pdf). Robert Clipsham's master's thesis.
 * [Formalizing Rust traits](http://hdl.handle.net/2429/55609). Jonatan Milewski's mater's thesis.
 * [Rust as a Language for High Performance GC Implementation](http://users.cecs.anu.edu.au/~steveb/downloads/pdf/rust-ismm-2016.pdf)
+* [Writing parsers like it is 2017](http://spw17.langsec.org/papers/chifflier-parsing-in-2017.pdf) Pierre Chifflier and Geoffroy Couprie for the Langsec Workshop
