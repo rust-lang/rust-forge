@@ -31,6 +31,10 @@ Documentation on rfcbot commands can be found [in the dashboard repository](http
 
 Please contact [Adam Perry](https://github.com/dikaiosune) ("dikaiosune" on IRC) if something goes wrong with the bot, or open an issue on [the dashboard repository](https://github.com/dikaiosune/rust-dashboard/).
 
+## nagbot
+
+[nagbot](https://github.com/aturon/nag-rs) is a bot that emails Rust team members to nag them for reviews. Please contact [Aaron Turon](https://github.com/aturon) ("aturon" on IRC) if something goes wrong with the bot, or open an issue on [its repo](https://github.com/aturon/nag-rs).
+
 ## Others
 
 TODO: Describe these better.
