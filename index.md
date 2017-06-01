@@ -29,6 +29,10 @@ PRs against [rust-lang-nursery/rust-forge].
 
 * [How to prepare Rust release notes](release-notes.html).
 
+* [Beta backporting](beta-backporting.html). The mystery of the
+  oft-misinterpreted `beta-nominated` / `beta-accepted` tags finally
+  revealed.
+
 * [The Rust test suite](test-suite.html).
 
 * [Rustc bug fix procedure](rustc-bug-fix-procedure.html): Describes the
