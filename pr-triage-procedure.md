@@ -80,12 +80,18 @@ If the **review is incomplete**:
 
 ## [S-waiting-on-team PRs]
 
-PRs active within the last 4 days need to be processed. These can be found by looking at
-the "updated X days ago" on GitHub's PR list.
+PRs active within the last 4 days and inactive for greater than 2 weeks need to be processed.
+These can be found by looking at the "updated X days ago" on GitHub's PR list.
 
 First, ensure that the status tag matches the current state of the PR. Change the tag if necessary,
 and apply the procedure for the new tag now. Verify that there is a T- tag
 for all PRs that remain in this category.
+
+If the PR has been inactive for greater than 2 weeks, ping the team lead on IRC and on GitHub,
+noting that you've pinged on IRC.
+
+If there has been recent activity, the team might have taken some action meaning the state has
+changed but the label has not yet been updated. Therefore, we also check the most recent ones.
 
 [S-waiting-on-team PRs]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-team+sort%3Aupdated-desc
 
