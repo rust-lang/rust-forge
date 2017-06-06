@@ -67,13 +67,13 @@ $ git push rust-lang rust-lang/master:beta -f
 Send a PR to the freshly created beta branch of rust-lang/rust
 which:
 
-* Update src/stage0.txt to bootstrap from the freshly minted stable
-  compiler. The format is "X.Y.Z-YYYY-MM-DD", and the date is the
-  archive date the stable build was uploaded.  Note that you'll need to update
-  `src/bootstrap/bootstrap.py` to pull from `dev-static.rust-lang.org` instead
-  of `static.rust-lang.org` as the stable release isn't published yet. Later
-  you'll send a PR to bootstrap from the `static.rust-lang.org` location after
-  the release.
+* Update src/stage0.txt
+  * Change `date` to "YYYY-MM-DD" where the date is the archive date the stable
+    build was uploaded
+  * Change `rustc` to "X.Y.Z" where that's the version of rustc you just build
+  * Change `cargo` to "A.B.C" where it's Cargo's version. That's typically
+    "0.(Y+1).0" wrt the rustc version.
+  * Uncomment `dev: 1`
 * Update src/ci/run.sh to pass "--release-channel=beta".
 * Update the cargo submodule to the head of the versioned branch
 * Update the rls submodule to the head of the versioned branch
