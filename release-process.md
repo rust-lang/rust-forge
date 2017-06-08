@@ -93,37 +93,46 @@ Send a PR to the master branch to:
 
 ## Release day (Thursday)
 
-This is on rust-central-station:
+Decide on a time to do the release, T.
 
-```
-docker exec -d -it `docker ps -l -q` bash -c \
-  'promote-release /tmp/stable stable /src/data/secrets.toml 2>&1 | logger --tag release-stable-realz'
-```
+* **T-30m** - This is on rust-central-station:
 
-That'll, in the background, schedule the `promote-release` binary to run on the
-production secrets (not the dev secrets). That'll sign everything, upload it,
-update the html index pages, and invalidate the CDN. Note that this takes about
-30 minutes right now.
+  ```
+  docker exec -d -it `docker ps -l -q` bash -c \
+    'promote-release /tmp/stable stable /src/data/secrets.toml 2>&1 | logger --tag release-stable-realz'
+  ```
 
-Next merge the website. It takes a while to deploy.
+  That'll, in the background, schedule the `promote-release` binary to run on the
+  production secrets (not the dev secrets). That'll sign everything, upload it,
+  update the html index pages, and invalidate the CDN. Note that this takes about
+  30 minutes right now.
 
-Merge blog post.
+* **T-20m** - Merge the website. Travis may have a big backlog, cancel
+  rust-lang/rust PR builds or other builds until this build is scheduled.
+  This'll then involve a CloudFront invalidation that takes awhile.
 
-Locally, tag the new release and upload it. Use "x.y.z release" as the commit
-message.
+* **T-10m** - Locally, tag the new release and upload it. Use "x.y.z release" as
+  the commit message.
 
-```sh
-$ git tag -u FA1BE5FE 1.3.0 $COMMIT_SHA
-$ git push rust-lang 1.3.0
-```
+  ```sh
+  $ git tag -u FA1BE5FE 1.3.0 $COMMIT_SHA
+  $ git push rust-lang 1.3.0
+  ```
+  After this [Update thanks.rust-lang.org][update-thanks].
 
-Also tag Cargo the same way and then run `cargo publish` for the tag you just
-created.
+* **T-5m** - Merge blog post.
 
-Also tag RLS the same way and then run `cargo publish` for the tag you just
-created.
+* **T** - Tweet and post everything!
 
-Once published, go send a PR to the beta branch to comment out `dev: 1` again
-and update the date to download from (modifying `src/stage0.txt`).
+* **T+5m** - Tag Cargo the same way as rust-lang/rust and then run `cargo
+  publish` for the tag you just created.
+
+  Also tag RLS the same way and then run `cargo publish` for the tag you just
+  created.
+
+* **T+1hr** Send a PR to the beta branch to comment out `dev: 1` again and
+  update the date to download from (modifying `src/stage0.txt`).
+
+[update-thanks]: https://github.com/rust-lang-nursery/thanks#thanks
 
 Bask in your success.
