@@ -12,17 +12,19 @@ Status tag meanings:
    forward.
  - [S-waiting-on-team] - A T- label is marked, and team has been cc-ed for feedback.
  - [S-waiting-on-bors] - Currently approved, waiting to merge.
+ - [S-waiting-on-crater] - Waiting to see what the impact the PR will have on the ecosystem
 
 [S-waiting-on-review]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-review
 [S-waiting-on-author]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-author
 [S-waiting-on-team]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-team+sort%3Aupdated-desc
 [S-waiting-on-bors]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-bors+sort%3Aupdated-asc
+[S-waiting-on-crater]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-crater+sort%3Aupdated-asc
 
 # Procedure:
 
-## Unlabeled PRs
+## [Unlabeled PRs]
 
-All [unlabeled PRs] should be processed. The steps below are not mutually exclusive, any number of
+All unlabeled PRs should be processed. The steps below are not mutually exclusive, any number of
 them may apply.
 
 When there is **no assignee**, because highfive flaked, figure out the responsible team and randomly
@@ -36,7 +38,7 @@ make sure that @reviewer or someone else from the team reviews it soon."
 
 At this point, all PRs must have a tag applied.
 
-[unlabeled PRs]: https://github.com/rust-lang/rust/pulls?utf8=%E2%9C%93&q=is%3Aopen%20is%3Apr%20sort%3Aupdated-asc%20-label%3AS-waiting-on-author%20-label%3AS-waiting-on-team%20-label%3AS-waiting-on-bors%20-label%3AS-waiting-on-team%20-label%3AS-waiting-on-review%20
+[Unlabeled PRs]: https://github.com/rust-lang/rust/pulls?utf8=%E2%9C%93&q=is%3Aopen%20is%3Apr%20sort%3Aupdated-asc%20-label%3AS-waiting-on-author%20-label%3AS-waiting-on-team%20-label%3AS-waiting-on-bors%20-label%3AS-waiting-on-crater%20-label%3AS-waiting-on-team%20-label%3AS-waiting-on-review%20
 
 ## [S-waiting-on-author PRs]
 
@@ -77,7 +79,6 @@ If the **review is incomplete**:
 
 [S-waiting-on-review PRs]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-review
 
-
 ## [S-waiting-on-team PRs]
 
 PRs active within the last 4 days and inactive for greater than 2 weeks need to be processed.
@@ -102,6 +103,11 @@ Change the tag if necessary, and apply the procedure for the new tag now.
 
 [S-waiting-on-bors PRs]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-bors+sort%3Aupdated-asc
 
+## [S-waiting-on-crater PRs]
+
+To be determined
+
+[S-waiting-on-crater PRs]: https://github.com/rust-lang/rust/pulls?utf8=%E2%9C%93&q=is%3Aopen%20is%3Apr%20sort%3Aupdated-asc%20label%3AS-waiting-on-crater
 
 ## Updating the Spreadsheet
 
