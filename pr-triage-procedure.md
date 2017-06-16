@@ -13,12 +13,14 @@ Status tag meanings:
  - [S-waiting-on-team] - A T- label is marked, and team has been cc-ed for feedback.
  - [S-waiting-on-bors] - Currently approved, waiting to merge.
  - [S-waiting-on-crater] - Waiting to see what the impact the PR will have on the ecosystem
+ - [S-inactive-closed] - Closed due to inactivity.
 
 [S-waiting-on-review]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-review
 [S-waiting-on-author]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-author
 [S-waiting-on-team]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-team+sort%3Aupdated-desc
 [S-waiting-on-bors]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-bors+sort%3Aupdated-asc
 [S-waiting-on-crater]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-crater+sort%3Aupdated-asc
+[S-inactive-closed]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-inactive-closed+sort%3Aupdated-asc
 
 # Procedure:
 
@@ -53,7 +55,7 @@ update, ping the author on GitHub asking for an update.
 
 If the author's been unresponsive for more than 14 days, close the PR due to inactivity and ask the
 author to reopen when they have a chance to make the necessary changes. Make sure to thank the
-author for the changes.
+author for the changes. Also tag the PR with S-inactive-closed.
 
 [S-waiting-on-author PRs]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-author
 
@@ -115,10 +117,17 @@ the failures.
 If crater has been run and the results do not include failures, change the tag to
 S-waiting-on-review for the reviewer to take one last look and approve.
 
-If crater has not been run and it has been more than 3 days since a crater run was requested, ping 
+If crater has not been run and it has been more than 3 days since a crater run was requested, ping
 acrichto, brson, tomprince, and frewsxcv and request a crater run.
 
 [S-waiting-on-crater PRs]: https://github.com/rust-lang/rust/pulls?utf8=%E2%9C%93&q=is%3Aopen%20is%3Apr%20sort%3Aupdated-asc%20label%3AS-waiting-on-crater
+
+## [S-inactive-closed PRs]
+
+These never need to be looked at. PRs which have been closed due inactivity. This is a terminal
+state for the time being, primarily oriented towards easing future work.
+
+[S-inactive-closed PRs]: https://github.com/rust-lang/rust/pulls?utf8=%E2%9C%93&q=is%3Aopen%20is%3Apr%20sort%3Aupdated-asc%20label%3AS-inactive-closed
 
 ## Updating the Spreadsheet
 
