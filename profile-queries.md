@@ -11,13 +11,13 @@ how we profile it. We intend this profiling effort to address
 
 ## Quick Start
 
-1. Compile the compiler, as usual
+Compile the compiler, as usual:
 
 ```
 python x.py --stage 1
 ```
 
-2. Run the compiler on a source file:
+Run the compiler on a source file:
 
 ```
 rustc -Z profile-queries -Z dump-dep-graph foo.rs
@@ -36,7 +36,9 @@ This command will generate the following files:
   the [trace of queries](#trace-of-queries).
 - `profile_queries.counts.txt` consists of a histogram, where each histogram "bucket" is a query provider.
 
-Older stuff, also generated as output:
+Begin by opening the first HTML file with a browser.  See [this section](#interpret-the-html-output) for an explanation of this file.
+
+Older stuff, also generated as output (you can _ignore these files_; we won't discuss them further here):
 
 - `dep_graph.dot` consists of old stuff: a representation of dependencies that are _outside_ the newer query model.
 - `dep_graph.txt` consists of old stuff: a representation of dependencies that are _outside_ the newer query model.
@@ -57,32 +59,41 @@ short prefix of the total output; the _actual_ output is much longer.
 ### Example 0 explanation
 
 The trace of the queries has a formal structure; see
-[Trace of Queries](#trace-of-queries), for more details.
+[Trace of Queries](#trace-of-queries) for details.
+
+We style this formal structure as follows:
 
 - Blue dots represent query hits.  They consist of leaves in the
-  trace's tree. CSS class: `hit`.
+  trace's tree. (CSS class: `hit`).
 - Red boxes represent query misses. They consist of internal nodes in
-  the trace's tree. CSS class: `miss`.
+  the trace's tree. (CSS class: `miss`).
 - Some red boxes are _nested within others_.  This nesting structure
   reflects that some providers _depend on_ results from other
   providers, which consist of their nested children.
 	  - For example, the red box labeled as `typeck_tables_of` depends
 		on the one labeled `adt_dtorck_constraint`, which itself
 		depends on one labeled `coherent_trait`.
-- Some red boxes are _labeled_ with text.  (See
-  [heuristics](#heuristics) for details).  Where they are present, the
-  labels give the following information:
+- Some red boxes are _labeled_ with text, and have highlighted borders
+  (light red, and bolded).  (See [heuristics](#heuristics) for
+  details).  Where they are present, the labels give the following
+  information:
      - The [query's _provider_](#queries), sans its _key_ and its _result_,
        which are often too long to include in these labels.
-     - The _duration_ of the provider, in seconds. This time includes
-       the query's entire extent (that is, the sum total of all of its
+     - The _duration_ of the provider, as a fraction of the total time
+       (for the entire trace). This fraction includes the query's
+       entire extent (that is, the sum total of all of its
        sub-queries).
 
 
 ## Heuristics
 
-XXX
+Heuristics-based CSS Classes:
 
+- `important` -- Trace nodes are `important` if they have an extent of
+  6 (or more), _or_ they have a duration fraction of one percent (or
+  more).  These numbers are simple hueristics (currently hard-coded,
+  but easy to modify).  Important nodes are styled with textual
+  labels, and highlighted borders (light red, and bolded).
 
 # Background
 
