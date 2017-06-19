@@ -1,6 +1,6 @@
 # Profiling Queries
 
-In an effort to support incremental compilation, the latest design of
+In an effort to support _incremental compilation_, the latest design of
 the Rust compiler consists of a _query-based_ model.
 
 The details of this model are (currently) outside the scope of this
@@ -27,7 +27,6 @@ Notice the two additional parameters:
 
 - `-Z profile-queries` tells the compiler to run a separate thread
   that profiles the queries made by the main compiler thread(s).
-
 - `-Z dump-dep-graph` tells the compiler to "dump" various files that
   describe the compilation dependencies.
 
@@ -35,25 +34,47 @@ This command will generate the following files:
 
 - `profile_queries.html` consists of an HTML-based representation of
   the [trace of queries](#trace-of-queries).
-
 - `profile_queries.counts.txt` consists of a histogram, where each histogram "bucket" is a query provider.
 
-- `dep_graph.dot` consists of old stuff: a representation of dependencies that are _outside_ the newer query model.
+Older stuff, also generated as output:
 
+- `dep_graph.dot` consists of old stuff: a representation of dependencies that are _outside_ the newer query model.
 - `dep_graph.txt` consists of old stuff: a representation of dependencies that are _outside_ the newer query model.
 
 
 ## Interpret the HTML Output
 
-The trace of the queries has a formal structure, which we reference
-below.  See [Trace of Queries](#trace-of-queries), above, for more
-details.
+### Example 0
+The following image gives some example output, from
+tracing the queries of `hello_world.rs` (a single `main` function, that prints
+`"hello world"` via the macro `println!`).
+
+![](profile-queries/example0.png)
+
+### Example 0 explanation
+
+The trace of the queries has a formal structure; see
+[Trace of Queries](#trace-of-queries), for more details.
 
 - Blue dots represent query hits.  They consist of leaves in the
   trace's tree. CSS class: `hit`.
-
 - Red boxes represent query misses. They consist of internal nodes in
   the trace's tree. CSS class: `miss`.
+- Some red boxes are _labeled_ with text.  (See
+  [heuristics](#heuristics) for details).  Where they are present, the
+  labels give the following information:
+     - The query's _provider_, sans its _key_ and its _result_,
+       which are often too long to include in these labels.
+     - The _duration_ of the provider, in seconds. This time includes
+       the query's entire extent (that is, the sum total of all of its
+       sub-queries).
+- Some red boxes are _nested within others_.  This nesting structure
+  reflects that some providers _depend on_ results from other
+  providers, which consist of their nested children.  For example, the
+  red box labeled as `typeck_tables_of` depends on the one labeled
+  `adt_dtorck_constraint`, which itself depends on one labeled
+  `coherent_trait`.
+
 
 ## Heuristics
 
@@ -91,13 +112,10 @@ provided earlier.  We explain each term in more detail:
 - Query **Provider**: Each kind of query has a pre-defined _provider_,
   which refers to the compiler behavior that provides an answer to the
   query.  These providers may nest; see [trace of
-  queries](#trace-of-queries), below.
-
+  queries](#trace-of-queries).
 - Query **Key**: The input/arguments to the provider.  Often, this
   consists of a particular [Def ID](#def-ids).
-
 - Query **Result**: The output of the provider.
-
 - Example queries:
 
     - `typeck_tables_of` -- Typecheck a Def ID; produce "tables" of type information. XXX
@@ -123,7 +141,6 @@ The trace is a tree with the following possible tree nodes:
   its provider runs to compute it.  In this case, the dynamic extent
   of the query's trace consists of the traced behavior of its
   provider.
-
 - Query, with cache **hit**: The query's result is **known**, and is
   reused; its provider does not rerun.  These nodes are leaves in the
   trace, since they have no dynamic extent.  These leaves also
