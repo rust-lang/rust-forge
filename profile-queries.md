@@ -14,7 +14,7 @@ how we profile it. We intend this profiling effort to address
 1. Compile the compiler, as usual
 
 ```
-python x.py --stage 0
+python x.py --stage 1
 ```
 
 2. Run the compiler on a source file:
@@ -45,11 +45,14 @@ Older stuff, also generated as output:
 ## Interpret the HTML Output
 
 ### Example 0
-The following image gives some example output, from
-tracing the queries of `hello_world.rs` (a single `main` function, that prints
-`"hello world"` via the macro `println!`).
+
+The following image gives some example output, from tracing the
+queries of `hello_world.rs` (a single `main` function, that prints
+`"hello world"` via the macro `println!`).  This image only shows a
+short prefix of the total output; the _actual_ output is much longer.
 
 ![](profile-queries/example0.png)
+
 
 ### Example 0 explanation
 
@@ -60,20 +63,20 @@ The trace of the queries has a formal structure; see
   trace's tree. CSS class: `hit`.
 - Red boxes represent query misses. They consist of internal nodes in
   the trace's tree. CSS class: `miss`.
+- Some red boxes are _nested within others_.  This nesting structure
+  reflects that some providers _depend on_ results from other
+  providers, which consist of their nested children.
+	  - For example, the red box labeled as `typeck_tables_of` depends
+		on the one labeled `adt_dtorck_constraint`, which itself
+		depends on one labeled `coherent_trait`.
 - Some red boxes are _labeled_ with text.  (See
   [heuristics](#heuristics) for details).  Where they are present, the
   labels give the following information:
-     - The query's _provider_, sans its _key_ and its _result_,
+     - The [query's _provider_](#queries), sans its _key_ and its _result_,
        which are often too long to include in these labels.
      - The _duration_ of the provider, in seconds. This time includes
        the query's entire extent (that is, the sum total of all of its
        sub-queries).
-- Some red boxes are _nested within others_.  This nesting structure
-  reflects that some providers _depend on_ results from other
-  providers, which consist of their nested children.  For example, the
-  red box labeled as `typeck_tables_of` depends on the one labeled
-  `adt_dtorck_constraint`, which itself depends on one labeled
-  `coherent_trait`.
 
 
 ## Heuristics
@@ -118,8 +121,8 @@ provided earlier.  We explain each term in more detail:
 - Query **Result**: The output of the provider.
 - Example queries:
 
-    - `typeck_tables_of` -- Typecheck a Def ID; produce "tables" of type information. XXX
-    - `borrowck` -- Borrow-check a Def ID; produce XXX
+    - `typeck_tables_of` -- Typecheck a Def ID; produce "tables" of type information.
+    - `borrowck` -- Borrow-check a Def ID.
     - `optimized_mir` -- Generate an optimized MIR for a Def ID; produce MIR.
 
 ## Trace of Queries
