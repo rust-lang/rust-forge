@@ -11,9 +11,27 @@ to address [issue
 
 ## Def IDs
 
-XXX
+In the query model, many queries have a key that consists of a Def ID.
+The Rust compiler uses Def IDs to distinguish definitions in the input
+Rust program.
+
+From the compiler source code (`src/librustc/hir/def_id.rs`):
+
+```
+/// A DefId identifies a particular *definition*, by combining a crate
+/// index and a def index.
+#[derive(Clone, Eq, Ord, PartialOrd, PartialEq, RustcEncodable, RustcDecodable, Hash, Copy)]
+pub struct DefId {
+    pub krate: CrateNum,
+    pub index: DefIndex,
+}
+```
 
 ## Queries
+
+A query relates a _key_ to a _result_, either by invoking a _provider_
+that computes this result, or by reusing a cached result that was
+provided earlier.  We explain each term in more detail:
 
 - Query **Provider**: Each kind of query has a pre-defined _provider_,
   which refers to the compiler behavior that provides an answer to the
