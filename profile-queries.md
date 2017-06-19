@@ -4,10 +4,65 @@ In an effort to support incremental compilation, the latest design of
 the Rust compiler consists of a _query-based_ model.
 
 The details of this model are (currently) outside the scope of this
-document, however, we explain some aspects of this model below, in an
-effort to explain how we profile it. We intend this profiling effort
-to address [issue
-42678](https://github.com/rust-lang/rust/issues/42678).
+document, however, we explain
+[some background of this model](#background), in an effort to explain
+how we profile it. We intend this profiling effort to address
+[issue 42678](https://github.com/rust-lang/rust/issues/42678).
+
+## Quick Start
+
+1. Compile the compiler, as usual
+
+```
+python x.py --stage 0
+```
+
+2. Run the compiler on a source file:
+
+```
+rustc -Z profile-queries -Z dump-dep-graph foo.rs
+```
+
+Notice the two additional parameters:
+
+- `-Z profile-queries` tells the compiler to run a separate thread
+  that profiles the queries made by the main compiler thread(s).
+
+- `-Z dump-dep-graph` tells the compiler to "dump" various files that
+  describe the compilation dependencies.
+
+This command will generate the following files:
+
+- `profile_queries.html` consists of an HTML-based representation of
+  the [trace of queries](#trace-of-queries).
+
+- `profile_queries.counts.txt` consists of a histogram, where each histogram "bucket" is a query provider.
+
+- `dep_graph.dot` consists of old stuff: a representation of dependencies that are _outside_ the newer query model.
+
+- `dep_graph.txt` consists of old stuff: a representation of dependencies that are _outside_ the newer query model.
+
+
+## Interpret the HTML Output
+
+The trace of the queries has a formal structure, which we reference
+below.  See [Trace of Queries](#trace-of-queries), above, for more
+details.
+
+- Blue dots represent query hits.  They consist of leaves in the
+  trace's tree. CSS class: `hit`.
+
+- Red boxes represent query misses. They consist of internal nodes in
+  the trace's tree. CSS class: `miss`.
+
+## Heuristics
+
+XXX
+
+
+# Background
+
+We give some background about the query model of the Rust compiler.
 
 ## Def IDs
 
@@ -51,20 +106,30 @@ provided earlier.  We explain each term in more detail:
 
 ## Trace of Queries
 
+Formally, a _trace_ of the queries consists of a _tree_, where
+sub-trees represent sub-traces.  In particular, the nesting structure
+of the trace of queries describes how the queries depend on one
+another.
+
+Even more precisely, this tree represents a directed acyclic graph
+(DAG), where shared sub-graphs consist of tree nodes that occur
+multiple times in the tree, first as "cache misses" and later as
+"cache hits".
+
 **Cache hits and misses.**
-The HTML output represents a trace of how the queries of the compiler
-depend on one another.  Formally, a _trace_ of the queries consists of
-a _tree_, with the following possible tree nodes:
+The trace is a tree with the following possible tree nodes:
 
-- Query **hit**: The query's result is **known**, and is reused; its
-  provider does not rerun.  These nodes are leaves in the trace, since
-  they have no dynamic extent.  These leaves also represent where the
-  tree, represented as a DAG, would _share_ a sub-graph (namely, the
-  sub-graph of the query that was reused from the cache).
+- Query, with cache **miss**: The query's result is **unknown**, and
+  its provider runs to compute it.  In this case, the dynamic extent
+  of the query's trace consists of the traced behavior of its
+  provider.
 
-- Query **miss**: The query's result is **unknown**, and its provider
-  runs to compute it.  In this case, the dynamic extent of the query's
-  trace consists of the traced behavior of its provider.
+- Query, with cache **hit**: The query's result is **known**, and is
+  reused; its provider does not rerun.  These nodes are leaves in the
+  trace, since they have no dynamic extent.  These leaves also
+  represent where the tree, represented as a DAG, would _share_ a
+  sub-graph (namely, the sub-graph of the query that was reused from
+  the cache).
 
 **Tree node metrics.**
 To help determine how to style this tree, we define the following tree
@@ -80,22 +145,6 @@ instance, a tree node whose extent consists of 1M immediate children
 means that if and when this node is re-computed, all 1M children must
 be re-queried, at the very least (some may also require recomputation,
 too).
-
-## Interpret the HTML Output
-
-The trace of the queries has a formal structure, which we reference
-below.  See [Trace of Queries](#trace-of-queries), above, for more
-details.
-
-- Blue dots represent query hits.  They consist of leaves in the
-  trace's tree. CSS class: `hit`.
-
-- Red boxes represent query misses. They consist of internal nodes in
-  the trace's tree. CSS class: `miss`.
-
-## Heuristics
-
-XXX
 
 ## Links
 
