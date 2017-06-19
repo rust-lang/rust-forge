@@ -24,3 +24,5 @@ To make a full team member, the following places need to be modified:
 - the easydns service has an e-mail alias (`compiler-team@rust-lang.org`) that needs to be updated
     - best here is to ask around in #rust-infra
 - the [internals discussion board has per-team groups](https://internals.rust-lang.org/admin/groups/custom)
+- the list of reviewers highfive uses is set in [nrc/highfive](https://github.com/nrc/highfive/tree/master/highfive/configs)
+    - the configs are set per-repo; some teams are listed in `rust.json`, whereas those that span multiple repos are set in `_global.json`
