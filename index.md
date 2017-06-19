@@ -56,3 +56,5 @@ PRs against [rust-lang-nursery/rust-forge].
 * [PR Triage Procedure](pr-triage-procedure.html)
 
 * [Homu/Bors Syntax](https://buildbot2.rust-lang.org/homu/)
+
+* [Conventions](conventions.html)
