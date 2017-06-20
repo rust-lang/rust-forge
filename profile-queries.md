@@ -75,10 +75,10 @@ We style this formal structure as follows:
   the trace's tree. (CSS class: `miss`).
 - Some red boxes are _nested within others_.  This nesting structure
   reflects that some providers _depend on_ results from other
-  providers, which consist of their nested children.
-	  - For example, the red box labeled as `typeck_tables_of` depends
-		on the one labeled `adt_dtorck_constraint`, which itself
-		depends on one labeled `coherent_trait`.
+  providers, which consist of their nested children.  
+	 - For example, the red box labeled as `typeck_tables_of` depends
+	   on the one labeled `adt_dtorck_constraint`, which itself
+	   depends on one labeled `coherent_trait`.
 - Some red boxes are _labeled_ with text, and have highlighted borders
   (light red, and bolded).  (See [heuristics](#heuristics) for
   details).  Where they are present, the labels give the following
@@ -117,6 +117,8 @@ For each provider, we produce:
   view of these durations, see
   [this section](#interpret-the-html-output).
 
+These rows are **sorted by total duration**, in descending order.
+
 ### Counts: Example 0
 
 The following example `profile_queries.counts.txt` file results from
@@ -126,42 +128,42 @@ running on a hello world program (a single main function that uses
 As explained above, the columns consist of `provider`, `count`, `duration`:
 
 ```
-item_attrs,5300,0.065
-mir_const,2,0.001
-adt_dtorck_constraint,2,0.024
-predicates_of,82,0.001
-crate_inherent_impls,1,0.000
-super_predicates_of,8,0.000
-is_mir_available,1,0.000
-adt_destructor,10,0.012
-privacy_access_levels,5,0.000
-adt_sized_constraint,9,0.001
-associated_item_def_ids,7,0.000
-typeck_tables_of,33,0.025
+symbol_name,2441,0.362
+def_symbol_name,2414,0.129
+item_attrs,5300,0.060
 type_of,4841,0.059
-impl_parent,306,0.006
-coherent_trait,7,0.012
-trait_def,216,0.002
-region_maps,11,0.000
-associated_item,3,0.000
+generics_of,7216,0.049
+impl_trait_ref,2898,0.037
+def_span,20381,0.030
+adt_def,1142,0.028
+is_foreign_item,2425,0.021
+adt_dtorck_constraint,2,0.016
+typeck_tables_of,33,0.014
+typeck_item_bodies,1,0.010
+coherent_trait,7,0.008
+adt_destructor,10,0.008
+borrowck,4,0.008
+mir_validated,4,0.007
+impl_parent,306,0.003
+trait_def,216,0.001
+mir_const,2,0.001
+optimized_mir,6,0.000
+adt_sized_constraint,9,0.000
+predicates_of,82,0.000
+privacy_access_levels,5,0.000
 impl_polarity,15,0.000
-is_foreign_item,2425,0.028
-variances_of,12,0.000
-symbol_name,2441,0.339
 trait_of_item,7,0.000
+region_maps,11,0.000
+associated_item_def_ids,7,0.000
+super_predicates_of,8,0.000
+variances_of,12,0.000
+crate_inherent_impls,1,0.000
 is_exported_symbol,2,0.000
-def_span,20381,0.049
-impl_trait_ref,2898,0.064
-mir_validated,4,0.016
-adt_def,1142,0.038
-borrowck,4,0.017
-typeck_item_bodies,1,0.019
-generics_of,7216,0.052
-def_symbol_name,2414,0.116
-reachable_set,1,0.000
-inherent_impls,1,0.000
-optimized_mir,6,0.001
+associated_item,3,0.000
 crate_inherent_impls_overlap_check,1,0.000
+reachable_set,1,0.000
+is_mir_available,1,0.000
+inherent_impls,1,0.000
 ```
 
 # Background
