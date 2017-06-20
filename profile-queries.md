@@ -60,6 +60,7 @@ short prefix of the total output; the _actual_ output is much longer.
 
 ![](profile-queries/example0.png)
 
+[Full HTML output](profile-queries/example0/profile_queries.html)
 
 ### Example 0 explanation
 
