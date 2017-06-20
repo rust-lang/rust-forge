@@ -116,11 +116,13 @@ For each provider, we produce:
   view of these durations, see
   [this section](#interpret-the-html-output).
 
-### Example 0
+### Counts: Example 0
 
 The following example `profile_queries.counts.txt` file results from
 running on a hello world program (a single main function that uses
 `println` to print `"hellow world").
+
+As explained above, the columns consist of `provider`, `count`, `duration`:
 
 ```
 item_attrs,5300,0.065
@@ -192,15 +194,15 @@ provided earlier.  We explain each term in more detail:
 - Query **Provider**: Each kind of query has a pre-defined _provider_,
   which refers to the compiler behavior that provides an answer to the
   query.  These providers may nest; see [trace of
-  queries](#trace-of-queries).
-- Query **Key**: The input/arguments to the provider.  Often, this
-  consists of a particular [Def ID](#def-ids).
-- Query **Result**: The output of the provider.
-- Example queries:
-
+  queries](#trace-of-queries) for more information about this nesting structure.      
+    _Example providers:_
     - `typeck_tables_of` -- Typecheck a Def ID; produce "tables" of type information.
     - `borrowck` -- Borrow-check a Def ID.
     - `optimized_mir` -- Generate an optimized MIR for a Def ID; produce MIR.
+    - For more examples, see [Example 0](#counts-example-0).
+- Query **Key**: The input/arguments to the provider.  Often, this
+  consists of a particular [Def ID](#def-ids).
+- Query **Result**: The output of the provider.
 
 ## Trace of Queries
 
