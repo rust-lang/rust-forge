@@ -39,7 +39,9 @@ This command will generate the following files:
 - `profile_queries.counts.txt` consists of a histogram, where each histogram "bucket" is a query provider.
 
 ### 3. Inspect the HTML output
-Opening the first HTML file (`profile_queries.html`) with a browser.  See [this section](#interpret-the-html-output) for an explanation of this file.
+Open the HTML file (`profile_queries.html`) with a browser.  See [this section](#interpret-the-html-output) for an explanation of this file.
+
+Open the data file (`profile_queries.counts.txt`) with a text editor, or spreadsheet.  See [this section](#interpret-the-data-output) for an explanation of this file.
 
 Older stuff, also generated as output (you can _ignore these files_; we won't discuss them further here):
 
@@ -97,6 +99,67 @@ Heuristics-based CSS Classes:
   more).  These numbers are simple hueristics (currently hard-coded,
   but easy to modify).  Important nodes are styled with textual
   labels, and highlighted borders (light red, and bolded).
+
+## Interpret the Data Output
+
+The file `profile_queries.counts.txt` contains a table of information
+about the queries, organized around their providers.
+
+For each provider, we produce:
+
+- A total **count** --- the total number of times this provider was
+  queried
+
+- A total **duration** --- the total number of seconds spent running
+  this provider, _including_ all providers it may depend on.  To get a
+  sense of this dependency structure, and inspect a more fine-grained
+  view of these durations, see
+  [this section](#interpret-the-html-output).
+
+### Example 0
+
+The following example `profile_queries.counts.txt` file results from
+running on a hello world program (a single main function that uses
+`println` to print `"hellow world").
+
+```
+item_attrs,5300,0.065
+mir_const,2,0.001
+adt_dtorck_constraint,2,0.024
+predicates_of,82,0.001
+crate_inherent_impls,1,0.000
+super_predicates_of,8,0.000
+is_mir_available,1,0.000
+adt_destructor,10,0.012
+privacy_access_levels,5,0.000
+adt_sized_constraint,9,0.001
+associated_item_def_ids,7,0.000
+typeck_tables_of,33,0.025
+type_of,4841,0.059
+impl_parent,306,0.006
+coherent_trait,7,0.012
+trait_def,216,0.002
+region_maps,11,0.000
+associated_item,3,0.000
+impl_polarity,15,0.000
+is_foreign_item,2425,0.028
+variances_of,12,0.000
+symbol_name,2441,0.339
+trait_of_item,7,0.000
+is_exported_symbol,2,0.000
+def_span,20381,0.049
+impl_trait_ref,2898,0.064
+mir_validated,4,0.016
+adt_def,1142,0.038
+borrowck,4,0.017
+typeck_item_bodies,1,0.019
+generics_of,7216,0.052
+def_symbol_name,2414,0.116
+reachable_set,1,0.000
+inherent_impls,1,0.000
+optimized_mir,6,0.001
+crate_inherent_impls_overlap_check,1,0.000
+```
 
 # Background
 
