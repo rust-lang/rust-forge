@@ -6,24 +6,26 @@ the Rust compiler consists of a _query-based_ model.
 The details of this model are (currently) outside the scope of this
 document, however, we explain
 [some background of this model](#background), in an effort to explain
-how we profile it. We intend this profiling effort to address
+how we profile its performance. We intend this profiling effort to address
 [issue 42678](https://github.com/rust-lang/rust/issues/42678).
 
 ## Quick Start
 
+### 1. Compile `rustc`
 Compile the compiler, as usual:
 
 ```
 python x.py --stage 1
 ```
 
-Run the compiler on a source file:
+### 2. Run `rustc`, with flags
+Run the compiler on a source file, supplying two additional debugging flags with `-Z`:
 
 ```
 rustc -Z profile-queries -Z dump-dep-graph foo.rs
 ```
 
-Notice the two additional parameters:
+Regarding the two additional parameters:
 
 - `-Z profile-queries` tells the compiler to run a separate thread
   that profiles the queries made by the main compiler thread(s).
@@ -36,7 +38,8 @@ This command will generate the following files:
   the [trace of queries](#trace-of-queries).
 - `profile_queries.counts.txt` consists of a histogram, where each histogram "bucket" is a query provider.
 
-Begin by opening the first HTML file with a browser.  See [this section](#interpret-the-html-output) for an explanation of this file.
+### 3. Inspect the HTML output
+Opening the first HTML file (`profile_queries.html`) with a browser.  See [this section](#interpret-the-html-output) for an explanation of this file.
 
 Older stuff, also generated as output (you can _ignore these files_; we won't discuss them further here):
 
