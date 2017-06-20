@@ -50,8 +50,8 @@ The wiki guidelines have long suggested naming traits as follows:
 
 Rust provides two basic strategies for dealing with errors:
 
-* *Task failure*, which unwinds to at least the task boundary, and by default
-  propagates to other tasks through poisoned channels and mutexes. Task failure
+* *Panicking*, which unwinds to at least the task boundary, and by default
+  propagates to other tasks through poisoned channels and mutexes. Panicking
   works well for coarse-grained error handling.
 
 * *The Result type*, which allows functions to signal error conditions through
@@ -60,10 +60,10 @@ Rust provides two basic strategies for dealing with errors:
 
 Use these basic strategies to handle specific error classes.
 
-* For *catastrophic errors*, abort the process or fail the task depending on
+* For *catastrophic errors*, abort the process or panic the task depending on
   whether any recovery is possible.
 
-* For *contract violations*, fail the task. Recover from programmer errors at
+* For *contract violations*, panic the task. Recover from programmer errors at
   a coarse grain.
 
 * For *obstructions to the operation*, use `Result` or, less often,
@@ -83,9 +83,9 @@ Errors fall into one of three categories:
 The basic principle of the conventions is that:
 
 * Catastrophic errors and programming errors (bugs) can and should only be
-recovered at a *coarse grain*, i.e. a task boundary.
+  recovered at a *coarse grain*, i.e. a task boundary.
 * Obstructions preventing an operation should be reported at a maximally *fine
-grain* -- to the immediate invoker of the operation.
+  grain* -- to the immediate invoker of the operation.
 
 #### Catastrophic errors
 
@@ -96,10 +96,10 @@ Catastrophic errors are _extremely_ rare, especially outside of `libstd`.
 
 **Canonical examples**: out of memory, stack overflow.
 
-##### For catastrophic errors, fail the task.
+##### For catastrophic errors, panic.
 
 For errors like stack overflow, Rust currently aborts the process, but
-could in principle fail the task, which (in the best case) would allow
+could in principle panic, which, in the best case, would allow
 reporting and recovery from a supervisory task.
 
 #### Contract violations
@@ -112,12 +112,12 @@ Contracts can be complex and involve more than a single function invocation. For
 example, the `RefCell` type requires that `borrow_mut` not be called until all
 existing borrows have been relinquished.
 
-#### For contract violations, fail the task.
+#### For contract violations, panic.
 
 A contract violation is always a bug, and for bugs we follow the Erlang
 philosophy of "let it crash": we assume that software *will* have bugs, and we
-design coarse-grained task boundaries to report, and perhaps recover, from these
-bugs.
+design coarse-grained task boundaries to report, and perhaps recover, from
+these bugs.
 
 ##### Contract design
 
@@ -189,7 +189,7 @@ vector can be viewed as asking for the contents of the first element,
 with the side effect of removing it if it exists -- with an `Option`
 return value.
 
-#### Do not provide both `Result` and `fail!` variants.
+#### Do not provide both `Result` and `panic!` variants.
 
 An API should not provide both `Result`-producing and `fail`ing versions of an
 operation. It should provide just the `Result` version, allowing clients to use
