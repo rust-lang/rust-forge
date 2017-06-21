@@ -73,7 +73,7 @@ We style this formal structure as follows:
   trace's tree. (CSS class: `hit`).
 - Red boxes represent query misses. They consist of internal nodes in
   the trace's tree. (CSS class: `miss`).
-- Some red boxes contain _nested boxes and dots_.  This nesting structure
+- Many red boxes contain _nested boxes and dots_.  This nesting structure
   reflects that some providers _depend on_ results from other
   providers, which consist of their nested children.  
 	 - For example, the red box labeled as `typeck_tables_of` depends
