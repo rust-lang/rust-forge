@@ -38,12 +38,12 @@ This command will generate the following files:
   the [trace of queries](#trace-of-queries).
 - `profile_queries.counts.txt` consists of a histogram, where each histogram "bucket" is a query provider.
 
-### 3. Inspect the HTML output
-Open the HTML file (`profile_queries.html`) with a browser.  See [this section](#interpret-the-html-output) for an explanation of this file.
+### 3. Inspect the output
+3(a). Open the HTML file (`profile_queries.html`) with a browser.  See [this section](#interpret-the-html-output) for an explanation of this file.
 
-Open the data file (`profile_queries.counts.txt`) with a text editor, or spreadsheet.  See [this section](#interpret-the-data-output) for an explanation of this file.
+3(b). Open the data file (`profile_queries.counts.txt`) with a text editor, or spreadsheet.  See [this section](#interpret-the-data-output) for an explanation of this file.
 
-Older stuff, also generated as output (you can _ignore these files_; we won't discuss them further here):
+3(c). Older stuff, also generated as output (you can _ignore these files_; we won't discuss them further here):
 
 - `dep_graph.dot` consists of old stuff: a representation of dependencies that are _outside_ the newer query model.
 - `dep_graph.txt` consists of old stuff: a representation of dependencies that are _outside_ the newer query model.
@@ -73,7 +73,7 @@ We style this formal structure as follows:
   trace's tree. (CSS class: `hit`).
 - Red boxes represent query misses. They consist of internal nodes in
   the trace's tree. (CSS class: `miss`).
-- Some red boxes are _nested within others_.  This nesting structure
+- Some red boxes contain _nested boxes and dots_.  This nesting structure
   reflects that some providers _depend on_ results from other
   providers, which consist of their nested children.  
 	 - For example, the red box labeled as `typeck_tables_of` depends
