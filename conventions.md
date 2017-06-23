@@ -34,11 +34,11 @@ design. This document intends to document all of them.
 The wiki guidelines have long suggested naming traits as follows:
 
 * Prefer (transitive) verbs, nouns, and then adjectives. Avoid grammatical
-  suffixes such as `able`. Examples include `Copy`, `Clone`, `Show`.
+  suffixes such as `able`. Examples include `Copy`, `Clone`, `Display`.
 
 * If there is a single method that is the dominant functionality of the trait,
   consider using the same name for the trait itself. Examples include `Clone`
-  and `ToCStr`.
+  and `ToString`.
 
 ### Associated Types
 
@@ -214,7 +214,7 @@ The main examples in `libstd` that *currently* provide both variants are:
 
 * `RefCell`, which provides a dynamic version of the borrowing rules. Calling
   the `borrow()` method is intended as an assertion that the cell is in a
-  borrowable state, and will `fail!` otherwise. On the other hand, there is no
+  borrowable state, and will `panic!` otherwise. On the other hand, there is no
   separate way to check the state of the `RefCell`, so the module provides a
   `try_borrow` variant that produces a `Result`.
 
