@@ -47,12 +47,13 @@ However, subsequent builds won't be as long unless LLVM is updated.
 ./x.py build
 ```
 
-This command will build all stages of the compiler. First it will build a Stage
-0 version of the compiler to make sure it can be bootstrapped from the previous
-stable version of the compiler. It'll then build a Stage 1 compiler to see if it
-can compile itself at that stage. At this point your changes to the compiler
-should be visible if compilation doesn't fail. After this it builds a Stage
-2 compiler as a sanity check.
+This command will build the compiler. Because Rust is a bootstrapping compiler
+(the Rust compiler is written in Rust) this will involve compiling the compiler
+twice. The first compilation creates the "stage 1" compiler and the second
+compilation creates the "stage 2" compiler. The "stage 2" compiler is typically
+considered the final compiler and is what tests are run with and what you will
+likely interact with. In some situations, though, the "stage 1" compiler may be
+all you need (more on this later).
 
 More often than not this is not the command you want to run unless you plan on
 double checking that everything is working.
@@ -62,7 +63,7 @@ double checking that everything is working.
 ```bash
 ./x.py build --stage 0
 
-# Stage 1 is enough to test out all of your changes
+# Stage 1 is typically enough to test out all of your changes
 # to the compiler
 ./x.py build --stage 1
 
@@ -257,7 +258,7 @@ documentation you want.
 By default `rustc` does not build the compiler for it's internal items.
 Mostly because this is useless for the average user. However, you might need to
 have it available so you can understand the types. Here's how you can compile it
-yourself:
+yourself. From the top level directory where `x.py`is located run:
 
 ```bash
 cp src/bootstrap/config.toml.example config.toml
@@ -273,7 +274,7 @@ compiler-docs = true
 When you want to build the compiler docs as well run this command:
 
 ```bash
-./x.py doc --config config.toml
+./x.py doc
 ```
 
 This will see that the `docs` and `compiler-docs` options are set to true and
@@ -301,7 +302,10 @@ Options:
 
 # Cleaning out build directories
 
-Sometimes you need to start fresh. You only need to run one command!
+Sometimes you need to start fresh, but this is normally not the case. If you
+need to run this then `rustbuild` is most likely not acting right and you should
+file a bug as to what is going wrong. If you do need to clean everything up then 
+you only need to run one command!
 
 ```bash
 ./x.py clean
