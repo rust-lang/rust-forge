@@ -88,6 +88,7 @@ Language](http://www.cs.indiana.edu/~eholk/papers/hips2013.pdf). Early GPU work 
 * [You can't spell trust without Rust](https://raw.githubusercontent.com/Gankro/thesis/master/thesis.pdf). Alexis Beingessner's master's thesis.
 * [Rust-Bio: a fast and safe bioinformatics library](http://bioinformatics.oxfordjournals.org/content/early/2015/10/06/bioinformatics.btv573). Johannes Köster
 * [Safe, Correct, and Fast Low-Level Networking](https://octarineparrot.com/assets/msci_paper.pdf). Robert Clipsham's master's thesis.
-* [Formalizing Rust traits](http://hdl.handle.net/2429/55609). Jonatan Milewski's mater's thesis.
+* [Formalizing Rust traits](http://hdl.handle.net/2429/55609). Jonatan Milewski's master's thesis.
 * [Rust as a Language for High Performance GC Implementation](http://users.cecs.anu.edu.au/~steveb/downloads/pdf/rust-ismm-2016.pdf)
+* [Simple Verification of Rust Programs via Functional Purification](https://github.com/Kha/electrolysis). Sebastian Ullrich's master's thesis.
 * [Writing parsers like it is 2017](http://spw17.langsec.org/papers/chifflier-parsing-in-2017.pdf) Pierre Chifflier and Geoffroy Couprie for the Langsec Workshop
