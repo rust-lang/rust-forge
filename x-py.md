@@ -13,7 +13,7 @@ deal with the repo for various common tasks.
 
 # Table of Contents
 - [Building `rustc`](#building-rustc)
-  - [Build everything](#build-everything)
+  - [Build the compiler](#build-the-compiler)
   - [Build different stages](#build-different-stages)
   - [Build specific components](#build-specific-components)
   - [Other Flags](#other-flags)
@@ -41,7 +41,7 @@ the build commands. Note that the first time you build the compiler it will take
 a longer time to do so since you'll need to compile the entire LLVM library.
 However, subsequent builds won't be as long unless LLVM is updated.
 
-### Build everything
+### Build the compiler
 
 ```bash
 ./x.py build
@@ -52,8 +52,10 @@ This command will build the compiler. Because Rust is a bootstrapping compiler
 twice. The first compilation creates the "stage 1" compiler and the second
 compilation creates the "stage 2" compiler. The "stage 2" compiler is typically
 considered the final compiler and is what tests are run with and what you will
-likely interact with. In some situations, though, the "stage 1" compiler may be
-all you need (more on this later).
+likely interact with. In most situations the "stage 1" compiler may is all you
+need, but if working on something like procedural macros you'll need a "stage 2"
+compiler. "stage 1" is typically faster for development, while "stage 2" is the
+only one guaranteed to work for all tasks.
 
 More often than not this is not the command you want to run unless you plan on
 double checking that everything is working.
