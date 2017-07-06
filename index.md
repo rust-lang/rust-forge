@@ -11,6 +11,8 @@ PRs against [rust-lang-nursery/rust-forge].
 
 <hr/>
 
+* [Building rustc with x.py](x-py.html).
+
 * [Release history](releases.html). Links to previous release
   artifacts.
 
