@@ -102,6 +102,7 @@ Official builds are not available.
 | `le32-unknown-nacl`             |  ✓  |     |     | PNaCl sandbox                                            |
 | `mips-unknown-linux-uclibc`     |  ✓  |     |     | MIPS Linux with uClibc                                   |
 | `mipsel-unknown-linux-uclibc`   |  ✓  |     |     | MIPS (LE) Linux with uClibc                              |
+| `msp430-none-elf`               |  *  |     |     | 16-bit MSP430 microcontrollers                           |
 | `sparc64-unknown-linux-gnu`     |  ✓  |     |     | SPARC Linux                                              |
 | `sparc64-unknown-netbsd`        |  ✓  |     |     | SPARC NetBSD                                             |
 | `thumbv6m-none-eabi`            |  *  |     |     | Bare Cortex-M0, M0+, M1                                  |
@@ -116,10 +117,8 @@ Official builds are not available.
 | `x86_64-unknown-haiku`          |  ✓  |     |     | 64-bit Haiku                                             |
 | `x86_64-unknown-openbsd`        |  ✓  |  ✓  |     | 64-bit OpenBSD                                           |
 | `x86_64-unknown-redox`          |  ✓  |     |     | Redox OS                                                 |
-| [MSP430]                        |  ** |     |     | 16-bit MSP430 microcontroller                            |
 | [NVPTX]                         |  ** |     |     | `--emit=asm` generates PTX code that runs on NVIDIA GPUs |
 
-[MSP430]: https://github.com/pftbest/rust_on_msp/blob/master/msp430.json
 [NVPTX]: https://github.com/japaric/nvptx#targets
 
 <em>*</em> These are bare-metal microcontroller targets that only have access to
