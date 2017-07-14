@@ -83,7 +83,7 @@ If the **review is incomplete**:
 
 ## [S-waiting-on-team PRs]
 
-PRs active within the last 4 days and inactive for greater than 2 weeks need to be processed.
+PRs active within the last 4 days or inactive for greater than 2 weeks need to be processed.
 These can be found by looking at the "updated X days ago" on GitHub's PR list.
 
 First, ensure that the status tag matches the current state of the PR. Change the tag if necessary,
