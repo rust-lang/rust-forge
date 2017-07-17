@@ -22,15 +22,16 @@ python x.py --stage 1
 Run the compiler on a source file, supplying two additional debugging flags with `-Z`:
 
 ```
-rustc -Z profile-queries -Z dump-dep-graph foo.rs
+rustc -Z profile-queries -Z incremental=cache foo.rs
 ```
 
 Regarding the two additional parameters:
 
 - `-Z profile-queries` tells the compiler to run a separate thread
-  that profiles the queries made by the main compiler thread(s).
-- `-Z dump-dep-graph` tells the compiler to "dump" various files that
-  describe the compilation dependencies.
+  that profiles the queries made by the main compiler thread(s).  -
+  `-Z incremental=cache` tells the compiler to "cache" various files
+  that describe the compilation dependencies, in the subdirectory
+  `cache`.
 
 This command will generate the following files:
 
