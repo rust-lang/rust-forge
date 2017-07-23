@@ -338,5 +338,13 @@ too).
 
 ## Links
 
+Related design ideas, and tracking issues:
+
+- Design document: [On-demand Rustc incremental design doc](https://github.com/nikomatsakis/rustc-on-demand-incremental-design-doc/blob/master/0000-rustc-on-demand-and-incremental.md)
+- Tracking Issue: ["Red/Green" dependency tracking in compiler](https://github.com/rust-lang/rust/issues/42293)
+
+More discussion and issues:
+
+- https://github.com/rust-lang/rust/issues/42633
 - https://internals.rust-lang.org/t/incremental-compilation-beta/4721
 - https://blog.rust-lang.org/2016/09/08/incremental.html
