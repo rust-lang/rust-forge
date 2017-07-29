@@ -1,9 +1,11 @@
 ---
 layout: default
-title: PR Triage Procedure
+title: Triage Procedure
 ---
 
-Status tag meanings:
+# PR triage
+
+## Status tag meanings:
 
  - [S-waiting-on-review] - Review is incomplete
  - [S-waiting-on-author] - Author needs to make changes to address reviewer comments, or merge
@@ -22,9 +24,9 @@ Status tag meanings:
 [S-waiting-on-crater]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-crater+sort%3Aupdated-asc
 [S-inactive-closed]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-inactive-closed+sort%3Aupdated-asc
 
-# Procedure:
+## Procedure:
 
-## [Unlabeled PRs]
+### [Unlabeled PRs]
 
 All unlabeled PRs should be processed. The steps below are not mutually exclusive, any number of
 them may apply.
@@ -42,7 +44,7 @@ At this point, all PRs must have a tag applied.
 
 [Unlabeled PRs]: https://github.com/rust-lang/rust/pulls?utf8=%E2%9C%93&q=is%3Aopen%20is%3Apr%20sort%3Aupdated-asc%20-label%3AS-waiting-on-author%20-label%3AS-waiting-on-team%20-label%3AS-waiting-on-bors%20-label%3AS-waiting-on-crater%20-label%3AS-waiting-on-team%20-label%3AS-waiting-on-review%20
 
-## [S-waiting-on-author PRs]
+### [S-waiting-on-author PRs]
 
 PRs with greater than 3 days of inactivity need to be processed. These can be found by looking at
 the "updated X days ago" on GitHub's PR list.
@@ -59,8 +61,7 @@ author for the changes. Also tag the PR with S-inactive-closed.
 
 [S-waiting-on-author PRs]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-author
 
-
-## [S-waiting-on-review PRs]
+### [S-waiting-on-review PRs]
 
 PRs with greater than 3 days of inactivity need to be processed. These can be found by looking at
 the "updated X days ago" on GitHub's PR list.
@@ -81,7 +82,7 @@ If the **review is incomplete**:
 
 [S-waiting-on-review PRs]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-review
 
-## [S-waiting-on-team PRs]
+### [S-waiting-on-team PRs]
 
 PRs active within the last 4 days or inactive for greater than 2 weeks need to be processed.
 These can be found by looking at the "updated X days ago" on GitHub's PR list.
@@ -98,14 +99,14 @@ changed but the label has not yet been updated. Therefore, we also check the mos
 
 [S-waiting-on-team PRs]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-team+sort%3Aupdated-desc
 
-## [S-waiting-on-bors PRs]
+### [S-waiting-on-bors PRs]
 
 All PRs should be processed. First, ensure that the status tag matches the current state of the PR.
 Change the tag if necessary, and apply the procedure for the new tag now.
 
 [S-waiting-on-bors PRs]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-bors+sort%3Aupdated-asc
 
-## [S-waiting-on-crater PRs]
+### [S-waiting-on-crater PRs]
 
 PRs with greater than 3 days of inactivity need to be processed. These can be found by looking at
 the "updated X days ago" on GitHub's PR list.
@@ -122,17 +123,53 @@ acrichto, brson, tomprince, and frewsxcv and request a crater run.
 
 [S-waiting-on-crater PRs]: https://github.com/rust-lang/rust/pulls?utf8=%E2%9C%93&q=is%3Aopen%20is%3Apr%20sort%3Aupdated-asc%20label%3AS-waiting-on-crater
 
-## [S-inactive-closed PRs]
+### [S-inactive-closed PRs]
 
 These never need to be looked at. PRs which have been closed due inactivity. This is a terminal
 state for the time being, primarily oriented towards easing future work.
 
 [S-inactive-closed PRs]: https://github.com/rust-lang/rust/pulls?utf8=%E2%9C%93&q=is%3Aopen%20is%3Apr%20sort%3Aupdated-asc%20label%3AS-inactive-closed
 
-## Updating the Spreadsheet
+### Updating the Spreadsheet
 
 Finally, once all steps are complete, go back through and get counts for each PR status tag. Log
 these onto [the spreadsheet]. Verify that the total reported in the spreadsheet corresponds to the
 total number of PRs currently open.
 
 [the spreadsheet]: https://docs.google.com/spreadsheets/d/1aBfKT9j4lwpDQePRggRCy7zqhv46hCtRvTGGC9bPSn4/edit
+
+# Issue triage
+
+Issue triage is mostly much simpler. After finishing PR triage, go to the [list of untagged issues]
+and add tags as you see fit. The following categories should, ideally, be assigned to each issue:
+
+ - At least one A- tag. This represents the area of the issue, so an issue relating to benchmarks or
+   testing would get A-libtest. If you can't find an appropriate tag for the issue, it's possible
+   that creating one is the right thing to do. Try to pick just one tag to give, unless you're
+   giving the A-diagnostics tag, in which case one more tag is a good idea.
+ - One, and only one, C- tag. This represents that category of the issue.
+    - C-bug: Bugs. These are things like ICEs or other failures of the compiler to do what it's
+      supposed to in a way that breaks correct user code. It's not always easy to tell if code is
+      correct, and the compiler broken, though, but tend towards assuming it's the compiler's fault:
+      at least, we should give a better diagnostic. Note that as of now, I-slow, and
+      I-compile{time,mem} are not considered bugs, rather, they are enhancements, since they do not
+      break user code.
+    - C-cleanup: Refactoring and cleanup work within the compiler.
+    - C-enhancement: Diagnostic improvements, primarily, or other nice to haves, but not critical
+      issues. Somewhat implies that this is a minor addition.
+    - C-feature-request: An addition of an impl is the primary thing here. Sometimes minor lang
+      features also qualify, though in general it's likely those should be closed in favor of RFCs.
+      It's recommended that triagers should close issues in favor of the author opening a thread on
+      internals or rust-lang/rfcs for language changes that are more significant than adding an
+      impl.
+    - C-future-compatibility: Used for tracking issues for future compatibility lints.
+    - C-tracking-issue: This is used for both feature tracking issues (feature gates) and issues
+      which track some question or concern of a team. These are maintained on GitHub over internals
+      because GH is a more stable location and easier to refer to in the long run.
+ - At least one T- tag. Assign the appropriate team to the issue; sometimes this is multiple teams,
+   but usually falls into either dev-tools, compiler, or libs. Sometimes the lang team needs to make
+   a decision.
+ - If necessary, add I- tags as you see fit. Particularly, I-ICE is the dominant tag to be added.
+ - If applicable, add platform tags (O-). It's fine to add more than one.
+
+[list of untagged issues]: https://github.com/rust-lang/rust/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20sort%3Acreated-asc%20-label%3AC-feature-request%20-label%3AC-enhancement%20-label%3AC-cleanup%20-label%3AC-bug%20-label%3AC-tracking-issue%20-label%3AC-future-compatibility%20-label%3AC-question
