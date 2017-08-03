@@ -70,6 +70,7 @@ First, ensure that the status tag matches the current state of the PR. Change th
 and apply the procedure for the new tag.
 
 If there are **no comments from the reviewer**:
+
  - If the PR is more than 3 days old, ping the reviewer on IRC and on GitHub, noting that you've
    pinged on IRC. If the reviewer is not on IRC, then note in the GitHub comment that IRC ping
    wasn't possible.
@@ -77,6 +78,7 @@ If there are **no comments from the reviewer**:
    ask for a new reviewer.
 
 If the **review is incomplete**:
+
  - If more than 3 days since last reviewer comment, ping the reviewer on IRC and on GitHub.
  - If more than 6 days since the last reviewer comment, also ping the subteam on GitHub.
 
