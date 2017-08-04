@@ -70,6 +70,7 @@ First, ensure that the status tag matches the current state of the PR. Change th
 and apply the procedure for the new tag.
 
 If there are **no comments from the reviewer**:
+
  - If the PR is more than 3 days old, ping the reviewer on IRC and on GitHub, noting that you've
    pinged on IRC. If the reviewer is not on IRC, then note in the GitHub comment that IRC ping
    wasn't possible.
@@ -77,6 +78,7 @@ If there are **no comments from the reviewer**:
    ask for a new reviewer.
 
 If the **review is incomplete**:
+
  - If more than 3 days since last reviewer comment, ping the reviewer on IRC and on GitHub.
  - If more than 6 days since the last reviewer comment, also ping the subteam on GitHub.
 
@@ -162,6 +164,9 @@ and add tags as you see fit. The following categories should, ideally, be assign
       It's recommended that triagers should close issues in favor of the author opening a thread on
       internals or rust-lang/rfcs for language changes that are more significant than adding an
       impl.
+    - C-feature-accepted: Feature-requests that a relevant team would like to see an implementation
+      for before final judgement is rendered. It's likely that such an implementation would be
+      merged, unless breakage (e.g., inference-related) occurs.
     - C-future-compatibility: Used for tracking issues for future compatibility lints.
     - C-tracking-issue: This is used for both feature tracking issues (feature gates) and issues
       which track some question or concern of a team. These are maintained on GitHub over internals
@@ -172,4 +177,4 @@ and add tags as you see fit. The following categories should, ideally, be assign
  - If necessary, add I- tags as you see fit. Particularly, I-ICE is the dominant tag to be added.
  - If applicable, add platform tags (O-). It's fine to add more than one.
 
-[list of untagged issues]: https://github.com/rust-lang/rust/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20sort%3Acreated-asc%20-label%3AC-feature-request%20-label%3AC-enhancement%20-label%3AC-cleanup%20-label%3AC-bug%20-label%3AC-tracking-issue%20-label%3AC-future-compatibility%20-label%3AC-question
+[list of untagged issues]: https://github.com/rust-lang/rust/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20sort%3Acreated-asc%20-label%3AC-feature-request%20-label%3AC-enhancement%20-label%3AC-cleanup%20-label%3AC-bug%20-label%3AC-tracking-issue%20-label%3AC-future-compatibility%20-label%3AC-question%20-label%3AC-feature-accepted
