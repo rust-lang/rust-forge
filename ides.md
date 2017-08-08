@@ -69,7 +69,7 @@ Editor plugins:
 * [Vim](https://github.com/rust-lang/rust.vim)
 * [Sublime Text](https://packagecontrol.io/packages/Rust)
 * [Atom](https://atom.io/packages/language-rust)
-* [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=saviorisdead.RustyCode)
+* [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=kalitaalexey.vscode-rust)
 
 Code completion is available via
 [Racer](https://github.com/phildawes/racer).  See
