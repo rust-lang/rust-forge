@@ -15,9 +15,6 @@ PR's against [rust-lang-nursery/rust-forge].
 
 * [Friend of the Tree archives](fott.md).
 
-* [IDE initiative](ides.md). Ongoing work into improving IDE support
-  for Rust.
-
 * [Bibliography](bibliography.md). Research papers and other links
   to projects that influenced Rust. Papers about Rust.
 
