@@ -81,6 +81,7 @@ these platforms are required to have each of the following:
 | `x86_64-unknown-freebsd`          |  ✓  |  ✓  |  ✓  | 64-bit FreeBSD               |
 | `x86_64-unknown-linux-musl`       |  ✓  |     |     | 64-bit Linux with MUSL       |
 | `x86_64-unknown-netbsd`           |  ✓  |  ✓  |  ✓  | 64-bit NetBSD                |
+| `x86_64-unknown-redox`            |  ✓  |     |     | Redox OS                     |
 
 ## Tier 3
 
@@ -116,7 +117,6 @@ Official builds are not available.
 | `x86_64-unknown-fuchsia`        |  ✓  |     |     | Fuchsia OS                                               |
 | `x86_64-unknown-haiku`          |  ✓  |     |     | 64-bit Haiku                                             |
 | `x86_64-unknown-openbsd`        |  ✓  |  ✓  |     | 64-bit OpenBSD                                           |
-| `x86_64-unknown-redox`          |  ✓  |     |     | Redox OS                                                 |
 | [NVPTX]                         |  ** |     |     | `--emit=asm` generates PTX code that runs on NVIDIA GPUs |
 
 [NVPTX]: https://github.com/japaric/nvptx#targets
