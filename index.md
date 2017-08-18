@@ -57,4 +57,6 @@ PRs against [rust-lang-nursery/rust-forge].
 
 * [PR Triage Procedure](pr-triage-procedure.html)
 
+* [Performing a Rollup](performing-a-rollup.html)
+
 * [Homu/Bors Syntax](https://buildbot2.rust-lang.org/homu/)
