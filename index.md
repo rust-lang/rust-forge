@@ -9,7 +9,11 @@ PRs against [rust-lang-nursery/rust-forge].
 
 [rust-lang-nursery/rust-forge]: https://github.com/rust-lang-nursery/rust-forge
 
+<div id="release_info"></div>
+
 <hr/>
+
+### Pages
 
 * [Building rustc with x.py](x-py.html).
 
@@ -58,3 +62,39 @@ PRs against [rust-lang-nursery/rust-forge].
 * [PR Triage Procedure](pr-triage-procedure.html)
 
 * [Homu/Bors Syntax](https://buildbot2.rust-lang.org/homu/)
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(event) {
+
+  var previousDate = new Date('2015-12-11');
+  var nextDate = new Date('2016-01-22');
+  var nextNextDate = new Date('2016-03-04');
+
+  var prevRelease = 5;
+  var nextRelease = 6;
+  var nextNextRelease = 7;
+
+  while (Date.now() > nextDate) {
+    previousDate = new Date(nextDate);
+    nextDate.setDate(nextDate.getDate() + (7 * 6));
+    nextNextDate.setDate(nextNextDate.getDate() + (7 * 6));
+
+    prevRelease += 1;
+    nextRelease += 1;
+    nextNextRelease += 1;
+  }
+
+  previousDate = previousDate.toDateString();
+  nextDate = nextDate.toDateString();
+  nextNextDate = nextNextDate.toDateString();
+
+  var toWrite = "<hr/><h3>Release Dates</h3>";
+
+  toWrite += "<p>Rust 1." + prevRelease + " stable was released on " + previousDate + ".</p>";
+  toWrite += "<p><h4>Rust 1." + nextRelease + " stable will release on " + nextDate + ".</h4></p>";
+  toWrite += "<p>Rust 1." + nextNextRelease + " stable will release on " + nextNextDate + ".</p>";
+
+  document.getElementById('release_info').innerHTML = toWrite;
+});
+</script>
