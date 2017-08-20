@@ -65,18 +65,22 @@ PRs against [rust-lang-nursery/rust-forge].
 
 <script>
 
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", function() {
 
-  var previousDate = new Date('2015-12-11');
-  var nextDate = new Date('2016-01-22');
-  var nextNextDate = new Date('2016-03-04');
-
+  // rust 1.5's release date
+  var prevDate = new Date('2015-12-11');
+  // #nevertwopointoh -- we render "1." in the string literals below, this is easier to increment
   var prevRelease = 5;
+
+  var nextDate = new Date('2016-01-22');
   var nextRelease = 6;
+
+  var nextNextDate = new Date('2016-03-04');
   var nextNextRelease = 7;
 
   while (Date.now() > nextDate) {
-    previousDate = new Date(nextDate);
+    prevDate = new Date(nextDate);
+    // there are 6 weeks in between releases
     nextDate.setDate(nextDate.getDate() + (7 * 6));
     nextNextDate.setDate(nextNextDate.getDate() + (7 * 6));
 
@@ -85,13 +89,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
     nextNextRelease += 1;
   }
 
-  previousDate = previousDate.toDateString();
+  prevDate = prevDate.toDateString();
   nextDate = nextDate.toDateString();
   nextNextDate = nextNextDate.toDateString();
 
   var toWrite = "<hr/><h3>Release Dates</h3>";
 
-  toWrite += "<p>Rust 1." + prevRelease + " stable was released on " + previousDate + ".</p>";
+  toWrite += "<p>Rust 1." + prevRelease + " stable was released on " + prevDate + ".</p>";
   toWrite += "<p><h4>Rust 1." + nextRelease + " stable will release on " + nextDate + ".</h4></p>";
   toWrite += "<p>Rust 1." + nextNextRelease + " stable will release on " + nextNextDate + ".</p>";
 
