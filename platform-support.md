@@ -92,7 +92,7 @@ Official builds are not available.
 |  Target                         | std |rustc|cargo| notes                                                    |
 |---------------------------------|-----|-----|-----|----------------------------------------------------------|
 | `aarch64-linux-android`         |  ✓  |     |     | ARM64 Android                                            |
-| `aarch64-unknown-fuchsia`       |  ✓  |     |     | Fuchsia OS                                               |
+| `aarch64-unknown-fuchsia`       |  ✓  |     |     | ARM64 Fuchsia                                            |
 | `armv5te-unknown-linux-gnueabi` |  ✓  |     |     | ARMv5TE                                                  |
 | `armv7-linux-androideabi`       |  ✓  |     |     | ARMv7a Android                                           |
 | `i586-unknown-linux-gnu`        |  ✓  |     |     | 32-bit Linux w/o SSE                                     |
@@ -114,7 +114,7 @@ Official builds are not available.
 | `x86_64-sun-solaris`            |  ✓  |  ✓  |     | 64-bit Solaris/SunOS                                     |
 | `x86_64-unknown-bitrig`         |  ✓  |  ✓  |     | 64-bit Bitrig                                            |
 | `x86_64-unknown-dragonfly`      |  ✓  |  ✓  |     | 64-bit DragonFlyBSD                                      |
-| `x86_64-unknown-fuchsia`        |  ✓  |     |     | Fuchsia OS                                               |
+| `x86_64-unknown-fuchsia`        |  ✓  |     |     | 64-bit Fuchsia                                           |
 | `x86_64-unknown-haiku`          |  ✓  |     |     | 64-bit Haiku                                             |
 | `x86_64-unknown-openbsd`        |  ✓  |  ✓  |     | 64-bit OpenBSD                                           |
 | [NVPTX]                         |  ** |     |     | `--emit=asm` generates PTX code that runs on NVIDIA GPUs |
