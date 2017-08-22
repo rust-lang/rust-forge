@@ -51,37 +51,46 @@ these platforms are required to have each of the following:
 |  Target                           | std |rustc|cargo| notes                        |
 |-----------------------------------|-----|-----|-----|------------------------------|
 | `aarch64-apple-ios`               |  ✓  |     |     | ARM64 iOS                    |
+| `aarch64-linux-android`           |  ✓  |     |     | ARM64 Android                |
+| `aarch64-unknown-fuchsia`         |  ✓  |     |     | ARM64 Fuchsia                |
 | `aarch64-unknown-linux-gnu`       |  ✓  |  ✓  |  ✓  | ARM64 Linux                  |
 | `arm-linux-androideabi`           |  ✓  |     |     | ARMv7 Android                |
 | `arm-unknown-linux-gnueabi`       |  ✓  |  ✓  |  ✓  | ARMv6 Linux                  |
-| `arm-unknown-linux-musleabi`      |  ✓  |     |     | ARMv6 Linux with MUSL        |
 | `arm-unknown-linux-gnueabihf`     |  ✓  |  ✓  |  ✓  | ARMv6 Linux, hardfloat       |
+| `arm-unknown-linux-musleabi`      |  ✓  |     |     | ARMv6 Linux with MUSL        |
 | `arm-unknown-linux-musleabihf`    |  ✓  |     |     | ARMv6 Linux, MUSL, hardfloat |
 | `armv7-apple-ios`                 |  ✓  |     |     | ARMv7 iOS, Cortex-a8         |
+| `armv7-linux-androideabi`         |  ✓  |     |     | ARMv7a Android               |
 | `armv7-unknown-linux-gnueabihf`   |  ✓  |  ✓  |  ✓  | ARMv7 Linux                  |
 | `armv7-unknown-linux-musleabihf`  |  ✓  |     |     | ARMv7 Linux with MUSL        |
 | `armv7s-apple-ios`                |  ✓  |     |     | ARMv7 iOS, Cortex-a9         |
 | `asmjs-unknown-emscripten`        |  ✓  |     |     | asm.js via Emscripten        |
 | `i386-apple-ios`                  |  ✓  |     |     | 32-bit x86 iOS               |
 | `i586-pc-windows-msvc`            |  ✓  |     |     | 32-bit Windows w/o SSE       |
+| `i586-unknown-linux-gnu`          |  ✓  |     |     | 32-bit Linux w/o SSE         |
+| `i686-linux-android`              |  ✓  |     |     | 32-bit x86 Android           |
+| `i686-unknown-freebsd`            |  ✓  |  ✓  |  ✓  | 32-bit FreeBSD               |
 | `i686-unknown-linux-musl`         |  ✓  |     |     | 32-bit Linux with MUSL       |
 | `mips-unknown-linux-gnu`          |  ✓  |  ✓  |  ✓  | MIPS Linux                   |
 | `mips-unknown-linux-musl`         |  ✓  |     |     | MIPS Linux with MUSL         |
-| `mipsel-unknown-linux-gnu`        |  ✓  |  ✓  |  ✓  | MIPS (LE) Linux              |
-| `mipsel-unknown-linux-musl`       |  ✓  |     |     | MIPS (LE) Linux with MUSL    |
 | `mips64-unknown-linux-gnuabi64`   |  ✓  |  ✓  |  ✓  | MIPS64 Linux, n64 ABI        |
 | `mips64el-unknown-linux-gnuabi64` |  ✓  |  ✓  |  ✓  | MIPS64 (LE) Linux, n64 ABI   |
+| `mipsel-unknown-linux-gnu`        |  ✓  |  ✓  |  ✓  | MIPS (LE) Linux              |
+| `mipsel-unknown-linux-musl`       |  ✓  |     |     | MIPS (LE) Linux with MUSL    |
 | `powerpc-unknown-linux-gnu`       |  ✓  |  ✓  |  ✓  | PowerPC Linux                |
 | `powerpc64-unknown-linux-gnu`     |  ✓  |  ✓  |  ✓  | PPC64 Linux                  |
 | `powerpc64le-unknown-linux-gnu`   |  ✓  |  ✓  |  ✓  | PPC64LE Linux                |
 | `s390x-unknown-linux-gnu`         |  ✓  |  ✓  |  ✓  | S390x Linux                  |
+| `sparc64-unknown-linux-gnu`       |  ✓  |     |     | SPARC Linux                  |
 | `wasm32-unknown-emscripten`       |  ✓  |     |     | WebAssembly via Emscripten   |
 | `x86_64-apple-ios`                |  ✓  |     |     | 64-bit x86 iOS               |
 | `x86_64-rumprun-netbsd`           |  ✓  |     |     | 64-bit NetBSD Rump Kernel    |
 | `x86_64-unknown-freebsd`          |  ✓  |  ✓  |  ✓  | 64-bit FreeBSD               |
+| `x86_64-unknown-fuchsia`          |  ✓  |     |     | 64-bit Fuchsia               |
 | `x86_64-unknown-linux-musl`       |  ✓  |     |     | 64-bit Linux with MUSL       |
 | `x86_64-unknown-netbsd`           |  ✓  |  ✓  |  ✓  | 64-bit NetBSD                |
 | `x86_64-unknown-redox`            |  ✓  |     |     | Redox OS                     |
+
 
 ## Tier 3
 
@@ -91,20 +100,13 @@ Official builds are not available.
 
 |  Target                         | std |rustc|cargo| notes                                                    |
 |---------------------------------|-----|-----|-----|----------------------------------------------------------|
-| `aarch64-linux-android`         |  ✓  |     |     | ARM64 Android                                            |
-| `aarch64-unknown-fuchsia`       |  ✓  |     |     | ARM64 Fuchsia                                            |
 | `armv5te-unknown-linux-gnueabi` |  ✓  |     |     | ARMv5TE                                                  |
-| `armv7-linux-androideabi`       |  ✓  |     |     | ARMv7a Android                                           |
-| `i586-unknown-linux-gnu`        |  ✓  |     |     | 32-bit Linux w/o SSE                                     |
-| `i686-linux-android`            |  ✓  |     |     | 32-bit x86 Android                                       |
 | `i686-pc-windows-msvc` (XP)     |  ✓  |     |     | Windows XP support                                       |
-| `i686-unknown-freebsd`          |  ✓  |  ✓  |  ✓  | 32-bit FreeBSD                                           |
 | `i686-unknown-haiku`            |  ✓  |     |     | 32-bit Haiku                                             |
 | `le32-unknown-nacl`             |  ✓  |     |     | PNaCl sandbox                                            |
 | `mips-unknown-linux-uclibc`     |  ✓  |     |     | MIPS Linux with uClibc                                   |
 | `mipsel-unknown-linux-uclibc`   |  ✓  |     |     | MIPS (LE) Linux with uClibc                              |
 | `msp430-none-elf`               |  *  |     |     | 16-bit MSP430 microcontrollers                           |
-| `sparc64-unknown-linux-gnu`     |  ✓  |     |     | SPARC Linux                                              |
 | `sparc64-unknown-netbsd`        |  ✓  |     |     | SPARC NetBSD                                             |
 | `thumbv6m-none-eabi`            |  *  |     |     | Bare Cortex-M0, M0+, M1                                  |
 | `thumbv7em-none-eabi`           |  *  |     |     | Bare Cortex-M4, M7                                       |
@@ -114,7 +116,6 @@ Official builds are not available.
 | `x86_64-sun-solaris`            |  ✓  |  ✓  |     | 64-bit Solaris/SunOS                                     |
 | `x86_64-unknown-bitrig`         |  ✓  |  ✓  |     | 64-bit Bitrig                                            |
 | `x86_64-unknown-dragonfly`      |  ✓  |  ✓  |     | 64-bit DragonFlyBSD                                      |
-| `x86_64-unknown-fuchsia`        |  ✓  |     |     | 64-bit Fuchsia                                           |
 | `x86_64-unknown-haiku`          |  ✓  |     |     | 64-bit Haiku                                             |
 | `x86_64-unknown-openbsd`        |  ✓  |  ✓  |     | 64-bit OpenBSD                                           |
 | [NVPTX]                         |  ** |     |     | `--emit=asm` generates PTX code that runs on NVIDIA GPUs |
