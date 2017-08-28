@@ -121,7 +121,7 @@ If crater has been run and the results do not include failures, change the tag t
 S-waiting-on-review for the reviewer to take one last look and approve.
 
 If crater has not been run and it has been more than 3 days since a crater run was requested, ping
-acrichto, brson, tomprince, and frewsxcv and request a crater run.
+acrichto, tomprince, and frewsxcv and request a crater run.
 
 [S-waiting-on-crater PRs]: https://github.com/rust-lang/rust/pulls?utf8=%E2%9C%93&q=is%3Aopen%20is%3Apr%20sort%3Aupdated-asc%20label%3AS-waiting-on-crater
 
