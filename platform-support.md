@@ -108,7 +108,7 @@ Official builds are not available.
 | `mips-unknown-linux-uclibc`     |  ✓  |     |     | MIPS Linux with uClibc                                   |
 | `mipsel-unknown-linux-uclibc`   |  ✓  |     |     | MIPS (LE) Linux with uClibc                              |
 | `msp430-none-elf`               |  *  |     |     | 16-bit MSP430 microcontrollers                           |
-| `sparc64-unknown-netbsd`        |  ✓  |     |     | NetBSD/sparc64                                           |
+| `sparc64-unknown-netbsd`        |  ✓  |  ✓  |     | NetBSD/sparc64                                           |
 | `thumbv6m-none-eabi`            |  *  |     |     | Bare Cortex-M0, M0+, M1                                  |
 | `thumbv7em-none-eabi`           |  *  |     |     | Bare Cortex-M4, M7                                       |
 | `thumbv7em-none-eabihf`         |  *  |     |     | Bare Cortex-M4F, M7F, FPU, hardfloat                     |
