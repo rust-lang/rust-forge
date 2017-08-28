@@ -88,7 +88,7 @@ these platforms are required to have each of the following:
 | `x86_64-unknown-freebsd`          |  ✓  |  ✓  |  ✓  | 64-bit FreeBSD               |
 | `x86_64-unknown-fuchsia`          |  ✓  |     |     | 64-bit Fuchsia               |
 | `x86_64-unknown-linux-musl`       |  ✓  |     |     | 64-bit Linux with MUSL       |
-| `x86_64-unknown-netbsd`           |  ✓  |  ✓  |  ✓  | 64-bit NetBSD                |
+| `x86_64-unknown-netbsd`           |  ✓  |  ✓  |  ✓  | NetBSD/amd64                 |
 | `x86_64-unknown-redox`            |  ✓  |     |     | Redox OS                     |
 
 
@@ -103,11 +103,12 @@ Official builds are not available.
 | `armv5te-unknown-linux-gnueabi` |  ✓  |     |     | ARMv5TE                                                  |
 | `i686-pc-windows-msvc` (XP)     |  ✓  |     |     | Windows XP support                                       |
 | `i686-unknown-haiku`            |  ✓  |     |     | 32-bit Haiku                                             |
+| `i686-unknown-netbsd`           |  ✓  |     |     | NetBSD/i386 with SSE2                                    |
 | `le32-unknown-nacl`             |  ✓  |     |     | PNaCl sandbox                                            |
 | `mips-unknown-linux-uclibc`     |  ✓  |     |     | MIPS Linux with uClibc                                   |
 | `mipsel-unknown-linux-uclibc`   |  ✓  |     |     | MIPS (LE) Linux with uClibc                              |
 | `msp430-none-elf`               |  *  |     |     | 16-bit MSP430 microcontrollers                           |
-| `sparc64-unknown-netbsd`        |  ✓  |     |     | SPARC NetBSD                                             |
+| `sparc64-unknown-netbsd`        |  ✓  |  ✓  |     | NetBSD/sparc64                                           |
 | `thumbv6m-none-eabi`            |  *  |     |     | Bare Cortex-M0, M0+, M1                                  |
 | `thumbv7em-none-eabi`           |  *  |     |     | Bare Cortex-M4, M7                                       |
 | `thumbv7em-none-eabihf`         |  *  |     |     | Bare Cortex-M4F, M7F, FPU, hardfloat                     |
