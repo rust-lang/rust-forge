@@ -110,8 +110,11 @@ Change the tag if necessary, and apply the procedure for the new tag now.
 
 ### [S-waiting-on-crater PRs]
 
-PRs with greater than 3 days of inactivity need to be processed. These can be found by looking at
-the "updated X days ago" on GitHub's PR list.
+All PRs should be processed.
+
+If the PR has been active in the last three days, make sure it's present on the crater
+[spreadsheet](https://docs.google.com/spreadsheets/d/1VPi_7ErvvX76fa3VqvQ3YnQmDk3bS7fYnkzvApIWkKo/edit#gid=0).
+Fill in the link to the PR and set status as "Pending".
 
 If crater has been run and results include failures, change the tag to S-waiting-on-review for
 the reviewer to be responsible for deciding what should be done with the information provided by
@@ -121,7 +124,10 @@ If crater has been run and the results do not include failures, change the tag t
 S-waiting-on-review for the reviewer to take one last look and approve.
 
 If crater has not been run and it has been more than 3 days since a crater run was requested, ping
-acrichto, tomprince, and frewsxcv and request a crater run.
+the last three distinct listed people on the spreadsheet in the infra irc channel and request a crater run.
+
+If crater has been started (the person starting should leave a comment) and it has
+been more than 5 days since an update, ping the person starting the run on IRC and GitHub.
 
 [S-waiting-on-crater PRs]: https://github.com/rust-lang/rust/pulls?utf8=%E2%9C%93&q=is%3Aopen%20is%3Apr%20sort%3Aupdated-asc%20label%3AS-waiting-on-crater
 
