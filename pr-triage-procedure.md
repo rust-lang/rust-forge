@@ -7,24 +7,26 @@ title: Triage Procedure
 
 ## Status tag meanings:
 
- - [S-waiting-on-review] - Review is incomplete
  - [S-waiting-on-author] - Author needs to make changes to address reviewer comments, or merge
    conflicts/test failures are present. This also covers more obscure cases, like a PR being blocked
    on another, or waiting for a crater run -- it is the author's responsibility to push the PR
    forward.
+ - [S-waiting-on-review] - Review is incomplete
  - [S-waiting-on-team] - A T- label is marked, and team has been cc-ed for feedback.
  - [S-waiting-on-bors] - Currently approved, waiting to merge.
  - [S-waiting-on-crater] - Waiting to see what the impact the PR will have on the ecosystem
  - [S-inactive-closed] - Closed due to inactivity.
 
-[S-waiting-on-review]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-review
 [S-waiting-on-author]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-author
+[S-waiting-on-review]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-review
 [S-waiting-on-team]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-team+sort%3Aupdated-desc
 [S-waiting-on-bors]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-bors+sort%3Aupdated-asc
 [S-waiting-on-crater]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-crater+sort%3Aupdated-asc
 [S-inactive-closed]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-inactive-closed+sort%3Aupdated-asc
 
 ## Procedure:
+
+*Remember to update the spreadsheet once done!*
 
 ### [Unlabeled PRs]
 
@@ -53,11 +55,16 @@ First, ensure that the status tag matches the current state of the PR. Change th
 and apply the procedure for the new tag.
 
 Then, if the author hasn't responded for more than 7 days to a request for changes or a status
-update, ping the author on GitHub asking for an update.
+update, ping the author on GitHub asking for an update. If they've given advance warning that they
+won't be able to address comments for a period of time, allow for that.
 
 If the author's been unresponsive for more than 14 days, close the PR due to inactivity and ask the
 author to reopen when they have a chance to make the necessary changes. Make sure to thank the
 author for the changes. Also tag the PR with S-inactive-closed.
+
+*TIP*: if an author is on holiday and you know they won't have a chance to come to a PR for a while,
+you can 'bump' the PR by removing and readding the tag (note that removing/readding requires
+clicking off the tag selection dropdown between the two actions).
 
 [S-waiting-on-author PRs]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-author
 
@@ -132,13 +139,13 @@ state for the time being, primarily oriented towards easing future work.
 
 [S-inactive-closed PRs]: https://github.com/rust-lang/rust/pulls?utf8=%E2%9C%93&q=is%3Aopen%20is%3Apr%20sort%3Aupdated-asc%20label%3AS-inactive-closed
 
-### Updating the Spreadsheet
+### [Updating the Spreadsheet]
 
 Finally, once all steps are complete, go back through and get counts for each PR status tag. Log
-these onto [the spreadsheet]. Verify that the total reported in the spreadsheet corresponds to the
+these onto the spreadsheet. Verify that the total reported in the spreadsheet corresponds to the
 total number of PRs currently open.
 
-[the spreadsheet]: https://docs.google.com/spreadsheets/d/1aBfKT9j4lwpDQePRggRCy7zqhv46hCtRvTGGC9bPSn4/edit
+[Updating the spreadsheet]: https://docs.google.com/spreadsheets/d/1aBfKT9j4lwpDQePRggRCy7zqhv46hCtRvTGGC9bPSn4/edit
 
 # Issue triage
 
