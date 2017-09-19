@@ -45,6 +45,10 @@ PRs against [rust-lang-nursery/rust-forge].
   process for bug fixes that may cause existing code to stop
   compiling.
 
+* [So you want to implement a feature?](feature-guide.html):
+Describes
+  the procedure for implementin new features in rustc.
+
 * [So you want to stabilize a feature?](stabilization-guide.html): Describes
   the procedure for stabilizing features in rustc.
 
