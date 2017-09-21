@@ -11,8 +11,13 @@ how we profile its performance. We intend this profiling effort to address
 
 ## Quick Start
 
+### 0. Enable debug assertions
+```
+./configure --enable-debug-assertions
+```
+
 ### 1. Compile `rustc`
-Compile the compiler, as usual:
+Compile the compiler, up to at least stage 1:
 
 ```
 python x.py --stage 1
@@ -22,15 +27,16 @@ python x.py --stage 1
 Run the compiler on a source file, supplying two additional debugging flags with `-Z`:
 
 ```
-rustc -Z profile-queries -Z dump-dep-graph foo.rs
+rustc -Z profile-queries -Z incremental=cache foo.rs
 ```
 
 Regarding the two additional parameters:
 
 - `-Z profile-queries` tells the compiler to run a separate thread
-  that profiles the queries made by the main compiler thread(s).
-- `-Z dump-dep-graph` tells the compiler to "dump" various files that
-  describe the compilation dependencies.
+  that profiles the queries made by the main compiler thread(s).  
+- `-Z incremental=cache` tells the compiler to "cache" various files
+  that describe the compilation dependencies, in the subdirectory
+  `cache`.
 
 This command will generate the following files:
 
@@ -38,15 +44,23 @@ This command will generate the following files:
   the [trace of queries](#trace-of-queries).
 - `profile_queries.counts.txt` consists of a histogram, where each histogram "bucket" is a query provider.
 
-### 3. Inspect the output
-3(a). Open the HTML file (`profile_queries.html`) with a browser.  See [this section](#interpret-the-html-output) for an explanation of this file.
 
-3(b). Open the data file (`profile_queries.counts.txt`) with a text editor, or spreadsheet.  See [this section](#interpret-the-data-output) for an explanation of this file.
+### 3. Run `rustc`, with `-Z time-passes`:
 
-3(c). Older stuff, also generated as output (you can _ignore these files_; we won't discuss them further here):
+- This additional flag will add all timed passes to the output files
+  mentioned above, in step 2.  As described below, these passes appear
+  visually distinct from the queries in the HTML output (they
+  currently appear as green boxes, via CSS).
 
-- `dep_graph.dot` consists of old stuff: a representation of dependencies that are _outside_ the newer query model.
-- `dep_graph.txt` consists of old stuff: a representation of dependencies that are _outside_ the newer query model.
+### 4. Inspect the output
+
+- 4(a). Open the HTML file (`profile_queries.html`) with a browser.
+  See [this section](#interpret-the-html-output) for an explanation of
+  this file.
+- 4(b). Open the data file (`profile_queries.counts.txt`) with a text
+  editor, or spreadsheet.  See [this
+  section](#interpret-the-data-output) for an explanation of this
+  file.
 
 
 ## Interpret the HTML Output
@@ -69,27 +83,28 @@ The trace of the queries has a formal structure; see
 
 We style this formal structure as follows:
 
-- Blue dots represent query hits.  They consist of leaves in the
-  trace's tree. (CSS class: `hit`).
-- Red boxes represent query misses. They consist of internal nodes in
-  the trace's tree. (CSS class: `miss`).
-- Many red boxes contain _nested boxes and dots_.  This nesting structure
-  reflects that some providers _depend on_ results from other
-  providers, which consist of their nested children.  
-	 - For example, the red box labeled as `typeck_tables_of` depends
-	   on the one labeled `adt_dtorck_constraint`, which itself
-	   depends on one labeled `coherent_trait`.
-- Some red boxes are _labeled_ with text, and have highlighted borders
-  (light red, and bolded).  (See [heuristics](#heuristics) for
-  details).  Where they are present, the labels give the following
-  information:
+- **Timed passes:** Green boxes, when present (via `-Z time-passes`), represent _timed
+  passes_ in the compiler.  In future versions, these passes may be
+  replaced by queries, explained below.
+- **Labels:** Some green and red boxes are labeled with text. Where they are
+  present, the labels give the following information:
      - The [query's _provider_](#queries), sans its _key_ and its _result_,
        which are often too long to include in these labels.
      - The _duration_ of the provider, as a fraction of the total time
        (for the entire trace). This fraction includes the query's
        entire extent (that is, the sum total of all of its
        sub-queries).
-
+- **Query hits:** Blue dots represent query hits.  They consist of leaves in the
+  trace's tree. (CSS class: `hit`).
+- **Query misses:** Red boxes represent query misses. They consist of internal nodes in
+  the trace's tree. (CSS class: `miss`).
+- **Nesting structure:** Many red boxes contain _nested boxes and
+  dots_.  This nesting structure reflects that some providers _depend
+  on_ results from other providers, which consist of their nested
+  children.
+- Some red boxes are _labeled_ with text, and have highlighted borders
+  (light red, and bolded).  (See [heuristics](#heuristics) for
+  details).
 
 ## Heuristics
 
@@ -101,12 +116,17 @@ Heuristics-based CSS Classes:
   but easy to modify).  Important nodes are styled with textual
   labels, and highlighted borders (light red, and bolded).
 
+- `frac-50`, `-40`, ... -- Trace nodes whose total duration (self and
+  children) take a large fraction of the total duration, at or above
+  50%, 40%, and so on.  We style nodes these with larger font and
+  padding.
+
 ## Interpret the Data Output
 
 The file `profile_queries.counts.txt` contains a table of information
 about the queries, organized around their providers.
 
-For each provider, we produce:
+For each provider (or timed pass, when `-Z time-passes` is present), we produce:
 
 - A total **count** --- the total number of times this provider was
   queried
@@ -125,45 +145,113 @@ The following example `profile_queries.counts.txt` file results from
 running on a hello world program (a single main function that uses
 `println` to print `"hellow world").
 
-As explained above, the columns consist of `provider`, `count`, `duration`:
+As explained above, the columns consist of `provider/pass`, `count`, `duration`:
 
 ```
-symbol_name,2441,0.362
-def_symbol_name,2414,0.129
-item_attrs,5300,0.060
-type_of,4841,0.059
-generics_of,7216,0.049
-impl_trait_ref,2898,0.037
-def_span,20381,0.030
-adt_def,1142,0.028
-is_foreign_item,2425,0.021
-adt_dtorck_constraint,2,0.016
-typeck_tables_of,33,0.014
-typeck_item_bodies,1,0.010
-coherent_trait,7,0.008
-adt_destructor,10,0.008
-borrowck,4,0.008
-mir_validated,4,0.007
-impl_parent,306,0.003
-trait_def,216,0.001
-mir_const,2,0.001
-optimized_mir,6,0.000
-adt_sized_constraint,9,0.000
-predicates_of,82,0.000
-privacy_access_levels,5,0.000
+translation,1,0.891
+symbol_name,2658,0.733
+def_symbol_name,2556,0.268
+item_attrs,5566,0.162
+type_of,6922,0.117
+generics_of,8020,0.084
+serialize dep graph,1,0.079
+relevant_trait_impls_for,50,0.063
+def_span,24875,0.061
+expansion,1,0.059
+const checking,1,0.055
+adt_def,1141,0.048
+trait_impls_of,32,0.045
+is_copy_raw,47,0.045
+is_foreign_item,2638,0.042
+fn_sig,2172,0.033
+adt_dtorck_constraint,2,0.023
+impl_trait_ref,2434,0.023
+typeck_tables_of,29,0.022
+item-bodies checking,1,0.017
+typeck_item_bodies,1,0.017
+is_default_impl,2320,0.017
+borrow checking,1,0.014
+borrowck,4,0.014
+mir_validated,4,0.013
+adt_destructor,10,0.012
+layout_raw,258,0.010
+load_dep_graph,1,0.007
+item-types checking,1,0.005
+mir_const,2,0.005
+name resolution,1,0.004
+is_object_safe,35,0.003
+is_sized_raw,89,0.003
+parsing,1,0.003
+is_freeze_raw,11,0.001
+privacy checking,1,0.001
+privacy_access_levels,5,0.001
+resolving dependency formats,1,0.001
+adt_sized_constraint,9,0.001
+wf checking,1,0.001
+liveness checking,1,0.001
+compute_incremental_hashes_map,1,0.001
+match checking,1,0.001
+type collecting,1,0.001
+param_env,31,0.000
+effect checking,1,0.000
+trait_def,140,0.000
+lowering ast -> hir,1,0.000
+predicates_of,70,0.000
+extern_crate,319,0.000
+lifetime resolution,1,0.000
+is_const_fn,6,0.000
+intrinsic checking,1,0.000
+translation item collection,1,0.000
 impl_polarity,15,0.000
-trait_of_item,7,0.000
-region_maps,11,0.000
+creating allocators,1,0.000
+language item collection,1,0.000
+crate injection,1,0.000
+early lint checks,1,0.000
+indexing hir,1,0.000
+maybe creating a macro crate,1,0.000
+coherence checking,1,0.000
+optimized_mir,6,0.000
+is_panic_runtime,33,0.000
 associated_item_def_ids,7,0.000
+needs_drop_raw,10,0.000
+lint checking,1,0.000
+complete gated feature checking,1,0.000
+stability index,1,0.000
+region_maps,11,0.000
 super_predicates_of,8,0.000
-variances_of,12,0.000
-crate_inherent_impls,1,0.000
-is_exported_symbol,2,0.000
-associated_item,3,0.000
-crate_inherent_impls_overlap_check,1,0.000
-reachable_set,1,0.000
-is_mir_available,1,0.000
+coherent_trait,2,0.000
+AST validation,1,0.000
+loop checking,1,0.000
+static item recursion checking,1,0.000
+variances_of,11,0.000
+associated_item,5,0.000
+plugin loading,1,0.000
+looking for plugin registrar,1,0.000
+stability checking,1,0.000
+describe_def,15,0.000
+variance testing,1,0.000
+codegen unit partitioning,1,0.000
+looking for entry point,1,0.000
+checking for inline asm in case the target doesn't support it,1,0.000
 inherent_impls,1,0.000
+crate_inherent_impls,1,0.000
+trait_of_item,7,0.000
+crate_inherent_impls_overlap_check,1,0.000
+attribute checking,1,0.000
+internalize symbols,1,0.000
+impl wf inference,1,0.000
+death checking,1,0.000
+reachability checking,1,0.000
+reachable_set,1,0.000
+is_exported_symbol,3,0.000
+is_mir_available,2,0.000
+unused lib feature checking,1,0.000
+maybe building test harness,1,0.000
+recursion limit,1,0.000
+write allocator module,1,0.000
+assert dep graph,1,0.000
+plugin registration,1,0.000
+write metadata,1,0.000
 ```
 
 # Background
@@ -250,5 +338,13 @@ too).
 
 ## Links
 
+Related design ideas, and tracking issues:
+
+- Design document: [On-demand Rustc incremental design doc](https://github.com/nikomatsakis/rustc-on-demand-incremental-design-doc/blob/master/0000-rustc-on-demand-and-incremental.md)
+- Tracking Issue: ["Red/Green" dependency tracking in compiler](https://github.com/rust-lang/rust/issues/42293)
+
+More discussion and issues:
+
+- https://github.com/rust-lang/rust/issues/42633
 - https://internals.rust-lang.org/t/incremental-compilation-beta/4721
 - https://blog.rust-lang.org/2016/09/08/incremental.html
