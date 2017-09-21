@@ -5,9 +5,31 @@ title: The Rust Release Process &middot; The Rust Programming Language
 
 # The Rust Release Process
 
-The Rust release process is mostly in my head right now, so I took notes on how
-it went this time (1.3.0).
+Here's how Rust is currently released:
 
+## Update books (T-7 days, Friday)
+
+From within the repo:
+
+```bash
+$ cd src/doc/book
+$ git fetch origin
+$ git reset --hard origin/master
+$ cd ../reference
+$ git fetch origin
+$ git reset --hard origin/master
+$ cd ../nomicon
+$ git fetch origin
+$ git reset --hard origin/master
+$ cd ../../..
+$ git add .
+$ git commit -m "update books for next release"
+```
+
+This can be done a day earlier too, if you'd like: the books are only tested fully once they're in
+this repo, and so updating them may cause tests to fail. If they do, you need to send in a PR to
+the right book, ping @steveklabnik to get a quick merge, and then update that particular book again
+to fix it. This should be relatively rare.
 
 ## Promote beta to stable (T-3 days, Monday)
 
@@ -136,3 +158,14 @@ Decide on a time to do the release, T.
 [update-thanks]: https://github.com/rust-lang-nursery/thanks#thanks
 
 Bask in your success.
+
+# Update dependencies (T+1 day, Friday)
+
+In the repo:
+
+```bash
+$ cd src
+$ cargo update
+```
+
+The very ambitious can use https://crates.io/crates/cargo-outdated and update through breaking changes.
