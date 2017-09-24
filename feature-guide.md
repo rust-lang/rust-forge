@@ -21,9 +21,7 @@ in the feature's PR, and that marks the PR for an RFC-style FCP.
 
 ### Warning Cycles
 
-In some other cases, a feature or bugfix might break some existing programs in some edge cases. In that case, you might want to do a crater run to assess the impact and possibly add a warning cycle.
-
-MOAR DETAILS HERE
+In some other cases, a feature or bugfix might break some existing programs in some edge cases. In that case, you might want to do a crater run to assess the impact and possibly add a warning cycle, following the [rustc bug-fix procedure](rustc-bug-fix-procedure.html).
 
 ### Stability
 
@@ -37,9 +35,19 @@ Eventually, after we gain the experience using the feature and are satisfied, we
 
 ### Tracking Issues
 
-For features that have an RFC, you should use the RFC's tracking issue for the feature.
+For features that have an RFC, you should use the RFC's tracking issue for the feature. 
 
-For other features, MOAR DETAILS HERE
+For other features, you'll have to open a tracking issue for that feature. The issue title should be "Tracking issue for YOUR FEATURE" and it should have the `B-unstable` & `C-tracking-issue` tags, along with the tag for your subteam (e.g. `T-compiler` if this is a compiler feature).
+
+For tracking issues for features, I don't think the description has to contain anything specific. Generally we put the list of items required for stabilization using a github list, e.g.
+
+```
+**Steps:**
+
+- [ ] Implement the RFC (cc @rust-lang/compiler -- can anyone write up mentoring instructions?)
+- [ ] Adjust documentation ([see instructions on forge][doc-guide])
+- Note: no stabilization step here.
+```
 
 ## Stability in code
 
