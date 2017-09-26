@@ -109,12 +109,13 @@ Official builds are not available.
 | `mipsel-unknown-linux-uclibc`   |  ✓  |     |     | MIPS (LE) Linux with uClibc                              |
 | `msp430-none-elf`               |  *  |     |     | 16-bit MSP430 microcontrollers                           |
 | `sparc64-unknown-netbsd`        |  ✓  |  ✓  |     | NetBSD/sparc64                                           |
+| `sparcv9-sun-solaris`           |  ✓  |  ✓  |  ✓  | Solaris/sparc 10/11, illumos/sparc                       |
 | `thumbv6m-none-eabi`            |  *  |     |     | Bare Cortex-M0, M0+, M1                                  |
 | `thumbv7em-none-eabi`           |  *  |     |     | Bare Cortex-M4, M7                                       |
 | `thumbv7em-none-eabihf`         |  *  |     |     | Bare Cortex-M4F, M7F, FPU, hardfloat                     |
 | `thumbv7m-none-eabi`            |  *  |     |     | Bare Cortex-M3                                           |
 | `x86_64-pc-windows-msvc` (XP)   |  ✓  |     |     | Windows XP support                                       |
-| `x86_64-sun-solaris`            |  ✓  |  ✓  |     | 64-bit Solaris/SunOS                                     |
+| `x86_64-sun-solaris`            |  ✓  |  ✓  |  ✓  | 64-bit Solaris 10/11, illumos                            |
 | `x86_64-unknown-bitrig`         |  ✓  |  ✓  |     | 64-bit Bitrig                                            |
 | `x86_64-unknown-dragonfly`      |  ✓  |  ✓  |     | 64-bit DragonFlyBSD                                      |
 | `x86_64-unknown-haiku`          |  ✓  |     |     | 64-bit Haiku                                             |
