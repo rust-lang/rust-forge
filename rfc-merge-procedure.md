@@ -65,5 +65,12 @@ flavor (and change the team):
 To track further discussion, subscribe to the tracking issue here: rust-lang/rust#41517
 ```
 
+### Step 4: Update the rendered link
+
+Update the rendered link in the first post of the PR to the permanent home under
+`https://github.com/rust-lang/rfcs/blob/master/text/`.
+
+(This way future visitors can open it easily after the PR branch is deleted.)
+
 ### That's it, you're done!
 
