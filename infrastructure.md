@@ -43,7 +43,6 @@ TODO: Describe these better.
 * [Rust Release Explorer](http://ashleygwilliams.github.io/rust-release-explorer/)
 * [rusty-dash.com](http://rusty-dash.com/). [Source](https://github.com/dikaiosune/rust-dashboard).
 * [buildbot.rust-lang.org](http://buildbot.rust-lang.org/). [Source](https://github.com/rust-lang/rust-buildbot). Maintained by acrichto.
-* [crater.rust-lang.org](https://crater.rust-lang.org/). [Source](https://github.com/rust-lang-nursery/taskcluster-crater). In the process of being replaced by cargobomb.
-* [cargobomb](https://github.com/rust-lang-nursery/cargobomb). Maintained by tomprince.
+* [crater.rust-lang.org](https://crater.rust-lang.org/). [Source](https://github.com/rust-lang-nursery/crater). Maintained by tomprince.
 * [play.rust-lang.org](http://play.rust-lang.org/) [Source](https://github.com/integer32llc/rust-playground). Maintained by shepmaster.
 * [rust-central-station]: https://github.com/alexcrichton/rust-central-station
