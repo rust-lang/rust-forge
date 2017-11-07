@@ -17,7 +17,7 @@ Most services in the Rust Infrastructure are deployed via [rust-central-station]
 
 [Homu](http://github.com/barosl/homu/) is a bot ([bot user account](https://github.com/bors)) which manages pull requests. Approved pull requests are placed in [a queue](http://buildbot2.rust-lang.org/homu/queue/rust) from which tests are run.
 
-Documentation on homu commands can be found [here](http://buildbot2.rust-lang.org/homu/). If you wish to use homu for your own repository, try out [homu.io](http://homu.io/).
+Documentation on homu commands can be found [here](http://buildbot2.rust-lang.org/homu/).
 
 Please contact [Alex Crichton](https://github.com/alexcrichton) if something goes wrong with the bot.
 
