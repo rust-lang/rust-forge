@@ -41,7 +41,7 @@ Remove the team member from any and all places:
 
 
 [homu]: https://github.com/alexcrichton/rust-central-station/blob/master/homu.toml.template
-[team-roster]: https://github.com/rust-lang/rust-www/blob/master/team.md
+[team-roster]: https://github.com/rust-lang/rust-www/blob/master/_data/team.yml
 [gh-team]: https://github.com/orgs/rust-lang/teams
 [gh-nursery-team]: https://github.com/orgs/rust-lang-nursery/teams
 [highfive]: https://github.com/nrc/highfive/tree/master/highfive/configs
