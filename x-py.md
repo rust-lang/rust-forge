@@ -52,10 +52,10 @@ This command will build the compiler. Because Rust is a bootstrapping compiler
 twice. The first compilation creates the "stage 1" compiler and the second
 compilation creates the "stage 2" compiler. The "stage 2" compiler is typically
 considered the final compiler and is what tests are run with and what you will
-likely interact with. In most situations the "stage 1" compiler may is all you
-need, but if working on something like procedural macros you'll need a "stage 2"
-compiler. "stage 1" is typically faster for development, while "stage 2" is the
-only one guaranteed to work for all tasks.
+likely interact with. In most situations the "stage 1" compiler may be all you
+need, but if you're working on something like procedural macros you'll need a
+"stage 2" compiler. "stage 1" is typically faster for development, while
+"stage 2" is the only one guaranteed to work for all tasks.
 
 More often than not this is not the command you want to run unless you plan on
 double checking that everything is working.
@@ -260,7 +260,7 @@ documentation you want.
 By default `rustc` does not build the compiler for it's internal items.
 Mostly because this is useless for the average user. However, you might need to
 have it available so you can understand the types. Here's how you can compile it
-yourself. From the top level directory where `x.py`is located run:
+yourself. From the top level directory where `x.py` is located run:
 
 ```bash
 cp src/bootstrap/config.toml.example config.toml
