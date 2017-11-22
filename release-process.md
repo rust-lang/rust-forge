@@ -121,13 +121,13 @@ Decide on a time to do the release, T.
 
   ```
   docker exec -d -it `docker ps -l -q` bash -c \
-    'promote-release /tmp/stable stable /src/data/secrets.toml 2>&1 | logger --tag release-stable-realz'
+    'promote-release /tmp/stable stable /data/secrets.toml 2>&1 | logger --tag release-stable-realz'
   ```
 
   That'll, in the background, schedule the `promote-release` binary to run on the
   production secrets (not the dev secrets). That'll sign everything, upload it,
   update the html index pages, and invalidate the CDN. Note that this takes about
-  30 minutes right now.
+  30 minutes right now. Logs are in `/opt/rcs/logs`.
 
 * **T-20m** - Merge the website. Travis may have a big backlog, cancel
   rust-lang/rust PR builds or other builds until this build is scheduled.
