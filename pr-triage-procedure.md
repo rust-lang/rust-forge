@@ -15,6 +15,7 @@ title: Triage Procedure
  - [S-waiting-on-team] - A T- label is marked, and team has been cc-ed for feedback.
  - [S-waiting-on-bors] - Currently approved, waiting to merge.
  - [S-waiting-on-crater] - Waiting to see what the impact the PR will have on the ecosystem
+ - [S-blocked] - Waiting for another PR to be merged
  - [S-inactive-closed] - Closed due to inactivity.
 
 [S-waiting-on-author]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-author
@@ -22,6 +23,7 @@ title: Triage Procedure
 [S-waiting-on-team]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-team+sort%3Aupdated-desc
 [S-waiting-on-bors]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-bors+sort%3Aupdated-asc
 [S-waiting-on-crater]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-crater+sort%3Aupdated-asc
+[S-blocked]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-blocked+sort%3Aupdated-asc
 [S-inactive-closed]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-inactive-closed+sort%3Aupdated-asc
 
 ## Procedure:
@@ -66,6 +68,10 @@ author for the changes. Also tag the PR with S-inactive-closed.
 you can 'bump' the PR by removing and readding the tag (note that removing/readding requires
 clicking off the tag selection dropdown between the two actions).
 
+If the PR is blocked on another PR, add a comment clearly identifying
+the blocking PR (something like "This PR appears to be blocked on
+#12345") and change the state to S-blocked.
+
 [S-waiting-on-author PRs]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-author
 
 ### [S-waiting-on-review PRs]
@@ -88,6 +94,10 @@ If the **review is incomplete**:
 
  - If more than 3 days since last reviewer comment, ping the reviewer on IRC and on GitHub.
  - If more than 6 days since the last reviewer comment, also ping the subteam on GitHub.
+
+If the PR is blocked on another PR, add a comment clearly identifying
+the blocking PR (something like "This PR appears to be blocked on
+#12345") and change the state to S-blocked.
 
 [S-waiting-on-review PRs]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-review
 
@@ -137,6 +147,21 @@ If crater has been started (the person starting should leave a comment) and it h
 been more than 5 days since an update, ping the person starting the run on IRC and GitHub.
 
 [S-waiting-on-crater PRs]: https://github.com/rust-lang/rust/pulls?utf8=%E2%9C%93&q=is%3Aopen%20is%3Apr%20sort%3Aupdated-asc%20label%3AS-waiting-on-crater
+
+### [S-blocked PRs][S-blocked]
+
+PRs inactive for greater than 7 days need to be processed. These can
+be found by looking at the "updated X days ago" on GitHub's PR list.
+
+Find the blocking issue from the triage comment and see if it has been
+resolved.
+
+If it has been resolved, move it back to S-waiting-on-author or
+S-waiting-on-review as appropriate. Add a comment notifying the author
+or reviewer that the PR is now unblocked.
+
+If it has not been resolved, remove and re-add the S-blocked tag. This
+resets the update time so the PR won't be reviewed for another week.
 
 ### [S-inactive-closed PRs]
 
