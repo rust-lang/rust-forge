@@ -263,7 +263,7 @@ have it available so you can understand the types. Here's how you can compile it
 yourself. From the top level directory where `x.py` is located run:
 
 ```bash
-cp src/bootstrap/config.toml.example config.toml
+cp config.toml.example config.toml
 ```
 
 Next open up `config.toml` and make sure these two lines are set to true:
