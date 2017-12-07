@@ -257,7 +257,7 @@ documentation you want.
 
 ### Document internal rustc items
 
-By default `rustc` does not build the compiler for its internal items.
+By default `rustc` does not build the compiler docs for its internal items.
 Mostly because this is useless for the average user. However, you might need to
 have it available so you can understand the types. Here's how you can compile it
 yourself. From the top level directory where `x.py` is located run:
