@@ -54,6 +54,7 @@ these platforms are required to have each of the following:
 | `aarch64-linux-android`           |  ✓  |     |     | ARM64 Android                |
 | `aarch64-unknown-fuchsia`         |  ✓  |     |     | ARM64 Fuchsia                |
 | `aarch64-unknown-linux-gnu`       |  ✓  |  ✓  |  ✓  | ARM64 Linux                  |
+| `aarch64-unknown-linux-musl`      |  ✓  |     |     | ARM64 Linux with MUSL        |
 | `arm-linux-androideabi`           |  ✓  |     |     | ARMv7 Android                |
 | `arm-unknown-linux-gnueabi`       |  ✓  |  ✓  |  ✓  | ARMv6 Linux                  |
 | `arm-unknown-linux-gnueabihf`     |  ✓  |  ✓  |  ✓  | ARMv6 Linux, hardfloat       |
@@ -85,6 +86,7 @@ these platforms are required to have each of the following:
 | `sparcv9-sun-solaris`             |  ✓  |     |     | SPARC Solaris 10/11, illumos |
 | `wasm32-unknown-emscripten`       |  ✓  |     |     | WebAssembly via Emscripten   |
 | `x86_64-apple-ios`                |  ✓  |     |     | 64-bit x86 iOS               |
+| `x86_64-linux-android`            |  ✓  |     |     | 64-bit x86 Android           |
 | `x86_64-rumprun-netbsd`           |  ✓  |     |     | 64-bit NetBSD Rump Kernel    |
 | `x86_64-sun-solaris`              |  ✓  |     |     | 64-bit Solaris 10/11, illumos|
 | `x86_64-unknown-freebsd`          |  ✓  |  ✓  |  ✓  | 64-bit FreeBSD               |
