@@ -5,6 +5,8 @@ title: The Rust Test Suite &middot; The Rust Programming Language
 
 # The Rust test suite
 
+## THIS DOCUMENT IS DEPRECATED. PLEASE READ src/test/COMPILER_TESTS.md IN THE COMPILER REPO INSTEAD
+
 The rust test suite has several sets of tests for different purposes. As the compiler is built over multiple stages, and with varying host and target combinations, debugging and profiling settings, the tests can be run in many different ways.
 
 ## Recipes
@@ -120,7 +122,7 @@ fn main() {
 ```
 
 In fact, this test would fail, because there are two errors: the type
-mismatch and the undefined variable `b`.  
+mismatch and the undefined variable `b`.
 
 Sometimes it is not possible or not convenient to place the `//~`
 comment on precisely the line where the error occurs. For those cases,
@@ -143,7 +145,7 @@ fn main() {
 The older technique for specifying error messages was to use an
 `error-pattern` directive.  These directives are placed at the top of
 the file and each message found in an `error-pattern` directive must
-appear in the output. 
+appear in the output.
 
 Using error comments is preferred, however, because it is a more
 thorough test:
@@ -153,7 +155,7 @@ thorough test:
 
 ### Multi-crate testing
 
-Sometimes it is useful to write tests that make use of more than one crate.  We have limited support for this scenario.  Basically, you can write and add modules into the `src/test/auxiliary` directory. These files are not built nor tested directly.  Instead, you write a main test in one of the other directories (`run-pass`, `compile-fail`, etc) and add a `aux-build` directive at the head of the main test.  When running the main test, the test framework will build the files it is directed to build from the auxiliary directory.  These builds *must* succeed or the test will fail.  You can then include `use` and `import` commands to make use of the byproducts from these builds as you wish.  
+Sometimes it is useful to write tests that make use of more than one crate.  We have limited support for this scenario.  Basically, you can write and add modules into the `src/test/auxiliary` directory. These files are not built nor tested directly.  Instead, you write a main test in one of the other directories (`run-pass`, `compile-fail`, etc) and add a `aux-build` directive at the head of the main test.  When running the main test, the test framework will build the files it is directed to build from the auxiliary directory.  These builds *must* succeed or the test will fail.  You can then include `use` and `import` commands to make use of the byproducts from these builds as you wish.
 
 An example consisting of two files:
 
