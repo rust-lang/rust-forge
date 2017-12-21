@@ -70,7 +70,7 @@ The way we do that is that we make sure all new features are *feature gated* - t
 
 Eventually, after we gain enough experience using the feature, make the necessary changes, and are satisfied, we expose it to the world using the stabilization process described [here](stabilization-guide.html). Until then, the feature is not set in stone: every part of the feature can be changed, or the feature might be completely rewritten or removed. Features are not supposed to gain tenure by being unstable and unchanged for a year.
 
-[value the stability of the Rust language]: https://github.com/rust-lang/rfcs/blob/master/text/1122-language-semver.md
+[value the stability of Rust]: https://github.com/rust-lang/rfcs/blob/master/text/1122-language-semver.md
 
 ### Tracking Issues
 
@@ -113,7 +113,7 @@ In order to implement a new unstable feature, you need to do the following steps
     
     The current version is not actually important - the important version is when you are *stabilizing* a feature.
 4. Prevent usage of the new feature unless the feature gate is set.  
-    You can check it in most places in the compiler using the code  
+    You can check it in most places in the compiler using the expression  
     ```
     tcx.sess.features.borrow().$feature_name
     ```

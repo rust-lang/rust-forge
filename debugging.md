@@ -86,7 +86,6 @@ $ RUST_BACKTRACE=1 \
     ./build/x86_64-unknown-linux-gnu/stage1/bin/rustc \
     error.rs \
     -Z treat-err-as-bug
-```
 error[E0277]: the trait bound `{integer}: std::ops::Add<()>` is not satisfied
  --> error.rs:2:7
   |
