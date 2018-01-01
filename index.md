@@ -44,7 +44,7 @@ PRs against [rust-lang-nursery/rust-forge].
 
 * [So you want to implement a feature?](feature-guide.html):
 Describes
-  the procedure for implementin new features in rustc.
+  the procedure for implementing new features in rustc.
 
 * [So you want to stabilize a feature?](stabilization-guide.html): Describes
   the procedure for stabilizing features in rustc.
@@ -97,8 +97,8 @@ document.addEventListener("DOMContentLoaded", function() {
   var toWrite = "<hr/><h3>Release Dates</h3>";
 
   toWrite += "<p>Rust 1." + prevRelease + " stable was released on " + prevDate + ".</p>";
-  toWrite += "<p><h4>Rust 1." + nextRelease + " stable will release on " + nextDate + ".</h4></p>";
-  toWrite += "<p>Rust 1." + nextNextRelease + " stable will release on " + nextNextDate + ".</p>";
+  toWrite += "<p><h4>Rust 1." + nextRelease + " stable will be released on " + nextDate + ".</h4></p>";
+  toWrite += "<p>Rust 1." + nextNextRelease + " stable will be released on " + nextNextDate + ".</p>";
 
   document.getElementById('release_info').innerHTML = toWrite;
 });
