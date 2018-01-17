@@ -15,6 +15,9 @@ From within the repo:
 $ cd src/doc/book
 $ git fetch origin
 $ git reset --hard origin/master
+$ cd ../rust-by-example
+$ git fetch origin
+$ git reset --hard origin/master
 $ cd ../reference
 $ git fetch origin
 $ git reset --hard origin/master
