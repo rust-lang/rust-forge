@@ -15,6 +15,8 @@ PRs against [rust-lang-nursery/rust-forge].
 
 ### Pages
 
+* [Toolstate (rls, rustfmt, clippy)](https://rust-lang-nursery.github.io/rust-toolstate/)
+
 * [Building rustc with x.py](x-py.html).
 
 * [Release history](releases.html). Links to previous release
