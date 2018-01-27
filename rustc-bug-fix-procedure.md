@@ -155,7 +155,7 @@ store.register_future_incompatible(sess, vec![
 ]);
 
 // 4. Report the lint:
-tcx.sess.add_lint(
+tcx.lint_node(
     lint::builtin::YOUR_ERROR_HERE,
     path_id,
     binding.span,

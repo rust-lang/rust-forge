@@ -66,6 +66,8 @@ Describes
 
 * [Homu/Bors Syntax](https://buildbot2.rust-lang.org/homu/)
 
+* [Debugging the compiler](debugging.html). Tips for debugging the compiler.
+
 <script>
 
 document.addEventListener("DOMContentLoaded", function() {
