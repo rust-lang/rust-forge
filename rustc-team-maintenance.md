@@ -17,10 +17,7 @@ To make a full team member, the following places need to be modified:
 
 - the [team roster page][team-roster]
 - the [rust-lang/TEAM][gh-team] and (in some cases) [rust-lang-nursery/TEAM][gh-nursery-team] teams on github must be updated
-- rfcbot has a separate list of people on a team that is maintained in a database
-    - you can ping dikaiosune on IRC, or else prepare a migration
-    - [here is an example migration that was adding Carol to the tools team][rfcbot-example]
-    - to remove someone, simply reverse the up/down steps
+- rfcbot keeps [its own list of people in this file](https://github.com/anp/rfcbot-rs/blob/master/teams.toml)
 - the easydns service has an e-mail alias (`compiler-team@rust-lang.org`) that needs to be updated
     - best here is to ask around in #rust-infra
 - the [internals discussion board has per-team groups](https://internals.rust-lang.org/admin/groups/custom)
@@ -33,7 +30,7 @@ Remove the team member from any and all places:
 
 - [highfive][]
 - [reviewers list][homu]
-- rfcbot ([example][rfcbot-example])
+- rfcbot keeps [its own list of people in this file](https://github.com/anp/rfcbot-rs/blob/master/teams.toml)
 - 1password
 - The [GitHub team][gh-team], [GitHub nursery team][gh-nursery-team]
 - email aliases (as above)
