@@ -11,11 +11,11 @@ Once an unstable feature has been well-tested with no outstanding concern, anyon
 
 Prepare PRs to update the documentations involving this new feature. You will likely need to submit PRs to [The Reference], [The Book] and [Rust by Example]. See the [Updating documentation](#updating-documentation) at the end of this page for detailed requirements.
 
-Maintainers of these repositories will keep these PRs open until the whole stabilization process has completed. Meanwhile, we could proceed to the next step.
+Maintainers of these repositories will keep these PRs open until the whole stabilization process has completed. Meanwhile, we can proceed to the next step.
 
 ### Write a stabilization report
 
-Find the tracking issue of the feature, and create a short stabilization report. Essentially this would be a brief summary of the feature plus some links to test cases showing it works as expected, along with a list of edge cases that came up and and were considered. This seems like a sort of minimal "due diligence" that we ought to do before stabilizing.
+Find the tracking issue of the feature, and create a short stabilization report. Essentially this would be a brief summary of the feature plus some links to test cases showing it works as expected, along with a list of edge cases that came up and and were considered. This is a minimal "due diligence" that we do before stabilizing.
 
 The report should contain:
 
@@ -34,7 +34,7 @@ If any member of the team responsible for tracking this feature agrees with stab
 @rfcbot fcp merge
 ```
 
-The rest of the team members will review the proposal. If the final decision is to **stabilize**, we could proceed to the actual code modification.
+The rest of the team members will review the proposal. If the final decision is to **stabilize**, we proceed to do the actual code modification.
 
 ## Stabilization PR
 
