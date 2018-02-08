@@ -3,6 +3,41 @@ layout: default
 title: So you want to stabilize a feature?
 ---
 
+## Request for stabilization
+
+Once an unstable feature has been well-tested with no outstanding concern, anyone may push for its stabilization. It involves the following steps.
+
+### Documentation PRs
+
+Prepare PRs to update the documentations involving this new feature. You will likely need to submit PRs to [The Reference], [The Book] and [Rust by Example]. See the [Updating documentation](#updating-documentation) at the end of this page for detailed requirements.
+
+Maintainers of these repositories will keep these PRs open until the whole stabilization process has completed. Meanwhile, we could proceed to the next step.
+
+### Write a stabilization report
+
+Find the tracking issue of the feature, and create a short stabilization report. Essentially this would be a brief summary of the feature plus some links to test cases showing it works as expected, along with a list of edge cases that came up and and were considered. This seems like a sort of minimal "due diligence" that we ought to do before stabilizing.
+
+The report should contain:
+
+1. A **summary**, showing examples (e.g. code snippets) what is enabled by this feature.
+2. Links to **test cases** in our test suite regarding this feature, and describe the feature's behavior on encountering **edge cases**.
+3. Links to the **documentations** (the PRs we have made in the previous steps).
+4. Any other relevant information.
+
+Examples of such reports can be found in [rust-lang/rust#44494](https://github.com/rust-lang/rust/issues/44494#issuecomment-360191474) and [rust-lang/rust#28237](https://github.com/rust-lang/rust/issues/28237#issuecomment-363374130).
+
+### FCP
+
+If any member of the team responsible for tracking this feature agrees with stabilizing this feature, they will start the FCP (final-comment-period) process by commenting
+
+```
+@rfcbot fcp merge
+```
+
+The rest of the team members will review the proposal. If the final decision is to **stabilize**, we could proceed to the actual code modification.
+
+## Stabilization PR
+
 Once we have decided to **stabilize** a feature, we need to have a PR that actually makes that stabilization happen. These kinds of PRs are a great way to get involved in Rust, as they take you on a little tour through the source code. Here is a general guide to how to stabilize a feature -- every feature is different, of course, so some features may require steps beyond what this guide talks about.
 
 **IMPORTANT:** Before we stabilize any feature, note that we also have a rule that it should appear in the documentation. This is often overlooked. =) How to do this is the last section of this guide.
@@ -24,7 +59,7 @@ You want to move this line down to the area for "accepted" features, declared be
     //                          ^^^^^^ note that we changed this
 ```
 
-Note that we will change the version number to be the version number of the stable release where this feature will appear. This can be found by consulting http://rusty-dash.com/, which will tell you the next stable release number. You want to add 1 to that, because the code that lands today will become go into beta on that date, and then become stable after that. So, at the time of this writing, the next stable release (what is currently beta, iow) was 1.16.0, hence I wrote 1.17.0 above.
+Note that we will change the version number to be the version number of the stable release where this feature will appear. This can be found by consulting https://forge.rust-lang.org/, which will tell you the next stable release number. You want to add 1 to that, because the code that lands today will become go into beta on that date, and then become stable after that. So, at the time of this writing, the next stable release (what is currently beta, iow) was 1.16.0, hence I wrote 1.17.0 above.
 
 ### Removing existing uses of the feature-gate
 
@@ -73,11 +108,15 @@ If there wasn't documentation there, it needs to be added.
 
 Places that may need updated documentation:
 
-* [The Reference](https://github.com/rust-lang-nursery/reference): this must be updated, in full detail.
-* [The Book](https://github.com/rust-lang/book): this may or may not need
+* [The Reference]: this must be updated, in full detail.
+* [The Book]: this may or may not need
   updating, depending. If you're not sure, please open an issue on this
   repository and it can be discussed.
 * standard library documentation: as needed. Language features often don't need this, but if it's a
   feature that changes how good examples are written, such as when `?` was added to the language,
   updating examples is important.
-* [Rust by Example](https://github.com/rust-lang/rust-by-example): as needed.
+* [Rust by Example]: as needed.
+
+[The Reference]: https://github.com/rust-lang-nursery/reference
+[The Book]: https://github.com/rust-lang/book
+[Rust by Example]: https://github.com/rust-lang/rust-by-example
