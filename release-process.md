@@ -36,31 +36,31 @@ to fix it. This should be relatively rare.
 
 ## Promote beta to stable (T-3 days, Monday)
 
-Promote beta to stable.  This is local, in your Rust repo, assuming you have
-push access to rust-lang.
+Promote beta to stable. Temporarily turn off GitHub branch protection for the
+`stable` branch in rust-lang/rust repo. In your local Rust repo:
 
 ```sh
 $ git fetch rust-lang
 $ git push rust-lang rust-lang/beta:stable -f
 ```
 
-Send a PR to rust-lang/rust on the stable branch making the following changes:
+Re-enable branch protection for the `stable` branch. Send a PR to
+rust-lang/rust on the stable branch making the following changes:
 
 * Update the cargo submodule to the latest of the branch for this rustc version.
   Cargo branches are named `rust-1.17.0` and such.
 * Update the rls submodule to the latest of the branch for this rustc version
-  (as with Cargo)
+  as with Cargo, only if the RLS has such a branch (currently it doesn't).
 * Update `src/ci/run.sh` to pass `channel=stable`, not `channel=beta`.
 
-Once the PR is sent, r+ it and give it a high `p=10000`.
+Once the PR is sent, r+ it and give it a high `p=1000`.
 
 The stable build will **not** deploy automatically to prod. The
 rust-central-station repository is configured to upload to **dev** every hour if
 it detects a change. You should be able to browse changes in dev.
 
-## Prerelease testing (T-2 days, Tuesday)
-
-Post a message to irlo asking for testing. The index is
+As soon as this build is done post a message to irlo asking for testing. The
+index is
 https://dev-static-rust-lang-org.s3.amazonaws.com/dist/2015-09-17/index.html and
 our URL is then https://dev-static.rust-lang.org/dist/2015-09-17/index.html.
 
@@ -80,17 +80,19 @@ $ git fetch rust-lang
 $ git push rust-lang rust-lang/master:rust-1.14.0
 ```
 
-Do the same for rust-lang-nursery/rls
+In theory one day we'll do the same for rust-lang-nursery/rls, but for now we
+haven't done this yet.
 
-Promote rust-lang/rust's master branch to beta as with yesterday:
+Temporarily disable banch protection on GitHub for the `beta` branch of the Rust
+repo. Promote rust-lang/rust's master branch to beta as with yesterday:
 
 ```sh
 $ git fetch rust-lang
 $ git push rust-lang rust-lang/master:beta -f
 ```
 
-Send a PR to the freshly created beta branch of rust-lang/rust
-which:
+Re-enable branch protection on GitHub. Send a PR to the freshly created beta
+branch of rust-lang/rust which:
 
 * Update src/stage0.txt
   * Change `date` to "YYYY-MM-DD" where the date is the archive date the stable
@@ -101,9 +103,10 @@ which:
   * Uncomment `dev: 1`
 * Update src/ci/run.sh to pass "--release-channel=beta".
 * Update the cargo submodule to the head of the versioned branch
-* Update the rls submodule to the head of the versioned branch
 
-After this PR merges (through @bors) the beta should be automatically released.
+Note that you probably don't want to update the RLS if it's working, but if it's
+not working beta won't land and it'll need to get updated. After this PR merges
+(through @bors) the beta should be automatically released.
 
 # Master bootstrap update (T-1 day, Wednesday)
 
@@ -114,7 +117,9 @@ Send a PR to the master branch to:
 * modify src/stage0.txt to bootstrap from yesterday's beta
 * modify src/bootstrap/channel.rs with the new version number
 * Update the cargo submodule to the master branch
-* Update the rls submodule to the master branch
+
+In theory update the RLS submodule as well, but it's pretty susceptible to
+breakage so I'd probably avoid that for now.
 
 ## Release day (Thursday)
 
@@ -123,7 +128,7 @@ Decide on a time to do the release, T.
 * **T-30m** - This is on rust-central-station:
 
   ```
-  docker exec -d -it `docker ps -l -q` bash -c \
+  docker exec -d -it rcs bash -c \
     'promote-release /tmp/stable stable /data/secrets.toml 2>&1 | logger --tag release-stable-realz'
   ```
 
@@ -134,7 +139,6 @@ Decide on a time to do the release, T.
 
 * **T-20m** - Merge the website. Travis may have a big backlog, cancel
   rust-lang/rust PR builds or other builds until this build is scheduled.
-  This'll then involve a CloudFront invalidation that takes awhile.
 
 * **T-10m** - Locally, tag the new release and upload it. Use "x.y.z release" as
   the commit message.
