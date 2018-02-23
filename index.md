@@ -68,6 +68,8 @@ Describes
 
 * [Debugging the compiler](debugging.html). Tips for debugging the compiler.
 
+* [Profile queries](profile-queries.html). Tips for tracking what the compiler does.
+
 <script>
 
 document.addEventListener("DOMContentLoaded", function() {
