@@ -1,3 +1,8 @@
+---
+layout: default
+title: Profiling queries
+---
+
 # Profiling Queries
 
 In an effort to support _incremental compilation_, the latest design of
