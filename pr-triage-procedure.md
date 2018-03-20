@@ -28,8 +28,6 @@ title: Triage Procedure
 
 ## Procedure:
 
-*Remember to update the spreadsheet once done!*
-
 ### [Unlabeled PRs]
 
 All unlabeled PRs should be processed. The steps below are not mutually exclusive, any number of
@@ -169,14 +167,6 @@ These never need to be looked at. PRs which have been closed due inactivity. Thi
 state for the time being, primarily oriented towards easing future work.
 
 [S-inactive-closed PRs]: https://github.com/rust-lang/rust/pulls?utf8=%E2%9C%93&q=is%3Aopen%20is%3Apr%20sort%3Aupdated-asc%20label%3AS-inactive-closed
-
-### [Updating the Spreadsheet]
-
-Finally, once all steps are complete, go back through and get counts for each PR status tag. Log
-these onto the spreadsheet. Verify that the total reported in the spreadsheet corresponds to the
-total number of PRs currently open.
-
-[Updating the spreadsheet]: https://docs.google.com/spreadsheets/d/1aBfKT9j4lwpDQePRggRCy7zqhv46hCtRvTGGC9bPSn4/edit
 
 # Issue triage
 
