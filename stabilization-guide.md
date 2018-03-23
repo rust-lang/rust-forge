@@ -24,7 +24,7 @@ You want to move this line down to the area for "accepted" features, declared be
     //                          ^^^^^^ note that we changed this
 ```
 
-Note that we will change the version number to be the version number of the stable release where this feature will appear. This can be found by consulting http://rusty-dash.com/, which will tell you the next stable release number. You want to add 1 to that, because the code that lands today will become go into beta on that date, and then become stable after that. So, at the time of this writing, the next stable release (what is currently beta, iow) was 1.16.0, hence I wrote 1.17.0 above.
+Note that we will change the version number to be the version number of the stable release where this feature will appear. This can be found by consulting [https://forge.rust-lang.org/](https://forge.rust-lang.org/), which will tell you the next stable release number. You want to add 1 to that, because the code that lands today will become go into beta on that date, and then become stable after that. So, at the time of this writing, the next stable release (what is currently beta, iow) was 1.16.0, hence I wrote 1.17.0 above.
 
 ### Removing existing uses of the feature-gate
 
