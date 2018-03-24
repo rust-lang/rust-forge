@@ -80,7 +80,7 @@ General discussions about the feature should be done on the tracking issue.
 
 For features that have an RFC, you should use the RFC's tracking issue for the feature.
 
-For other features, you'll have to make a tracking issue for that feature. The issue title should be "Tracking issue for YOUR FEATURE" and it should have the `B-unstable` & `C-tracking-issue` tags, along with the tag for your subteam (e.g. `T-compiler` if this is a compiler feature).
+For other features, you'll have to make a tracking issue for that feature. The issue title should be "YOUR FEATURE TITLE (RFC #)" and it should have the `B-unstable` & `C-tracking-issue` tags, along with the tag for your subteam (e.g. `T-compiler` if this is a compiler feature).
 
 For tracking issues for features (as opposed to future-compat warnings), I don't think the description has to contain anything specific. Generally we put the list of items required for stabilization using a github list, e.g.
 
