@@ -7,7 +7,7 @@ title: The Rust Release Process &middot; The Rust Programming Language
 
 Here's how Rust is currently released:
 
-## Update books (T-7 days, Friday)
+## Update books (T-6 days, Friday)
 
 From within the repo:
 
