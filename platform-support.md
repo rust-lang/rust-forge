@@ -54,7 +54,7 @@ these platforms are required to have each of the following:
 | `aarch64-linux-android`           |  ✓  |     |     | ARM64 Android                |
 | `aarch64-unknown-fuchsia`         |  ✓  |     |     | ARM64 Fuchsia                |
 | `aarch64-unknown-linux-gnu`       |  ✓  |  ✓  |  ✓  | ARM64 Linux                  |
-| `arm-linux-androideabi`           |  ✓  |     |     | ARMv7 Android                |
+| `arm-linux-androideabi`           |  ✓  |     |     | ARMv5TE Android              |
 | `arm-unknown-linux-gnueabi`       |  ✓  |  ✓  |  ✓  | ARMv6 Linux                  |
 | `arm-unknown-linux-gnueabihf`     |  ✓  |  ✓  |  ✓  | ARMv6 Linux, hardfloat       |
 | `arm-unknown-linux-musleabi`      |  ✓  |     |     | ARMv6 Linux with MUSL        |
@@ -115,6 +115,7 @@ Official builds are not available.
 | `thumbv7em-none-eabi`           |  *  |     |     | Bare Cortex-M4, M7                                       |
 | `thumbv7em-none-eabihf`         |  *  |     |     | Bare Cortex-M4F, M7F, FPU, hardfloat                     |
 | `thumbv7m-none-eabi`            |  *  |     |     | Bare Cortex-M3                                           |
+| `x86_64-linux-android`          |  ✓  |     |     | 64-bit x86 Android                                       |
 | `x86_64-pc-windows-msvc` (XP)   |  ✓  |     |     | Windows XP support                                       |
 | `x86_64-unknown-bitrig`         |  ✓  |  ✓  |     | 64-bit Bitrig                                            |
 | `x86_64-unknown-dragonfly`      |  ✓  |  ✓  |     | 64-bit DragonFlyBSD                                      |
