@@ -117,7 +117,7 @@ Heuristics-based CSS Classes:
 
 - `important` -- Trace nodes are `important` if they have an extent of
   6 (or more), _or_ they have a duration fraction of one percent (or
-  more).  These numbers are simple hueristics (currently hard-coded,
+  more).  These numbers are simple heuristics (currently hard-coded,
   but easy to modify).  Important nodes are styled with textual
   labels, and highlighted borders (light red, and bolded).
 
