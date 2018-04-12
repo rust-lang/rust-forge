@@ -238,7 +238,7 @@ Once we have decided to make a "future warning" into a hard error, we
 need a PR that removes the custom lint. As an example, here are the
 steps required to remove the `overlapping_inherent_impls`
 compatibility lint. First, convert the name of the lint to uppercase
-(`OVERLAPPING_INHERENT_IMPLS`) ripgrep thorugh the source for that
+(`OVERLAPPING_INHERENT_IMPLS`) ripgrep through the source for that
 string. We will basically by converting each place where this lint
 name is mentioned (in the compiler, we use the upper-case name, and a
 macro automatically generates the lower-case string; so searching for
@@ -309,7 +309,7 @@ We want to convert this into an error. In some cases, there may be an
 existing error for this scenario. In others, we will need to allocate
 a fresh diagnostic
 code. [Instructions for allocating a fresh diagnostic code can be found here.](rustc-diagnostic-code.html)
-You may want to mention in the extended descripiton that the compiler
+You may want to mention in the extended description that the compiler
 behavior changed on this point, and include a reference to the
 tracking issue for the change.
 
