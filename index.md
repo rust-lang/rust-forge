@@ -27,6 +27,8 @@ PRs against [rust-lang-nursery/rust-forge].
 
 ### Interested in infrastructure and the release process?
 
+* [The current PR testing queue](https://buildbot2.rust-lang.org/homu/queue/rust)
+* [The PR queue over time](https://rust-lang-nursery.github.io/rustc-pr-tracking/)
 * [Toolstate (rls, rustfmt, clippy)](https://rust-lang-nursery.github.io/rust-toolstate/)
 * [Release history](releases.html). Links to previous release artifacts.
 * [Platform support](platform-support.html).
