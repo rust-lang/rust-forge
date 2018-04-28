@@ -42,7 +42,7 @@ PRs against [rust-lang-nursery/rust-forge].
 
 * [RFC merge procedure](rfc-merge-procedure.html)
 * [Team maintenance](rustc-team-maintenance.html)
-* [PR Triage Procedure](pr-triage-procedure.html)
+* [Issue & PR Triage Procedure](triage-procedure.html)
 
 ### Other things
 
