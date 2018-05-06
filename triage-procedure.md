@@ -15,6 +15,7 @@ title: Triage Procedure
  - [S-waiting-on-team] - A T- label is marked, and team has been cc-ed for feedback.
  - [S-waiting-on-bors] - Currently approved, waiting to merge.
  - [S-waiting-on-crater] - Waiting to see what the impact the PR will have on the ecosystem
+ - [S-waiting-on-bikeshed] - Waiting on the consensus over a minor detail
  - [S-blocked] - Waiting for another PR to be merged
  - [S-inactive-closed] - Closed due to inactivity.
 
@@ -23,6 +24,7 @@ title: Triage Procedure
 [S-waiting-on-team]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-team+sort%3Aupdated-desc
 [S-waiting-on-bors]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-bors+sort%3Aupdated-asc
 [S-waiting-on-crater]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-crater+sort%3Aupdated-asc
+[S-waiting-on-bikeshed]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-bikeshed+sort%3Aupdated-asc
 [S-blocked]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-blocked+sort%3Aupdated-asc
 [S-inactive-closed]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-inactive-closed+sort%3Aupdated-asc
 
@@ -145,6 +147,20 @@ If crater has been started (the person starting should leave a comment) and it h
 been more than 5 days since an update, ping the person starting the run on IRC and GitHub.
 
 [S-waiting-on-crater PRs]: https://github.com/rust-lang/rust/pulls?utf8=%E2%9C%93&q=is%3Aopen%20is%3Apr%20sort%3Aupdated-asc%20label%3AS-waiting-on-crater
+
+### [S-waiting-on-bikeshed][S-waiting-on-bikeshed]
+
+PRs inactive for greater than 7 days need to be processed. These can
+be found by looking at the "updated X days ago" on GitHub's PR list.
+
+Find the source of the discussion and see if it has been resolved.
+
+If it has been resolved, move it back to S-waiting-on-author or
+S-waiting-on-review as appropriate. Add a comment notifying the author
+or reviewer that the PR is now unblocked.
+
+If it has not been resolved, remove and re-add the S-waiting-on-bikeshed tag.
+This resets the update time so the PR won't be reviewed for another week.
 
 ### [S-blocked PRs][S-blocked]
 
