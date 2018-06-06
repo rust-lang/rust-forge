@@ -152,6 +152,10 @@ Decide on a time to do the release, T.
 * **T-5m** - Merge blog post.
 
 * **T** - Tweet and post everything!
+  - Twitter [@rustlang](https://twitter.com/rustlang)
+  - Reddit [/r/rust](https://www.reddit.com/r/rust/)
+  - [Hacker News](https://news.ycombinator.com/)
+  - [Users forum](https://users.rust-lang.org/)
 
 * **T+5m** - Tag Cargo the same way as rust-lang/rust and then run `cargo
   publish` for the tag you just created.
