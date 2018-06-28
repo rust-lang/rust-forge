@@ -89,11 +89,13 @@ If there are **no comments from the reviewer**:
    wasn't possible.
  - If the PR is more than 6 days old, in addition to the above steps, ping the subteam on GitHub and
    ask for a new reviewer.
+ - If the PR is more than 9 days old, in addition to the above steps, change the tag to S-waiting-on-team
 
 If the **review is incomplete**:
 
- - If more than 3 days since last reviewer comment, ping the reviewer on IRC and on GitHub.
+ - If more than 3 days since the last reviewer comment, ping the reviewer on IRC and on GitHub.
  - If more than 6 days since the last reviewer comment, also ping the subteam on GitHub.
+ - If more than 9 days since the last reviewer comment, also change the tag to S-waiting-on-team
 
 If the PR is blocked on another PR, add a comment clearly identifying
 the blocking PR (something like "This PR appears to be blocked on
