@@ -1,11 +1,11 @@
 language: ruby
 rvm:
-- 2.1
-  
-# Containers are cool!  
+- 2.2
+
+# Containers are cool!
 sudo: false
 
-install: 
+install:
 - bundle install
 - pip install --user awscli
 - ~/.local/bin/aws configure set preview.cloudfront true
@@ -32,7 +32,7 @@ deploy:
 # Cloudfront invalidation: If not PR, decrypt credentials, then build
 # invalidation payload with `travis/inval-list.py` and use locally-installed
 # awscli to submit it
-after_success: 
+after_success:
 - '[[ $TRAVIS_PULL_REQUEST == "false" ]] && python travis/inval-list.py'
 
 after_deploy:
@@ -47,7 +47,7 @@ after_deploy:
 #
 # We set them by going to the Travis UI at
 # https://travis-ci.org/rust-lang/rust-www/settings and creating the variables
-# AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY with the appropriate values. 
+# AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY with the appropriate values.
 #
 # The values in those env vars come from the Travis account's IAM credentials,
 # which you can get from
@@ -55,18 +55,18 @@ after_deploy:
 # logged in as someone with the appropriate permissions. The
 # cloudfront distribution-id is listed in the ID field of the distribution for
 # www-rust-lang-org on the console at
-# https://console.aws.amazon.com/cloudfront/home?region=us-west-1. 
+# https://console.aws.amazon.com/cloudfront/home?region=us-west-1.
 #
-# For the deploy step, the secret access key is encrypted on the command line. 
-# Encryption uses the Travis CLI, so on your laptop, 
-# 
+# For the deploy step, the secret access key is encrypted on the command line.
+# Encryption uses the Travis CLI, so on your laptop,
+#
 #   $ gem install travis
 #
 # The string you encrypt for the SECRET_ACCESS_KEY will be the same as the
 # string in the AWS_SECRET_ACCESS_KEY variable that you set earlier.
-# To encrypt the single variable: 
+# To encrypt the single variable:
 #
 #   $ travis encrypt -r rust-lang/rust-www "abc123"
 #
 # The output of that command will contain a `secure: "7890wxyzPQR"` line which
-# you then add to `.travis.yml` under `secret_access_key`. 
+# you then add to `.travis.yml` under `secret_access_key`.
