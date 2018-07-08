@@ -16,7 +16,8 @@ title: Triage Procedure
  - [S-waiting-on-bors] - Currently approved, waiting to merge.
  - [S-waiting-on-crater] - Waiting to see what the impact the PR will have on the ecosystem
  - [S-waiting-on-bikeshed] - Waiting on the consensus over a minor detail
- - [S-blocked] - Waiting for another PR to be merged
+ - [S-blocked] - Waiting for another PR to be merged or for discussion to be resolved
+ - [S-blocked-closed] - Closed because resolving the block is expected to take a long time
  - [S-inactive-closed] - Closed due to inactivity.
 
 [S-waiting-on-author]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-author
@@ -26,9 +27,12 @@ title: Triage Procedure
 [S-waiting-on-crater]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-crater+sort%3Aupdated-asc
 [S-waiting-on-bikeshed]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-bikeshed+sort%3Aupdated-asc
 [S-blocked]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-blocked+sort%3Aupdated-asc
-[S-inactive-closed]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-inactive-closed+sort%3Aupdated-asc
+[S-blocked-closed]: https://github.com/rust-lang/rust/pulls?q=is%3Apr+label%3AS-blocked-closed+sort%3Aupdated-asc
+[S-inactive-closed]: https://github.com/rust-lang/rust/pulls?q=is%3Apr+label%3AS-inactive-closed+sort%3Aupdated-asc
 
 ## Procedure:
+
+*Note:* When you are pinging people in triage comments, you should mention that you are doing triage in the comment you post. For example, start your comments with something like "Ping from triage ..."."
 
 ### [Unlabeled PRs]
 
@@ -48,7 +52,7 @@ At this point, all PRs must have a tag applied.
 
 [Unlabeled PRs]: https://github.com/rust-lang/rust/pulls?utf8=%E2%9C%93&q=is%3Aopen%20is%3Apr%20sort%3Aupdated-asc%20-label%3AS-waiting-on-author%20-label%3AS-waiting-on-team%20-label%3AS-waiting-on-bors%20-label%3AS-waiting-on-crater%20-label%3AS-waiting-on-team%20-label%3AS-waiting-on-review%20-label%3AS-blocked%20-label%3AS-waiting-on-bikeshed
 
-### [S-waiting-on-author PRs]
+### [S-waiting-on-author PRs][S-waiting-on-author]
 
 PRs with greater than 3 days of inactivity need to be processed. These can be found by looking at
 the "updated X days ago" on GitHub's PR list.
@@ -68,13 +72,10 @@ author for the changes. Also tag the PR with S-inactive-closed.
 you can 'bump' the PR by removing and readding the tag (note that removing/readding requires
 clicking off the tag selection dropdown between the two actions).
 
-If the PR is blocked on another PR, add a comment clearly identifying
-the blocking PR (something like "This PR appears to be blocked on
-#12345") and change the state to S-blocked.
+If the PR is blocked on another PR, issue, or some kind of discussion, add a comment clearly identifying what is blocking the PR (something like "This PR appears to be blocked on
+#12345") and change the state to S-blocked. Follow the instruction for S-blocked to determine whether you should also close the PR.
 
-[S-waiting-on-author PRs]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-author
-
-### [S-waiting-on-review PRs]
+### [S-waiting-on-review PRs][S-waiting-on-review]
 
 PRs with greater than 3 days of inactivity need to be processed. These can be found by looking at
 the "updated X days ago" on GitHub's PR list.
@@ -101,9 +102,7 @@ If the PR is blocked on another PR, add a comment clearly identifying
 the blocking PR (something like "This PR appears to be blocked on
 #12345") and change the state to S-blocked.
 
-[S-waiting-on-review PRs]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-review
-
-### [S-waiting-on-team PRs]
+### [S-waiting-on-team PRs][S-waiting-on-team]
 
 PRs active within the last 4 days or inactive for greater than 2 weeks need to be processed.
 These can be found by looking at the "updated X days ago" on GitHub's PR list.
@@ -118,16 +117,12 @@ noting that you've pinged on IRC.
 If there has been recent activity, the team might have taken some action meaning the state has
 changed but the label has not yet been updated. Therefore, we also check the most recent ones.
 
-[S-waiting-on-team PRs]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-team+sort%3Aupdated-desc
-
-### [S-waiting-on-bors PRs]
+### [S-waiting-on-bors PRs][S-waiting-on-bors]
 
 All PRs should be processed. First, ensure that the status tag matches the current state of the PR.
 Change the tag if necessary, and apply the procedure for the new tag now.
 
-[S-waiting-on-bors PRs]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-bors+sort%3Aupdated-asc
-
-### [S-waiting-on-crater PRs]
+### [S-waiting-on-crater PRs][S-waiting-on-crater]
 
 All PRs should be processed.
 
@@ -148,8 +143,6 @@ the last three distinct listed people on the spreadsheet in the infra irc channe
 If crater has been started (the person starting should leave a comment) and it has
 been more than 5 days since an update, ping the person starting the run on IRC and GitHub.
 
-[S-waiting-on-crater PRs]: https://github.com/rust-lang/rust/pulls?utf8=%E2%9C%93&q=is%3Aopen%20is%3Apr%20sort%3Aupdated-asc%20label%3AS-waiting-on-crater
-
 ### [S-waiting-on-bikeshed][S-waiting-on-bikeshed]
 
 PRs inactive for greater than 7 days need to be processed. These can
@@ -166,6 +159,14 @@ This resets the update time so the PR won't be reviewed for another week.
 
 ### [S-blocked PRs][S-blocked]
 
+Blocked PRs can remain blocked for a long time. To avoid needlessly re-triaging them, they should be closed if the blocking issue is unlikely to be resolved soon. If you close a blocked PR, apply the S-blocked-closed label and invite the author to re-open the PR once the issue has been resolved. If you feel uncomfortable just closing the PR, feel free to link to this document. As a rule of thumb, consider these guidelines:
+
+* PRs blocked on discussion (such as RFCs or WG decisions) should be closed immediately, since those discussions generally take a long time.
+* PRs blocked on other PRs can be left open, unless the blocking PR doesn't look like it's going to be merged soon.
+* PRs which have already been blocked for two weeks should generally be closed, unless there is a clear indication that they will be unblocked soon.
+
+Blocked PRs which have not been closed should be triaged as follows:
+
 PRs inactive for greater than 7 days need to be processed. These can
 be found by looking at the "updated X days ago" on GitHub's PR list.
 
@@ -179,12 +180,14 @@ or reviewer that the PR is now unblocked.
 If it has not been resolved, remove and re-add the S-blocked tag. This
 resets the update time so the PR won't be reviewed for another week.
 
-### [S-inactive-closed PRs]
+### [S-blocked-closed PRs][S-blocked-closed]
+
+These never need to be looked at, although if you want you can go through the PRs and see if any have been unblocked. This label is for PRs which are blocked and have been closed because it is unlikely that the blocking issue will be resolved soon.
+
+### [S-inactive-closed PRs][S-inactive-closed]
 
 These never need to be looked at. PRs which have been closed due inactivity. This is a terminal
 state for the time being, primarily oriented towards easing future work.
-
-[S-inactive-closed PRs]: https://github.com/rust-lang/rust/pulls?utf8=%E2%9C%93&q=is%3Aopen%20is%3Apr%20sort%3Aupdated-asc%20label%3AS-inactive-closed
 
 # Issue triage
 
