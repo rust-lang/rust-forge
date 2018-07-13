@@ -37,6 +37,7 @@ PRs against [rust-lang-nursery/rust-forge].
 * [Beta backporting](beta-backporting.html). The mystery of the oft-misinterpreted `beta-nominated` / `beta-accepted` tags finally revealed.
 * [Bots, websites and infrastructure](infrastructure.html). A catalog of the IRC bots, websites and other infrastructure used by the project, what they do, and who maintains them (i.e. who to contact when they malfunction and go on a bot rampage).
 * [Homu/Bors Syntax](https://buildbot2.rust-lang.org/homu/)
+* [State Of Rust](state-of-rust.html). Links and information about the current status of unstable features.
   
 ### Meta-processes: managing the RFC repo, teams, etc
 
