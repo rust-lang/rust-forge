@@ -77,7 +77,7 @@ be completed.
 | lang | [`safe_extern_statics` compatibility lint][36247] | Implemented | Blocked on making the lint a hard error |
 | lang | [`use $crate;` compatibility warning][37390] | Implemented | Blocked on making the lint deny by default |
 | lang | [`{Range, RangeFrom, RangeTo}::contains`][32311] | Implemented | Blocked on [unresolved questions][range_questions] |
-| lang | | [`associated_type_defaults`][29661] | Unimplemented | Blocked on decision on deprecation or semantic change  |
+| lang | [`associated_type_defaults`][29661] | Unimplemented | Blocked on decision on deprecation or semantic change  |
 | libes | [Specialization (RFC 1210)][31844] | Implemented | Blocked on restrictions of lifetime dispatch |
 | libs | [API convention for blocking-, timeout-, and/or deadline-related functions][46316] | Unimplemented | Blocked on FCP |
 | libs | [Add `is_empty` function to `ExactSizeIterator`][35428] | Unimplemented | Blocked on unresolved design decisions |
@@ -85,7 +85,8 @@ be completed.
 | libs | [Allow a `HashMap` and `BTreeMap` entry to be replaced.][44286] | Implemented | Blocked on decision to stabilise |
 | libs | [Cell::update][50186] | Implemented | Blocked on unresolved questions |
 | libs | [Custom allocators in standard collections][42774] | Implementation in progress | Blocked on [#47043] and [#50882] |
-| libs | [IP constructors][44582] | Implementation in progress | Blocked on moving the implementation to use associated consts |
+| libs | [IP constructors][44582] | Implementation in progress | Blocked on moving the implementation to use 
+ociated consts |
 | libs | [Integer methods for Wrapping][32463] | Implementation in progress | Some methods are still missing implementations.  |
 | libs | [Path/PathBuf normalization methods][47402] | Unimplemented | Blocked on implementation |
 | libs | [Pluggable panic implementations (RFC 1513)][32837] | Unimplemented | Blocked on unresolved design decisions |
