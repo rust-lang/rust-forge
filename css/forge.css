@@ -29,3 +29,7 @@ a {
 a:hover {
     color: red;
 }
+
+tbody tr:nth-child(odd) {
+    background-color: #ddd;
+}
