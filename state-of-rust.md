@@ -102,7 +102,7 @@ be completed.
 | lang | [stmt_expr_attributes: Add attributes to expressions, etc.][15701] | Implemented | Blocked on stabilisation of attributes on expressions and blocks | 2018-07-14 |
 | lang | [the `linkage` feature][29603] | Implemented | Blocked on [#18804] | 2018-07-14 |
 | lang | [the `start` feature][29633] | Implemented | Blocked on decision to stabilise | 2018-07-14 |
-| lang | | [`associated_type_defaults`][29661] | Unimplemented | Blocked on decision on deprecation or semantic change  | 2018-07-14 |
+| lang | [`associated_type_defaults`][29661] | Unimplemented | Blocked on decision on deprecation or semantic change  | 2018-07-14 |
 | libes | [Specialization (RFC 1210)][31844] | Implemented | Blocked on restrictions of lifetime dispatch | 2018-07-14 |
 | libs | [API convention for blocking-, timeout-, and/or deadline-related functions][46316] | Unimplemented | Blocked on FCP | 2018-07-14 |
 | libs | [Add `is_empty` function to `ExactSizeIterator`][35428] | Unimplemented | Blocked on unresolved design decisions | 2018-07-14 |
