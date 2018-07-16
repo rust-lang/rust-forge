@@ -142,7 +142,7 @@ be completed.
 | libs | [channel selection][27800] | Implemented | Blocked on decision to stabilise the `select!` macro | 2018-07-14 |
 | libs | [crates that are compiler dependencies][27812] | Unimplemented | Blocked on unclear direction | 2018-07-14 |
 | libs | [extra linked list methods][27794] | Implemented | Blocked on decision to stabilise | 2018-07-14 |
-| libs | [location of facade crates][27783] | Implementation in progress | Blocked on [RFC 2480] 2018-07-14 |
+| libs | [location of facade crates][27783] | Implementation in progress | Blocked on [RFC 2480] | 2018-07-14 |
 | libs | [str escaping][27791] | Implemented | Blocked on stabilisation PR | 2018-07-14 |
 | libs | [string patterns][27721] | Unimplemented | Blocked on [RFC 2295] | 2018-07-14 |
 | libs | [type_id][27745] | Implemented | Blocked on FCP confusion | 2018-07-14 |
