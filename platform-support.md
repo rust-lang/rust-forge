@@ -51,7 +51,6 @@ these platforms are required to have each of the following:
 |  Target                           | std |rustc|cargo| notes                        |
 |-----------------------------------|-----|-----|-----|------------------------------|
 | `aarch64-apple-ios`               |  ✓  |     |     | ARM64 iOS                    |
-| `aarch64-unknown-cloudabi`        |  ✓  |     |     | ARM64 CloudABI               |
 | `aarch64-linux-android`           |  ✓  |     |     | ARM64 Android                |
 | `aarch64-unknown-fuchsia`         |  ✓  |     |     | ARM64 Fuchsia                |
 | `aarch64-unknown-linux-gnu`       |  ✓  |  ✓  |  ✓  | ARM64 Linux                  |
@@ -64,7 +63,6 @@ these platforms are required to have each of the following:
 | `armv5te-unknown-linux-gnueabi`   |  ✓  |     |     | ARMv5TE Linux                |
 | `armv7-apple-ios`                 |  ✓  |     |     | ARMv7 iOS, Cortex-a8         |
 | `armv7-linux-androideabi`         |  ✓  |     |     | ARMv7a Android               |
-| `armv7-unknown-cloudabi-eabihf`   |  ✓  |     |     | ARMv7 CloudABI, hardfloat    |
 | `armv7-unknown-linux-gnueabihf`   |  ✓  |  ✓  |  ✓  | ARMv7 Linux                  |
 | `armv7-unknown-linux-musleabihf`  |  ✓  |     |     | ARMv7 Linux with MUSL        |
 | `armv7s-apple-ios`                |  ✓  |     |     | ARMv7 iOS, Cortex-a9         |
@@ -74,7 +72,6 @@ these platforms are required to have each of the following:
 | `i586-unknown-linux-gnu`          |  ✓  |     |     | 32-bit Linux w/o SSE         |
 | `i586-unknown-linux-musl`         |  ✓  |     |     | 32-bit Linux w/o SSE, MUSL   |
 | `i686-linux-android`              |  ✓  |     |     | 32-bit x86 Android           |
-| `i686-unknown-cloudabi`           |  ✓  |     |     | 32-bit CloudABI              |
 | `i686-unknown-freebsd`            |  ✓  |  ✓  |  ✓  | 32-bit FreeBSD               |
 | `i686-unknown-linux-musl`         |  ✓  |     |     | 32-bit Linux with MUSL       |
 | `mips-unknown-linux-gnu`          |  ✓  |  ✓  |  ✓  | MIPS Linux                   |
@@ -103,6 +100,28 @@ these platforms are required to have each of the following:
 | `x86_64-unknown-netbsd`           |  ✓  |  ✓  |  ✓  | NetBSD/amd64                 |
 | `x86_64-unknown-redox`            |  ✓  |     |     | Redox OS                     |
 
+## Tier 2.5
+
+Tier 2.5 platforms can be thought of as "guaranteed to build", but without
+builds available through `rustup`. Automated tests are not run so it's not
+guaranteed to produce a working build, but platforms often work to quite a good
+degree and patches are always welcome! Specifically, these platforms are
+required to have each of the following:
+
+* Automated building is set up, but may not be running tests.
+* Landing changes to the `rust-lang/rust` repository's master branch is gated on
+  platforms **building**. For some platforms only the standard library is
+  compiled, but for others `rustc` and `cargo` are too.
+
+**This status is accidental: no new platforms should reach this state**
+
+|  Target                           | std |rustc|cargo| notes                        |
+|-----------------------------------|-----|-----|-----|------------------------------|
+| `aarch64-unknown-cloudabi`        |  ✓  |     |     | ARM64 CloudABI               |
+| `armv7-unknown-cloudabi-eabihf`   |  ✓  |     |     | ARMv7 CloudABI, hardfloat    |
+| `i686-unknown-cloudabi`           |  ✓  |     |     | 32-bit CloudABI              |
+| `powerpc-unknown-linux-gnuspe`    |  ✓  |     |     | PowerPC SPE Linux            |
+| `sparc-unknown-linux-gnu`         |  ✓  |     |     | 32-bit SPARC Linux           |
 
 ## Tier 3
 
