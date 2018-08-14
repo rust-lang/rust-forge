@@ -102,24 +102,25 @@ In order to implement a new unstable feature, you need to do the following steps
     In the active `declare_features` block:  
     ```
     // description of feature
-    (active, $feature_name, "$current_nightly_version", Some($tracking_issue_number))
+    (active, $feature_name, "$current_nightly_version", Some($tracking_issue_number), $edition)
     ```
+	where `$edition` has the type `Option<Edition>`, and is typically just `None`.
     
-    For example  
+    For example:  
     ```
     // allow '|' at beginning of match arms (RFC 1925)
-    (active, match_beginning_vert, "1.21.0", Some(44101)),
+    (active, match_beginning_vert, "1.21.0", Some(44101), None),
     ```
     
-    The current version is not actually important - the important version is when you are *stabilizing* a feature.
+    The current version is not actually important – the important version is when you are *stabilizing* a feature.
 4. Prevent usage of the new feature unless the feature gate is set.  
     You can check it in most places in the compiler using the expression  
     ```
-    tcx.sess.features.borrow().$feature_name
+    tcx.sess.features().borrow().$feature_name
     ```
     
     If the feature gate is not set, you should either maintain the pre-feature behavior or raise an error, depending on what makes sense.
-5. Add a test that the feature can't be used without a feature gate, under `src/test/compile-fail/feature-gate-$feature_name.rs`.
+5. Add a test to ensure the feature cannot be used without a feature gate, by creating `feature-gate-$feature_name.rs` and `feature-gate-$feature_name.stderr` fiels under the `src/test/ui/feature-gates` directory.
 6. Add a section to the unstable book, in `src/doc/unstable-book/src/language-features/$feature_name.md`.
 7. Write a lots of tests for the new feature. PRs without tests will not be accepted!
 8. Get your PR reviewed and land it. You have now successfully implemented a feature in Rust!
