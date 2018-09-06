@@ -71,8 +71,9 @@ author for the changes. Also tag the PR with S-inactive-closed.
 If there has been no meaningful updates after two triage updates, with no meaningful being defined
 as no commits or no status updates that show progress (i.e. "Soon TM"). The PR should be closed
 due to prolonged inactivity and ask the author to reopen when they have a chance to make
-the necessary changes. Make sure to thank the author for the changes. Also tag the PR
-with S-inactive-closed.
+the necessary changes. Make sure to thank the author for the changes, and warn them not to push to
+the PR while it is closed as GitHub will prevent the PR from being reopened. Make sure to also tag
+the PR with S-inactive-closed.
 
 *TIP*: if an author is on holiday and you know they won't have a chance to come to a PR for a while,
 you can 'bump' the PR by removing and readding the tag (note that removing/readding requires
