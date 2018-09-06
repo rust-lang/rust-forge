@@ -111,8 +111,8 @@ First, ensure that the status tag matches the current state of the PR. Change th
 and apply the procedure for the new tag now. Verify that there is a T- tag
 for all PRs that remain in this category.
 
-If the PR has been inactive for greater than 2 weeks, ping the team lead on IRC and on GitHub,
-noting that you've pinged on IRC.
+If the PR has been inactive for greater than 2 weeks, add the `I-nominated` label and ping the team,
+requesting a new assignee or other appropriate action.
 
 If there has been recent activity, the team might have taken some action meaning the state has
 changed but the label has not yet been updated. Therefore, we also check the most recent ones.
