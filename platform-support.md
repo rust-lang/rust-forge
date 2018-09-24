@@ -144,10 +144,9 @@ Official builds are not available.
 | `thumbv7em-none-eabihf`         |  *  |     |     | Bare Cortex-M4F, M7F, FPU, hardfloat                     |
 | `thumbv7m-none-eabi`            |  *  |     |     | Bare Cortex-M3                                           |
 | `x86_64-pc-windows-msvc` (XP)   |  ✓  |     |     | Windows XP support                                       |
-| `x86_64-unknown-bitrig`         |  ✓  |  ✓  |     | 64-bit Bitrig                                            |
-| `x86_64-unknown-dragonfly`      |  ✓  |  ✓  |     | 64-bit DragonFlyBSD                                      |
+| `x86_64-unknown-dragonfly`      |  ✓  |  ✓  |  ✓  | 64-bit DragonFlyBSD                                      |
 | `x86_64-unknown-haiku`          |  ✓  |     |     | 64-bit Haiku                                             |
-| `x86_64-unknown-openbsd`        |  ✓  |  ✓  |     | 64-bit OpenBSD                                           |
+| `x86_64-unknown-openbsd`        |  ✓  |  ✓  |  ✓  | 64-bit OpenBSD                                           |
 | [NVPTX]                         |  ** |     |     | `--emit=asm` generates PTX code that runs on NVIDIA GPUs |
 
 [NVPTX]: https://github.com/japaric/nvptx#targets
