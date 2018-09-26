@@ -16,6 +16,7 @@ title: Triage Procedure
  - [S-waiting-on-bors] - Currently approved, waiting to merge.
  - [S-waiting-on-crater] - Waiting to see what the impact the PR will have on the ecosystem
  - [S-waiting-on-bikeshed] - Waiting on the consensus over a minor detail
+ - [S-waiting-on-perf] - Waiting on the results of a perf run
  - [S-blocked] - Waiting for another PR to be merged or for discussion to be resolved
  - [S-blocked-closed] - Closed because resolving the block is expected to take a long time
  - [S-inactive-closed] - Closed due to inactivity.
@@ -26,6 +27,7 @@ title: Triage Procedure
 [S-waiting-on-bors]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-bors+sort%3Aupdated-asc
 [S-waiting-on-crater]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-crater+sort%3Aupdated-asc
 [S-waiting-on-bikeshed]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-bikeshed+sort%3Aupdated-asc
+[S-waiting-on-perf]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-perf+sort%3Aupdated-asc
 [S-blocked]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-blocked+sort%3Aupdated-asc
 [S-blocked-closed]: https://github.com/rust-lang/rust/pulls?q=is%3Apr+label%3AS-blocked-closed+sort%3Aupdated-asc
 [S-inactive-closed]: https://github.com/rust-lang/rust/pulls?q=is%3Apr+label%3AS-inactive-closed+sort%3Aupdated-asc
