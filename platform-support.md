@@ -51,8 +51,8 @@ these platforms are required to have each of the following:
 |  Target                           | std |rustc|cargo| notes                        |
 |-----------------------------------|-----|-----|-----|------------------------------|
 | `aarch64-apple-ios`               |  ✓  |     |     | ARM64 iOS                    |
+| `aarch64-fuchsia`                 |  ✓  |     |     | ARM64 Fuchsia                |
 | `aarch64-linux-android`           |  ✓  |     |     | ARM64 Android                |
-| `aarch64-unknown-fuchsia`         |  ✓  |     |     | ARM64 Fuchsia                |
 | `aarch64-unknown-linux-gnu`       |  ✓  |  ✓  |  ✓  | ARM64 Linux                  |
 | `aarch64-unknown-linux-musl`      |  ✓  |     |     | ARM64 Linux with MUSL        |
 | `arm-linux-androideabi`           |  ✓  |     |     | ARMv7 Android                |
@@ -89,12 +89,12 @@ these platforms are required to have each of the following:
 | `wasm32-unknown-unknown`          |  ✓  |     |     | WebAssembly                  |
 | `wasm32-unknown-emscripten`       |  ✓  |     |     | WebAssembly via Emscripten   |
 | `x86_64-apple-ios`                |  ✓  |     |     | 64-bit x86 iOS               |
+| `x86_64-fuchsia`                  |  ✓  |     |     | 64-bit Fuchsia               |
 | `x86_64-linux-android`            |  ✓  |     |     | 64-bit x86 Android           |
 | `x86_64-rumprun-netbsd`           |  ✓  |     |     | 64-bit NetBSD Rump Kernel    |
 | `x86_64-sun-solaris`              |  ✓  |     |     | 64-bit Solaris 10/11, illumos|
 | `x86_64-unknown-cloudabi`         |  ✓  |     |     | 64-bit CloudABI              |
 | `x86_64-unknown-freebsd`          |  ✓  |  ✓  |  ✓  | 64-bit FreeBSD               |
-| `x86_64-unknown-fuchsia`          |  ✓  |     |     | 64-bit Fuchsia               |
 | `x86_64-unknown-linux-gnux32`     |  ✓  |     |     | 64-bit Linux                 |
 | `x86_64-unknown-linux-musl`       |  ✓  |     |     | 64-bit Linux with MUSL       |
 | `x86_64-unknown-netbsd`           |  ✓  |  ✓  |  ✓  | NetBSD/amd64                 |
