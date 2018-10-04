@@ -233,4 +233,8 @@ and add tags as you see fit. The following categories should, ideally, be assign
  - If necessary, add I- tags as you see fit. Particularly, I-ICE is the dominant tag to be added.
  - If applicable, add platform tags (O-). It's fine to add more than one.
 
+If an issue has been tagged with an `E-` category tag, such as `E-help-wanted`
+and has been taken up by someone, but there has been no activity for 14 days.
+Re-add the help tag and deassign them if necessary.
+
 [list of untagged issues]: https://github.com/rust-lang/rust/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20sort%3Acreated-asc%20-label%3AC-feature-request%20-label%3AC-enhancement%20-label%3AC-cleanup%20-label%3AC-bug%20-label%3AC-tracking-issue%20-label%3AC-future-compatibility%20-label%3AC-question%20-label%3AC-feature-accepted
