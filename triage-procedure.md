@@ -239,10 +239,10 @@ and add tags as you see fit. The following categories should, ideally, be assign
 
 1. Visit the [State Of Rust] project page. Each card has three pieces of
    information.
-    1. “Feature” — The name of the feature with a link to the tracking issue.
-    2. “What’s next?” — What we are waiting on to implement and stabilise
+     * “Feature” — The name of the feature with a link to the tracking issue.
+     * “What’s next?” — What we are waiting on to implement and stabilise
        the RFC.
-    3. “Last Update” — The last time this card has been triaged.
+     * “Last Update” — The last time this card has been triaged.
 2. For each card that you choose to triage.
 3. Visit the respective tracking issue, and any related issues that the tracking
    issue is recently mentioned in.
@@ -250,13 +250,21 @@ and add tags as you see fit. The following categories should, ideally, be assign
    state is, update it with the new information.
 5. If the implementation of an RFC has changed since the last update, move it to
    the relevant column. 
-    1. If there are PRs merged that implement the RFC the card would move
-       to “Implemented”.
-    2. If there are only open PRs or the PRs don’t implement the full RFC the
-       card would be moved to “Implementation in progress”.
-    3. If there has been a decision to deprecate the RFC, move that to the
-       “Deprecated” column.
-6. Update the date on the “Last update” and move that to the bottom of
+     1. If there are PRs merged that implement the RFC the card would move
+        to “Implemented”.
+     2. If there are only open PRs or the PRs don’t implement the full RFC the
+        card would be moved to “Implementation in progress”.
+     3. If there has been a decision to deprecate the RFC, move that to the
+        “Deprecated” column.
+6. If there have been no meaningful changes to the RFC within 21 days you need
+   to ping someone for an update on the status of the PR.
+     * If there have been PRs implementing the RFC, ping the author.
+     * If author has not responded within a week, or there are no relevant PRs.
+       You should ping the relevant team.
+     * If there iss no clear choice for the team that should be doing the
+       implementation, ping the team and/or individual(s) responsible for
+       the RFC.
+7. Update the date on the “Last update” and move that to the bottom of
    the column.
 
 [State Of Rust]: https://github.com/rust-lang/rust/projects/8
