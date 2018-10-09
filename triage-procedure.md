@@ -262,8 +262,8 @@ and add tags as you see fit. The following categories should, ideally, be assign
      * If author has not responded within a week, or there are no relevant PRs,
        ping the relevant team.
      * If there is no clear choice for the team that should be doing the
-       implementation, ping the team and/or individual(s) responsible for
-       the RFC.
+       implementation, please add this to release team meeting notes (which
+       can be found in the #rust-release IRC channel).
 7. Update the date on the “Last update” and move that to the bottom of
    the column.
 
