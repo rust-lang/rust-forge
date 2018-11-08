@@ -128,8 +128,7 @@ Decide on a time to do the release, T.
 * **T-30m** - This is on rust-central-station:
 
   ```
-  docker exec -d -it rcs bash -c \
-    'promote-release /tmp/stable stable /data/secrets.toml 2>&1 | logger --tag release-stable-realz'
+  docker exec -d -it rcs bash -c 'promote-release /tmp/stable stable /data/secrets.toml 2>&1 | logger --tag release-stable-realz'
   ```
 
   That'll, in the background, schedule the `promote-release` binary to run on the
