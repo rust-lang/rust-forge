@@ -501,3 +501,25 @@ ul.laundry-list {
     margin: 0 0 0 2rem;
     padding: 0;
 }
+
+.installer-table {
+  display: flex;
+  margin: 2rem;
+  justify-content: space-around;
+}
+
+.installer-table > div > div > span {
+  float: left;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.rustup-init-table {
+  display: flex;
+  margin: 2rem;
+  justify-content: space-around;
+}
+
+.rustup-init-table > div > a {
+  display: block;
+}
