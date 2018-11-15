@@ -50,6 +50,7 @@ PRs against [rust-lang-nursery/rust-forge].
 * [Friend of the Tree archives](fott.html).
 * [Bibliography](bibliography.html). Research papers and other links to projects that influenced Rust. Papers about Rust.
 * [Cross compilation resources](cross-compilation/index.html)
+* [Other Rust Installation Methods](other-installation-methods.html)
 
 <script>
 
