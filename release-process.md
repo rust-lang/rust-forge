@@ -110,7 +110,8 @@ not working beta won't land and it'll need to get updated. After this PR merges
 
 # Master bootstrap update (T-1 day, Wednesday)
 
-Write a new blog post and update rust-www. Submit PRs for tomorrow.
+Write a new blog post, update rust-www, and update rust-forge. Submit PRs for
+tomorrow.
 
 Send a PR to the master branch to:
 
