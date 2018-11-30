@@ -137,9 +137,6 @@ Decide on a time to do the release, T.
   update the html index pages, and invalidate the CDN. Note that this takes about
   30 minutes right now. Logs are in `/opt/rcs/logs`.
 
-* **T-20m** - Merge the website. Travis may have a big backlog, cancel
-  rust-lang/rust PR builds or other builds until this build is scheduled.
-
 * **T-10m** - Locally, tag the new release and upload it. Use "x.y.z release" as
   the commit message.
 
