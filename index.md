@@ -57,26 +57,23 @@ PRs against [rust-lang-nursery/rust-forge].
 document.addEventListener("DOMContentLoaded", function() {
 
   // rust 1.5's release date
-  var prevDate = new Date('2015-12-11');
+  var epochDate = new Date('2015-12-11');
   // #nevertwopointoh -- we render "1." in the string literals below, this is easier to increment
-  var prevRelease = 5;
+  var epochRelease = 5;
+  // there are 6 weeks in between releases
+  var releaseDuration = 7 * 6 * 86400 * 1000;
 
-  var nextDate = new Date('2016-01-22');
-  var nextRelease = 6;
+  var today = new Date();
+  var releases = (today - epochDate) / releaseDuration | 0;
 
-  var nextNextDate = new Date('2016-03-04');
-  var nextNextRelease = 7;
+  var prevDate = new Date(epochDate.getTime() + releases * releaseDuration);
+  var prevRelease = epochRelease + releases;
 
-  while (Date.now() > nextDate) {
-    prevDate = new Date(nextDate);
-    // there are 6 weeks in between releases
-    nextDate.setDate(nextDate.getDate() + (7 * 6));
-    nextNextDate.setDate(nextNextDate.getDate() + (7 * 6));
+  var nextDate = new Date(prevDate.getTime() + releaseDuration);
+  var nextRelease = prevRelease + 1;
 
-    prevRelease += 1;
-    nextRelease += 1;
-    nextNextRelease += 1;
-  }
+  var nextNextDate = new Date(nextDate.getTime() + releaseDuration);
+  var nextNextRelease = nextRelease + 1;
 
   prevDate = prevDate.toDateString();
   nextDate = nextDate.toDateString();
