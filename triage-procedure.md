@@ -5,6 +5,12 @@ title: Triage Procedure
 
 # PR triage
 
+---
+
+**HOLIDAY NOTE:** The PR triage process is **suspended** during the holidays. There won't be any triage pings, nor any PRs closed, between **Monday, 2018-12-17** and **Sunday, 2019-01-06**.
+
+---
+
 ## Status tag meanings:
 
  - [S-waiting-on-author] - Author needs to make changes to address reviewer comments, or merge
@@ -34,7 +40,7 @@ title: Triage Procedure
 
 ## Procedure:
 
-**IMPORTANT:** Whenever you do PR triage, please fill out the following form: https://goo.gl/forms/YKYVFYjBq28Hm3qQ2. If you want to create a bookmark for yourself, you can adapt [this link](https://docs.google.com/forms/d/e/1FAIpQLSfdcbG9tSX49LuY9h1NCLKb6oU4tGalB3PrkN6yIHHWaptUbw/viewform?entry.1711461865=YOUR_GITHUB_USERNAME) to prefill your GitHub username.
+**IMPORTANT:** Whenever you do PR triage, please fill out the following form: [goo.gl/forms/YKYVFYjBq28Hm3qQ2](https://goo.gl/forms/YKYVFYjBq28Hm3qQ2). If you want to create a bookmark for yourself, you can adapt [this link](https://docs.google.com/forms/d/e/1FAIpQLSfdcbG9tSX49LuY9h1NCLKb6oU4tGalB3PrkN6yIHHWaptUbw/viewform?entry.1711461865=YOUR_GITHUB_USERNAME) to prefill your GitHub username.
 
 *Note:* When you are pinging people in triage comments, you should mention that you are doing triage in the comment you post. For example, start your comments with something like "Ping from triage ..."."
 
