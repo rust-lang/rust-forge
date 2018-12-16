@@ -134,7 +134,6 @@ Official builds are not available.
 | `i686-pc-windows-msvc` (XP)     |  ✓  |     |     | Windows XP support                                       |
 | `i686-unknown-haiku`            |  ✓  |     |     | 32-bit Haiku                                             |
 | `i686-unknown-netbsd`           |  ✓  |     |     | NetBSD/i386 with SSE2                                    |
-| `le32-unknown-nacl`             |  ✓  |     |     | PNaCl sandbox                                            |
 | `mips-unknown-linux-uclibc`     |  ✓  |     |     | MIPS Linux with uClibc                                   |
 | `mipsel-unknown-linux-uclibc`   |  ✓  |     |     | MIPS (LE) Linux with uClibc                              |
 | `msp430-none-elf`               |  *  |     |     | 16-bit MSP430 microcontrollers                           |
