@@ -5,7 +5,8 @@ title: State Of Rust
 
 This document is intended to document the current state of Rust's various
 unstable features, their current status and what's required next to
-be completed.
+be completed. It should be kept in sync with the
+[State of Rust](https://github.com/rust-lang/rust/projects/8) board.
 
 | Team | Feature | Status | What's next | Last update |
 | ---- | ------- | ------ | ----------- | ----------- |
