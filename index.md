@@ -18,7 +18,6 @@ PRs against [rust-lang-nursery/rust-forge].
 * [The rustc-guide is a book about how rustc works](https://rust-lang-nursery.github.io/rustc-guide/)
 * [The rustc API docs are hosted here](https://doc.rust-lang.org/nightly/nightly-rustc/rustc/)
 * [Building rustc with x.py](x-py.html).
-* [Debugging the compiler](debugging.html). Tips for debugging the compiler.
 * [Profile queries](profile-queries.html). Tips for tracking what the compiler does.
 * [Rustc bug fix procedure](rustc-bug-fix-procedure.html): Describes the process for bug fixes that may cause existing code to stop
   compiling.
