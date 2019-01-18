@@ -17,12 +17,10 @@ PRs against [rust-lang-nursery/rust-forge].
 
 * [The rustc-guide is a book about how rustc works](https://rust-lang-nursery.github.io/rustc-guide/)
 * [The rustc API docs are hosted here](https://doc.rust-lang.org/nightly/nightly-rustc/rustc/)
-* [Building rustc with x.py](x-py.html).
 * [Profile queries](profile-queries.html). Tips for tracking what the compiler does.
 * [Rustc bug fix procedure](rustc-bug-fix-procedure.html): Describes the process for bug fixes that may cause existing code to stop
   compiling.
 * [So you want to implement a feature?](feature-guide.html): Describes the procedure for implementing new features in rustc.
-* [So you want to stabilize a feature?](stabilization-guide.html): Describes the procedure for stabilizing features in rustc.
 
 ### Interested in infrastructure and the release process?
 
