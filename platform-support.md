@@ -48,57 +48,59 @@ these platforms are required to have each of the following:
   platforms **building**. For some platforms only the standard library is
   compiled, but for others `rustc` and `cargo` are too.
 
-|  Target                           | std |rustc|cargo| notes                        |
-|-----------------------------------|-----|-----|-----|------------------------------|
-| `aarch64-apple-ios`               |  ✓  |     |     | ARM64 iOS                    |
-| `aarch64-fuchsia`                 |  ✓  |     |     | ARM64 Fuchsia                |
-| `aarch64-linux-android`           |  ✓  |     |     | ARM64 Android                |
-| `aarch64-unknown-linux-gnu`       |  ✓  |  ✓  |  ✓  | ARM64 Linux                  |
-| `aarch64-unknown-linux-musl`      |  ✓  |     |     | ARM64 Linux with MUSL        |
-| `arm-linux-androideabi`           |  ✓  |     |     | ARMv7 Android                |
-| `arm-unknown-linux-gnueabi`       |  ✓  |  ✓  |  ✓  | ARMv6 Linux                  |
-| `arm-unknown-linux-gnueabihf`     |  ✓  |  ✓  |  ✓  | ARMv6 Linux, hardfloat       |
-| `arm-unknown-linux-musleabi`      |  ✓  |     |     | ARMv6 Linux with MUSL        |
-| `arm-unknown-linux-musleabihf`    |  ✓  |     |     | ARMv6 Linux, MUSL, hardfloat |
-| `armv5te-unknown-linux-gnueabi`   |  ✓  |     |     | ARMv5TE Linux                |
-| `armv7-apple-ios`                 |  ✓  |     |     | ARMv7 iOS, Cortex-a8         |
-| `armv7-linux-androideabi`         |  ✓  |     |     | ARMv7a Android               |
-| `armv7-unknown-linux-gnueabihf`   |  ✓  |  ✓  |  ✓  | ARMv7 Linux                  |
-| `armv7-unknown-linux-musleabihf`  |  ✓  |     |     | ARMv7 Linux with MUSL        |
-| `armv7s-apple-ios`                |  ✓  |     |     | ARMv7 iOS, Cortex-a9         |
-| `asmjs-unknown-emscripten`        |  ✓  |     |     | asm.js via Emscripten        |
-| `i386-apple-ios`                  |  ✓  |     |     | 32-bit x86 iOS               |
-| `i586-pc-windows-msvc`            |  ✓  |     |     | 32-bit Windows w/o SSE       |
-| `i586-unknown-linux-gnu`          |  ✓  |     |     | 32-bit Linux w/o SSE         |
-| `i586-unknown-linux-musl`         |  ✓  |     |     | 32-bit Linux w/o SSE, MUSL   |
-| `i686-linux-android`              |  ✓  |     |     | 32-bit x86 Android           |
-| `i686-unknown-freebsd`            |  ✓  |  ✓  |  ✓  | 32-bit FreeBSD               |
-| `i686-unknown-linux-musl`         |  ✓  |     |     | 32-bit Linux with MUSL       |
-| `mips-unknown-linux-gnu`          |  ✓  |  ✓  |  ✓  | MIPS Linux                   |
-| `mips-unknown-linux-musl`         |  ✓  |     |     | MIPS Linux with MUSL         |
-| `mips64-unknown-linux-gnuabi64`   |  ✓  |  ✓  |  ✓  | MIPS64 Linux, n64 ABI        |
-| `mips64el-unknown-linux-gnuabi64` |  ✓  |  ✓  |  ✓  | MIPS64 (LE) Linux, n64 ABI   |
-| `mipsel-unknown-linux-gnu`        |  ✓  |  ✓  |  ✓  | MIPS (LE) Linux              |
-| `mipsel-unknown-linux-musl`       |  ✓  |     |     | MIPS (LE) Linux with MUSL    |
-| `powerpc-unknown-linux-gnu`       |  ✓  |  ✓  |  ✓  | PowerPC Linux                |
-| `powerpc64-unknown-linux-gnu`     |  ✓  |  ✓  |  ✓  | PPC64 Linux                  |
-| `powerpc64le-unknown-linux-gnu`   |  ✓  |  ✓  |  ✓  | PPC64LE Linux                |
-| `s390x-unknown-linux-gnu`         |  ✓  |  ✓  |  ✓  | S390x Linux                  |
-| `sparc64-unknown-linux-gnu`       |  ✓  |     |     | SPARC Linux                  |
-| `sparcv9-sun-solaris`             |  ✓  |     |     | SPARC Solaris 10/11, illumos |
-| `wasm32-unknown-unknown`          |  ✓  |     |     | WebAssembly                  |
-| `wasm32-unknown-emscripten`       |  ✓  |     |     | WebAssembly via Emscripten   |
-| `x86_64-apple-ios`                |  ✓  |     |     | 64-bit x86 iOS               |
-| `x86_64-fuchsia`                  |  ✓  |     |     | 64-bit Fuchsia               |
-| `x86_64-linux-android`            |  ✓  |     |     | 64-bit x86 Android           |
-| `x86_64-rumprun-netbsd`           |  ✓  |     |     | 64-bit NetBSD Rump Kernel    |
-| `x86_64-sun-solaris`              |  ✓  |     |     | 64-bit Solaris 10/11, illumos|
-| `x86_64-unknown-cloudabi`         |  ✓  |     |     | 64-bit CloudABI              |
-| `x86_64-unknown-freebsd`          |  ✓  |  ✓  |  ✓  | 64-bit FreeBSD               |
-| `x86_64-unknown-linux-gnux32`     |  ✓  |     |     | 64-bit Linux                 |
-| `x86_64-unknown-linux-musl`       |  ✓  |     |     | 64-bit Linux with MUSL       |
-| `x86_64-unknown-netbsd`           |  ✓  |  ✓  |  ✓  | NetBSD/amd64                 |
-| `x86_64-unknown-redox`            |  ✓  |     |     | Redox OS                     |
+|  Target                               | std |rustc|cargo| notes                                |
+|---------------------------------------|-----|-----|-----|--------------------------------------|
+| `aarch64-apple-ios`                   |  ✓  |     |     | ARM64 iOS                            |
+| `aarch64-fuchsia`                     |  ✓  |     |     | ARM64 Fuchsia                        |
+| `aarch64-linux-android`               |  ✓  |     |     | ARM64 Android                        |
+| `aarch64-unknown-linux-gnu`           |  ✓  |  ✓  |  ✓  | ARM64 Linux                          |
+| `aarch64-unknown-linux-musl`          |  ✓  |     |     | ARM64 Linux with MUSL                |
+| `arm-linux-androideabi`               |  ✓  |     |     | ARMv5TE Android                      |
+| `arm-unknown-linux-gnueabi`           |  ✓  |  ✓  |  ✓  | ARMv6 Linux                          |
+| `arm-unknown-linux-gnueabihf`         |  ✓  |  ✓  |  ✓  | ARMv6 Linux, hardfloat               |
+| `arm-unknown-linux-musleabi`          |  ✓  |     |     | ARMv6 Linux with MUSL                |
+| `arm-unknown-linux-musleabihf`        |  ✓  |     |     | ARMv6 Linux, MUSL, hardfloat         |
+| `armv5te-unknown-linux-gnueabi`       |  ✓  |     |     | ARMv5TE Linux                        |
+| `armv7-apple-ios`                     |  ✓  |     |     | ARMv7 iOS, Cortex-a8                 |
+| `armv7-linux-androideabi`             |  ✓  |     |     | Thumb2-mode ARMv7a Android           |
+| `armv7-unknown-linux-gnueabihf`       |  ✓  |  ✓  |  ✓  | ARMv7 Linux                          |
+| `armv7-unknown-linux-musleabihf`      |  ✓  |     |     | ARMv7 Linux with MUSL                |
+| `armv7s-apple-ios`                    |  ✓  |     |     | ARMv7 iOS, Cortex-a9                 |
+| `asmjs-unknown-emscripten`            |  ✓  |     |     | asm.js via Emscripten                |
+| `i386-apple-ios`                      |  ✓  |     |     | 32-bit x86 iOS                       |
+| `i586-pc-windows-msvc`                |  ✓  |     |     | 32-bit Windows w/o SSE               |
+| `i586-unknown-linux-gnu`              |  ✓  |     |     | 32-bit Linux w/o SSE                 |
+| `i586-unknown-linux-musl`             |  ✓  |     |     | 32-bit Linux w/o SSE, MUSL           |
+| `i686-linux-android`                  |  ✓  |     |     | 32-bit x86 Android                   |
+| `i686-unknown-freebsd`                |  ✓  |  ✓  |  ✓  | 32-bit FreeBSD                       |
+| `i686-unknown-linux-musl`             |  ✓  |     |     | 32-bit Linux with MUSL               |
+| `mips-unknown-linux-gnu`              |  ✓  |  ✓  |  ✓  | MIPS Linux                           |
+| `mips-unknown-linux-musl`             |  ✓  |     |     | MIPS Linux with MUSL                 |
+| `mips64-unknown-linux-gnuabi64`       |  ✓  |  ✓  |  ✓  | MIPS64 Linux, n64 ABI                |
+| `mips64el-unknown-linux-gnuabi64`     |  ✓  |  ✓  |  ✓  | MIPS64 (LE) Linux, n64 ABI           |
+| `mipsel-unknown-linux-gnu`            |  ✓  |  ✓  |  ✓  | MIPS (LE) Linux                      |
+| `mipsel-unknown-linux-musl`           |  ✓  |     |     | MIPS (LE) Linux with MUSL            |
+| `powerpc-unknown-linux-gnu`           |  ✓  |  ✓  |  ✓  | PowerPC Linux                        |
+| `powerpc64-unknown-linux-gnu`         |  ✓  |  ✓  |  ✓  | PPC64 Linux                          |
+| `powerpc64le-unknown-linux-gnu`       |  ✓  |  ✓  |  ✓  | PPC64LE Linux                        |
+| `s390x-unknown-linux-gnu`             |  ✓  |  ✓  |  ✓  | S390x Linux                          |
+| `sparc64-unknown-linux-gnu`           |  ✓  |     |     | SPARC Linux                          |
+| `sparcv9-sun-solaris`                 |  ✓  |     |     | SPARC Solaris 10/11, illumos         |
+| `thumbv7neon-linux-androideabi`       |  ✓  |     |     | Thumb2-mode ARMv7a Android with NEON |
+| `thumbv7neon-unknown-linux-gnueabihf` |  ✓  |     |     | Thumb2-mode ARMv7a Linux with NEON   |
+| `wasm32-unknown-unknown`              |  ✓  |     |     | WebAssembly                          |
+| `wasm32-unknown-emscripten`           |  ✓  |     |     | WebAssembly via Emscripten           |
+| `x86_64-apple-ios`                    |  ✓  |     |     | 64-bit x86 iOS                       |
+| `x86_64-fuchsia`                      |  ✓  |     |     | 64-bit Fuchsia                       |
+| `x86_64-linux-android`                |  ✓  |     |     | 64-bit x86 Android                   |
+| `x86_64-rumprun-netbsd`               |  ✓  |     |     | 64-bit NetBSD Rump Kernel            |
+| `x86_64-sun-solaris`                  |  ✓  |     |     | 64-bit Solaris 10/11, illumos        |
+| `x86_64-unknown-cloudabi`             |  ✓  |     |     | 64-bit CloudABI                      |
+| `x86_64-unknown-freebsd`              |  ✓  |  ✓  |  ✓  | 64-bit FreeBSD                       |
+| `x86_64-unknown-linux-gnux32`         |  ✓  |     |     | 64-bit Linux                         |
+| `x86_64-unknown-linux-musl`           |  ✓  |     |     | 64-bit Linux with MUSL               |
+| `x86_64-unknown-netbsd`               |  ✓  |  ✓  |  ✓  | NetBSD/amd64                         |
+| `x86_64-unknown-redox`                |  ✓  |     |     | Redox OS                             |
 
 ## Tier 2.5
 
