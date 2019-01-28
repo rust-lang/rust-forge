@@ -43,7 +43,7 @@ that the backport has been completed, so the `beta-nominated` and
 
 ## Backporting in `rust-lang/cargo`
 
-The procedure for backporting fixes to Cargo is similar bug slightly more
+The procedure for backporting fixes to Cargo is similar but slightly more
 extended than the `rust-lang/rust` repo's procedure. Currently there aren't
 backport tags in the Cargo repository, but you'll initiate the backport process
 by commenting on an associated PR, requesting a backport. Once a Cargo team
