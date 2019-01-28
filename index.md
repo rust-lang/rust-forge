@@ -35,6 +35,7 @@ PRs against [rust-lang-nursery/rust-forge].
 * [Bots, websites and infrastructure](infrastructure.html). A catalog of the IRC bots, websites and other infrastructure used by the project, what they do, and who maintains them (i.e. who to contact when they malfunction and go on a bot rampage).
 * [Homu/Bors Syntax](https://buildbot2.rust-lang.org/homu/)
 * [State Of Rust](state-of-rust.html). Links and information about the current status of unstable features.
+* [`rustup-toolchain-install-master`](https://github.com/kennytm/rustup-toolchain-install-master) allows installing Rust from `master` before it even makes it to nightly.
   
 ### Meta-processes: managing the RFC repo, teams, etc
 
