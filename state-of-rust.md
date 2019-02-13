@@ -78,7 +78,6 @@ be completed. It should be kept in sync with the
 | lang | [`box_patterns`][29641] | Implemented | Blocked on `box_syntax` feature | 2018-07-14 |
 | lang | [`cfg_target_vendor`][29718] | Implemented | Blocked on decision for stabilisation | 2018-07-14 |
 | lang | [`custom_attribute` & `rustc_attrs`][29642] | Unimplemented | Blocked on decision for deprecation or stabilisation | 2018-07-14 |
-| lang | [`custom_derive`][29644] | Deprecated | Blocked on rocket for removal | 2018-07-14 |
 | lang | [`fundamental` feature][29635] | Unimplemented | Blocked on further dicussion | 2018-07-14 |
 | lang | [`illegal_floating_point_literal_pattern` compatibility lint][41620] | Implemented | Blocked on making the lint deny by default | 2018-07-14 |
 | lang | [`impl Trait` (RFC 1522, RFC 1951, RFC 2071)][34511] | Implementation in progress | Blocked elision, error messages, and `abstract type` | 2018-07-14 |
@@ -192,7 +191,6 @@ be completed. It should be kept in sync with the
 [29635]: https://github.com/rust-lang/rust/issues/29635
 [29641]: https://github.com/rust-lang/rust/issues/29641
 [29642]: https://github.com/rust-lang/rust/issues/29642
-[29644]: https://github.com/rust-lang/rust/issues/29644
 [29661]: https://github.com/rust-lang/rust/issues/29661
 [29718]: https://github.com/rust-lang/rust/issues/29718
 [29722]: https://github.com/rust-lang/rust/issues/29722
