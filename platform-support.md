@@ -83,6 +83,8 @@ these platforms are required to have each of the following:
 | `powerpc-unknown-linux-gnu`       |  ✓  |  ✓  |  ✓  | PowerPC Linux                |
 | `powerpc64-unknown-linux-gnu`     |  ✓  |  ✓  |  ✓  | PPC64 Linux                  |
 | `powerpc64le-unknown-linux-gnu`   |  ✓  |  ✓  |  ✓  | PPC64LE Linux                |
+| `riscv32imac-unknown-none-elf`    |  *  |     |     | Bare RISC-V (RV32IMAC ISA)   |
+| `riscv32imc-unknown-none-elf`     |  *  |     |     | Bare RISC-V (RV32IMC ISA)    |
 | `s390x-unknown-linux-gnu`         |  ✓  |  ✓  |  ✓  | S390x Linux                  |
 | `sparc64-unknown-linux-gnu`       |  ✓  |     |     | SPARC Linux                  |
 | `sparcv9-sun-solaris`             |  ✓  |     |     | SPARC Solaris 10/11, illumos |
@@ -99,6 +101,9 @@ these platforms are required to have each of the following:
 | `x86_64-unknown-linux-musl`       |  ✓  |     |     | 64-bit Linux with MUSL       |
 | `x86_64-unknown-netbsd`           |  ✓  |  ✓  |  ✓  | NetBSD/amd64                 |
 | `x86_64-unknown-redox`            |  ✓  |     |     | Redox OS                     |
+
+<em>*</em> These are bare-metal microcontroller targets that only have access to
+the core library, not std.
 
 ## Tier 2.5
 
