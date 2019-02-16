@@ -85,6 +85,8 @@ these platforms are required to have each of the following:
 | `powerpc64le-unknown-linux-gnu`   |  ✓  |  ✓  |  ✓  | PPC64LE Linux                       |
 | `riscv32imac-unknown-none-elf`    |  *  |     |     | Bare RISC-V (RV32IMAC ISA)          |
 | `riscv32imc-unknown-none-elf`     |  *  |     |     | Bare RISC-V (RV32IMC ISA)           |
+| `riscv64gc-unknown-none-elf`      |  *  |     |     | Bare RISC-V (RV64IMAFDC ISA)        |
+| `riscv64imac-unknown-none-elf`    |  *  |     |     | Bare RISC-V (RV64IMAC ISA)          |
 | `s390x-unknown-linux-gnu`         |  ✓  |  ✓  |  ✓  | S390x Linux                         |
 | `sparc64-unknown-linux-gnu`       |  ✓  |     |     | SPARC Linux                         |
 | `sparcv9-sun-solaris`             |  ✓  |     |     | SPARC Solaris 10/11, illumos        |
