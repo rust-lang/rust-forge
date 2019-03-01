@@ -2,9 +2,9 @@
 
 This site contains supplementary documentation useful to the members
 of [The Rust Project](https://www.rust-lang.org). To edit it submit
-PR's against [rust-lang-nursery/rust-forge].
+PR's against [rust-lang/rust-forge].
 
-[rust-lang-nursery/rust-forge]: https://github.com/rust-lang-nursery/rust-forge
+[rust-lang/rust-forge]: https://github.com/rust-lang/rust-forge
 
 <hr/>
 

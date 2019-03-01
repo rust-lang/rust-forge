@@ -80,7 +80,7 @@ $ git fetch rust-lang
 $ git push rust-lang rust-lang/master:rust-1.14.0
 ```
 
-In theory one day we'll do the same for rust-lang-nursery/rls, but for now we
+In theory one day we'll do the same for rust-lang/rls, but for now we
 haven't done this yet.
 
 Temporarily disable banch protection on GitHub for the `beta` branch of the Rust

@@ -173,8 +173,8 @@ Past releases can be found in [the archives].
 </div>
 
 [installation page]: install.html
-[`rustup`]: https://github.com/rust-lang-nursery/rustup.rs
-[other-rustup]: https://github.com/rust-lang-nursery/rustup.rs#other-installation-methods
+[`rustup`]: https://github.com/rust-lang/rustup.rs
+[other-rustup]: https://github.com/rust-lang/rustup.rs#other-installation-methods
 [`rustup-init.exe`]: https://static.rust-lang.org/rustup/dist/i686-pc-windows-gnu/rustup-init.exe
 [`rustup-init.sh`]: https://static.rust-lang.org/rustup/rustup-init.sh
 [Homebrew]: http://brew.sh/
