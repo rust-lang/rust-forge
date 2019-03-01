@@ -5,9 +5,9 @@ title: The Rust Forge
 
 This site contains supplementary documentation useful to the members
 of [The Rust Project](https://www.rust-lang.org). To edit it submit
-PRs against [rust-lang-nursery/rust-forge].
+PRs against [rust-lang/rust-forge].
 
-[rust-lang-nursery/rust-forge]: https://github.com/rust-lang-nursery/rust-forge
+[rust-lang/rust-forge]: https://github.com/rust-lang/rust-forge
 
 <div id="release_info"></div>
 
@@ -15,7 +15,7 @@ PRs against [rust-lang-nursery/rust-forge].
 
 ### Interested in hacking the compiler?
 
-* [The rustc-guide is a book about how rustc works](https://rust-lang-nursery.github.io/rustc-guide/)
+* [The rustc-guide is a book about how rustc works](https://rust-lang.github.io/rustc-guide/)
 * [The rustc API docs are hosted here](https://doc.rust-lang.org/nightly/nightly-rustc/rustc/)
 * [Profile queries](profile-queries.html). Tips for tracking what the compiler does.
 * [Rustc bug fix procedure](rustc-bug-fix-procedure.html): Describes the process for bug fixes that may cause existing code to stop
