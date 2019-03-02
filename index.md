@@ -20,7 +20,6 @@ PRs against [rust-lang-nursery/rust-forge].
 * [Profile queries](profile-queries.html). Tips for tracking what the compiler does.
 * [Rustc bug fix procedure](rustc-bug-fix-procedure.html): Describes the process for bug fixes that may cause existing code to stop
   compiling.
-* [So you want to implement a feature?](feature-guide.html): Describes the procedure for implementing new features in rustc.
 
 ### Interested in infrastructure and the release process?
 
