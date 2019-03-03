@@ -9,9 +9,11 @@ PRs against [rust-lang/rust-forge].
 
 [rust-lang/rust-forge]: https://github.com/rust-lang/rust-forge
 
-<div id="release_info"></div>
-
-<hr/>
+<hr>
+<div class="releases">
+    <noscript>Please enable JavaScript to see release dates.</noscript>
+</div>
+<hr>
 
 ### Interested in hacking the compiler?
 
@@ -35,7 +37,7 @@ PRs against [rust-lang/rust-forge].
 * [Homu/Bors Syntax](https://buildbot2.rust-lang.org/homu/)
 * [State Of Rust](state-of-rust.html). Links and information about the current status of unstable features.
 * [`rustup-toolchain-install-master`](https://github.com/kennytm/rustup-toolchain-install-master) allows installing Rust from `master` before it even makes it to nightly.
-  
+
 ### Meta-processes: managing the RFC repo, teams, etc
 
 * [RFC merge procedure](rfc-merge-procedure.html)
@@ -50,6 +52,16 @@ PRs against [rust-lang/rust-forge].
 * [Other Rust Installation Methods](other-installation-methods.html)
 
 <script>
+
+function addRelease(kind, num, when) {
+    var out = "";
+    out += '<div class="release">';
+    out += '<div class="release-kind">Current ' + kind + '</div>';
+    out += '<div class="release-number">' + num + '</div>';
+    out += '<div class="release-date">' + when.toDateString() + '</div>';
+    out += '</div>';
+    document.querySelector(".releases").innerHTML += out;
+}
 
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -72,16 +84,8 @@ document.addEventListener("DOMContentLoaded", function() {
   var nextNextDate = new Date(nextDate.getTime() + releaseDuration);
   var nextNextRelease = nextRelease + 1;
 
-  prevDate = prevDate.toDateString();
-  nextDate = nextDate.toDateString();
-  nextNextDate = nextNextDate.toDateString();
-
-  var toWrite = "<hr/><h3>Release Dates</h3>";
-
-  toWrite += "<p>Rust 1." + prevRelease + " stable was released on " + prevDate + ".</p>";
-  toWrite += "<p><h4>Rust 1." + nextRelease + " stable will be released on " + nextDate + ".</h4></p>";
-  toWrite += "<p>Rust 1." + nextNextRelease + " stable will be released on " + nextNextDate + ".</p>";
-
-  document.getElementById('release_info').innerHTML = toWrite;
+  addRelease("stable", "1." + prevRelease, prevDate);
+  addRelease("beta", "1." + nextRelease, nextDate);
+  addRelease("nightly", "1." + nextNextRelease, nextNextDate);
 });
 </script>

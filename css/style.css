@@ -523,3 +523,26 @@ ul.laundry-list {
 .rustup-init-table > div > a {
   display: block;
 }
+
+.releases {
+    margin: 3em 0;
+    display: flex;
+}
+
+.releases .release {
+    flex: 1;
+    text-align: center;
+}
+
+.releases .release .release-kind {
+    font-size: 1.2em;
+}
+
+.releases .release .release-number {
+    font-size: 3em;
+    font-weight: 700;
+}
+
+.releases .release .release-date {
+    font-size: 1.5em;
+}
