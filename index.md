@@ -51,41 +51,29 @@ PRs against [rust-lang/rust-forge].
 * [Cross compilation resources](cross-compilation/index.html)
 * [Other Rust Installation Methods](other-installation-methods.html)
 
+
+<script src="js/moment.min.js"></script>
 <script>
+    // Rust 1.5.0 was released on 2015-12-10
+    var epochDate = moment.utc("2015-12-10");
+    var epochRelease = 5;
 
-function addRelease(kind, num, when) {
-    var out = "";
-    out += '<div class="release">';
-    out += '<div class="release-kind">Current ' + kind + '</div>';
-    out += '<div class="release-number">' + num + '</div>';
-    out += '<div class="release-date">' + when.toDateString() + '</div>';
-    out += '</div>';
-    document.querySelector(".releases").innerHTML += out;
-}
+    var newReleases = moment.utc().diff(epochDate, "weeks") / 6;
 
-document.addEventListener("DOMContentLoaded", function() {
+    function addRelease(kind, incr) {
+        var releaseNumber = epochRelease + newReleases + incr;
+        var releaseDate = epochDate.clone().add((newReleases + incr) * 6, "weeks");
 
-  // rust 1.5's release date
-  var epochDate = new Date('2015-12-11');
-  // #nevertwopointoh -- we render "1." in the string literals below, this is easier to increment
-  var epochRelease = 5;
-  // there are 6 weeks in between releases
-  var releaseDuration = 7 * 6 * 86400 * 1000;
+        var out = "";
+        out += '<div class="release">';
+        out += '<div class="release-kind">Current ' + kind + '</div>';
+        out += '<div class="release-number">1.' + releaseNumber + '</div>';
+        out += '<div class="release-date">' + releaseDate.format("MMMM Do YYYY") + '</div>';
+        out += '</div>';
+        document.querySelector(".releases").innerHTML += out;
+    }
 
-  var today = new Date();
-  var releases = (today - epochDate) / releaseDuration | 0;
-
-  var prevDate = new Date(epochDate.getTime() + releases * releaseDuration);
-  var prevRelease = epochRelease + releases;
-
-  var nextDate = new Date(prevDate.getTime() + releaseDuration);
-  var nextRelease = prevRelease + 1;
-
-  var nextNextDate = new Date(nextDate.getTime() + releaseDuration);
-  var nextNextRelease = nextRelease + 1;
-
-  addRelease("stable", "1." + prevRelease, prevDate);
-  addRelease("beta", "1." + nextRelease, nextDate);
-  addRelease("nightly", "1." + nextNextRelease, nextNextDate);
-});
+    addRelease("stable", 0);
+    addRelease("beta", 1);
+    addRelease("nightly", 2);
 </script>
