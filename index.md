@@ -9,9 +9,11 @@ PRs against [rust-lang/rust-forge].
 
 [rust-lang/rust-forge]: https://github.com/rust-lang/rust-forge
 
-<div id="release_info"></div>
-
-<hr/>
+<hr>
+<div class="releases">
+    <noscript>Please enable JavaScript to see release dates.</noscript>
+</div>
+<hr>
 
 ### Interested in hacking the compiler?
 
@@ -35,7 +37,7 @@ PRs against [rust-lang/rust-forge].
 * [Homu/Bors Syntax](https://buildbot2.rust-lang.org/homu/)
 * [State Of Rust](state-of-rust.html). Links and information about the current status of unstable features.
 * [`rustup-toolchain-install-master`](https://github.com/kennytm/rustup-toolchain-install-master) allows installing Rust from `master` before it even makes it to nightly.
-  
+
 ### Meta-processes: managing the RFC repo, teams, etc
 
 * [RFC merge procedure](rfc-merge-procedure.html)
@@ -49,39 +51,29 @@ PRs against [rust-lang/rust-forge].
 * [Cross compilation resources](cross-compilation/index.html)
 * [Other Rust Installation Methods](other-installation-methods.html)
 
+
+<script src="js/moment.min.js"></script>
 <script>
+    // Rust 1.5.0 was released on 2015-12-10
+    var epochDate = moment.utc("2015-12-10");
+    var epochRelease = 5;
 
-document.addEventListener("DOMContentLoaded", function() {
+    var newReleases = moment.utc().diff(epochDate, "weeks") / 6;
 
-  // rust 1.5's release date
-  var epochDate = new Date('2015-12-11');
-  // #nevertwopointoh -- we render "1." in the string literals below, this is easier to increment
-  var epochRelease = 5;
-  // there are 6 weeks in between releases
-  var releaseDuration = 7 * 6 * 86400 * 1000;
+    function addRelease(kind, incr) {
+        var releaseNumber = epochRelease + newReleases + incr;
+        var releaseDate = epochDate.clone().add((newReleases + incr) * 6, "weeks");
 
-  var today = new Date();
-  var releases = (today - epochDate) / releaseDuration | 0;
+        var out = "";
+        out += '<div class="release">';
+        out += '<div class="release-kind">Current ' + kind + '</div>';
+        out += '<div class="release-number">1.' + releaseNumber + '</div>';
+        out += '<div class="release-date">' + releaseDate.format("MMMM Do YYYY") + '</div>';
+        out += '</div>';
+        document.querySelector(".releases").innerHTML += out;
+    }
 
-  var prevDate = new Date(epochDate.getTime() + releases * releaseDuration);
-  var prevRelease = epochRelease + releases;
-
-  var nextDate = new Date(prevDate.getTime() + releaseDuration);
-  var nextRelease = prevRelease + 1;
-
-  var nextNextDate = new Date(nextDate.getTime() + releaseDuration);
-  var nextNextRelease = nextRelease + 1;
-
-  prevDate = prevDate.toDateString();
-  nextDate = nextDate.toDateString();
-  nextNextDate = nextNextDate.toDateString();
-
-  var toWrite = "<hr/><h3>Release Dates</h3>";
-
-  toWrite += "<p>Rust 1." + prevRelease + " stable was released on " + prevDate + ".</p>";
-  toWrite += "<p><h4>Rust 1." + nextRelease + " stable will be released on " + nextDate + ".</h4></p>";
-  toWrite += "<p>Rust 1." + nextNextRelease + " stable will be released on " + nextNextDate + ".</p>";
-
-  document.getElementById('release_info').innerHTML = toWrite;
-});
+    addRelease("stable", 0);
+    addRelease("beta", 1);
+    addRelease("nightly", 2);
 </script>
