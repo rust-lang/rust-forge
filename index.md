@@ -58,7 +58,7 @@ PRs against [rust-lang/rust-forge].
     var epochDate = moment.utc("2015-12-10");
     var epochRelease = 5;
 
-    var newReleases = moment.utc().diff(epochDate, "weeks") / 6;
+    var newReleases = Math.floor(moment.utc().diff(epochDate, "weeks") / 6);
 
     function addRelease(kind, incr) {
         var releaseNumber = epochRelease + newReleases + incr;
