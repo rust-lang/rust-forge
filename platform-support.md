@@ -97,7 +97,7 @@ these platforms are required to have each of the following:
 | `x86_64-unknown-cloudabi`         |  ✓  |     |     | 64-bit CloudABI                     |
 | `x86_64-unknown-freebsd`          |  ✓  |  ✓  |  ✓  | 64-bit FreeBSD                      |
 | `x86_64-unknown-linux-gnux32`     |  ✓  |     |     | 64-bit Linux                        |
-| `x86_64-unknown-linux-musl`       |  ✓  |     |     | 64-bit Linux with MUSL              |
+| `x86_64-unknown-linux-musl`       |  ✓  |  ✓   | ✓    | 64-bit Linux with MUSL              |
 | `x86_64-unknown-netbsd`           |  ✓  |  ✓  |  ✓  | NetBSD/amd64                        |
 | `x86_64-unknown-redox`            |  ✓  |     |     | Redox OS                            |
 
