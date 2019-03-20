@@ -22,6 +22,7 @@ PRs against [rust-lang/rust-forge].
 * [Profile queries](profile-queries.html). Tips for tracking what the compiler does.
 * [Rustc bug fix procedure](rustc-bug-fix-procedure.html): Describes the process for bug fixes that may cause existing code to stop
   compiling.
+* [The list of FIXME comments in the compiler](https://oli-obk.github.io/fixmeh/) can be helpful to find cleanups that still need to be done
 
 ### Interested in infrastructure and the release process?
 
