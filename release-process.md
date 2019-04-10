@@ -80,6 +80,10 @@ $ git fetch rust-lang
 $ git push rust-lang rust-lang/master:rust-1.14.0
 ```
 
+You'll need to temporarily disable branch protection on GitHub to push the new
+branch. Make sure the commit in the new branch is the latest one on
+rust-lang/rust, and not an earlier one.
+
 In theory one day we'll do the same for rust-lang/rls, but for now we
 haven't done this yet.
 
