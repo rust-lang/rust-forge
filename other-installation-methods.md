@@ -72,9 +72,7 @@ If you prefer not to use the shell script, you may directly download
 `rustup-init` for the platform of your choice:
 
 <div class="rustup-init-table">
-  {% for column in site.data.platforms.rustup %}
-  <div>
-    {% for target in column %}
+  {% for target in site.rustup %}
     {% if target contains 'windows' %}
     <a href="https://static.rust-lang.org/rustup/dist/{{ target }}/rustup-init.exe">
       {{ target }}
@@ -84,8 +82,6 @@ If you prefer not to use the shell script, you may directly download
       {{ target }}
     </a>
     {% endif %}
-    {% endfor %}
-  </div>
   {% endfor %}
 </div>
 
@@ -109,37 +105,42 @@ Each of these binaries is signed with the [Rust signing key], which is
 [available on keybase.io], by the Rust build infrastructure, with
 [GPG]. In the tables below, the `.asc` files are the signatures.
 
+<!-- FIXME: Show this sentence again once we've found a quick way to display the archives.
 Past releases can be found in [the archives].
+-->
 
-{% for channel in site.channels %}
+{% for name_and_channel in site.channels %}
+{% assign name = name_and_channel[0] %}
+{% assign channel = name_and_channel[1] %}
+{% if name == 'stable' %}
+{% assign stem = channel.vers %}
+{% else %}
+{% assign stem = name %}
+{% endif %}
 
-### {{ channel.name | capitalize }} ({{ channel.vers }})
-<span id="{{ channel.name }}"></span>
+### {{ name | capitalize }} ({{ channel.vers }})
+<span id="{{ name }}"></span>
 
-<div class="installer-table {{ channel.name }}">
-  {% for column in site.data.platforms[channel.name] %}
-  <div>
-    {% for target in column %}
+<div class="installer-table {{ name }}">
+  {% for target in channel.platforms %}
     <div>
       <span>{{ target }}</span>
-      <a href="https://static.rust-lang.org/dist/rust-{{ channel.package }}-{{ target }}.tar.gz">.tar.gz</a>
-      <a href="https://static.rust-lang.org/dist/rust-{{ channel.package }}-{{ target }}.tar.gz.asc">.asc</a>
+      <a href="https://static.rust-lang.org/dist/rust-{{ stem }}-{{ target }}.tar.gz">.tar.gz</a>
+      <a href="https://static.rust-lang.org/dist/rust-{{ stem }}-{{ target }}.tar.gz.asc">.asc</a>
     </div>
     {% if target contains 'windows' %}
     <div>
       <span>{{ target }}</span>
-      <a href="https://static.rust-lang.org/dist/rust-{{ channel.package }}-{{ target }}.msi">.msi</a>
-      <a href="https://static.rust-lang.org/dist/rust-{{ channel.package }}-{{ target }}.msi.asc">.asc</a>
+      <a href="https://static.rust-lang.org/dist/rust-{{ stem }}-{{ target }}.msi">.msi</a>
+      <a href="https://static.rust-lang.org/dist/rust-{{ stem }}-{{ target }}.msi.asc">.asc</a>
     </div>
     {% elsif target contains 'darwin' %}
     <div>
       <span>{{ target }}</span>
-      <a href="https://static.rust-lang.org/dist/rust-{{ channel.package }}-{{ target }}.pkg">.pkg</a>
-      <a href="https://static.rust-lang.org/dist/rust-{{ channel.package }}-{{ target }}.pkg.asc">.asc</a>
+      <a href="https://static.rust-lang.org/dist/rust-{{ stem }}-{{ target }}.pkg">.pkg</a>
+      <a href="https://static.rust-lang.org/dist/rust-{{ stem }}-{{ target }}.pkg.asc">.asc</a>
     </div>
     {% endif %}
-    {% endfor %}
-  </div>
   {% endfor %}
 </div>
 
@@ -148,31 +149,25 @@ Past releases can be found in [the archives].
 ## Source code
 <span id="source"></span>
 
-<div class="installer-table">
+<div class="source-table">
   <div>
-    <div>
       <span>Stable</span>
-      <a href="https://static.rust-lang.org/dist/rustc-{{ site.stable }}-src.tar.gz">.tar.gz</a>
-      <a href="https://static.rust-lang.org/dist/rustc-{{ site.stable }}-src.tar.gz.asc">.asc</a>
-    </div>
+      <a href="https://static.rust-lang.org/dist/rustc-{{ site.channels.stable.vers }}-src.tar.gz">.tar.gz</a>
+      <a href="https://static.rust-lang.org/dist/rustc-{{ site.channels.stable.vers }}-src.tar.gz.asc">.asc</a>
   </div>
   <div>
-    <div>
       <span>Beta</span>
       <a href="https://static.rust-lang.org/dist/rustc-beta-src.tar.gz">.tar.gz</a>
       <a href="https://static.rust-lang.org/dist/rustc-beta-src.gz.asc">.asc</a>
-    </div>
   </div>
   <div>
-    <div>
       <span>Nightly</span>
       <a href="https://static.rust-lang.org/dist/rustc-nightly-src.tar.gz">.tar.gz</a>
       <a href="https://static.rust-lang.org/dist/rustc-nightly-src.tar.gz.asc">.asc</a>
-    </div>
   </div>
 </div>
 
-[installation page]: install.html
+[installation page]: https://www.rust-lang.org/tools/install
 [`rustup`]: https://github.com/rust-lang/rustup.rs
 [other-rustup]: https://github.com/rust-lang/rustup.rs#other-installation-methods
 [`rustup-init.exe`]: https://static.rust-lang.org/rustup/dist/i686-pc-windows-gnu/rustup-init.exe
