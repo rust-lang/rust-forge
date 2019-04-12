@@ -23,25 +23,6 @@ mod channel {
     }
 }
 
-mod travis {
-    use serde::Deserialize;
-
-    #[derive(Deserialize)]
-    pub struct Job {
-        pub env: String,
-    }
-
-    #[derive(Deserialize)]
-    pub struct Matrix {
-        pub include: Vec<Job>,
-    }
-
-    #[derive(Deserialize)]
-    pub struct Travis {
-        pub matrix: Matrix,
-    }
-}
-
 mod config {
     use serde::Serialize;
 

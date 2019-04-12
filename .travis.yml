@@ -1,5 +1,6 @@
 language: rust
 dist: xenial
+cache: cargo
 
 install:
 - bundle install
