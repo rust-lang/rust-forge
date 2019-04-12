@@ -1,0 +1,13 @@
+[package]
+name = "create_config"
+version = "0.1.0"
+edition = "2018"
+publish = false
+
+[dependencies]
+indexmap = { version = "1.0", features = ["serde-1"] }
+regex = "1.1"
+reqwest = "0.9"
+serde = { version = "1.0", features = ["derive"] }
+serde_yaml = "0.8"
+toml = "0.5"

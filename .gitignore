@@ -1,2 +1,4 @@
 *~
 _site/
+target/
+_config.yml

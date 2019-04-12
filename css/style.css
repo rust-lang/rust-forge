@@ -502,25 +502,30 @@ ul.laundry-list {
     padding: 0;
 }
 
-.installer-table {
-  display: flex;
-  margin: 2rem;
-  justify-content: space-around;
+.installer-table > div > span, .source-table > div > span {
+  padding-right: 1em;
 }
 
-.installer-table > div > div > span {
-  float: left;
-  margin-left: 1em;
-  margin-right: 1em;
+@media (min-width: 750px) {
+  .rustup-init-table, .installer-table {
+    columns: 2;
+    margin: 0 3rem;
+  }
+
+  .source-table {
+    display: flex;
+    margin: 2rem;
+    justify-content: space-around;
+  }
 }
 
-.rustup-init-table {
-  display: flex;
-  margin: 2rem;
-  justify-content: space-around;
+@media (max-width: 749px) {
+  .rustup-init-table, .installer-table, .source-table {
+    margin: 0 2rem;
+  }
 }
 
-.rustup-init-table > div > a {
+.rustup-init-table > a {
   display: block;
 }
 

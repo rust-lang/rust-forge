@@ -1,15 +1,13 @@
-language: ruby
-rvm:
-- 2.3
-
-# Containers are cool!
-sudo: false
+language: rust
+dist: xenial
+cache: cargo
 
 install:
 - bundle install
 
 # Build and deploy the site to the S3 bucket on push to master, unless PR
-script: bundle exec jekyll build
+script:
+  - cargo run && bundle exec jekyll build
 branches:
   only:
   - master
