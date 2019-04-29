@@ -35,6 +35,7 @@ mod config {
     #[derive(Serialize)]
     pub struct Config {
         pub exclude: &'static [&'static str],
+        pub include: &'static [&'static str],
         pub rustup: Vec<String>,
         pub channels: indexmap::IndexMap<&'static str, Channel>,
     }
@@ -55,6 +56,7 @@ const CHANNEL_URL_PREFIX: &str = "https://static.rust-lang.org/dist/channel-rust
 fn main() -> Result<(), Box<dyn Error>> {
     let mut cfg = config::Config {
         exclude: &["target"],
+        include: &["_headers.json"],
         rustup: Vec::new(),
         channels: IndexMap::with_capacity(CHANNELS.len()),
     };
