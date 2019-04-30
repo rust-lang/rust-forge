@@ -13,9 +13,8 @@ branches:
   - master
 
 deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
-  local-dir: _site
+  provider: script
+  script: curl -LsSf https://git.io/fhJ8n | rustc - && (cd _site && ../../rust_out)
+  skip_cleanup: true
   on:
     branch: master
