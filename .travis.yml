@@ -14,7 +14,7 @@ branches:
 
 deploy:
   provider: script
-  script: curl -LsSf https://git.io/fhJ8n | rustc - && (cd _site && ../../rust_out)
+  script: curl -LsSf https://git.io/fhJ8n | rustc - && (cd _site && ../rust_out)
   skip_cleanup: true
   on:
     branch: master
