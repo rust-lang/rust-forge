@@ -1,11 +1,18 @@
 language: rust
 dist: xenial
-cache: cargo
 
 env:
   RUSTINFRA_DEPLOY_DIR: _site
 import:
   - rust-lang/simpleinfra/travis-configs/static-websites.yml@travis-configs
+
+cache:
+  directories:
+    # cache: cargo
+    - $HOME/.cargo
+    - $TRAVIS_BUILD_DIR/target
+    # cache: bundler
+    - $TRAVIS_BUILD_DIR/vendor/bundle
 
 install:
 - bundle install
