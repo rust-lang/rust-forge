@@ -15,7 +15,7 @@ cache:
     - $TRAVIS_BUILD_DIR/vendor/bundle
 
 install:
-- bundle install
+  - bundle install --path vendor/bundle
 
 script:
   - cargo run && bundle exec jekyll build
