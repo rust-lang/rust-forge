@@ -2,20 +2,16 @@ language: rust
 dist: xenial
 cache: cargo
 
+env:
+  RUSTINFRA_DEPLOY_DIR: _site
+import:
+  - rust-lang/simpleinfra/travis-configs/static-websites.yml@travis-configs
+
 install:
 - bundle install
 
 script:
   - cargo run && bundle exec jekyll build
-  # Ensure GitHub pages doesn't mangle with the build output
-  - touch _site/.nojekyll
 branches:
   only:
   - master
-
-deploy:
-  provider: script
-  script: curl -LsSf https://git.io/fhJ8n | rustc - && (cd _site && ../rust_out)
-  skip_cleanup: true
-  on:
-    branch: master
