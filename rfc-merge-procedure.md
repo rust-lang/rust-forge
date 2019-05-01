@@ -17,17 +17,17 @@ template for the issue text. You'll have to adjust the various places
 labeled XXX with some suitable content (e.g., the name of the RFC, or
 the most appropriate team).
 
-```
+```markdown
 This is a tracking issue for the RFC "XXX" (rust-lang/rfcs#NNN).
 
 **Steps:**
 
 - [ ] Implement the RFC (cc @rust-lang/XXX -- can anyone write up mentoring instructions?)
-- [ ] Adjust documentation ([see instructions on forge][doc-guide])
-- [ ] Stabilization PR ([see instructions on forge][stabilization-guide])
+- [ ] Adjust documentation ([see instructions on rustc-guide][doc-guide])
+- [ ] Stabilization PR ([see instructions on rustc-guide][stabilization-guide])
 
-[stabilization-guide]: https://forge.rust-lang.org/stabilization-guide.html
-[doc-guide]: https://forge.rust-lang.org/stabilization-guide.html#updating-documentation
+[stabilization-guide]: https://rust-lang.github.io/rustc-guide/stabilization_guide.html#stabilization-pr
+[doc-guide]: https://rust-lang.github.io/rustc-guide/stabilization_guide.html#documentation-prs
 
 **Unresolved questions:**
 
@@ -59,7 +59,7 @@ Leave a final comment on the PR directing everyone to the tracking
 issue. Something like this, but feel free to add your own personal
 flavor (and change the team):
 
-```
+```markdown
 **Huzzah!** The @rust-lang/lang team has decided **to accept** this RFC. 
 
 To track further discussion, subscribe to the tracking issue here: rust-lang/rust#41517
