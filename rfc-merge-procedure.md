@@ -26,8 +26,8 @@ This is a tracking issue for the RFC "XXX" (rust-lang/rfcs#NNN).
 - [ ] Adjust documentation ([see instructions on rustc-guide][doc-guide])
 - [ ] Stabilization PR ([see instructions on rustc-guide][stabilization-guide])
 
-[stabilization-guide]: https://rust-lang.github.io/rustc-guide/stabilization_guide.html#documentation-prs
-[doc-guide]: https://rust-lang.github.io/rustc-guide/stabilization_guide.html#stabilization-pr
+[stabilization-guide]: https://rust-lang.github.io/rustc-guide/stabilization_guide.html#stabilization-pr
+[doc-guide]: https://rust-lang.github.io/rustc-guide/stabilization_guide.html#documentation-prs
 
 **Unresolved questions:**
 
