@@ -56,7 +56,7 @@ const CHANNEL_URL_PREFIX: &str = "https://static.rust-lang.org/dist/channel-rust
 fn main() -> Result<(), Box<dyn Error>> {
     let mut cfg = config::Config {
         exclude: &["target", "vendor"],
-        include: &["_headers.json"],
+        include: &["_rustinfra_config.json"],
         rustup: Vec::new(),
         channels: IndexMap::with_capacity(CHANNELS.len()),
     };
