@@ -5,7 +5,7 @@ env:
   RUSTINFRA_DEPLOY_DIR: _site
   RUSTINFRA_CLOUDFRONT_DISTRIBUTION: E12A3GKHZSREHP
 import:
-  - rust-lang/simpleinfra/travis-configs/static-websites.yml@travis-configs
+  - rust-lang/simpleinfra/travis-configs/static-websites.yml
 
 cache:
   directories:
