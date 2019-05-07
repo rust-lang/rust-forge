@@ -100,6 +100,8 @@ these platforms are required to have each of the following:
 | `thumbv7em-none-eabi`             |  *  |     |     | Bare Cortex-M4, M7                  |
 | `thumbv7em-none-eabihf`           |  *  |     |     | Bare Cortex-M4F, M7F, FPU, hardfloat|
 | `thumbv7m-none-eabi`              |  *  |     |     | Bare Cortex-M3                      |
+| `thumbv7neon-linux-androideabi`       |  ✓  |     |     | Thumb2-mode ARMv7a Android with NEON |
+| `thumbv7neon-unknown-linux-gnueabihf` |  ✓  |     |     | Thumb2-mode ARMv7a Linux with NEON   |
 | `wasm32-unknown-unknown`          |  ✓  |     |     | WebAssembly                         |
 | `wasm32-unknown-emscripten`       |  ✓  |     |     | WebAssembly via Emscripten          |
 | `x86_64-apple-ios`                |  ✓  |     |     | 64-bit x86 iOS                      |
