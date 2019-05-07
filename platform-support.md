@@ -55,17 +55,23 @@ these platforms are required to have each of the following:
 | `aarch64-linux-android`           |  ✓  |     |     | ARM64 Android                       |
 | `aarch64-unknown-linux-gnu`       |  ✓  |  ✓  |  ✓  | ARM64 Linux                         |
 | `aarch64-unknown-linux-musl`      |  ✓  |     |     | ARM64 Linux with MUSL               |
+| `aarch64-pc-windows-msvc`         |  ✓  |     |     | ARM64 Windows MSVC                  |
 | `arm-linux-androideabi`           |  ✓  |     |     | ARMv7 Android                       |
 | `arm-unknown-linux-gnueabi`       |  ✓  |  ✓  |  ✓  | ARMv6 Linux                         |
 | `arm-unknown-linux-gnueabihf`     |  ✓  |  ✓  |  ✓  | ARMv6 Linux, hardfloat              |
 | `arm-unknown-linux-musleabi`      |  ✓  |     |     | ARMv6 Linux with MUSL               |
 | `arm-unknown-linux-musleabihf`    |  ✓  |     |     | ARMv6 Linux, MUSL, hardfloat        |
+| `armebv7r-none-eabi`              |  *  |     |     | Bare ARMv7-R, Big Endian            |
+| `armebv7r-none-eabihf`            |  *  |     |     | Bare ARMv7-R, Big Endian, hardfloat |
 | `armv5te-unknown-linux-gnueabi`   |  ✓  |     |     | ARMv5TE Linux                       |
-| `armv7-apple-ios`                 |  ✓  |     |     | ARMv7 iOS, Cortex-a8                |
+| `armv5te-unknown-linux-musleabi`  |  ✓  |     |     | ARMv5TE Linux with MUSL             |
+| `armv7-apple-ios`                 |  ✓  |     |     | ARMv7 iOS, Cortex-A8                |
 | `armv7-linux-androideabi`         |  ✓  |     |     | ARMv7a Android                      |
 | `armv7-unknown-linux-gnueabihf`   |  ✓  |  ✓  |  ✓  | ARMv7 Linux                         |
 | `armv7-unknown-linux-musleabihf`  |  ✓  |     |     | ARMv7 Linux with MUSL               |
-| `armv7s-apple-ios`                |  ✓  |     |     | ARMv7 iOS, Cortex-a9                |
+| `armv7r-none-eabi`                |  ✓  |     |     | Bare ARMv7-R,                       |
+| `armv7r-none-eabihf`              |  ✓  |     |     | Bare ARMv7-R, hardfloat             |
+| `armv7s-apple-ios`                |  ✓  |     |     | ARMv7 iOS, Cortex-A9                |
 | `asmjs-unknown-emscripten`        |  ✓  |     |     | asm.js via Emscripten               |
 | `i386-apple-ios`                  |  ✓  |     |     | 32-bit x86 iOS                      |
 | `i586-pc-windows-msvc`            |  ✓  |     |     | 32-bit Windows w/o SSE              |
@@ -90,6 +96,10 @@ these platforms are required to have each of the following:
 | `s390x-unknown-linux-gnu`         |  ✓  |  ✓  |  ✓  | S390x Linux                         |
 | `sparc64-unknown-linux-gnu`       |  ✓  |     |     | SPARC Linux                         |
 | `sparcv9-sun-solaris`             |  ✓  |     |     | SPARC Solaris 10/11, illumos        |
+| `thumbv6m-none-eabi`              |  *  |     |     | Bare Cortex-M0, M0+, M1             |
+| `thumbv7em-none-eabi`             |  *  |     |     | Bare Cortex-M4, M7                  |
+| `thumbv7em-none-eabihf`           |  *  |     |     | Bare Cortex-M4F, M7F, FPU, hardfloat|
+| `thumbv7m-none-eabi`              |  *  |     |     | Bare Cortex-M3                      |
 | `wasm32-unknown-unknown`          |  ✓  |     |     | WebAssembly                         |
 | `wasm32-unknown-emscripten`       |  ✓  |     |     | WebAssembly via Emscripten          |
 | `x86_64-apple-ios`                |  ✓  |     |     | 64-bit x86 iOS                      |
@@ -101,7 +111,7 @@ these platforms are required to have each of the following:
 | `x86_64-unknown-cloudabi`         |  ✓  |     |     | 64-bit CloudABI                     |
 | `x86_64-unknown-freebsd`          |  ✓  |  ✓  |  ✓  | 64-bit FreeBSD                      |
 | `x86_64-unknown-linux-gnux32`     |  ✓  |     |     | 64-bit Linux                        |
-| `x86_64-unknown-linux-musl`       |  ✓  |  ✓   | ✓    | 64-bit Linux with MUSL              |
+| `x86_64-unknown-linux-musl`       |  ✓  |  ✓  |  ✓  | 64-bit Linux with MUSL              |
 | `x86_64-unknown-netbsd`           |  ✓  |  ✓  |  ✓  | NetBSD/amd64                        |
 | `x86_64-unknown-redox`            |  ✓  |     |     | Redox OS                            |
 
@@ -148,10 +158,6 @@ Official builds are not available.
 | `mipsel-unknown-linux-uclibc`   |  ✓  |     |     | MIPS (LE) Linux with uClibc                              |
 | `msp430-none-elf`               |  *  |     |     | 16-bit MSP430 microcontrollers                           |
 | `sparc64-unknown-netbsd`        |  ✓  |  ✓  |     | NetBSD/sparc64                                           |
-| `thumbv6m-none-eabi`            |  *  |     |     | Bare Cortex-M0, M0+, M1                                  |
-| `thumbv7em-none-eabi`           |  *  |     |     | Bare Cortex-M4, M7                                       |
-| `thumbv7em-none-eabihf`         |  *  |     |     | Bare Cortex-M4F, M7F, FPU, hardfloat                     |
-| `thumbv7m-none-eabi`            |  *  |     |     | Bare Cortex-M3                                           |
 | `x86_64-pc-windows-msvc` (XP)   |  ✓  |     |     | Windows XP support                                       |
 | `x86_64-unknown-bitrig`         |  ✓  |  ✓  |     | 64-bit Bitrig                                            |
 | `x86_64-unknown-dragonfly`      |  ✓  |  ✓  |     | 64-bit DragonFlyBSD                                      |
