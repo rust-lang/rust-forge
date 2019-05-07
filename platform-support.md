@@ -24,16 +24,23 @@ Specifically they will each satisfy the following requirements:
   tests passing.
 * Documentation for how to use and how to build the platform is available.
 
-|  Target                       | std |rustc|cargo| notes                      |
-|-------------------------------|-----|-----|-----|----------------------------|
-| `i686-apple-darwin`           |  ✓  |  ✓  |  ✓  | 32-bit OSX (10.7+, Lion+)  |
-| `i686-pc-windows-gnu`         |  ✓  |  ✓  |  ✓  | 32-bit MinGW (Windows 7+)  |
-| `i686-pc-windows-msvc`        |  ✓  |  ✓  |  ✓  | 32-bit MSVC (Windows 7+)   |
-| `i686-unknown-linux-gnu`      |  ✓  |  ✓  |  ✓  | 32-bit Linux (2.6.18+)     |
-| `x86_64-apple-darwin`         |  ✓  |  ✓  |  ✓  | 64-bit OSX (10.7+, Lion+)  |
-| `x86_64-pc-windows-gnu`       |  ✓  |  ✓  |  ✓  | 64-bit MinGW (Windows 7+)  |
-| `x86_64-pc-windows-msvc`      |  ✓  |  ✓  |  ✓  | 64-bit MSVC (Windows 7+)   |
-| `x86_64-unknown-linux-gnu`    |  ✓  |  ✓  |  ✓  | 64-bit Linux (2.6.18+)     |
+|  Target                       | std |rustc|cargo| notes                                |
+|-------------------------------|-----|-----|-----|--------------------------------------|
+| `i686-apple-darwin`           |  ✓  |  ✓  |  ✓  | 32-bit OSX (10.7+, Lion+)            |
+| `i686-pc-windows-gnu`         |  ✓  |  ✓  |  ✓  | 32-bit MinGW (Windows 7+)            |
+| `i686-pc-windows-msvc`        |  ✓  |  ✓  |  ✓  | 32-bit MSVC (Windows 7+)             |
+| `i686-unknown-linux-gnu`      |  ✓  |  ✓  |  ✓  | 32-bit Linux (2.6.18+)               |
+| `x86_64-apple-darwin`         |  ✓  |  ✓  |  ✓  | 64-bit OSX (10.7+, Lion+)            |
+| `x86_64-pc-windows-gnu`       |  ✓  |  ✓  |  ✓  | 64-bit MinGW (Windows 7+)            |
+| `x86_64-pc-windows-msvc`      |  ✓  |  ✓  |  ✓  | 64-bit MSVC (Windows 7+)             |
+| `x86_64-unknown-linux-gnu`    |  ✓  |  ✓  |  ✓  | 64-bit Linux (2.6.18+)               |
+| `thumbv6m-none-eabi`          |  *  |     |     | Bare Cortex-M0, M0+, M1              |
+| `thumbv7em-none-eabi`         |  *  |     |     | Bare Cortex-M4, M7                   |
+| `thumbv7em-none-eabihf`       |  *  |     |     | Bare Cortex-M4F, M7F, FPU, hardfloat |
+| `thumbv7m-none-eabi`          |  *  |     |     | Bare Cortex-M3                       |
+
+<em>*</em> These are bare-metal microcontroller targets that only have access to
+the core library, not std.
 
 ## Tier 2
 
@@ -148,10 +155,6 @@ Official builds are not available.
 | `mipsel-unknown-linux-uclibc`   |  ✓  |     |     | MIPS (LE) Linux with uClibc                              |
 | `msp430-none-elf`               |  *  |     |     | 16-bit MSP430 microcontrollers                           |
 | `sparc64-unknown-netbsd`        |  ✓  |  ✓  |     | NetBSD/sparc64                                           |
-| `thumbv6m-none-eabi`            |  *  |     |     | Bare Cortex-M0, M0+, M1                                  |
-| `thumbv7em-none-eabi`           |  *  |     |     | Bare Cortex-M4, M7                                       |
-| `thumbv7em-none-eabihf`         |  *  |     |     | Bare Cortex-M4F, M7F, FPU, hardfloat                     |
-| `thumbv7m-none-eabi`            |  *  |     |     | Bare Cortex-M3                                           |
 | `x86_64-pc-windows-msvc` (XP)   |  ✓  |     |     | Windows XP support                                       |
 | `x86_64-unknown-bitrig`         |  ✓  |  ✓  |     | 64-bit Bitrig                                            |
 | `x86_64-unknown-dragonfly`      |  ✓  |  ✓  |     | 64-bit DragonFlyBSD                                      |
