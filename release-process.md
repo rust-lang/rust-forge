@@ -47,10 +47,6 @@ $ git push rust-lang rust-lang/beta:stable -f
 Re-enable branch protection for the `stable` branch. Send a PR to
 rust-lang/rust on the stable branch making the following changes:
 
-* Update the cargo submodule to the latest of the branch for this rustc version.
-  Cargo branches are named `rust-1.17.0` and such.
-* Update the rls submodule to the latest of the branch for this rustc version
-  as with Cargo, only if the RLS has such a branch (currently it doesn't).
 * Update `src/ci/run.sh` to pass `channel=stable`, not `channel=beta`.
 
 Once the PR is sent, r+ it and give it a high `p=1000`.
@@ -72,17 +68,22 @@ RUSTUP_DIST_SERVER=https://dev-static.rust-lang.org rustup update stable
 
 ## Promote master to beta (T-2 days, Tuesday)
 
-Branch a rust-lang/cargo commit for the new beta:
+Create a new branch on `rust-lang/cargo` for the new beta. Here, `rust-lang`
+is the remote for https://github.com/rust-lang/rust.git. Replace `YY` with the
+minor version of master. First determine the branch point for cargo in
+`rust-lang/rust`, and then create a new branch:
 
 ```sh
-$ cd cargo
+$ cd rust
 $ git fetch rust-lang
-$ git push rust-lang rust-lang/master:rust-1.14.0
+$ CARGO_SHA=`git rev-parse rust-lang/master:src/tools/cargo`
+$ cd src/tools/cargo
+$ git branch rust-1.YY.0 $CARGO_SHA
+$ git push origin rust-1.YY.0
 ```
 
 You'll need to temporarily disable branch protection on GitHub to push the new
-branch. Make sure the commit in the new branch is the latest one on
-rust-lang/rust, and not an earlier one.
+branch.
 
 In theory one day we'll do the same for rust-lang/rls, but for now we
 haven't done this yet.
@@ -106,7 +107,6 @@ branch of rust-lang/rust which:
     "0.(Y+1).0" wrt the rustc version.
   * Uncomment `dev: 1`
 * Update src/ci/run.sh to pass "--release-channel=beta".
-* Update the cargo submodule to the head of the versioned branch
 
 Note that you probably don't want to update the RLS if it's working, but if it's
 not working beta won't land and it'll need to get updated. After this PR merges
@@ -121,10 +121,6 @@ Send a PR to the master branch to:
 
 * modify src/stage0.txt to bootstrap from yesterday's beta
 * modify src/bootstrap/channel.rs with the new version number
-* Update the cargo submodule to the master branch
-
-In theory update the RLS submodule as well, but it's pretty susceptible to
-breakage so I'd probably avoid that for now.
 
 ## Release day (Thursday)
 
