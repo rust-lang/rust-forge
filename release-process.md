@@ -7,33 +7,6 @@ title: The Rust Release Process &middot; The Rust Programming Language
 
 Here's how Rust is currently released:
 
-## Update books (T-6 days, Friday)
-
-From within the repo:
-
-```bash
-$ cd src/doc/book
-$ git fetch origin
-$ git reset --hard origin/master
-$ cd ../rust-by-example
-$ git fetch origin
-$ git reset --hard origin/master
-$ cd ../reference
-$ git fetch origin
-$ git reset --hard origin/master
-$ cd ../nomicon
-$ git fetch origin
-$ git reset --hard origin/master
-$ cd ../../..
-$ git add .
-$ git commit -m "update books for next release"
-```
-
-This can be done a day earlier too, if you'd like: the books are only tested fully once they're in
-this repo, and so updating them may cause tests to fail. If they do, you need to send in a PR to
-the right book, ping @steveklabnik to get a quick merge, and then update that particular book again
-to fix it. This should be relatively rare.
-
 ## Promote beta to stable (T-3 days, Monday)
 
 Promote beta to stable. Temporarily turn off GitHub branch protection for the
