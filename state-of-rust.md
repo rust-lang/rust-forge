@@ -1,8 +1,4 @@
 ---
-layout: default
-title: State Of Rust
+layout: redirect
+destination: https://github.com/rust-lang/rust/projects/8
 ---
-
-This page has been replaced by the [State of Rust] project board.
-
-[State of Rust]: https://github.com/rust-lang/rust/projects/8
