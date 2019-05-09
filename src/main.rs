@@ -23,7 +23,37 @@ mod channel {
     }
 }
 
+mod tiers {
+    use serde::{Serialize, Deserialize};
+    use indexmap::IndexMap;
+
+    #[derive(Serialize, Deserialize)]
+    pub struct Platform {
+        pub tuple: String,
+        pub std: String,
+        pub rustc: Option<String>,
+        pub cargo: Option<String>,
+        pub notes: String,
+    }
+
+    #[derive(Serialize, Deserialize)]
+    pub struct Tier {
+        pub description: String,
+        pub platforms: Vec<Platform>,
+        pub footnotes: String,
+    }
+
+    /// `tiers.yaml` content.
+    #[derive(Serialize, Deserialize)]
+    #[serde(transparent)]
+    pub struct Tiers {
+        /// Maps Tier Name -> Data
+        pub tiers: IndexMap<String, Tier>,
+    }
+}
+
 mod config {
+    use super::tiers::Tiers;
     use serde::Serialize;
 
     #[derive(Serialize)]
@@ -32,12 +62,14 @@ mod config {
         pub platforms: Vec<String>,
     }
 
+    /// The Jekyll `_config.yaml` data.
     #[derive(Serialize)]
     pub struct Config {
         pub exclude: &'static [&'static str],
         pub include: &'static [&'static str],
         pub rustup: Vec<String>,
         pub channels: indexmap::IndexMap<&'static str, Channel>,
+        pub tiers: Tiers,
     }
 }
 
@@ -54,11 +86,14 @@ const CHANNELS: &[&str] = &["stable", "beta", "nightly"];
 const CHANNEL_URL_PREFIX: &str = "https://static.rust-lang.org/dist/channel-rust-";
 
 fn main() -> Result<(), Box<dyn Error>> {
+    let tiers: tiers::Tiers = serde_yaml::from_reader(File::open("tiers.yaml")?)?;
+
     let mut cfg = config::Config {
         exclude: &["target", "vendor"],
         include: &["_rustinfra_config.json"],
         rustup: Vec::new(),
         channels: IndexMap::with_capacity(CHANNELS.len()),
+        tiers,
     };
 
     let rustup_url_regex = Regex::new(r"^rustup/dist/([^/]+)/rustup-init(?:\.exe)?$").unwrap();
