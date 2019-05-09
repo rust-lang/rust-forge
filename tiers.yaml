@@ -490,7 +490,7 @@ Tier 3:
     - tuple: x86_64-unknown-dragonfly
       std: ✓
       rustc: ✓
-      cargo:
+      cargo: ✓
       notes: 64-bit DragonFlyBSD
     - tuple: x86_64-unknown-haiku
       std: ✓
@@ -500,7 +500,7 @@ Tier 3:
     - tuple: x86_64-unknown-openbsd
       std: ✓
       rustc: ✓
-      cargo:
+      cargo: ✓
       notes: 64-bit OpenBSD
     - tuple: nvptx-nvidia-cuda
       std: "**"
