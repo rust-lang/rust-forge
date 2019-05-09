@@ -88,6 +88,11 @@ Tier 2:
       rustc:
       cargo:
       notes: ARM64 Linux with MUSL
+    - tuple: aarch64-pc-windows-msvc
+      std: ✓
+      rustc:
+      cargo:
+      notes: ARM64 Windows MSVC
     - tuple: arm-linux-androideabi
       std: ✓
       rustc:
@@ -113,11 +118,26 @@ Tier 2:
       rustc:
       cargo:
       notes: ARMv6 Linux, MUSL, hardfloat
+    - tuple: armebv7r-none-eabi
+      std: "*"
+      rustc:
+      cargo:
+      notes: Bare ARMv7-R, Big Endian
+    - tuple: armebv7r-none-eabihf
+      std: "*"
+      rustc:
+      cargo:
+      notes: Bare ARMv7-R, Big Endian, hardfloat
     - tuple: armv5te-unknown-linux-gnueabi
       std: ✓
       rustc:
       cargo:
       notes: ARMv5TE Linux
+    - tuple: armv5te-unknown-linux-musleabi
+      std: ✓
+      rustc:
+      cargo:
+      notes: ARMv5TE Linux with MUSL
     - tuple: armv7-apple-ios
       std: ✓
       rustc:
@@ -138,6 +158,16 @@ Tier 2:
       rustc:
       cargo:
       notes: ARMv7 Linux with MUSL
+    - tuple: armv7r-none-eabi
+      std: "*"
+      rustc:
+      cargo:
+      notes: Bare ARMv7-R
+    - tuple: armv7r-none-eabihf
+      std: "*"
+      rustc:
+      cargo:
+      notes: Bare ARMv7-R, hardfloat
     - tuple: armv7s-apple-ios
       std: ✓
       rustc:
@@ -263,6 +293,36 @@ Tier 2:
       rustc:
       cargo:
       notes: SPARC Solaris 10/11, illumos
+    - tuple: thumbv6m-none-eabi
+      std: "*"
+      rustc:
+      cargo:
+      notes: Bare Cortex-M0, M0+, M1
+    - tuple: thumbv7em-none-eabi
+      std: "*"
+      rustc:
+      cargo:
+      notes: Bare Cortex-M4, M7
+    - tuple: thumbv7em-none-eabihf
+      std: "*"
+      rustc:
+      cargo:
+      notes: Bare Cortex-M4F, M7F, FPU, hardfloat
+    - tuple: thumbv7m-none-eabi
+      std: "*"
+      rustc:
+      cargo:
+      notes: Bare Cortex-M3
+    - tuple: thumbv7neon-linux-androideabi
+      std: ✓
+      rustc:
+      cargo:
+      notes: Thumb2-mode ARMv7a Android with NEON
+    - tuple: thumbv7neon-unknown-linux-gnueabihf
+      std: ✓
+      rustc:
+      cargo:
+      notes: Thumb2-mode ARMv7a Linux with NEON
     - tuple: wasm32-unknown-unknown
       std: ✓
       rustc:
@@ -417,26 +477,6 @@ Tier 3:
       rustc: ✓
       cargo:
       notes: NetBSD/sparc64
-    - tuple: thumbv6m-none-eabi
-      std: "*"
-      rustc:
-      cargo:
-      notes: Bare Cortex-M0, M0+, M1
-    - tuple: thumbv7em-none-eabi
-      std: "*"
-      rustc:
-      cargo:
-      notes: Bare Cortex-M4, M7
-    - tuple: thumbv7em-none-eabihf
-      std: "*"
-      rustc:
-      cargo:
-      notes: Bare Cortex-M4F, M7F, FPU, hardfloat
-    - tuple: thumbv7m-none-eabi
-      std: "*"
-      rustc:
-      cargo:
-      notes: Bare Cortex-M3
     - tuple: x86_64-pc-windows-msvc
       std: ✓
       rustc:
