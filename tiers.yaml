@@ -1,0 +1,523 @@
+Tier 1:
+  description: |
+    Tier 1 platforms can be thought of as "guaranteed to work".
+    Specifically they will each satisfy the following requirements:
+    
+    * Official binary releases are provided for the platform.
+    * Automated testing is set up to run tests for the platform.
+    * Landing changes to the `rust-lang/rust` repository's master branch is gated on
+      tests passing.
+    * Documentation for how to use and how to build the platform is available.
+  platforms:
+    - tuple: i686-apple-darwin
+      std: ✓
+      rustc: ✓
+      cargo: ✓
+      notes: 32-bit OSX (10.7+, Lion+)
+    - tuple: i686-pc-windows-gnu
+      std: ✓
+      rustc: ✓
+      cargo: ✓
+      notes: 32-bit MinGW (Windows 7+)
+    - tuple: i686-pc-windows-msvc
+      std: ✓
+      rustc: ✓
+      cargo: ✓
+      notes: 32-bit MSVC (Windows 7+)
+    - tuple: i686-unknown-linux-gnu
+      std: ✓
+      rustc: ✓
+      cargo: ✓
+      notes: 32-bit Linux (2.6.18+)
+    - tuple: x86_64-apple-darwin
+      std: ✓
+      rustc: ✓
+      cargo: ✓
+      notes: 64-bit OSX (10.7+, Lion+)
+    - tuple: x86_64-pc-windows-gnu
+      std: ✓
+      rustc: ✓
+      cargo: ✓
+      notes: 64-bit MinGW (Windows 7+)
+    - tuple: x86_64-pc-windows-msvc
+      std: ✓
+      rustc: ✓
+      cargo: ✓
+      notes: 64-bit MSVC (Windows 7+)
+    - tuple: x86_64-unknown-linux-gnu
+      std: ✓
+      rustc: ✓
+      cargo: ✓
+      notes: 64-bit Linux (2.6.18+)
+  footnotes: ""
+Tier 2:
+  description: |
+    Tier 2 platforms can be thought of as "guaranteed to build". Automated tests
+    are not run so it's not guaranteed to produce a working build, but platforms
+    often work to quite a good degree and patches are always welcome!
+    Specifically, these platforms are required to have each of the following:
+
+    * Official binary releases are provided for the platform.
+    * Automated building is set up, but may not be running tests.
+    * Landing changes to the `rust-lang/rust` repository's master branch is gated on
+      platforms **building**. For some platforms only the standard library is
+      compiled, but for others `rustc` and `cargo` are too.
+  platforms:
+    - tuple: aarch64-apple-ios
+      std: ✓
+      rustc:
+      cargo:
+      notes: ARM64 iOS
+    - tuple: aarch64-fuchsia
+      std: ✓
+      rustc:
+      cargo:
+      notes: ARM64 Fuchsia
+    - tuple: aarch64-linux-android
+      std: ✓
+      rustc:
+      cargo:
+      notes: ARM64 Android
+    - tuple: aarch64-unknown-linux-gnu
+      std: ✓
+      rustc: ✓
+      cargo: ✓
+      notes: ARM64 Linux
+    - tuple: aarch64-unknown-linux-musl
+      std: ✓
+      rustc:
+      cargo:
+      notes: ARM64 Linux with MUSL
+    - tuple: aarch64-pc-windows-msvc
+      std: ✓
+      rustc:
+      cargo:
+      notes: ARM64 Windows MSVC
+    - tuple: arm-linux-androideabi
+      std: ✓
+      rustc:
+      cargo:
+      notes: ARMv7 Android
+    - tuple: arm-unknown-linux-gnueabi
+      std: ✓
+      rustc: ✓
+      cargo: ✓
+      notes: ARMv6 Linux
+    - tuple: arm-unknown-linux-gnueabihf
+      std: ✓
+      rustc: ✓
+      cargo: ✓
+      notes: ARMv6 Linux, hardfloat
+    - tuple: arm-unknown-linux-musleabi
+      std: ✓
+      rustc:
+      cargo:
+      notes: ARMv6 Linux with MUSL
+    - tuple: arm-unknown-linux-musleabihf
+      std: ✓
+      rustc:
+      cargo:
+      notes: ARMv6 Linux, MUSL, hardfloat
+    - tuple: armebv7r-none-eabi
+      std: "*"
+      rustc:
+      cargo:
+      notes: Bare ARMv7-R, Big Endian
+    - tuple: armebv7r-none-eabihf
+      std: "*"
+      rustc:
+      cargo:
+      notes: Bare ARMv7-R, Big Endian, hardfloat
+    - tuple: armv5te-unknown-linux-gnueabi
+      std: ✓
+      rustc:
+      cargo:
+      notes: ARMv5TE Linux
+    - tuple: armv5te-unknown-linux-musleabi
+      std: ✓
+      rustc:
+      cargo:
+      notes: ARMv5TE Linux with MUSL
+    - tuple: armv7-apple-ios
+      std: ✓
+      rustc:
+      cargo:
+      notes: ARMv7 iOS, Cortex-a8
+    - tuple: armv7-linux-androideabi
+      std: ✓
+      rustc:
+      cargo:
+      notes: ARMv7a Android
+    - tuple: armv7-unknown-linux-gnueabihf
+      std: ✓
+      rustc: ✓
+      cargo: ✓
+      notes: ARMv7 Linux
+    - tuple: armv7-unknown-linux-musleabihf
+      std: ✓
+      rustc:
+      cargo:
+      notes: ARMv7 Linux with MUSL
+    - tuple: armv7r-none-eabi
+      std: "*"
+      rustc:
+      cargo:
+      notes: Bare ARMv7-R
+    - tuple: armv7r-none-eabihf
+      std: "*"
+      rustc:
+      cargo:
+      notes: Bare ARMv7-R, hardfloat
+    - tuple: armv7s-apple-ios
+      std: ✓
+      rustc:
+      cargo:
+      notes: ARMv7 iOS, Cortex-A9
+    - tuple: asmjs-unknown-emscripten
+      std: ✓
+      rustc:
+      cargo:
+      notes: asm.js via Emscripten
+    - tuple: i386-apple-ios
+      std: ✓
+      rustc:
+      cargo:
+      notes: 32-bit x86 iOS
+    - tuple: i586-pc-windows-msvc
+      std: ✓
+      rustc:
+      cargo:
+      notes: 32-bit Windows w/o SSE
+    - tuple: i586-unknown-linux-gnu
+      std: ✓
+      rustc:
+      cargo:
+      notes: 32-bit Linux w/o SSE
+    - tuple: i586-unknown-linux-musl
+      std: ✓
+      rustc:
+      cargo:
+      notes: 32-bit Linux w/o SSE, MUSL
+    - tuple: i686-linux-android
+      std: ✓
+      rustc:
+      cargo:
+      notes: 32-bit x86 Android
+    - tuple: i686-unknown-freebsd
+      std: ✓
+      rustc: ✓
+      cargo: ✓
+      notes: 32-bit FreeBSD
+    - tuple: i686-unknown-linux-musl
+      std: ✓
+      rustc:
+      cargo:
+      notes: 32-bit Linux with MUSL
+    - tuple: mips-unknown-linux-gnu
+      std: ✓
+      rustc: ✓
+      cargo: ✓
+      notes: MIPS Linux
+    - tuple: mips-unknown-linux-musl
+      std: ✓
+      rustc:
+      cargo:
+      notes: MIPS Linux with MUSL
+    - tuple: mips64-unknown-linux-gnuabi64
+      std: ✓
+      rustc: ✓
+      cargo: ✓
+      notes: MIPS64 Linux, n64 ABI
+    - tuple: mips64el-unknown-linux-gnuabi64
+      std: ✓
+      rustc: ✓
+      cargo: ✓
+      notes: MIPS64 (LE) Linux, n64 ABI
+    - tuple: mipsel-unknown-linux-gnu
+      std: ✓
+      rustc: ✓
+      cargo: ✓
+      notes: MIPS (LE) Linux
+    - tuple: mipsel-unknown-linux-musl
+      std: ✓
+      rustc:
+      cargo:
+      notes: MIPS (LE) Linux with MUSL
+    - tuple: powerpc-unknown-linux-gnu
+      std: ✓
+      rustc: ✓
+      cargo: ✓
+      notes: PowerPC Linux
+    - tuple: powerpc64-unknown-linux-gnu
+      std: ✓
+      rustc: ✓
+      cargo: ✓
+      notes: PPC64 Linux
+    - tuple: powerpc64le-unknown-linux-gnu
+      std: ✓
+      rustc: ✓
+      cargo: ✓
+      notes: PPC64LE Linux
+    - tuple: riscv32imac-unknown-none-elf
+      std: "*"
+      rustc: 
+      cargo:
+      notes: Bare RISC-V (RV32IMAC ISA)
+    - tuple: riscv32imc-unknown-none-elf
+      std: "*"
+      rustc:
+      cargo:
+      notes: Bare RISC-V (RV32IMC ISA)
+    - tuple: riscv64gc-unknown-none-elf
+      std: "*"
+      rustc:
+      cargo:
+      notes: Bare RISC-V (RV64IMAFDC ISA)
+    - tuple: riscv64imac-unknown-none-elf
+      std: "*"
+      rustc:
+      cargo:
+      notes: Bare RISC-V (RV64IMAC ISA)
+    - tuple: s390x-unknown-linux-gnu
+      std: ✓
+      rustc: ✓
+      cargo: ✓
+      notes: S390x Linux
+    - tuple: sparc64-unknown-linux-gnu
+      std: ✓
+      rustc:
+      cargo:
+      notes: SPARC Linux
+    - tuple: sparcv9-sun-solaris
+      std: ✓
+      rustc:
+      cargo:
+      notes: SPARC Solaris 10/11, illumos
+    - tuple: thumbv6m-none-eabi
+      std: "*"
+      rustc:
+      cargo:
+      notes: Bare Cortex-M0, M0+, M1
+    - tuple: thumbv7em-none-eabi
+      std: "*"
+      rustc:
+      cargo:
+      notes: Bare Cortex-M4, M7
+    - tuple: thumbv7em-none-eabihf
+      std: "*"
+      rustc:
+      cargo:
+      notes: Bare Cortex-M4F, M7F, FPU, hardfloat
+    - tuple: thumbv7m-none-eabi
+      std: "*"
+      rustc:
+      cargo:
+      notes: Bare Cortex-M3
+    - tuple: thumbv7neon-linux-androideabi
+      std: ✓
+      rustc:
+      cargo:
+      notes: Thumb2-mode ARMv7a Android with NEON
+    - tuple: thumbv7neon-unknown-linux-gnueabihf
+      std: ✓
+      rustc:
+      cargo:
+      notes: Thumb2-mode ARMv7a Linux with NEON
+    - tuple: wasm32-unknown-unknown
+      std: ✓
+      rustc:
+      cargo:
+      notes: WebAssembly
+    - tuple: wasm32-unknown-emscripten
+      std: ✓
+      rustc:
+      cargo:
+      notes: WebAssembly via Emscripten
+    - tuple: x86_64-apple-ios
+      std: ✓
+      rustc:
+      cargo:
+      notes: 64-bit x86 iOS
+    - tuple: x86_64-fortanix-unknown-sgx
+      std: ✓
+      rustc:
+      cargo:
+      notes: '<a href="https://edp.fortanix.com">Fortanix ABI</a> for 64-bit Intel SGX'
+    - tuple: x86_64-fuchsia
+      std: ✓
+      rustc:
+      cargo:
+      notes: 64-bit Fuchsia
+    - tuple: x86_64-linux-android
+      std: ✓
+      rustc:
+      cargo:
+      notes: 64-bit x86 Android
+    - tuple: x86_64-rumprun-netbsd
+      std: ✓
+      rustc:
+      cargo:
+      notes: 64-bit NetBSD Rump Kernel
+    - tuple: x86_64-sun-solaris
+      std: ✓
+      rustc:
+      cargo:
+      notes: 64-bit Solaris 10/11, illumos
+    - tuple: x86_64-unknown-cloudabi
+      std: ✓
+      rustc:
+      cargo:
+      notes: 64-bit CloudABI
+    - tuple: x86_64-unknown-freebsd
+      std: ✓
+      rustc: ✓
+      cargo: ✓
+      notes: 64-bit FreeBSD
+    - tuple: x86_64-unknown-linux-gnux32
+      std: ✓
+      rustc:
+      cargo:
+      notes: 64-bit Linux (x32 ABI)
+    - tuple: x86_64-unknown-linux-musl
+      std: ✓
+      rustc: ✓
+      cargo: ✓
+      notes: 64-bit Linux with MUSL
+    - tuple: x86_64-unknown-netbsd
+      std: ✓
+      rustc: ✓
+      cargo: ✓
+      notes: NetBSD/amd64
+    - tuple: x86_64-unknown-redox
+      std: ✓
+      rustc:
+      cargo:
+      notes: Redox OS
+  footnotes: |
+    <em>*</em> These are bare-metal microcontroller targets that only have
+    access to the core library, not std.
+Tier 2.5:
+  description: |
+    Tier 2.5 platforms can be thought of as "guaranteed to build", but without
+    builds available through `rustup`. Automated tests are not run so it's not
+    guaranteed to produce a working build, but platforms often work to quite a good
+    degree and patches are always welcome! Specifically, these platforms are
+    required to have each of the following:
+
+    * Automated building is set up, but may not be running tests.
+    * Landing changes to the `rust-lang/rust` repository's master branch is gated on
+      platforms **building**. For some platforms only the standard library is
+      compiled, but for others `rustc` and `cargo` are too.
+
+    **This status is accidental: no new platforms should reach this state**
+  platforms:
+    - tuple: aarch64-unknown-cloudabi
+      std: ✓
+      rustc:
+      cargo:
+      notes: ARM64 CloudABI
+    - tuple: armv7-unknown-cloudabi-eabihf
+      std: ✓
+      rustc:
+      cargo:
+      notes: ARMv7 CloudABI, hardfloat
+    - tuple: i686-unknown-cloudabi
+      std: ✓
+      rustc:
+      cargo:
+      notes: 32-bit CloudABI
+    - tuple: powerpc-unknown-linux-gnuspe
+      std: ✓
+      rustc:
+      cargo:
+      notes: PowerPC SPE Linux
+    - tuple: sparc-unknown-linux-gnu
+      std: ✓
+      rustc:
+      cargo:
+      notes: 32-bit SPARC Linux
+  footnotes: ""
+Tier 3:
+  description: Tier 3 platforms are those which the Rust codebase has support
+    for, but which are not built or tested automatically, and may not work.
+    Official builds are not available.
+  platforms:
+    - tuple: i686-pc-windows-msvc
+      std: ✓
+      rustc:
+      cargo:
+      notes: 32-bit Windows XP support
+    - tuple: i686-unknown-haiku
+      std: ✓
+      rustc:
+      cargo:
+      notes: 32-bit Haiku
+    - tuple: i686-unknown-netbsd
+      std: ✓
+      rustc:
+      cargo:
+      notes: NetBSD/i386 with SSE2
+    - tuple: mips-unknown-linux-uclibc
+      std: ✓
+      rustc:
+      cargo:
+      notes: MIPS Linux with uClibc
+    - tuple: mipsel-unknown-linux-uclibc
+      std: ✓
+      rustc:
+      cargo:
+      notes: MIPS (LE) Linux with uClibc
+    - tuple: msp430-none-elf
+      std: "*"
+      rustc:
+      cargo:
+      notes: 16-bit MSP430 microcontrollers
+    - tuple: sparc64-unknown-netbsd
+      std: ✓
+      rustc: ✓
+      cargo:
+      notes: NetBSD/sparc64
+    - tuple: x86_64-pc-windows-msvc
+      std: ✓
+      rustc:
+      cargo:
+      notes: 64-bit Windows XP support
+    - tuple: x86_64-unknown-bitrig
+      std: ✓
+      rustc: ✓
+      cargo:
+      notes: 64-bit Bitrig
+    - tuple: x86_64-unknown-dragonfly
+      std: ✓
+      rustc: ✓
+      cargo: ✓
+      notes: 64-bit DragonFlyBSD
+    - tuple: x86_64-unknown-haiku
+      std: ✓
+      rustc:
+      cargo:
+      notes: 64-bit Haiku
+    - tuple: x86_64-unknown-openbsd
+      std: ✓
+      rustc: ✓
+      cargo: ✓
+      notes: 64-bit OpenBSD
+    - tuple: nvptx-nvidia-cuda
+      std: "**"
+      rustc:
+      cargo:
+      notes: <code>--emit=asm</code> generates PTX code that
+        <a href="https://github.com/japaric-archived/nvptx#targets">runs on NVIDIA GPUs</a>
+    - tuple: nvptx64-nvidia-cuda
+      std: "**"
+      rustc:
+      cargo:
+      notes: <code>--emit=asm</code> generates PTX code that
+        <a href="https://github.com/japaric-archived/nvptx#targets">runs on NVIDIA GPUs</a>
+  footnotes: |
+    <em>*</em> These are bare-metal microcontroller targets that only have access to
+    the core library, not std.
+
+    <em>**</em> There's backend support for these targets but no target built into
+    `rustc` (yet). You'll have to write your own target specification file (see the
+    links in the table). These targets only support the core library.
