@@ -502,6 +502,16 @@ Tier 3:
       rustc: ✓
       cargo: ✓
       notes: 64-bit OpenBSD
+    - tuple: i686-unknown-openbsd
+      std: ✓
+      rustc: ✓
+      cargo: ✓
+      notes: 32-bit OpenBSD
+    - tuple: aarch64-unknown-openbsd
+      std: ✓
+      rustc: ✓
+      cargo: ✓
+      notes: ARM64 OpenBSD
     - tuple: nvptx-nvidia-cuda
       std: "**"
       rustc:
