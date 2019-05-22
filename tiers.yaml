@@ -328,6 +328,11 @@ Tier 2:
       rustc:
       cargo:
       notes: WebAssembly
+    - tuple: wasm32-wasi
+      std: ✓
+      rustc:
+      cargo:
+      notes: WebAssembly with WASI
     - tuple: wasm32-unknown-emscripten
       std: ✓
       rustc:
