@@ -7,10 +7,6 @@ title: Triage Procedure
 
 ---
 
-**HOLIDAY NOTE:** The PR triage process is **suspended** during the holidays. There won't be any triage pings, nor any PRs closed, between **Monday, 2018-12-17** and **Sunday, 2019-01-06**.
-
----
-
 ## Status tag meanings:
 
  - [S-waiting-on-author] - Author needs to make changes to address reviewer comments, or merge
@@ -265,7 +261,7 @@ deassign them if necessary.
 4. If the “What’s next?” on the card does not match what you think the current
    state is, update it with the new information.
 5. If the implementation of an RFC has changed since the last update, move it to
-   the relevant column. 
+   the relevant column.
      * If there are PRs merged that implement the RFC the card would move
         to “Implemented”.
      * If there are only open PRs or the PRs don’t implement the full RFC the
