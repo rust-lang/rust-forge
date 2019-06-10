@@ -7,10 +7,6 @@ title: Triage Procedure
 
 ---
 
-**HOLIDAY NOTE:** The PR triage process is **suspended** during the holidays. There won't be any triage pings, nor any PRs closed, between **Monday, 2018-12-17** and **Sunday, 2019-01-06**.
-
----
-
 ## Status tag meanings:
 
  - [S-waiting-on-author] - Author needs to make changes to address reviewer comments, or merge
@@ -44,13 +40,17 @@ title: Triage Procedure
 
 *Note:* When you are pinging people in triage comments, you should mention that you are doing triage in the comment you post. For example, start your comments with something like "Ping from triage ..."."
 
+### [Unassigned PRs]
+
+All PRs that have no assignee (except rollups) should be assigned to a random member of the
+responsible team.
+
+[Unassigned PRs]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+no%3Aassignee
+
 ### [Unlabeled PRs]
 
 All unlabeled PRs should be processed. The steps below are not mutually exclusive, any number of
 them may apply.
-
-When there is **no assignee**, because highfive flaked, figure out the responsible team and randomly
-choose a reviewer from the team by manually assigning in GitHub.
 
 When **no review has happened**, if the PR is a work in progress (e.g., test failures, merge
 conflict) mark S-waiting-on-author. Otherwise, mark S-waiting-on-review. If no human has checked in
@@ -265,7 +265,7 @@ deassign them if necessary.
 4. If the “What’s next?” on the card does not match what you think the current
    state is, update it with the new information.
 5. If the implementation of an RFC has changed since the last update, move it to
-   the relevant column. 
+   the relevant column.
      * If there are PRs merged that implement the RFC the card would move
         to “Implemented”.
      * If there are only open PRs or the PRs don’t implement the full RFC the
