@@ -40,13 +40,17 @@ title: Triage Procedure
 
 *Note:* When you are pinging people in triage comments, you should mention that you are doing triage in the comment you post. For example, start your comments with something like "Ping from triage ..."."
 
+### [Unassigned PRs]
+
+All PRs that have no assignee (except rollups) should be assigned to a random member of the
+responsible team.
+
+[Unassigned PRs]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+no%3Aassignee
+
 ### [Unlabeled PRs]
 
 All unlabeled PRs should be processed. The steps below are not mutually exclusive, any number of
 them may apply.
-
-When there is **no assignee**, because highfive flaked, figure out the responsible team and randomly
-choose a reviewer from the team by manually assigning in GitHub.
 
 When **no review has happened**, if the PR is a work in progress (e.g., test failures, merge
 conflict) mark S-waiting-on-author. Otherwise, mark S-waiting-on-review. If no human has checked in
