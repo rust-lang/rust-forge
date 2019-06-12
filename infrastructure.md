@@ -11,7 +11,7 @@ Most services in the Rust Infrastructure are deployed via [rust-central-station]
 
 ## Highfive
 
-[Highfive](https://github.com/nrc/highfive) is a bot ([bot user account](https://github.com/rust-highfive)) which welcomes newcomers and assigns reviewers. It is run by [https://github.com/nrc](Nick Cameron)
+[Highfive](https://github.com/nrc/highfive) is a bot ([bot user account](https://github.com/rust-highfive)) which welcomes newcomers and assigns reviewers. It is run by [Nick Cameron](https://github.com/nrc).
 
 ## Homu
 
