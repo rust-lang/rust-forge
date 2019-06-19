@@ -53,6 +53,7 @@ PRs against [rust-lang/rust-forge].
 * [Bibliography](bibliography.html). Research papers and other links to projects that influenced Rust. Papers about Rust.
 * [Cross compilation resources](cross-compilation/index.html)
 * [Other Rust Installation Methods](other-installation-methods.html)
+* [Rust Pontoon](https://pontoon.rust-lang.org/). Translating the Rust website.
 
 
 <script src="js/moment.min.js"></script>
