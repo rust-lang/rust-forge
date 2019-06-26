@@ -50,7 +50,7 @@ PRs against [rust-lang/rust-forge].
 ### Other things
 
 * [Friend of the Tree archives](fott.html).
-* [Bibliography](bibliography.html). Research papers and other links to projects that influenced Rust. Papers about Rust.
+* [Bibliography](https://rust-lang.github.io/rustc-guide/appendix/bibliography.html). Research papers and other links to projects that influenced Rust. Papers about Rust.
 * [Cross compilation resources](cross-compilation/index.html)
 * [Other Rust Installation Methods](other-installation-methods.html)
 * [Rust Pontoon](https://pontoon.rust-lang.org/). Translating the Rust website.
