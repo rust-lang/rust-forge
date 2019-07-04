@@ -129,7 +129,7 @@ Decide on a time to do the release, T.
   $ git tag -u FA1BE5FE 1.3.0 $COMMIT_SHA
   $ git push rust-lang 1.3.0
   ```
-  After this [Update thanks.rust-lang.org][update-thanks].
+  After this [Update thanks.rust-lang.org][update-thanks] by triggering a build on Travis.
 
 * **T-5m** - Merge blog post.
 
@@ -148,7 +148,7 @@ Decide on a time to do the release, T.
 * **T+1hr** Send a PR to the beta branch to comment out `dev: 1` again and
   update the date to download from (modifying `src/stage0.txt`).
 
-[update-thanks]: https://github.com/rust-lang-nursery/thanks#thanks
+[update-thanks]: https://travis-ci.com/rust-lang/thanks
 
 Bask in your success.
 
