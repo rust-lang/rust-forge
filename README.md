@@ -1,8 +1,8 @@
 # [Rust Forge](https://forge.rust-lang.org)
 
-This site contains supplementary documentation useful to the members of
-[The Rust Project](https://www.rust-lang.org). To edit it submit PR's against
-[rust-lang/rust-forge].
+This site contains supplementary documentation useful to the members
+of [The Rust Project](https://www.rust-lang.org). To edit, please submit
+PR's against [rust-lang/rust-forge].
 
 [rust-lang/rust-forge]: https://github.com/rust-lang/rust-forge
 
@@ -26,18 +26,16 @@ This site contains supplementary documentation useful to the members of
   who maintains them (i.e. who to contact when they malfunction and go on a bot
   rampage).
 
-## Building
+## Develop
 
-Rust Forge uses the [Jekyll](https://jekyllrb.com) static site generator, which can be installed with:
+Rust Forge uses the [Jekyll](https://jekyllrb.com) static site generator for which Markdown is the source content format.
 
-```bash
-$ gem install bundler jekyll
-```
-
-Next, fetch the list of targets and channels with:
+First, build and run the configuration generator and install the dependencies with:
 
 ```bash
 $ cargo run
+$ gem install bundler jekyll
+$ bundle install
 ```
 
 Then the site can be built with:
