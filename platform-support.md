@@ -14,6 +14,7 @@ the compiler what kind of output should be produced. The columns below indicate
 whether the corresponding component works on the specified platform.
 
 {% for tier in site.tiers %}
+
 ## {{ tier[0] }}
 
 {{ tier[1].description }}
@@ -43,6 +44,6 @@ whether the corresponding component works on the specified platform.
 
 But those aren't the only platforms Rust can compile to! Those are the ones with
 built-in target definitions and/or standard library support. When linking only
-to the core library, Rust can also target "bare metal" in the x86, ARM, MIPS, and
-PowerPC families, though it may require defining custom target specifications to
-do so. All such scenarios are tier 3.
+to the core library, Rust can also target "bare metal" in the x86, ARM, MIPS,
+and PowerPC families, though it may require defining custom target
+specifications to do so. All such scenarios are tier 3.

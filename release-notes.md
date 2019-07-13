@@ -18,7 +18,7 @@ simply links to the PR that landed them; some that need more explanation have
 additional, unlinked text; anything supported by an RFC has an additional RFC
 link. Reuse the PR titles or write descriptions as needed for clarity.
 
-Try to keep the language of the document independent of en-US or en-UK, when
-it can't be avoided defer to en-US grammar and syntax.
+Try to keep the language of the document independent of en-US or en-UK, when it
+can't be avoided defer to en-US grammar and syntax.
 
 [relnotes]: https://github.com/Aaronepower/relnotes

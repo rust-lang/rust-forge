@@ -11,6 +11,7 @@ title: Other Installation Methods &middot; The Rust Programming Language
 - [Source code](#source)
 
 ## Which installer should you use?
+
 <span id="which"></span>
 
 Rust runs on many platforms, and there are many ways to install Rust. If you
@@ -34,11 +35,11 @@ might one _not_ want to install using those instructions?
 - Validating signatures. Although `rustup` performs its downloads over HTTPS,
   the only way to verify the signatures of Rust installers today is to do so
   manually with the standalone installers.
-- GUI installation and integration with "Add/Remove Programs" on
-  Windows. `rustup` runs in the console and does not register its installation
-  like typical Windows programs. If you prefer a more typical GUI installation
-  on Windows there are standalone `.msi` installers. In the future
-  `rustup` will also have a GUI installer on Windows.
+- GUI installation and integration with "Add/Remove Programs" on Windows.
+  `rustup` runs in the console and does not register its installation like
+  typical Windows programs. If you prefer a more typical GUI installation on
+  Windows there are standalone `.msi` installers. In the future `rustup` will
+  also have a GUI installer on Windows.
 
 Rust's platform support is defined in [three tiers], which correspond closely
 with the installation methods available: in general, the Rust project provides
@@ -49,15 +50,15 @@ only; Rust code can run on those platforms, but they do not run the compiler
 itself. Such targets can be installed with the `rustup target add` command.
 
 ## Other ways to install `rustup`
+
 <span id="rustup"></span>
 
 The way to install `rustup` differs by platform:
 
-* On Unix, run `curl https://sh.rustup.rs -sSf | sh` in your
-  shell. This downloads and runs [`rustup-init.sh`], which in turn
-  downloads and runs the correct version of the `rustup-init`
-  executable for your platform.
-* On Windows, download and run [`rustup-init.exe`].
+- On Unix, run `curl https://sh.rustup.rs -sSf | sh` in your shell. This
+  downloads and runs [`rustup-init.sh`], which in turn downloads and runs the
+  correct version of the `rustup-init` executable for your platform.
+- On Windows, download and run [`rustup-init.exe`].
 
 `rustup-init` can be configured interactively, and all options can additionally
 be controlled by command-line arguments, which can be passed through the shell
@@ -86,6 +87,7 @@ If you prefer not to use the shell script, you may directly download
 </div>
 
 ## Standalone installers
+
 <span id="standalone"></span>
 
 The official Rust standalone installers contain a single release of Rust, and
@@ -102,8 +104,8 @@ The most common reasons to use these are:
 - Prefering a more platform-integrated, graphical installer on Windows
 
 Each of these binaries is signed with the [Rust signing key], which is
-[available on keybase.io], by the Rust build infrastructure, with
-[GPG]. In the tables below, the `.asc` files are the signatures.
+[available on keybase.io], by the Rust build infrastructure, with [GPG]. In the
+tables below, the `.asc` files are the signatures.
 
 <!-- FIXME: Show this sentence again once we've found a quick way to display the archives.
 Past releases can be found in [the archives].
@@ -111,14 +113,11 @@ Past releases can be found in [the archives].
 
 {% for name_and_channel in site.channels %}
 {% assign name = name_and_channel[0] %}
-{% assign channel = name_and_channel[1] %}
-{% if name == 'stable' %}
-{% assign stem = channel.vers %}
-{% else %}
-{% assign stem = name %}
-{% endif %}
+{% assign channel = name_and_channel[1] %} {% if name == 'stable' %}
+{% assign stem = channel.vers %} {% else %} {% assign stem = name %} {% endif %}
 
 ### {{ name | capitalize }} ({{ channel.vers }})
+
 <span id="{{ name }}"></span>
 
 <div class="installer-table {{ name }}">
@@ -147,6 +146,7 @@ Past releases can be found in [the archives].
 {% endfor %}
 
 ## Source code
+
 <span id="source"></span>
 
 <div class="source-table">
@@ -169,14 +169,15 @@ Past releases can be found in [the archives].
 
 [installation page]: https://www.rust-lang.org/tools/install
 [`rustup`]: https://github.com/rust-lang/rustup.rs
-[other-rustup]: https://github.com/rust-lang/rustup.rs#other-installation-methods
-[`rustup-init.exe`]: https://static.rust-lang.org/rustup/dist/i686-pc-windows-gnu/rustup-init.exe
+[other-rustup]:
+  https://github.com/rust-lang/rustup.rs#other-installation-methods
+[`rustup-init.exe`]:
+  https://static.rust-lang.org/rustup/dist/i686-pc-windows-gnu/rustup-init.exe
 [`rustup-init.sh`]: https://static.rust-lang.org/rustup/rustup-init.sh
-[Homebrew]: http://brew.sh/
-[Chocolatey]: http://chocolatey.org/
+[homebrew]: http://brew.sh/
+[chocolatey]: http://chocolatey.org/
 [three tiers]: https://forge.rust-lang.org/platform-support.html
-[Rust signing key]: https://static.rust-lang.org/rust-key.gpg.ascii
-[GPG]: https://gnupg.org/
+[rust signing key]: https://static.rust-lang.org/rust-key.gpg.ascii
+[gpg]: https://gnupg.org/
 [available on keybase.io]: https://keybase.io/rust
 [the archives]: https://static.rust-lang.org/dist/index.html
-
