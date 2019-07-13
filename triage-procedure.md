@@ -9,34 +9,32 @@ title: Triage Procedure
 
 ## Status tag meanings:
 
-- [S-waiting-on-author] - Author needs to make changes to address reviewer
-  comments, or merge conflicts/test failures are present. This also covers more
-  obscure cases, like a PR being blocked on another, or waiting for a crater run
-  -- it is the author's responsibility to push the PR forward.
-- [S-waiting-on-review] - Review is incomplete
-- [S-waiting-on-team] - A T- label is marked, and team has been cc-ed for
-  feedback.
-- [S-waiting-on-bors] - Currently approved, waiting to merge.
-- [S-waiting-on-crater] - Waiting to see what the impact the PR will have on the
-  ecosystem
-- [S-waiting-on-bikeshed] - Waiting on the consensus over a minor detail
-- [S-waiting-on-perf] - Waiting on the results of a perf run
-- [S-blocked] - Waiting for another PR to be merged or for discussion to be
-  resolved
-- [S-blocked-closed] - Closed because resolving the block is expected to take a
-  long time
-- [S-inactive-closed] - Closed due to inactivity.
+ - [S-waiting-on-author] - Author needs to make changes to address reviewer comments, or merge
+   conflicts/test failures are present. This also covers more obscure cases, like a PR being blocked
+   on another, or waiting for a [crater] run -- it is the author's responsibility to push the PR
+   forward.
+ - [S-waiting-on-review] - Review is incomplete
+ - [S-waiting-on-team] - A T- label is marked, and team has been cc-ed for feedback.
+ - [S-waiting-on-bors] - Currently approved, waiting to merge. Managed by [Bors].
+ - [S-waiting-on-crater] - Waiting to see what the impact the PR will have on the ecosystem
+ - [S-waiting-on-bikeshed] - Waiting on the consensus over a minor detail
+ - [S-waiting-on-perf] - Waiting on the results of a perf run
+ - [S-blocked] - Waiting for another PR to be merged or for discussion to be resolved
+ - [S-blocked-closed] - Closed because resolving the block is expected to take a long time
+ - [S-inactive-closed] - Closed due to inactivity.
 
-[s-waiting-on-author]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-author
-[s-waiting-on-review]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-review
-[s-waiting-on-team]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-team+sort%3Aupdated-desc
-[s-waiting-on-bors]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-bors+sort%3Aupdated-asc
-[s-waiting-on-crater]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-crater+sort%3Aupdated-asc
-[s-waiting-on-bikeshed]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-bikeshed+sort%3Aupdated-asc
-[s-waiting-on-perf]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-perf+sort%3Aupdated-asc
-[s-blocked]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-blocked+sort%3Aupdated-asc
-[s-blocked-closed]: https://github.com/rust-lang/rust/pulls?q=is%3Apr+label%3AS-blocked-closed+sort%3Aupdated-asc
-[s-inactive-closed]: https://github.com/rust-lang/rust/pulls?q=is%3Apr+label%3AS-inactive-closed+sort%3Aupdated-asc
+[S-waiting-on-author]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-author
+[S-waiting-on-review]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-review
+[S-waiting-on-team]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-team+sort%3Aupdated-desc
+[S-waiting-on-bors]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-bors+sort%3Aupdated-asc
+[S-waiting-on-crater]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-crater+sort%3Aupdated-asc
+[S-waiting-on-bikeshed]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-bikeshed+sort%3Aupdated-asc
+[S-waiting-on-perf]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-perf+sort%3Aupdated-asc
+[S-blocked]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-blocked+sort%3Aupdated-asc
+[S-blocked-closed]: https://github.com/rust-lang/rust/pulls?q=is%3Apr+label%3AS-blocked-closed+sort%3Aupdated-asc
+[S-inactive-closed]: https://github.com/rust-lang/rust/pulls?q=is%3Apr+label%3AS-inactive-closed+sort%3Aupdated-asc
+[crater]: https://github.com/rust-lang-nursery/crater
+[Bors]: https://github.com/graydon/bors
 
 ## Procedure:
 
@@ -50,6 +48,9 @@ _Note:_ When you are pinging people in triage comments, you should mention that
 you are doing triage in the comment you post. For example, start your comments
 with something like "Ping from triage ..."."
 
+First ensure that the status tag matches the current state of the PR. Change the tag if necessary,
+and apply the procedure for the new tag.
+
 ### [Unassigned PRs]
 
 All PRs that have no assignee (except rollups) should be assigned to a random
@@ -62,12 +63,11 @@ member of the responsible team.
 All unlabeled PRs should be processed. The steps below are not mutually
 exclusive, any number of them may apply.
 
-When **no review has happened**, if the PR is a work in progress (e.g., test
-failures, merge conflict) mark S-waiting-on-author. Otherwise, mark
-S-waiting-on-review. If no human has checked in yet and you don't recognise the
-submitter as a regular contributor, leave a comment saying something like
-"Thanks for the PR! We’ll periodically check in on it to make sure that
-@reviewer or someone else from the team reviews it soon."
+When **no review has happened**, if the PR is a work in progress (e.g., test failures, merge
+conflict) mark `S-waiting-on-author`. Otherwise, mark `S-waiting-on-review`. If no human has checked in
+yet and you don't recognise the submitter as a regular contributor, leave a comment saying something
+like "Thanks for the PR! We’ll periodically check in on it to
+make sure that @reviewer or someone else from the team reviews it soon."
 
 At this point, all PRs must have a tag applied.
 
@@ -75,34 +75,21 @@ At this point, all PRs must have a tag applied.
 
 ### [S-waiting-on-author PRs][s-waiting-on-author]
 
-PRs with greater than 3 days of inactivity need to be processed. These can be
-found by looking at the "updated X days ago" on GitHub's PR list.
+PRs with, roughly, more than a week of inactivity need to be processed. These can be found by looking at
+the "updated X days ago" on GitHub's PR list.
 
-First, ensure that the status tag matches the current state of the PR. Change
-the tag if necessary, and apply the procedure for the new tag.
+If the author hasn't responded for more than a week to a request for changes or a status
+update, ping the author on GitHub asking for them to check in on the PR's state. If they've given
+advance warning that they are unavailable for a period of time and therefore won't be able to address comments, do not ping until
+after that time. It is a good idea to start the message with "Ping from Triage..." so that the
+concerned parties know it is coming from the triage team.
 
-Then, if the author hasn't responded for more than 7 days to a request for
-changes or a status update, ping the author on GitHub asking for an update. If
-they've given advance warning that they won't be able to address comments for a
-period of time, allow for that.
+If the author has not responded to a previous ping, meaning more than 2 weeks have passed with no activity, the PR should be closed
+with a message thanking the author for their work, asking the them to reopen when they have a chance to make the necessary changes, and warning them not to push to the PR while it is closed as that prevents it from being reopened. Tag the PR with `S-inactive-closed`.
 
-If the author's been unresponsive for more than 14 days, close the PR due to
-inactivity and ask the author to reopen when they have a chance to make the
-necessary changes. Make sure to thank the author for the changes. Also tag the
-PR with S-inactive-closed.
-
-If there has been no meaningful updates after two triage updates, with no
-meaningful being defined as no commits or no status updates that show progress
-(i.e. "Soon TM"). The PR should be closed due to prolonged inactivity and ask
-the author to reopen when they have a chance to make the necessary changes. Make
-sure to thank the author for the changes, and warn them not to push to the PR
-while it is closed as GitHub will prevent the PR from being reopened. Make sure
-to also tag the PR with S-inactive-closed.
-
-_TIP_: if an author is on holiday and you know they won't have a chance to come
-to a PR for a while, you can 'bump' the PR by removing and readding the tag
-(note that removing/readding requires clicking off the tag selection dropdown
-between the two actions).
+*TIP*: if an author is unavailable and you know they won't have a chance to come to a PR for a while,
+you can 'bump' the PR by removing and readding the tag (note that removing/readding requires
+clicking off the tag selection dropdown between the two actions).
 
 If the PR is blocked on another PR, issue, or some kind of discussion, add a
 comment clearly identifying what is blocking the PR (something like "This PR
@@ -111,30 +98,15 @@ instruction for S-blocked to determine whether you should also close the PR.
 
 ### [S-waiting-on-review PRs][s-waiting-on-review]
 
-PRs with greater than 3 days of inactivity need to be processed. These can be
-found by looking at the "updated X days ago" on GitHub's PR list.
+PRs with, roughly, more than a week of inactivity need to be processed. These can be found by looking at
+the "updated X days ago" on GitHub's PR list.
 
-First, ensure that the status tag matches the current state of the PR. Change
-the tag if necessary, and apply the procedure for the new tag.
+If the review is complete the label should be changed from `S-waiting-on-review` to `S-waiting-on-author`.
 
-If there are **no comments from the reviewer**:
+Otherwise, the reviewer should be pinged. It is a good idea to start the message with "Ping from Triage..." so that the
+concerned parties know it is coming from the triage team, and the message should be asing the reviewer to either review or update a review of the PR. If the reviewer has already been pinged, meaning more than 2 weeks have passed with no activity, another reviewer on their team should be pinged. Note that if the reviewer has expressed that they are busy, do not ping them until they are available again. If the PR is not already labeled with a team (`T-*`), find the team assigned to the PR's issue which should have a `T-*` label.
 
-- If the PR is more than 3 days old, ping the reviewer on IRC and on GitHub,
-  noting that you've pinged on IRC. If the reviewer is not on IRC, then note in
-  the GitHub comment that IRC ping wasn't possible.
-- If the PR is more than 6 days old, in addition to the above steps, ping the
-  subteam on GitHub and ask for a new reviewer.
-- If the PR is more than 9 days old, in addition to the above steps, change the
-  tag to S-waiting-on-team
-
-If the **review is incomplete**:
-
-- If more than 3 days since the last reviewer comment, ping the reviewer on IRC
-  and on GitHub.
-- If more than 6 days since the last reviewer comment, also ping the subteam on
-  GitHub.
-- If more than 9 days since the last reviewer comment, also change the tag to
-  S-waiting-on-team
+The `r?` command is needed to override a reviewer, however not all triagers will have sufficient permissions. In this case sending a message to the #triage-wg Discord or pinging @dpc will be necessary.
 
 If the PR is blocked on another PR, add a comment clearly identifying the
 blocking PR (something like "This PR appears to be blocked on #12345") and
@@ -159,9 +131,7 @@ check the most recent ones.
 
 ### [S-waiting-on-bors PRs][s-waiting-on-bors]
 
-All PRs should be processed. First, ensure that the status tag matches the
-current state of the PR. Change the tag if necessary, and apply the procedure
-for the new tag now.
+[Bors] automatically manages this label but human intervention may be required if there is an issue.
 
 ### [S-waiting-on-crater PRs][s-waiting-on-crater]
 
