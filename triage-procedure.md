@@ -3,11 +3,9 @@ layout: default
 title: Triage Procedure
 ---
 
-# PR triage
+# Pull Request Triage
 
----
-
-## Status tag meanings:
+## Status Tags
 
  - [S-waiting-on-author] - Author needs to make changes to address reviewer comments, or merge
    conflicts/test failures are present. This also covers more obscure cases, like a PR being blocked
@@ -36,7 +34,7 @@ title: Triage Procedure
 [crater]: https://github.com/rust-lang-nursery/crater
 [Bors]: https://github.com/graydon/bors
 
-## Procedure:
+## Procedure
 
 **IMPORTANT:** Whenever you do PR triage, please fill out the following form:
 [goo.gl/forms/YKYVFYjBq28Hm3qQ2](https://goo.gl/forms/YKYVFYjBq28Hm3qQ2). If you
@@ -91,10 +89,7 @@ with a message thanking the author for their work, asking the them to reopen whe
 you can 'bump' the PR by removing and readding the tag (note that removing/readding requires
 clicking off the tag selection dropdown between the two actions).
 
-If the PR is blocked on another PR, issue, or some kind of discussion, add a
-comment clearly identifying what is blocking the PR (something like "This PR
-appears to be blocked on #12345") and change the state to S-blocked. Follow the
-instruction for S-blocked to determine whether you should also close the PR.
+If the PR is blocked on another PR, issue, or some kind of discussion, add a comment clearly identifying what is blocking the PR (something like "This PR appears to be blocked on #12345") and change the state to `S-blocked`. Follow the instruction for `S-blocked` to determine whether you should also close the PR.
 
 ### [S-waiting-on-review PRs][s-waiting-on-review]
 
@@ -104,13 +99,12 @@ the "updated X days ago" on GitHub's PR list.
 If the review is complete the label should be changed from `S-waiting-on-review` to `S-waiting-on-author`.
 
 Otherwise, the reviewer should be pinged. It is a good idea to start the message with "Ping from Triage..." so that the
-concerned parties know it is coming from the triage team, and the message should be asing the reviewer to either review or update a review of the PR. If the reviewer has already been pinged, meaning more than 2 weeks have passed with no activity, another reviewer on their team should be pinged. Note that if the reviewer has expressed that they are busy, do not ping them until they are available again. If the PR is not already labeled with a team (`T-*`), find the team assigned to the PR's issue which should have a `T-*` label.
+concerned parties know it is coming from the triage team, and the message should be asing the reviewer to either review or update a review of the PR. If the reviewer has already been pinged, meaning more than 2 weeks have passed with no activity, another reviewer on their team should be pinged. Note that if the reviewer has expressed that they are busy, do not ping them until they are available again. If the PR is not already labeled with a team (`T-`), find the team assigned to the PR's issue which should have a `T-` label.
 
-The `r?` command is needed to override a reviewer, however not all triagers will have sufficient permissions. In this case sending a message to the #triage-wg Discord or pinging @dpc will be necessary.
+The `r?` command is needed to override a reviewer, however not all triagers will have sufficient permissions. In this case sending a message to the `#triage-wg` Discord or pinging @dpc will be necessary.
 
-If the PR is blocked on another PR, add a comment clearly identifying the
-blocking PR (something like "This PR appears to be blocked on #12345") and
-change the state to S-blocked.
+If the PR is blocked on another PR, add a comment clearly identifying
+the blocking PR (something like "This PR appears to be blocked on #12345") and change the state to `S-blocked`.
 
 ### [S-waiting-on-team PRs][s-waiting-on-team]
 
@@ -142,12 +136,12 @@ crater
 [spreadsheet](https://docs.google.com/spreadsheets/d/1VPi_7ErvvX76fa3VqvQ3YnQmDk3bS7fYnkzvApIWkKo/edit#gid=0).
 Fill in the link to the PR and set status as "Pending".
 
-If crater has been run and results include failures, change the tag to
-S-waiting-on-review for the reviewer to be responsible for deciding what should
-be done with the information provided by the failures.
+If crater has been run and results include failures, change the tag to `S-waiting-on-review` for
+the reviewer to be responsible for deciding what should be done with the information provided by
+the failures.
 
-If crater has been run and the results do not include failures, change the tag
-to S-waiting-on-review for the reviewer to take one last look and approve.
+If crater has been run and the results do not include failures, change the tag to
+`S-waiting-on-review` for the reviewer to take one last look and approve.
 
 If crater has not been run and it has been more than 3 days since a crater run
 was requested, ping the last three distinct listed people on the spreadsheet in
@@ -164,11 +158,11 @@ looking at the "updated X days ago" on GitHub's PR list.
 
 Find the source of the discussion and see if it has been resolved.
 
-If it has been resolved, move it back to S-waiting-on-author or
-S-waiting-on-review as appropriate. Add a comment notifying the author or
-reviewer that the PR is now unblocked.
+If it has been resolved, move it back to `S-waiting-on-author` or
+`S-waiting-on-review` as appropriate. Add a comment notifying the author
+or reviewer that the PR is now unblocked.
 
-If it has not been resolved, remove and re-add the S-waiting-on-bikeshed tag.
+If it has not been resolved, remove and re-add the `S-waiting-on-bikeshed` tag.
 This resets the update time so the PR won't be reviewed for another week.
 
 ### [S-blocked PRs][s-blocked]
@@ -180,12 +174,9 @@ author to re-open the PR once the issue has been resolved. If you feel
 uncomfortable just closing the PR, feel free to link to this document. As a rule
 of thumb, consider these guidelines:
 
-- PRs blocked on discussion (such as RFCs or WG decisions) should be closed
-  immediately, since those discussions generally take a long time.
-- PRs blocked on other PRs can be left open, unless the blocking PR doesn't look
-  like it's going to be merged soon.
-- PRs which have already been blocked for two weeks should generally be closed,
-  unless there is a clear indication that they will be unblocked soon.
+- PRs blocked on discussion (such as RFCs or WG decisions) should be closed immediately, since those discussions generally take a long time.
+- PRs blocked on other PRs can be left open, unless the blocking PR doesn't look like it's going to be merged soon.
+- PRs which have already been blocked for two weeks should generally be closed, unless there is a clear indication that they will be unblocked soon.
 
 Blocked PRs which have not been closed should be triaged as follows:
 
@@ -194,12 +185,12 @@ looking at the "updated X days ago" on GitHub's PR list.
 
 Find the blocking issue from the triage comment and see if it has been resolved.
 
-If it has been resolved, move it back to S-waiting-on-author or
-S-waiting-on-review as appropriate. Add a comment notifying the author or
-reviewer that the PR is now unblocked.
+If it has been resolved, move it back to `S-waiting-on-author` or
+`S-waiting-on-review` as appropriate. Add a comment notifying the author
+or reviewer that the PR is now unblocked.
 
-If it has not been resolved, remove and re-add the S-blocked tag. This resets
-the update time so the PR won't be reviewed for another week.
+If it has not been resolved, remove and re-add the `S-blocked` tag. This
+resets the update time so the PR won't be reviewed for another week.
 
 ### [S-blocked-closed PRs][s-blocked-closed]
 
@@ -216,48 +207,40 @@ future work.
 
 # Issue triage
 
-Issue triage is mostly much simpler. After finishing PR triage, go to the [list
-of untagged issues] and add tags as you see fit. The following categories
-should, ideally, be assigned to each issue:
+Issue triage is mostly much simpler. After finishing PR triage, go to the [list of untagged issues]
+and add tags as you see fit. The following categories should, ideally, be assigned to each issue:
 
-- At least one A- tag. This represents the area of the issue, so an issue
-  relating to benchmarks or testing would get A-libtest. If you can't find an
-  appropriate tag for the issue, it's possible that creating one is the right
-  thing to do. Try to pick just one tag to give, unless you're giving the
-  A-diagnostics tag, in which case one more tag is a good idea.
-- One, and only one, C- tag. This represents that category of the issue.
-  - C-bug: Bugs. These are things like ICEs or other failures of the compiler to
-    do what it's supposed to in a way that breaks correct user code. It's not
-    always easy to tell if code is correct, and the compiler broken, though, but
-    tend towards assuming it's the compiler's fault: at least, we should give a
-    better diagnostic. Note that as of now, I-slow, and I-compile{time,mem} are
-    not considered bugs, rather, they are enhancements, since they do not break
-    user code.
-  - C-cleanup: Refactoring and cleanup work within the compiler.
-  - C-enhancement: Diagnostic improvements, primarily, or other nice to haves,
-    but not critical issues. Somewhat implies that this is a minor addition.
-  - C-feature-request: An addition of an impl is the primary thing here.
-    Sometimes minor lang features also qualify, though in general it's likely
-    those should be closed in favor of RFCs. It's recommended that triagers
-    should close issues in favor of the author opening a thread on internals or
-    rust-lang/rfcs for language changes that are more significant than adding an
+- At least one `A-` tag. This represents the area of the issue, so an issue relating to benchmarks or
+  testing would get A-libtest. If you can't find an appropriate tag for the issue, it's possible
+  that creating one is the right thing to do. Try to pick just one tag to give, unless you're
+  giving the A-diagnostics tag, in which case one more tag is a good idea.
+- One, and only one, `C-` tag. This represents that category of the issue.
+  - `C-bug`: Bugs. These are things like ICEs or other failures of the compiler to do what it's
+    supposed to in a way that breaks correct user code. It's not always easy to tell if code is
+    correct, and the compiler broken, though, but tend towards assuming it's the compiler's fault:
+    at least, we should give a better diagnostic. Note that as of now, I-slow, and
+    I-compile{time,mem} are not considered bugs, rather, they are enhancements, since they do not
+    break user code.
+  - `C-cleanup`: Refactoring and cleanup work within the compiler.
+  - `C-enhancement`: Diagnostic improvements, primarily, or other nice to haves, but not critical
+    issues. Somewhat implies that this is a minor addition.
+  - `C-feature-request`: An addition of an impl is the primary thing here. Sometimes minor lang
+    features also qualify, though in general it's likely those should be closed in favor of RFCs.
+    It's recommended that triagers should close issues in favor of the author opening a thread on
+    internals or rust-lang/rfcs for language changes that are more significant than adding an
     impl.
-  - C-feature-accepted: Feature-requests that a relevant team would like to see
-    an implementation for before final judgement is rendered. It's likely that
-    such an implementation would be merged, unless breakage (e.g.,
-    inference-related) occurs.
-  - C-future-compatibility: Used for tracking issues for future compatibility
-    lints.
-  - C-tracking-issue: This is used for both feature tracking issues (feature
-    gates) and issues which track some question or concern of a team. These are
-    maintained on GitHub over internals because GH is a more stable location and
-    easier to refer to in the long run.
-- At least one T- tag. Assign the appropriate team to the issue; sometimes this
-  is multiple teams, but usually falls into either dev-tools, compiler, or libs.
-  Sometimes the lang team needs to make a decision.
-- If necessary, add I- tags as you see fit. Particularly, I-ICE is the dominant
-  tag to be added.
-- If applicable, add platform tags (O-). It's fine to add more than one.
+  - `C-feature-accepted`: Feature-requests that a relevant team would like to see an implementation
+    for before final judgement is rendered. It's likely that such an implementation would be
+    merged, unless breakage (e.g., inference-related) occurs.
+  - `C-future-compatibility`: Used for tracking issues for future compatibility lints.
+  - `C-tracking-issue`: This is used for both feature tracking issues (feature gates) and issues
+    which track some question or concern of a team. These are maintained on GitHub over internals
+    because GH is a more stable location and easier to refer to in the long run.
+- At least one `T-` tag. Assign the appropriate team to the issue; sometimes this is multiple teams,
+  but usually falls into either dev-tools, compiler, or libs. Sometimes the lang team needs to make
+  a decision.
+- If necessary, add `I-` tags as you see fit. Particularly, `I-ICE` is the dominant tag to be added.
+- If applicable, add platform tags (`O-`). It's fine to add more than one.
 
 If an issue has been tagged with an `E-` category tag, such as `E-help-wanted`
 and has been taken up by someone, but there has been no activity for 7 days, ask
@@ -271,9 +254,10 @@ if necessary.
 
 1. Visit the [State Of Rust] project page. Each card has three pieces of
    information.
-   - “Feature” — The name of the feature with a link to the tracking issue.
-   - “What’s next?” — What we are waiting on to implement and stabilise the RFC.
-   - “Last Update” — The last time this card has been triaged.
+    - “Feature” — The name of the feature with a link to the tracking issue.
+    - “What’s next?” — What we are waiting on to implement and stabilise
+       the RFC.
+    - “Last Update” — The last time this card has been triaged.
 2. For each card that you choose to triage:
 3. Visit the respective tracking issue, and any related issues that the tracking
    issue is recently mentioned in.
@@ -281,21 +265,21 @@ if necessary.
    state is, update it with the new information.
 5. If the implementation of an RFC has changed since the last update, move it to
    the relevant column.
-   - If there are PRs merged that implement the RFC the card would move to
-     “Implemented”.
-   - If there are only open PRs or the PRs don’t implement the full RFC the card
-     would be moved to “Implementation in progress”.
-   - If there has been a decision to deprecate the RFC, move that to the
-     “Deprecated” column.
-6. If there have been no meaningful changes to the RFC within 21 days, ping
-   someone for an update on the status of the feature.
-   - If there have been PRs implementing the RFC, ping the author(s).
-   - If author has not responded within a week, or there are no relevant PRs,
-     ping the relevant team.
-   - If there is no clear choice for the team that should be doing the
-     implementation, please add this to release team meeting notes (which can be
-     found in the #rust-release IRC channel).
-7. Update the date on the “Last update” and move that to the bottom of the
-   column.
+    - If there are PRs merged that implement the RFC the card would move
+      to “Implemented”.
+    - If there are only open PRs or the PRs don’t implement the full RFC the
+      card would be moved to “Implementation in progress”.
+    - If there has been a decision to deprecate the RFC, move that to the
+      “Deprecated” column.
+6. If there have been no meaningful changes to the RFC within 21 days,
+   ping someone for an update on the status of the feature.
+    - If there have been PRs implementing the RFC, ping the author(s).
+    - If author has not responded within a week, or there are no relevant PRs,
+      ping the relevant team.
+    - If there is no clear choice for the team that should be doing the
+      implementation, please add this to release team meeting notes (which
+      can be found in the #rust-release IRC channel).
+7. Update the date on the “Last update” and move that to the bottom of
+   the column.
 
-[state of rust]: https://github.com/rust-lang/rust/projects/8
+[State Of Rust]: https://github.com/rust-lang/rust/projects/8
