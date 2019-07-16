@@ -169,10 +169,8 @@ Past releases can be found in [the archives].
 
 [installation page]: https://www.rust-lang.org/tools/install
 [`rustup`]: https://github.com/rust-lang/rustup.rs
-[other-rustup]:
-  https://github.com/rust-lang/rustup.rs#other-installation-methods
-[`rustup-init.exe`]:
-  https://static.rust-lang.org/rustup/dist/i686-pc-windows-gnu/rustup-init.exe
+[other-rustup]: https://github.com/rust-lang/rustup.rs#other-installation-methods
+[`rustup-init.exe`]: https://static.rust-lang.org/rustup/dist/i686-pc-windows-gnu/rustup-init.exe
 [`rustup-init.sh`]: https://static.rust-lang.org/rustup/rustup-init.sh
 [homebrew]: http://brew.sh/
 [chocolatey]: http://chocolatey.org/

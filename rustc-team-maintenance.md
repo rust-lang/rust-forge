@@ -50,11 +50,9 @@ Remove the team member from any and all places:
 - email aliases (as above)
 - [team roster page][team-roster]
 
-[homu]:
-  https://github.com/alexcrichton/rust-central-station/blob/master/homu.toml.template
+[homu]: https://github.com/alexcrichton/rust-central-station/blob/master/homu.toml.template
 [team-roster]: https://github.com/rust-lang/rust-www/blob/master/_data/team.yml
 [gh-team]: https://github.com/orgs/rust-lang/teams
 [gh-nursery-team]: https://github.com/orgs/rust-lang-nursery/teams
 [highfive]: https://github.com/nrc/highfive/tree/master/highfive/configs
-[rfcbot-example]:
-  https://github.com/anp/rfcbot-rs/commit/cd54241359cf65742ed5a0fba58ea5114de06f2b#diff-100115fcbdda685c37ba8f73727b0987
+[rfcbot-example]: https://github.com/anp/rfcbot-rs/commit/cd54241359cf65742ed5a0fba58ea5114de06f2b#diff-100115fcbdda685c37ba8f73727b0987
