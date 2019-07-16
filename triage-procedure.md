@@ -27,26 +27,16 @@ title: Triage Procedure
   long time
 - [S-inactive-closed] - Closed due to inactivity.
 
-[s-waiting-on-author]:
-  https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-author
-[s-waiting-on-review]:
-  https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-review
-[s-waiting-on-team]:
-  https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-team+sort%3Aupdated-desc
-[s-waiting-on-bors]:
-  https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-bors+sort%3Aupdated-asc
-[s-waiting-on-crater]:
-  https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-crater+sort%3Aupdated-asc
-[s-waiting-on-bikeshed]:
-  https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-bikeshed+sort%3Aupdated-asc
-[s-waiting-on-perf]:
-  https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-perf+sort%3Aupdated-asc
-[s-blocked]:
-  https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-blocked+sort%3Aupdated-asc
-[s-blocked-closed]:
-  https://github.com/rust-lang/rust/pulls?q=is%3Apr+label%3AS-blocked-closed+sort%3Aupdated-asc
-[s-inactive-closed]:
-  https://github.com/rust-lang/rust/pulls?q=is%3Apr+label%3AS-inactive-closed+sort%3Aupdated-asc
+[s-waiting-on-author]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-author
+[s-waiting-on-review]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-review
+[s-waiting-on-team]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-team+sort%3Aupdated-desc
+[s-waiting-on-bors]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-bors+sort%3Aupdated-asc
+[s-waiting-on-crater]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-crater+sort%3Aupdated-asc
+[s-waiting-on-bikeshed]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-bikeshed+sort%3Aupdated-asc
+[s-waiting-on-perf]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-perf+sort%3Aupdated-asc
+[s-blocked]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-blocked+sort%3Aupdated-asc
+[s-blocked-closed]: https://github.com/rust-lang/rust/pulls?q=is%3Apr+label%3AS-blocked-closed+sort%3Aupdated-asc
+[s-inactive-closed]: https://github.com/rust-lang/rust/pulls?q=is%3Apr+label%3AS-inactive-closed+sort%3Aupdated-asc
 
 ## Procedure:
 
@@ -65,8 +55,7 @@ with something like "Ping from triage ..."."
 All PRs that have no assignee (except rollups) should be assigned to a random
 member of the responsible team.
 
-[unassigned prs]:
-  https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+no%3Aassignee
+[unassigned prs]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+no%3Aassignee
 
 ### [Unlabeled PRs]
 
@@ -82,8 +71,7 @@ submitter as a regular contributor, leave a comment saying something like
 
 At this point, all PRs must have a tag applied.
 
-[unlabeled prs]:
-  https://github.com/rust-lang/rust/pulls?utf8=%E2%9C%93&q=is%3Aopen%20is%3Apr%20sort%3Aupdated-asc%20-label%3AS-waiting-on-author%20-label%3AS-waiting-on-team%20-label%3AS-waiting-on-bors%20-label%3AS-waiting-on-crater%20-label%3AS-waiting-on-team%20-label%3AS-waiting-on-review%20-label%3AS-blocked%20-label%3AS-waiting-on-bikeshed%20-label%3AS-waiting-on-fcp%20-label%3AS-waiting-on-perf
+[unlabeled prs]: https://github.com/rust-lang/rust/pulls?utf8=%E2%9C%93&q=is%3Aopen%20is%3Apr%20sort%3Aupdated-asc%20-label%3AS-waiting-on-author%20-label%3AS-waiting-on-team%20-label%3AS-waiting-on-bors%20-label%3AS-waiting-on-crater%20-label%3AS-waiting-on-team%20-label%3AS-waiting-on-review%20-label%3AS-blocked%20-label%3AS-waiting-on-bikeshed%20-label%3AS-waiting-on-fcp%20-label%3AS-waiting-on-perf
 
 ### [S-waiting-on-author PRs][s-waiting-on-author]
 
@@ -307,8 +295,7 @@ if they require assistance, and inform them that after 14 days this issue will
 be made available to anyone. After 14 days re-add the help tag and deassign them
 if necessary.
 
-[list of untagged issues]:
-  https://github.com/rust-lang/rust/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20sort%3Acreated-asc%20-label%3AC-feature-request%20-label%3AC-enhancement%20-label%3AC-cleanup%20-label%3AC-bug%20-label%3AC-tracking-issue%20-label%3AC-future-compatibility%20-label%3AC-question%20-label%3AC-feature-accepted
+[list of untagged issues]: https://github.com/rust-lang/rust/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20sort%3Acreated-asc%20-label%3AC-feature-request%20-label%3AC-enhancement%20-label%3AC-cleanup%20-label%3AC-bug%20-label%3AC-tracking-issue%20-label%3AC-future-compatibility%20-label%3AC-question%20-label%3AC-feature-accepted
 
 # State Of Rust Triage
 

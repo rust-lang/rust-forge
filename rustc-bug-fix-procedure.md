@@ -239,8 +239,7 @@ automatically generates the lower-case string; so searching for
 The first reference you will likely find is the lint definition [in
 `librustc/lint/builtin.rs` that resembles this][defsource]:
 
-[defsource]:
-  https://github.com/rust-lang/rust/blob/085d71c3efe453863739c1fb68fd9bd1beff214f/src/librustc/lint/builtin.rs#L171-L175
+[defsource]: https://github.com/rust-lang/rust/blob/085d71c3efe453863739c1fb68fd9bd1beff214f/src/librustc/lint/builtin.rs#L171-L175
 
 ```rust
 declare_lint! {
@@ -254,8 +253,7 @@ This `declare_lint!` macro creates the relevant data structures. Remove it. You
 will also find that there is a mention of `OVERLAPPING_INHERENT_IMPLS` later in
 the file as [part of a `lint_array!`][lintarraysource]; remove it too,
 
-[lintarraysource]:
-  https://github.com/rust-lang/rust/blob/085d71c3efe453863739c1fb68fd9bd1beff214f/src/librustc/lint/builtin.rs#L252-L290
+[lintarraysource]: https://github.com/rust-lang/rust/blob/085d71c3efe453863739c1fb68fd9bd1beff214f/src/librustc/lint/builtin.rs#L252-L290
 
 Next, you see see [a reference to `OVERLAPPING_INHERENT_IMPLS` in
 `librustc_lint/lib.rs`][futuresource]. This defining the lint as a "future
@@ -326,14 +324,10 @@ can just be removed.
 
 Open a PR. =)
 
-[addlintsource]:
-  https://github.com/rust-lang/rust/blob/085d71c3efe453863739c1fb68fd9bd1beff214f/src/librustc_typeck/coherence/inherent.rs#L300-L303
-[futuresource]:
-  https://github.com/rust-lang/rust/blob/085d71c3efe453863739c1fb68fd9bd1beff214f/src/librustc_lint/lib.rs#L202-L205
+[addlintsource]: https://github.com/rust-lang/rust/blob/085d71c3efe453863739c1fb68fd9bd1beff214f/src/librustc_typeck/coherence/inherent.rs#L300-L303
+[futuresource]: https://github.com/rust-lang/rust/blob/085d71c3efe453863739c1fb68fd9bd1beff214f/src/librustc_lint/lib.rs#L202-L205
 
 <!-- -Links--------------------------------------------------------------------- -->
 
-[rfc 1122]:
-  https://github.com/rust-lang/rfcs/blob/master/text/1122-language-semver.md
-[breaking-change-issue]:
-  https://gist.github.com/nikomatsakis/631ec8b4af9a18b5d062d9d9b7d3d967
+[rfc 1122]: https://github.com/rust-lang/rfcs/blob/master/text/1122-language-semver.md
+[breaking-change-issue]: https://gist.github.com/nikomatsakis/631ec8b4af9a18b5d062d9d9b7d3d967
