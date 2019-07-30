@@ -25,28 +25,18 @@ title: Triage Procedure
   long time
 - [S-inactive-closed] - Closed due to inactivity.
 
-[s-waiting-on-author]:
-  https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-author
-[s-waiting-on-review]:
-  https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-review
-[s-waiting-on-team]:
-  https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-team+sort%3Aupdated-desc
-[s-waiting-on-bors]:
-  https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-bors+sort%3Aupdated-asc
-[s-waiting-on-crater]:
-  https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-crater+sort%3Aupdated-asc
-[s-waiting-on-bikeshed]:
-  https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-bikeshed+sort%3Aupdated-asc
-[s-waiting-on-perf]:
-  https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-perf+sort%3Aupdated-asc
-[s-blocked]:
-  https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-blocked+sort%3Aupdated-asc
-[s-blocked-closed]:
-  https://github.com/rust-lang/rust/pulls?q=is%3Apr+label%3AS-blocked-closed+sort%3Aupdated-asc
-[s-inactive-closed]:
-  https://github.com/rust-lang/rust/pulls?q=is%3Apr+label%3AS-inactive-closed+sort%3Aupdated-asc
+[s-waiting-on-author]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-author
+[s-waiting-on-review]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-review
+[s-waiting-on-team]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-team+sort%3Aupdated-desc
+[s-waiting-on-bors]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-bors+sort%3Aupdated-asc
+[s-waiting-on-crater]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-crater+sort%3Aupdated-asc
+[s-waiting-on-bikeshed]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-bikeshed+sort%3Aupdated-asc
+[s-waiting-on-perf]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-perf+sort%3Aupdated-asc
+[s-blocked]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-blocked+sort%3Aupdated-asc
+[s-blocked-closed]: https://github.com/rust-lang/rust/pulls?q=is%3Apr+label%3AS-blocked-closed+sort%3Aupdated-asc
+[s-inactive-closed]: https://github.com/rust-lang/rust/pulls?q=is%3Apr+label%3AS-inactive-closed+sort%3Aupdated-asc
 [crater]: https://github.com/rust-lang-nursery/crater
-[bors]: https://github.com/graydon/bors
+[bors]: https://github.com/rust-lang/homu
 
 ## Procedure
 
@@ -126,7 +116,7 @@ to `S-waiting-on-author`.
 
 Otherwise, the reviewer should be pinged. It is a good idea to start the message
 with "Ping from Triage..." so that the concerned parties know it is coming from
-the triage team, and the message should be asing the reviewer to either review
+the triage team, and the message should be asking the reviewer to either review
 or update a review of the PR. If the reviewer has already been pinged, meaning
 more than 2 weeks have passed with no activity, another reviewer on their team
 should be pinged. Note that if the reviewer has expressed that they are busy, do
@@ -136,7 +126,7 @@ with a team (`T-`), find the team assigned to the PR's issue which should have a
 
 The `r?` command is needed to override a reviewer, however not all triagers will
 have sufficient permissions. In this case sending a message to the `#triage-wg`
-Discord or pinging @dpc will be necessary.
+Discord or pinging @Dylan-DPC will be necessary.
 
 If the PR is blocked on another PR, add a comment clearly identifying the
 blocking PR (something like "This PR appears to be blocked on #12345") and
