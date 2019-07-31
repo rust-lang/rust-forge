@@ -529,6 +529,10 @@ ul.laundry-list {
   display: block;
 }
 
+.hidden {
+    display: none;
+}
+
 .releases {
     margin: 3em 0;
     display: flex;
@@ -550,4 +554,35 @@ ul.laundry-list {
 
 .releases .release .release-date {
     font-size: 1.5em;
+}
+
+.tools-no-breakages-header {
+    text-align: center;
+    margin-bottom: 1.5em;
+}
+
+.tools-no-breakages-header h2 {
+    border-top: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.tools-no-breakages {
+    display: flex;
+    margin-bottom: 3em;
+}
+
+.tools-no-breakages .tool-no-breakage {
+    flex: 1;
+    text-align: center;
+}
+
+.tools-no-breakages .tool-no-breakage-cycle {
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.tools-no-breakages .tool-no-breakage-dates {
+    margin-top: 0.2em;
+    font-size: 1.2em;
 }

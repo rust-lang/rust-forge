@@ -10,9 +10,17 @@ This site contains supplementary documentation useful to the members of
 [rust-lang/rust-forge]: https://github.com/rust-lang/rust-forge
 
 <hr>
-<div class="releases">
-    <noscript>Please enable JavaScript to see release dates.</noscript>
+<noscript>Please enable JavaScript to see release dates.</noscript>
+<div class="releases"></div>
+<div class="tools-no-breakages-header hidden">
+    <hr>
+    <h2>No tool breakages week</h2>
+    <p>
+        To ensure the beta release includes all the tools, no tool breakages
+        are allowed in the week before the beta cutoff.
+    </p>
 </div>
+<div class="tools-no-breakages"></div>
 <hr>
 
 ### Interested in hacking the compiler?
