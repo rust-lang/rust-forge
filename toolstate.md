@@ -61,7 +61,8 @@ To add a new tool to be tracked, the following steps must be taken:
 
 1. Create a PR to rust-lang/rust that adds the submodule along with any
    necessary build system / bootstrap updates. Be careful that the tests
-   properly support `--no-fail-fast`.
+   properly support `./x.py --no-fail-fast` to avoid
+   [issues like this](https://github.com/rust-lang/rust/pull/63089).
 2. Include changes to [`checktools.sh`]:
     - Build the tool at the top. This is the step that actually generates the
       JSON status for the tool. When `save-toolstates` is set in
