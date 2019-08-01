@@ -41,7 +41,7 @@ rules are for when which tools are (not) allowed to break.
 
 ## Updating the toolstate repository
 
-Updating the [toolstate repository][toolstate] happens in two steps: when CI
+Updating the [toolstate repository] happens in two steps: when CI
 runs on the `auto` branch (where bors moves a PR to test if it is good for
 integration), the "tool" runners for the individual platforms (at the time of
 writing, Linux and Windows) each submit a JSON file to the repository recording
@@ -52,12 +52,35 @@ actually entirely passed CI and bors moves it to the `master` branch, the
 These scripts also automatically ping some people and create issues when tools
 break.
 
-For further details, see the comments in the involved files:
-[`checktools.sh`](https://github.com/rust-lang/rust/blob/master/src/ci/docker/x86_64-gnu-tools/checktools.sh),
-[`publish_toolstate.py`](https://github.com/rust-lang/rust/blob/master/src/tools/publish_toolstate.py),
-as well as the other files mentioned there.
+For further details, see the comments in the involved files: [`checktools.sh`],
+[`publish_toolstate.py`] as well as the other files mentioned there.
 
+## Adding a tool
+
+To add a new tool to be tracked, the following steps must be taken:
+
+1. Create a PR to rust-lang/rust that adds the submodule along with any
+   necessary build system / bootstrap updates. Be careful that the tests
+   properly support `--no-fail-fast`.
+2. Include changes to [`checktools.sh`]:
+    - Build the tool at the top. This is the step that actually generates the
+      JSON status for the tool. When `save-toolstates` is set in
+      `config.toml`, the rust build system will write a JSON file with the
+      status of each test.
+    - Add the tool to `status_check` with whether it should be a beta blocker
+      or not.
+3. Update [`publish_toolstate.py`] to add the tool. This includes a list of
+   people to ping if the tool is broken, and its source repo. (Note: At the
+   time of this writing, these users must have permissions to be assignable on
+   rust-lang/rust GitHub.)
+4. Submit a PR to the [toolstate repository] to manually add the tool to the
+   [`latest.json`] file.
+
+[`checktools.sh`]: https://github.com/rust-lang/rust/blob/master/src/ci/docker/x86_64-gnu-tools/checktools.sh
+[`publish_toolstate.py`]: https://github.com/rust-lang/rust/blob/master/src/tools/publish_toolstate.py
+[`latest.json`]: https://github.com/rust-lang-nursery/rust-toolstate/blob/master/_data/latest.json
 [Book]: https://doc.rust-lang.org/book/
 [Reference]: https://doc.rust-lang.org/reference/
 [toolstate]: https://rust-lang-nursery.github.io/rust-toolstate/
+[toolstate repository]: https://github.com/rust-lang-nursery/rust-toolstate/
 [forge]: index.html
