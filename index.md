@@ -16,8 +16,10 @@ This site contains supplementary documentation useful to the members of
     <hr>
     <h2>No tool breakages week</h2>
     <p>
-        To ensure the beta release includes all the tools, no tool breakages
-        are allowed in the week before the beta cutoff.
+        To ensure the beta release includes all the tools, no
+        <a href="toolstate.html">tool breakages</a>
+        are allowed in the week before the beta cutoff
+        (except for nightly-only tools).
     </p>
 </div>
 <div class="tools-no-breakages"></div>
@@ -38,7 +40,8 @@ This site contains supplementary documentation useful to the members of
 
 - [The current PR testing queue](https://buildbot2.rust-lang.org/homu/queue/rust)
 - [The PR queue over time](https://rust-lang-nursery.github.io/rustc-pr-tracking/)
-- [Toolstate (rls, rustfmt, clippy)](https://rust-lang-nursery.github.io/rust-toolstate/)
+- [Current toolstate (rls, rustfmt, clippy)](https://rust-lang-nursery.github.io/rust-toolstate/)
+  and [how the toolstate system works](toolstate.html).
 - [Components availability history](https://rust-lang.github.io/rustup-components-history/index.html)
 - [Release history](releases.html). Links to previous release artifacts.
 - [Platform support](platform-support.html).
