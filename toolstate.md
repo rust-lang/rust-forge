@@ -12,8 +12,8 @@ the time, but they are not actually essential to get the compiler itself to
 work. To make API changes less painful, these tools are allowed to "break"
 temporarily. PRs can still land and nightlies still get released even when some
 tools are broken. Their current status is managed by the
-[toolstate system][toolstate]. (Cargo is needed to build rustc, so it is not
-subject to the toolstate system and instead just has to always work.)
+[toolstate system][toolstate]. (Cargo is not subject to the toolstate system and
+instead just has to always work.)
 
 The three possible states of a "tool" (this includes the documentation managed
 by the toolstate system, where we run doctests) are: `test-pass`, `test-fail`,
