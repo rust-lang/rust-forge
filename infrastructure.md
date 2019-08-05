@@ -6,8 +6,8 @@ title: Rust Infrastructure &middot; The Rust Programming Language
 # Rust Infrastructure
 
 Most services in the Rust Infrastructure are deployed via
-[rust-central-station][]. Questions about infrastructure, including current
-status, should go to the #rust-infra IRC channel.
+[rust-central-station]. Questions about infrastructure, including current
+status, should go to the [#infra Discord channel](https://discord.gg/rust-lang).
 
 **Our stability guarantees**: many of our services rely on publicly-accessible
 storage and APIs, but not all of these are intended for public consumption. At
@@ -15,6 +15,8 @@ the moment, **only the resources behind `static.rust-lang.org` are considered
 stable**, meaning that those resources will not change without (at least) prior
 notice. If you are relying on other parts of the Rust project infrastructure for
 your own work, please let the infrastructure team know.
+
+[rust-central-station]: https://github.com/rust-lang/rust-central-station
 
 ## Highfive
 
@@ -24,7 +26,7 @@ and assigns reviewers.
 
 ## Homu
 
-[Homu](http://github.com/barosl/homu/) is a bot
+[Homu](https://github.com/rust-lang/homu/) is a bot
 ([bot user account](https://github.com/bors)) which manages pull requests.
 Approved pull requests are placed in
 [a queue](http://buildbot2.rust-lang.org/homu/queue/rust) from which tests are
@@ -38,19 +40,13 @@ goes wrong with the bot.
 
 ## rfcbot
 
-[rfcbot](https://github.com/dikaiosune/rust-dashboard) is a bot
+[rfcbot](https://github.com/rust-lang/rfcbot-rs) is a bot
 ([bot user account](https://github.com/rfcbot)) which helps manage async
 decision making on issues and PRs (typically RFCs). Team members can view any
-pending requests for review on [the FCP dashboard](http://rusty-dash.com/fcp).
+pending requests for review on [the FCP dashboard](https://rfcbot.rs/).
 
 Documentation on rfcbot commands can be found
-[in the dashboard repository](https://github.com/dikaiosune/rust-dashboard/blob/master/RFCBOT.md).
-
-An overview of the current RFCs can be found [here](https://rfcbot.rs).
-
-Please contact [Adam Perry](https://github.com/dikaiosune) ("dikaiosune" on IRC)
-if something goes wrong with the bot, or open an issue on
-[the dashboard repository](https://github.com/dikaiosune/rust-dashboard/).
+[in the rfcbot repository](https://github.com/rust-lang/rfcbot-rs).
 
 ## nagbot
 
@@ -87,10 +83,8 @@ accessed [here](https://play.rust-lang.org).
 
 ## Crater
 
-[Crater](https://github.com/rust-lang-nursery/crater) is a tool to run
+[Crater](https://github.com/rust-lang/crater) is a tool to run
 experiments across the whole Rust ecosystem. Its primary purpose is to detect
 regressions in the Rust compiler, and it does this by building large number of
 crates, running their test suites and comparing the results between two
 versions of the Rust compiler.
-
-[rust-central-station]: https://github.com/alexcrichton/rust-central-station

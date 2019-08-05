@@ -47,7 +47,7 @@ This site contains supplementary documentation useful to the members of
 - [How the channels look on `static.rust-lang.org`](channel-layout.html).
 - [Beta backporting](beta-backporting.html). The mystery of the
   oft-misinterpreted `beta-nominated` / `beta-accepted` tags finally revealed.
-- [Bots, websites and infrastructure](infrastructure.html). A catalog of the IRC
+- [Bots, websites and infrastructure](infrastructure.html). A catalog of the
   bots, websites and other infrastructure used by the project, what they do, and
   who maintains them (i.e. who to contact when they malfunction and go on a bot
   rampage).
