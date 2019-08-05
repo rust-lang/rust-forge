@@ -48,6 +48,13 @@ pending requests for review on [the FCP dashboard](https://rfcbot.rs/).
 Documentation on rfcbot commands can be found
 [in the rfcbot repository](https://github.com/rust-lang/rfcbot-rs).
 
+## rustbot
+
+[rustbot](https://github.com/rust-lang/triagebot) is a bot ([bot user
+account](https://github.com/rustbot)) to assist with managing issues and PRs
+to allow users to label and assign without GitHub permissions. See [the
+wiki](https://github.com/rust-lang/triagebot/wiki) for more information.
+
 ## DXR
 
 [DXR](https://dxr.mozilla.org/rust/source/) is a cross-referenced source index
