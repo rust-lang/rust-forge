@@ -80,3 +80,12 @@ experiments across the whole Rust ecosystem. Its primary purpose is to detect
 regressions in the Rust compiler, and it does this by building large number of
 crates, running their test suites and comparing the results between two
 versions of the Rust compiler.
+
+## docs.rs
+
+[docs.rs](https://docs.rs/) builds and serves the rustdoc documentation for
+all crates on [crates.io]. Issues may be filed on the [docs.rs
+repository](https://github.com/rust-lang/docs.rs). See the #docs-rs channel on
+Discord for discussion or urgent issues.
+
+[crates.io]: https://crates.io/
