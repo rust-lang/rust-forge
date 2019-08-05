@@ -24,6 +24,12 @@ your own work, please let the infrastructure team know.
 ([bot user account](https://github.com/rust-highfive)) which welcomes newcomers
 and assigns reviewers.
 
+## Rust Log Analyzer
+
+The [Rust Log Analyzer](https://github.com/rust-lang/rust-log-analyzer)
+analyzes CI build logs to extract error messages and posts them to the pull
+request. It is run by [TimNN](https://github.com/TimNN).
+
 ## Homu
 
 [Homu](https://github.com/rust-lang/homu/) is a bot
