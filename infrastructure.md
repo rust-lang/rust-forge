@@ -116,4 +116,11 @@ status of every rustup component for every platform over time. See [the
 repository](https://github.com/rust-lang/rustup-components-history) for more
 information.
 
+## CI Timing Tracker
+
+The [CI Timing
+Tracker](https://alexcrichton.github.io/rust-ci-timing-tracker/) tracks and
+compares how long CI jobs take over time. It is run by [Alex
+Crichton](https://github.com/alexcrichton/rust-ci-timing-tracker).
+
 [crates.io]: https://crates.io/
