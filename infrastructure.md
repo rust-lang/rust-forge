@@ -108,4 +108,12 @@ page](https://rust-lang-nursery.github.io/rust-toolstate/). When each PR is
 merged via CI, the status of each tool is recorded in a JSON file and stored
 in the [toolstate repo](https://github.com/rust-lang-nursery/rust-toolstate).
 
+## Rustup components history
+
+The [rustup components
+history](https://rust-lang.github.io/rustup-components-history/) tracks the
+status of every rustup component for every platform over time. See [the
+repository](https://github.com/rust-lang/rustup-components-history) for more
+information.
+
 [crates.io]: https://crates.io/
