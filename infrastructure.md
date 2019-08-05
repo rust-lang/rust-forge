@@ -48,14 +48,6 @@ pending requests for review on [the FCP dashboard](https://rfcbot.rs/).
 Documentation on rfcbot commands can be found
 [in the rfcbot repository](https://github.com/rust-lang/rfcbot-rs).
 
-## nagbot
-
-[nagbot](https://github.com/aturon/nag-rs) is a bot that emails Rust team
-members to nag them for reviews. Please contact
-[Aaron Turon](https://github.com/aturon) ("aturon" on IRC) if something goes
-wrong with the bot, or open an issue on
-[its repo](https://github.com/aturon/nag-rs).
-
 ## DXR
 
 [DXR](https://dxr.mozilla.org/rust/source/) is a cross-referenced source index
