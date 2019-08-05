@@ -101,4 +101,11 @@ all crates on [crates.io]. Issues may be filed on the [docs.rs
 repository](https://github.com/rust-lang/docs.rs). See the #docs-rs channel on
 Discord for discussion or urgent issues.
 
+## Toolstate
+
+The state of tools included with Rust are tracked on the [toolstate
+page](https://rust-lang-nursery.github.io/rust-toolstate/). When each PR is
+merged via CI, the status of each tool is recorded in a JSON file and stored
+in the [toolstate repo](https://github.com/rust-lang-nursery/rust-toolstate).
+
 [crates.io]: https://crates.io/
