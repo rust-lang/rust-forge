@@ -15,7 +15,7 @@ const addRelease = (kind, incr, tools_week) => {
 
     if (tools_week === true) {
         const noBreakagesTo = releaseDate.clone().day(2);
-        const noBreakagesFrom = noBreakagesTo.clone().subtract(1, 'week');
+        const noBreakagesFrom = noBreakagesTo.clone().subtract(6, 'day');
         const toDate = noBreakagesTo.format(dateFormat);
         const fromDate = noBreakagesFrom.format(dateFormat);
 
