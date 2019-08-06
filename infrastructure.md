@@ -76,6 +76,12 @@ It is split into a data [collector] and a [web frontend]. The raw performance
 data is available [here](https://github.com/rust-lang-nursery/rustc-timing)
 and can be browsed on the [perf website](https://perf.rust-lang.org).
 
+One-off performance runs can done by addressing the [rust-timer
+bot](https://github.com/rust-timer). On a PR, do a "try" build (`@bors try`),
+wait for it finish, then leave a comment with the merge commit hash like this:
+
+    @rust-timer build ac89e0324b48993d6d148f598ea0e7357e229c79
+
 [collector]: https://github.com/rust-lang-nursery/rustc-perf/tree/master/collector
 [web frontend]: https://github.com/rust-lang-nursery/rustc-perf/tree/master/site
 
