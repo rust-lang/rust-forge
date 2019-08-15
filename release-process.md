@@ -150,7 +150,9 @@ Decide on a time to do the release, T.
   - [Users forum](https://users.rust-lang.org/)
 
 - **T+5m** - Tag Cargo the same way as rust-lang/rust and then run
-  `cargo publish` for the tag you just created.
+  `cargo publish` for the tag you just created. You'll first need to comment
+  out `cargo-test-macro` from Cargo.toml, then publish `crates-io` (in
+  `crates/crates-io`) and finally publish `cargo` itself.
 
   Also tag RLS the same way and then run `cargo publish` for the tag you just
   created.
