@@ -2,7 +2,7 @@ language: rust
 dist: xenial
 
 env:
-  RUSTINFRA_DEPLOY_DIR: _site
+  RUSTINFRA_DEPLOY_DIR: book
   RUSTINFRA_CLOUDFRONT_DISTRIBUTION: E12A3GKHZSREHP
 import:
   - rust-lang/simpleinfra/travis-configs/static-websites.yml
@@ -12,14 +12,13 @@ cache:
     # cache: cargo
     - $HOME/.cargo
     - $TRAVIS_BUILD_DIR/target
-    # cache: bundler
-    - $TRAVIS_BUILD_DIR/vendor/bundle
 
-install:
-  - bundle install --path vendor/bundle
-
+before_script:
+  # TODO: Installing mdbook from crates.io takes quite a long time. This could
+  # be reduced by downloading the release from GitHub directly.
+  - cargo install mdbook --vers '^0.3.0' --force
 script:
-  - cargo run && bundle exec jekyll build
+  - mdbook build
 branches:
   only:
   - master
