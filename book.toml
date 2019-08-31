@@ -6,6 +6,9 @@ multilingual = false
 src = "src"
 title = "Rust Forge"
 
+[preprocessor.blacksmith]
+command = "./build.bash"
+
 [output.html]
 additional-js = ["js/moment.min.js", "js/index.js"]
 no-section-label=true

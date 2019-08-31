@@ -1,137 +1,79 @@
-mod channel {
-    use serde::Deserialize;
+use std::{env, io, process};
 
-    #[derive(Deserialize)]
-    pub struct Target {
-        pub available: bool,
+use clap::{clap_app, ArgMatches};
+use mdbook::{errors::Error, preprocess::{CmdPreprocessor, Preprocessor}};
+
+use mdbook_blacksmith::Blacksmith;
+
+fn main() {
+    // If RUST_LOG is present use that, else default to info level printing.
+    if env::var("RUST_LOG").is_ok() {
+        env_logger::init();
+    } else {
+        env_logger::builder()
+            .filter_level(log::LevelFilter::Info)
+            .init();
     }
 
-    #[derive(Deserialize)]
-    pub struct Rust {
-        pub version: String,
-        pub target: indexmap::IndexMap<String, Target>,
-    }
+    let matches = clap::clap_app!(blacksmith =>
+        (about: clap::crate_description!())
+        (@subcommand supports =>
+            (about: "Check whether a renderer is supported by this preprocessor")
+            (@arg renderer: +takes_value +required)
+        )
+    ).get_matches();
 
-    #[derive(Deserialize)]
-    pub struct Packages {
-        pub rust: Rust,
-    }
-
-    #[derive(Deserialize)]
-    pub struct Channel {
-        pub pkg: Packages,
-    }
-}
-
-mod tiers {
-    use serde::{Serialize, Deserialize};
-    use indexmap::IndexMap;
-
-    #[derive(Serialize, Deserialize)]
-    pub struct Platform {
-        pub tuple: String,
-        pub std: String,
-        pub rustc: Option<String>,
-        pub cargo: Option<String>,
-        pub notes: String,
-    }
-
-    #[derive(Serialize, Deserialize)]
-    pub struct Tier {
-        pub description: String,
-        pub platforms: Vec<Platform>,
-        pub footnotes: String,
-    }
-
-    /// `tiers.yaml` content.
-    #[derive(Serialize, Deserialize)]
-    #[serde(transparent)]
-    pub struct Tiers {
-        /// Maps Tier Name -> Data
-        pub tiers: IndexMap<String, Tier>,
-    }
-}
-
-mod config {
-    use super::tiers::Tiers;
-    use serde::Serialize;
-
-    #[derive(Serialize)]
-    pub struct Channel {
-        pub vers: String,
-        pub platforms: Vec<String>,
-    }
-
-    /// The Jekyll `_config.yaml` data.
-    #[derive(Serialize)]
-    pub struct Config {
-        pub exclude: &'static [&'static str],
-        pub rustup: Vec<String>,
-        pub channels: indexmap::IndexMap<&'static str, Channel>,
-        pub tiers: Tiers,
-    }
-}
-
-use indexmap::IndexMap;
-use regex::Regex;
-use std::error::Error;
-use std::fs::File;
-use std::io::{BufRead, BufReader};
-
-const RUSTUP_URLS: &str =
-    "https://raw.githubusercontent.com/rust-lang/rustup.rs/stable/ci/cloudfront-invalidation.txt";
-
-const CHANNELS: &[&str] = &["stable", "beta", "nightly"];
-const CHANNEL_URL_PREFIX: &str = "https://static.rust-lang.org/dist/channel-rust-";
-
-fn main() -> Result<(), Box<dyn Error>> {
-    let tiers: tiers::Tiers = serde_yaml::from_reader(File::open("tiers.yaml")?)?;
-
-    let mut cfg = config::Config {
-        exclude: &["target", "vendor"],
-        rustup: Vec::new(),
-        channels: IndexMap::with_capacity(CHANNELS.len()),
-        tiers,
-    };
-
-    let rustup_url_regex = Regex::new(r"^rustup/dist/([^/]+)/rustup-init(?:\.exe)?$").unwrap();
-    for line in BufReader::new(reqwest::get(RUSTUP_URLS)?).lines() {
-        if let Some(m) = rustup_url_regex.captures(&(line?)) {
-            cfg.rustup.push(m.get(1).unwrap().as_str().to_string());
+    macro_rules! log_unwrap {
+        ($result:expr) => {
+            match $result {
+                Ok(value) => value,
+                Err(error) => {
+                    log::error!("{}", error);
+                    process::exit(1);
+                }
+            }
         }
     }
-    eprintln!("Found {} targets for rustup", cfg.rustup.len());
 
-    for channel_name in CHANNELS {
-        let channel_url = format!("{}{}.toml", CHANNEL_URL_PREFIX, channel_name);
-        let content = reqwest::get(&channel_url)?.text()?;
-        let rust = toml::from_str::<channel::Channel>(&content)?.pkg.rust;
-        eprintln!(
-            "Found {} targets for {} channel (v{})",
-            rust.target.len(),
-            channel_name,
-            rust.version
+    let blacksmith = Blacksmith::new();
+
+    if let Some(sub_args) = matches.subcommand_matches("supports") {
+        handle_supports(&blacksmith, sub_args);
+    } else  {
+        log_unwrap!(handle_preprocessing(&log_unwrap!(blacksmith.init())))
+    }
+}
+
+fn handle_preprocessing(pre: &Blacksmith) -> Result<(), Error> {
+    let (ctx, book) = CmdPreprocessor::parse_input(io::stdin())?;
+
+    if ctx.mdbook_version != mdbook::MDBOOK_VERSION {
+        // We should probably use the `semver` crate to check compatibility
+        // here...
+        log::warn!(
+            "Warning: The {} plugin was built against version {} of mdbook, \
+             but we're being called from version {}",
+            pre.name(),
+            mdbook::MDBOOK_VERSION,
+            ctx.mdbook_version
         );
-
-        let vers = rust.version.split(' ').next().unwrap().to_string();
-        let platforms = rust
-            .target
-            .into_iter()
-            .filter_map(|(target, content)| {
-                if content.available {
-                    Some(target)
-                } else {
-                    None
-                }
-            })
-            .collect();
-
-        cfg.channels
-            .insert(channel_name, config::Channel { vers, platforms });
     }
 
-    let config_file = File::create("_config.yml")?;
-    serde_yaml::to_writer(config_file, &cfg)?;
+    let processed_book = pre.run(&ctx, book)?;
+    serde_json::to_writer(io::stdout(), &processed_book)?;
 
     Ok(())
 }
+
+fn handle_supports(pre: &Blacksmith, sub_args: &ArgMatches) -> ! {
+    let renderer = sub_args.value_of("renderer").expect("Required argument");
+    let supported = pre.supports_renderer(&renderer);
+
+    // Signal whether the renderer is supported by exiting with 1 or 0.
+    if supported {
+        process::exit(0);
+    } else {
+        process::exit(1);
+    }
+}
+
