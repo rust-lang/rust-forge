@@ -132,6 +132,13 @@ If the PR is blocked on another PR, add a comment clearly identifying the
 blocking PR (something like "This PR appears to be blocked on #12345") and
 change the state to `S-blocked`.
 
+If the pr is tagged with `final-comment-period` it does not need to be triaged 
+unless the process has stalled for a reasonable period of time. At this point, 
+ping the appropriate people to check their boxes to sign off on the PR. 
+If *that* stalls nominate the PR. 
+
+PRs tagged with `finshed-final-comment-period` are eligable for triage.
+
 ### [S-waiting-on-team PRs][s-waiting-on-team]
 
 PRs active within the last 4 days or inactive for greater than 2 weeks need to
