@@ -132,6 +132,19 @@ If the PR is blocked on another PR, add a comment clearly identifying the
 blocking PR (something like "This PR appears to be blocked on #12345") and
 change the state to `S-blocked`.
 
+If the pr is tagged with `final-comment-period` it does not need to be triaged unless the process has stalled for a reasonable period of time. These PRs have a form from RFCbot that looks like:
+
+> Team member **@Donald** has proposed to merge this. The next step is review by the rest of the tagged team members:
+> * [ ] @Huey
+> * [x] @Dewey
+> * [ ] @Louie
+
+At this point, ping the appropriate people to check their boxes to sign off on the PR.
+
+If *this* stalls nominate the PR for prioritizing at the next team triage meeting by marking it with `I-nominated`.
+
+PRs tagged with `finshed-final-comment-period` are eligible for triage.
+
 ### [S-waiting-on-team PRs][s-waiting-on-team]
 
 PRs active within the last 4 days or inactive for greater than 2 weeks need to
