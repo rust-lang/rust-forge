@@ -20,7 +20,7 @@ const addRelease = (kind, incr, tools_week) => {
         const fromDate = noBreakagesFrom.format(dateFormat);
 
         document.querySelector(`#${kind}-cycle`).textContent = displayVersion;
-        document.querySelector(`#${kind}-timespan`).textContent = `${toDate} → ${fromDate}`;
+        document.querySelector(`#${kind}-timespan`).textContent = `${fromDate} → ${toDate}`;
     }
 };
 
