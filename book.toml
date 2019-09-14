@@ -1,0 +1,15 @@
+[book]
+authors = ["The Rust Programming Language Team & Community"]
+description = "Supplemental documentation for contributing to The Rust Programming Language"
+language = "en"
+multilingual = false
+src = "src"
+title = "Rust Forge"
+
+[preprocessor.blacksmith]
+command = "./build.bash"
+
+[output.html]
+additional-js = ["js/moment.min.js", "js/index.js"]
+no-section-label=true
+git-repository-url="https://github.com/rust-lang/rust-forge"
