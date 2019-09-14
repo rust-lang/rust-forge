@@ -29,8 +29,6 @@ const addRelease = (kind, incr, tools_week) => {
     }
 };
 
-document.querySelector(".tools-no-breakages-header").classList.remove("hidden");
-
 addRelease("stable", 0, false);
 addRelease("beta", 1, true);
 addRelease("nightly", 2, true);
