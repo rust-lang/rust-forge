@@ -142,6 +142,7 @@ someone who is a skilled friendofthetree.
 [cbor]: https://github.com/BurntSushi/rust-cbor
 [xsv]: https://github.com/BurntSushi/xsv
 [rust-csv]: https://github.com/BurntSushi/rust-csv
+[byteorder]: https://github.com/BurntSushi/byteorder
 
 ## 2015-03-03 Manish Goregaokar (Manishearth)
 
