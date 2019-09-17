@@ -158,7 +158,7 @@ target | std | rustc | cargo | notes
 `hexagon-unknown-linux-musl` | ? |  |  |
 `i686-pc-windows-msvc` | ✓ |  |  | 32-bit Windows XP support
 `i686-unknown-dragonfly` | ? |  |  |
-`i686-unknown-haiku` | ✓ |  |  | 32-bit Haiku
+`i686-unknown-haiku` | ✓ | ✓ | ✓ | 32-bit Haiku
 `i686-unknown-netbsd` | ✓ |  |  | NetBSD/i386 with SSE2
 `i686-unknown-openbsd` | ✓ | ✓ | ✓ | 32-bit OpenBSD
 `i686-uwp-windows-gnu` | ? |  |  |
@@ -195,7 +195,7 @@ target | std | rustc | cargo | notes
 `x86_64-pc-windows-msvc` | ✓ |  |  | 64-bit Windows XP support
 `x86_64-unknown-bitrig` | ✓ | ✓ |  | 64-bit Bitrig
 `x86_64-unknown-dragonfly` | ✓ | ✓ | ✓ | 64-bit DragonFlyBSD
-`x86_64-unknown-haiku` | ✓ |  |  | 64-bit Haiku
+`x86_64-unknown-haiku` | ✓ | ✓ | ✓ | 64-bit Haiku
 `x86_64-unknown-hermit` | ? |  |  |
 `x86_64-unknown-l4re-uclibc` | ? |  |  |
 `x86_64-unknown-openbsd` | ✓ | ✓ | ✓ | 64-bit OpenBSD
