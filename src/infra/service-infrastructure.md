@@ -73,11 +73,13 @@ and can be browsed on the [perf website](https://perf.rust-lang.org).
 
 One-off performance runs can done by addressing the
 [rust-timer bot](https://github.com/rust-lang-nursery/rustc-perf/blob/master/site/src/github.rs)
-([bot user account](https://github.com/rust-timer)). On a PR, do a "try" build
-(`@bors try`), wait for it finish, then leave a comment with the merge commit
-hash like this:
+([bot user account](https://github.com/rust-timer)). You can trigger the
+necessary try-build and queue a perf run by saying
 
-    @rust-timer build ac89e0324b48993d6d148f598ea0e7357e229c79
+    @bors try @rust-timer queue
+
+(Technically, the requirement is that the `queue` command finishes executing prior
+to the `try` command completing successfully.)
 
 [collector]: https://github.com/rust-lang-nursery/rustc-perf/tree/master/collector
 [web frontend + bot]: https://github.com/rust-lang-nursery/rustc-perf/tree/master/site
