@@ -27,8 +27,9 @@ request. It is run by [TimNN](https://github.com/TimNN).
 
 ## Homu / bors
 
-[Homu](https://github.com/rust-lang/homu/) is a bot often referred to as "bors" due
-to the name of its [bot user account](https://github.com/bors) which manages pull requests.
+[Homu](https://github.com/rust-lang/homu/) is a bot which manages pull
+requests. It is often referred to as "bors" due to the name of its
+[bot user account](https://github.com/bors).
 Approved pull requests are placed in
 [a queue](http://buildbot2.rust-lang.org/homu/queue/rust) from which tests are
 run.
