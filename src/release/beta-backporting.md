@@ -20,10 +20,10 @@ a backport is those tagged
 [both `beta-nominated` and `beta-accepted`](https://github.com/rust-lang/rust/pulls?q=is%3Apr+label%3Abeta-accepted+is%3Aclosed+label%3Abeta-nominated).
 
 So now somebody needs to go through those PR's and cherry-pick their commits to
-the beta branch. Those cherry-picks are then submitted as a PR _against the beta
-branch_, with a title started with `[beta]` (so reviewers can see its
+the beta branch. Those cherry-picks are then submitted as a PR _against the
+beta branch_, with a title started with `[beta]` (so reviewers can see its
 specialness). The OP of that PR should contain links to all the PRs being
-backported. [Here's an example](https://github.com/rust-lang/rust/pull/36634).
+backported. [Here's an example](https://github.com/rust-lang/rust/pull/64097).
 Anybody can make these PRs!
 
 After that a reviewer needs to verify that the backport looks correct, that it's
