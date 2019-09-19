@@ -80,7 +80,7 @@ necessary try-build and queue a perf run by saying
     @bors try @rust-timer queue
 
 (Technically, the requirement is that the `queue` command finishes executing prior
-to the `try` command completing successfully.)
+to the try build completing successfully.)
 
 [collector]: https://github.com/rust-lang-nursery/rustc-perf/tree/master/collector
 [web frontend + bot]: https://github.com/rust-lang-nursery/rustc-perf/tree/master/site
