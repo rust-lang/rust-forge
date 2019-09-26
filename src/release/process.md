@@ -148,9 +148,8 @@ Decide on a time to do the release, T.
   `cargo publish` for the tag you just created. You'll first need to comment
   out `cargo-test-macro` from Cargo.toml, then publish `crates-io` (in
   `crates/crates-io`) and finally publish `cargo` itself.
-
-  Also tag RLS the same way and then run `cargo publish` for the tag you just
-  created.
+  
+  To publish Cargo you may have to bump the version numbers for the crates-io and Cargo crates; there's no need to do that in a formal commit though, so your tag and the published code may differentiate in that way.
 
 - **T+1hr** Send a PR to the beta branch to comment out `dev: 1` again and
   update the date to download from (modifying `src/stage0.txt`).
