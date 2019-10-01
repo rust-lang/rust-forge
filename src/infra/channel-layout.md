@@ -60,7 +60,7 @@ There are then a number of top level sections (tables) which are:
   Typically renames are used when a package leaves its preview state and is
   considered to be release quality. For example, the actual package for
   `rustfmt` is called `rustfmt-preview` but since its release there has been a
-  `renames.rustfmt` table whose `to` field is `rustfmt`. When the user runs
+  `renames.rustfmt` table whose `to` field is `rustfmt-preview`. When the user runs
   `rustup component add rustfmt` the name is automatically translated to
   `rustfmt-preview` and when the user runs `rustup component list` then
   `rustfmt-preview` is automatically renamed back to `rustfmt` for display to
