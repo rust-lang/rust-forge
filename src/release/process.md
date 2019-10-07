@@ -170,3 +170,38 @@ $ cargo update
 The very ambitious can use https://crates.io/crates/cargo-outdated and update
 through breaking changes.
 
+## Publishing a nightly based off a try build
+
+Sometimes a PR requires testing how it behaves when downloaded from rustup, for
+example after a manifest change. In those cases it's possible to publish a new
+nightly based off that PR on dev-static.rust-lang.org.
+
+Once the try build finishes make sure the merge commit for your PR is at the
+top of [the `try` branch][rust-try], log into the rust-central-station server
+and run this command:
+
+```
+docker exec -d -it rcs bash -c 'PROMOTE_RELEASE_OVERRIDE_BRANCH=try promote-release /tmp/nightly-tmp nightly /data/secrets-dev.toml 2>&1 | logger --tag release-nightly-tmp'
+```
+
+If the `try` branch doesn't contain the merge commit (because a new build
+started in the meantime) you can create a new branch pointing to the merge
+commit and run (replacing `BRANCH_NAME` with the name of the branch):
+
+```
+docker exec -d -it rcs bash -c 'PROMOTE_RELEASE_OVERRIDE_BRANCH=BRANCH_NAME promote-release /tmp/nightly-tmp nightly /data/secrets-dev.toml 2>&1 | logger --tag release-nightly-tmp'
+```
+
+You can follow the build progress with:
+
+```
+sudo tail -n 1000 -f /var/log/syslog | grep release-nightly-tmp
+```
+
+Once the build ends it's possible to install the new nightly with:
+
+```
+RUSTUP_DIST_SERVER=https://dev-static.rust-lang.org rustup toolchain install nightly
+```
+
+[rust-try]: https://github.com/rust-lang/rust/commits/try
