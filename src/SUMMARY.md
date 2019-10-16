@@ -1,6 +1,7 @@
 # Rust Forge
 
 [Overview](./README.md)
+- [Core](./core/README.md)
 - [Compiler](./compiler/README.md)
     - [Bug Fix Procedure](./compiler/bug-fix-procedure.md)
     - [Cross Compilation](./compiler/cross-compilation/README.md)
