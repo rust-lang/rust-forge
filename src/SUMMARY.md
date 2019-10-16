@@ -2,6 +2,7 @@
 
 [Overview](./README.md)
 - [Core](./core/README.md)
+    - [The rust blogs](./core/blogs.md)
 - [Compiler](./compiler/README.md)
     - [Bug Fix Procedure](./compiler/bug-fix-procedure.md)
     - [Cross Compilation](./compiler/cross-compilation/README.md)
