@@ -42,7 +42,18 @@ One special case are the regular release note posts that accompany
 every Rust release. These are managed by the release team and go on
 the main blog.
 
-TBD -- someone from release team describe the process
+The blog posts are published on the same day as the release
+by the same person in the release team running the release.
+Releases always happen on Thursdays.
+
+Before publishing a release post, it goes through a drafting process:
+1. The milestone (e.g. for [1.39.0]) for the release is consulted.
+2. PRs that we think are sufficiently important are included and some items are headlined.
+    The writing of a blog post typically happens through a [hackmd](https://hackmd.io/) document.
+3. Headlined items are sometimes written by different people and we try to peer-review each subsection.
+4. The blog post draft is submitted as a PR on the blog repo for final review a few days before the release.
+
+[1.39.0]: https://github.com/rust-lang/rust/milestone/66?closed=1
 
 ## Team Rust blogs
 
