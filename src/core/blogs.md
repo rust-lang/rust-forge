@@ -36,6 +36,14 @@ Post proposals describing exciting developments from within the Rust org are wel
 
 If you would like to propose a blog post for the main blog, please reach out to a [core team member](https://www.rust-lang.org/governance/teams/core). It is not suggested to just open PRs against the main Rust blog that add posts without first discussing it with a core team member.
 
+### Release note blog posts
+
+One special case are the regular release note posts that accompany
+every Rust release. These are managed by the release team and go on
+the main blog.
+
+TBD -- someone from release team describe the process
+
 ## Team Rust blogs
 
 Teams can generally decide for themselves what to write on the team Rust blog. 
