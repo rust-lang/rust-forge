@@ -51,7 +51,7 @@ To execute this meeting you:
 ## After meeting
 
 * Export the meeting file to markdown
-    * you will need to cleanup "check boxes" -- I usually search and replace 
+    * you will need to cleanup "check boxes" -- Niko usually searches and replaces 
       `^(\s*)[ ]` with `\1* [ ]` or something like that to insert a
       `*` before them, which makes them valid markdown
 * Upload video to youtube if applicable and get the URL
