@@ -1,4 +1,4 @@
-# Rust Blog guidelines
+# Rust Blog Guidelines
 
 ## Context
 
