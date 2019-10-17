@@ -8,7 +8,6 @@ The Rust project maintains two blogs. The “main blog” (blog.rust-lang.org) a
 
 So you want to write a Rust blog post, and you’d like to know which blog you should post it on? Ultimately, there are three options:
 
-
 - The main Rust blog
     - Suitable when your audience is “all Rust users or potential users”
     - Written from an “official position”, even if signed by an individual
@@ -48,4 +47,3 @@ Typical subjects for team Rust blog posts include:
 - Design notes
 
 To propose a blog post for the team blog of a particular team, simply reach out to the team lead or some other team representative.
-
