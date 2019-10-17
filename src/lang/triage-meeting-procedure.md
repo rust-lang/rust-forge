@@ -33,7 +33,7 @@ To execute this meeting you:
     * typically it is best to copy-and-paste the title of the issue, so that links remain intact
 * For each item, click in and try to add a few notes as to the main topic
     * look for things where there isn't much discussion needed, or just reminders
-    * these can be handled quickly in the meeting
+    * these can be handled quickly in the meeting, or perhaps not at all
     * items that require more discussion will need time alotted for them
 
 [Current Meeting]: https://paper.dropbox.com/doc/T-Lang-Meeting-Current-meeting--AmyXFNnryXTNzBsSWjbdJcVSAg-nRfrSxCbfeo9q7fEYogZQ
