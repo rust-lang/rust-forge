@@ -27,7 +27,7 @@ queue has been merged.
 4. If the rollup fails, use the logs rust-highfive (really it is
    rust-log-analyzer) provides to bisect the failure to a specific PR and do
    `@bors r-`. If the PR is running, you need to do `@bors r-` retry. Otherwise,
-   success and proceed to the next rollup (every now and then let `rollup=never`
+   your rollup succeeded. If it did, proceed to the next rollup (every now and then let `rollup=never`
    and toolstate PRs progess).
 5. Recreate the rollup without the offending PR starting again from **1.**
 
