@@ -28,7 +28,7 @@ queue has been merged.
    rust-log-analyzer) provides to bisect the failure to a specific PR and do
    `@bors r-`. If the PR is running, you need to do `@bors r- retry`. Otherwise,
    your rollup succeeded. If it did, proceed to the next rollup (every now and then let `rollup=never`
-   and toolstate PRs progess).
+   and toolstate PRs progress).
 5. Recreate the rollup without the offending PR starting again from **1.**
 
 ## Selecting Pull Requests
