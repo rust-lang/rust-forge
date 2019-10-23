@@ -32,6 +32,7 @@
     - [Platform Support](./release/platform-support.md)
     - [Preparing Release Notes](./release/release-notes.md)
     - [Release Process](./release/process.md)
+    - [Rollup Procedure](./release/rollups.md)
     - [Triage Procedure](./release/triage-procedure.md)
 - [Archive](./archive/README.md)
     - [Friends of the Tree](./archive/fott.md)
