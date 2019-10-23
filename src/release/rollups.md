@@ -12,11 +12,12 @@ approve a PR and mark as a rollup, `@bors rollup` to mark a previously approved
 PR, `@bors rollup-` to un-mark as a rollup).  'Performing a Rollup' then means
 collecting these changes into one PR and merging them all at once. The rollup
 command accepts three values `always`, `maybe`, and `never`. `@bors rollup` is
-equivalent to `rollup=always` (which will always put a PR in a rollup), and
-`@bors rollup-` is equivalent to `@bors rollup=maybe` (which will try to put 
-the PR into a rollup). `rollup=never` will never a PR in a rollup, this should
-generally only be used for PRs which are large additions or changes which could
-cause breakage or large perf changes.
+equivalent to `rollup=always` (which will indicate that a PR should always be
+included in a rollup), and `@bors rollup-` is equivalent to `@bors rollup=maybe`
+which is used to indicate that someone should try rollup the PR. `rollup=never`
+indicates that a PR should never be included in a rollup, this should generally
+only be used for PRs which are large additions or changes which could cause
+breakage or large perf changes.
 
 You can see the list of rollup PRs on Rust's [Homu queue], they are
 listed at the bottom of the 'approved' queue with a priority of 'rollup' meaning
