@@ -16,5 +16,5 @@ $ mdbook serve
 ```
 
 [The Rust Programming Language]: https://rust-lang.org
-[Rust Forge]: forge.rust-lang.org
+[Rust Forge]: https://forge.rust-lang.org
 
