@@ -6,11 +6,17 @@ The Rust project has a policy that every pull request must be tested after merge
 before it can be pushed to master. As PR volume increases this can scale poorly,
 especially given the long (~3.5hr) current CI duration for Rust.
 
-Enter rollups - low risk changes (often doc fixes or other non-functional
-changes) are marked with the `rollup` command to bors (`@bors r+ rollup` to
+Enter rollups - changes that small, not performance sensitive, or not platform
+dependent are marked with the `rollup` command to bors (`@bors r+ rollup` to
 approve a PR and mark as a rollup, `@bors rollup` to mark a previously approved
-PR, `@bors rollup-` to unmark as a rollup).  'Performing a Rollup' then means
-collecting these changes into one PR and merging them all at once.
+PR, `@bors rollup-` to un-mark as a rollup).  'Performing a Rollup' then means
+collecting these changes into one PR and merging them all at once. The rollup
+command accepts three values `always`, `maybe`, and `never`. `@bors rollup` is
+equivalent to `rollup=always` (which will always put a PR in a rollup), and
+`@bors rollup-` is equivalent to `@bors rollup=maybe` (which will try to put 
+the PR into a rollup). `rollup=never` will never a PR in a rollup, this should
+generally only be used for PRs which are large additions or changes which could
+cause breakage or large perf changes.
 
 You can see the list of rollup PRs on Rust's [Homu queue], they are
 listed at the bottom of the 'approved' queue with a priority of 'rollup' meaning
@@ -27,8 +33,8 @@ queue has been merged.
 4. If the rollup fails, use the logs rust-highfive (really it is
    rust-log-analyzer) provides to bisect the failure to a specific PR and do
    `@bors r-`. If the PR is running, you need to do `@bors r- retry`. Otherwise,
-   your rollup succeeded. If it did, proceed to the next rollup (every now and then let `rollup=never`
-   and toolstate PRs progress).
+   your rollup succeeded. If it did, proceed to the next rollup (every now and
+   then let `rollup=never` and toolstate PRs progress).
 5. Recreate the rollup without the offending PR starting again from **1.**
 
 ## Selecting Pull Requests
@@ -62,10 +68,6 @@ to avoid the PRs that you suspect are the problem and recreate the rollup.
 Another strategy is to raise the priority of the PRs you suspect,
 mark them as `rollup=never` and let bors test them standalone to dismiss
 or confirm your hypothesis.
-candidate PR(s) and unmark it (them) both as rollup and as being reviewed with
-`@bors rollup- r-`, also commenting on the PR with the error. Hopefully the
-author or a reviewer will give feedback to get the PR fixed or confirm that it's
-not at fault.
 
 If a rollup continues to fail you can run the `@bors rollup=never` command to
 never rollup the PR in question.
