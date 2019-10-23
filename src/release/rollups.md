@@ -52,7 +52,7 @@ This is something you will learn to improve over time. Some basic tips include
 If the rollup has failed, run the `@bors retry` command if the
 failure was spurious (e.g. due to a network problem or a timeout). If it wasn't spurious,
 find the offending PR and throw it out by copying a link to the rust-highfive comment,
-and writing `Failed in <link_to_comment>, @bors r- retry`. Hopefully,
+and writing `Failed in <link_to_comment>, @bors r-`. Hopefully,
 the author or reviewer will give feedback to get the PR fixed or confirm that it's not
 at fault.
 
