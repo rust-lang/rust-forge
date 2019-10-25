@@ -27,6 +27,7 @@
         - [rust-lang/rust CI](./infra/docs/rustc-ci.md)
 - [Language](./lang/README.md)
     - [RFC Merge Procedure](./lang/rfc-merge-procedure.md)
+    - [Triage Meeting Procedure](./lang/triage-meeting-procedure.md)
 - [Release](./release/README.md)
     - [Beta Backporting](./release/beta-backporting.md)
     - [Platform Support](./release/platform-support.md)
