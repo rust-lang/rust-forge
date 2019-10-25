@@ -8,6 +8,7 @@
     - [Diagnostic Codes](./compiler/diagnostic-codes.md)
     - [Profiling Queries](./compiler/profile-queries.md)
     - [Triage Meeting](./compiler/triage-meeting.md)
+    - [Steering Meeting](./compiler/steering-meeting.md)
 - [Infrastructure](./infra/README.md)
     - [Other Installation Methods](./infra/other-installation-methods.md)
     - [Release Channel Layout](./infra/channel-layout.md)
