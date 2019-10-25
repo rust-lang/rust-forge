@@ -10,7 +10,7 @@
     - [Triage Meeting](./compiler/triage-meeting.md)
     - [Steering Meeting](./compiler/steering-meeting.md)
         - [Submitting a proposal](./compiler/steering-meeting/submit.md)
-        - [Planning Meeting](./compiler/planning-meeting.md)
+        - [How to run the planning Meeting](./compiler/how-to-run-planning.md)
         - [Design Meeting](./compiler/design-meeting.md)
 - [Infrastructure](./infra/README.md)
     - [Other Installation Methods](./infra/other-installation-methods.md)
