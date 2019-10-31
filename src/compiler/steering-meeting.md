@@ -38,6 +38,7 @@ time. The meetings take place in the #t-compiler stream on the
 
 [c]: https://rust-lang.github.io/compiler-team/#meeting-calendar
 [ir]: https://blog.rust-lang.org/inside-rust/
+[z]: https://rust-lang.zulipchat.com
 
 [rust-lang/rust#54818]: https://github.com/rust-lang/rust/issues/54818
 [compiler-team website]: https://rust-lang.github.io/compiler-team/about/triage-meeting/
