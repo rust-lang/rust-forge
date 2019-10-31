@@ -28,7 +28,7 @@ the overall health and functioning of the team.
 
 After each planning meeting, the topics for the next three weeks are
 added to the [compiler-team meeting calendar][c] and a blog post is
-posted to the [Inside Rust blog][[ir].
+posted to the [Inside Rust blog][ir].
 
 ## When and where is it?
 
