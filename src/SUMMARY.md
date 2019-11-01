@@ -1,6 +1,8 @@
 # Rust Forge
 
 [Overview](./README.md)
+- [Core](./core/README.md)
+    - [Rust Blog Guidelines](./core/blogs.md)
 - [Compiler](./compiler/README.md)
     - [Bug Fix Procedure](./compiler/bug-fix-procedure.md)
     - [Cross Compilation](./compiler/cross-compilation/README.md)
