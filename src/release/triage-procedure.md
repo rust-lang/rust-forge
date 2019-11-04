@@ -213,7 +213,7 @@ of thumb, consider these guidelines:
 
 - PRs blocked on discussion (such as RFCs or WG decisions) should be closed
   immediately, since those discussions generally take a long time.
-- PRs blocked on other PRs should be closed, if the blocking PR looks
+- PRs blocked on other PRs should be closed, unless the blocking PR looks
   like it's going to be merged soon.
 - PRs which have already been blocked for two weeks should generally be closed,
   unless there is a clear indication that they will be unblocked soon.
