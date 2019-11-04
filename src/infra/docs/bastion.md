@@ -48,25 +48,53 @@ users. Please leave a comment clarifying which servers the user will have
 access to.
 
 Once that's done [apply the playbook][ansible-apply] and [add a new whitelisted
-IP address](#updating-the-whitelisted-ips).
+IP address](#adding-a-whitelisted-ip).
 
-### Updating the whitelisted IPs
+### Adding a whitelisted IP
 
 Due to privacy reasons, all the static IP addresses of team members with access
 to the bastion are stored on [AWS SSM Parameter Store][ssm] instead of public
-git repositories. To add or update an IP address you can run this command
-(taking care of replacing `USERNAME` and `IP_ADDRESS` with the proper values):
+git repositories. To add an IP address you can run this command (taking care of
+replacing `USERNAME` and `IP_ADDRESS` with the proper values):
 
 ```
 aws ssm put-parameter --type String --name "/prod/bastion/allowed-ips/USERNAME" --value "IP_ADDRESS/32"
 ```
 
-If you're adding an IP address instead of updating it, you'll also need to add
-the username to the list in [`terraform/services.tf`][allowed-ips] (key
-`allowed_users` in the `service_bastion` module).
+You'll also need to add the username to the list in
+[`terraform/services.tf`][allowed-ips] (key `allowed_users` in the
+`service_bastion` module). Once you made all the needed changes you wanted you
+need to [apply the Terraform configuration][terraform-apply].
+
+### Updating a whitelisted IP
+
+Due to privacy reasons, all the static IP addresses of team members with access
+to the bastion are stored on [AWS SSM Parameter Store][ssm] instead of public
+git repositories. To update an IP address you can run this command (taking care
+of replacing `USERNAME` and `IP_ADDRESS` with the proper values):
+
+```
+aws ssm put-parameter --overwrite --type String --name "/prod/bastion/allowed-ips/USERNAME" --value "IP_ADDRESS/32"
+```
 
 Once you made all the needed changes you wanted you need to [apply the
 Terraform configuration][terraform-apply].
+
+### Removing a whitelisted IP
+
+Due to privacy reasons, all the static IP addresses of team members with access
+to the bastion are stored on [AWS SSM Parameter Store][ssm] instead of public
+git repositories. To remove an IP address you can run this command (taking care
+of replacing `USERNAME` with the proper value):
+
+```
+aws ssm delete-parameter --name "/prod/bastion/allowed-ips/USERNAME"
+```
+
+You'll also need to remove the username from the list in
+[`terraform/services.tf`][allowed-ips] (key `allowed_users` in the
+`service_bastion` module). Once you made all the needed changes you wanted you
+need to [apply the Terraform configuration][terraform-apply].
 
 [ansible]: https://github.com/rust-lang/simpleinfra/blob/master/ansible/playbooks/bastion.yml
 [terraform]: https://github.com/rust-lang/simpleinfra/tree/master/terraform/services/bastion
