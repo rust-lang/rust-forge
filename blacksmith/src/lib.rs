@@ -136,7 +136,7 @@ impl Blacksmith {
             ("test-suite.html", "https://rust-lang.github.io/rustc-guide/tests/intro.html"),
             ("toolstate.html", "/infra/toolstate.html"),
             ("triage-procedure.html", "/release/triage-procedure.html"),
-            ("x-py.html", "https://rust-lang.github.io/rustc-guide/how-to-build-and-run.html"),
+            ("x-py.html", "https://rust-lang.github.io/rustc-guide/building/how-to-build-and-run.html"),
         ];
 
         // Inititalise book directory if not built yet.
