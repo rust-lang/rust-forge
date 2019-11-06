@@ -219,8 +219,8 @@ target | std | rustc | cargo | notes
 
 But those aren't the only platforms Rust can compile to! Those are the ones with
 built-in target definitions and/or standard library support. When linking only
-to the core library, Rust can also target "bare metal" in the x86, ARM, MIPS,
-and PowerPC families, though it may require defining custom target
-specifications to do so. All such scenarios are tier 3.
+to the core library, Rust can also target additional "bare metal" platforms in
+the x86, ARM, MIPS, and PowerPC families, though it may require defining custom
+target specifications to do so.
 
 [Rust Forge repo]: https://github.com/rust-lang/rust-forge
