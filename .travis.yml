@@ -19,6 +19,7 @@ before_script:
   - mdbook -V || cargo install mdbook --vers '^0.3.0'
 script:
   - mdbook build
+  - cp website_config.json book/
 branches:
   only:
-  - master
+    - master
