@@ -205,17 +205,17 @@ impl Blacksmith {
 
             let stable_links = platform.stable
                 .as_ref()
-                .map(|version| generate_standalone_links(version, name, extension))
+                .map(|version| generate_standalone_links("rust", version, name, extension))
                 .unwrap_or_else(String::new);
 
             let beta_links = if platform.beta {
-                generate_standalone_links("beta", name, extension)
+                generate_standalone_links("rust", "beta", name, extension)
             } else {
                 String::new()
             };
 
             let nightly_links = if platform.nightly {
-                generate_standalone_links("nightly", name, extension)
+                generate_standalone_links("rust", "nightly", name, extension)
             } else {
                 String::new()
             };
@@ -242,18 +242,18 @@ impl Blacksmith {
         writeln!(buffer, "--------|----------------------").unwrap();
 
         for &channel in CHANNELS {
-            let display = if channel == "stable" {
-                format!("stable ({})", self.stable_version.as_ref().unwrap())
+            if channel == "stable" {
+                let stable_version = self.stable_version.as_ref().unwrap();
+                writeln!(buffer, "stable ({}) | {}",
+                    stable_version,
+                    generate_standalone_links("rustc", stable_version, "src", "tar.gz")
+                ).unwrap();
             } else {
-                channel.into()
-            };
-
-            writeln!(
-                buffer,
-                "{display} | {links}",
-                display = display,
-                links = generate_standalone_links(&channel, "src", "tar.gz")
-            ).unwrap();
+                writeln!(buffer, "{} | {}",
+                    channel,
+                    generate_standalone_links("rustc", &channel, "src", "tar.gz")
+                ).unwrap();
+            }
         }
 
         buffer
@@ -262,12 +262,13 @@ impl Blacksmith {
 
 /// Generates links to standalone installers provided a rust version or channel,
 /// target name, and file extension.
-fn generate_standalone_links(stem: &str, name: &str, extension: &str) -> String {
+fn generate_standalone_links(base: &str, stem: &str, name: &str, extension: &str) -> String {
     let url = format!(
-        "https://static.rust-lang.org/dist/rust-{stem}-{name}.{extension}",
+        "https://static.rust-lang.org/dist/{base}-{stem}-{name}.{extension}",
         extension = extension,
         name = name,
         stem = stem,
+        base = base,
         );
 
     format!(
