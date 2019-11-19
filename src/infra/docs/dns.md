@@ -12,7 +12,7 @@ document contains instructions for them on how to make changes.
 > every domain to Terraform though.
 
 > **Warning:** [`terraform/services/dns`][dns-dir] only contains the definition
-> of domain names pointing to resources managed outside of Terraform. When
+> of DNS records pointing to resources managed outside of Terraform. When
 > Terraform manages a resource it will automatically add the required records
 > on its own. See the service's documentation to learn where its Terraform
 > configuration lives.
