@@ -28,6 +28,7 @@
         - [Bastion server](./infra/docs/bastion.md)
         - [Crater agents](./infra/docs/crater-agents.md)
         - [Discord moderation bot](./infra/docs/discord-mods-bot.md)
+        - [Domain names and DNS](./infra/docs/dns.md)
         - [docs.rs](./infra/docs/docs-rs.md)
         - [Monitoring](./infra/docs/monitoring.md)
         - [rust-bots server](./infra/docs/rust-bots.md)
