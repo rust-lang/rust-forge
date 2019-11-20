@@ -10,6 +10,9 @@ file an issue or PR on the [Rust Forge GitHub].
 <!-- All `<span id="..."></span>` elements are filled at run time when a reader
 visits the website. Please refer to `js/index.js` for how these values
 are generated.
+
+Avoid changing the "Current Release Versions" without also updating the selector
+in `js/index.js.
 -->
 
 ### Current Release Versions
