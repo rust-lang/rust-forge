@@ -4,6 +4,10 @@ All the DNS records of the domains owned by the Rust Infrastructure team are
 hosted on [AWS Route 53], and can be tweaked by members of the team. This
 document contains instructions for them on how to make changes.
 
+* [Changing DNS records of a domain managed with Terraform](#changing-dns-records-of-a-domain-managed-with-terraform)
+* [Managing DNS for a new domain with Terraform](#managing-dns-for-a-new-domain-with-terraform)
+* [Adding subdomain redirects](#adding-subdomain-redirects)
+
 ## Changing DNS records of a domain managed with Terraform
 
 > **Warning:** not all domain names are yet managed with Terraform. In the
@@ -89,7 +93,63 @@ terraform init
 terraform apply
 ```
 
+## Adding subdomain redirects
+
+Our Terraform configuration supports creating redirects from an arbitrary
+number of subdomains we control to an URL. Redirects are created with these
+pieces of infrastructure:
+
+* A S3 bucket for each set of redirects, named `rust-http-redirect-<HASH>`. The
+  bucket has website hosting enabled, configured to redirect all the incoming
+  requests to the chosen URL. This allows implementing redirects without an
+  underlying server.
+
+* An ACM certificate (plus the DNS records to validate it) for each set of
+  redirects, with all the sources as alternate names. This is used to enable
+  HTTPS redirects.
+
+* A CloudFront distribution for each set of redirects to support HTTPS
+  requests, using the previously generated ACM certificate and forwarding
+  requests to the S3 bucket.
+
+* Route53 records for each redirect in the related zones: CNAMEs
+  for subdomains, and ALIASes for apex domains.
+
+All the redirects are defined in [`terraform/redirects.tf`][redirects-file],
+with a module for each destination URL. Either create a new module if you need
+to redirect to a new URL, or add a new subdomain to an existing module. See an
+example module here (take care of replacing the placeholders):
+
+```terraform
+module "redirect_<IDENTIFIER>" {
+  source = "./modules/subdomain-redirect"
+  providers = {
+    aws       = "aws"
+    aws.east1 = "aws.east1"
+  }
+
+  to = "<DESTINATION-URL>"
+  from = {
+    "<SUBDOMAIN-1>" = module.dns.zone_<DOMAIN-1-IDENTIFIER>,
+    "<SUBDOMAIN-2>" = module.dns.zone_<DOMAIN-2-IDENTIFIER>,
+  }
+}
+```
+
+Once you made all the changes you can apply the configuration with:
+
+```
+terraform init
+terraform apply
+```
+
+Note that each change is going to take around 15 minutes to deploy, as
+CloudFront distribution changes are really slow to propagate. Also, it's normal
+to see a bunch of resources being recreated when a domain is added or removed
+from an existing redirect, as the ACM certificate will need to be regenerated.
+
 [AWS Route 53]: https://aws.amazon.com/route53/
 [hosted-zones]: https://console.aws.amazon.com/route53/home#hosted-zones:
 [dns-dir]: https://github.com/rust-lang/simpleinfra/tree/master/terraform/services/dns/
 [outputs-file]: https://github.com/rust-lang/simpleinfra/blob/master/terraform/services/dns/outputs.tf
+[redirects-file]: https://github.com/rust-lang/simpleinfra/blob/master/terraform/redirects.tf
