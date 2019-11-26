@@ -30,7 +30,7 @@ Please remember to regularly check https://rfcbot.rs/. Click on any occurrence o
 
 As a member of the Libs team you’ll find yourself assigned to PRs that need reviewing, and your input requested on issues in the Rust project.
 
-### When is a RFC needed?
+### When is an RFC needed?
 
 New unstable features don’t need a RFC before they can be merged. They do need one before they can be stabilized. New impls for already stable traits don't need a RFC. If a new unstable feature is large or has a lot of design space to explore then you might want to block merging it on a RFC.
 
