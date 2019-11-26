@@ -50,7 +50,7 @@ You should add `#[inline]`:
 
 You shouldn’t need `#[inline]`:
 
-- On methods that take a generic argument.
+- On methods that have any generics in scope.
 - On methods on traits that don’t have a default implementation.
 - On `const` items.
 
