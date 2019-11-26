@@ -32,7 +32,7 @@ As a member of the Libs team you’ll find yourself assigned to PRs that need re
 
 ### When is an RFC needed?
 
-New unstable features don’t need a RFC before they can be merged. They do need one before they can be stabilized. New impls for already stable traits don't need a RFC. If a new unstable feature is large or has a lot of design space to explore then you might want to block merging it on a RFC.
+New unstable features don’t need an RFC before they can be merged. They do need one before they can be stabilized. New impls for already stable traits don't need an RFC. If a new unstable feature is large or has a lot of design space to explore then you might want to block merging it on an RFC.
 
 ### Is there any `unsafe`?
 
