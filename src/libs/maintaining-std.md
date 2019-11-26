@@ -16,11 +16,11 @@ This document doesn't attempt to discuss best practices or good style. For that,
 
 ## If you’re ever unsure…
 
-Maintaining the standard library can feel like a daunting responsibility! Through the automated reviewer assignment you’ll find yourself dropped into a lot of new contexts.
+Maintaining the standard library can feel like a daunting responsibility! Through [`highfive`], the automated reviewer assignment, you’ll find yourself dropped into a lot of new contexts.
 
 Ping the `@rust-lang/libs` team on GitHub anytime. We’re all here to help!
 
-If you don’t think you’re the best person to review a PR then use [`bors`] to assign it to somebody else.
+If you don’t think you’re the best person to review a PR then use [`highfive`] to assign it to somebody else.
 
 ## Finding reviews waiting for your input
 
@@ -32,13 +32,13 @@ As a member of the Libs team you’ll find yourself assigned to PRs that need re
 
 ### When is an RFC needed?
 
-New unstable features don’t need an RFC before they can be merged. They do need one before they can be stabilized. New impls for already stable traits don't need an RFC. If a new unstable feature is large or has a lot of design space to explore then you might want to block merging it on an RFC.
+New unstable features don't need an RFC before they can be merged. If the feature is small, and the design space is straightforward, stabilizing it usually only requires the feature to go through FCP. Sometimes however, Libs may ask for an RFC before stabilizing.
 
 ### Is there any `unsafe`?
 
 Unsafe code blocks in the standard library need a comment explaining why they're [ok](https://doc.rust-lang.org/nomicon). There's a `tidy` lint that checks this. The unsafe code also needs to actually be ok.
 
-The rules around what's sound and what's not can be subtle. See the [Unsafe Code Guidelines WG] for current thinking, and consider pinging `@rust-lang/libs` and/or somebody from the WG if you're in any doubt.
+The rules around what's sound and what's not can be subtle. See the [Unsafe Code Guidelines WG] for current thinking, and consider pinging `@rust-lang/libs`, `@rust-lang/lang`, and/or somebody from the WG if you're in any doubt. We love debating the soundness of unsafe code, and the more eyes on it the better.
 
 ### Is that `#[inline]` right?
 
@@ -52,7 +52,6 @@ You shouldn’t need `#[inline]`:
 
 - On methods that have any generics in scope.
 - On methods on traits that don’t have a default implementation.
-- On `const` items.
 
 #### What about `#[inline(always)]`?
 
@@ -101,7 +100,7 @@ PRs shouldn’t have merge commits in them. If they become out of date with `mas
 
 ## Merging PRs
 
-PRs to `rust-lang/rust` aren’t merged manually using GitHub’s UI or by pushing remote branches. Everything goes through [`bors`].
+PRs to [`rust-lang/rust`] aren’t merged manually using GitHub’s UI or by pushing remote branches. Everything goes through [`bors`].
 
 ### When you’re confident it’ll build
 
@@ -127,6 +126,7 @@ Features can be stabilized in a PR that replaces `#[unstable]` attributes with `
 [`rust-lang/rfcs`]: https://github.com/rust-lang/rfcs
 [`rfcbot`]: https://github.com/rust-lang/rfcbot-rs
 [`bors`]: https://github.com/rust-lang/homu
+[`highfive`]: https://github.com/rust-lang/highfive
 [RFC 1023]: https://rust-lang.github.io/rfcs/1023-rebalancing-coherence.html
 [RFC 1105]: https://rust-lang.github.io/rfcs/1105-api-evolution.html
 [Everyone Poops]: http://cglab.ca/~abeinges/blah/everyone-poops
