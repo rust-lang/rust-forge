@@ -102,9 +102,11 @@ PRs shouldn’t have merge commits in them. If they become out of date with `mas
 
 PRs to [`rust-lang/rust`] aren’t merged manually using GitHub’s UI or by pushing remote branches. Everything goes through [`bors`].
 
-### When you’re confident it’ll build
+### When to `rollup`
 
-Consider explicitly specifying `rollup`.
+For Libs PRs, rolling up is usually fine, in particular if it's only a new unstable addition or if it only touches docs (with the exception of intra doc links which complicates things while the feature has bugs...).
+
+If a submodule is affected then probably don't `rollup`. If the feature affects perf then also avoid `rollup`.
 
 ### When there’s new public items
 
