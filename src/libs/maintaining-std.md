@@ -61,13 +61,23 @@ You should just about never need `#[inline(always)]`. It may be beneficial for p
 
 Breaking changes should be avoided when possible. [RFC 1105] lays the foundations for what constitutes a breaking change. Breakage may be deemed acceptable or not based on its actual impact, which can be approximated with a [`crater`] run.
 
-For changes where the value is high and the impact is high too, there are strategies for minimizing the impact:
+#### Managing breakage
+
+There are strategies for mitigating breakage depending on the impact.
+
+For changes where the value is high and the impact is high too:
 
 - Using compiler lints to try phase out broken behavior.
 
-The following sections outline some kinds of breakage that may not be obvious just from the change made to the standard library.
+If the impact isn't too high:
 
-#### Inference breaks when a second generic impl is introduced
+- Looping in maintainers of broken crates and submitting PRs to fix them.
+
+#### Trait impls break things
+
+The following sections outline some kinds of breakage from new trait impls that may not be obvious just from the change made to the standard library.
+
+##### Inference breaks when a second generic impl is introduced
 
 Rust will use the fact that there's only a single impl for a generic trait during inference. This breaks once a second impl makes the type of that generic ambiguous. Say we have:
 
@@ -98,7 +108,7 @@ will no longer compile, because we've previously been relying on inference to fi
 
 This kind of breakage can be ok, but a [`crater`] run should estimate the scope.
 
-#### Deref coercion breaks when a new impl is introduced
+##### Deref coercion breaks when a new impl is introduced
 
 Rust will use deref coercion to find a valid trait impl if the arguments don't type check directly. This only seems to occur if there's a single impl so introducing a new one may break consumers relying on deref coercion. Say we have:
 
