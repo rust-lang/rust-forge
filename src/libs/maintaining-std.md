@@ -32,13 +32,13 @@ As a member of the Libs team you’ll find yourself assigned to PRs that need re
 
 ### When is an RFC needed?
 
-New unstable features don't need an RFC before they can be merged. If the feature is small, and the design space is straightforward, stabilizing it usually only requires the feature to go through FCP. Sometimes however, Libs may ask for an RFC before stabilizing.
+New unstable features don't need an RFC before they can be merged. If the feature is small, and the design space is straightforward, stabilizing it usually only requires the feature to go through FCP. Sometimes however, you may ask for an RFC before stabilizing.
 
 ### Is there any `unsafe`?
 
 Unsafe code blocks in the standard library need a comment explaining why they're [ok](https://doc.rust-lang.org/nomicon). There's a `tidy` lint that checks this. The unsafe code also needs to actually be ok.
 
-The rules around what's sound and what's not can be subtle. See the [Unsafe Code Guidelines WG] for current thinking, and consider pinging `@rust-lang/libs`, `@rust-lang/lang`, and/or somebody from the WG if you're in any doubt. We love debating the soundness of unsafe code, and the more eyes on it the better.
+The rules around what's sound and what's not can be subtle. See the [Unsafe Code Guidelines WG] for current thinking, and consider pinging `@rust-lang/libs`, `@rust-lang/lang`, and/or somebody from the WG if you're in _any_ doubt. We love debating the soundness of unsafe code, and the more eyes on it the better!
 
 ### Is that `#[inline]` right?
 
@@ -64,6 +64,8 @@ Breaking changes should be avoided when possible. [RFC 1105] lays the foundation
 For changes where the value is high and the impact is high too, there are strategies for minimizing the impact:
 
 - Using compiler lints to try phase out broken behavior.
+
+The following sections outline some kinds of breakage that may not be obvious just from the change made to the standard library.
 
 #### Inference breaks when a second generic impl is introduced
 
@@ -161,6 +163,10 @@ Rust doesn't guarantee destructors will run when a value is leaked (which can be
 
 It's ok not to run a destructor when a value is leaked because its storage isn't deallocated or repurposed. It's generally _not_ ok not to run a destructor before deallocating or repurposing already initialized storage because [memory may be pinned][Drop guarantee]. Having said that, there can be exceptions for skipping destructors if you can guarantee there's never pinning involved.
 
+### How is performance impacted?
+
+Changes to hot code might impact performance in consumers, for better or for worse. Appropriate benchmarks should give an idea of how performance characteristics change. For changes that affect `rustc` itself, you can also do a [`rust-timer`] run.
+
 ### Is the commit log tidy?
 
 PRs shouldn’t have merge commits in them. If they become out of date with `master` then they need to be rebased.
@@ -177,7 +183,7 @@ If a submodule is affected then probably don't `rollup`. If the feature affects 
 
 ### When there’s new public items
 
-If the feature is new, then a tracking issue should be opened for it. The `issue` field on `#[unstable]` attributes should be updated with the tracking issue number.
+If the feature is new, then a tracking issue should be opened for it. Have a look at some previous [tracking issues][Libs tracking issues] to get an idea of what needs to go in there. The `issue` field on `#[unstable]` attributes should be updated with the tracking issue number.
 
 Unstable features can be merged as normal through [`bors`] once they look ready.
 
@@ -197,6 +203,8 @@ Features can be stabilized in a PR that replaces `#[unstable]` attributes with `
 [`bors`]: https://github.com/rust-lang/homu
 [`highfive`]: https://github.com/rust-lang/highfive
 [`crater`]: https://github.com/rust-lang/crater
+[`rust-timer`]: https://github.com/rust-lang-nursery/rustc-perf
+[Libs tracking issues]: https://github.com/rust-lang/rust/issues?q=label%3AC-tracking-issue+label%3AT-libs
 [Drop guarantee]: https://doc.rust-lang.org/nightly/std/pin/index.html#drop-guarantee
 [RFC 1023]: https://rust-lang.github.io/rfcs/1023-rebalancing-coherence.html
 [RFC 1105]: https://rust-lang.github.io/rfcs/1105-api-evolution.html
