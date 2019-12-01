@@ -59,40 +59,107 @@ You should just about never need `#[inline(always)]`. It may be beneficial for p
 
 ### Is there any potential breakage?
 
-Breaking changes should be avoided when possible. [RFC 1105] lays the foundations for what constitutes a breaking change. Breakage may be deemed acceptable or not based on its actual impact, which can be approximated with a `crater` run.
+Breaking changes should be avoided when possible. [RFC 1105] lays the foundations for what constitutes a breaking change. Breakage may be deemed acceptable or not based on its actual impact, which can be approximated with a [`crater`] run.
 
 For changes where the value is high and the impact is high too, there are strategies for minimizing the impact:
 
 - Using compiler lints to try phase out broken behavior.
 
-### Could this affect inference?
+#### Inference breaks when a second generic impl is introduced
 
-New impls on public traits for public items may cause inference to break when there are generics involved.
+Rust will use the fact that there's only a single impl for a generic trait during inference. This breaks once a second impl makes the type of that generic ambiguous. Say we have:
 
-#### Are there `#[fundamental]` items involved?
+```rust
+// in `std`
+impl From<&str> for Arc<str> { .. }
+```
 
-Blanket trait impls can't be added to `#[fundamental]` types because they have different coherence rules. That includes:
+```rust
+// in an external `lib`
+let b = Arc::from("a");
+```
 
+then we add:
+
+```diff
+impl From<&str> for Arc<str> { .. }
++ impl From<&str> for Arc<String> { .. }
+```
+
+then
+
+```rust
+let b = Arc::from("a");
+```
+
+will no longer compile, because we've previously been relying on inference to figure out the `T` in `Box<T>`.
+
+This kind of breakage can be ok, but a [`crater`] run should estimate the scope.
+
+#### Deref coercion breaks when a new impl is introduced
+
+Rust will use deref coercion to find a valid trait impl if the arguments don't type check directly. This only seems to occur if there's a single impl so introducing a new one may break consumers relying on deref coercion. Say we have:
+
+```rust
+// in `std`
+impl Add<&str> for String { .. }
+
+impl Deref for String { type Target = str; .. }
+```
+
+```rust
+// in an external `lib`
+let a = String::from("a");
+let b = String::from("b");
+
+let c = a + &b;
+```
+
+then we add:
+
+```diff
+impl Add<&str> for String { .. }
++ impl Add<char> for String { .. }
+```
+
+then
+
+```rust
+let c = a + &b;
+```
+
+will no longer compile, because we won't attempt to use deref to coerce the `&String` into `&str`.
+
+This kind of breakage can be ok, but a [`crater`] run should estimate the scope.
+
+### Are there `#[fundamental]` items involved?
+
+Blanket trait impls can't be added to `#[fundamental]` types because they have different coherence rules. See [RFC 1023] for details. That includes:
+
+- `&T`
+- `&mut T`
 - `Box<T>`
 - `Pin<T>`
 
-Also see [RFC 1023] for details.
+### Is specialization involved?
 
-### Is there specialization involved?
-
-We try to avoid leaning on specialization too heavily, limiting its use to optimizing specific implementations. Any use of specialization that changes how methods are dispatched for external callers should be carefully considered.
+We try to avoid leaning on specialization too heavily, limiting its use to optimizing specific implementations. These specialized optimizations use a private trait to find the correct implementation, rather than specializing the public method itself. Any use of specialization that changes how methods are dispatched for external callers should be carefully considered.
 
 ### Does this change drop order?
 
 Changes to collection internals may affect the order their items are dropped in. This has been accepted in the past, but should be noted.
 
-### Could `mem::replace` break assumptions?
+### How could `mem` break assumptions?
 
-Any value behind a `&mut` reference can be replaced with a new one.
+#### `mem::replace` and `mem::swap`
 
-### Could `mem::forget` break assumptions?
+Any value behind a `&mut` reference can be replaced with a new one using `mem::replace` or `mem::swap`.
 
-Rust doesn't guarantee destructors will run, so code should avoid relying on them for safety. Remember, [everybody poops][Everybody Poops].
+#### `mem::forget`
+
+Rust doesn't guarantee destructors will run when a value is leaked (which can be done with `mem::forget`), so code should avoid relying on them for maintaining safety. Remember, [everybody poops][Everybody Poops].
+
+It's ok not to run a destructor when a value is leaked because its storage isn't deallocated or repurposed. It's generally _not_ ok not to run a destructor before deallocating or repurposing already initialized storage because [memory may be pinned][Drop guarantee]. Having said that, there can be exceptions for skipping destructors if you can guarantee there's never pinning involved.
 
 ### Is the commit log tidy?
 
@@ -116,7 +183,7 @@ Unstable features can be merged as normal through [`bors`] once they look ready.
 
 ### When there’s new trait impls
 
-There’s no way to make a trait impl `#[unstable]`, so **any PRs that add new impls for already `#[stable]` traits must go through a FCP before merging.**
+There’s no way to make a trait impl `#[unstable]`, so **any PRs that add new impls for already stable traits must go through a FCP before merging.** If the trait itself is unstable though, then the impl needs to be unstable too.
 
 ### When a feature is being stabilized
 
@@ -129,6 +196,8 @@ Features can be stabilized in a PR that replaces `#[unstable]` attributes with `
 [`rfcbot`]: https://github.com/rust-lang/rfcbot-rs
 [`bors`]: https://github.com/rust-lang/homu
 [`highfive`]: https://github.com/rust-lang/highfive
+[`crater`]: https://github.com/rust-lang/crater
+[Drop guarantee]: https://doc.rust-lang.org/nightly/std/pin/index.html#drop-guarantee
 [RFC 1023]: https://rust-lang.github.io/rfcs/1023-rebalancing-coherence.html
 [RFC 1105]: https://rust-lang.github.io/rfcs/1105-api-evolution.html
 [Everyone Poops]: http://cglab.ca/~abeinges/blah/everyone-poops
