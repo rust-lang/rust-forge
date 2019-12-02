@@ -3,6 +3,8 @@
 [Overview](./README.md)
 - [Core](./core/README.md)
     - [Rust Blog Guidelines](./core/blogs.md)
+- [Community](./community/README.md)
+    - [State of Rust Survey FAQ](./community/survey-faq.md)
 - [Compiler](./compiler/README.md)
     - [Bug Fix Procedure](./compiler/bug-fix-procedure.md)
     - [Cross Compilation](./compiler/cross-compilation/README.md)
