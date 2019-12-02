@@ -113,7 +113,7 @@ subteam to decide, but:
   ideally on RFC/PR threads and tagged discuss posts.
 
 - Each subteam will have a dedicated
-  [discuss forum](http://internals.rust-lang.org/) tag.
+  [internals forum](https://internals.rust-lang.org/) tag.
 
 - Subteams should actively seek out discussion and input from stakeholders who
   are not members of the team.
@@ -126,7 +126,7 @@ subteam to decide, but:
 
 - Subteams should regularly publish the status of RFCs, PRs, and other news
   related to their area. Ideally, this would be done in part via a dashboard
-  like [the Homu queue](http://buildbot.rust-lang.org/homu/queue/rust)
+  like [the Homu queue](http://buildbot.rust-lang.org/homu/queue/rust).
 
 ## Decision-making
 
@@ -167,7 +167,7 @@ has done its job of communicating the values and priorities, it should be
 possible to fit the debate about the RFC into that framework and reach a fairly
 clear outcome.
 
-[consensus]: http://en.wikipedia.org/wiki/Consensus_decision-making
+[consensus]: https://en.wikipedia.org/wiki/Consensus_decision-making
 
 ### Lack of consensus
 
