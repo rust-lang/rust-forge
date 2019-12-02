@@ -61,8 +61,6 @@ You should just about never need `#[inline(always)]`. It may be beneficial for p
 
 Breaking changes should be avoided when possible. [RFC 1105] lays the foundations for what constitutes a breaking change. Breakage may be deemed acceptable or not based on its actual impact, which can be approximated with a [`crater`] run.
 
-#### Managing breakage
-
 There are strategies for mitigating breakage depending on the impact.
 
 For changes where the value is high and the impact is high too:
@@ -73,11 +71,11 @@ If the impact isn't too high:
 
 - Looping in maintainers of broken crates and submitting PRs to fix them.
 
-#### Trait impls break things
+### Are there new impls for stable traits?
 
-The following sections outline some kinds of breakage from new trait impls that may not be obvious just from the change made to the standard library.
+A lot of PRs to the standard library are adding new impls for already stable traits, which can break consumers in many weird and wonderful ways. The following sections gives some examples of breakage from new trait impls that may not be obvious just from the change made to the standard library.
 
-##### Inference breaks when a second generic impl is introduced
+#### Inference breaks when a second generic impl is introduced
 
 Rust will use the fact that there's only a single impl for a generic trait during inference. This breaks once a second impl makes the type of that generic ambiguous. Say we have:
 
@@ -108,7 +106,7 @@ will no longer compile, because we've previously been relying on inference to fi
 
 This kind of breakage can be ok, but a [`crater`] run should estimate the scope.
 
-##### Deref coercion breaks when a new impl is introduced
+#### Deref coercion breaks when a new impl is introduced
 
 Rust will use deref coercion to find a valid trait impl if the arguments don't type check directly. This only seems to occur if there's a single impl so introducing a new one may break consumers relying on deref coercion. Say we have:
 
@@ -144,6 +142,10 @@ will no longer compile, because we won't attempt to use deref to coerce the `&St
 
 This kind of breakage can be ok, but a [`crater`] run should estimate the scope.
 
+### Could an implementation use existing functionality?
+
+Types like `String` are implemented in terms of `Vec<u8>` and can use methods on `str` through deref coersion. `Vec<T>` can use methods on `[T]` through deref coersion. When possible, methods on a wrapping type like `String` should defer to methods that already exis on their underlying storage or deref target.
+
 ### Are there `#[fundamental]` items involved?
 
 Blanket trait impls can't be added to `#[fundamental]` types because they have different coherence rules. See [RFC 1023] for details. That includes:
@@ -165,7 +167,7 @@ Changes to collection internals may affect the order their items are dropped in.
 
 #### `mem::replace` and `mem::swap`
 
-Any value behind a `&mut` reference can be replaced with a new one using `mem::replace` or `mem::swap`.
+Any value behind a `&mut` reference can be replaced with a new one using `mem::replace` or `mem::swap`, so code shouldn't assume any reachable mutable references can't have their internals changed by replacing.
 
 #### `mem::forget`
 
@@ -199,11 +201,13 @@ Unstable features can be merged as normal through [`bors`] once they look ready.
 
 ### When there’s new trait impls
 
-There’s no way to make a trait impl `#[unstable]`, so **any PRs that add new impls for already stable traits must go through a FCP before merging.** If the trait itself is unstable though, then the impl needs to be unstable too.
+There’s no way to make a trait impl for a stable trait unstable, so **any PRs that add new impls for already stable traits must go through a FCP before merging.** If the trait itself is unstable though, then the impl needs to be unstable too.
 
 ### When a feature is being stabilized
 
 Features can be stabilized in a PR that replaces `#[unstable]` attributes with `#[stable]` ones. The feature needs to have an accepted RFC before stabilizing. They also need to go through a FCP before merging.
+
+You can find the right version to use in the `#[stable]` attribute by checking the [Forge].
 
 [API Guidelines]: https://rust-lang.github.io/api-guidelines
 [Unsafe Code Guidelines WG]: https://github.com/rust-lang/unsafe-code-guidelines
@@ -216,6 +220,7 @@ Features can be stabilized in a PR that replaces `#[unstable]` attributes with `
 [`rust-timer`]: https://github.com/rust-lang-nursery/rustc-perf
 [Libs tracking issues]: https://github.com/rust-lang/rust/issues?q=label%3AC-tracking-issue+label%3AT-libs
 [Drop guarantee]: https://doc.rust-lang.org/nightly/std/pin/index.html#drop-guarantee
+[Forge]: https://forge.rust-lang.org/
 [RFC 1023]: https://rust-lang.github.io/rfcs/1023-rebalancing-coherence.html
 [RFC 1105]: https://rust-lang.github.io/rfcs/1105-api-evolution.html
 [Everyone Poops]: http://cglab.ca/~abeinges/blah/everyone-poops
