@@ -16,7 +16,7 @@ cache:
 before_script:
   # TODO: Installing mdbook from crates.io takes quite a long time. This could
   # be reduced by downloading the release from GitHub directly.
-  - mdbook -V || cargo install mdbook --vers '^0.3.0'
+  - mdbook -V || cargo install mdbook --vers '=0.3.1'
 script:
   - mdbook build
   - cp website_config.json book/
