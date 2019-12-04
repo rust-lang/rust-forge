@@ -191,7 +191,7 @@ PRs to [`rust-lang/rust`] aren’t merged manually using GitHub’s UI or by pus
 
 For Libs PRs, rolling up is usually fine, in particular if it's only a new unstable addition or if it only touches docs (with the exception of intra doc links which complicates things while the feature has bugs...).
 
-If a submodule is affected then probably don't `rollup`. If the feature affects perf then also avoid `rollup`.
+If a submodule is affected then probably don't `rollup`. If the feature affects perf then also avoid `rollup` -- mark it as `rollup=never`.
 
 ### When there’s new public items
 
