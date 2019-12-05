@@ -39,6 +39,8 @@
 - [Language](./lang/README.md)
     - [RFC Merge Procedure](./lang/rfc-merge-procedure.md)
     - [Triage Meeting Procedure](./lang/triage-meeting-procedure.md)
+- [Libs](./libs/README.md)
+    - [Maintaining the standard library](./libs/maintaining-std.md)
 - [Release](./release/README.md)
     - [Beta Backporting](./release/beta-backporting.md)
     - [Platform Support](./release/platform-support.md)
