@@ -6,6 +6,10 @@ This document is an effort to capture some of the context needed to develop and 
 
 This document doesn't attempt to discuss best practices or good style. For that, see the [API Guidelines].
 
+## Contributing
+
+If you spot anything that is outdated, under specified, missing, or just plain incorrect then feel free to open up a PR on the [`rust-lang/rust-forge`] repository!
+
 ## Terms
 
 - Libs. That's us! The team responsible for development and maintenance of the standard library (among other things).
@@ -213,6 +217,7 @@ You can find the right version to use in the `#[stable]` attribute by checking t
 [Unsafe Code Guidelines WG]: https://github.com/rust-lang/unsafe-code-guidelines
 [`rust-lang/rust`]: https://github.com/rust-lang/rust
 [`rust-lang/rfcs`]: https://github.com/rust-lang/rfcs
+[`rust-lang/rust-forge`]: https://github.com/rust-lang/rust-forge
 [`rfcbot`]: https://github.com/rust-lang/rfcbot-rs
 [`bors`]: https://github.com/rust-lang/homu
 [`highfive`]: https://github.com/rust-lang/highfive
