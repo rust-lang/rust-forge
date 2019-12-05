@@ -173,7 +173,7 @@ Any value behind a `&mut` reference can be replaced with a new one using `mem::r
 
 Rust doesn't guarantee destructors will run when a value is leaked (which can be done with `mem::forget`), so code should avoid relying on them for maintaining safety. Remember, [everyone poops][Everyone Poops].
 
-It's ok not to run a destructor when a value is leaked because its storage isn't deallocated or repurposed. It's generally _not_ ok not to run a destructor before deallocating or repurposing already initialized storage because [memory may be pinned][Drop guarantee]. Having said that, there can be exceptions for skipping destructors if you can guarantee there's never pinning involved.
+It's ok not to run a destructor when a value is leaked because its storage isn't deallocated or repurposed. If the storage is initialized and is being deallocating or repurposing then destructors need to be run first, because [memory may be pinned][Drop guarantee]. Having said that, there can still be exceptions for skipping destructors when deallocating if you can guarantee there's never pinning involved.
 
 ### How is performance impacted?
 
