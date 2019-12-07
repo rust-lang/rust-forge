@@ -131,12 +131,14 @@ impl Blacksmith {
             ("rustc-diagnostic-code.html", "/compiler/diagnostic-codes.html"),
             ("rustc-team-maintenance.html", "/infra/team-maintenance.html"),
             ("stabilization-guide.html", "https://rust-lang.github.io/rustc-guide/stabilization_guide.html"),
-            ("stabilization-guide.html", "https://rust-lang.github.io/rustc-guide/stabilization_guide.html"),
             ("state-of-rust.html", "https://github.com/rust-lang/rust/projects/8"),
             ("test-suite.html", "https://rust-lang.github.io/rustc-guide/tests/intro.html"),
             ("toolstate.html", "/infra/toolstate.html"),
             ("triage-procedure.html", "/release/triage-procedure.html"),
             ("x-py.html", "https://rust-lang.github.io/rustc-guide/building/how-to-build-and-run.html"),
+            ("bug-fix-procedure.html", "https://rust-lang.github.io/rustc-guide/bug-fix-procedure.html"),
+            ("diagnostic-codes.html", "https://rust-lang.github.io/rustc-guide/diagnostics/diagnostic-codes.html"),
+            ("profile-queries.html", "https://rust-lang.github.io/rustc-guide/queries/profiling.html"),
         ];
 
         // Inititalise book directory if not built yet.
