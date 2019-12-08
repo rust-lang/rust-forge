@@ -4,6 +4,7 @@ use std::{
     collections::BTreeMap,
     fmt::Write,
     io::{BufRead, BufReader},
+    path::Path,
 };
 
 use mdbook::{
@@ -136,9 +137,9 @@ impl Blacksmith {
             ("toolstate.html", "/infra/toolstate.html"),
             ("triage-procedure.html", "/release/triage-procedure.html"),
             ("x-py.html", "https://rust-lang.github.io/rustc-guide/building/how-to-build-and-run.html"),
-            ("bug-fix-procedure.html", "https://rust-lang.github.io/rustc-guide/bug-fix-procedure.html"),
-            ("diagnostic-codes.html", "https://rust-lang.github.io/rustc-guide/diagnostics/diagnostic-codes.html"),
-            ("profile-queries.html", "https://rust-lang.github.io/rustc-guide/queries/profiling.html"),
+            ("compiler/bug-fix-procedure.html", "https://rust-lang.github.io/rustc-guide/bug-fix-procedure.html"),
+            ("compiler/diagnostic-codes.html", "https://rust-lang.github.io/rustc-guide/diagnostics/diagnostic-codes.html"),
+            ("compiler/profile-queries.html", "https://rust-lang.github.io/rustc-guide/queries/profiling.html"),
         ];
 
         // Inititalise book directory if not built yet.
@@ -150,6 +151,10 @@ impl Blacksmith {
                 .replace("{{url}}", url);
 
             log::trace!("Redirecting {} to {}.", filename, url);
+
+            if let Some(parent) = Path::new(filename).parent() {
+                std::fs::create_dir_all(parent).unwrap();
+            }
 
             std::fs::write(dir.join(filename), template).unwrap();
         }
