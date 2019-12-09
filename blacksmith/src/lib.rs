@@ -153,7 +153,7 @@ impl Blacksmith {
             log::trace!("Redirecting {} to {}.", filename, url);
 
             if let Some(parent) = Path::new(filename).parent() {
-                std::fs::create_dir_all(parent).unwrap();
+                std::fs::create_dir_all(dir.join(parent)).unwrap();
             }
 
             std::fs::write(dir.join(filename), template).unwrap();
