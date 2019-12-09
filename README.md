@@ -12,6 +12,8 @@ documentation useful for members of [The Rust Programming Language].
 $ mdbook build
 ```
 
+This will build and run the `blacksmith` tool automatically.
+
 # Development
 
 When developing it's recommended to use the `serve` command to launch a local
