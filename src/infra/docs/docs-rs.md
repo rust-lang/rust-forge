@@ -53,9 +53,9 @@ systemctl restart docs.rs
 To return to the latest nightly simply remove the environment variable and
 restart docs.rs again.
 
-### Requeue a specific crate
+### Rebuild a specific crate
 
-If a bug was recently fixed, you may want to requeue a crate so that it builds with the latest version.
+If a bug was recently fixed, you may want to rebuild a crate so that it builds with the latest version.
 From the docs.rs machine:
 
 ```
