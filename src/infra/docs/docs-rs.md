@@ -53,6 +53,17 @@ systemctl restart docs.rs
 To return to the latest nightly simply remove the environment variable and
 restart docs.rs again.
 
+### Requeue a specific crate
+
+If a bug was recently fixed, you may want to requeue a crate so that it builds with the latest version.
+From the docs.rs machine:
+
+```
+cratesfyi queue add <crate> <version>
+```
+
+This will add the crate with a lower priority than new crates by default, you can change the priority with the `-p` option.
+
 ### Adding all the crates failed after a date back in the queue
 
 After an outage you might want to add all the failed builds back to the queue.
