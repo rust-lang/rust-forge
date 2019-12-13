@@ -141,7 +141,7 @@ not available.
 
 target | std | rustc | cargo | notes
 -------|-----|-------|-------|-------
-`aarch64-unknown-freebsd` | ? |  |  |
+`aarch64-unknown-freebsd` | ✓ | ✓ | ✓ | ARM64 FreeBSD
 `aarch64-unknown-hermit` | ? |  |  |
 `aarch64-unknown-netbsd` | ? |  |  |
 `aarch64-unknown-none` | ? |  |  |
