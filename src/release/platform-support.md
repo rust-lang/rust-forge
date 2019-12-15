@@ -157,7 +157,6 @@ target | std | rustc | cargo | notes
 `armv7-wrs-vxworks-eabihf` | ? |  |  |
 `hexagon-unknown-linux-musl` | ? |  |  |
 `i686-pc-windows-msvc` | ✓ |  |  | 32-bit Windows XP support
-`i686-unknown-dragonfly` | ? |  |  |
 `i686-unknown-haiku` | ✓ | ✓ | ✓ | 32-bit Haiku
 `i686-unknown-netbsd` | ✓ |  |  | NetBSD/i386 with SSE2
 `i686-unknown-openbsd` | ✓ | ✓ | ✓ | 32-bit OpenBSD
