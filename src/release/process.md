@@ -8,8 +8,10 @@ Promote beta to stable. Temporarily turn off GitHub branch protection for the
 `stable` branch in rust-lang/rust repo. In your local Rust repo:
 
 ```sh
-$ git fetch rust-lang
-$ git push rust-lang rust-lang/beta:stable -f
+$ git fetch origin
+$ git push origin origin/beta:stable -f
+# make sure that the release notes file is as fresh as possible
+$ git checkout origin/master -- RELEASES.md
 ```
 
 Re-enable branch protection for the `stable` branch. Send a PR to rust-lang/rust
@@ -148,7 +150,7 @@ Decide on a time to do the release, T.
   `cargo publish` for the tag you just created. You'll first need to comment
   out `cargo-test-macro` from Cargo.toml, then publish `crates-io` (in
   `crates/crates-io`) and finally publish `cargo` itself.
-  
+
   To publish Cargo you may have to bump the version numbers for the crates-io and Cargo crates; there's no need to do that in a formal commit though, so your tag and the published code may differentiate in that way.
 
 - **T+1hr** Send a PR to the beta branch to comment out `dev: 1` again and
