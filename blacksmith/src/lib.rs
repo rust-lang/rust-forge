@@ -10,7 +10,7 @@ use std::{
 use mdbook::{
     book::{Book, BookItem},
     errors::Error,
-    preprocess::{Preprocessor, PreprocessorContext}
+    preprocess::{Preprocessor, PreprocessorContext},
 };
 
 const CHANNELS: &[&str] = &["stable", "beta", "nightly"];
@@ -42,7 +42,7 @@ impl Default for Platform {
 pub struct Blacksmith {
     rustup: Vec<String>,
     stable_version: Option<String>,
-    platforms: BTreeMap<String, Platform>
+    platforms: BTreeMap<String, Platform>,
 }
 
 impl Blacksmith {
@@ -54,7 +54,8 @@ impl Blacksmith {
     /// Populates a `Blacksmith` instance with data gathered from Rust's CI and
     /// distribution channels.
     pub fn init(mut self) -> Result<Self, Box<dyn std::error::Error>> {
-        let rustup_url_regex = regex::Regex::new(r"^rustup/dist/([^/]+)/rustup-init(?:\.exe)?$").unwrap();
+        let rustup_url_regex =
+            regex::Regex::new(r"^rustup/dist/([^/]+)/rustup-init(?:\.exe)?$").unwrap();
         for line in BufReader::new(reqwest::get(RUSTUP_URLS)?).lines() {
             if let Some(m) = rustup_url_regex.captures(&(line?)) {
                 self.rustup.push(m.get(1).unwrap().as_str().to_string());
@@ -65,7 +66,9 @@ impl Blacksmith {
         for &channel_name in CHANNELS {
             let channel_url = format!("{}{}.toml", CHANNEL_URL_PREFIX, channel_name);
             let content = reqwest::get(&channel_url)?.text()?;
-            let rust = toml::from_str::<crate::channel::Channel>(&content)?.pkg.rust;
+            let rust = toml::from_str::<crate::channel::Channel>(&content)?
+                .pkg
+                .rust;
             log::info!(
                 "Found {} targets for {} channel (v{})",
                 rust.target.len(),
@@ -84,14 +87,17 @@ impl Blacksmith {
                         None
                     }
                 })
-            .collect::<Vec<_>>();
+                .collect::<Vec<_>>();
 
             if channel_name == "stable" {
                 self.stable_version = Some(vers.clone());
             }
 
             for platform in platforms {
-                let entry = self.platforms.entry(platform).or_insert_with(|| Platform::default());
+                let entry = self
+                    .platforms
+                    .entry(platform)
+                    .or_insert_with(Platform::default);
 
                 match channel_name {
                     "stable" => entry.stable = Some(vers.clone()),
@@ -107,14 +113,15 @@ impl Blacksmith {
 
     fn generate_redirects(&self, ctx: &PreprocessorContext) {
         if ctx.renderer != "html" {
-            return
+            return;
         }
 
         let dir = ctx.config.build.build_dir.as_path();
 
         /// A list of pairs of file names and where to redirect to from their
         /// page.
-        const REDIRECTS: &'static [(&str, &str)] = &[
+        #[rustfmt::skip]
+        const REDIRECTS: &[(&str, &str)] = &[
             ("beta-backporting.html", "/release/beta-backporting.html"),
             ("bibliography.html", "https://rust-lang.github.io/rustc-guide/appendix/bibliography.html"),
             ("channel-layout.html", "/infra/channel-layout.html"),
@@ -147,8 +154,7 @@ impl Blacksmith {
 
         log::info!("Generating {} redirect pages.", REDIRECTS.len());
         for (filename, url) in REDIRECTS {
-            let template = include_str!("../redirect.html")
-                .replace("{{url}}", url);
+            let template = include_str!("../redirect.html").replace("{{url}}", url);
 
             log::trace!("Redirecting {} to {}.", filename, url);
 
@@ -196,7 +202,8 @@ impl Blacksmith {
             buffer,
             "platform | stable ({}) | beta | nightly",
             self.stable_version.as_ref().unwrap()
-        ).unwrap();
+        )
+        .unwrap();
 
         writeln!(buffer, "---------|--------|------|--------").unwrap();
 
@@ -209,8 +216,8 @@ impl Blacksmith {
                 "tar.gz"
             };
 
-
-            let stable_links = platform.stable
+            let stable_links = platform
+                .stable
                 .as_ref()
                 .map(|version| generate_standalone_links("rust", version, name, extension))
                 .unwrap_or_else(String::new);
@@ -234,7 +241,8 @@ impl Blacksmith {
                 stable = stable_links,
                 beta = beta_links,
                 nightly = nightly_links
-            ).unwrap();
+            )
+            .unwrap();
         }
 
         buffer
@@ -251,15 +259,21 @@ impl Blacksmith {
         for &channel in CHANNELS {
             if channel == "stable" {
                 let stable_version = self.stable_version.as_ref().unwrap();
-                writeln!(buffer, "stable ({}) | {}",
+                writeln!(
+                    buffer,
+                    "stable ({}) | {}",
                     stable_version,
                     generate_standalone_links("rustc", stable_version, "src", "tar.gz")
-                ).unwrap();
+                )
+                .unwrap();
             } else {
-                writeln!(buffer, "{} | {}",
+                writeln!(
+                    buffer,
+                    "{} | {}",
                     channel,
                     generate_standalone_links("rustc", &channel, "src", "tar.gz")
-                ).unwrap();
+                )
+                .unwrap();
             }
         }
 
@@ -276,7 +290,7 @@ fn generate_standalone_links(base: &str, stem: &str, name: &str, extension: &str
         name = name,
         stem = stem,
         base = base,
-        );
+    );
 
     format!(
         "[{extension}]({url}) <br> [{extension}.asc]({url}.asc)",
