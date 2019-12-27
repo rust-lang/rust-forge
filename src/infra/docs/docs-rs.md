@@ -80,6 +80,19 @@ HH:MM:SS` back in the queue:
 UPDATE queue SET attempt = 0 WHERE attempt >= 5 AND build_time > 'YYYY-MM-DD HH:MM:SS';
 ```
 
+### Removing a crate from the website
+
+Sometimes it might be needed to remove all the content related to a crate from
+docs.rs (for example after receiving a DMCA). To do that, log into the server
+and run:
+
+```
+cratesfyi database delete-crate CRATE_NAME
+```
+
+The command will remove all the data from the database, and then remove the
+files from S3.
+
 [repo]: https://github.com/rust-lang/docs.rs
 [grafana-instance]: https://grafana.rust-lang.org/d/rpXrFfKWz/instance-metrics?orgId=1&var-instance=docsrs.infra.rust-lang.org:9100
 [grafana-app]: https://grafana.rust-lang.org/d/-wWFg2cZz/docs-rs?orgId=1
