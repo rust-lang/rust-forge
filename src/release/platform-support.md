@@ -173,7 +173,6 @@ target | std | rustc | cargo | notes
 `mipsisa64r6el-unknown-linux-gnuabi64` | ? |  |  |
 `msp430-none-elf` | * |  |  | 16-bit MSP430 microcontrollers
 `nvptx64-nvidia-cuda` | ** |  |  | --emit=asm generates PTX code that [runs on NVIDIA GPUs]
-`nvptx64-nvidia-cuda` | ** |  |  | --emit=asm generates PTX code that [runs on NVIDIA GPUs]
 `powerpc-unknown-linux-musl` | ? |  |  |
 `powerpc-unknown-netbsd` | ? |  |  |
 `powerpc-wrs-vxworks` | ? |  |  |
