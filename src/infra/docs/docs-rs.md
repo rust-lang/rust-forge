@@ -93,6 +93,21 @@ cratesfyi database delete-crate CRATE_NAME
 The command will remove all the data from the database, and then remove the
 files from S3.
 
+### Blacklisting crates
+
+Occasionally it might be needed to prevent a crate from being built on docs.rs,
+for example if we can't legally host the content of those crates. To add a
+crate to the blacklist, preventing new builds for it, you can run:
+
+```
+cratesfyi database blacklist add <CRATE_NAME>
+```
+
+Other operations (such as `list` and `remove`) are also supported.
+
+> **Warning:** blacklisting a crate doesn't remove existing content from the
+> website, it just prevents new versions from being built!
+
 [repo]: https://github.com/rust-lang/docs.rs
 [grafana-instance]: https://grafana.rust-lang.org/d/rpXrFfKWz/instance-metrics?orgId=1&var-instance=docsrs.infra.rust-lang.org:9100
 [grafana-app]: https://grafana.rust-lang.org/d/-wWFg2cZz/docs-rs?orgId=1
