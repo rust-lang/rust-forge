@@ -149,10 +149,11 @@ target | std | rustc | cargo | notes
 `armv4t-unknown-linux-gnueabi` | ? |  |  |
 `armv6-unknown-freebsd` | ✓ | ✓ | ✓ | ARMv6 FreeBSD
 `armv6-unknown-netbsd-eabihf` | ? |  |  |
-`armv7-apple-ios` | �[38;5;81m~\~S |  |  | ARMv7 iOS, Cortex-
+`armv7-apple-ios` | ✓ |  |  | RMv7 iOS, Cortex-
 `armv7-unknown-freebsd` | ✓ | ✓ | ✓ | ARMv7 FreeBSD
 `armv7-unknown-netbsd-eabihf` | ? |  |  |
 `armv7-wrs-vxworks-eabihf` | ? |  |  |
+`armv7s-apple-ios` | ✓ |  |  |
 `hexagon-unknown-linux-musl` | ? |  |  |
 `i386-apple-ios` | ✓ |  |  | 32-bit x86 iOS
 `i686-apple-darwin` | ✓ | ✓ | ✓ | 32-bit OSX (10.7+, Lion+)
