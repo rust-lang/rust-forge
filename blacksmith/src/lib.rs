@@ -5,6 +5,7 @@ use std::{
     fmt::Write,
     io::{BufRead, BufReader},
     path::Path,
+    time::SystemTime,
 };
 
 use mdbook::{
@@ -21,6 +22,7 @@ const RUSTUP_URLS: &str =
 /// A representation of a rust target platform. `stable`, `beta`, and `nightly`
 /// represent whether the platform is available on that channel. `stable` also
 /// carries the specific stable compiler version.
+#[derive(serde::Serialize, serde::Deserialize)]
 pub struct Platform {
     stable: Option<String>,
     beta: bool,
@@ -38,8 +40,9 @@ impl Default for Platform {
 }
 
 /// `Blacksmith` builds dynamic tables and lists to display in the Rust Forge.
-#[derive(Default)]
+#[derive(Default, serde::Serialize, serde::Deserialize)]
 pub struct Blacksmith {
+    last_update: Option<u64>,
     rustup: Vec<String>,
     stable_version: Option<String>,
     platforms: BTreeMap<String, Platform>,
@@ -51,17 +54,30 @@ impl Blacksmith {
         Self::default()
     }
 
+    /// Check if the data in this `Blacksmith` instance was not updated within the TTL.
+    pub fn is_stale(&self, ttl: u64) -> bool {
+        if let (Some(last_update), Some(now)) = (self.last_update, unix_time()) {
+            last_update + ttl < now
+        } else {
+            true
+        }
+    }
+
     /// Populates a `Blacksmith` instance with data gathered from Rust's CI and
     /// distribution channels.
-    pub fn init(mut self) -> Result<Self, Box<dyn std::error::Error>> {
+    pub fn init() -> Result<Self, Box<dyn std::error::Error>> {
+        let mut blacksmith = Self::new();
+
         let rustup_url_regex =
             regex::Regex::new(r"^rustup/dist/([^/]+)/rustup-init(?:\.exe)?$").unwrap();
         for line in BufReader::new(reqwest::get(RUSTUP_URLS)?).lines() {
             if let Some(m) = rustup_url_regex.captures(&(line?)) {
-                self.rustup.push(m.get(1).unwrap().as_str().to_string());
+                blacksmith
+                    .rustup
+                    .push(m.get(1).unwrap().as_str().to_string());
             }
         }
-        log::info!("Found {} targets for rustup", self.rustup.len());
+        log::info!("Found {} targets for rustup", blacksmith.rustup.len());
 
         for &channel_name in CHANNELS {
             let channel_url = format!("{}{}.toml", CHANNEL_URL_PREFIX, channel_name);
@@ -90,11 +106,11 @@ impl Blacksmith {
                 .collect::<Vec<_>>();
 
             if channel_name == "stable" {
-                self.stable_version = Some(vers.clone());
+                blacksmith.stable_version = Some(vers.clone());
             }
 
             for platform in platforms {
-                let entry = self
+                let entry = blacksmith
                     .platforms
                     .entry(platform)
                     .or_insert_with(Platform::default);
@@ -108,7 +124,8 @@ impl Blacksmith {
             }
         }
 
-        Ok(self)
+        blacksmith.last_update = unix_time();
+        Ok(blacksmith)
     }
 
     fn generate_redirects(&self, ctx: &PreprocessorContext) {
@@ -297,6 +314,13 @@ fn generate_standalone_links(base: &str, stem: &str, name: &str, extension: &str
         extension = extension,
         url = url,
     )
+}
+
+fn unix_time() -> Option<u64> {
+    SystemTime::now()
+        .duration_since(SystemTime::UNIX_EPOCH)
+        .ok()
+        .map(|d| d.as_secs())
 }
 
 impl Preprocessor for Blacksmith {

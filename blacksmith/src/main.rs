@@ -1,9 +1,15 @@
-use std::{env, io, process};
+use std::{env, io, path::Path, process};
 
 use clap::{clap_app, ArgMatches};
-use mdbook::{errors::Error, preprocess::{CmdPreprocessor, Preprocessor}};
+use mdbook::{
+    errors::Error,
+    preprocess::{CmdPreprocessor, Preprocessor},
+};
 
 use mdbook_blacksmith::Blacksmith;
+
+const CACHE_FILE: &str = ".blacksmith-cache.json";
+const CACHE_TTL_SECONDS: u64 = 3600; // 1 hour
 
 fn main() {
     // If RUST_LOG is present use that, else default to info level printing.
@@ -21,7 +27,8 @@ fn main() {
             (about: "Check whether a renderer is supported by this preprocessor")
             (@arg renderer: +takes_value +required)
         )
-    ).get_matches();
+    )
+    .get_matches();
 
     macro_rules! log_unwrap {
         ($result:expr) => {
@@ -32,15 +39,37 @@ fn main() {
                     process::exit(1);
                 }
             }
-        }
+        };
     }
 
-    let blacksmith = Blacksmith::new();
+    let cache_file = Path::new(CACHE_FILE);
+    let mut blacksmith = if cache_file.is_file() {
+        log_unwrap!(serde_json::from_slice(&log_unwrap!(std::fs::read(
+            &cache_file
+        ))))
+    } else {
+        Blacksmith::new()
+    };
 
     if let Some(sub_args) = matches.subcommand_matches("supports") {
         handle_supports(&blacksmith, sub_args);
-    } else  {
-        log_unwrap!(handle_preprocessing(&log_unwrap!(blacksmith.init())))
+    } else {
+        let mut update_cache = false;
+        if blacksmith.is_stale(CACHE_TTL_SECONDS) {
+            blacksmith = log_unwrap!(Blacksmith::init());
+            update_cache = true;
+        } else {
+            log::info!("Using cached data in {}", cache_file.display());
+        }
+        log_unwrap!(handle_preprocessing(&blacksmith));
+
+        if update_cache {
+            log::info!("Storing the cache in {}", cache_file.display());
+            log_unwrap!(std::fs::write(
+                &cache_file,
+                &log_unwrap!(serde_json::to_vec(&blacksmith))
+            ));
+        }
     }
 }
 
@@ -76,4 +105,3 @@ fn handle_supports(pre: &Blacksmith, sub_args: &ArgMatches) -> ! {
         process::exit(1);
     }
 }
-
