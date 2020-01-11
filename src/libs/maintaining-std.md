@@ -163,6 +163,10 @@ Blanket trait impls can't be added to `#[fundamental]` types because they have d
 
 We try to avoid leaning on specialization too heavily, limiting its use to optimizing specific implementations. These specialized optimizations use a private trait to find the correct implementation, rather than specializing the public method itself. Any use of specialization that changes how methods are dispatched for external callers should be carefully considered.
 
+### Are there public enums?
+
+Public enums should have a `#[non_exhaustive]` attribute if there's any possibility of new variants being introduced, so that they can be added without causing breakage.
+
 ### Does this change drop order?
 
 Changes to collection internals may affect the order their items are dropped in. This has been accepted in the past, but should be noted.
@@ -177,7 +181,7 @@ Any value behind a `&mut` reference can be replaced with a new one using `mem::r
 
 Rust doesn't guarantee destructors will run when a value is leaked (which can be done with `mem::forget`), so code should avoid relying on them for maintaining safety. Remember, [everyone poops][Everyone Poops].
 
-It's ok not to run a destructor when a value is leaked because its storage isn't deallocated or repurposed. If the storage is initialized and is being deallocating or repurposing then destructors need to be run first, because [memory may be pinned][Drop guarantee]. Having said that, there can still be exceptions for skipping destructors when deallocating if you can guarantee there's never pinning involved.
+It's ok not to run a destructor when a value is leaked because its storage isn't deallocated or repurposed. If the storage is initialized and is being deallocated or repurposed then destructors need to be run first, because [memory may be pinned][Drop guarantee]. Having said that, there can still be exceptions for skipping destructors when deallocating if you can guarantee there's never pinning involved.
 
 ### How is performance impacted?
 
