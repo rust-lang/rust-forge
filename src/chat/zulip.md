@@ -11,7 +11,7 @@ examine the [Zulip user documentation](https://zulipchat.com/help/)!
 ## Where to go for help with using Zulip
 
 If you're testing a feature, or want to get help, the `#zulip` stream is the
-place to go. Like elsewhere, the best thing to do is to create a new topic with
+place to go. Like elsewhere, the best thing to do is to create a new topic
 for each question.
 
 ## Getting started
