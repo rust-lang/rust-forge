@@ -5,14 +5,14 @@ group discusison, read on! This page has all the details.
 
 ## TL;DR
 
-In short, all you have to do is 
+In short, all you have to do is
 
-* [open an issue on the compiler-team repository][ct issues]
-    * use the template for meeting proposals
-    * you only need a few sentences to start, but by the time the meeting
-      takes place we typically expect a more detailed writeup, e.g.
-      using [this template](
-    
+- [open an issue on the compiler-team repository][ct issues]
+  - use the template for meeting proposals
+  - you only need a few sentences to start, but by the time the meeting
+    takes place we typically expect a more detailed writeup, e.g.
+    using [this template][template]
+
 You don't have to have a lot of details to start: just a few sentences
 is enough. But, especially for technical design discussions, we will
 typically expect that some form of more detailed overview be made
@@ -32,7 +32,7 @@ suitable for the steering meeting:
   to be able to explain the work they did and request review.
 
 Steering meetings are also a good place to discuss other kinds of proposals:
-  
+
 - A proposal to move some part of the compiler into an out-of-tree crate.
 - A proposal to start a new working group.
 
@@ -97,5 +97,5 @@ meetings are not mandatory. If there aren't enough proposals in some
 particular iteration, then we can just opt to not discuss anything.
 
 [ct issues]: https://github.com/rust-lang/compiler-team/issues
-[template]: XXX
-
+[template]: https://github.com/rust-lang/compiler-team/blob/master/templates/steering-meeting-proposal.md
+[minutes]: https://github.com/rust-lang/compiler-team/tree/master/content/minutes
