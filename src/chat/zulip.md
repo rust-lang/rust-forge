@@ -1,6 +1,6 @@
 # Zulip
 
-[Rust's Zulip](rust-lang.zulipchat.com) is used by a number of teams, notably
+[Rust's Zulip](https://rust-lang.zulipchat.com) is used by a number of teams, notably
 the compiler, language, and library teams, along with their working groups.
 
 Zulip can be an unintuitive platform to get started with. To get started, take a
