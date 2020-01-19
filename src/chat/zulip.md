@@ -93,13 +93,13 @@ Currently this set is:
  * wg-traits
  * zulip
 
-An alternative, minimialistic, approach is to use:
+An alternative, minimalistic, approach is to use:
  * general
  * zulip
  * announce
  * new members
 
-as the default set which forces people into customizing their default set when
+as the default set, which would push people into customizing their default set when
 starting out.
 
 ### Stream naming
@@ -126,7 +126,7 @@ generally done automatically by Zulip.
 
 ## Topics
 
-One of these is attached to every message within a given stream (these are the
+A topic is attached to every message within a given stream (these are the
 subdivisions within streams). Topics are generally transient, and live for as
 long as there is active discussion on a topic. Thinking of topics like email
 subjects is helpful.

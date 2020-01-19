@@ -28,11 +28,11 @@ consensus on which solution to take".
 
 ## After the meeting
 
-* Post the final contents of the summary hackmd as minutes to [the
-  `minutes/design-meeting` directory in the compiler-team
+* Post the final contents of the summary hackmd as minutes to the
+  [`minutes/design-meeting` directory in the compiler-team
   repository][ct]
-* (Optional) create a Inside Rust blog post pointing people at the
+* (Optional) Create an Inside Rust blog post pointing people at the
   minutes and maybe giving a few notes
-  
+
 [ct]: https://github.com/rust-lang/compiler-team/tree/master/content/minutes/design-meeting
 

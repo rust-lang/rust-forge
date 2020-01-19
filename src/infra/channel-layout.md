@@ -68,7 +68,7 @@ There are then a number of top level sections (tables) which are:
 
 - `profiles` - This is part of the future setup for deciding the default
   component set to install. Instead of choosing the `components` of `pkg.rust`
-  instead `rustup` will honour one of the entries in the `profiles` table.
+  instead `rustup` will honor one of the entries in the `profiles` table.
   Usually this will be the `default` entry which _essentially_ (though not
   exactly) boils down to
   `["rustc", "cargo", "rust-std", "rust-docs", "rustfmt", "clippy"]`.
@@ -99,7 +99,7 @@ Here you can see that this is for the `cargo` package, and for the
 and the `xz_url`/`xz_hash` pair for the same tarball compressed with `xz`.
 Either pair of url and hash could be present, both may be present, but it is not
 useful for neither to be present unless `available` is set to `false` to
-indicate that that particular combiantion of package and target is unavailable
+indicate that that particular combination of package and target is unavailable
 in this channel at this time.
 
 In addition, there will be a single entry providing the version for a package in

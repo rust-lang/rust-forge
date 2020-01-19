@@ -4,7 +4,7 @@ This section documents the processes of the community team, and related projects
 
 ### External Links
 
-- The [Community team] GitHub repository contains information about how the community team organises.
+- The [Community team] GitHub repository contains information about how the community team organizes.
 - The [RustBridge] website contains information on hosting your own local RustBridge event.
 - [Rustlings] is an project with small exercises designed around getting newcomers used to reading and writing Rust.
 

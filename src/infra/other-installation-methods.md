@@ -89,7 +89,7 @@ documentation, but do not provide access to additional cross-targets like
 The most common reasons to use these are:
 
 - Offline installation
-- Prefering a more platform-integrated, graphical installer on Windows
+- Preferring a more platform-integrated, graphical installer on Windows
 
 Each of these binaries is signed with the [Rust signing key], which is
 [available on keybase.io], by the Rust build infrastructure, with [GPG]. In the
