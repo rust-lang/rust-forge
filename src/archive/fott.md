@@ -7,7 +7,7 @@ archived here for eternal glory.
 
 ## 2016-02-26 @mitaa
 
-This week wed'd like to nominate @mitaa as Friend of the Tree. Recently @mitaa
+This week we would like to nominate @mitaa as Friend of the Tree. Recently @mitaa
 [has][rd1] [sent][rd2] [a][rd3] [wave][rd4] [of][rd5] [fixes][rd6] [to][rd7]
 [rustdoc][rd8] (yes those are all separate links) with even more on the way!
 Rustdoc has historically been a tool in need of some love, and the extra help in

@@ -43,7 +43,7 @@ journalctl -u container-crater-agent.service
 ### Manually updating the container image
 
 The container is updated automatically every 5 minutes (provided a newer image
-is present). If you need to update them sooner you can manuallly start the
+is present). If you need to update them sooner you can manually start the
 updater service by running this command:
 
 ```

@@ -1,7 +1,7 @@
 # Submitting a proposal
 
 If you would like to submit a proposal to the steering meeting for
-group discusison, read on! This page has all the details.
+group discussion, read on! This page has all the details.
 
 ## TL;DR
 
