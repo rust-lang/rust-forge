@@ -34,6 +34,7 @@ not forgotten
 Add the following labels to the issue:
 
 - `B-rfc-approved`
+- `C-tracking-issue`
 - the approriate `T-XXX` label
 
 (If you don't have permissions to do so, leave a note cc'ing the appropriate
