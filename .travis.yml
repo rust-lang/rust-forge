@@ -13,10 +13,16 @@ cache:
     - $HOME/.cargo
     - $TRAVIS_BUILD_DIR/target
 
-before_script:
-  # TODO: Installing mdbook from crates.io takes quite a long time. This could
-  # be reduced by downloading the release from GitHub directly.
-  - mdbook -V || cargo install mdbook --vers '=0.3.1'
+before_install:
+  - sudo apt-get update
+  - sudo apt-get -y install jq curl
+  # Retrieve latest mdbook release.
+  - RELEASES="$(curl https://api.github.com/repos/rust-lang/mdbook/releases/latest)"
+  # Filter to just the url for the `unknown-linux-gnu` release.
+  - URL=$(echo $RELEASES | jq -r '.assets[] as $in | $in.name | match("unknown-linux-gnu") | $in.browser_download_url')
+  # Download and untar the binary into the path.
+  - curl -L $URL | sudo tar xz -C /usr/local/bin
+
 script:
   - mdbook build
   - cp website_config.json book/
