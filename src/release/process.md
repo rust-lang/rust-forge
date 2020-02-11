@@ -94,6 +94,7 @@ branch of rust-lang/rust which:
   - Change `rustc` to "X.Y.Z" where that's the version of rustc you just build
   - Change `cargo` to "A.B.C" where it's Cargo's version. That's typically
     "0.(Y+1).0" wrt the rustc version.
+  - Comment `rustfmt: nightly-YYYY-MM-DD`
   - Uncomment `dev: 1`
 - Update src/ci/run.sh to pass "--release-channel=beta".
 
