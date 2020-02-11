@@ -17,6 +17,8 @@
         - [Submitting a proposal](./compiler/steering-meeting/submit.md)
         - [How to run the planning meeting](./compiler/steering-meeting/how-to-run-planning.md)
         - [How to run a design meeting](./compiler/steering-meeting/how-to-run-design.md)
+- [crates.io](./crates-io/README.md)
+    - [Crate removal](./crates-io/crate-removal.md)
 - [GitHub](./github.md)
 - [Governance](./governance/README.md)
 - [Infrastructure](./infra/README.md)
