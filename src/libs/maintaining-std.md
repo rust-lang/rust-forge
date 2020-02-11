@@ -161,6 +161,12 @@ Blanket trait impls can't be added to `#[fundamental]` types because they have d
 
 ### Is specialization involved?
 
+[#68358]: https://github.com/rust-lang/rust/pull/68358
+[#67194]: https://github.com/rust-lang/rust/issues/67194
+[lang_design_specialization]: https://paper.dropbox.com/doc/Specialization-Review-2020-02-03--AuBwAqGbsHDmBlBy~XUlmqUcAg-jFYgiknJi6j00SbN83dWX
+
+**NOTE(2019-02-10):** Due to recent soundness holes introduced by specialization in the standard library (c.f. [#68358] and [#67194]) the language team decided on a design meeting to place a moratorium on new uses of specialization until we have some checks in place ensuring soundness for internal uses.
+
 We try to avoid leaning on specialization too heavily, limiting its use to optimizing specific implementations. These specialized optimizations use a private trait to find the correct implementation, rather than specializing the public method itself. Any use of specialization that changes how methods are dispatched for external callers should be carefully considered.
 
 ### Are there public enums?
