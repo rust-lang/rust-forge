@@ -2,9 +2,10 @@
 
 [Overview](./README.md)
 - [Chat Platforms](./chat/README.md)
+  - [Discord](./chat/discord.md)
+  - [Email](./chat/email.md)
   - [Zulip](./chat/zulip.md)
       - [Moderation](./chat/zulip/moderation.md)
-  - [Discord](./chat/discord.md)
 - [Core](./core/README.md)
     - [Rust Blog Guidelines](./core/blogs.md)
 - [Community](./community/README.md)
