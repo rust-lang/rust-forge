@@ -6,7 +6,7 @@
 
 * Source code: [rust-lang/docs.rs][repo]
 * Hosted on: `docsrs.infra.rust-lang.org` (behind the bastion -- [how to connect][bastion-connect])
-* Maintainers: [Joshua Nelson], [Pietro Albini]
+* Maintainers: [docs.rs team]
 * [Instance metrics][grafana-instance] (only available to infra team members).
 * [Application metrics][grafana-app] (only available to infra team members).
 
@@ -14,5 +14,4 @@
 [grafana-instance]: https://grafana.rust-lang.org/d/rpXrFfKWz/instance-metrics?orgId=1&var-instance=docsrs.infra.rust-lang.org:9100
 [grafana-app]: https://grafana.rust-lang.org/d/-wWFg2cZz/docs-rs?orgId=1
 [bastion-connect]: https://github.com/rust-lang/infra-team/blob/master/docs/hosts/bastion.md#logging-into-servers-through-the-bastion
-[Joshua Nelson]: https://github.com/jyn514
-[Pietro Albini]: https://github.com/pietroalbini
+[docs.rs team]: https://github.com/rust-lang/team/blob/master/teams/docs-rs.toml
