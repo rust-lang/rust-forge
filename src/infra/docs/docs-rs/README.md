@@ -1,5 +1,9 @@
 # docs.rs
 
+[docs.rs](https://docs.rs/) is a website that hosts documentation for crates published to [crates.io](https://crates.io/).
+
+## External Links
+
 * Source code: [rust-lang/docs.rs][repo]
 * Hosted on: `docsrs.infra.rust-lang.org` (behind the bastion -- [how to connect][bastion-connect])
 * Maintainers: [Joshua Nelson], [Pietro Albini]
