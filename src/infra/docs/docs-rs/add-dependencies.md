@@ -24,7 +24,7 @@ docker build --tag build-env .
 
 Use the image to build your crate.
 
-```
+```sh
 cd /path/to/docs.rs
 docker-compose build
 # NOTE: this must be an absolute path, not a relative path
