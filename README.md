@@ -51,7 +51,7 @@ standard --fix js/
 
 ## Adding Teams
 
-Any Rust team can have a section in the Rust Forge. If you'd like to add your team you first need to add them as an item to the `SUMMARY.md`, like so replacing `TEAM NAME` with your respective team's name to show on forge, and `<TEAM_NAME>` with a filesystem and url friendly version of that name where your documentation will be stored.
+Any Rust team can have a section in the Rust Forge. If you'd like to add your team you first need to add them as an item to `src/SUMMARY.md`, like so replacing `TEAM NAME` with your respective team's name to show on forge, and `<TEAM_NAME>` with a filesystem and url friendly version of that name where your documentation will be stored.
 
 ```markdown
 - [TEAM NAME](src/<TEAM_NAME>/README.md)
