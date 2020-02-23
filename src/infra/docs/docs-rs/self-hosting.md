@@ -1,12 +1,14 @@
-These are instructions for deploying the server in a production environment. For instructions on developing locally without docker-compose, see https://github.com/rust-lang/docs.rs/wiki/Developing-without-docker-compose.
+# Self hosting a docs.rs instance
 
-While the Vagrant VM allows for easier setup of the required dependencies and environment, here is a breakdown of what it takes to turn a regular server into its own version of docs.rs.
+These are instructions for deploying the server in a production environment. For instructions on developing locally without docker-compose, see [Developing without docker-compose](no-docker-compose.html).
+
+Here is a breakdown of what it takes to turn a regular server into its own version of docs.rs.
 
 Beware: This process is rather rough! Attempts at cleaning it up, automating setup components, etc, would be greatly appreciated!
 
 ## Requirements
 
-The commands and package names on this page will assume an Ubuntu server running systemd, but hopefully the explanatory text should give enough information to adapt to other systems.
+The commands and package names on this page will assume an Ubuntu server running systemd, but hopefully the explanatory text should give enough information to adapt to other systems. Note that docs.rs depends on the host being `x86_64-unknown-linux-gnu`.
 
 Docs.rs has a few basic requirements:
 

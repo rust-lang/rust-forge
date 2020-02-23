@@ -1,3 +1,5 @@
+# Migrating from a local database to S3
+
 If you're running your own instance of docs.rs for personal development, and you'd like to test out the S3 integration, there are a couple steps involved. It's mostly straightforward, but there's at least one major caveat that should be taken into account.
 
 ## Requirements

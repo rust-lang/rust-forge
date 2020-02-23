@@ -1,4 +1,6 @@
-These are instructions for developing docs.rs locally. For deploying in a production environment, see https://github.com/rust-lang/docs.rs/wiki/Self-hosting-outside-the-Vagrant-VM.
+# Developing locally without docker-compose
+
+These are instructions for developing docs.rs locally. For deploying in a production environment, see [Self-hosting a docs.rs instance](self-hosting.html).
 
 While the docker-compose allows for easier setup of the required dependencies and environment, here is a breakdown of how to use the service without an outer docker container. This is useful e.g. for quickly iterating during development.
 
@@ -6,19 +8,17 @@ Note that this does not remove the docker dependency altogether, since docs.rs u
 
 ## Requirements
 
-The commands and package names on this page will assume an Ubuntu server running systemd, but hopefully the explanatory text should give enough information to adapt to other systems.
+The commands and package names on this page will assume a Debian-like machine with `apt` installed, but most dependencies should be relatively easy to find on Linux. Do note however that this requires the host to be `x86_64-unknown-linux-gnu`.
 
 Docs.rs has a few basic requirements:
 
-* Rust (preferably via `rustup`)
+* Rust
 * Git
 * CMake, GCC, G++, and `pkg-config` (to build dependencies for crates and docs.rs itself)
 * OpenSSL, zlib, curl, and `libmagic` (to link against)
 * PostgreSQL
 
 ```console
-$ curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain nightly
-$ . $HOME/.cargo/env
 # apt install build-essential git curl cmake gcc g++ pkg-config libmagic-dev libssl-dev zlib1g-dev postgresql
 $ sudo -u postgres psql -c "CREATE USER cratesfyi WITH PASSWORD 'password';"
 $ sudo -u postgres psql -c "CREATE DATABASE cratesfyi OWNER cratesfyi;"
@@ -83,7 +83,7 @@ $ cargo run database migrate
 $ cargo run database update-search-index
 $ cargo run database update-release-activity
 # This will take between 5 and 30 minutes on the first run, depending on your internet speed.
-# It downloads the rustops/crates-build-env crates which is over 4 GB.
+# It downloads the rustops/crates-build-env crates which is almost 1 GB.
 # It does not currently display a progress bar, this is https://github.com/rust-lang/rustwide/issues/9
 # As a workaround, you can run `docker pull rustops/crates-build-env` in a separate terminal.
 $ cargo run build crate rand 0.5.5
