@@ -2,7 +2,7 @@
 
 * Source code: [rust-lang/docs.rs][repo]
 * Hosted on: `docsrs.infra.rust-lang.org` (behind the bastion -- [how to connect][bastion-connect])
-* Maintainers: [onur][onur], [QuietMisdreavus][QuietMisdreavus]
+* Maintainers: [onur][onur], [QuietMisdreavus][QuietMisdreavus], [Joshua Nelson], [Pietro Albini]
 * [Instance metrics][grafana-instance] (only available to infra team members).
 * [Application metrics][grafana-app] (only available to infra team members).
 
@@ -114,3 +114,5 @@ Other operations (such as `list` and `remove`) are also supported.
 [bastion-connect]: https://github.com/rust-lang/infra-team/blob/master/docs/hosts/bastion.md#logging-into-servers-through-the-bastion
 [onur]: https://github.com/onur
 [QuietMisdreavus]: https://github.com/QuietMisdreavus
+[Joshua Nelson]: https://github.com/jyn514
+[Pietro Albini]: https://github.com/pietroalbini
