@@ -229,7 +229,7 @@ You can find the right version to use in the `#[stable]` attribute by checking t
 
 ### When a `const` function is being stabilized
 
-Const functions can be stabilized in a PR that replaced `#[rustc_const_unstable]` attributes with `#[rustc_const_stable]` ones. The [Constant Evaluation WG] should be pinged for input on whether or not the `const`-ness is something we want to commit to.
+Const functions can be stabilized in a PR that replaces `#[rustc_const_unstable]` attributes with `#[rustc_const_stable]` ones. The [Constant Evaluation WG] should be pinged for input on whether or not the `const`-ness is something we want to commit to. This is particularly important when the function internally depends on other unstable `const` functions through `#[allow_internal_unstable]` attributes.
 
 [API Guidelines]: https://rust-lang.github.io/api-guidelines
 [Unsafe Code Guidelines WG]: https://github.com/rust-lang/unsafe-code-guidelines
