@@ -227,8 +227,13 @@ Features can be stabilized in a PR that replaces `#[unstable]` attributes with `
 
 You can find the right version to use in the `#[stable]` attribute by checking the [Forge].
 
+### When a `const` function is being stabilized
+
+Const functions can be stabilized in a PR that replaced `#[rustc_const_unstable]` attributes with `#[rustc_const_stable]` ones. The [Constant Evaluation WG] should be pinged for input on whether or not the `const`-ness is something we want to commit to.
+
 [API Guidelines]: https://rust-lang.github.io/api-guidelines
 [Unsafe Code Guidelines WG]: https://github.com/rust-lang/unsafe-code-guidelines
+[Constant Evaluation WG]: https://github.com/rust-lang/const-eval
 [`rust-lang/rust`]: https://github.com/rust-lang/rust
 [`rust-lang/rfcs`]: https://github.com/rust-lang/rfcs
 [`rust-lang/rust-forge`]: https://github.com/rust-lang/rust-forge
