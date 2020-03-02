@@ -40,6 +40,7 @@
         - [Static websites](./infra/guidelines/static-websites.md)
     - [Documentation](./infra/docs/README.md)
         - [AWS access for team members](./infra/docs/aws-access.md)
+        - [AWS access management](./infra/docs/aws-access-management.md)
         - [Bastion server](./infra/docs/bastion.md)
         - [Crater agents](./infra/docs/crater-agents.md)
         - [Discord moderation bot](./infra/docs/discord-mods-bot.md)

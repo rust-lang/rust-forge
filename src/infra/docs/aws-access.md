@@ -5,7 +5,9 @@ project. This includes both members of the Infrastructure Team and members of
 teams with services hosted on AWS.
 
 This document explains how to access our AWS account, and how to interact with
-it.
+it. If you're a infrastructure team member and you need to setup or revoke
+access for another person, read the ["AWS access
+management"](./aws-access-management.md) page.
 
 ## Setting up your user after receiving the credentials
 
