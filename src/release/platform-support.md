@@ -150,9 +150,9 @@ target | std | rustc | cargo | notes
 `aarch64-uwp-windows-msvc` | ? |  |  |
 `aarch64-wrs-vxworks` | ? |  |  |
 `armv4t-unknown-linux-gnueabi` | ? |  |  |
-`armv6-unknown-freebsd` | ? |  |  |
+`armv6-unknown-freebsd` | ✓ | ✓ | ✓ | ARMv6 FreeBSD
 `armv6-unknown-netbsd-eabihf` | ? |  |  |
-`armv7-unknown-freebsd` | ? |  |  |
+`armv7-unknown-freebsd` | ✓ | ✓ | ✓ | ARMv7 FreeBSD
 `armv7-unknown-netbsd-eabihf` | ? |  |  |
 `armv7-wrs-vxworks-eabihf` | ? |  |  |
 `hexagon-unknown-linux-musl` | ? |  |  |
@@ -177,7 +177,7 @@ target | std | rustc | cargo | notes
 `powerpc-unknown-netbsd` | ? |  |  |
 `powerpc-wrs-vxworks` | ? |  |  |
 `powerpc-wrs-vxworks-spe` | ? |  |  |
-`powerpc64-unknown-freebsd` | ? |  |  |
+`powerpc64-unknown-freebsd` | ✓ | ✓ | ✓ | PPC64 FreeBSD (ELFv1 and ELFv2)
 `powerpc64-unknown-linux-musl` | ? |  |  |
 `powerpc64-wrs-vxworks` | ? |  |  |
 `powerpc64le-unknown-linux-musl` | ? |  |  |
