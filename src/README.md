@@ -1,7 +1,7 @@
 # Rust Forge
 Welcome to the Rust Forge! Rust Forge serves as a repository of supplementary
 documentation useful for members of [The Rust Programming Language]. If
-you find any mistakes, typos, or want to add to the Rust Forge. Feel free to
+you find any mistakes, typos, or want to add to the Rust Forge, feel free to
 file an issue or PR on the [Rust Forge GitHub].
 
 [The Rust Programming Language]: https://rust-lang.org
