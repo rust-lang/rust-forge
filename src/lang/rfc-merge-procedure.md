@@ -19,11 +19,11 @@ This is a tracking issue for the RFC "XXX" (rust-lang/rfcs#NNN).
 
 - [ ] Implement the RFC (cc @rust-lang/XXX -- can anyone write up mentoring
       instructions?)
-- [ ] Adjust documentation ([see instructions on rustc-guide][doc-guide])
-- [ ] Stabilization PR ([see instructions on rustc-guide][stabilization-guide])
+- [ ] Adjust documentation ([see instructions on rustc-dev-guide][doc-guide])
+- [ ] Stabilization PR ([see instructions on rustc-dev-guide][stabilization-guide])
 
-[stabilization-guide]: https://rust-lang.github.io/rustc-guide/stabilization_guide.html#stabilization-pr
-[doc-guide]: https://rust-lang.github.io/rustc-guide/stabilization_guide.html#documentation-prs
+[stabilization-guide]: https://rust-lang.github.io/rustc-dev-guide/stabilization_guide.html#stabilization-pr
+[doc-guide]: https://rust-lang.github.io/rustc-dev-guide/stabilization_guide.html#documentation-prs
 
 **Unresolved questions:**
 
