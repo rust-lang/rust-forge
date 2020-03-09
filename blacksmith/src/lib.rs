@@ -140,10 +140,10 @@ impl Blacksmith {
         #[rustfmt::skip]
         const REDIRECTS: &[(&str, &str)] = &[
             ("beta-backporting.html", "/release/beta-backporting.html"),
-            ("bibliography.html", "https://rust-lang.github.io/rustc-dev-guide/appendix/bibliography.html"),
+            ("bibliography.html", "https://rustc-dev-guide.rust-lang.org/appendix/bibliography.html"),
             ("channel-layout.html", "/infra/channel-layout.html"),
-            ("debugging.html", "https://rust-lang.github.io/rustc-dev-guide/compiler-debugging.html"),
-            ("feature_guide.html", "https://rust-lang.github.io/rustc-dev-guide/implementing_new_features.html"),
+            ("debugging.html", "https://rustc-dev-guide.rust-lang.org/compiler-debugging.html"),
+            ("feature_guide.html", "https://rustc-dev-guide.rust-lang.org/implementing_new_features.html"),
             ("fott.html", "/archive/fott.html"),
             ("infrastructure.html", "/infra/service-infrastructure.html"),
             ("other-installation-methods.html", "/infra/other-installation-methods.html"),
@@ -155,15 +155,15 @@ impl Blacksmith {
             ("rustc-bug-fix-procedure.html", "/compiler/bug-fix-procedure.html"),
             ("rustc-diagnostic-code.html", "/compiler/diagnostic-codes.html"),
             ("rustc-team-maintenance.html", "/infra/team-maintenance.html"),
-            ("stabilization-guide.html", "https://rust-lang.github.io/rustc-dev-guide/stabilization_guide.html"),
+            ("stabilization-guide.html", "https://rustc-dev-guide.rust-lang.org/stabilization_guide.html"),
             ("state-of-rust.html", "https://github.com/rust-lang/rust/projects/8"),
-            ("test-suite.html", "https://rust-lang.github.io/rustc-dev-guide/tests/intro.html"),
+            ("test-suite.html", "https://rustc-dev-guide.rust-lang.org/tests/intro.html"),
             ("toolstate.html", "/infra/toolstate.html"),
             ("triage-procedure.html", "/release/triage-procedure.html"),
-            ("x-py.html", "https://rust-lang.github.io/rustc-dev-guide/building/how-to-build-and-run.html"),
-            ("compiler/bug-fix-procedure.html", "https://rust-lang.github.io/rustc-dev-guide/bug-fix-procedure.html"),
-            ("compiler/diagnostic-codes.html", "https://rust-lang.github.io/rustc-dev-guide/diagnostics/diagnostic-codes.html"),
-            ("compiler/profile-queries.html", "https://rust-lang.github.io/rustc-dev-guide/queries/profiling.html"),
+            ("x-py.html", "https://rustc-dev-guide.rust-lang.org/building/how-to-build-and-run.html"),
+            ("compiler/bug-fix-procedure.html", "https://rustc-dev-guide.rust-lang.org/bug-fix-procedure.html"),
+            ("compiler/diagnostic-codes.html", "https://rustc-dev-guide.rust-lang.org/diagnostics/diagnostic-codes.html"),
+            ("compiler/profile-queries.html", "https://rustc-dev-guide.rust-lang.org/queries/profiling.html"),
         ];
 
         // Inititalise book directory if not built yet.

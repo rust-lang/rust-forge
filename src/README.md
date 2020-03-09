@@ -41,5 +41,5 @@ Nightly | <span id="nightly-cycle"></span> | <span id="nightly-timespan"></span>
 * [Rust Pontoon] is a translation management system used to localize the Rust
   website.
 
-[Bibliography]: https://rust-lang.github.io/rustc-dev-guide/appendix/bibliography.html
+[Bibliography]: https://rustc-dev-guide.rust-lang.org/appendix/bibliography.html
 [Rust Pontoon]: https://pontoon.rust-lang.org/
