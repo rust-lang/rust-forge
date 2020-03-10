@@ -177,7 +177,7 @@ We currently support linking to issues on a few repositories:
 * rust-lang/miri with `miri#3434`
 * rust-lang-nursery/polonius with `polonius#3434`
 * rust-analyzer/rust-analyzer with `rust-analyzer#3434`
-* rust-lang/rustc-guide with `rustc-guide#3434`
+* rust-lang/rustc-dev-guide with `rustc-dev-guide#3434`
 * rust-lang/stdarch with `stdarch#3434`
 * rust-lang/team with `team#3434`
 * rust-lang/unsafe-code-guidelines with `ucg#3434`

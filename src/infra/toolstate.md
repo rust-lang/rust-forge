@@ -31,7 +31,7 @@ rules are for when which tools are (not) allowed to break.
       cut. (See the [Forge index][forge] for when the next beta cutoff is
       happening.)
 
-    At the time of writing, the following tools are "nightly only": rustc-guide,
+    At the time of writing, the following tools are "nightly only": rustc-dev-guide,
     miri, embedded-book.
 
 ## Updating the toolstate repository
