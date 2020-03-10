@@ -17,12 +17,12 @@ in `js/index.js.
 
 ### Current Release Versions
 
-Channel | Version | Release Date
---------|---------|-------------
-Stable  | <span id="stable-version"></span>  | <span id="stable-release-date"></span>
-Beta    | <span id="beta-version"></span>    | <span id="beta-release-date"></span>
-Nightly | <span id="nightly-version"></span> | <span id="nightly-release-date"></span>
-
+Channel    | Version | Release Date
+-----------|---------|-------------
+Stable     | <span id="stable-version"></span>  | <span id="stable-release-date"></span>
+Beta       | <span id="beta-version"></span>    | <span id="beta-release-date"></span>
+Nightly    | <span id="nightly-version"></span> | <span id="nightly-release-date"></span>
+Nightly +1 | <span id="next-version"></span>    | <span id="next-release-date"></span>
 
 ### No Tools Breakage Week
 To ensure the beta release includes all the tools, no [tool breakages] are

@@ -29,4 +29,5 @@ if (document.querySelector('#current-release-versions')) {
   addRelease('stable', 0, false)
   addRelease('beta', 1, true)
   addRelease('nightly', 2, true)
+  addRelease('next', 3, true)
 }
