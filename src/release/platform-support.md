@@ -20,7 +20,6 @@ Specifically they will each satisfy the following requirements:
 
 target | std | rustc | cargo | notes
 -------|-----|-------|-------|-------
-`i686-apple-darwin` | ✓ | ✓ | ✓ | 32-bit OSX (10.7+, Lion+)
 `i686-pc-windows-gnu` | ✓ | ✓ | ✓ | 32-bit MinGW (Windows 7+)
 `i686-pc-windows-msvc` | ✓ | ✓ | ✓ | 32-bit MSVC (Windows 7+)
 `i686-unknown-linux-gnu` | ✓ | ✓ | ✓ | 32-bit Linux (2.6.18+)
@@ -58,14 +57,12 @@ target | std | rustc | cargo | notes
 `armebv7r-none-eabihf` | * |  |  | Bare ARMv7-R, Big Endian, hardfloat
 `armv5te-unknown-linux-gnueabi` | ✓ |  |  | ARMv5TE Linux
 `armv5te-unknown-linux-musleabi` | ✓ |  |  | ARMv5TE Linux with MUSL
-`armv7-apple-ios` | ✓ |  |  | ARMv7 iOS, Cortex-a8
 `armv7-linux-androideabi` | ✓ |  |  | ARMv7a Android
 `armv7-none-eabi` | * |  |  | Bare ARMv7-R
 `armv7-none-eabihf` | * |  |  | Bare ARMv7-R, hardfloat
 `armv7-unknown-linux-gnueabihf` | ✓ | ✓ | ✓ | ARMv7 Linux
 `armv7-unknown-linux-musleabihf` | ✓ |  |  | ARMv7 Linux with MUSL
 `asmjs-unknown-emscripten` | ✓ |  |  | asm.js via Emscripten
-`i386-apple-ios` | ✓ |  |  | 32-bit x86 iOS
 `i586-pc-windows-msvc` | ✓ |  |  | 32-bit Windows w/o SSE
 `i586-unknown-linux-gnu` | ✓ |  |  | 32-bit Linux w/o SSE
 `i586-unknown-linux-musl` | ✓ |  |  | 32-bit Linux w/o SSE, MUSL
@@ -152,10 +149,14 @@ target | std | rustc | cargo | notes
 `armv4t-unknown-linux-gnueabi` | ? |  |  |
 `armv6-unknown-freebsd` | ✓ | ✓ | ✓ | ARMv6 FreeBSD
 `armv6-unknown-netbsd-eabihf` | ? |  |  |
+`armv7-apple-ios` | ✓ |  |  | RMv7 iOS, Cortex-
 `armv7-unknown-freebsd` | ✓ | ✓ | ✓ | ARMv7 FreeBSD
 `armv7-unknown-netbsd-eabihf` | ? |  |  |
 `armv7-wrs-vxworks-eabihf` | ? |  |  |
+`armv7s-apple-ios` | ✓ |  |  |
 `hexagon-unknown-linux-musl` | ? |  |  |
+`i386-apple-ios` | ✓ |  |  | 32-bit x86 iOS
+`i686-apple-darwin` | ✓ | ✓ | ✓ | 32-bit OSX (10.7+, Lion+)
 `i686-pc-windows-msvc` | ✓ |  |  | 32-bit Windows XP support
 `i686-unknown-haiku` | ✓ | ✓ | ✓ | 32-bit Haiku
 `i686-unknown-netbsd` | ✓ |  |  | NetBSD/i386 with SSE2
