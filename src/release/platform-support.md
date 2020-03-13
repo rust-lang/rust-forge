@@ -58,8 +58,9 @@ target | std | rustc | cargo | notes
 `armv5te-unknown-linux-gnueabi` | ✓ |  |  | ARMv5TE Linux
 `armv5te-unknown-linux-musleabi` | ✓ |  |  | ARMv5TE Linux with MUSL
 `armv7-linux-androideabi` | ✓ |  |  | ARMv7a Android
-`armv7-none-eabi` | * |  |  | Bare ARMv7-R
-`armv7-none-eabihf` | * |  |  | Bare ARMv7-R, hardfloat
+`armv7a-none-eabi` | * |  |  | Bare ARMv7-A
+`armv7r-none-eabi` | * |  |  | Bare ARMv7-R
+`armv7r-none-eabihf` | * |  |  | Bare ARMv7-R, hardfloat
 `armv7-unknown-linux-gnueabihf` | ✓ | ✓ | ✓ | ARMv7 Linux
 `armv7-unknown-linux-musleabihf` | ✓ |  |  | ARMv7 Linux with MUSL
 `asmjs-unknown-emscripten` | ✓ |  |  | asm.js via Emscripten
