@@ -1,41 +1,27 @@
 # Discord moderation bot
 
-* Source code: [rust-lang-nursery/discord-mods-bot][repo]
-* Hosted on: [`bots.infra.rust-lang.org`][rust-bots] (behind the bastion -- [how to connect][bastion-connect])
+* Source code: [rust-lang/discord-mods-bot][repo]
+* Hosted on: [`rust-ecs-prod` ECS cluster][ecs]
 * Maintainers: [technetos]
 
-## Service configuration
+The bot is hosted on the `rust-ecs-prod` ECS cluster, on the project's AWS
+account, with the `discord-mods-bot` service name. Its container image is
+stored in a ECR repository with the same name, and its data is stored in the
+`shared` RDS PostgreSQL instance.
 
-The service uses a PostgreSQL database called `discord_mods_bot` hosted on the
-same server, and connects to it with the `discord_mods_bot` user. Backups are
-not yet setup for the database contents.
+Automatic deploys are setup from the [rust-lang/discord-mods-bot][repo] GitHub
+repository.
 
-The service is run with docker-compose on the home of the `ec2-user` user, and
-its docker image is hosted on ECR. The image is automatically rebuilt by the
-git repository's CI every time a new commit is pushed to master.
-
-The server doesn't expose anything to the outside, as it uses websockets to
-communicate with Discord.
-
-The bot is [`rustbot#4299`][devportal]. [pietroalbini], [Mark-Simulacrum],
-[alexcrichton] and [aidanhs] have access to the developer portal.
+The Discord bot account is [`rustbot#4299`][devportal]. [pietroalbini],
+[Mark-Simulacrum], [alexcrichton] and [aidanhs] have access to the developer
+portal.
 
 ## Common maintenance procedures
 
-### Deploying changes to the bot
+[Instructions on how to manage ECS services are available here.][ecs]
 
-Once the CI build on the `master` branch of [the repo][repo] ends you can SSH
-into the server and run this command:
-
-```
-./redeploy
-```
-
-The command might also redeploy other services hosted on the same server.
-
-[repo]: https://github.com/rust-lang-nursery/discord-mods-bot
-[rust-bots]: https://github.com/rust-lang/infra-team/blob/master/docs/hosts/rust-bots.md
-[bastion-connect]: https://github.com/rust-lang/infra-team/blob/master/docs/hosts/bastion.md#logging-into-servers-through-the-bastion
+[repo]: https://github.com/rust-lang/discord-mods-bot
+[ecs]: ecs-services.md
 [devportal]: https://discordapp.com/developers/applications/615806512790503424
 [technetos]: https://github.com/technetos
 [pietroalbini]: https://github.com/pietroalbini
