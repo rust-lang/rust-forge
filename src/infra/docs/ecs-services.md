@@ -5,6 +5,10 @@ clusters on our AWS account. This document explains the common maintenance
 procedures one should follow when operating them. Most of the actions explained
 here [require AWS access][aws-access].
 
+> **Note:** our ECS cluster is located in the Northern California
+> (`us-west-1`) AWS region. Make sure it's the selected region when interacting
+> with the AWS console.
+
 ## Inspecting the logs
 
 Logs for applications hosted on ECS are stored in CloudWatch Logs, and can
