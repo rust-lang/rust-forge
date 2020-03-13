@@ -8,8 +8,8 @@ Discord's support center provides documentation about its [user interface](https
 # Getting started
 
 1) Understand community standards <br/>
-Discord, like all official Rust spaces, is governed by the Code of Conduct. Before joining the conversation there, you can prepare by reading the [Code of Conduct and Moderation Guidelines](https://www.rust-lang.org/community#conduct). C
-It is useful to read [Discord's Community Guidelines as well](https://discordapp.com/guidelines)
+Discord, like all official Rust spaces, is governed by the Code of Conduct. Before joining the conversation there, you can prepare by reading the [Code of Conduct and Moderation Guidelines](https://www.rust-lang.org/community#conduct).
+It is also useful to read [Discord's Community Guidelines](https://discordapp.com/guidelines)
 
 2) Access channels <br/>
 To access the Rust Discord, visit [https://discord.gg/rust-lang](https://discord.gg/rust-lang). If you do not already have a Discord account, you can register for one as part of the process of gaining access. Your first action should be agreeing to our Code of Conduct by following the instructions in #welcome.
