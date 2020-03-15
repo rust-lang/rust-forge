@@ -58,7 +58,7 @@ This will add the crate with a lower priority than new crates by default, you ca
 
 ## Raise the limits for a specific crate
 
-Occasionally crates will ask for their limits to be raised.
+Occasionally crates will ask for their build limits to be raised.
 You can raise them from the docs.rs machine with `psql`.
 
 Raising a memory limit to 8 GB:
