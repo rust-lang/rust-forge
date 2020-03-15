@@ -56,6 +56,33 @@ cratesfyi queue add <crate> <version>
 
 This will add the crate with a lower priority than new crates by default, you can change the priority with the `-p` option.
 
+## Raise the limits for a specific crate
+
+Occasionally crates will ask for their build limits to be raised.
+You can raise them from the docs.rs machine with `psql`.
+
+Raising a memory limit to 8 GB:
+
+```psql
+# memory is measured in bytes
+cratesfyi=> INSERT INTO sandbox_overrides (crate_name, max_memory_bytes)
+  VALUES ('crate name', 8589934592);
+```
+
+Raising a timeout to 15 minutes:
+
+```psql
+cratesfyi=> INSERT INTO sandbox_overrides (crate_name, timeout_seconds)
+  VALUES ('crate name', 900);
+```
+
+Raising limits for multiple crates at once:
+
+```psql
+cratesfyi=> INSERT INTO sandbox_overrides (crate_name, max_memory_bytes)
+  VALUES ('stm32f4', 8589934592), ('stm32h7', 8589934592), ('stm32g4', 8589934592);
+```
+
 ## Adding all the crates failed after a date back in the queue
 
 After an outage you might want to add all the failed builds back to the queue.
