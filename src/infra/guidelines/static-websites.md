@@ -141,7 +141,7 @@ env:
   RUSTINFRA_DEPLOY_DIR: path/to/be/deployed
   RUSTINFRA_CLOUDFRONT_DISTRIBUTION: ABCDEFGHIJKLMN
 import:
-  - rust-lang/simpleinfra/travis-configs/static-websites.yml
+  - rust-lang/simpleinfra:travis-configs/static-websites.yml
 ```
 
 You will also need to set the contents of the `AWS_ACCESS_KEY_ID` and
