@@ -70,7 +70,7 @@ impl Blacksmith {
 
         let rustup_url_regex =
             regex::Regex::new(r"^rustup/dist/([^/]+)/rustup-init(?:\.exe)?$").unwrap();
-        for line in BufReader::new(reqwest::get(RUSTUP_URLS)?).lines() {
+        for line in BufReader::new(reqwest::blocking::get(RUSTUP_URLS)?).lines() {
             if let Some(m) = rustup_url_regex.captures(&(line?)) {
                 blacksmith
                     .rustup
@@ -81,7 +81,7 @@ impl Blacksmith {
 
         for &channel_name in CHANNELS {
             let channel_url = format!("{}{}.toml", CHANNEL_URL_PREFIX, channel_name);
-            let content = reqwest::get(&channel_url)?.text()?;
+            let content = reqwest::blocking::get(&channel_url)?.text()?;
             let rust = toml::from_str::<crate::channel::Channel>(&content)?
                 .pkg
                 .rust;

@@ -10,7 +10,7 @@ publish = false
 [dependencies]
 mdbook = { version = "0.3.1", features = [] }
 clap = "2.33.0"
-reqwest = "0.9.20"
+reqwest = { version = "0.10", features = ["blocking"] }
 serde = { version = "1.0.99", features = ["derive"] }
 regex = "1.2.1"
 toml = "0.5.3"
