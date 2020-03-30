@@ -1,14 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-TARGET=${CARGO_TARGET_DIR:-target}
-# https://stackoverflow.com/a/3572105
-realpath() {
-    [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"
-}
+CARGO_TARGET_DIR=${CARGO_TARGET_DIR:-"$PWD"/target}
+export CARGO_TARGET_DIR
 
-cd blacksmith
-cargo build
-BLACKSMITH="$(realpath "$TARGET/debug/mdbook-blacksmith")"
-cd "$OLDPWD"
-"$BLACKSMITH" "$@"
+cargo run --locked --manifest-path=blacksmith/Cargo.toml -- "$@"
