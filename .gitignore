@@ -1,2 +1,3 @@
-book
-.blacksmith-cache.json
+/.blacksmith-cache.json
+/book
+/target/
