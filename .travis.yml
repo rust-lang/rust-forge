@@ -26,6 +26,7 @@ before_script:
   # NOTE: To increase caching efficiency, keep the same mdbook version
   # in blacksmith/Cargo.lock too
   - cargo install -v --debug --locked mdbook --vers '=0.3.6'
+  - cargo build --locked --manifest-path=blacksmith/Cargo.toml
 script:
   - mdbook build
   - cp website_config.json book/

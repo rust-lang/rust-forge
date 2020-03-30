@@ -13,7 +13,7 @@ const CACHE_TTL_SECONDS: u64 = 3600; // 1 hour
 
 fn main() {
     // If RUST_LOG is present use that, else default to info level printing.
-    if let Some(v) = env::var("RUST_LOG") {
+    if let Ok(v) = env::var("RUST_LOG") {
         env_logger::init_from_env(v);
     } else {
         env_logger::builder()
