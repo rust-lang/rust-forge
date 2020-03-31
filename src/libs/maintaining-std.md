@@ -197,6 +197,10 @@ Changes to hot code might impact performance in consumers, for better or for wor
 
 PRs shouldn’t have merge commits in them. If they become out of date with `master` then they need to be rebased.
 
+### Are functions const-stabilized or constified?
+
+Please CC `@rust-lang/wg-const-eval`.
+
 ## Merging PRs
 
 PRs to [`rust-lang/rust`] aren’t merged manually using GitHub’s UI or by pushing remote branches. Everything goes through [`bors`].
