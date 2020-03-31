@@ -23,6 +23,8 @@ before_cache:
 
 before_script:
   - export CARGO_TARGET_DIR=$(pwd)/target
+  # It's kinda useless to save debug info on CI.
+  - export RUSTFLAGS='-C debuginfo=0'
   # NOTE: To increase caching efficiency, keep the same mdbook version
   # in blacksmith/Cargo.lock too
   - cargo install -v --debug --locked mdbook --vers '=0.3.6'
