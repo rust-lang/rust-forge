@@ -12,11 +12,11 @@ it.
 
 * Remove it from the database:
 
-      heroku run -- cargo run --bin delete-crate [crate-name]
+      heroku run -a crates-io -- target/release/delete-crate [crate-name]
 
   or
 
-      heroku run -- cargo run --bin delete-version [crate-name] [version-number]
+      heroku run -a crates-io -- target/release/delete-version [crate-name] [version-number]
 
 * Remove the crate or version from the index. To remove an entire crate, remove
   the entire crate file. For a version, remove the line corresponding to the
