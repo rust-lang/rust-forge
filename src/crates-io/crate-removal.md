@@ -1,13 +1,12 @@
 # Crate removal procedure
 
-> **Status 2020-01-21**: this document is incomplete and unvetted. We anticipate to
-> be receiving guidelines from Mozilla Legal in the near future. If this notice
-> is still here on 2020-03-21, please comment on [this issue][outdated-issue]
-> asking for a status update.
-
-[outdated-issue]: https://github.com/rust-lang/crates-io-cargo-teams/issues/63
-
 If we get a DMCA takedown notice, here's what needs to happen:
+
+## Contact Mozilla Legal
+
+Before removing the crates, [get in touch with legal](../core/legal.md) and ask
+an opinion from them on the received request and whether we have to comply with
+it.
 
 ## Remove relevant version(s) and/or entire crates from crates.io
 
