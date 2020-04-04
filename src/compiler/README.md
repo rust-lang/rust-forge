@@ -14,4 +14,4 @@ contribute and provide bug fixes for the compiler.
 [Compiler team]: https://rust-lang.github.io/compiler-team/
 [FIXME page]: https://oli-obk.github.io/fixmeh/
 [Rustc Dev Guide]: https://rustc-dev-guide.rust-lang.org/
-[internal documentation]: https://doc.rust-lang.org/nightly/nightly-rustc/rustc/
+[internal documentation]: https://doc.rust-lang.org/nightly/nightly-rustc/rustc_middle/
