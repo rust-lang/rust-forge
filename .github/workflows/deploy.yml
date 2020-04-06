@@ -16,6 +16,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           build_only: ${{ github.ref != 'refs/heads/master' }}
       - run: aws cloudfront create-invalidation --distribution-id E12A3GKHZSREHP --paths "/*"
+        if: github.ref == 'refs/heads/master'
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
