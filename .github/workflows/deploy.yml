@@ -1,5 +1,7 @@
 name: Deploy To GitHub Pages
 on:
+  schedule:
+    - cron: '0 22 * * *'
   pull_request:
   push:
     branches:
