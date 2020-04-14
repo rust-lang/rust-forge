@@ -270,7 +270,7 @@ impl Blacksmith {
     fn generate_source_code_table(&self) -> String {
         let mut buffer = String::new();
 
-        writeln!(buffer, "Channel | Binaries + Signatures").unwrap();
+        writeln!(buffer, "Channel | Archives + Signatures").unwrap();
         writeln!(buffer, "--------|----------------------").unwrap();
 
         for &channel in CHANNELS {
