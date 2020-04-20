@@ -12,8 +12,26 @@ visits the website. Please refer to `js/index.js` for how these values
 are generated.
 
 Avoid changing the "Current Release Versions" without also updating the selector
-in `js/index.js.
+in `js/index.js`.
 -->
+
+### Help Wanted
+
+Want to contribute to Rust, but don't know where to start? Here's a list of 
+`rust-lang` projects that have marked issues that need help and issues that are
+good first issues.
+
+Repository                  | Description
+----------------------------|-----------------------------------------------
+[rust][gh/rust]             | The Rust Language & Compiler
+[cargo][gh/cargo]           | The Rust package manager
+[crates.io][gh/crates.io]   | Source code for [crates.io](https://crates.io)
+[www.rust-lang.org][gh/www] | The Rust website
+
+[gh/rust]: https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+label%3AE-help-wanted
+[gh/cargo]: https://github.com/rust-lang/crates.io/issues?q=is%3Aopen+is%3Aissue+label%3AE-help-wanted
+[gh/crates.io]: https://github.com/rust-lang/crates.io/issues?q=is%3Aopen+is%3Aissue+label%3AE-help-wanted
+[gh/www]: https://github.com/rust-lang/www.rust-lang.org/labels/good%20first%20issue
 
 ### Current Release Versions
 
