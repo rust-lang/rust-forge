@@ -29,7 +29,7 @@ Repository                  | Description
 [www.rust-lang.org][gh/www] | The Rust website
 
 [gh/rust]: https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+label%3AE-help-wanted
-[gh/cargo]: https://github.com/rust-lang/crates.io/issues?q=is%3Aopen+is%3Aissue+label%3AE-help-wanted
+[gh/cargo]: https://github.com/rust-lang/cargo/issues?q=is%3Aopen+is%3Aissue+label%3AE-help-wanted
 [gh/crates.io]: https://github.com/rust-lang/crates.io/issues?q=is%3Aopen+is%3Aissue+label%3AE-help-wanted
 [gh/www]: https://github.com/rust-lang/www.rust-lang.org/labels/good%20first%20issue
 
