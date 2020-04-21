@@ -102,7 +102,7 @@ Note that you probably don't want to update the RLS if it's working, but if it's
 not working beta won't land and it'll need to get updated. After this PR merges
 (through @bors) the beta should be automatically released.
 
-# Master bootstrap update (T-1 day, Wednesday)
+## Master bootstrap update (T-1 day, Wednesday)
 
 Write a new blog post, update rust-www, and update rust-forge. Submit PRs for
 tomorrow.
@@ -161,7 +161,7 @@ Decide on a time to do the release, T.
 
 Bask in your success.
 
-# Update dependencies (T+1 day, Friday)
+## Update dependencies (T+1 day, Friday)
 
 In the repo:
 
