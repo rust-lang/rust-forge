@@ -18,6 +18,7 @@ control access:
 - the [team website]
 - bors r+ rights
 - rfcbot interaction
+- Mailgun email lists
 
 Team membership is duplicated in a few other places listed below, but the
 long-term goal is to centralize on the team repo.
@@ -29,9 +30,6 @@ To make a full team member, the following places need to be modified:
 - the [team repo]
 - the [rust-lang/TEAM][gh-team] and (in some cases)
   [rust-lang-nursery/TEAM][gh-nursery-team] teams on github must be updated
-- the easydns service has an e-mail alias (`compiler-team@rust-lang.org`) that
-  needs to be updated
-  - best here is to ask around in #infra
 - the
   [internals discussion board has per-team groups](https://internals.rust-lang.org/admin/groups/custom)
 - the list of reviewers highfive uses is set in [rust-lang/highfive][highfive]
@@ -45,11 +43,12 @@ Remove the team member from any and all places:
 - [highfive]
 - 1password
 - The [GitHub team][gh-team], [GitHub nursery team][gh-nursery-team]
-- email aliases (as above)
 - [team repo]
+- [toolstate notifications]
 
 [gh-team]: https://github.com/orgs/rust-lang/teams
 [gh-nursery-team]: https://github.com/orgs/rust-lang-nursery/teams
 [highfive]: https://github.com/rust-lang/highfive/tree/master/highfive/configs
 [team repo]: https://github.com/rust-lang/team/tree/master/teams
 [team website]: https://www.rust-lang.org/governance
+[toolstate notifications]: https://github.com/rust-lang/rust/blob/master/src/tools/publish_toolstate.py
