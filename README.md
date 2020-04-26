@@ -33,7 +33,7 @@ using the following commands.
 
 ### Install
 
-```bash
+```console
 # With Yarn
 yarn global add standard
 # With NPM
@@ -42,7 +42,7 @@ npm install --global standard
 
 ### Formatting
 
-```bash
+```console
 standard --fix js/
 ```
 
