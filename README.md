@@ -8,7 +8,7 @@ documentation useful for members of [The Rust Programming Language].
 
 # Development
 
-you can build a local version by running the following command.
+You can build a local version by running the following command.
 
 ```console
 mdbook build
