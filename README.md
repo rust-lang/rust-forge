@@ -31,7 +31,7 @@ using the following commands.
 
 [standard]: https://standardjs.com/index.html
 
-### Install
+### Install commands
 
 ```console
 # With Yarn
