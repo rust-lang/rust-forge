@@ -61,7 +61,7 @@ Any Rust team can have a section in the Rust Forge. If you'd like to add your te
 
  If you run `mdbook build`, `mdbook` will automatically create the folder and file for your team.
  
- It's recommended that you put general team information in `src/<TEAM_NAME>/README.md` such as where the meetings happen, repositories that the team manages, links to chat platforms, etc. Larger topics such be made as a subpage.
+ It's recommended that you put general team information in `src/<TEAM_NAME>/README.md` such as where the meetings happen, repositories that the team manages, links to chat platforms, etc. Larger topics should be made as a subpage e.g. (`src/release/topic.md`).
 
 ```markdown
 - [TOPIC](src/<TEAM_NAME>/TOPIC.md)
