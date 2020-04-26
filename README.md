@@ -6,21 +6,20 @@ documentation useful for members of [The Rust Programming Language].
 [the rust programming language]: https://rust-lang.org
 [rust forge]: https://forge.rust-lang.org
 
-# Building
-
-```
-$ mdbook build
-```
-
-This will build and run the `blacksmith` tool automatically.
-
 # Development
 
-When developing it's recommended to use the `serve` command to launch a local
-server to allow you to easily see and update changes you make.
+you can build a local version by running the following command.
 
+```console
+mdbook build
 ```
-$ mdbook serve
+
+This will build and run the `blacksmith` tool automatically. When developing
+it's recommended to use the `serve` command to launch a local server to allow
+you to easily see and update changes you make.
+
+```console
+mdbook serve
 ```
 
 ## JavaScript
