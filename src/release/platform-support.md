@@ -184,6 +184,7 @@ target | std | rustc | cargo | notes
 `powerpc64-wrs-vxworks` | ? |  |  |
 `powerpc64le-unknown-linux-musl` | ? |  |  |
 `riscv32i-unknown-none-elf` | ? |  |  |
+`riscv64gc-unknown-linux-gnu` | ✓ | ✓ | ✓ |
 `sparc64-unknown-netbsd` | ✓ | ✓ |  | NetBSD/sparc64
 `sparc64-unknown-openbsd` | ? |  |  |
 `thumbv7a-pc-windows-msvc` | ? |  |  |
