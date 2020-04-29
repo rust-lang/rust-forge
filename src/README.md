@@ -7,14 +7,6 @@ file an issue or PR on the [Rust Forge GitHub].
 [The Rust Programming Language]: https://rust-lang.org
 [Rust Forge GitHub]: https://github.com/rust-lang/rust-forge
 
-<!-- All `<span id="..."></span>` elements are filled at run time when a reader
-visits the website. Please refer to `js/index.js` for how these values
-are generated.
-
-Avoid changing the "Current Release Versions" without also updating the selector
-in `js/index.js`.
--->
-
 ### Help Wanted
 
 Want to contribute to Rust, but don't know where to start? Here's a list of 
@@ -34,6 +26,14 @@ Repository                  | Description
 [gh/www]: https://github.com/rust-lang/www.rust-lang.org/labels/good%20first%20issue
 
 ### Current Release Versions
+
+<!-- All `<span id="..."></span>` elements are filled at run time when a reader
+visits the website. Please refer to `js/index.js` for how these values
+are generated.
+
+Avoid changing the "Current Release Versions" without also updating the selector
+in `js/index.js`.
+-->
 
 Channel    | Version | Release Date
 -----------|---------|-------------
