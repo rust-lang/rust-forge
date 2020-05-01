@@ -100,6 +100,8 @@ regressions in the Rust compiler, and it does this by building large number of
 crates, running their test suites and comparing the results between two
 versions of the Rust compiler.
 
+Crates comes with a [bot to trigger experiments](https://github.com/rust-lang/crater/blob/master/docs/bot-usage.md).
+
 ## docs.rs
 
 [docs.rs](https://docs.rs/) builds and serves the rustdoc documentation for
