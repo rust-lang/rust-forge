@@ -13,6 +13,8 @@
 - [Compiler](./compiler/README.md)
     - [Cross Compilation](./compiler/cross-compilation/README.md)
         - [Windows](./compiler/cross-compilation/windows.md)
+    - [Review policies](./compiler/reviews.md)
+    - [Membership](./compiler/membership.md)
     - [Triage Meeting](./compiler/triage-meeting.md)
     - [Steering Meeting](./compiler/steering-meeting.md)
         - [Submitting a proposal](./compiler/steering-meeting/submit.md)
