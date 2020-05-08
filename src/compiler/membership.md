@@ -5,8 +5,9 @@ This team discusses membership in the compiler team. There are currently two lev
 * [contributors]: regular contributors with r+ rights, bot privileges, and access to [infrastructure]
 * [full members]: full members who vote on RFCs
 
-[compiler-team full members]: https://www.rust-lang.org/governance/teams/compiler
-[compiler-team contributors]: https://www.rust-lang.org/governance/teams/compiler#compiler-contributors
+[full members]: https://www.rust-lang.org/governance/teams/compiler
+[contributors]: https://www.rust-lang.org/governance/teams/compiler#compiler-contributors
+[infrastructure]: ../infra/index.html
 
 ## The path to membership
 
