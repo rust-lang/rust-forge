@@ -8,7 +8,7 @@ When a PR is opened, you can request a reviewer by including `r?
 @username` in the PR description. If you don't do so, the highfive bot
 will automatically assign someone.
 
-It is comment to leave a `r? @username` comment at some later point to
+It is common to leave a `r? @username` comment at some later point to
 request review from someone else. This will also reassign the PR.
 
 ## bors
@@ -40,6 +40,3 @@ done the review, and the code has not changed substantially since the
 review was done.  Rebasing is fine, but changes in functionality
 typically require re-review (though it's a good idea to try and
 highlight what has changed, to help the reviewer).
-
-
-
