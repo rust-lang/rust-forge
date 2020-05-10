@@ -28,15 +28,19 @@ queue has been merged.
 
 1. Using the interface on [Homu queue], select a few pull requests and then use
    "rollup" button to make one. (The text about fairness can be ignored.)
-2. Use the `@bors r+ rollup=never p=<NUMBER_OF_PRS_IN_ROLLUP>` command in the
-   pull request thread.
-3. Mark the pull request with the label `rollup`.
-4. If the rollup fails, use the logs rust-highfive (really it is
+2. Run the following command in the pull request thread:
+
+    ```
+    @rustbot modify labels: +rollup
+    @bors r+ rollup=never p=<NUMBER_OF_PRS_IN_ROLLUP>
+    ````
+
+3. If the rollup fails, use the logs rust-highfive (really it is
    rust-log-analyzer) provides to bisect the failure to a specific PR and do
    `@bors r-`. If the PR is running, you need to do `@bors r- retry`. Otherwise,
    your rollup succeeded. If it did, proceed to the next rollup (every now and
    then let `rollup=never` and toolstate PRs progress).
-5. Recreate the rollup without the offending PR starting again from **1.**
+4. Recreate the rollup without the offending PR starting again from **1.**
 
 ## Selecting Pull Requests
 
