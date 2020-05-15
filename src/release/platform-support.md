@@ -191,7 +191,6 @@ target | std | rustc | cargo | notes
 `thumbv8m.base-none-eabi` | ? |  |  |
 `thumbv8m.main-none-eabi` | ? |  |  |
 `thumbv8m.main-none-eabihf` | ? |  |  |
-`wasm32-experimental-emscripten` | ? |  |  |
 `x86_64-pc-solaris` | ? |  |  |
 `x86_64-pc-windows-msvc` | ✓ |  |  | 64-bit Windows XP support
 `x86_64-unknown-dragonfly` | ✓ | ✓ | ✓ | 64-bit DragonFlyBSD
