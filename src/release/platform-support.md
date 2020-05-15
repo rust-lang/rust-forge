@@ -77,14 +77,19 @@ target | std | rustc | cargo | notes
 `mips-unknown-linux-gnu` | ✓ | ✓ | ✓ | MIPS Linux
 `mips-unknown-linux-musl` | ✓ |  |  | MIPS Linux with MUSL
 `mips64-unknown-linux-gnuabi64` | ✓ | ✓ | ✓ | MIPS64 Linux, n64 ABI
+`mips64-unknown-linux-muslabi64` | ✓ |  |  | MIPS64 Linux, n64 ABI, MUSL
 `mips64el-unknown-linux-gnuabi64` | ✓ | ✓ | ✓ | MIPS64 (LE) Linux, n64 ABI
+`mips64el-unknown-linux-muslabi64` | ✓ |  |  | MIPS64 (LE) Linux, n64 ABI, MUSL
 `mipsel-unknown-linux-gnu` | ✓ | ✓ | ✓ | MIPS (LE) Linux
 `mipsel-unknown-linux-musl` | ✓ |  |  | MIPS (LE) Linux with MUSL
+`nvptx64-nvidia-cuda` | ✓ |  |  | --emit=asm generates PTX code that [runs on NVIDIA GPUs]
 `powerpc-unknown-linux-gnu` | ✓ | ✓ | ✓ | PowerPC Linux
 `powerpc64-unknown-linux-gnu` | ✓ | ✓ | ✓ | PPC64 Linux
 `powerpc64le-unknown-linux-gnu` | ✓ | ✓ | ✓ | PPC64LE Linux
+`riscv32i-unknown-none-elf` | * |  |  | Bare RISC-V (RV32I ISA)
 `riscv32imac-unknown-none-elf` | * |  |  | Bare RISC-V (RV32IMAC ISA)
 `riscv32imc-unknown-none-elf` | * |  |  | Bare RISC-V (RV32IMC ISA)
+`riscv64gc-unknown-linux-gnu` | ✓ | ✓ | ✓ | RISC-V Linux
 `riscv64gc-unknown-none-elf` | * |  |  | Bare RISC-V (RV64IMAFDC ISA)
 `riscv64imac-unknown-none-elf` | * |  |  | Bare RISC-V (RV64IMAC ISA)
 `s390x-unknown-linux-gnu` | ✓ | ✓ | ✓ | S390x Linux
@@ -96,6 +101,9 @@ target | std | rustc | cargo | notes
 `thumbv7m-none-eabi` | * |  |  | Bare Cortex-M3
 `thumbv7neon-linux-androideabi` | ✓ |  |  | Thumb2-mode ARMv7a Android with NEON
 `thumbv7neon-unknown-linux-gnueabihf` | ✓ |  |  | Thumb2-mode ARMv7a Linux with NEON
+`thumbv8m.base-none-eabi` | * |  |  | ARMv8-M Baseline
+`thumbv8m.main-none-eabi` | * |  |  | ARMv8-M Mainline
+`thumbv8m.main-none-eabihf` | * |  |  | ARMv8-M Baseline, hardfloat
 `wasm32-unknown-emscripten` | ✓ |  |  | WebAssembly via Emscripten
 `wasm32-unknown-unknown` | ✓ |  |  | WebAssembly
 `wasm32-wasi` | ✓ |  |  | WebAssembly with WASI
@@ -172,15 +180,12 @@ target | std | rustc | cargo | notes
 `i686-uwp-windows-msvc` | ? |  |  |
 `i686-wrs-vxworks` | ? |  |  |
 `mips-unknown-linux-uclibc` | ✓ |  |  | MIPS Linux with uClibc
-`mips64-unknown-linux-muslabi64` | ? |  |  |
-`mips64el-unknown-linux-muslabi64` | ? |  |  |
 `mipsel-unknown-linux-uclibc` | ✓ |  |  | MIPS (LE) Linux with uClibc
 `mipsisa32r6-unknown-linux-gnu` | ? |  |  |
 `mipsisa32r6el-unknown-linux-gnu` | ? |  |  |
 `mipsisa64r6-unknown-linux-gnuabi64` | ? |  |  |
 `mipsisa64r6el-unknown-linux-gnuabi64` | ? |  |  |
 `msp430-none-elf` | * |  |  | 16-bit MSP430 microcontrollers
-`nvptx64-nvidia-cuda` | ✓ |  |  | --emit=asm generates PTX code that [runs on NVIDIA GPUs]
 `powerpc-unknown-linux-musl` | ? |  |  |
 `powerpc-unknown-netbsd` | ? |  |  |
 `powerpc-wrs-vxworks` | ? |  |  |
@@ -189,15 +194,10 @@ target | std | rustc | cargo | notes
 `powerpc64-unknown-linux-musl` | ? |  |  |
 `powerpc64-wrs-vxworks` | ? |  |  |
 `powerpc64le-unknown-linux-musl` | ? |  |  |
-`riscv32i-unknown-none-elf` | ? |  |  |
-`riscv64gc-unknown-linux-gnu` | ✓ | ✓ | ✓ |
 `sparc64-unknown-netbsd` | ✓ | ✓ |  | NetBSD/sparc64
 `sparc64-unknown-openbsd` | ? |  |  |
 `thumbv7a-pc-windows-msvc` | ? |  |  |
 `thumbv7neon-unknown-linux-musleabihf` | ? |  |  | Thumb2-mode ARMv7a Linux with NEON, MUSL
-`thumbv8m.base-none-eabi` | ? |  |  |
-`thumbv8m.main-none-eabi` | ? |  |  |
-`thumbv8m.main-none-eabihf` | ? |  |  |
 `x86_64-apple-ios-macabi` | ✓ |  |  | Apple Catalyst
 `x86_64-apple-tvos` | ** | | | x86 64-bit tvOS
 `x86_64-linux-kernel` | ? |  |  | Linux kernel modules
@@ -215,7 +215,6 @@ target | std | rustc | cargo | notes
 `x86_64-uwp-windows-msvc` | ✓ |  |  |
 `x86_64-wrs-vxworks` | ? |  |  |
 
-[runs on NVIDIA GPUs]: https://github.com/japaric-archived/nvptx#targets
 
 \* These targets only support `core`, not `alloc` or `std`.
 
@@ -231,4 +230,5 @@ to the core library, Rust can also target additional "bare metal" platforms in
 the x86, ARM, MIPS, and PowerPC families, though it may require defining custom
 target specifications to do so.
 
+[runs on NVIDIA GPUs]: https://github.com/japaric-archived/nvptx#targets
 [Rust Forge repo]: https://github.com/rust-lang/rust-forge
