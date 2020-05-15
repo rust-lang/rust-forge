@@ -48,6 +48,8 @@ target | std | rustc | cargo | notes
 `aarch64-pc-windows-msvc` | ✓ |  |  | ARM64 Windows MSVC
 `aarch64-unknown-linux-gnu` | ✓ | ✓ | ✓ | ARM64 Linux
 `aarch64-unknown-linux-musl` | ✓ |  |  | ARM64 Linux with MUSL
+`aarch64-unknown-none` | * |  |  | Bare ARM64, hardfloat
+`aarch64-unknown-none-softfloat` | * |  |  | Bare ARM64, softfloat
 `arm-linux-androideabi` | ✓ |  |  | ARMv7 Android
 `arm-unknown-linux-gnueabi` | ✓ | ✓ | ✓ | ARMv6 Linux
 `arm-unknown-linux-gnueabihf` | ✓ | ✓ | ✓ | ARMv6 Linux, hardfloat
@@ -61,7 +63,9 @@ target | std | rustc | cargo | notes
 `armv7a-none-eabi` | * |  |  | Bare ARMv7-A
 `armv7r-none-eabi` | * |  |  | Bare ARMv7-R
 `armv7r-none-eabihf` | * |  |  | Bare ARMv7-R, hardfloat
-`armv7-unknown-linux-gnueabihf` | ✓ | ✓ | ✓ | ARMv7 Linux
+`armv7-unknown-linux-gnueabi` | ✓ |   |   | ARMv7 Linux, glibc
+`armv7-unknown-linux-gnueabihf` | ✓ | ✓ | ✓ | ARMv7 Linux, hardfloat
+`armv7-unknown-linux-musleabi` | ✓ |   |   | ARMv7 Linux, MUSL
 `armv7-unknown-linux-musleabihf` | ✓ |  |  | ARMv7 Linux with MUSL
 `asmjs-unknown-emscripten` | ✓ |  |  | asm.js via Emscripten
 `i586-pc-windows-msvc` | ✓ |  |  | 32-bit Windows w/o SSE
@@ -139,10 +143,10 @@ not available.
 
 target | std | rustc | cargo | notes
 -------|-----|-------|-------|-------
+`aarch64-apple-tvos` | ** |  |  | ARM64 tvOS
 `aarch64-unknown-freebsd` | ✓ | ✓ | ✓ | ARM64 FreeBSD
 `aarch64-unknown-hermit` | ? |  |  |
 `aarch64-unknown-netbsd` | ? |  |  |
-`aarch64-unknown-none` | ? |  |  |
 `aarch64-unknown-openbsd` | ✓ | ✓ | ✓ | ARM64 OpenBSD
 `aarch64-unknown-redox` | ? |  |  |
 `aarch64-uwp-windows-msvc` | ? |  |  |
@@ -154,11 +158,13 @@ target | std | rustc | cargo | notes
 `armv7-unknown-freebsd` | ✓ | ✓ | ✓ | ARMv7 FreeBSD
 `armv7-unknown-netbsd-eabihf` | ? |  |  |
 `armv7-wrs-vxworks-eabihf` | ? |  |  |
+`armv7a-none-eabihf` | * | | | ARM Cortex-A, hardfloat
 `armv7s-apple-ios` | ✓ |  |  |
 `hexagon-unknown-linux-musl` | ? |  |  |
 `i386-apple-ios` | ✓ |  |  | 32-bit x86 iOS
 `i686-apple-darwin` | ✓ | ✓ | ✓ | 32-bit OSX (10.7+, Lion+)
 `i686-pc-windows-msvc` | ✓ |  |  | 32-bit Windows XP support
+`i686-unknown-uefi` | ? |  |  | 32-bit UEFI
 `i686-unknown-haiku` | ✓ | ✓ | ✓ | 32-bit Haiku
 `i686-unknown-netbsd` | ✓ |  |  | NetBSD/i386 with SSE2
 `i686-unknown-openbsd` | ✓ | ✓ | ✓ | 32-bit OpenBSD
@@ -174,7 +180,7 @@ target | std | rustc | cargo | notes
 `mipsisa64r6-unknown-linux-gnuabi64` | ? |  |  |
 `mipsisa64r6el-unknown-linux-gnuabi64` | ? |  |  |
 `msp430-none-elf` | * |  |  | 16-bit MSP430 microcontrollers
-`nvptx64-nvidia-cuda` | ** |  |  | --emit=asm generates PTX code that [runs on NVIDIA GPUs]
+`nvptx64-nvidia-cuda` | ✓ |  |  | --emit=asm generates PTX code that [runs on NVIDIA GPUs]
 `powerpc-unknown-linux-musl` | ? |  |  |
 `powerpc-unknown-netbsd` | ? |  |  |
 `powerpc-wrs-vxworks` | ? |  |  |
@@ -188,14 +194,20 @@ target | std | rustc | cargo | notes
 `sparc64-unknown-netbsd` | ✓ | ✓ |  | NetBSD/sparc64
 `sparc64-unknown-openbsd` | ? |  |  |
 `thumbv7a-pc-windows-msvc` | ? |  |  |
+`thumbv7neon-unknown-linux-musleabihf` | ? |  |  | Thumb2-mode ARMv7a Linux with NEON, MUSL
 `thumbv8m.base-none-eabi` | ? |  |  |
 `thumbv8m.main-none-eabi` | ? |  |  |
 `thumbv8m.main-none-eabihf` | ? |  |  |
+`x86_64-apple-ios-macabi` | ✓ |  |  | Apple Catalyst
+`x86_64-apple-tvos` | ** | | | x86 64-bit tvOS
+`x86_64-linux-kernel` | ? |  |  | Linux kernel modules
 `x86_64-pc-solaris` | ? |  |  |
 `x86_64-pc-windows-msvc` | ✓ |  |  | 64-bit Windows XP support
 `x86_64-unknown-dragonfly` | ✓ | ✓ | ✓ | 64-bit DragonFlyBSD
 `x86_64-unknown-haiku` | ✓ | ✓ | ✓ | 64-bit Haiku
 `x86_64-unknown-hermit` | ? |  |  |
+`x86_64-unknown-hermit-kernel` | ? |  |  | HermitCore kernel
+`x86_64-unknown-illumos` | ✓ |  |  | illumos
 `x86_64-unknown-l4re-uclibc` | ? |  |  |
 `x86_64-unknown-openbsd` | ✓ | ✓ | ✓ | 64-bit OpenBSD
 `x86_64-unknown-uefi` | ? |  |  |
@@ -205,12 +217,9 @@ target | std | rustc | cargo | notes
 
 [runs on NVIDIA GPUs]: https://github.com/japaric-archived/nvptx#targets
 
-\* These are bare-metal microcontroller targets that only have access to the
-   core library, not std.
+\* These targets only support `core`, not `alloc` or `std`.
 
-\*\* There’s backend support for these targets but no target built into rustc
-     (yet). You’ll have to write your own target specification file (see the
-     links in the table). These targets only support the core library.
+\*\* These targets only support `core` or `alloc`, not `std`.
 
 ? These are targets that haven't yet been documented here. If you can shed some
   light on these platforms support, please create an issue or PR on the [Rust
