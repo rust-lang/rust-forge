@@ -194,7 +194,6 @@ target | std | rustc | cargo | notes
 `wasm32-experimental-emscripten` | ? |  |  |
 `x86_64-pc-solaris` | ? |  |  |
 `x86_64-pc-windows-msvc` | ✓ |  |  | 64-bit Windows XP support
-`x86_64-unknown-bitrig` | ✓ | ✓ |  | 64-bit Bitrig
 `x86_64-unknown-dragonfly` | ✓ | ✓ | ✓ | 64-bit DragonFlyBSD
 `x86_64-unknown-haiku` | ✓ | ✓ | ✓ | 64-bit Haiku
 `x86_64-unknown-hermit` | ? |  |  |
