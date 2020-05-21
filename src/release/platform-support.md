@@ -122,28 +122,6 @@ target | std | rustc | cargo | notes
 
 [Fortanix ABI]: https://edp.fortanix.com/
 
-## Tier 2.5
-Tier 2.5 platforms can be thought of as "guaranteed to build", but without
-builds available through `rustup`. Automated tests are not run so it's not
-guaranteed to produce a working build, but platforms often work to quite a good
-degree and patches are always welcome! Specifically, these platforms are
-required to have each of the following:
-
-* Automated building is set up, but may not be running tests.
-* Landing changes to the `rust-lang/rust` repository's master branch is gated on
-  platforms **building**. For some platforms only the standard library is
-  compiled, but for others `rustc` and `cargo` are too.
-
-**This status is accidental: no new platforms should reach this state**
-
-target | std | rustc | cargo | notes
--------|-----|-------|-------|-------
-`aarch64-unknown-cloudabi` | ✓ |  |  | ARM64 CloudABI
-`armv7-unknown-cloudabi-eabihf` | ✓ |  |  | ARMv7 CloudABI, hardfloat
-`i686-unknown-cloudabi` | ✓ |  |  | 32-bit CloudABI
-`powerpc-unknown-linux-gnuspe` | ✓ |  |  | PowerPC SPE Linux
-`sparc-unknown-linux-gnu` | ✓ |  |  | 32-bit SPARC Linux
-
 ## Tier 3
 Tier 3 platforms are those which the Rust codebase has support for, but which
 are not built or tested automatically, and may not work. Official builds are
@@ -152,6 +130,7 @@ not available.
 target | std | rustc | cargo | notes
 -------|-----|-------|-------|-------
 `aarch64-apple-tvos` | ** |  |  | ARM64 tvOS
+`aarch64-unknown-cloudabi` | ✓ |  |  | ARM64 CloudABI
 `aarch64-unknown-freebsd` | ✓ | ✓ | ✓ | ARM64 FreeBSD
 `aarch64-unknown-hermit` | ? |  |  |
 `aarch64-unknown-netbsd` | ? |  |  |
@@ -163,6 +142,7 @@ target | std | rustc | cargo | notes
 `armv6-unknown-freebsd` | ✓ | ✓ | ✓ | ARMv6 FreeBSD
 `armv6-unknown-netbsd-eabihf` | ? |  |  |
 `armv7-apple-ios` | ✓ |  |  | RMv7 iOS, Cortex-
+`armv7-unknown-cloudabi-eabihf` | ✓ |  |  | ARMv7 CloudABI, hardfloat
 `armv7-unknown-freebsd` | ✓ | ✓ | ✓ | ARMv7 FreeBSD
 `armv7-unknown-netbsd-eabihf` | ? |  |  |
 `armv7-wrs-vxworks-eabihf` | ? |  |  |
@@ -172,6 +152,7 @@ target | std | rustc | cargo | notes
 `i386-apple-ios` | ✓ |  |  | 32-bit x86 iOS
 `i686-apple-darwin` | ✓ | ✓ | ✓ | 32-bit OSX (10.7+, Lion+)
 `i686-pc-windows-msvc` | ✓ |  |  | 32-bit Windows XP support
+`i686-unknown-cloudabi` | ✓ |  |  | 32-bit CloudABI
 `i686-unknown-uefi` | ? |  |  | 32-bit UEFI
 `i686-unknown-haiku` | ✓ | ✓ | ✓ | 32-bit Haiku
 `i686-unknown-netbsd` | ✓ |  |  | NetBSD/i386 with SSE2
@@ -186,6 +167,7 @@ target | std | rustc | cargo | notes
 `mipsisa64r6-unknown-linux-gnuabi64` | ? |  |  |
 `mipsisa64r6el-unknown-linux-gnuabi64` | ? |  |  |
 `msp430-none-elf` | * |  |  | 16-bit MSP430 microcontrollers
+`powerpc-unknown-linux-gnuspe` | ✓ |  |  | PowerPC SPE Linux
 `powerpc-unknown-linux-musl` | ? |  |  |
 `powerpc-unknown-netbsd` | ? |  |  |
 `powerpc-wrs-vxworks` | ? |  |  |
@@ -194,6 +176,7 @@ target | std | rustc | cargo | notes
 `powerpc64-unknown-linux-musl` | ? |  |  |
 `powerpc64-wrs-vxworks` | ? |  |  |
 `powerpc64le-unknown-linux-musl` | ? |  |  |
+`sparc-unknown-linux-gnu` | ✓ |  |  | 32-bit SPARC Linux
 `sparc64-unknown-netbsd` | ✓ | ✓ |  | NetBSD/sparc64
 `sparc64-unknown-openbsd` | ? |  |  |
 `thumbv7a-pc-windows-msvc` | ? |  |  |
