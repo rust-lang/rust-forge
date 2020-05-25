@@ -8,6 +8,7 @@
       - [Moderation](./chat/zulip/moderation.md)
 - [Core](./core/README.md)
     - [Rust Blog Guidelines](./core/blogs.md)
+    - [Legal counsel](./core/legal.md)
 - [Community](./community/README.md)
     - [State of Rust Survey FAQ](./community/survey-faq.md)
 - [Compiler](./compiler/README.md)
