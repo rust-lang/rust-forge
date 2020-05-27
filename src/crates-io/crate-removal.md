@@ -34,9 +34,7 @@ of a crate, by running a CLI command. The people who currently have permissions
 to access the server and run it are:
 
 * docs.rs Team:
-  * [@QuietMisdreavus](https://github.com/QuietMisdreavus)
   * [@pietroalbini](https://github.com/pietroalbini)
-  * [@onur](https://github.com/onur)
   * [@jyn514](https://github.com/jyn514)
 * Infrastructure Team:
   * [@Mark-Simulacrum](https://github.com/Mark-Simulacrum)
