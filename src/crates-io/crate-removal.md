@@ -1,23 +1,22 @@
 # Crate removal procedure
 
-> **Status 2020-01-21**: this document is incomplete and unvetted. We anticipate to
-> be receiving guidelines from Mozilla Legal in the near future. If this notice
-> is still here on 2020-03-21, please comment on [this issue][outdated-issue]
-> asking for a status update.
-
-[outdated-issue]: https://github.com/rust-lang/crates-io-cargo-teams/issues/63
-
 If we get a DMCA takedown notice, here's what needs to happen:
+
+## Contact Mozilla Legal
+
+Before removing the crates, [get in touch with legal](../core/legal.md) and ask
+an opinion from them on the received request and whether we have to comply with
+it.
 
 ## Remove relevant version(s) and/or entire crates from crates.io
 
 * Remove it from the database:
 
-      heroku run -- cargo run --bin delete-crate [crate-name]
+      heroku run -a crates-io -- target/release/delete-crate [crate-name]
 
   or
 
-      heroku run -- cargo run --bin delete-version [crate-name] [version-number]
+      heroku run -a crates-io -- target/release/delete-version [crate-name] [version-number]
 
 * Remove the crate or version from the index. To remove an entire crate, remove
   the entire crate file. For a version, remove the line corresponding to the
@@ -35,9 +34,7 @@ of a crate, by running a CLI command. The people who currently have permissions
 to access the server and run it are:
 
 * docs.rs Team:
-  * [@QuietMisdreavus](https://github.com/QuietMisdreavus)
   * [@pietroalbini](https://github.com/pietroalbini)
-  * [@onur](https://github.com/onur)
   * [@jyn514](https://github.com/jyn514)
 * Infrastructure Team:
   * [@Mark-Simulacrum](https://github.com/Mark-Simulacrum)
