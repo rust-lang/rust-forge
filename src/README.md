@@ -46,10 +46,10 @@ Nightly +1 | <span id="next-version"></span>    | <span id="next-release-date"><
 To ensure the beta release includes all the tools, no [tool breakages] are
 allowed in the week before the beta cutoff (except for nightly-only tools).
 
-Channel | Version | No Breakage Week
---------|---------|-------------
-Beta    | <span id="beta-cycle"></span>    | <span id="beta-timespan"></span>
-Nightly | <span id="nightly-cycle"></span> | <span id="nightly-timespan"></span>
+Beta Cut | No Breakage Week
+---------|-----------------
+<span id="nightly-cycle"></span> | <span id="nightly-timespan"></span>
+<span id="next-cycle"></span>    | <span id="next-timespan"></span>
 
 [tool breakages]: ./infra/toolstate.md
 
