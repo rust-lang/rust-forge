@@ -15,7 +15,7 @@ function addRelease (kind, incr, toolsWeek) {
   document.querySelector(`#${kind}-release-date`).textContent = `${releaseDate.format(DATE_FORMAT)} UTC`
 
   if (toolsWeek) {
-    const noBreakagesTo = releaseDate.clone().day(2)
+    const noBreakagesTo = releaseDate.clone().subtract(6, 'weeks').day(2)
     const noBreakagesFrom = noBreakagesTo.clone().subtract(6, 'days')
     const toDate = noBreakagesTo.format(DATE_FORMAT)
     const fromDate = noBreakagesFrom.format(DATE_FORMAT)
@@ -27,7 +27,7 @@ function addRelease (kind, incr, toolsWeek) {
 
 if (document.querySelector('#current-release-versions')) {
   addRelease('stable', 0, false)
-  addRelease('beta', 1, true)
+  addRelease('beta', 1, false)
   addRelease('nightly', 2, true)
   addRelease('next', 3, true)
 }
