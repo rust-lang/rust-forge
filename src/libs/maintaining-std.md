@@ -2,9 +2,11 @@
 
 > Everything I wish I knew before somebody gave me `r+`
 
-This document is an effort to capture some of the context needed to develop and maintain the Rust standard library. It’s goal is to help members of the Libs team share the process and experience they bring to working on the standard library so other members can benefit. It’ll probably accumulate a lot of trivia that might also be interesting to members of the wider Rust community.
+This document is an effort to capture some of the context needed to develop and maintain the Rust standard library. It’s goal is to help contributors to the standard library share the process and experience they bring to working on it so other members can benefit. It’ll probably accumulate a lot of trivia that might also be interesting to members of the wider Rust community, even if they're not directly contributing to the standard library.
 
 This document doesn't attempt to discuss best practices or good style. For that, see the [API Guidelines].
+
+Historically, the API design, implementation, and maintenance of the standard library has been the responsibility of the Libs team. Going forward, these responsibilities will be split between the Libs team (API design) and Compiler team (implementation). This document is a mix of considerations for API design and implementation so should be useful for both Libs and Compiler members.
 
 ## Contributing
 
@@ -12,7 +14,8 @@ If you spot anything that is outdated, under specified, missing, or just plain i
 
 ## Terms
 
-- Libs. That's us! The team responsible for development and maintenance of the standard library (among other things).
+- Libs. The team responsible for the API of the standard library (among other things).
+- Compiler. The team responsible for the implementation of the standard library.
 - Pull request (PR). A regular GitHub pull request against [`rust-lang/rust`].
 - Request for Comment (RFC). A formal document created in [`rust-lang/rfcs`] that introduces new features.
 - Tracking Issue. A regular issue on GitHub that’s tagged with `C-tracking-issue`.
@@ -32,7 +35,9 @@ Please remember to regularly check https://rfcbot.rs/. Click on any occurrence o
 
 ## Reviewing PRs
 
-As a member of the Libs team you’ll find yourself assigned to PRs that need reviewing, and your input requested on issues in the Rust project.
+As a maintainer of the standard library you’ll find yourself assigned to PRs that need reviewing, and your input requested on issues in the Rust project.
+
+The Compiler team has a page for _Review policies_.
 
 ### When is an RFC needed?
 
@@ -205,7 +210,7 @@ PRs to [`rust-lang/rust`] aren’t merged manually using GitHub’s UI or by pus
 
 For Libs PRs, rolling up is usually fine, in particular if it's only a new unstable addition or if it only touches docs (with the exception of intra doc links which complicates things while the feature has bugs...).
 
-If a submodule is affected then probably don't `rollup`. If the feature affects perf then also avoid `rollup` -- mark it as `rollup=never`.
+If a submodule is affected then probably don't `rollup`. If the feature affects perf then also avoid `rollup`—mark it as `rollup=never`.
 
 ### When there’s new public items
 
