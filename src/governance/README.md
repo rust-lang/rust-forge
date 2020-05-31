@@ -130,22 +130,22 @@ subteam to decide, but:
 
 ## Project Groups
 
-* Definition and rationale /
+* Definition and rationale <br/>
 These groups are dedicated to specific projects within the context of a Rust team. The goal of a project is to build or formalise a community to discuss and work on a particular feature or need in the organisation. Previously a lot of the discussion and iteration for large features would happen in the initial RFC thread, which is especially unwieldly when work on a feature takes months and years. 
 
-* Essential characteristics /
+* Essential characteristics <br/>
 Unlike a Rust Team, Project Groups don't have formal decision making power, though often they are charged with creating prototypes and drawing up recommendations, RFCs, or other documents to inform a final decision. They are associated with a parent team and have a charter outlining their scope and goals, appointed lead, team liaison(s), members, an associated repository, and dedicated streams on Zulip or a channel on Discord (ideally the group should use the same platform as their parent team).
 
-* Duration /
+* Duration <br/>
 Some project groups are are ephemeral, meaning that they are archived once work is complete. Others continue to develop and maintain their project over time. Examples of ephemeral groups focused on a specific feature include [FFI Unwind](https://github.com/rust-lang/project-ffi-unwind), [Inline ASM](https://github.com/rust-lang/project-inline-asm), and [Safe Transmute](https://github.com/rust-lang/project-safe-transmute). Examples of groups engaged in continual work include [Triage](https://github.com/rust-lang/team/blob/master/teams/wg-triage.toml) and [Rustup](https://github.com/rust-lang/team/blob/master/teams/wg-rustup.toml).
 
-* Definitions /
- -- Charter - This document explains the group's scope and goals, individuals involved, membership requirements, and its relationship to the parent team and community.
- -- Liaison - A member from a official Rust team. Acts as a point of contact between the team and the group. Either directly involved or syncing with the group periodically. Able to represent Project Group work in meetings with the Rust team. Maintains awareness of situations where this Project Group's work may intersect with work outside the Project Team. A liaison may also be a lead, but this is not a requirement.
- -- Member - Individuals who regularly participate in work of the Project Group. Initial team membership should preferably include people who have already been participating regularly and productively in related work and discussion.
- -- Repository - Hosted under the rust-lang organization, includes the charter and instructions for how community members can monitor or participate in the group.
+* Definitions <br/>
+-- Charter - This document explains the group's scope and goals, individuals involved, membership requirements, and its relationship to the parent team and community.<br/>
+-- Liaison - A member from a official Rust team. Acts as a point of contact between the team and the group. Either directly involved or syncing with the group periodically. Able to represent Project Group work in meetings with the Rust team. Maintains awareness of situations where this Project Group's work may intersect with work outside the Project Team. A liaison may also be a lead, but this is not a requirement.<br/>
+-- Member - Individuals who regularly participate in work of the Project Group. Initial team membership should preferably include people who have already been participating regularly and productively in related work and discussion.<br/>
+-- Repository - Hosted under the rust-lang organization, includes the charter and instructions for how community members can monitor or participate in the group.<br/>
 
-* Lifecycle /
+* Lifecycle <br/>
 Detailed instructions for forming, running, and archiving groups are provided in the [Project Groups RFC](https://github.com/rust-lang/rfcs/blob/master/text/2856-project-groups.md).
 
 
