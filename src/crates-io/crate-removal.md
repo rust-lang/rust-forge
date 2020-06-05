@@ -24,8 +24,11 @@ it.
 
 * Remove the crate archive(s) and readme file(s) from S3.
 
-* Invalidate the CloudFront cache – remove both the relevant readme and crate
-  files. If in doubt, invalidate `/*` to flush everything.
+* Invalidate the CloudFront cache:
+
+  ```
+  aws cloudfront create-invalidation --distribution-id EJED5RT0WA7HA --paths '/*'
+  ```
 
 ## Remove entire crates from docs.rs
 
