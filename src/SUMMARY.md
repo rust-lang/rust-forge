@@ -15,6 +15,7 @@
     - [Cross Compilation](./compiler/cross-compilation/README.md)
         - [Windows](./compiler/cross-compilation/windows.md)
     - [Review policies](./compiler/reviews.md)
+    - [So you want to add a new option to rustc?](./compiler/new_option.md)
     - [Major Change Proposals](./compiler/mcp.md)
     - [Membership](./compiler/membership.md)
     - [Triage Meeting](./compiler/triage-meeting.md)
