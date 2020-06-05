@@ -56,4 +56,4 @@ google calendar and selecting "publish".
 Add a blog post to the Inside Rust blog using the [template found on
 the compiler-team repository][blog-template].
 
-[blog-template]: XXX
+[blog-template]: https://github.com/rust-lang/compiler-team/blob/master/templates/planning-meeting-blog-post.md
