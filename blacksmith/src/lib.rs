@@ -4,7 +4,6 @@ use std::{
     collections::BTreeMap,
     fmt::Write,
     io::{BufRead, BufReader},
-    path::Path,
     time::SystemTime,
 };
 
@@ -126,61 +125,6 @@ impl Blacksmith {
 
         blacksmith.last_update = unix_time();
         Ok(blacksmith)
-    }
-
-    fn generate_redirects(&self, ctx: &PreprocessorContext) {
-        if ctx.renderer != "html" {
-            return;
-        }
-
-        let dir = ctx.config.build.build_dir.as_path();
-
-        /// A list of pairs of file names and where to redirect to from their
-        /// page.
-        #[rustfmt::skip]
-        const REDIRECTS: &[(&str, &str)] = &[
-            ("beta-backporting.html", "/release/beta-backporting.html"),
-            ("bibliography.html", "https://rustc-dev-guide.rust-lang.org/appendix/bibliography.html"),
-            ("channel-layout.html", "/infra/channel-layout.html"),
-            ("debugging.html", "https://rustc-dev-guide.rust-lang.org/compiler-debugging.html"),
-            ("feature_guide.html", "https://rustc-dev-guide.rust-lang.org/implementing_new_features.html"),
-            ("fott.html", "/archive/fott.html"),
-            ("infrastructure.html", "/infra/service-infrastructure.html"),
-            ("other-installation-methods.html", "/infra/other-installation-methods.html"),
-            ("platform-support.html", "/release/platform-support.html"),
-            ("profile-queries.html", "/compiler/profile-queries.html"),
-            ("release-notes.html", "/release/release-notes.html"),
-            ("releases.html", "/archive/release-history.html"),
-            ("rfc-merge-procedure.html", "/lang/rfc-merge-procedure.html"),
-            ("rustc-bug-fix-procedure.html", "/compiler/bug-fix-procedure.html"),
-            ("rustc-diagnostic-code.html", "/compiler/diagnostic-codes.html"),
-            ("rustc-team-maintenance.html", "/infra/team-maintenance.html"),
-            ("stabilization-guide.html", "https://rustc-dev-guide.rust-lang.org/stabilization_guide.html"),
-            ("state-of-rust.html", "https://github.com/rust-lang/rust/projects/8"),
-            ("test-suite.html", "https://rustc-dev-guide.rust-lang.org/tests/intro.html"),
-            ("toolstate.html", "/infra/toolstate.html"),
-            ("triage-procedure.html", "/release/triage-procedure.html"),
-            ("x-py.html", "https://rustc-dev-guide.rust-lang.org/building/how-to-build-and-run.html"),
-            ("compiler/bug-fix-procedure.html", "https://rustc-dev-guide.rust-lang.org/bug-fix-procedure.html"),
-            ("compiler/diagnostic-codes.html", "https://rustc-dev-guide.rust-lang.org/diagnostics/diagnostic-codes.html"),
-            ("compiler/profile-queries.html", "https://rustc-dev-guide.rust-lang.org/queries/profiling.html"),
-        ];
-
-        // Inititalise book directory if not built yet.
-        std::fs::create_dir_all(dir).unwrap();
-
-        log::info!("Generating {} redirect pages.", REDIRECTS.len());
-        for (filename, url) in REDIRECTS {
-            let template = include_str!("../redirect.html").replace("{{url}}", url);
-
-            log::trace!("Redirecting {} to {}.", filename, url);
-
-            if let Some(parent) = Path::new(filename).parent() {
-                std::fs::create_dir_all(dir.join(parent)).unwrap();
-            }
-
-            std::fs::write(dir.join(filename), template).unwrap();
-        }
     }
 
     /// Creates a list of hyperlinks to `rustup-init` based on what targets
@@ -328,7 +272,7 @@ impl Preprocessor for Blacksmith {
         "blacksmith"
     }
 
-    fn run(&self, ctx: &PreprocessorContext, mut book: Book) -> Result<Book, Error> {
+    fn run(&self, _: &PreprocessorContext, mut book: Book) -> Result<Book, Error> {
         fn recursive_replace(book_item: &mut BookItem, old: &str, new: &str) {
             let chapter = match book_item {
                 BookItem::Chapter(chapter) => chapter,
@@ -356,8 +300,6 @@ impl Preprocessor for Blacksmith {
             recursive_replace(item, "{{#installer_table}}", &standalone_installers_table);
             recursive_replace(item, "{{#source_code_table}}", &source_code_table);
         }
-
-        self.generate_redirects(ctx);
 
         Ok(book)
     }
