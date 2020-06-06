@@ -135,7 +135,7 @@ target | std | rustc | cargo | notes
 `aarch64-unknown-hermit` | ? |  |  |
 `aarch64-unknown-netbsd` | ? |  |  |
 `aarch64-unknown-openbsd` | ✓ | ✓ | ✓ | ARM64 OpenBSD
-`aarch64-unknown-redox` | ? |  |  |
+`aarch64-unknown-redox` | ? |  |  | ARM64 Redox OS
 `aarch64-uwp-windows-msvc` | ? |  |  |
 `aarch64-wrs-vxworks` | ? |  |  |
 `armv4t-unknown-linux-gnueabi` | ? |  |  |
