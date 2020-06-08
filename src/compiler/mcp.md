@@ -8,7 +8,7 @@ require an `rfcbot fcp` to get full approval from the team.) Larger
 changes or modifications to the Rust language itself require a full
 RFC (the latter fall under the lang team's purview).
 
-[RFC 2904] https://github.com/rust-lang/rfcs/blob/master/text/2904-compiler-major-change-process.md
+[RFC 2904]: https://github.com/rust-lang/rfcs/blob/master/text/2904-compiler-major-change-process.md
 
 ## Motivation
 [motivation]: #motivation
