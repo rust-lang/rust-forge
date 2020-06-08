@@ -19,7 +19,7 @@ contributor](./membership.md) will leave a comment like `@bors r+`.
 This indicates that they approve the PR.
 
 People with bors privileges may also leave a `@bors r=username`
-command. This indicates that the PR was already apporved by
+command. This indicates that the PR was already approved by
 `@username`. This is commonly done after rebasing.
 
 Finally, in some cases, PRs can be "delegated" by writing `@bors
