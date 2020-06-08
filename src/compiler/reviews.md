@@ -27,6 +27,12 @@ delegate+` or `@bors delegate=username`. This will allow the PR author
 to approve the PR by issuing `@bors` commands like the ones above
 (but this privilege is limited to the single PR).
 
+## High priority issues
+
+When merging high priority issues (`P-critical` and `P-high`) it's
+recommended to avoid rollups and bump a bit the priority of the PR in
+the homu queue by issuing `@bors r+ rollup=never p=1`.
+
 ## Expectations for r+
 
 bors privileges are binary: the bot doesn't know which code you are
