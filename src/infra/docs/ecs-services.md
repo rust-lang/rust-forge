@@ -36,6 +36,22 @@ pushing any new code beforehand. To do so, run this command:
 aws ecs update-service --cluster rust-ecs-prod --service <service-name> --force-new-deployment
 ```
 
+## Rolling back a deployment
+
+To rollback a bad deployment you can run the [`aws-rollback.py`] script (stored
+in the simpleinfra repository) with your [AWS credentials][aws-access] present
+in the shell. The script requires the name of the ECR container image
+repository as its first and only argument:
+
+```
+./aws-rollback.py <image-repository-name>
+```
+
+The script will show the list of images available in the repository, and asks
+for the image number to rollback to. Once that's inserted the script will point
+the `latest` tag to the image you chose, and if an ECS service with the same
+name as the repository exists that service will be restarted too.
+
 ## Deploying application changes
 
 Each application stores its own Docker container in a [ECR repository][ecr] in
@@ -98,3 +114,4 @@ pushed there will be deployed to the ECS cluster.
 [aws-access]: aws-access.md
 [console-access]: aws-access.md#using-the-aws-console
 [ecr]: https://aws.amazon.com/ecr/
+[`aws-rollback.py`]: https://github.com/rust-lang/simpleinfra/blob/master/aws-rollback.py
