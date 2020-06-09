@@ -19,13 +19,19 @@ contributor](./membership.md) will leave a comment like `@bors r+`.
 This indicates that they approve the PR.
 
 People with bors privileges may also leave a `@bors r=username`
-command. This indicates that the PR was already apporved by
+command. This indicates that the PR was already approved by
 `@username`. This is commonly done after rebasing.
 
 Finally, in some cases, PRs can be "delegated" by writing `@bors
 delegate+` or `@bors delegate=username`. This will allow the PR author
 to approve the PR by issuing `@bors` commands like the ones above
 (but this privilege is limited to the single PR).
+
+## High priority issues
+
+When merging high priority issues (`P-critical` and `P-high`) it's
+recommended to avoid rollups and bump a bit the priority of the PR in
+the homu queue by issuing `@bors r+ rollup=never p=1`.
 
 ## Expectations for r+
 
