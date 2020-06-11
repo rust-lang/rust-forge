@@ -43,7 +43,7 @@ act on, and run the following command:
 sudo systemctl start gha-self-hosted-update
 ```
 
-If the contents of the `image/` directory were changed, an image rebuild will
+If the contents of the `images/` directory were changed, an image rebuild will
 also be started. The new image will be used by each VM after they finish
 processing the current job.
 
