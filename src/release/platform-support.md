@@ -162,6 +162,7 @@ target | std | rustc | cargo | notes
 `i686-wrs-vxworks` | ? |  |  |
 `mips-unknown-linux-uclibc` | ✓ |  |  | MIPS Linux with uClibc
 `mipsel-unknown-linux-uclibc` | ✓ |  |  | MIPS (LE) Linux with uClibc
+`mipsel-sony-psp` | ** |  |  | MIPS (LE) Sony PlayStation Portable (PSP)
 `mipsisa32r6-unknown-linux-gnu` | ? |  |  |
 `mipsisa32r6el-unknown-linux-gnu` | ? |  |  |
 `mipsisa64r6-unknown-linux-gnuabi64` | ? |  |  |
