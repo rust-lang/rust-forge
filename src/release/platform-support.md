@@ -182,6 +182,7 @@ target | std | rustc | cargo | notes
 `sparc64-unknown-netbsd` | ✓ | ✓ |  | NetBSD/sparc64
 `sparc64-unknown-openbsd` | ? |  |  |
 `thumbv7a-pc-windows-msvc` | ? |  |  |
+`thumbv7a-uwp-windows-msvc` | ✓ |  |  |
 `thumbv7neon-unknown-linux-musleabihf` | ? |  |  | Thumb2-mode ARMv7a Linux with NEON, MUSL
 `x86_64-apple-ios-macabi` | ✓ |  |  | Apple Catalyst
 `x86_64-apple-tvos` | ** | | | x86 64-bit tvOS
