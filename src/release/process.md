@@ -39,7 +39,7 @@ RUSTUP_DIST_SERVER=https://dev-static.rust-lang.org rustup update stable
 If something goes wrong, and we rebuild stable artifacts, you'll need to
 invalidate the dev-static bucket for RCS to re-release it.
 
-1.  Download https://dev-static.rust-lang/dist/channel-rust-1.35.0.toml The
+1.  Download https://dev-static.rust-lang.org/dist/channel-rust-1.35.0.toml The
     version number must be less than the current release, but otherwise doesn't
     matter.
 1.  Rename the file locally to channel-rust-stable.toml
