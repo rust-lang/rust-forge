@@ -47,6 +47,8 @@ Once you've written up the proposal, you can [open a MCP](https://github.com/rus
 
 Naturally your new option will also have to be implemented. You can implement the option and open up a PR. Often, this implementation work actually happens **before** the MCP is created, and that's fine -- we'll just ask you to open an MCP with the write-up.
 
+See the [Command-line Arguments] chapter in the rustc dev guide for guidelines on how to name and define a new argument.
+
 A few notes that are sometimes overlooked:
 
 * Many options begin as "unstable" options, either because they use `-Z` or because they require `-Zunstable-options` to use.
@@ -54,6 +56,7 @@ A few notes that are sometimes overlooked:
     * If it is unstable, then document the option in the [Unstable Book](https://doc.rust-lang.org/nightly/unstable-book/index.html), whose sources are in [src/doc/unstable-book](https://github.com/rust-lang/rust/tree/master/src/doc/unstable-book).
     * Once the option is stabilized, it should be documented in the [Rustc book](https://doc.rust-lang.org/rustc/index.html), whose sources as in [src/doc/rustc](https://github.com/rust-lang/rust/tree/master/src/doc/rustc). 
 
+[Command-line Arguments]: https://rustc-dev-guide.rust-lang.org/cli.html
 
 ## Stabilization and tracking issue
 
