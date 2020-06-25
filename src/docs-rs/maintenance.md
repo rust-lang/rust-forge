@@ -83,6 +83,27 @@ cratesfyi=> INSERT INTO sandbox_overrides (crate_name, max_memory_bytes)
   VALUES ('stm32f4', 8589934592), ('stm32h7', 8589934592), ('stm32g4', 8589934592);
 ```
 
+## Set a group of crates to be automatically de-prioritized
+
+When many crates from the same project are published at once, they take up a
+lot of space in the queue. You can de-prioritize groups of crates at once like
+this:
+
+```psql
+cratesfyi=> INSERT INTO crate_priorities (pattern, priority)
+  VALUES ('group-%', 1);
+```
+
+The `pattern` should be a `LIKE` pattern as documented on
+<https://www.postgresql.org/docs/current/functions-matching.html>.
+
+Note that this only sets the default priority for crates with that name.
+If there are crates already in the queue, you'll have to update those manually:
+
+```psql
+cratesfyi=> UPDATE queue SET priority = 1 WHERE name LIKE 'group-%';
+```
+
 ## Adding all the crates failed after a date back in the queue
 
 After an outage you might want to add all the failed builds back to the queue.
