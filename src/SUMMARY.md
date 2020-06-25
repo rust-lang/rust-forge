@@ -1,11 +1,12 @@
 # Rust Forge
 
 [Overview](./README.md)
-- [Chat Platforms](./chat/README.md)
+- [Platforms](./chat/README.md)
   - [Discord](./chat/discord.md)
   - [Email](./chat/email.md)
   - [Zulip](./chat/zulip.md)
       - [Moderation](./chat/zulip/moderation.md)
+      - [Triagebot](./chat/zulip/triagebot.md)
 - [Core](./core/README.md)
     - [Rust Blog Guidelines](./core/blogs.md)
     - [Legal counsel](./core/legal.md)
