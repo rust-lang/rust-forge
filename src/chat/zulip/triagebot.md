@@ -191,8 +191,6 @@ The command fails if the issue has already been requested for prioritization (i.
 [prioritize]
 # Name of the label used for requesting prioritization on issues
 label = "I-prioritize"
-# ID of the stream used by the Prioritization WG
-zulip_stream = 227806
 ```
 
 ## Major Changes
