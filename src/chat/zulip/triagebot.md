@@ -202,7 +202,7 @@ A major change is an issue that will have a big impact on users. See [this page 
 
 The compiler team uses the major change process, which requires:
  * An issue
- * A second (TODO: replace term? The meaning could not be obvious to non-native English speakers)
+ * A "second", who is an expert from the Compiler team who thinks the proposal is a good idea
 
 We have supporting automation for both parts.
 
