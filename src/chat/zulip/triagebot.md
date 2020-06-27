@@ -198,7 +198,7 @@ zulip_stream = 227806
 
 ## Major Changes
 
-A major change is an issue that will have a big impact on users. (TODO: improve description)
+A major change is an issue that will have a big impact on users. See [this page on the MCP process](../../compiler/mcp.md) for detailed explanations.
 
 The compiler team uses the major change process, which requires:
  * An issue
