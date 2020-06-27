@@ -131,7 +131,7 @@ The configuration for this feature is:
 
 ```toml
 [triage]
-remove = ["I-nominated"] # the set of labels to remove when this command is invoked
+remove = ["I-prioritize"] # the set of labels to remove when this command is invoked
 high = "P-high"
 medium = "P-medium"
 low = "P-low"
@@ -139,7 +139,7 @@ low = "P-low"
 
 ## Applying labels to issues
 
-Anyone can apply a label to issues.
+This command lets anyone apply labels to issues. This is most useful when opening an issue. In general, labels get applied to issues by the Triage WG. If you are interested in helping triaging issues, see the [Triage WG procedure](../../release/triage-procedure.md).
 
 The specific grammar can be found [here](https://github.com/rust-lang/triagebot/blob/master/parser/src/command/relabel.rs), but some examples are listed below. The grammar is intended to be fairly intuitive for people, to prevent needing to reach for documentation when using the bot.
 
@@ -154,7 +154,7 @@ You can also write the same command in a few other ways:
 ```text
 @rustbot modify labels to +T-lang and -T-compiler
 @rustbot modify labels: +T-lang and -T-compiler
-@rustbot modify labels to +T-lang and -T-compiler
+@rustbot modify labels to +T-lang -T-compiler
 ```
 
 Note that the command can either terminate with a `.` or a newline, otherwise the bot will not parse the command successfully.
