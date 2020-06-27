@@ -114,7 +114,7 @@ To ping the team `XXX`, simply leave a comment with the command:
 
 This adds the option to track ICEs (Internal Compiler Errors). Do note that the GitHub Gist must be from a [Rust Playground](https://play.rust-lang.org) link. The link must also be in quotes (`""`), example:
 
-`@bot glacier "https://gist.github.com/rust-play/xxx"`
+`@rustbot glacier "https://gist.github.com/rust-play/xxx"`
 
 ## Triage
 
