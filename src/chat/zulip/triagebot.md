@@ -1,6 +1,6 @@
 # Triagebot
 
-Triaging on the rust-lang repository is an important step to prepare the pipeline for the rust-lang teams that will take care of issues and regressions. The triagebot is the assistant for the rust-lang organization.
+Triaging on the rust-lang repository is an important step to take care of issues. The triagebot is the tool that allows *anyone* to help by assigning, self-assigning or labeling issues without being a member of the rust-lang organization.
 
 To enable triagebot on a particular repository (currently only in the rust-lang organization), add a `triagebot.toml` file in the repository root. It should have a section per "feature". Please read this page to learn how to enable each feature and the options supported; if you spot something missing please let us know [by filing an issue](https://github.com/rust-lang/rust-forge/issues), thanks!
 
@@ -15,7 +15,7 @@ To enable triagebot on a particular repository (currently only in the rust-lang 
 
 ## Issue assignment
 
-Any user can claim an issue via `@rustbot claim`. Issues will be assigned to any user allowed to be an assignee. Users who don't will receive a "claimed" message in the top-level comment (and `rustbot` will be assigned). It is possible to override someone else's claim (no warning/error is given).
+Any user belonging to the rust-lang organization can claim an issue via `@rustbot claim`. If the user is not part of the rust-lang organization `rustbot` will choose an assignee and add a "claimed" message in the top-level comment, to signal who the current assignee is. It is possible to override someone else's claim (no warning/error is given).
 
 You can drop your claim to the issue via `@rustbot release-assignment`; Rust team members can do the same if they want to release someone else's assignment.
 
@@ -64,27 +64,21 @@ This executes any of the above commands as if you were the other GH user.
 
 ## Ping a team
 
-The bot can be used to "ping" teams of people that do not have corresponding Github teams. This is useful because sometimes we want to keep groups of people that we can notify but we don't want to add all the members in those groups to the Github org, as that would imply that they are members of the Rust team (for example, Github would decorate their names with "member" and so forth). The compiler team uses this feature for their [ICE-breaker teams](https://rust-lang.github.io/rustc-guide/ice-breaker/about.html).
-
-TODO: isn't ICE-breakers now called [notification groups](https://rustc-dev-guide.rust-lang.org/notification-groups/about.html)?
+The bot can be used to "ping" teams of people that do not have corresponding Github teams. This is useful because sometimes we want to keep groups of people that we can notify but we don't want to add all the members in those groups to the Github org, as that would imply that they are members of the Rust team (for example, Github would decorate their names with "member" and so forth). The compiler team uses this feature to reach the [notification groups](https://rustc-dev-guide.rust-lang.org/notification-groups/about.html).
 
 When a team is pinged, we will both post a message to the issue and add a label. The message will include a `cc` line that `@`-mentions all members of the team.
 
 
 ### Teams that can be pinged
 
-To be pinged, teams have to be created in the [Rust team repository]. Frequently those teams will be marked as `marker-team`, meaning that they do not appear on the website. The [LLVM ICE-breaker team] is an example.
-
-[Rust team repository]: https://github.com/rust-lang/team
-[LLVM ICE-breaker team]: https://github.com/rust-lang/team/blob/master/teams/icebreakers-llvm.toml#L2
+To be pinged, teams have to be created in the [Rust team repository](https://github.com/rust-lang/team). Frequently those teams will be marked as `marker-team`, meaning that they do not appear on the website. The [LLVM team](https://github.com/rust-lang/team/blob/master/teams/icebreakers-llvm.toml#L2) is an example.
 
 ### Configuration
 
-To enable the team `XXX` (or "someothername") to be pinged, you have to add section to the `triagebot.toml` file at the root of a repository, like so:
+To enable the team (e.g. `TeamName`) to be pinged, you have to add section to the `triagebot.toml` file at the root of a repository, like so:
 
 ```
-[ping.XXX]
-alias = ["someothername"]
+[ping.TeamName]
 message = """\
 Put your message here. It will be added as a Github comment,
 so it can include Markdown and other markup.
@@ -94,9 +88,18 @@ label = "help wanted"
 
 This configuration would post the given message and also add the label `help wanted` to the issue.
 
-Check out [the rust-lang/rust configuration] for an up-to-date example.
+You can also define aliases to add additional labels to refer to same target team. Aliases can be useful to add mnemonic labels or accomodate slight mispellings (such as "llvms" instead "llvm"), see the following example:
 
-[the rust-lang/rust configuration]: https://github.com/rust-lang/rust/blob/master/triagebot.toml
+```
+[ping.cleanup-crew]
+alias = ["llvm", "llvms"]
+message = """\
+message content...
+"""
+```
+
+Check out [the rust-lang/rust configuration](https://github.com/rust-lang/rust/blob/master/triagebot.toml) for an up-to-date examples.
+
 
 ### Pinging teams
 
@@ -115,6 +118,8 @@ To ping the team `XXX`, simply leave a comment with the command:
 This adds the option to track ICEs (Internal Compiler Errors). Do note that the GitHub Gist must be from a [Rust Playground](https://play.rust-lang.org) link. The link must also be in quotes (`""`), example:
 
 `@rustbot glacier "https://gist.github.com/rust-play/xxx"`
+
+where `xxx` is the SHA1 hash of the GitHub gist generated by the Playground "share" button.
 
 ## Triage
 
@@ -135,8 +140,6 @@ low = "P-low"
 ## Applying labels to issues
 
 Anyone can apply a label to issues.
-
-TODO: any updates [after this PR merge](https://github.com/rust-lang/triagebot/issues/591)?
 
 The specific grammar can be found [here](https://github.com/rust-lang/triagebot/blob/master/parser/src/command/relabel.rs), but some examples are listed below. The grammar is intended to be fairly intuitive for people, to prevent needing to reach for documentation when using the bot.
 
