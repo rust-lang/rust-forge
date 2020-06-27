@@ -21,7 +21,7 @@ You can drop your claim to the issue via `@rustbot release-assignment`; Rust tea
 
 `@rustbot assign @user` can be used only by Rust team members and will assign that user to the issue (with same rules as before -- either directly or indirectly).
 
-Soon (when the "highfive" bot migration will be complete, see [rust-lang/highfive#258](https://github.com/rust-lang/highfive/pull/258)), `r?` will also assign users to PRs, though unlike issues, non-team members cannot be assigned. Anyone can invoke the command.
+Soon (when the "highfive" bot migration will be complete, see [rust-lang/highfive#258](https://github.com/rust-lang/highfive/pull/258)), `r?` will also assign reviewers to PRs, though unlike issues, non-team members cannot be assigned. Anyone can invoke the command.
 
 To enable on a repository, add the following to a triagebot.toml file in the repository root.
 
