@@ -27,7 +27,6 @@ To enable on a repository, add the following to a triagebot.toml file in the rep
 
 ```toml
 [assign]
-
 ```
 
 ## Issue notifications
