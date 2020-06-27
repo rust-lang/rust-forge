@@ -210,8 +210,11 @@ For seconds, you tell rustbot `@rustbot seconded` or `@rustbot second` and it wi
 Configuration:
 ```toml
 [major-change]
+# Label to apply once an MCP is seconded
 second_label = "final-comment-period"
+# Label to apply when an MCP is created
 meeting_label = "to-announce"
-# can be found by looking for the first number in URLs, e.g. https://rust-lang.zulipchat.com/#narrow/stream/131828-t-compiler
+# The Zulip stream to automatically create topics about MCPs in
+# Can be found by looking for the first number in URLs, e.g. https://rust-lang.zulipchat.com/#narrow/stream/131828-t-compiler
 zulip_stream = 131828
 ```
