@@ -120,7 +120,7 @@ This adds the option to track ICEs (Internal Compiler Errors). Do note that the 
 
 This command can be used by people in charge of prioritizing issues, to assign either low or high priorities to issues. This is mostly done by the Compiler Prioritization WG for compiler bugs.
 
-`@bot triage {high,medium,low,P-high,P-medium,P-low}`
+`@rustbot triage {high,medium,low}`
 
 The configuration for this feature is:
 
