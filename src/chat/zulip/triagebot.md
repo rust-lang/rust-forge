@@ -181,7 +181,7 @@ To do so, you can invoke the following command:
 @rustbot prioritize
 ```
 
-This will add the `I-prioritize` label to the issue, as well as creating a Zulip thread for the WG-prioritization members to discuss.
+This will simply add the `I-prioritize` label to the issue.
 
 ### Errors
 The command fails if the issue has already been requested for prioritization (i.e. already has the `I-prioritize` label).
