@@ -2,6 +2,7 @@
 
 [Overview](./README.md)
 - [Platforms](./chat/README.md)
+  - [GitHub](./github.md)
   - [Discord](./chat/discord.md)
   - [Email](./chat/email.md)
   - [Zulip](./chat/zulip.md)
@@ -32,7 +33,6 @@
   - [Self-hosting a docs.rs instance](./docs-rs/self-hosting.md)
   - [Maintenance procedures](./docs-rs/maintenance.md)
   - [Migrating from a local database to S3](./docs-rs/migrate-s3.md)
-- [GitHub](./github.md)
 - [Governance](./governance/README.md)
 - [Infrastructure](./infra/README.md)
     - [Other Installation Methods](./infra/other-installation-methods.md)
