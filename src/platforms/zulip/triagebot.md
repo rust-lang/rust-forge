@@ -9,8 +9,10 @@ To enable triagebot on a particular repository (currently only in the rust-lang 
 - [Ping a team](#ping-a-team)
 - [Glacier](#glacier)
 - [Triage](#triage)
-- [Applying labels to issues](#applying-labels-to-issues)
-- [Requesting prioritization](#requesting-prioritization)
+- [Apply labels to issues](#apply-labels-to-issues)
+- [Request prioritization](#request-prioritization)
+- [Autolabel an issue](#autolabel-an-issue)
+- [Notify Zulip](#notify-zulip)
 - [Major Changes](#major-changes)
 
 ## Issue assignment
@@ -137,7 +139,7 @@ medium = "P-medium"
 low = "P-low"
 ```
 
-## Applying labels to issues
+## Apply labels to issues
 
 This command lets anyone apply labels to issues. This is most useful when opening an issue. In general, labels get applied to issues by the Triage WG. If you are interested in helping triaging issues, see the [Triage WG procedure](../../release/triage-procedure.md).
 
@@ -175,7 +177,7 @@ allow-unauthenticated = [
 ]
 ```
 
-## Requesting prioritization
+## Request prioritization
 
 Users can request an issue to be prioritized by the Prioritization WG.
 
@@ -195,6 +197,38 @@ The command fails if the issue has already been requested for prioritization (i.
 # Name of the label used for requesting prioritization on issues
 label = "I-prioritize"
 ```
+
+## Autolabel an issue
+
+When certain labels are added to an issue, this command will trigger adding a set of additional prioritization labels to the issue. In the following example adding the "I-prioritize" label will automatically add the labels in `trigger_labels` but only if the issue is not already labeled with those in `exclude_labels` (this is to avoid applying unrelated labels to issues).
+
+```toml
+[autolabel."I-prioritize"]
+trigger_labels = [
+    "regression-from-stable-to-stable",
+    "regression-from-stable-to-beta",
+    "regression-from-stable-to-nightly"
+]
+exclude_labels = [
+    "P-*",
+    "T-infra",
+    "T-release"
+]
+```
+
+## Notify Zulip
+
+When a prioritization label is added to an issue, this command will create a new topic on Zulip, in the designated stream:
+
+```toml
+[notify-zulip."I-prioritize"]
+zulip_stream = 245100 # t-compiler/wg-prioritization/alerts
+topic = "I-prioritize #{number} {title}"
+message_on_add = "@**WG-prioritization** issue #{number} has been requested for prioritization."
+message_on_remove = "Issue #{number}'s prioritization request has been removed."
+```
+
+The subscribers of that Zulip stream will receive a notification and can discuss the prioritization of the issue.
 
 ## Major Changes
 
