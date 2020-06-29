@@ -218,7 +218,7 @@ exclude_labels = [
 
 ## Notify Zulip
 
-When a prioritization label is added to an issue, this command will create a new topic on Zulip, in the designated stream:
+When a prioritization label is added to an issue, this command will create a new topic on Zulip, in the designated stream ("245100" in the following example), replacing `{number}` and `{title}` with the issue GitHub ID and title:
 
 ```toml
 [notify-zulip."I-prioritize"]
