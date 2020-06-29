@@ -6,7 +6,7 @@ As the compiler team's resources are limited, the prioritization working group's
 
 `T-compiler triage meetings` refers to meetings that occur every Wednesday at 18.00 UTC in the `t-compiler/wg-prioritization` stream on Zulip.
 
-`issue` refers to bugs and feature requests that are nomitated for prioritzation, by flagging the `I-Prioritize` label as described below.
+`issue` refers to bugs and feature requests that are nominated for prioritization, by flagging the `I-Prioritize` label as described below.
 
 This document will define what each Label means, and what strategy for each label will be used.
 
