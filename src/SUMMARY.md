@@ -69,6 +69,7 @@
     - [Beta Backporting](./release/beta-backporting.md)
     - [Platform Support](./release/platform-support.md)
     - [Preparing Release Notes](./release/release-notes.md)
+    - [Priority Levels](./release/priority-levels.md)
     - [Release Process](./release/process.md)
     - [Rollup Procedure](./release/rollups.md)
     - [Triage Procedure](./release/triage-procedure.md)
