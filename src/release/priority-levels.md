@@ -8,7 +8,7 @@ As the compiler team's resources are limited, the prioritization working group's
 
 `issue` refers to bugs and feature requests that are nominated for prioritization, by flagging the `I-Prioritize` label as described below.
 
-This document will define what each Label means, and what strategy for each label will be used.
+This document will define what each label means, and what strategy for each label will be used.
 
 ## Labels
 
