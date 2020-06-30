@@ -1,4 +1,4 @@
-# Priority levels.
+# Priority levels
 
 As the compiler team's resources are limited, the prioritization working group's main goal is to identify the most relevant issues to work on, so that the compiler team can focus on what matters the most.
 
