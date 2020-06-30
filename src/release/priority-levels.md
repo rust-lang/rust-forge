@@ -115,6 +115,6 @@ P-Low issues won’t be discussed at all during weekly meetings. P-Low issues ca
 
 ---
 
-###### Questions and comments about this document can be added below, or in the relevant [zulip topic](https://rust-lang.zulipchat.com/#narrow/stream/227806-t-compiler.2Fwg-prioritization/topic/What.20is.20the.20meaning.20of.20each.20priority.20level.3F).
+###### For questions and comments about this document feel free to hit the relevant [zulip topic](https://rust-lang.zulipchat.com/#narrow/stream/227806-t-compiler.2Fwg-prioritization/topic/What.20is.20the.20meaning.20of.20each.20priority.20level.3F) or [open an issue](https://github.com/rust-lang/rust-forge/issues).
 
 ######
