@@ -13,7 +13,7 @@ First, you want to get approval:
   your group is not analogous to some existing group, it is probably
   a good idea to ping compiler team leads before-hand or as part of
   the MCP.
-* The MCP should specify what Github label will be associated with the
+* The MCP should specify what GitHub label will be associated with the
   notification group. Often this is an existing label, such as
   `O-Windows`.
   
