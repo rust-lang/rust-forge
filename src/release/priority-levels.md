@@ -12,7 +12,7 @@ This document will define what each label means, and what strategy for each labe
 
 ## Labels
 
-Labeling an issue as `I-Prioritize` starts the prioritization process, which will end by removing the `I-Prioritize` label and appending on of the 4 labels we will discuss below:
+Labeling an issue as `I-Prioritize` starts the prioritization process, which will end by removing the `I-Prioritize` label and appending one of the 4 labels we will discuss below:
 
 - P-Critical
 - P-High
