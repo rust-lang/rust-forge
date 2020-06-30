@@ -18,6 +18,7 @@
     - [So you want to add a new option to rustc?](./compiler/new_option.md)
     - [Major Change Proposals](./compiler/mcp.md)
     - [Membership](./compiler/membership.md)
+    - [Notification groups](./compiler/notification-groups.md)
     - [Triage Meeting](./compiler/triage-meeting.md)
     - [Steering Meeting](./compiler/steering-meeting.md)
         - [Submitting a proposal](./compiler/steering-meeting/submit.md)
