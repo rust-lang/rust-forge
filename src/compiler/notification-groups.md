@@ -10,7 +10,7 @@ If you'd like to create a notification group, here are the steps.
 First, you want to get approval:
 
 * Propose the group by preparing a [Major Change Proposal][MCP].  If
-  you're group is not analogous to some existing group, it is probably
+  your group is not analogous to some existing group, it is probably
   a good idea to ping compiler team leads before-hand or as part of
   the MCP.
 * The MCP should specify what Github label will be associated with the
