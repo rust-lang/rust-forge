@@ -4,8 +4,6 @@ As the compiler team's resources are limited, the prioritization working group's
 
 ## Words used in this document:
 
-`T-compiler triage meetings` refers to meetings that occur every Wednesday at 18.00 UTC in the `t-compiler/wg-prioritization` stream on Zulip.
-
 `issue` refers to bugs and feature requests that are nominated for prioritization, by flagging the `I-Prioritize` label as described below.
 
 This document will define what each label means, and what strategy for each label will be used.
@@ -22,7 +20,6 @@ Labeling an issue as `I-Prioritize` starts the prioritization process, which wil
 Each of these labels defines a strategy the team will adopt regarding:
 
 - The amount of focus a given issue will receive
-- Check-in frequency: Whether and how often often it will be discussed during the T-compiler triage meetings
 - How members of the community can get involved
 
 ## Definitions
@@ -91,27 +88,6 @@ P-Medium issues won't be our focus. They are issues we would mentor someone inte
 ### P-Low
 
 P-Low issues won't be our focus. They will remain in this state until someone complains, a community member fixes it, or it gets fixed by accident.
-
-## Check-in frequency
-
-### P-Critical
-
-P-Critical issues will be discussed at every weekly T-compiler triage meeting until either:
-
-- The issue is complete.
-- The issue gets deprioritized.
-
-### P-High
-
-P-High issues won’t be discussed at every weekly meeting, but must be kept in mind. We might want to discuss them biweekly or monthly, to try to ensure progress, and reassign the bug to someone new if there is something blocking the current assignee.
-
-### P-Medium
-
-P-Medium issues won’t be discussed during weekly meetings. Maybe we can run a broader triage session every 3 months or just after a release to check if some issues should change priority for the next release efforts.
-
-### P-Low
-
-P-Low issues won’t be discussed at all during weekly meetings. P-Low issues can either change priority at some point, or be fixed, or be closed as "won't fix"
 
 ---
 
