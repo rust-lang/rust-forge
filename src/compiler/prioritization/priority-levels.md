@@ -28,7 +28,7 @@ Each of these labels defines a strategy the team will adopt regarding:
 
 A `P-Critical` issue is a potentially blocker issue.
 
-The Working Group will keep track of the number of such issues open at the same time (which shouldn't be more than 5), and how long such issues remain open.
+The Working Group will keep track of these issues and will remind the compiler team on a weekly basis during the triage meeting.
 
 Examples of things we typically judge to be “critical” bugs:
 
