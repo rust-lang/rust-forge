@@ -7,7 +7,7 @@ are setup so that anyone can join them if they want.
 ## Creating a notification group
 
 If you'd like to create a notification group, here are the steps.
-First, you want to get approval:
+First, you want to get approval from the compiler team:
 
 * Propose the group by preparing a [Major Change Proposal][MCP].  If
   your group is not analogous to some existing group, it is probably
