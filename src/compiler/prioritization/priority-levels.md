@@ -14,8 +14,8 @@ Labeling an issue as `I-Prioritize` starts the prioritization process, which wil
 
 - P-critical
 - P-high
-- P-Medium
-- P-Low
+- P-medium
+- P-low
 
 Each of these labels defines a strategy the team will adopt regarding:
 
@@ -24,9 +24,9 @@ Each of these labels defines a strategy the team will adopt regarding:
 
 ## Definitions
 
-### P-Critical
+### P-critical
 
-A `P-Critical` issue is a potentially blocker issue.
+A `P-critical` issue is a potentially blocker issue.
 
 The Working Group will keep track of these issues and will remind the compiler team on a weekly basis during the triage meeting.
 
@@ -49,6 +49,7 @@ Examples of things we typically judge to be “critical” bugs:
   - Mitigating conditions that may lower priority:
     - Soundness holes that are difficult to trigger
     - Soundness holes that have been around for a very long time may be critical, but typically require
+    - Soundness holes that will not affect stable, e.g. if the hole makes use of a gated unstable feature.
 - Diagnostic regressions where the diagnostic is very common and the situation very confusing
 - ICEs for common scenarios or code patterns
   - Mitigating conditions that may lower priority:
@@ -65,7 +66,7 @@ The effectiveness of the prioritization Working Group will be a direct consequen
 
 ### P-Medium
 
-`P-Medium` refer to issues that aren't critical, and that will be resolved in the long run. Eg issues that will be fixed after a specific feature has landed.
+`P-Medium` refer to issues that aren't a priority for the team, and that will be resolved in the long run. Eg issues that will be fixed after a specific feature has landed.
 
 ### P-Low
 
@@ -75,7 +76,7 @@ The effectiveness of the prioritization Working Group will be a direct consequen
 
 ### P-Critical
 
-A P-critical issue will receive the most attention. It must be assigned one of several people as soon as possible, and the rest of the team should do their best to help them out if/when applicable.
+A P-critical issue will receive the most attention. It must be assigned one or several people as soon as possible, and the rest of the team should do their best to help them out if/when applicable.
 
 ### P-High
 
