@@ -17,7 +17,7 @@ First, you want to get approval from the compiler team:
   notification group. Often this is an existing label, such as
   `O-Windows`.
   
-Once the MCP is seconded, here are the steps to actually create the group.
+Once the MCP is accepted, here are the steps to actually create the group.
 In some cases we include an example PR from some other group. 
 
 * File a tracking issue in the rust-lang/compiler-team repository to collect
