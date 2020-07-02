@@ -17,7 +17,7 @@ To enable triagebot on a particular repository (currently only in the rust-lang 
 
 ## Issue assignment
 
-Any user belonging to the rust-lang organization can claim an issue via `@rustbot claim`. If the user is not part of the rust-lang organization `rustbot` will choose an assignee and add a "claimed" message in the top-level comment, to signal who the current assignee is. It is possible to override someone else's claim (no warning/error is given).
+Any user belonging to the rust-lang organization can claim an issue via `@rustbot claim` or if the user is not part of the rust-lang organization `rustbot` will assign the issue to itself; then it will add a "claimed" message in the top-level comment, to signal who the current assignee is. It is possible to override someone else's claim (no warning/error is given).
 
 You can drop your claim to the issue via `@rustbot release-assignment`; Rust team members can do the same if they want to release someone else's assignment.
 
@@ -35,7 +35,7 @@ To enable on a repository, add the following to a triagebot.toml file in the rep
 
 Each registered team member has a notifications page at:
 
-`https://triagebot.infra.rust-lang.org/notifications?user=<gh-username>`
+`https://triage.rust-lang.org/notifications?user=<github-username>`
 
 This page is populated from direct mentions (@user) and team mentions (@rust-lang/libs) across the rust-lang organization.
 
@@ -43,8 +43,8 @@ It can also be edited via Zulip by [private-messaging triagebot](https://rust-la
 
 The following commands are supported:
 
- * `acknowledge <url>`
- * `acknowledge <idx>`
+ * `acknowledge <url>` (or short form `ack <url>`)
+ * `acknowledge <idx>` (or short form `ack <idx>`)
 
 These both acknowledge (and remove) a notification from the list.
 
