@@ -103,7 +103,7 @@ message content...
 This will allow the command `@rustbot ping cleanup-crew` to be understood with all the aliased variants, ex.:
 
 ```text
-@rustbot ping cleanups
+@rustbot ping cleanup
 @rustbot ping shrink
 ...
 ```
