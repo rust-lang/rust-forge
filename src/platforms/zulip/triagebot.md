@@ -94,10 +94,18 @@ You can also define aliases to add additional labels to refer to same target tea
 
 ```toml
 [ping.cleanup-crew]
-alias = ["llvm", "llvms"]
+alias = ["cleanup", "cleanups", "shrink", "reduce", "bisect"]
 message = """\
 message content...
 """
+```
+
+This will allow the command `@rustbot ping cleanup-crew` to be understood with all the aliased variants, ex.:
+
+```text
+@rustbot ping cleanups
+@rustbot ping shrink
+...
 ```
 
 Check out [the rust-lang/rust configuration](https://github.com/rust-lang/rust/blob/master/triagebot.toml) for an up-to-date examples.
