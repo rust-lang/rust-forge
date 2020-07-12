@@ -3,7 +3,7 @@
 - [Which installer should you use?](#which)
 - [Other ways to install `rustup`](#more-rustup)
 - [Standalone installers](#standalone)
-- [Source code](#source)
+- [Source code](#source-code)
 
 ## Which installer should you use?
 
