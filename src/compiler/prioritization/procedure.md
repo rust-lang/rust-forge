@@ -19,16 +19,16 @@ The working group focuses mainly on triaging `T-compiler` and `libs-impl` bugs, 
 
 High level overview:
 
-- [Follow ups from previous meeting](#Follow-ups-from-previous-meeting)
+- [Follow ups from previous meeting](#follow-ups-from-previous-meeting)
   - Remove `I-nominated` tags of already discussed issues
   - Notify @pnkfelix about not properly tagged stable/beta-nominated issues
   - Create the next meeting agenda using the weekly agenda template
-- [Prepare agenda content](#Prepare-agenda-content)
+- [Prepare agenda content](#prepare-agenda-content)
   - Add `T-compiler` and `libs-impl` to unlabelled T-compiler and libs-impl issues
   - Assign priority to unprioritized issues with "I-prioritize" label
   - Assign priority to regressions without a `P-*` label
   - Process MCPs/FCPs
-- [Generate Agenda](#Generate-Agenda)
+- [Generate Agenda](#generate-agenda)
   - Run cli to generate agenda
   - Fill agenda announcements
   - Add performance logs
@@ -36,10 +36,10 @@ High level overview:
   - Summarize PR's waiting on team
   - Summarize `P-critical` and unassigned `P-high` regressions
   - Summarize I-nominated issues
-- [Notify the team about the meeting](#Notify-the-team-about-the-meeting)
+- [Notify the team about the meeting](#notify-the-team-about-the-meeting)
   - Figure out which WGs need to check-in
   - Notify @T-compiler/meeting about the meeting on Zulip
-- [Final reviews](#Final-reviews)
+- [Final reviews](#final-reviews)
   - Check toolstate
   - Check performance stats
   - Nominate issues
@@ -79,7 +79,7 @@ Note #2: These lists should typically be empty when we are close to the meeting.
 
 We should not have unprioritized regressions ([stable](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3Aregression-from-stable-to-stable+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+-label%3AT-infra+-label%3AT-libs+-label%3AT-release+-label%3AT-rustdoc), [beta](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3Aregression-from-stable-to-beta+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+-label%3AT-infra+-label%3AT-libs+-label%3AT-release+-label%3AT-rustdoc) and [nightly](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3Aregression-from-stable-to-nightly+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+-label%3AT-infra+-label%3AT-libs+-label%3AT-release+-label%3AT-rustdoc)) and ideally regressions should have an assignee.
 
-The procedure here follows the [General issues review process](#General-issues-review-process).
+The procedure here follows the [General issues review process](#general-issues-review-process).
 
 Note: triagebot automatically adds `I-prioritize` to all regression issues and creates a topic and notify @*WG-prioritization* members requesting prioritization.
 
@@ -137,7 +137,7 @@ Note: triagebot automatically creates a topic and notify @*WG-prioritization* me
 
 These are PRs waiting for some decision by our team (`T-compiler` or `libs-impl`).
 
-Try to follow the [General issues review process](#General-issues-review-process).
+Try to follow the [General issues review process](#general-issues-review-process).
 
 We should:
 
@@ -150,7 +150,7 @@ Note: triagebot automatically creates a topic and notify @*WG-prioritization* me
 
 #### Summarize `P-critical` and unassigned `P-high` regressions
 
-Try to follow the [General issues review process](#General-issues-review-process).
+Try to follow the [General issues review process](#general-issues-review-process).
 
 We should:
 
@@ -164,7 +164,7 @@ Note: triagebot automatically creates a topic and notify @*WG-prioritization* me
 
 Issues labeled with `I-nominated` are important issues that we decide deserve discussion during the weekly meeting.
 
-Try to follow the [General issues review process](#General-issues-review-process).
+Try to follow the [General issues review process](#general-issues-review-process).
 
 We should:
 
