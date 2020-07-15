@@ -47,10 +47,10 @@ High level overview:
 
 ### Follow ups from previous meeting
 
-- Remove `I-nominated` tags of already discussed issues
-- Notify @pnkfelix about accepted `beta-nominated` and `stable-nominated` without `beta-accepted` and `stable-accepted` label
-- Notify @pnkfelix about rejected `beta-nominated` and `stable-nominated` still with the nominated label
-- Create an empty agenda using our template, as soon as our Thursday's weekly meeting ends
+- Remove [`I-nominated`](https://github.com/rust-lang/rust/labels/I-nominated) tags of already discussed issues. For that check previous week agenda and Zulip meeting
+- Notify [@pnkfelix](https://rust-lang.zulipchat.com/#narrow/pm-with/116083-user116083) about accepted [`beta nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Abeta-nominated+-label%3Abeta-accepted) and [`stable nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Astable-nominated+-label%3Astable-accepted) without `beta-accepted` and `stable-accepted` label
+- Notify @pnkfelix about rejected [`beta nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Abeta-nominated+-label%3Abeta-accepted) and [`stable nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Astable-nominated+-label%3Astable-accepted) still with the nominated label
+- Create an empty agenda using [our template](https://hackmd.io/WQW0yzDDS16YvtBNurmj6A), as soon as our Thursday's weekly meeting ends
 
 ### Prepare agenda content
 
@@ -66,7 +66,7 @@ Add `T-compiler` and `libs-impl` labels to corresponding issues that are missing
 
 #### Assign priority to unprioritized issues with "I-prioritize" label
 
-We need all `I-prioritize` issues for `T-compiler` and `libs-impl` to be actually prioritized. To do so, we add one of the `P-critical`, `P-high`, `P-medium` or `P-low` labels and remove `I-prioritize` and also add a text such as:
+We need all [`I-prioritize T-compiler`](https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+label%3AT-compiler+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+label%3AI-prioritize) and all [`I-prioritize libs-impl`](https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+label%3Alibs-impl+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+label%3AI-prioritize) to be actually prioritized. To do so, we add one of the `P-critical`, `P-high`, `P-medium` or `P-low` labels and remove `I-prioritize` and also add a text such as:
 
 > Assigning `P-XXX` as [discussed as part of the Prioritization Working Group procedure](link_to_zulip_conversation) and removing `I-prioritize`.
 
@@ -77,7 +77,7 @@ Note #2: These lists should typically be empty when we are close to the meeting.
 
 #### Assign priority to regressions without a P-label
 
-We should not have unprioritized regressions and ideally regressions should have an assignee.
+We should not have unprioritized regressions ([stable](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3Aregression-from-stable-to-stable+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+-label%3AT-infra+-label%3AT-libs+-label%3AT-release+-label%3AT-rustdoc), [beta](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3Aregression-from-stable-to-beta+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+-label%3AT-infra+-label%3AT-libs+-label%3AT-release+-label%3AT-rustdoc) and [nightly](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3Aregression-from-stable-to-nightly+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+-label%3AT-infra+-label%3AT-libs+-label%3AT-release+-label%3AT-rustdoc)) and ideally regressions should have an assignee.
 
 The procedure here follows the [General issues review process](#General-issues-review-process).
 
