@@ -3,6 +3,18 @@
 This document details the procedure the WG-prioritization follows to fill the agenda for the weekly meeting of `T-compiler`.
 The working group focuses mainly on triaging `T-compiler` and `libs-impl` bugs, deciding if bugs are critical (potential release blockers) or not and building the agenda for the most important things `T-compiler` needs to discuss.
 
+## General review process
+
+- Check the status of the issue
+- Try moving it forward if possible (ex. stimulate further comments from the issue author or a reviewer)
+- Ask for more info if it's needed
+- Is there an MCVE for the issue already?
+- Check if it's a regression and label it accordingly (`regression-*` labels)
+- Figure out the area the issue belongs and label it accordingly (`A-*` labels)
+- [Ping notify groups](https://rustc-dev-guide.rust-lang.org/notification-groups/about.html) or relevant teams
+- Assign if possible
+- Nominate the issue if it needs to be discussed
+
 ## The procedure in detail
 
 High level overview:
@@ -33,28 +45,16 @@ High level overview:
   - Nominate issues
   - Re-sync and check the agenda right before the meeting
 
-## General review process
-
-- Check the status of the issue
-- Try moving it forward if possible (ex. stimulate further comments from the issue author or a reviewer)
-- Ask for more info if it's needed
-- Is there an MCVE for the issue already?
-- Check if it's a regression and label it accordingly (`regression-*` labels)
-- Figure out the area the issue belongs and label it accordingly (`A-*` labels)
-- [Ping notify groups](https://rustc-dev-guide.rust-lang.org/notification-groups/about.html) or relevant teams
-- Assign if possible
-- Nominate the issue if it needs to be discussed
-
-## Follow ups from previous meeting
+### Follow ups from previous meeting
 
 - Remove `I-nominated` tags of already discussed issues
 - Notify @pnkfelix about accepted `beta-nominated` and `stable-nominated` without `beta-accepted` and `stable-accepted` label
 - Notify @pnkfelix about rejected `beta-nominated` and `stable-nominated` still with the nominated label
 - Create an empty agenda using our template, as soon as our Thursday's weekly meeting ends
 
-## Prepare agenda content
+### Prepare agenda content
 
-### Add `T-compiler` and `libs-impl` labels
+#### Add `T-compiler` and `libs-impl` labels
 
 Add `T-compiler` and `libs-impl` labels to corresponding issues that are missing these labels.
 
@@ -64,7 +64,7 @@ Add `T-compiler` and `libs-impl` labels to corresponding issues that are missing
 - [All I-nominated](https://github.com/rust-lang/rust/labels/I-nominated)
 - [All PR's waiting on team](https://github.com/rust-lang/rust/labels/S-waiting-on-team)
 
-### Assign priority to unprioritized issues with "I-prioritize" label
+#### Assign priority to unprioritized issues with "I-prioritize" label
 
 We need all `I-prioritize` issues for `T-compiler` and `libs-impl` to be actually prioritized. To do so, we add one of the `P-critical`, `P-high`, `P-medium` or `P-low` labels and remove `I-prioritize` and also add a text such as:
 
@@ -75,7 +75,7 @@ The procedure here follows the [General review process](#General-review-process)
 Note: triagebot automatically creates a topic and notify @*WG-prioritization* members once an issue is labelled with `I-prioritize`
 Note #2: These lists should typically be empty when we are close to the meeting.
 
-### Assign priority to regressions without a P-label
+#### Assign priority to regressions without a P-label
 
 We should not have unprioritized regressions and ideally regressions should have an assignee.
 
@@ -83,7 +83,7 @@ The procedure here follows the [General review process](#General-review-process)
 
 Note: triagebot automatically adds `I-prioritize` to all regression issues and creates a topic and notify @*WG-prioritization* members requesting prioritization.
 
-### Summarize stable/beta nominations
+#### Summarize stable/beta nominations
 
 - Add them to the agenda explaining:
   - Why was it nominated
@@ -92,7 +92,7 @@ Note: triagebot automatically adds `I-prioritize` to all regression issues and c
 
 Note: triagebot automatically creates a topic and notify @*WG-prioritization* members requesting addition to the agenda.
 
-### Summarize PR's waiting on team
+#### Summarize PR's waiting on team
 
 These are PRs waiting for some decision by our team (`T-compiler` or `libs-impl`).
 
@@ -107,7 +107,7 @@ We should:
 
 Note: triagebot automatically creates a topic and notify @*WG-prioritization* members requesting addition to the agenda.
 
-### Summarize `P-critical` and unassigned `P-high` regressions
+#### Summarize `P-critical` and unassigned `P-high` regressions
 
 The procedure here should try following the [General review process](#General-review-process).
 
@@ -119,7 +119,7 @@ We should:
 
 Note: triagebot automatically creates a topic and notify @*WG-prioritization* members requesting addition to the agenda.
 
-### Summarize I-nominated issues
+#### Summarize I-nominated issues
 
 Issues labeled with `I-nominated` are important issues that we decide deserve discussion during the weekly meeting.
 
@@ -137,14 +137,14 @@ We should:
 
 Note: triagebot automatically creates a topic and notify @*WG-prioritization* members requesting addition to the agenda.
 
-### Accept MCPs
+#### Accept MCPs
 
 Accept all [MCPs that have been on `final-comment-period`](https://github.com/rust-lang/compiler-team/issues?q=is%3Aissue+is%3Aopen+label%3Amajor-change) for 10 or more days. Basically check that `final-comment-period` label was added more than 10 days ago.
 To accept, remove `final-comment-period`, add `major-change-accepted` and close the issue.
 
-## Generate Agenda
+### Generate Agenda
 
-### Run cli to generate agenda
+#### Run cli to generate agenda
 
 Run triagebot's prioritization cli to generate the agenda.
 For that you need to clone https://github.com/rust-lang/triagebot if you haven't done so already.
@@ -160,7 +160,7 @@ And then run:
 $ cargo run --bin prioritization
 ```
 
-### Remove `to-announce` from MCPs/FCPs
+#### Remove `to-announce` from MCPs/FCPs
 
 As a quick reminder:
 
@@ -171,16 +171,16 @@ Remove all [`to-announce` MCPs](https://github.com/rust-lang/compiler-team/issue
 
 FIXME: We need to add `to-announce` also to FCPs and here we would need to also remove the [FCPs `to-announce`](https://github.com/rust-lang/rust/issues?q=is%3Aissue+is%3Aall+label%3Afinished-final-comment-period+label%3Ato-announce)
 
-### Fill agenda announcements
+#### Fill agenda announcements
 
 Check the compiler calendar to see if there's an outstanding event to announce and add it to the agenda.
 
-### Add performance logs
+#### Add performance logs
 
 - Add Triage Logs to the agenda
   - https://github.com/rust-lang/rustc-perf/tree/master/triage#triage-logs
 
-## Notify the team about the meeting
+### Notify the team about the meeting
 
 Create `[weekly meeting] YYYY-MM-DD #54818` topic in `#t-compiler/meetings` Zulip's stream and send the following messages:
 
@@ -195,17 +195,17 @@ We will have checkins from @*WG-X* and @*WG-Y*
 
 Note: [Check which working groups' check-ins follow](https://rust-lang.github.io/compiler-team/about/triage-meeting/)
 
-## Final reviews
+### Final reviews
 
-### Check toolstate
+#### Check toolstate
 
 Check [toolstate](https://rust-lang-nursery.github.io/rust-toolstate/) for tool breakage and notify teams in the corresponding channels.
 
-### Check performance stats
+#### Check performance stats
 
 Check [perf regressions](http://perf.rust-lang.org/index.html) and notify involved actors.
 
-### Nominate P-high issues
+#### Nominate P-high issues
 
 Check how packed the agenda looks like and if there's room for more nominations.
 
@@ -213,6 +213,6 @@ Check how packed the agenda looks like and if there's room for more nominations.
 - [T-compiler P-high](https://github.com/rust-lang/rust/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3AT-compiler+label%3AP-high+)
 - [libs-impl P-high](https://github.com/rust-lang/rust/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3Alibs-impl+label%3AP-high+)
 
-### Re-sync and check the agenda right before the meeting
+#### Re-sync and check the agenda right before the meeting
 
 Re-run the script and re-synchronize contents of the agenda with new information.
