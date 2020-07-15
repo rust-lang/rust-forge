@@ -3,7 +3,7 @@
 This document details the procedure the WG-prioritization follows to fill the agenda for the weekly meeting of `T-compiler`.
 The working group focuses mainly on triaging `T-compiler` and `libs-impl` bugs, deciding if bugs are critical (potential release blockers) or not and building the agenda for the most important things `T-compiler` needs to discuss.
 
-## General review process
+## General issues review process
 
 - Check the status of the issue
 - Try moving it forward if possible (ex. stimulate further comments from the issue author or a reviewer)
@@ -70,7 +70,7 @@ We need all `I-prioritize` issues for `T-compiler` and `libs-impl` to be actuall
 
 > Assigning `P-XXX` as [discussed as part of the Prioritization Working Group procedure](link_to_zulip_conversation) and removing `I-prioritize`.
 
-The procedure here follows the [General review process](#General-review-process).
+The procedure here follows the [General issues review process](#General-issues-review-process).
 
 Note: triagebot automatically creates a topic and notify @*WG-prioritization* members once an issue is labelled with `I-prioritize`
 Note #2: These lists should typically be empty when we are close to the meeting.
@@ -79,7 +79,7 @@ Note #2: These lists should typically be empty when we are close to the meeting.
 
 We should not have unprioritized regressions and ideally regressions should have an assignee.
 
-The procedure here follows the [General review process](#General-review-process).
+The procedure here follows the [General issues review process](#General-issues-review-process).
 
 Note: triagebot automatically adds `I-prioritize` to all regression issues and creates a topic and notify @*WG-prioritization* members requesting prioritization.
 
@@ -96,7 +96,7 @@ Note: triagebot automatically creates a topic and notify @*WG-prioritization* me
 
 These are PRs waiting for some decision by our team (`T-compiler` or `libs-impl`).
 
-The procedure here should try following the [General review process](#General-review-process).
+Try to follow the [General issues review process](#General-issues-review-process).
 
 We should:
 
@@ -109,7 +109,7 @@ Note: triagebot automatically creates a topic and notify @*WG-prioritization* me
 
 #### Summarize `P-critical` and unassigned `P-high` regressions
 
-The procedure here should try following the [General review process](#General-review-process).
+Try to follow the [General issues review process](#General-issues-review-process).
 
 We should:
 
@@ -123,7 +123,7 @@ Note: triagebot automatically creates a topic and notify @*WG-prioritization* me
 
 Issues labeled with `I-nominated` are important issues that we decide deserve discussion during the weekly meeting.
 
-The procedure here should try following the [General review process](#General-review-process).
+Try to follow the [General issues review process](#General-issues-review-process).
 
 We should:
 
