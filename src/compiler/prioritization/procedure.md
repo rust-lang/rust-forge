@@ -27,15 +27,15 @@ High level overview:
   - Add `T-compiler` and `libs-impl` to unlabelled T-compiler and libs-impl issues
   - Assign priority to unprioritized issues with "I-prioritize" label
   - Assign priority to regressions without a `P-*` label
-  - Summarize stable/beta nominations
-  - Summarize PR's waiting on team
-  - Summarize `P-critical` and unassigned `P-high` regressions
-  - Summarize I-nominated issues
   - Process MCPs/FCPs
 - [Generate Agenda](#Generate-Agenda)
   - Run cli to generate agenda
   - Fill agenda announcements
   - Add performance logs
+  - Summarize stable/beta nominations
+  - Summarize PR's waiting on team
+  - Summarize `P-critical` and unassigned `P-high` regressions
+  - Summarize I-nominated issues
 - [Notify the team about the meeting](#Notify-the-team-about-the-meeting)
   - Figure out which WGs need to check-in
   - Notify @T-compiler/meeting about the meeting on Zulip
@@ -82,6 +82,47 @@ We should not have unprioritized regressions ([stable](https://github.com/rust-l
 The procedure here follows the [General issues review process](#General-issues-review-process).
 
 Note: triagebot automatically adds `I-prioritize` to all regression issues and creates a topic and notify @*WG-prioritization* members requesting prioritization.
+
+#### Accept MCPs
+
+Accept all [MCPs that have been on `final-comment-period`](https://github.com/rust-lang/compiler-team/issues?q=is%3Aissue+is%3Aopen+label%3Amajor-change+label%3Afinal-comment-period) for 10 or more days. Basically check that `final-comment-period` label was added more than 10 days ago.
+To accept, remove `final-comment-period`, add `major-change-accepted` and close the issue.
+
+### Generate Agenda
+
+#### Run cli to generate agenda
+
+Run triagebot's prioritization cli to generate the agenda.
+For that you need to clone https://github.com/rust-lang/triagebot if you haven't done so already.
+You need to export your `GITHUB_API_TOKEN` on Linux that's typically done by adding
+
+`export GITHUB_API_TOKEN=<your key>`
+
+to your `~/.profile` file.
+
+And then run:
+
+```
+$ cargo run --bin prioritization
+```
+
+Copy the content of the generated agenda into the agenda on HackMD.
+
+#### Remove `to-announce` from MCPs/FCPs
+
+As a quick reminder:
+
+MCP = Major Change Proposal
+FCP = Final Comment Period
+
+Remove all [`to-announce` MCPs](https://github.com/rust-lang/compiler-team/issues?q=is%3Aissue+is%3Aall+label%3Amajor-change+label%3Ato-announce) as they were already added in the agenda in their corresponding place.
+
+FIXME: We need to add `to-announce` also to FCPs and here we would need to also remove the [FCPs `to-announce`](https://github.com/rust-lang/rust/issues?q=is%3Aissue+is%3Aall+label%3Afinished-final-comment-period+label%3Ato-announce).
+For now fix announcements output manually. Remove the nonsense no fcps kind of lines when there's content and remove old Finalized FCPs.
+
+#### Fill agenda announcements
+
+Check the compiler calendar to see if there's an outstanding event to announce and add it to the agenda.
 
 #### Summarize stable/beta nominations
 
@@ -137,63 +178,23 @@ We should:
 
 Note: triagebot automatically creates a topic and notify @*WG-prioritization* members requesting addition to the agenda.
 
-#### Accept MCPs
-
-Accept all [MCPs that have been on `final-comment-period`](https://github.com/rust-lang/compiler-team/issues?q=is%3Aissue+is%3Aopen+label%3Amajor-change) for 10 or more days. Basically check that `final-comment-period` label was added more than 10 days ago.
-To accept, remove `final-comment-period`, add `major-change-accepted` and close the issue.
-
-### Generate Agenda
-
-#### Run cli to generate agenda
-
-Run triagebot's prioritization cli to generate the agenda.
-For that you need to clone https://github.com/rust-lang/triagebot if you haven't done so already.
-You need to export your `GITHUB_API_TOKEN` on Linux that's typically done by adding
-
-`export GITHUB_API_TOKEN=<your key>`
-
-to your `~/.profile` file.
-
-And then run:
-
-```
-$ cargo run --bin prioritization
-```
-
-#### Remove `to-announce` from MCPs/FCPs
-
-As a quick reminder:
-
-MCP = Major Change Proposal
-FCP = Final Comment Period
-
-Remove all [`to-announce` MCPs](https://github.com/rust-lang/compiler-team/issues?q=is%3Aissue+is%3Aall+label%3Amajor-change+label%3Ato-announce) as they were already added in the agenda in their corresponding place.
-
-FIXME: We need to add `to-announce` also to FCPs and here we would need to also remove the [FCPs `to-announce`](https://github.com/rust-lang/rust/issues?q=is%3Aissue+is%3Aall+label%3Afinished-final-comment-period+label%3Ato-announce)
-
-#### Fill agenda announcements
-
-Check the compiler calendar to see if there's an outstanding event to announce and add it to the agenda.
-
 #### Add performance logs
 
-- Add Triage Logs to the agenda
-  - https://github.com/rust-lang/rustc-perf/tree/master/triage#triage-logs
+Add [Triage Logs](https://github.com/rust-lang/rustc-perf/tree/master/triage#triage-logs) to the agenda.
 
 ### Notify the team about the meeting
 
+[Figure out which working groups' check-ins follow](https://rust-lang.github.io/compiler-team/about/triage-meeting/).
 Create `[weekly meeting] YYYY-MM-DD #54818` topic in `#t-compiler/meetings` Zulip's stream and send the following messages:
 
 ```text
-Hi @*T-compiler/meeting*; the triage meeting will be starting in ~ X hours Y minutes
+Hi @*T-compiler/meeting*; the triage meeting will happen tomorrow at 2pm UTC
 The @*WG-prioritization* have done pre-triage in #**t-compiler/wg-prioritization**
 @*WG-prioritization* have prepared the [meeting agenda](link_to_hackmd_agenda)
 We will have checkins from @*WG-X* and @*WG-Y*
 @**person1** do you have something you want to share about @*WG-X*?
 @**person2** do you have something you want to share about @*WG-Y*?
 ```
-
-Note: [Check which working groups' check-ins follow](https://rust-lang.github.io/compiler-team/about/triage-meeting/)
 
 ### Final reviews
 
