@@ -217,7 +217,7 @@ PRs to [`rust-lang/rust`] aren’t merged manually using GitHub’s UI or by pus
 
 For Libs PRs, rolling up is usually fine, in particular if it's only a new unstable addition or if it only touches docs (with the exception of intra doc links which complicates things while the feature has bugs...).
 
-If a submodule is affected then probably don't `rollup`. If the feature affects perf then also avoid `rollup` -- mark it as `rollup=never`.
+See the [rollup guidelines] for more details on when to rollup.
 
 ### When there’s new public items
 
@@ -263,3 +263,4 @@ Where `unsafe` and `const` is involved, e.g., for operations which are "unconst"
 [Everyone Poops]: http://cglab.ca/~abeinges/blah/everyone-poops
 [rust/pull/46799]: https://github.com/rust-lang/rust/pull/46799
 [hashbrown/pull/119]: https://github.com/rust-lang/hashbrown/pull/119
+[rollup guidelines]: ../compiler/reviews.md

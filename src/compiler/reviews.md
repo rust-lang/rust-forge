@@ -2,7 +2,7 @@
 
 Every PR that lands in the compiler and its associated crates must be
 reviewed by at least one person who is knowledgeable with the code in
-question. 
+question.
 
 When a PR is opened, you can request a reviewer by including `r?
 @username` in the PR description. If you don't do so, the highfive bot
@@ -27,11 +27,73 @@ delegate+` or `@bors delegate=username`. This will allow the PR author
 to approve the PR by issuing `@bors` commands like the ones above
 (but this privilege is limited to the single PR).
 
-## High priority issues
+## Rollups
 
-When merging high priority issues (`P-critical` and `P-high`) it's
-recommended to avoid rollups and bump a bit the priority of the PR in
-the homu queue by issuing `@bors r+ rollup=never p=1`.
+All reviewers are strongly encouraged to explicitly mark a PR as to whether or
+not it should be part of a [rollup] with one of the following:
+
+- `rollup=always`: These PRs are very unlikely to break tests or have performance
+  implications. Example scenarios:
+    - Changes are limited to documentation, comments, etc. that is highly
+      unlikely to fail a build.
+    - Changes are pure refactoring and cannot have performance implications.
+    - Your PR is not landing possibly-breaking or behavior altering changes.
+        - Feature stabilization without other changes is likely fine to
+          rollup, though.
+- `rollup=maybe`: Use this if you don't have a high confidence that it won't
+  break tests. This is a good default to use if you aren't sure if it should
+  be one of the other categories.
+- `rollup=iffy`: Use this for mildly risky PRs. Example scenarios:
+    - The PR is large and non-additive (note: adding 2000 lines of completely
+      new tests is fine to rollup).
+    - Messes too much with:
+        - LLVM or code generation
+        - bootstrap or the build system
+        - build-manifest
+    - Has platform-specific changes that are not checked by the normal PR checks.
+    - May be affected by MIR migrate mode.
+- `rollup=never`: This should *never* be included in a rollup (**please**
+  include a comment explaining why you have chosen this). Example scenarios:
+    - May have performance implications.
+    - May cause unclear regressions (we would likely want to bisect to this PR
+      specifically, as it would be hard to identify as the cause from a
+      rollup).
+    - Has a high chance of failure.
+    - A high-priority issue that needs to land ASAP.
+    - Is otherwise dangerous to rollup.
+
+> **Note**:\
+> `@bors rollup` is equivalent to `@bors rollup=always`\
+> `@bors rollup-` is equivalent to `@bors rollup=never`
+
+## Priority
+
+Reviewers are encouraged to set one of the rollup statuses listed above
+instead of setting priority. Bors automatically sorts based on the rollup
+status (never is the highest priority, always is the lowest), and also by PR
+age. If you do change the priority, please use your best judgment to balance
+fairness with other PRs.
+
+The following is some guidance for setting priorities:
+
+- 1-5
+    - P-high issue fixes
+    - Toolstate fixes
+    - Beta-nominated PRs
+    - Submodule updates
+- 5+
+    - P-critical issue fixes
+- 10+
+    - Bitrot-prone PRs (particularly very large ones that touch many files)
+    - Urgent PRs
+    - Beta backports
+- 20+
+    - High priority that needs to jump ahead of any rollups
+    - Fixes or changes something that has a high risk of being re-broken by
+      another PR in the queue.
+- 1000
+    - Absolutely critical fixes
+    - Release promotions
 
 ## Expectations for r+
 
@@ -46,3 +108,5 @@ done the review, and the code has not changed substantially since the
 review was done.  Rebasing is fine, but changes in functionality
 typically require re-review (though it's a good idea to try and
 highlight what has changed, to help the reviewer).
+
+[rollup]: ../release/rollups.md

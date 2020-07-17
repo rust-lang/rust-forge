@@ -11,13 +11,9 @@ dependent are marked with the `rollup` command to bors (`@bors r+ rollup` to
 approve a PR and mark as a rollup, `@bors rollup` to mark a previously approved
 PR, `@bors rollup-` to un-mark as a rollup).  'Performing a Rollup' then means
 collecting these changes into one PR and merging them all at once. The rollup
-command accepts three values `always`, `maybe`, and `never`. `@bors rollup` is
-equivalent to `rollup=always` (which will indicate that a PR should always be
-included in a rollup), and `@bors rollup-` is equivalent to `@bors rollup=maybe`
-which is used to indicate that someone should try rollup the PR. `rollup=never`
-indicates that a PR should never be included in a rollup, this should generally
-only be used for PRs which are large additions or changes which could cause
-breakage or large perf changes.
+command accepts four values `always`, `maybe`, `iffy`, and `never`. See [the
+Rollups section] of the review policies for guidance on what these different
+statuses mean.
 
 You can see the list of rollup PRs on Rust's [Homu queue], they are
 listed at the bottom of the 'approved' queue with a priority of 'rollup' meaning
@@ -78,3 +74,4 @@ If a rollup continues to fail you can run the `@bors rollup=never` command to
 never rollup the PR in question.
 
 [Homu queue]: https://buildbot2.rust-lang.org/homu/queue/rust
+[the Rollups section]: ../compiler/reviews.md#rollups
