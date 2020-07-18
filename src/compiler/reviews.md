@@ -40,9 +40,10 @@ not it should be part of a [rollup] with one of the following:
     - Your PR is not landing possibly-breaking or behavior altering changes.
         - Feature stabilization without other changes is likely fine to
           rollup, though.
-- `rollup=maybe`: Use this if you don't have a high confidence that it won't
-  break tests. This is a good default to use if you aren't sure if it should
-  be one of the other categories.
+- `rollup=maybe`: This is the **default** if you do not specify a rollup
+  status. Use this if you don't have a much confidence that it won't break
+  tests. This can be used if you aren't sure if it should be one of the other
+  categories.
 - `rollup=iffy`: Use this for mildly risky PRs. Example scenarios:
     - The PR is large and non-additive (note: adding 2000 lines of completely
       new tests is fine to rollup).
@@ -59,7 +60,6 @@ not it should be part of a [rollup] with one of the following:
       specifically, as it would be hard to identify as the cause from a
       rollup).
     - Has a high chance of failure.
-    - A high-priority issue that needs to land ASAP.
     - Is otherwise dangerous to rollup.
 
 > **Note**:\
