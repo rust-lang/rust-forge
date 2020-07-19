@@ -45,7 +45,7 @@ Examples of things we typically judge to be “critical” bugs:
 - Feature-gated features accessible without a feature gate
   - Mitigating conditions that may lower priority:
     - If the pattern is VERY unlikely
-- Soundness holes where common code that should not compile actually does
+- Soundness holes with real-world implications
   - Mitigating conditions that may lower priority:
     - Soundness holes that are difficult to trigger
     - Soundness holes that have been around for a very long time may be critical, but typically require
