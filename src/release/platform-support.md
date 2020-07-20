@@ -63,7 +63,7 @@ target | std | rustc | cargo | notes
 `armv7a-none-eabi` | * |  |  | Bare ARMv7-A
 `armv7r-none-eabi` | * |  |  | Bare ARMv7-R
 `armv7r-none-eabihf` | * |  |  | Bare ARMv7-R, hardfloat
-`armv7-unknown-linux-gnueabi` | ✓ |   |   | ARMv7 Linux, glibc
+`armv7-unknown-linux-gnueabi` | ✓ |   |   | ARMv7 Linux (kernel 4.15, glibc 2.27)
 `armv7-unknown-linux-gnueabihf` | ✓ | ✓ | ✓ | ARMv7 Linux, hardfloat (kernel 3.2, glibc 2.17)
 `armv7-unknown-linux-musleabi` | ✓ |   |   | ARMv7 Linux, MUSL
 `armv7-unknown-linux-musleabihf` | ✓ |  |  | ARMv7 Linux with MUSL
@@ -115,7 +115,7 @@ target | std | rustc | cargo | notes
 `x86_64-sun-solaris` | ✓ |  |  | 64-bit Solaris 10/11, illumos
 `x86_64-unknown-cloudabi` | ✓ |  |  | 64-bit CloudABI
 `x86_64-unknown-freebsd` | ✓ | ✓ | ✓ | 64-bit FreeBSD
-`x86_64-unknown-linux-gnux32` | ✓ |  |  | 64-bit Linux (x32 ABI)
+`x86_64-unknown-linux-gnux32` | ✓ |  |  | 64-bit Linux (x32 ABI) (kernel 4.15, glibc 2.27)
 `x86_64-unknown-linux-musl` | ✓ | ✓ | ✓ | 64-bit Linux with MUSL
 `x86_64-unknown-netbsd` | ✓ | ✓ | ✓ | NetBSD/amd64
 `x86_64-unknown-redox` | ✓ |  |  | Redox OS
