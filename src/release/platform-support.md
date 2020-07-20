@@ -46,13 +46,13 @@ target | std | rustc | cargo | notes
 `aarch64-fuchsia` | ✓ |  |  | ARM64 Fuchsia
 `aarch64-linux-android` | ✓ |  |  | ARM64 Android
 `aarch64-pc-windows-msvc` | ✓ |  |  | ARM64 Windows MSVC
-`aarch64-unknown-linux-gnu` | ✓ | ✓ | ✓ | ARM64 Linux
+`aarch64-unknown-linux-gnu` | ✓ | ✓ | ✓ | ARM64 Linux (kernel 4.2, glibc 2.17)
 `aarch64-unknown-linux-musl` | ✓ |  |  | ARM64 Linux with MUSL
 `aarch64-unknown-none` | * |  |  | Bare ARM64, hardfloat
 `aarch64-unknown-none-softfloat` | * |  |  | Bare ARM64, softfloat
 `arm-linux-androideabi` | ✓ |  |  | ARMv7 Android
-`arm-unknown-linux-gnueabi` | ✓ | ✓ | ✓ | ARMv6 Linux
-`arm-unknown-linux-gnueabihf` | ✓ | ✓ | ✓ | ARMv6 Linux, hardfloat
+`arm-unknown-linux-gnueabi` | ✓ | ✓ | ✓ | ARMv6 Linux (kernel 3.2, glibc 2.17)
+`arm-unknown-linux-gnueabihf` | ✓ | ✓ | ✓ | ARMv6 Linux, hardfloat (kernel 3.2, glibc 2.17)
 `arm-unknown-linux-musleabi` | ✓ |  |  | ARMv6 Linux with MUSL
 `arm-unknown-linux-musleabihf` | ✓ |  |  | ARMv6 Linux with MUSL, hardfloat
 `armebv7r-none-eabi` | * |  |  | Bare ARMv7-R, Big Endian
@@ -64,7 +64,7 @@ target | std | rustc | cargo | notes
 `armv7r-none-eabi` | * |  |  | Bare ARMv7-R
 `armv7r-none-eabihf` | * |  |  | Bare ARMv7-R, hardfloat
 `armv7-unknown-linux-gnueabi` | ✓ |   |   | ARMv7 Linux, glibc
-`armv7-unknown-linux-gnueabihf` | ✓ | ✓ | ✓ | ARMv7 Linux, hardfloat
+`armv7-unknown-linux-gnueabihf` | ✓ | ✓ | ✓ | ARMv7 Linux, hardfloat (kernel 3.2, glibc 2.17)
 `armv7-unknown-linux-musleabi` | ✓ |   |   | ARMv7 Linux, MUSL
 `armv7-unknown-linux-musleabihf` | ✓ |  |  | ARMv7 Linux with MUSL
 `asmjs-unknown-emscripten` | ✓ |  |  | asm.js via Emscripten
@@ -83,16 +83,16 @@ target | std | rustc | cargo | notes
 `mipsel-unknown-linux-gnu` | ✓ | ✓ | ✓ | MIPS (LE) Linux
 `mipsel-unknown-linux-musl` | ✓ |  |  | MIPS (LE) Linux with MUSL
 `nvptx64-nvidia-cuda` | ✓ |  |  | --emit=asm generates PTX code that [runs on NVIDIA GPUs]
-`powerpc-unknown-linux-gnu` | ✓ | ✓ | ✓ | PowerPC Linux
-`powerpc64-unknown-linux-gnu` | ✓ | ✓ | ✓ | PPC64 Linux
-`powerpc64le-unknown-linux-gnu` | ✓ | ✓ | ✓ | PPC64LE Linux
+`powerpc-unknown-linux-gnu` | ✓ | ✓ | ✓ | PowerPC Linux (kernel 2.6.32, glibc 2.12)
+`powerpc64-unknown-linux-gnu` | ✓ | ✓ | ✓ | PPC64 Linux (kernel 2.6.32, glibc 2.12)
+`powerpc64le-unknown-linux-gnu` | ✓ | ✓ | ✓ | PPC64LE Linux (kernel 3.10, glibc 2.17)
 `riscv32i-unknown-none-elf` | * |  |  | Bare RISC-V (RV32I ISA)
 `riscv32imac-unknown-none-elf` | * |  |  | Bare RISC-V (RV32IMAC ISA)
 `riscv32imc-unknown-none-elf` | * |  |  | Bare RISC-V (RV32IMC ISA)
-`riscv64gc-unknown-linux-gnu` | ✓ | ✓ | ✓ | RISC-V Linux
+`riscv64gc-unknown-linux-gnu` | ✓ | ✓ | ✓ | RISC-V Linux (kernel 4.20, glibc 2.29)
 `riscv64gc-unknown-none-elf` | * |  |  | Bare RISC-V (RV64IMAFDC ISA)
 `riscv64imac-unknown-none-elf` | * |  |  | Bare RISC-V (RV64IMAC ISA)
-`s390x-unknown-linux-gnu` | ✓ | ✓ | ✓ | S390x Linux
+`s390x-unknown-linux-gnu` | ✓ | ✓ | ✓ | S390x Linux (kernel 2.6.32, glibc 2.12)
 `sparc64-unknown-linux-gnu` | ✓ |  |  | SPARC Linux
 `sparcv9-sun-solaris` | ✓ |  |  | SPARC Solaris 10/11, illumos
 `thumbv6m-none-eabi` | * |  |  | Bare Cortex-M0, M0+, M1
