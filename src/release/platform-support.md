@@ -57,7 +57,7 @@ target | std | rustc | cargo | notes
 `arm-unknown-linux-musleabihf` | ✓ |  |  | ARMv6 Linux with MUSL, hardfloat
 `armebv7r-none-eabi` | * |  |  | Bare ARMv7-R, Big Endian
 `armebv7r-none-eabihf` | * |  |  | Bare ARMv7-R, Big Endian, hardfloat
-`armv5te-unknown-linux-gnueabi` | ✓ |  |  | ARMv5TE Linux
+`armv5te-unknown-linux-gnueabi` | ✓ |  |  | ARMv5TE Linux (kernel 4.4, glibc 2.23)
 `armv5te-unknown-linux-musleabi` | ✓ |  |  | ARMv5TE Linux with MUSL
 `armv7-linux-androideabi` | ✓ |  |  | ARMv7a Android
 `armv7a-none-eabi` | * |  |  | Bare ARMv7-A
@@ -69,18 +69,18 @@ target | std | rustc | cargo | notes
 `armv7-unknown-linux-musleabihf` | ✓ |  |  | ARMv7 Linux with MUSL
 `asmjs-unknown-emscripten` | ✓ |  |  | asm.js via Emscripten
 `i586-pc-windows-msvc` | ✓ |  |  | 32-bit Windows w/o SSE
-`i586-unknown-linux-gnu` | ✓ |  |  | 32-bit Linux w/o SSE
+`i586-unknown-linux-gnu` | ✓ |  |  | 32-bit Linux w/o SSE (kernel 4.4, glibc 2.23)
 `i586-unknown-linux-musl` | ✓ |  |  | 32-bit Linux w/o SSE, MUSL
 `i686-linux-android` | ✓ |  |  | 32-bit x86 Android
 `i686-unknown-freebsd` | ✓ | ✓ | ✓ | 32-bit FreeBSD
 `i686-unknown-linux-musl` | ✓ |  |  | 32-bit Linux with MUSL
-`mips-unknown-linux-gnu` | ✓ | ✓ | ✓ | MIPS Linux
+`mips-unknown-linux-gnu` | ✓ | ✓ | ✓ | MIPS Linux (kernel 4.4, glibc 2.23)
 `mips-unknown-linux-musl` | ✓ |  |  | MIPS Linux with MUSL
-`mips64-unknown-linux-gnuabi64` | ✓ | ✓ | ✓ | MIPS64 Linux, n64 ABI
+`mips64-unknown-linux-gnuabi64` | ✓ | ✓ | ✓ | MIPS64 Linux, n64 ABI (kernel 4.4, glibc 2.23)
 `mips64-unknown-linux-muslabi64` | ✓ |  |  | MIPS64 Linux, n64 ABI, MUSL
-`mips64el-unknown-linux-gnuabi64` | ✓ | ✓ | ✓ | MIPS64 (LE) Linux, n64 ABI
+`mips64el-unknown-linux-gnuabi64` | ✓ | ✓ | ✓ | MIPS64 (LE) Linux, n64 ABI (kernel 4.4, glibc 2.23)
 `mips64el-unknown-linux-muslabi64` | ✓ |  |  | MIPS64 (LE) Linux, n64 ABI, MUSL
-`mipsel-unknown-linux-gnu` | ✓ | ✓ | ✓ | MIPS (LE) Linux
+`mipsel-unknown-linux-gnu` | ✓ | ✓ | ✓ | MIPS (LE) Linux (kernel 4.4, glibc 2.23)
 `mipsel-unknown-linux-musl` | ✓ |  |  | MIPS (LE) Linux with MUSL
 `nvptx64-nvidia-cuda` | ✓ |  |  | --emit=asm generates PTX code that [runs on NVIDIA GPUs]
 `powerpc-unknown-linux-gnu` | ✓ | ✓ | ✓ | PowerPC Linux (kernel 2.6.32, glibc 2.12)
@@ -93,14 +93,14 @@ target | std | rustc | cargo | notes
 `riscv64gc-unknown-none-elf` | * |  |  | Bare RISC-V (RV64IMAFDC ISA)
 `riscv64imac-unknown-none-elf` | * |  |  | Bare RISC-V (RV64IMAC ISA)
 `s390x-unknown-linux-gnu` | ✓ | ✓ | ✓ | S390x Linux (kernel 2.6.32, glibc 2.12)
-`sparc64-unknown-linux-gnu` | ✓ |  |  | SPARC Linux
+`sparc64-unknown-linux-gnu` | ✓ |  |  | SPARC Linux (kernel 4.4, glibc 2.23)
 `sparcv9-sun-solaris` | ✓ |  |  | SPARC Solaris 10/11, illumos
 `thumbv6m-none-eabi` | * |  |  | Bare Cortex-M0, M0+, M1
 `thumbv7em-none-eabi` | * |  |  | Bare Cortex-M4, M7
 `thumbv7em-none-eabihf` | * |  |  | Bare Cortex-M4F, M7F, FPU, hardfloat
 `thumbv7m-none-eabi` | * |  |  | Bare Cortex-M3
 `thumbv7neon-linux-androideabi` | ✓ |  |  | Thumb2-mode ARMv7a Android with NEON
-`thumbv7neon-unknown-linux-gnueabihf` | ✓ |  |  | Thumb2-mode ARMv7a Linux with NEON
+`thumbv7neon-unknown-linux-gnueabihf` | ✓ |  |  | Thumb2-mode ARMv7a Linux with NEON (kernel 4.4, glibc 2.23)
 `thumbv8m.base-none-eabi` | * |  |  | ARMv8-M Baseline
 `thumbv8m.main-none-eabi` | * |  |  | ARMv8-M Mainline
 `thumbv8m.main-none-eabihf` | * |  |  | ARMv8-M Baseline, hardfloat
