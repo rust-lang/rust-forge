@@ -41,10 +41,11 @@ not it should be part of a [rollup] with one of the following:
         - Feature stabilization without other changes is likely fine to
           rollup, though.
 - `rollup=maybe`: This is the **default** if you do not specify a rollup
-  status. Use this if you don't have a much confidence that it won't break
+  status. Use this if you don't have much confidence that it won't break
   tests. This can be used if you aren't sure if it should be one of the other
   categories.
-- `rollup=iffy`: Use this for mildly risky PRs. Example scenarios:
+- `rollup=iffy`: Use this for mildly risky PRs (more risky than "maybe").
+  Example scenarios:
     - The PR is large and non-additive (note: adding 2000 lines of completely
       new tests is fine to rollup).
     - Messes too much with:
