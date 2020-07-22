@@ -32,13 +32,14 @@ High level overview:
   - Run cli to generate agenda
   - Fill agenda announcements
   - Add performance logs
+- [Notify the team about the meeting](#notify-the-team-about-the-meeting)
+  - Figure out which WGs need to check-in
+  - Notify @T-compiler/meeting about the meeting on Zulip
+- [Add details to the Agenda](#add-details-to-the-agenda)
   - Summarize stable/beta nominations
   - Summarize PR's waiting on team
   - Summarize `P-critical` and unassigned `P-high` regressions
   - Summarize I-nominated issues
-- [Notify the team about the meeting](#notify-the-team-about-the-meeting)
-  - Figure out which WGs need to check-in
-  - Notify @T-compiler/meeting about the meeting on Zulip
 - [Final reviews](#final-reviews)
   - Check toolstate
   - Check performance stats
@@ -124,6 +125,26 @@ For now fix announcements output manually. Remove the nonsense no fcps kind of l
 
 Check the compiler calendar to see if there's an outstanding event to announce and add it to the agenda.
 
+#### Add performance logs
+
+Add [Triage Logs](https://github.com/rust-lang/rustc-perf/tree/master/triage#triage-logs) to the agenda.
+
+### Notify the team about the meeting
+
+[Figure out which working groups' check-ins follow](https://rust-lang.github.io/compiler-team/about/triage-meeting/).
+Create `[weekly meeting] YYYY-MM-DD #54818` topic in `#t-compiler/meetings` Zulip's stream and send the following messages:
+
+```text
+Hi @*T-compiler/meeting*; the triage meeting will happen tomorrow at 2pm UTC
+The @*WG-prioritization* have done pre-triage in #**t-compiler/wg-prioritization**
+@*WG-prioritization* have prepared the [meeting agenda](link_to_hackmd_agenda)
+We will have checkins from @*WG-X* and @*WG-Y*
+@**person1** do you have something you want to share about @*WG-X*?
+@**person2** do you have something you want to share about @*WG-Y*?
+```
+
+### Add details to the Agenda
+
 #### Summarize stable/beta nominations
 
 - Add them to the agenda explaining:
@@ -177,24 +198,6 @@ We should:
   - Add important details
 
 Note: triagebot automatically creates a topic and notify @*WG-prioritization* members requesting addition to the agenda.
-
-#### Add performance logs
-
-Add [Triage Logs](https://github.com/rust-lang/rustc-perf/tree/master/triage#triage-logs) to the agenda.
-
-### Notify the team about the meeting
-
-[Figure out which working groups' check-ins follow](https://rust-lang.github.io/compiler-team/about/triage-meeting/).
-Create `[weekly meeting] YYYY-MM-DD #54818` topic in `#t-compiler/meetings` Zulip's stream and send the following messages:
-
-```text
-Hi @*T-compiler/meeting*; the triage meeting will happen tomorrow at 2pm UTC
-The @*WG-prioritization* have done pre-triage in #**t-compiler/wg-prioritization**
-@*WG-prioritization* have prepared the [meeting agenda](link_to_hackmd_agenda)
-We will have checkins from @*WG-X* and @*WG-Y*
-@**person1** do you have something you want to share about @*WG-X*?
-@**person2** do you have something you want to share about @*WG-Y*?
-```
 
 ### Final reviews
 
