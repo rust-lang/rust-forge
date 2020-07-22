@@ -48,9 +48,9 @@ High level overview:
 ### Follow ups from previous meeting
 
 - Remove [`I-nominated`](https://github.com/rust-lang/rust/labels/I-nominated) tags of already discussed issues. For that check previous week agenda and Zulip meeting
-- Notify [@pnkfelix](https://rust-lang.zulipchat.com/#narrow/pm-with/116083-user116083) about accepted [`beta nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Abeta-nominated+-label%3Abeta-accepted) and [`stable nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Astable-nominated+-label%3Astable-accepted) without `beta-accepted` and `stable-accepted` label
-- Notify @pnkfelix about rejected [`beta nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Abeta-nominated+-label%3Abeta-accepted) and [`stable nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Astable-nominated+-label%3Astable-accepted) still with the nominated label
-- Create an empty agenda using [our template](https://hackmd.io/WQW0yzDDS16YvtBNurmj6A), as soon as our Thursday's weekly meeting ends
+- Notify [@pnkfelix](https://rust-lang.zulipchat.com/#narrow/pm-with/116083-user116083) about accepted [`beta nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Abeta-nominated+-label%3Abeta-accepted) and [`stable nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Astable-nominated+-label%3Astable-accepted) without `beta-accepted` and `stable-accepted` label. For that compare these issues with list meeting's accepted nomations.
+- Notify @pnkfelix about rejected [`beta nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Abeta-nominated+-label%3Abeta-accepted) and [`stable nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Astable-nominated+-label%3Astable-accepted) still with the nominated label. For that compare these issues with last meeting's rejected nominations.
+- Create an empty agenda using [our template](https://hackmd.io/WQW0yzDDS16YvtBNurmj6A), as soon as our Thursday's weekly meeting ends. After creating the meeting change document permissions to Write -> Owners.
 
 ### Prepare agenda content
 
