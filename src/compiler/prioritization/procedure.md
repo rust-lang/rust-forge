@@ -26,19 +26,19 @@ High level overview:
 - [Prepare agenda content](#prepare-agenda-content)
   - Add `T-compiler` and `libs-impl` to unlabelled T-compiler and libs-impl issues
   - Assign priority to unprioritized issues with "I-prioritize" label
-  - Assign priority to regressions without a `P-*` label
   - Process MCPs/FCPs
 - [Generate Agenda](#generate-agenda)
   - Run cli to generate agenda
   - Fill agenda announcements
   - Add performance logs
+- [Notify the team about the meeting](#notify-the-team-about-the-meeting)
+  - Figure out which WGs need to check-in
+  - Notify @T-compiler/meeting about the meeting on Zulip
+- [Add details to the Agenda](#add-details-to-the-agenda)
   - Summarize stable/beta nominations
   - Summarize PR's waiting on team
   - Summarize `P-critical` and unassigned `P-high` regressions
   - Summarize I-nominated issues
-- [Notify the team about the meeting](#notify-the-team-about-the-meeting)
-  - Figure out which WGs need to check-in
-  - Notify @T-compiler/meeting about the meeting on Zulip
 - [Final reviews](#final-reviews)
   - Check toolstate
   - Check performance stats
@@ -48,9 +48,9 @@ High level overview:
 ### Follow ups from previous meeting
 
 - Remove [`I-nominated`](https://github.com/rust-lang/rust/labels/I-nominated) tags of already discussed issues. For that check previous week agenda and Zulip meeting
-- Notify [@pnkfelix](https://rust-lang.zulipchat.com/#narrow/pm-with/116083-user116083) about accepted [`beta nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Abeta-nominated+-label%3Abeta-accepted) and [`stable nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Astable-nominated+-label%3Astable-accepted) without `beta-accepted` and `stable-accepted` label
-- Notify @pnkfelix about rejected [`beta nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Abeta-nominated+-label%3Abeta-accepted) and [`stable nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Astable-nominated+-label%3Astable-accepted) still with the nominated label
-- Create an empty agenda using [our template](https://hackmd.io/WQW0yzDDS16YvtBNurmj6A), as soon as our Thursday's weekly meeting ends
+- Notify [@pnkfelix](https://rust-lang.zulipchat.com/#narrow/pm-with/116083-user116083) about accepted [`beta nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Abeta-nominated+-label%3Abeta-accepted) and [`stable nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Astable-nominated+-label%3Astable-accepted) without `beta-accepted` and `stable-accepted` label. For that compare these issues with list meeting's accepted nomations.
+- Notify @pnkfelix about rejected [`beta nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Abeta-nominated+-label%3Abeta-accepted) and [`stable nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Astable-nominated+-label%3Astable-accepted) still with the nominated label. For that compare these issues with last meeting's rejected nominations.
+- Create an empty agenda using [our template](https://hackmd.io/WQW0yzDDS16YvtBNurmj6A), as soon as our Thursday's weekly meeting ends. After creating the meeting change document permissions to Write -> Owners.
 
 ### Prepare agenda content
 
@@ -74,14 +74,7 @@ The procedure here follows the [General issues review process](#General-issues-r
 
 Note: triagebot automatically creates a topic and notify @*WG-prioritization* members once an issue is labelled with `I-prioritize`
 Note #2: These lists should typically be empty when we are close to the meeting.
-
-#### Assign priority to regressions without a P-label
-
-We should not have unprioritized regressions ([stable](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3Aregression-from-stable-to-stable+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+-label%3AT-infra+-label%3AT-libs+-label%3AT-release+-label%3AT-rustdoc), [beta](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3Aregression-from-stable-to-beta+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+-label%3AT-infra+-label%3AT-libs+-label%3AT-release+-label%3AT-rustdoc) and [nightly](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3Aregression-from-stable-to-nightly+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+-label%3AT-infra+-label%3AT-libs+-label%3AT-release+-label%3AT-rustdoc)) and ideally regressions should have an assignee.
-
-The procedure here follows the [General issues review process](#general-issues-review-process).
-
-Note: triagebot automatically adds `I-prioritize` to all regression issues and creates a topic and notify @*WG-prioritization* members requesting prioritization.
+Note #3: we should not have unprioritized regressions ([stable](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3Aregression-from-stable-to-stable+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+-label%3AT-infra+-label%3AT-libs+-label%3AT-release+-label%3AT-rustdoc), [beta](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3Aregression-from-stable-to-beta+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+-label%3AT-infra+-label%3AT-libs+-label%3AT-release+-label%3AT-rustdoc) and [nightly](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3Aregression-from-stable-to-nightly+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+-label%3AT-infra+-label%3AT-libs+-label%3AT-release+-label%3AT-rustdoc)) and ideally regressions should have an assignee.
 
 #### Accept MCPs
 
@@ -123,6 +116,26 @@ For now fix announcements output manually. Remove the nonsense no fcps kind of l
 #### Fill agenda announcements
 
 Check the compiler calendar to see if there's an outstanding event to announce and add it to the agenda.
+
+#### Add performance logs
+
+Add [Triage Logs](https://github.com/rust-lang/rustc-perf/tree/master/triage#triage-logs) to the agenda.
+
+### Notify the team about the meeting
+
+[Figure out which working groups' check-ins follow](https://rust-lang.github.io/compiler-team/about/triage-meeting/).
+Create `[weekly meeting] YYYY-MM-DD #54818` topic in `#t-compiler/meetings` Zulip's stream and send the following messages:
+
+```text
+Hi @*T-compiler/meeting*; the triage meeting will happen tomorrow at 2pm UTC
+The @*WG-prioritization* have done pre-triage in #**t-compiler/wg-prioritization**
+@*WG-prioritization* have prepared the [meeting agenda](link_to_hackmd_agenda)
+We will have checkins from @*WG-X* and @*WG-Y*
+@**person1** do you have something you want to share about @*WG-X*?
+@**person2** do you have something you want to share about @*WG-Y*?
+```
+
+### Add details to the Agenda
 
 #### Summarize stable/beta nominations
 
@@ -177,24 +190,6 @@ We should:
   - Add important details
 
 Note: triagebot automatically creates a topic and notify @*WG-prioritization* members requesting addition to the agenda.
-
-#### Add performance logs
-
-Add [Triage Logs](https://github.com/rust-lang/rustc-perf/tree/master/triage#triage-logs) to the agenda.
-
-### Notify the team about the meeting
-
-[Figure out which working groups' check-ins follow](https://rust-lang.github.io/compiler-team/about/triage-meeting/).
-Create `[weekly meeting] YYYY-MM-DD #54818` topic in `#t-compiler/meetings` Zulip's stream and send the following messages:
-
-```text
-Hi @*T-compiler/meeting*; the triage meeting will happen tomorrow at 2pm UTC
-The @*WG-prioritization* have done pre-triage in #**t-compiler/wg-prioritization**
-@*WG-prioritization* have prepared the [meeting agenda](link_to_hackmd_agenda)
-We will have checkins from @*WG-X* and @*WG-Y*
-@**person1** do you have something you want to share about @*WG-X*?
-@**person2** do you have something you want to share about @*WG-Y*?
-```
 
 ### Final reviews
 
