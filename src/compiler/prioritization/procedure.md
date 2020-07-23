@@ -48,7 +48,7 @@ High level overview:
 ### Follow ups from previous meeting
 
 - Remove [`I-nominated`](https://github.com/rust-lang/rust/labels/I-nominated) tags of already discussed issues. For that check previous week agenda and Zulip meeting
-- Notify [@pnkfelix](https://rust-lang.zulipchat.com/#narrow/pm-with/116083-user116083) about accepted [`beta nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Abeta-nominated+-label%3Abeta-accepted) and [`stable nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Astable-nominated+-label%3Astable-accepted) without `beta-accepted` and `stable-accepted` label. For that compare these issues with list meeting's accepted nomations.
+- Notify [@pnkfelix](https://rust-lang.zulipchat.com/#narrow/pm-with/116083-user116083) about accepted [`beta nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Abeta-nominated+-label%3Abeta-accepted) and [`stable nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Astable-nominated+-label%3Astable-accepted) without `beta-accepted` and `stable-accepted` label. For that compare these issues with list meeting's accepted nominations.
 - Notify @pnkfelix about rejected [`beta nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Abeta-nominated+-label%3Abeta-accepted) and [`stable nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Astable-nominated+-label%3Astable-accepted) still with the nominated label. For that compare these issues with last meeting's rejected nominations.
 - Create an empty agenda using [our template](https://hackmd.io/WQW0yzDDS16YvtBNurmj6A), as soon as our Thursday's weekly meeting ends. After creating the meeting change document permissions to Write -> Owners.
 
@@ -73,7 +73,9 @@ We need all [`I-prioritize T-compiler`](https://github.com/rust-lang/rust/issues
 The procedure here follows the [General issues review process](#General-issues-review-process).
 
 Note: triagebot automatically creates a topic and notify @*WG-prioritization* members once an issue is labelled with `I-prioritize`
+
 Note #2: These lists should typically be empty when we are close to the meeting.
+
 Note #3: we should not have unprioritized regressions ([stable](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3Aregression-from-stable-to-stable+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+-label%3AT-infra+-label%3AT-libs+-label%3AT-release+-label%3AT-rustdoc), [beta](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3Aregression-from-stable-to-beta+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+-label%3AT-infra+-label%3AT-libs+-label%3AT-release+-label%3AT-rustdoc) and [nightly](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3Aregression-from-stable-to-nightly+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+-label%3AT-infra+-label%3AT-libs+-label%3AT-release+-label%3AT-rustdoc)) and ideally regressions should have an assignee.
 
 #### Accept MCPs
