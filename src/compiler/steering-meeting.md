@@ -24,6 +24,11 @@ topic, if that topic is complex. **Week 4 is reserved for
 non-technical topics**, so as to ensure that we are keeping an eye on
 the overall health and functioning of the team.
 
+### Where do proposals come from?
+
+The team accepts proposals via an open submission process,
+which is documented on [its own page](steering-meeting/submit.md)
+
 ## Announcing the schedule
 
 After each planning meeting, the topics for the next three weeks are
