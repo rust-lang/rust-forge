@@ -263,4 +263,4 @@ Where `unsafe` and `const` is involved, e.g., for operations which are "unconst"
 [Everyone Poops]: http://cglab.ca/~abeinges/blah/everyone-poops
 [rust/pull/46799]: https://github.com/rust-lang/rust/pull/46799
 [hashbrown/pull/119]: https://github.com/rust-lang/hashbrown/pull/119
-[rollup guidelines]: ../compiler/reviews.md
+[rollup guidelines]: ../compiler/reviews.md#rollups
