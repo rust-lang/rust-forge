@@ -83,8 +83,8 @@ target | std | rustc | cargo | notes
 `mipsel-unknown-linux-gnu` | ✓ | ✓ | ✓ | MIPS (LE) Linux (kernel 4.4, glibc 2.23)
 `mipsel-unknown-linux-musl` | ✓ |  |  | MIPS (LE) Linux with MUSL
 `nvptx64-nvidia-cuda` | ✓ |  |  | --emit=asm generates PTX code that [runs on NVIDIA GPUs]
-`powerpc-unknown-linux-gnu` | ✓ | ✓ | ✓ | PowerPC Linux (kernel 2.6.32, glibc 2.12)
-`powerpc64-unknown-linux-gnu` | ✓ | ✓ | ✓ | PPC64 Linux (kernel 2.6.32, glibc 2.12)
+`powerpc-unknown-linux-gnu` | ✓ | ✓ | ✓ | PowerPC Linux (kernel 2.6.32, glibc 2.11)
+`powerpc64-unknown-linux-gnu` | ✓ | ✓ | ✓ | PPC64 Linux (kernel 2.6.32, glibc 2.11)
 `powerpc64le-unknown-linux-gnu` | ✓ | ✓ | ✓ | PPC64LE Linux (kernel 3.10, glibc 2.17)
 `riscv32i-unknown-none-elf` | * |  |  | Bare RISC-V (RV32I ISA)
 `riscv32imac-unknown-none-elf` | * |  |  | Bare RISC-V (RV32IMAC ISA)
@@ -92,7 +92,7 @@ target | std | rustc | cargo | notes
 `riscv64gc-unknown-linux-gnu` | ✓ | ✓ | ✓ | RISC-V Linux (kernel 4.20, glibc 2.29)
 `riscv64gc-unknown-none-elf` | * |  |  | Bare RISC-V (RV64IMAFDC ISA)
 `riscv64imac-unknown-none-elf` | * |  |  | Bare RISC-V (RV64IMAC ISA)
-`s390x-unknown-linux-gnu` | ✓ | ✓ | ✓ | S390x Linux (kernel 2.6.32, glibc 2.12)
+`s390x-unknown-linux-gnu` | ✓ | ✓ | ✓ | S390x Linux (kernel 2.6.32, glibc 2.11)
 `sparc64-unknown-linux-gnu` | ✓ |  |  | SPARC Linux (kernel 4.4, glibc 2.23)
 `sparcv9-sun-solaris` | ✓ |  |  | SPARC Solaris 10/11, illumos
 `thumbv6m-none-eabi` | * |  |  | Bare Cortex-M0, M0+, M1
