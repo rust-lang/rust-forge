@@ -39,15 +39,8 @@ RUSTUP_DIST_SERVER=https://dev-static.rust-lang.org rustup update stable
 If something goes wrong, and we rebuild stable artifacts, you'll need to
 invalidate the dev-static bucket for RCS to re-release it.
 
-1.  Download https://dev-static.rust-lang.org/dist/channel-rust-1.35.0.toml The
-    version number must be less than the current release, but otherwise doesn't
-    matter.
-1.  Rename the file locally to channel-rust-stable.toml
-1.  Upload the file to the dev-static bucket into the dist folder, replacing
-    channel-rust-stable.toml.
-1.  Go to CloudFront in AWS, to the dev-static bucket, and issue an invalidation
-    for "/dist/channel-rust-stable.toml". This is necessary until
-    https://github.com/rust-lang/rust-central-station/issues/49 is fixed.
+1. Obtain AWS credentials (i.e., `aws-creds.py` from `rust-lang/simpleinfra`).
+1. Run the `invalidate-dev-static-stable.sh` script in `rust-lang/simpleinfra`.
 1.  (optional) login to central station, and run the following. This starts the
     dev-static promotion immediately, vs. waiting till the next hour.
 
