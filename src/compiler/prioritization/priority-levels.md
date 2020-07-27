@@ -22,9 +22,7 @@ Each of these labels defines a strategy the team will adopt regarding:
 - The amount of focus a given issue will receive
 - How members of the community can get involved
 
-## Definitions
-
-### P-critical
+## P-critical
 
 A `P-critical` issue is a potentially blocker issue.
 
@@ -53,7 +51,9 @@ Examples of things we typically judge to be “critical” bugs:
     - If the code that triggers the ICE also triggers compilation errors, and those errors are emitted before the ICE
     - If the code in question makes use of unstable features, particularly if the ICE requires a feature gate
 
-### P-high
+A P-critical issue will receive the most attention. It must be assigned one or several people as soon as possible, and the rest of the team should do their best to help them out if/when applicable.
+
+## P-high
 
 `P-high` issues are issues that need attention from the compiler team, but not to the point that they need to be discussed at every meeting.
 They can be `P-critical` issues that have a mitigating condition as defined above, or important issues that aren't deemed blockers.
@@ -62,25 +62,13 @@ Because there are too many `P-high` issues to fit in every compiler meeting, the
 
 The effectiveness of the Prioritization WG will be a direct consequence of our ability to draw the line between `P-critical` and `P-high` issues. There shouldn't be too many `P-critical` issues that compiler meetings become unmanageable, but critical issues shouldn't get lost in the list of P-high issues.
 
-### P-medium
+P-high issues are issues the teams will mostly work on. We want to make sure they're assigned, and keep an eye on them.
+
+## P-medium and P-low
 
 `P-medium` refer to issues that aren't a priority for the team, and that will be resolved in the long run. Eg issues that will be fixed after a specific feature has landed.
 
-### P-low
-
 `P-low` refer to issues issue that the compiler team doesn't plan to resolve, but are still worth fixing.
-
-## Amount of focus a given issue will receive
-
-### P-critical
-
-A P-critical issue will receive the most attention. It must be assigned one or several people as soon as possible, and the rest of the team should do their best to help them out if/when applicable.
-
-### P-high
-
-P-high issues are issues the teams will mostly work on. We want to make sure they're assigned, and keep an eye on them.
-
-### P-medium and P-low
 
 P-medium issues won't be our focus. 
 They are issues we would mentor someone interested in fixing. 
