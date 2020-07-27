@@ -43,7 +43,9 @@ not it should be part of a [rollup] with one of the following:
 - `rollup=maybe`: This is the **default** if you do not specify a rollup
   status. Use this if you don't have much confidence that it won't break
   tests. This can be used if you aren't sure if it should be one of the other
-  categories.
+  categories. Since this is the default, there is usually no need to
+  explicitly specify this, unless you are un-marking the rollup level from a
+  previous command.
 - `rollup=iffy`: Use this for mildly risky PRs (more risky than "maybe").
   Example scenarios:
     - The PR is large and non-additive (note: adding 2000 lines of completely
