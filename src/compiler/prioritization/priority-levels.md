@@ -4,13 +4,13 @@ As the compiler team's resources are limited, the prioritization working group's
 
 ## Words used in this document:
 
-`issue` refers to bugs and feature requests that are nominated for prioritization, by flagging the `I-Prioritize` label as described below.
+`issue` refers to bugs and feature requests that are nominated for prioritization, by flagging the `I-prioritize` label as described below.
 
 This document will define what each label means, and what strategy for each label will be used.
 
 ## Labels
 
-Labeling an issue as `I-Prioritize` starts the prioritization process, which will end by removing the `I-Prioritize` label and appending one of the 4 labels we will discuss below:
+Labeling an issue as `I-prioritize` starts the prioritization process, which will end by removing the `I-prioritize` label and appending one of the 4 labels we will discuss below:
 
 - P-critical
 - P-high
@@ -67,15 +67,8 @@ P-high issues are issues the teams will mostly work on. We want to make sure the
 ## P-medium and P-low
 
 `P-medium` refer to issues that aren't a priority for the team, and that will be resolved in the long run. Eg issues that will be fixed after a specific feature has landed.
-
-`P-low` refer to issues issue that the compiler team doesn't plan to resolve, but are still worth fixing.
-
-P-medium issues won't be our focus. 
 They are issues we would mentor someone interested in fixing. 
 They will remain in this state until someone complains, a community member fixes it, or it gets fixed by accident.
 
----
 
-###### For questions and comments about this document feel free to hit the relevant [zulip topic](https://rust-lang.zulipchat.com/#narrow/stream/227806-t-compiler.2Fwg-prioritization/topic/What.20is.20the.20meaning.20of.20each.20priority.20level.3F) or [open an issue](https://github.com/rust-lang/rust-forge/issues).
-
-######
+`P-low` refer to issues issue that the compiler team doesn't plan to resolve, but are still worth fixing.
