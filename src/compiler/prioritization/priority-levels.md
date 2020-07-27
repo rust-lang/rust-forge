@@ -43,7 +43,6 @@ Examples of things we typically judge to be “critical” bugs:
 - Soundness holes with real-world implications
   - Mitigating conditions that may lower priority:
     - Soundness holes that are difficult to trigger
-    - Soundness holes that have been around for a very long time may be critical, but typically require
     - Soundness holes that will not affect stable, e.g. if the hole makes use of a gated unstable feature.
 - Diagnostic regressions where the diagnostic is very common and the situation very confusing
 - ICEs for common scenarios or code patterns
