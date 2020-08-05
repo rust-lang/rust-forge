@@ -115,6 +115,7 @@ target | std | rustc | cargo | notes
 `x86_64-sun-solaris` | ✓ |  |  | 64-bit Solaris 10/11, illumos
 `x86_64-unknown-cloudabi` | ✓ |  |  | 64-bit CloudABI
 `x86_64-unknown-freebsd` | ✓ | ✓ | ✓ | 64-bit FreeBSD
+`x86_64-unknown-illumos` | ✓ | ✓ | ✓ | illumos
 `x86_64-unknown-linux-gnux32` | ✓ |  |  | 64-bit Linux (x32 ABI) (kernel 4.15, glibc 2.27)
 `x86_64-unknown-linux-musl` | ✓ | ✓ | ✓ | 64-bit Linux with MUSL
 `x86_64-unknown-netbsd` | ✓ | ✓ | ✓ | NetBSD/amd64
@@ -129,6 +130,7 @@ not available.
 
 target | std | rustc | cargo | notes
 -------|-----|-------|-------|-------
+`aarch64-apple-darwin` | ? |  |  | ARM64 macOS
 `aarch64-apple-tvos` | ** |  |  | ARM64 tvOS
 `aarch64-unknown-cloudabi` | ✓ |  |  | ARM64 CloudABI
 `aarch64-unknown-freebsd` | ✓ | ✓ | ✓ | ARM64 FreeBSD
@@ -184,6 +186,7 @@ target | std | rustc | cargo | notes
 `thumbv7a-pc-windows-msvc` | ? |  |  |
 `thumbv7a-uwp-windows-msvc` | ✓ |  |  |
 `thumbv7neon-unknown-linux-musleabihf` | ? |  |  | Thumb2-mode ARMv7a Linux with NEON, MUSL
+`thumbv4t-none-eabi` | * |  |  | ARMv4T T32
 `x86_64-apple-ios-macabi` | ✓ |  |  | Apple Catalyst
 `x86_64-apple-tvos` | ** | | | x86 64-bit tvOS
 `x86_64-linux-kernel` | ? |  |  | Linux kernel modules
@@ -193,7 +196,6 @@ target | std | rustc | cargo | notes
 `x86_64-unknown-haiku` | ✓ | ✓ | ✓ | 64-bit Haiku
 `x86_64-unknown-hermit` | ? |  |  |
 `x86_64-unknown-hermit-kernel` | ? |  |  | HermitCore kernel
-`x86_64-unknown-illumos` | ✓ |  |  | illumos
 `x86_64-unknown-l4re-uclibc` | ? |  |  |
 `x86_64-unknown-openbsd` | ✓ | ✓ | ✓ | 64-bit OpenBSD
 `x86_64-unknown-uefi` | ? |  |  |
