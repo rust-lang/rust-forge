@@ -1,5 +1,5 @@
 # GitHub
-Github is where the Rust project hosts all of its code, as well as a large parts
+Github is where the Rust project hosts all of its code, as well as large parts
 of its discussions.
 
 ## Organisations

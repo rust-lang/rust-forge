@@ -48,9 +48,9 @@ standard --fix js/
 
 # Contributing
 
-## Adding Teams
+## Adding teams
 
-Any Rust team can have a section in the Rust Forge. If you'd like to add your team you first need to add them as an item to `src/SUMMARY.md`, like so replacing `TEAM NAME` with your respective team's name to show on forge, and `<TEAM_NAME>` with a filesystem and url friendly version of that name where your documentation will be stored.
+Any Rust team can have a section in the Rust Forge. If you'd like to add your team, you first need to add them as an item to `src/SUMMARY.md`, like below, replacing `TEAM NAME` with your respective team's name to show on Forge, and `<TEAM_NAME>` with a filesystem- and URL-friendly version of that name where your documentation will be stored.
 
 ```markdown
 - [TEAM NAME](src/<TEAM_NAME>/README.md)
@@ -58,9 +58,9 @@ Any Rust team can have a section in the Rust Forge. If you'd like to add your te
 - [TEAM NAME](src/<TEAM_NAME>.md)
 ```
 
- If you run `mdbook build`, `mdbook` will automatically create the folder and file for your team.
+If you run `mdbook build`, `mdbook` will automatically create the folder and file for your team.
  
- It's recommended that you put general team information in `src/<TEAM_NAME>/README.md` such as where the meetings happen, repositories that the team manages, links to chat platforms, etc. Larger topics should be made as a subpage e.g. (`src/release/topic.md`).
+It's recommended that you put general team information in `src/<TEAM_NAME>/README.md`, such as where the meetings happen, repositories that the team manages, links to chat platforms, etc. Larger topics should be made as a subpage e.g. (`src/release/topic.md`).
 
 ```markdown
 - [TOPIC](src/<TEAM_NAME>/TOPIC.md)
