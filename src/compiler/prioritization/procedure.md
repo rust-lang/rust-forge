@@ -142,9 +142,9 @@ We will have checkins from @*WG-X* and @*WG-Y*
 #### Summarize stable/beta nominations
 
 - Add them to the agenda explaining:
-  - Who is the author of the PR
-  - Who is the assignee
-  - What issue fixes, it is a regression? what's the priority?
+  - Who the author of the PR is
+  - Who the assignee is
+  - Which issue fixes, it is a regression? what's the priority?
   - Why was it nominated
   - Add other important details
 
