@@ -197,7 +197,7 @@ We should:
 - Check if these issues were already discussed and in that case remove `I-nominated` label
 - Check if each issue is worth being discussed
 - Add them to the agenda explaining:
-  - Who is the assignee
+  - Who the assignee is
   - Is this an issue or a PR: if an issue, does it have a PR that fixes it?
   - Why was it nominated
   - Add other important details
