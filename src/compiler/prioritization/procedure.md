@@ -159,8 +159,8 @@ Try to follow the [General issues review process](#general-issues-review-process
 We should:
 
 - Add them to the agenda explaining:
-  - Who is the author of the PR
-  - Who is the assignee
+  - Who the author of the PR is
+  - Who the assignee is
   - What is the issue waiting for
   - Add other important details
 - Explicitly nominate any issue that can be *quickly* resolved in a triage meeting.
