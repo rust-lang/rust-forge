@@ -2,7 +2,7 @@
 
 Most services in the Rust Infrastructure are deployed via
 [rust-central-station]. Questions about infrastructure, including current
-status, should go to the [#infra Discord channel](https://discord.gg/rust-lang).
+status, should go to the [#t-infra Zulip stream](https://rust-lang.zulipchat.com/#narrow/stream/242791-t-infra).
 
 **Our stability guarantees**: many of our services rely on publicly-accessible
 storage and APIs, but not all of these are intended for public consumption. At
