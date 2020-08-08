@@ -142,9 +142,11 @@ We will have checkins from @*WG-X* and @*WG-Y*
 #### Summarize stable/beta nominations
 
 - Add them to the agenda explaining:
-  - Why was it nominated
+  - Who the author of the PR is
   - Who the assignee is
-  - Add important details
+  - Which issue fixes, it is a regression? what's the priority?
+  - Why was it nominated
+  - Add other important details
 
 Note: triagebot automatically creates a topic and notify @*WG-prioritization* members requesting addition to the agenda.
 
@@ -157,8 +159,10 @@ Try to follow the [General issues review process](#general-issues-review-process
 We should:
 
 - Add them to the agenda explaining:
-  - What are they waiting for
-  - Add important details
+  - Who the author of the PR is
+  - Who the assignee is
+  - What is the issue waiting for
+  - Add other important details
 - Explicitly nominate any issue that can be *quickly* resolved in a triage meeting.
 
 Note: triagebot automatically creates a topic and notify @*WG-prioritization* members requesting addition to the agenda.
@@ -171,7 +175,14 @@ We should:
 
 - [Notify the appropriate groups](https://rustc-dev-guide.rust-lang.org/notification-groups/about.html)
 - Push them forward, if possible
-- Assign if possible; if the issue remains unassigned, it should be added to the agenda so we can assign it during the meeting
+- Assign if possible
+
+- Add `P-critical`s and unassigned `P-high`s to the agenda explaining:
+  - If it's assigned or not and to whom
+  - Does it needs MCVE and/or bisection?
+  - Are there identified culprits?
+  - Do already have a PR open that fixes the issue?
+  - Add other important details
 
 Note: triagebot automatically creates a topic and notify @*WG-prioritization* members requesting addition to the agenda.
 
@@ -186,10 +197,10 @@ We should:
 - Check if these issues were already discussed and in that case remove `I-nominated` label
 - Check if each issue is worth being discussed
 - Add them to the agenda explaining:
-  - Why was it nominated
   - Who the assignee is
   - Is this an issue or a PR: if an issue, does it have a PR that fixes it?
-  - Add important details
+  - Why was it nominated
+  - Add other important details
 
 Note: triagebot automatically creates a topic and notify @*WG-prioritization* members requesting addition to the agenda.
 
