@@ -36,7 +36,7 @@ not it should be part of a [rollup] with one of the following:
   implications. Example scenarios:
     - Changes are limited to documentation, comments, etc. that is highly
       unlikely to fail a build.
-    - Changes are pure refactoring and cannot have performance implications.
+    - Changes cannot have performance implications.
     - Your PR is not landing possibly-breaking or behavior altering changes.
         - Feature stabilization without other changes is likely fine to
           rollup, though.
