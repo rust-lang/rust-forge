@@ -113,7 +113,7 @@ Past releases can be found in [the archives].
 [homebrew]: http://brew.sh/
 [chocolatey]: http://chocolatey.org/
 [scoop]: https://scoop.sh/
-[three tiers]: https://forge.rust-lang.org/release/platform-support.html
+[three tiers]: https://doc.rust-lang.org/nightly/rustc/platform-support.html
 [rust signing key]: https://static.rust-lang.org/rust-key.gpg.ascii
 [gpg]: https://gnupg.org/
 [available on keybase.io]: https://keybase.io/rust
