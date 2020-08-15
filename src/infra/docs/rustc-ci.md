@@ -37,7 +37,7 @@ platforms) on Azure Pipelines. Since those platforms are not x86 we either run
 everything inside QEMU or just cross-compile if we don’t want to run the tests
 for that platform.
 
-[platforms]: https://forge.rust-lang.org/release/platform-support.html
+[platforms]: https://doc.rust-lang.org/nightly/rustc/platform-support.html
 [rustup-toolchain-install-master]: https://github.com/kennytm/rustup-toolchain-install-master
 [dist-x86_64-linux]: https://github.com/rust-lang/rust/blob/master/src/ci/docker/dist-x86_64-linux/Dockerfile
 
