@@ -46,16 +46,20 @@ The rules around what's sound and what's not can be subtle. See the [Unsafe Code
 
 ### Is that `#[inline]` right?
 
-Inlining is a trade-off between potential execution speed, compile time and code size.
+Inlining is a trade-off between potential execution speed, compile time and code size. There's some discussion about it in [this PR to the `hashbrown` crate][hashbrown/pull/119]. From the thread:
 
-You should add `#[inline]`:
+> `#[inline]` is very different than simply just an inline hint. As I mentioned before, there's no equivalent in C++ for what `#[inline]` does. In debug mode rustc basically ignores `#[inline]`, pretending you didn't even write it. In release mode the compiler will, by default, codegen an `#[inline]` function into every single referencing codegen unit, and then it will also add `inlinehin`t. This means that if you have 16 CGUs and they all reference an item, every single one is getting the entire item's implementation inlined into it.
+
+You can add `#[inline]`:
 
 - To public, small, non-generic functions.
 
-You shouldn’t need `#[inline]`:
+You shouldn't need `#[inline]`:
 
 - On methods that have any generics in scope.
-- On methods on traits that don’t have a default implementation.
+- On methods on traits that don't have a default implementation.
+
+`#[inline]` can always be introduced later, so if you're in doubt they can just be removed.
 
 #### What about `#[inline(always)]`?
 
@@ -74,6 +78,10 @@ For changes where the value is high and the impact is high too:
 If the impact isn't too high:
 
 - Looping in maintainers of broken crates and submitting PRs to fix them.
+
+### Is behavior changed?
+
+Breaking changes aren't just limited to compilation failures. Behavioral changes to stable functions generally can't be accepted. See [the `home_dir` issue][rust/pull/46799] for an example.
 
 ### Are there new impls for stable traits?
 
@@ -177,6 +185,10 @@ Public enums should have a `#[non_exhaustive]` attribute if there's any possibil
 
 Changes to collection internals may affect the order their items are dropped in. This has been accepted in the past, but should be noted.
 
+### Is there a manual `Drop` implementation?
+
+Generic types that manually implement `Drop` should consider whether a `#[may_dangle]` attribute is appropriate. The [Nomicon][dropck] has some details on what `#[may_dangle]` is all about.
+
 ### How could `mem` break assumptions?
 
 #### `mem::replace` and `mem::swap`
@@ -244,7 +256,10 @@ Where `unsafe` and `const` is involved, e.g., for operations which are "unconst"
 [`rust-timer`]: https://github.com/rust-lang-nursery/rustc-perf
 [Libs tracking issues]: https://github.com/rust-lang/rust/issues?q=label%3AC-tracking-issue+label%3AT-libs
 [Drop guarantee]: https://doc.rust-lang.org/nightly/std/pin/index.html#drop-guarantee
+[dropck]: https://doc.rust-lang.org/nomicon/dropck.html
 [Forge]: https://forge.rust-lang.org/
 [RFC 1023]: https://rust-lang.github.io/rfcs/1023-rebalancing-coherence.html
 [RFC 1105]: https://rust-lang.github.io/rfcs/1105-api-evolution.html
 [Everyone Poops]: http://cglab.ca/~abeinges/blah/everyone-poops
+[rust/pull/46799]: https://github.com/rust-lang/rust/pull/46799
+[hashbrown/pull/119]: https://github.com/rust-lang/hashbrown/pull/119
