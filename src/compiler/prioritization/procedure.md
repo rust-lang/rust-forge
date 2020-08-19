@@ -110,9 +110,9 @@ As a quick reminder:
 MCP = Major Change Proposal
 FCP = Final Comment Period
 
-Remove all [`to-announce` MCPs](https://github.com/rust-lang/compiler-team/issues?q=is%3Aissue+is%3Aall+label%3Amajor-change+label%3Ato-announce) as they were already added in the agenda in their corresponding place.
+Remove all [`to-announce` MCPs](https://github.com/rust-lang/compiler-team/issues?q=is%3Aall+label%3Amajor-change+label%3Ato-announce) as they were already added in the agenda in their corresponding place.
 
-Remove all `to-announce` FCPs from [rust repo](https://github.com/rust-lang/rust/issues?q=is%3Aissue+is%3Aall+label%3Afinished-final-comment-period+label%3Ato-announce), [compiler-team repo](https://github.com/rust-lang/compiler-team/issues?q=is%3Aissue+is%3Aall+label%3Afinished-final-comment-period+label%3Ato-announce) and [forge repo](https://github.com/rust-lang/rust-forge/issues?q=is%3Aissue+is%3Aall+label%3Afinished-final-comment-period+label%3Ato-announce) as they were already added in the agenda in their corresponding place.
+Remove all `to-announce` FCPs from [rust repo](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Afinished-final-comment-period+label%3Ato-announce), [compiler-team repo](https://github.com/rust-lang/compiler-team/issues?q=is%3Aall+label%3Afinished-final-comment-period+label%3Ato-announce) and [forge repo](https://github.com/rust-lang/rust-forge/issues?q=is%3Aall+label%3Afinished-final-comment-period+label%3Ato-announce) as they were already added in the agenda in their corresponding place.
 
 For now fix announcements output manually. Remove the nonsense no fcps this time lines when there are proposals already filled or when those lines are just repeated.
 
