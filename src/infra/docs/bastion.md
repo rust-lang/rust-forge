@@ -62,9 +62,9 @@ aws ssm put-parameter --type String --name "/prod/bastion/allowed-ips/USERNAME" 
 ```
 
 You'll also need to add the username to the list in
-[`terraform/services.tf`][allowed-ips] (key `allowed_users` in the
-`service_bastion` module). Once you made all the needed changes you wanted you
-need to [apply the Terraform configuration][terraform-apply].
+[`terraform/bastion/firewall.tf`][allowed-ips] (local variable
+`allowed_users`). Once you made all the needed changes you wanted you need to
+[apply the Terraform configuration][terraform-apply].
 
 ### Updating a whitelisted IP
 
@@ -92,15 +92,15 @@ aws ssm delete-parameter --name "/prod/bastion/allowed-ips/USERNAME"
 ```
 
 You'll also need to remove the username from the list in
-[`terraform/services.tf`][allowed-ips] (key `allowed_users` in the
-`service_bastion` module). Once you made all the needed changes you wanted you
-need to [apply the Terraform configuration][terraform-apply].
+[`terraform/bastion/firewall.tf`][allowed-ips] (local variable
+`allowed_users`). Once you made all the needed changes you wanted you need to
+[apply the Terraform configuration][terraform-apply].
 
 [ansible]: https://github.com/rust-lang/simpleinfra/blob/master/ansible/playbooks/bastion.yml
-[terraform]: https://github.com/rust-lang/simpleinfra/tree/master/terraform/services/bastion
+[terraform]: https://github.com/rust-lang/simpleinfra/tree/master/terraform/bastion
 [grafana]: https://grafana.rust-lang.org/d/rpXrFfKWz/instance-metrics?orgId=1&var-instance=bastion.infra.rust-lang.org:9100
 [keys]: https://github.com/rust-lang/simpleinfra/tree/master/ansible/roles/common/files/ssh-keys
 [ansible-apply]: https://github.com/rust-lang/simpleinfra/blob/master/ansible/README.md#executing-a-playbook
 [ssm]: https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html
-[allowed-ips]: https://github.com/rust-lang/simpleinfra/blob/master/terraform/services.tf
+[allowed-ips]: https://github.com/rust-lang/simpleinfra/blob/master/terraform/bastion/firewall.tf
 [terraform-apply]: https://github.com/rust-lang/simpleinfra/tree/master/terraform#applying-the-configuration
