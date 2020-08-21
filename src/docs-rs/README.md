@@ -13,5 +13,5 @@
 [repo]: https://github.com/rust-lang/docs.rs
 [grafana-instance]: https://grafana.rust-lang.org/d/rpXrFfKWz/instance-metrics?orgId=1&var-instance=docsrs.infra.rust-lang.org:9100
 [grafana-app]: https://grafana.rust-lang.org/d/-wWFg2cZz/docs-rs?orgId=1
-[bastion-connect]: https://github.com/rust-lang/infra-team/blob/master/docs/hosts/bastion.md#logging-into-servers-through-the-bastion
+[bastion-connect]: https://forge.rust-lang.org/infra/docs/bastion.html#logging-into-servers-through-the-bastionmd#logging-into-servers-through-the-bastion
 [docs.rs team]: https://www.rust-lang.org/governance/teams/dev-tools#docs-rs
