@@ -22,6 +22,7 @@
     - [Membership](./compiler/membership.md)
     - [Prioritization](./compiler/prioritization.md)
       - [Procedure](./compiler/prioritization/procedure.md)
+      - [Priority Levels](./compiler/prioritization/priority-levels.md)
     - [Notification groups](./compiler/notification-groups.md)
     - [Triage Meeting](./compiler/triage-meeting.md)
     - [Steering Meeting](./compiler/steering-meeting.md)
