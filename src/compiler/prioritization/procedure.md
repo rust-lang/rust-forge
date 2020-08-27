@@ -130,7 +130,7 @@ Add [Triage Logs](https://github.com/rust-lang/rustc-perf/tree/master/triage#tri
 Create `[weekly meeting] YYYY-MM-DD #54818` topic in `#t-compiler/meetings` Zulip's stream and send the following messages:
 
 ```text
-Hi @*T-compiler/meeting*; the triage meeting will happen tomorrow at 2pm UTC
+Hi @*T-compiler/meeting*; the triage meeting will happen tomorrow at <time:YYYY-MM-DDT14:00:00+00:00>
 The @*WG-prioritization* have done pre-triage in #**t-compiler/wg-prioritization/alerts**
 @*WG-prioritization* have prepared the [meeting agenda](link_to_hackmd_agenda)
 We will have checkins from @*WG-X* and @*WG-Y*
