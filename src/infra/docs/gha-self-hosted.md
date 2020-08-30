@@ -82,9 +82,36 @@ Note that the VM image regenerates its own host key every time it boots, so
 you'll likely get host key mismatch errors when connecting to a freshly booted
 VM.
 
+### Accessing the out-of-band console for Packet servers
+
+In the event that a bare metal server hosted on Packet becomes unreachable but
+is still marked as online, it's possible to access the out-of-band console over
+the serial port to get a root shell.
+
+To access it, retrieve the root password configured on the server with:
+
+```
+aws ssm get-parameter --name /prod/ansible/HOSTNAME/root-password --with-decryption --query 'Parameter.Value' --output text
+```
+
+For example, to get the root password of `ci-arm-1`, run:
+
+```
+aws ssm get-parameter --name /prod/ansible/ci-arm-1/root-password --with-decryption --query 'Parameter.Value' --output text
+```
+
+Then, log into the [packet console][packet-console], navigate to the server
+page and click the "out-of-band console" button at the top right: the SSH
+command to use will be shown. Once you run the command you will be asked to
+login on the server: use `root` as the username and the password you fetched
+earlier as the password.
+
+To exit the out-of-band console, type a new line followed by `~.`.
+
 [gha-self-hosted]: https://github.com/rust-lang/gha-self-hosted
 [host_vars-ci-arm-1]: https://github.com/rust-lang/simpleinfra/blob/master/ansible/envs/prod/host_vars/ci-arm-1.infra.rust-lang.org.yml
 [packet]: https://www.packet.com
+[packet-console]: https://app.packet.net
 [playbook]: https://github.com/rust-lang/simpleinfra/blob/master/ansible/playbooks/gha-self-hosted.yml
 [role]: https://github.com/rust-lang/simpleinfra/blob/master/ansible/playbooks/gha-self-hosted.yml
 [simpleinfra]: https://github.com/rust-lang/simpleinfra
