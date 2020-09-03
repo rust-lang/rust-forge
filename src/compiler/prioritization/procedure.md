@@ -50,6 +50,8 @@ High level overview:
 - Remove [`I-nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3AI-nominated+label%3AT-compiler) tags of already discussed issues. For that check previous week agenda and Zulip meeting
 - Accept [`beta nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Abeta-nominated+-label%3Abeta-accepted) and [`stable nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Astable-nominated+-label%3Astable-accepted) backports that have been accepted during the meeting.
 - Decline [`beta nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Abeta-nominated+-label%3Abeta-accepted) and [`stable nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Astable-nominated+-label%3Astable-accepted) backports that have been declined during the meeting.
+- Notify WG leads about [next week's
+  checkins](https://rust-lang.github.io/compiler-team/about/triage-meeting/)
 - Create an empty agenda using [our template](https://hackmd.io/WQW0yzDDS16YvtBNurmj6A), as soon as our Thursday's weekly meeting ends. After creating the meeting change document permissions to Write -> Owners.
 
 ### Prepare agenda content
