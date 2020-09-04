@@ -63,9 +63,9 @@ We need to find out the parent commit in which the PR opened last Monday merged.
 
 Go to that PR, and find the "bors merged commit $SHA into rust-lang:master at the bottom.
 
-Locally, run `git log $SHA --author=bors`, and take the SHA of the first
-bors-authored merge into master (should be the the first commit). Call that
-`$BRANCH_POINT`.
+Locally, run `export BRANCH_POINT=`git rev-parse $SHA^` in the rust-lang/rust
+checkout. This should be bors-authored merge into master of the PR before the
+version bump merged.
 
 Create a new branch on `rust-lang/cargo` for the new beta. Here, `rust-lang` is
 the remote for https://github.com/rust-lang/rust.git. Replace `YY` with the
