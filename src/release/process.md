@@ -84,9 +84,6 @@ $ git push origin rust-1.YY.0
 You'll need to temporarily disable branch protection on GitHub to push the new
 branch.
 
-In theory one day we'll do the same for rust-lang/rls, but for now we haven't
-done this yet.
-
 Temporarily disable banch protection on GitHub for the `beta` branch of the Rust
 repo. Promote rust-lang/rust's master branch to beta as with yesterday:
 
@@ -108,14 +105,7 @@ branch of rust-lang/rust which:
   - Uncomment `dev: 1`
 - Update src/ci/run.sh to pass "--release-channel=beta".
 
-Note that you probably don't want to update the RLS if it's working, but if it's
-not working beta won't land and it'll need to get updated. After this PR merges
-(through @bors) the beta should be automatically released.
-
 ## Master bootstrap update (T-1 day, Wednesday)
-
-Write a new blog post, update rust-www, and update rust-forge. Submit PRs for
-tomorrow.
 
 Send a PR to the master branch to:
 
@@ -171,18 +161,6 @@ Decide on a time to do the release, T.
 [update-thanks]: https://travis-ci.com/rust-lang/thanks
 
 Bask in your success.
-
-## Update dependencies (T+1 day, Friday)
-
-In the repo:
-
-```bash
-$ cd src
-$ cargo update
-```
-
-The very ambitious can use https://crates.io/crates/cargo-outdated and update
-through breaking changes.
 
 ## Publishing a nightly based off a try build
 
