@@ -2,6 +2,15 @@
 
 Here's how Rust is currently released:
 
+## Promote beta to stable (T-6 days, Friday the week before)
+
+Open a PR bumping the version number in `src/bootstrap/channel.rs`. r+
+rollup=never this PR.
+
+Mark it as rollup=never, because if it lands in a rollup as *not* the first PR
+then other pull requests in that rollup will be incorrectly associated with the
+prior release.
+
 ## Promote beta to stable (T-3 days, Monday)
 
 Promote beta to stable. Temporarily turn off GitHub branch protection for the
@@ -50,6 +59,14 @@ docker exec -d -it rcs bash -c 'promote-release /tmp/stable stable /data/secrets
 
 ## Promote master to beta (T-2 days, Tuesday)
 
+We need to find out the parent commit in which the PR opened last Monday merged.
+
+Go to that PR, and find the "bors merged commit $SHA into rust-lang:master at the bottom.
+
+Locally, run `git log $SHA --author=bors`, and take the SHA of the first
+bors-authored merge into master (should be the the first commit). Call that
+`$BRANCH_POINT`.
+
 Create a new branch on `rust-lang/cargo` for the new beta. Here, `rust-lang` is
 the remote for https://github.com/rust-lang/rust.git. Replace `YY` with the
 minor version of master. First determine the branch point for cargo in
@@ -58,7 +75,7 @@ minor version of master. First determine the branch point for cargo in
 ```sh
 $ cd rust
 $ git fetch rust-lang
-$ CARGO_SHA=`git rev-parse rust-lang/master:src/tools/cargo`
+$ CARGO_SHA=`git rev-parse $BRANCH_POINT:src/tools/cargo`
 $ cd src/tools/cargo
 $ git branch rust-1.YY.0 $CARGO_SHA
 $ git push origin rust-1.YY.0
@@ -75,7 +92,7 @@ repo. Promote rust-lang/rust's master branch to beta as with yesterday:
 
 ```sh
 $ git fetch rust-lang
-$ git push rust-lang rust-lang/master:beta -f
+$ git push rust-lang $BRANCH_POINT:beta -f
 ```
 
 Re-enable branch protection on GitHub. Send a PR to the freshly created beta
@@ -103,7 +120,8 @@ tomorrow.
 Send a PR to the master branch to:
 
 - modify src/stage0.txt to bootstrap from yesterday's beta
-- modify src/bootstrap/channel.rs with the new version number
+- Remove `cfg(stage0)` annotated items
+- Replace `cfg(not(stage0))` with nothing
 
 ## Release day (Thursday)
 
