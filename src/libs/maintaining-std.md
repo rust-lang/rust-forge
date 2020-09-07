@@ -229,7 +229,7 @@ struct OptionCell<T> {
 }
 
 - impl Drop<T> for OptionCell<T> {
-+ unsafe impl Drop<#[may_dangle] T> for OptionCell<T> {
++ unsafe impl<#[may_dangle] T> Drop for OptionCell<T> {
 ```
 
 ### How could `mem` break assumptions?
