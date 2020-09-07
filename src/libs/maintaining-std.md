@@ -203,7 +203,7 @@ impl<T> Drop for OptionCell<T> {
     fn drop(&mut self) {
         if self.is_init {
             // Safety: The cell is being dropped, so it can't be accessed again.
-            let _ = unsafe { self.value.read() };
+            drop(unsafe { self.value.read() });
         }
     }
 }
