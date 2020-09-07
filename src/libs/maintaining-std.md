@@ -189,6 +189,23 @@ Changes to collection internals may affect the order their items are dropped in.
 
 Generic types that manually implement `Drop` should consider whether a `#[may_dangle]` attribute is appropriate. The [Nomicon][dropck] has some details on what `#[may_dangle]` is all about.
 
+If the type pretends to store a value that may dangle, but doesn't do so directly (perhaps through `MaybeUninit<T>` or a raw pointer) then make sure there's an appropriate use of `PhantomData` to support dropck. As a [real-world example][rust/issues/76367], adding a `#[may_dangle]` attribute to an `OptionCell<T>` that internally stores its value as a `MaybeUninit<T>` requires both a `PhantomData` marker and a `#[may_dangle]` attribute:
+
+```diff
+struct OptionCell<T> {
+    is_init: bool,
+    value: MaybeUninit<T>,
++   _marker: PhantomData<T>,
+}
+
+- impl Drop<T> OptionCell<T> {
++ impl Drop<#[may_dangle] T> OptionCell<T> {
+    ..
+}
+```
+
+Types in the standard library that use the internal `Unique<T>` will don't need a `PhantomData` marker field. That's taken care of for them by `Unique<T>`.
+
 ### How could `mem` break assumptions?
 
 #### `mem::replace` and `mem::swap`
@@ -262,5 +279,6 @@ Where `unsafe` and `const` is involved, e.g., for operations which are "unconst"
 [RFC 1105]: https://rust-lang.github.io/rfcs/1105-api-evolution.html
 [Everyone Poops]: http://cglab.ca/~abeinges/blah/everyone-poops
 [rust/pull/46799]: https://github.com/rust-lang/rust/pull/46799
+[rust/issues/76367]: https://github.com/rust-lang/rust/issues/76367
 [hashbrown/pull/119]: https://github.com/rust-lang/hashbrown/pull/119
 [rollup guidelines]: ../compiler/reviews.md#rollups
