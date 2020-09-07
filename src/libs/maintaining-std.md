@@ -202,6 +202,7 @@ struct OptionCell<T> {
 impl<T> Drop for OptionCell<T> {
     fn drop(&mut self) {
         if self.is_init {
+            // Safety: `value` is guaranteed to be fully initialized when `is_init` is true.
             // Safety: The cell is being dropped, so it can't be accessed again.
             drop(unsafe { self.value.read() });
         }
