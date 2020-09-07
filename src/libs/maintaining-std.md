@@ -189,7 +189,7 @@ Changes to collection internals may affect the order their items are dropped in.
 
 A generic `Type<T>` that manually implements `Drop` should consider whether a `#[may_dangle]` attribute is appropriate on `T`. The [Nomicon][dropck] has some details on what `#[may_dangle]` is all about.
 
-If a generic `Type<T>` has a manual drop implementation that may also involve dropping `T` then dropck needs to know about it. If `Type<T>`'s ownership of `T` is expressed indirectly through pointers, such as `*mut T` or `MaybeUninit<T>`, then `Type<T>` also [needs a `PhantomData<T>` field][RFC 0769 PhantomData] to tell dropck that `T` may be dropped. Types in the standard library that use the internal `Unique<T>` pointer type don't need a `PhantomData<T>` marker field. That's taken care of for them by `Unique<T>`.
+If a generic `Type<T>` has a manual drop implementation that may also involve dropping `T` then dropck needs to know about it. If `Type<T>`'s ownership of `T` is expressed through types that don't drop `T` themselves such as `ManuallyDrop<T>`, `*mut T`, or `MaybeUninit<T>` then `Type<T>` also [needs a `PhantomData<T>` field][RFC 0769 PhantomData] to tell dropck that `T` may be dropped. Types in the standard library that use the internal `Unique<T>` pointer type don't need a `PhantomData<T>` marker field. That's taken care of for them by `Unique<T>`.
 
 As a real-world example of where this can go wrong, consider an `OptionCell<T>` that looks something like this:
 
@@ -207,7 +207,7 @@ impl<T> Drop for OptionCell<T> {
 }
 ```
 
-Adding a `#[may_dangle]` attribute to this `OptionCell<T>` that didn't have a `PhantomData<T>` marker field opened up [a soundness hole][rust/issues/76367] for `T`'s that didn't strictly outlive the `OptionCell<T>`, and so could be accessed after being dropped in their own `Drop` implementations. The `OptionCell<T>` first needed a `PhantomData<T>` field:
+Adding a `#[may_dangle]` attribute to this `OptionCell<T>` that didn't have a `PhantomData<T>` marker field opened up [a soundness hole][rust/issues/76367] for `T`'s that didn't strictly outlive the `OptionCell<T>`, and so could be accessed after being dropped in their own `Drop` implementations. The correct application of `#[may_dangle]` also required a `PhantomData<T>` field:
 
 ```diff
 struct OptionCell<T> {
@@ -216,19 +216,7 @@ struct OptionCell<T> {
 +   _marker: PhantomData<T>,
 }
 
-impl Drop<T> for OptionCell<T> {
-```
-
-Then `#[may_dangle]` could be added to the `Drop` implementation:
-
-```diff
-struct OptionCell<T> {
-    is_init: bool,
-    value: MaybeUninit<T>,
-    _marker: PhantomData<T>,
-}
-
-- impl Drop<T> for OptionCell<T> {
+- impl<T> Drop for OptionCell<T> {
 + unsafe impl<#[may_dangle] T> Drop for OptionCell<T> {
 ```
 
