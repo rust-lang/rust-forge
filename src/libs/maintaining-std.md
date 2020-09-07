@@ -199,7 +199,7 @@ struct OptionCell<T> {
     value: MaybeUninit<T>,
 }
 
-impl Drop<T> for OptionCell<T> {
+impl<T> Drop for OptionCell<T> {
     fn drop(&mut self) {
         // Safety: The cell is being dropped, so it can't be accessed again.
         unsafe { self.take_inner() };
