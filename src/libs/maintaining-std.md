@@ -204,7 +204,7 @@ struct OptionCell<T> {
 }
 ```
 
-Types in the standard library that use the internal `Unique<T>` will don't need a `PhantomData` marker field. That's taken care of for them by `Unique<T>`.
+Types in the standard library that use the internal `Unique<T>` don't need a `PhantomData` marker field. That's taken care of for them by `Unique<T>`.
 
 ### How could `mem` break assumptions?
 
