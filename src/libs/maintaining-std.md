@@ -187,9 +187,27 @@ Changes to collection internals may affect the order their items are dropped in.
 
 ### Is there a manual `Drop` implementation?
 
-Generic types that manually implement `Drop` should consider whether a `#[may_dangle]` attribute is appropriate. The [Nomicon][dropck] has some details on what `#[may_dangle]` is all about.
+A generic `Type<T>` that manually implements `Drop` should consider whether a `#[may_dangle]` attribute is appropriate on `T`. The [Nomicon][dropck] has some details on what `#[may_dangle]` is all about.
 
-If the type pretends to store a value that may dangle, but doesn't do so directly (perhaps through `MaybeUninit<T>` or a raw pointer) then make sure there's an appropriate use of `PhantomData` to support dropck. As a [real-world example][rust/issues/76367], adding a `#[may_dangle]` attribute to an `OptionCell<T>` that internally stores its value as a `MaybeUninit<T>` requires both a `PhantomData` marker and a `#[may_dangle]` attribute:
+If a generic `Type<T>` has a manual drop implementation that may also involve dropping `T` then dropck needs to know about it. If `Type<T>`'s ownership of `T` is expressed indirectly through pointers, such as `*mut T` or `MaybeUninit<T>`, then `Type<T>` also [needs a `PhantomData<T>` field][RFC 0769 PhantomData] to tell dropck that `T` may be dropped. Types in the standard library that use the internal `Unique<T>` pointer type don't need a `PhantomData<T>` marker field. That's taken care of for them by `Unique<T>`.
+
+As a real-world example of where this can go wrong, consider an `OptionCell<T>` that looks something like this:
+
+```rust
+struct OptionCell<T> {
+    is_init: bool,
+    value: MaybeUninit<T>,
+}
+
+impl Drop<T> for OptionCell<T> {
+    fn drop(&mut self) {
+        // Safety: The cell is being dropped, so it can't be accessed again.
+        unsafe { self.take_inner() };
+    }
+}
+```
+
+Adding a `#[may_dangle]` attribute to this `OptionCell<T>` that didn't have a `PhantomData<T>` marker field opened up [a soundness hole][rust/issues/76367] for `T`'s that didn't strictly outlive the `OptionCell<T>`, and so could be accessed after being dropped in their own `Drop` implementations. The `OptionCell<T>` first needed a `PhantomData<T>` field:
 
 ```diff
 struct OptionCell<T> {
@@ -198,13 +216,21 @@ struct OptionCell<T> {
 +   _marker: PhantomData<T>,
 }
 
-- impl Drop<T> OptionCell<T> {
-+ impl Drop<#[may_dangle] T> OptionCell<T> {
-    ..
-}
+impl Drop<T> for OptionCell<T> {
 ```
 
-Types in the standard library that use the internal `Unique<T>` don't need a `PhantomData` marker field. That's taken care of for them by `Unique<T>`.
+Then `#[may_dangle]` could be added to the `Drop` implementation:
+
+```diff
+struct OptionCell<T> {
+    is_init: bool,
+    value: MaybeUninit<T>,
+    _marker: PhantomData<T>,
+}
+
+- impl Drop<T> for OptionCell<T> {
++ unsafe impl Drop<#[may_dangle] T> for OptionCell<T> {
+```
 
 ### How could `mem` break assumptions?
 
@@ -277,6 +303,7 @@ Where `unsafe` and `const` is involved, e.g., for operations which are "unconst"
 [Forge]: https://forge.rust-lang.org/
 [RFC 1023]: https://rust-lang.github.io/rfcs/1023-rebalancing-coherence.html
 [RFC 1105]: https://rust-lang.github.io/rfcs/1105-api-evolution.html
+[RFC 0769 PhantomData]: https://github.com/rust-lang/rfcs/blob/master/text/0769-sound-generic-drop.md#phantom-data
 [Everyone Poops]: http://cglab.ca/~abeinges/blah/everyone-poops
 [rust/pull/46799]: https://github.com/rust-lang/rust/pull/46799
 [rust/issues/76367]: https://github.com/rust-lang/rust/issues/76367
