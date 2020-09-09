@@ -61,11 +61,11 @@ High level overview:
 
 Add `T-compiler` and `libs-impl` labels to corresponding issues that are missing these labels.
 
-- [All unprioritized I-prioritize](https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+label%3AI-prioritize)
-- [All stable nominations](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Astable-nominated+-label%3Astable-accepted)
-- [All beta nominations](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Abeta-nominated+-label%3Abeta-accepted)
-- [All I-nominated](https://github.com/rust-lang/rust/labels/I-nominated)
-- [All PR's waiting on team](https://github.com/rust-lang/rust/labels/S-waiting-on-team)
+- [All unprioritized I-prioritize](https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+label%3AI-prioritize+-label%3Alibs-impl+-label%3AT-Compiler)
+- [All stable nominations](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Astable-nominated+-label%3Astable-accepted+-label%3Alibs-impl+-label%3AT-Compiler)
+- [All beta nominations](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Abeta-nominated+-label%3Abeta-accepted+-label%3Alibs-impl+-label%3AT-Compiler)
+- [All I-nominated](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3AI-nominated+-label%3Alibs-impl+-label%3AT-Compiler)
+- [All PR's waiting on team](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3AS-waiting-on-team+-label%3Alibs-impl+-label%3AT-Compiler)
 
 #### Assign priority to unprioritized issues with "I-prioritize" label
 
