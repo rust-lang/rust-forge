@@ -63,7 +63,7 @@ We need to find out the parent commit in which the PR opened last Monday merged.
 
 Go to that PR, and find the "bors merged commit $SHA into rust-lang:master at the bottom.
 
-Locally, run `export BRANCH_POINT=`git rev-parse $SHA^` in the rust-lang/rust
+Locally, run `` export BRANCH_POINT=`git rev-parse $SHA^` `` in the rust-lang/rust
 checkout. This should be bors-authored merge into master of the PR before the
 version bump merged.
 
