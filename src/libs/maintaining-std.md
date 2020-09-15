@@ -249,7 +249,7 @@ PRs to [`rust-lang/rust`] aren’t merged manually using GitHub’s UI or by pus
 
 ### When to `rollup`
 
-For Libs PRs, rolling up is usually fine, in particular if it's only a new unstable addition or if it only touches docs (with the exception of intra doc links which complicates things while the feature has bugs...).
+For Libs PRs, rolling up is usually fine, in particular if it's only a new unstable addition or if it only touches docs.
 
 See the [rollup guidelines] for more details on when to rollup.
 
