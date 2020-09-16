@@ -101,7 +101,7 @@ to your `~/.profile` file.
 And then run:
 
 ```
-$ cargo run --bin prioritization
+$ cargo run --bin prioritization-agenda
 ```
 
 Copy the content of the generated agenda into the agenda on HackMD.
