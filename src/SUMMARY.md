@@ -61,6 +61,7 @@
         - [Monitoring](./infra/docs/monitoring.md)
         - [rust-bots server](./infra/docs/rust-bots.md)
         - [rust-lang/rust CI](./infra/docs/rustc-ci.md)
+        - [Sentry](./infra/docs/sentry.md)
 - [Language](./lang/README.md)
     - [RFC Merge Procedure](./lang/rfc-merge-procedure.md)
     - [Triage Meeting Procedure](./lang/triage-meeting-procedure.md)
