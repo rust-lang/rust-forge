@@ -2,14 +2,14 @@
 
 Here's how Rust is currently released:
 
-## Promote beta to stable (T-6 days, Friday the week before)
+## Bump the stable version number (T-6 days, Friday the week before)
 
-Open a PR bumping the version number in `src/bootstrap/channel.rs`. r+
-rollup=never this PR.
+Open a PR bumping the version number in `src/version`. `r+ rollup=never` this
+PR.
 
-Mark it as rollup=never, because if it lands in a rollup as *not* the first PR
-then other pull requests in that rollup will be incorrectly associated with the
-prior release.
+Mark it as `rollup=never`, because if it lands in a rollup as *not* the first
+PR then other pull requests in that rollup will be incorrectly associated with
+the prior release.
 
 ## Promote beta to stable (T-3 days, Monday)
 
