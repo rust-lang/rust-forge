@@ -105,7 +105,7 @@ TWiR running, Vikrant, you friend of the tree.
 
 ## 2015-07-24 Tshepang Lekhonkhobe
 
-[@Gankro](http://github.com/Gankro) has nominated
+[@Gankra](http://github.com/Gankra) has nominated
 [@tshepang](http://github.com/tshepang) for Friend of the Tree this week:
 
 Over the last year Tshepang has landed over 100 improvements to our
@@ -255,16 +255,16 @@ checker. He has also completely rewritten how unboxed closures interact with
 monomorphization and had a huge impact on making them usable. Brian Koropoff is
 truly a Friend of the Tree.
 
-## 2014-10-07 Alexis Beingessner (Gankro)
+## 2014-10-07 Alexis Beingessner (Gankra)
 
-Alexis Beingessner (aka @Gankro) began contributing to Rust in July, and has
-already had a major impact on several library-related areas. His main focus has
-been collections. He completely rewrote BTree, providing a vastly more complete
-and efficient implementation. He proposed and implemented the new Entry API.
-He's written extensive new documentation for the collections crate. He pitched
+Alexis Beingessner (aka @Gankra) began contributing to Rust in July, and has
+already had a major impact on several library-related areas. Her main focus has
+been collections. She completely rewrote BTree, providing a vastly more complete
+and efficient implementation. She proposed and implemented the new Entry API.
+She's written extensive new documentation for the collections crate. She pitched
 in on collections reform.
 
-And he added collapse-all to rustdoc!
+And she added collapse-all to rustdoc!
 
 Alexis is, without a doubt, a FOTT.
 
