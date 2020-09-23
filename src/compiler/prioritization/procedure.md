@@ -134,8 +134,8 @@ Create `[weekly meeting] YYYY-MM-DD #54818` topic in `#t-compiler/meetings` Zuli
 
 ```text
 Hi @*T-compiler/meeting*; the triage meeting will happen tomorrow at <time:YYYY-MM-DDT14:00:00+00:00>
-The @*WG-prioritization* have done pre-triage in #**t-compiler/wg-prioritization/alerts**
-@*WG-prioritization* have prepared the [meeting agenda](link_to_hackmd_agenda)
+**WG-prioritization** has done pre-triage in #**t-compiler/wg-prioritization/alerts**
+@*WG-prioritization* has prepared the [meeting agenda](link_to_hackmd_agenda)
 We will have checkins from @*WG-X* and @*WG-Y*
 @**person1** do you have something you want to share about @*WG-X*?
 @**person2** do you have something you want to share about @*WG-Y*?
