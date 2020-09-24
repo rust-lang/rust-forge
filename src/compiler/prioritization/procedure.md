@@ -55,7 +55,7 @@ High level overview:
 - Remove `to-announce` FCPs from [rust repo](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Afinished-final-comment-period+label%3Ato-announce), [compiler-team repo](https://github.com/rust-lang/compiler-team/issues?q=is%3Aall+label%3Afinished-final-comment-period+label%3Ato-announce) and [forge repo](https://github.com/rust-lang/rust-forge/issues?q=is%3Aall+label%3Afinished-final-comment-period+label%3Ato-announce), only the ones that we've added to the agenda and not the ones that may have showed up between we've built the agenda and we execute this step.
 - Remove [`I-nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3AI-nominated+label%3AT-compiler) tags of already discussed issues. For that check previous week agenda and Zulip meeting
 - Create an empty agenda using [our template](https://hackmd.io/WQW0yzDDS16YvtBNurmj6A), as soon as our Thursday's weekly meeting ends. After creating the meeting change document permissions to Write -> Owners.
-- Copy content from last week's agenda that is still pending. The relevant sections are `PRs waiting on team`, `P-critical`, `Unassigned P-high regressions` and `Nominated issues`.
+- Copy content from last week's agenda that is still pending. The relevant sections are `PRs waiting on team`, `P-critical`, `P-high regressions` and `Nominated issues`.
 
 ### Prepare agenda content
 
