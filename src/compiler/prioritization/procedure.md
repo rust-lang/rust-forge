@@ -47,6 +47,8 @@ High level overview:
 
 ### Follow ups from previous meeting
 
+- Remove [`to-announce` MCPs](https://github.com/rust-lang/compiler-team/issues?q=is%3Aall+label%3Amajor-change+label%3Ato-announce), only the ones that we've added to the agenda and not the ones that may have showed up between we've built the agenda and we execute this step.
+- Remove `to-announce` FCPs from [rust repo](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Afinished-final-comment-period+label%3Ato-announce), [compiler-team repo](https://github.com/rust-lang/compiler-team/issues?q=is%3Aall+label%3Afinished-final-comment-period+label%3Ato-announce) and [forge repo](https://github.com/rust-lang/rust-forge/issues?q=is%3Aall+label%3Afinished-final-comment-period+label%3Ato-announce), only the ones that we've added to the agenda and not the ones that may have showed up between we've built the agenda and we execute this step.
 - Remove [`I-nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3AI-nominated+label%3AT-compiler) tags of already discussed issues. For that check previous week agenda and Zulip meeting
 - Accept [`beta nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Abeta-nominated+-label%3Abeta-accepted) and [`stable nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Astable-nominated+-label%3Astable-accepted) backports that have been accepted during the meeting.
 - Decline [`beta nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Abeta-nominated+-label%3Abeta-accepted) and [`stable nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Astable-nominated+-label%3Astable-accepted) backports that have been declined during the meeting.
@@ -105,19 +107,6 @@ $ cargo run --bin prioritization-agenda
 ```
 
 Copy the content of the generated agenda into the agenda on HackMD.
-
-#### Remove `to-announce` from MCPs/FCPs
-
-As a quick reminder:
-
-MCP = Major Change Proposal
-FCP = Final Comment Period
-
-Remove all [`to-announce` MCPs](https://github.com/rust-lang/compiler-team/issues?q=is%3Aall+label%3Amajor-change+label%3Ato-announce) as they were already added in the agenda in their corresponding place.
-
-Remove all `to-announce` FCPs from [rust repo](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Afinished-final-comment-period+label%3Ato-announce), [compiler-team repo](https://github.com/rust-lang/compiler-team/issues?q=is%3Aall+label%3Afinished-final-comment-period+label%3Ato-announce) and [forge repo](https://github.com/rust-lang/rust-forge/issues?q=is%3Aall+label%3Afinished-final-comment-period+label%3Ato-announce) as they were already added in the agenda in their corresponding place.
-
-For now fix announcements output manually. Remove the nonsense no fcps this time lines when there are proposals already filled or when those lines are just repeated.
 
 #### Fill agenda announcements
 
