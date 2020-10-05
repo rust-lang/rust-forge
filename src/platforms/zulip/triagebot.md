@@ -25,7 +25,7 @@ You can drop your claim to the issue via `@rustbot release-assignment`; Rust tea
 
 Soon (when the "highfive" bot migration will be complete, see [rust-lang/highfive#258](https://github.com/rust-lang/highfive/pull/258)), `r?` will also assign reviewers to PRs, though unlike issues, non-team members cannot be assigned. Anyone can invoke the command.
 
-To enable on a repository, add the following to a triagebot.toml file in the repository root.
+To enable on a repository, add the following to a `triagebot.toml` file in the repository root.
 
 ```toml
 [assign]
@@ -39,7 +39,7 @@ Each registered team member has a notifications page at:
 
 This page is populated from direct mentions (@user) and team mentions (@rust-lang/libs) across the rust-lang organization.
 
-It can also be edited via Zulip by [private-messaging triagebot](https://rust-lang.zulipchat.com/#narrow/pm-with/261224-triage-rust-lang-bot). Any Rust organization member can edit their notifications page, or pages of other Rust organization team members. To do so, the editor must have a `zulip-id` listed in their people/username.toml file in the [team repository](https://github.com/rust-lang/team/). The bot will tell you which ID to use when talking to it for the first time; please `r? @Mark-Simulacrum` on PRs adding Zulip IDs.
+It can also be edited via Zulip by [private-messaging triagebot](https://rust-lang.zulipchat.com/#narrow/pm-with/261224-triage-rust-lang-bot). Any Rust organization member can edit their notifications page, or pages of other Rust organization team members. To do so, the editor must have a `zulip-id` listed in their `people/username.toml` file in the [team repository](https://github.com/rust-lang/team/). The bot will tell you which ID to use when talking to it for the first time; please `r? @Mark-Simulacrum` on PRs adding Zulip IDs.
 
 The following commands are supported:
 
@@ -47,6 +47,10 @@ The following commands are supported:
  * `acknowledge <idx>` (or short form `ack <idx>`)
 
 These both acknowledge (and remove) a notification from the list.
+
+ * `acknowledge all` or `acknowledge *` (or short form `ack all` or `ack *`)
+
+This acknowledges and removes all notifications.
 
  * `add <url> <description... (multiple words)>`
 
