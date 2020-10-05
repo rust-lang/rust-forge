@@ -169,13 +169,69 @@ Blanket trait impls can't be added to `#[fundamental]` types because they have d
 
 ### Is specialization involved?
 
-[#68358]: https://github.com/rust-lang/rust/pull/68358
-[#67194]: https://github.com/rust-lang/rust/issues/67194
-[lang_design_specialization]: https://paper.dropbox.com/doc/Specialization-Review-2020-02-03--AuBwAqGbsHDmBlBy~XUlmqUcAg-jFYgiknJi6j00SbN83dWX
-
-**NOTE(2019-02-10):** Due to recent soundness holes introduced by specialization in the standard library (c.f. [#68358] and [#67194]) the language team decided on a design meeting to place a moratorium on new uses of specialization until we have some checks in place ensuring soundness for internal uses.
+Specialization is currently unstable. You can track its progress [here][rust/issues/31844].
 
 We try to avoid leaning on specialization too heavily, limiting its use to optimizing specific implementations. These specialized optimizations use a private trait to find the correct implementation, rather than specializing the public method itself. Any use of specialization that changes how methods are dispatched for external callers should be carefully considered.
+
+As an example of how to use specialization in the standard library, consider the case of creating an `Rc<[T]>` from a `&[T]`:
+
+```rust
+impl<T: Clone> From<&[T]> for Rc<[T]> {
+    #[inline]
+    fn from(v: &[T]) -> Rc<[T]> {
+        unsafe { Self::from_iter_exact(v.iter().cloned(), v.len()) }
+    }
+}
+```
+
+It would be nice to have an optimized implementation for the case where `T: Copy`:
+
+```rust
+impl<T: Copy> From<&[T]> for Rc<[T]> {
+    #[inline]
+    fn from(v: &[T]) -> Rc<[T]> {
+        unsafe { Self::copy_from_slice(v) }
+    }
+}
+```
+
+Unfortunately we couldn't have both of these impls normally, because they'd overlap. This is where private specialization can be used to choose the right implementation internally. In this case, we use a trait called `RcFromSlice` that switches the implementation:
+
+```rust
+impl<T: Clone> From<&[T]> for Rc<[T]> {
+    #[inline]
+    fn from(v: &[T]) -> Rc<[T]> {
+        <Self as RcFromSlice<T>>::from_slice(v)
+    }
+}
+
+/// Specialization trait used for `From<&[T]>`.
+trait RcFromSlice<T> {
+    fn from_slice(slice: &[T]) -> Self;
+}
+
+impl<T: Clone> RcFromSlice<T> for Rc<[T]> {
+    #[inline]
+    default fn from_slice(v: &[T]) -> Self {
+        unsafe { Self::from_iter_exact(v.iter().cloned(), v.len()) }
+    }
+}
+
+impl<T: Copy> RcFromSlice<T> for Rc<[T]> {
+    #[inline]
+    fn from_slice(v: &[T]) -> Self {
+        unsafe { Self::copy_from_slice(v) }
+    }
+}
+```
+
+Only specialization using the `min_specialization` feature should be used. The full `specialization` feature is known to be unsound.
+
+### Are const generics involved?
+
+Const generics are currently unstable. You can track their progress [here][rust/issues/44580].
+
+Using const generics in public APIs is ok, but only const generics using the `min_const_generics` feature should be used publicly for now.
 
 ### Are there public enums?
 
@@ -251,7 +307,7 @@ PRs to [`rust-lang/rust`] aren’t merged manually using GitHub’s UI or by pus
 
 For Libs PRs, rolling up is usually fine, in particular if it's only a new unstable addition or if it only touches docs.
 
-See the [rollup guidelines] for more details on when to rollup.
+See the [rollup guidelines] for more details on when to rollup. The idea is to try collect a number of PRs together and merge them all at once, rather than individually. This can get things merged faster, but might not be appropriate for some PRs that are likely to conflict, or have performance characteristics that would be obscured in a rollup.
 
 ### When there’s new public items
 
@@ -259,7 +315,7 @@ If the feature is new, then a tracking issue should be opened for it. Have a loo
 
 Unstable features can be merged as normal through [`bors`] once they look ready.
 
-### When there’s new trait impls
+### When there's new trait impls
 
 There’s no way to make a trait impl for a stable trait unstable, so **any PRs that add new impls for already stable traits must go through a FCP before merging.** If the trait itself is unstable though, then the impl needs to be unstable too.
 
@@ -298,5 +354,7 @@ Where `unsafe` and `const` is involved, e.g., for operations which are "unconst"
 [Everyone Poops]: http://cglab.ca/~abeinges/blah/everyone-poops
 [rust/pull/46799]: https://github.com/rust-lang/rust/pull/46799
 [rust/issues/76367]: https://github.com/rust-lang/rust/issues/76367
+[rust/issues/31844]: https://github.com/rust-lang/rust/issues/31844
+[rust/issues/44580]: https://github.com/rust-lang/rust/issues/44580
 [hashbrown/pull/119]: https://github.com/rust-lang/hashbrown/pull/119
 [rollup guidelines]: ../compiler/reviews.md#rollups
