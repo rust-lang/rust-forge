@@ -118,7 +118,6 @@ Add [Triage Logs](https://github.com/rust-lang/rustc-perf/tree/master/triage#tri
 
 ### Notify the team about the meeting
 
-[Figure out which working groups' check-ins follow](https://rust-lang.github.io/compiler-team/about/triage-meeting/).
 Create `[weekly meeting] YYYY-MM-DD #54818` topic in `#t-compiler/meetings` Zulip's stream and send the following messages:
 
 ```text
