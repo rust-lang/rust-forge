@@ -75,7 +75,7 @@ We need all [`I-prioritize T-compiler`](https://github.com/rust-lang/rust/issues
 
 > Assigning `P-XXX` as [discussed as part of the Prioritization Working Group procedure](link_to_zulip_conversation) and removing `I-prioritize`.
 
-The procedure here follows the [General issues review process](#General-issues-review-process).
+The procedure here follows the [General issues review process](#general-issues-review-process).
 
 Note: triagebot automatically creates a topic and notify @*WG-prioritization* members once an issue is labelled with `I-prioritize`
 
