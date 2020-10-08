@@ -133,7 +133,7 @@ We will have checkins from *WG-X* and *WG-Y*
 
 In order to summarize issues take into account that it is important to add
 details that will speed up the meeting. For that
-consider mentioning important actors, important details like is a
+consider mentioning important actors, important details like if it is a
 regression and when it has regressed or if it already has a PR.
 Properly read the issue to summarize it and also process the
 Prioritization WG stream topic related to the issue to extract other
