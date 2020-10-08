@@ -131,6 +131,14 @@ We will have checkins from *WG-X* and *WG-Y*
 
 ### Add details to the Agenda
 
+In order to summaries issues take into account that is important to add
+details that make the meeting be more effective and faster. For that
+consider mentioning important actors, important details like is a
+regression and when it has regressed or if it already has a PR.
+Properly read the issue to summarize it and also process the
+Prioritization WG stream topic related to the issue to extract other
+useful information.
+
 #### Summarize stable/beta nominations
 
 - Add them to the agenda explaining:
