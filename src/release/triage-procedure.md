@@ -256,13 +256,13 @@ do that, please also leave a comment explaining why you moved it.
 Some issues might not belong on GitHub at all, in which case they may be closed
 with an appropriate comment pointing to the right place.
 
-Issues in [`rust-lang/rust`] should be transferred/closed as follows:
+Issues in [`rust-lang/rust`] should be closed in the following cases:
 
 * **Language Feature Requests** that might require non-trivial design effort
-  should be moved to [`rust-lang/rfcs`] or directed to [IRLO].
+  should closed in favor of the [RFC process] or a discussion on [IRLO].
 * **Library Feature Requests** that encompass more than just a small addition
-  to the standard library should likewise be moved to [`rust-lang/rfcs`] or
-  directed to [IRLO].
+  to the standard library should likewise be closed in favor of the
+  [RFC process] or discussion on [IRLO].
 * **Questions** about how to use Rust should be closed and the author directed
   to [URLO] or other official venues.
 * **Usage Errors**, where the problem turns out to be in the user's code, should
@@ -276,7 +276,7 @@ If you regularly triage incoming issues, it might make sense to make use of
 GitHub's "saved replies" feature to predefine canned replies for common cases.
 
 [`rust-lang/rust`]: https://github.com/rust-lang/rust
-[`rust-lang/rfcs`]: https://github.com/rust-lang/rfcs
+[RFC process]: https://github.com/rust-lang/rfcs
 [IRLO]: https://internals.rust-lang.org/
 [URLO]: https://users.rust-lang.org/
 
