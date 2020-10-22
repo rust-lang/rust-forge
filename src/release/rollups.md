@@ -73,5 +73,5 @@ or confirm your hypothesis.
 If a rollup continues to fail you can run the `@bors rollup=never` command to
 never rollup the PR in question.
 
-[Homu queue]: https://buildbot2.rust-lang.org/homu/queue/rust
+[Homu queue]: https://bors.rust-lang.org/queue/rust
 [the Rollups section]: ../compiler/reviews.md#rollups

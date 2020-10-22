@@ -31,11 +31,11 @@ request. It is run by [TimNN](https://github.com/TimNN).
 requests. It is often referred to as "bors" due to the name of its
 [bot user account](https://github.com/bors).
 Approved pull requests are placed in
-[a queue](http://buildbot2.rust-lang.org/homu/queue/rust) from which tests are
+[a queue](http://bors.rust-lang.org/queue/rust) from which tests are
 run.
 
 Documentation on homu commands can be found
-[here](http://buildbot2.rust-lang.org/homu/).
+[here](http://bors.rust-lang.org/).
 
 Please contact [Alex Crichton](https://github.com/alexcrichton) if something
 goes wrong with the bot.
