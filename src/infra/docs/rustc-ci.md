@@ -70,7 +70,7 @@ of PRs we can merge in a day is 7.
 
 [bors]: https://github.com/bors
 [homu]: https://github.com/rust-lang/homu
-[homu-queue]: https://buildbot2.rust-lang.org/homu/queue/rust
+[homu-queue]: https://bors.rust-lang.org/queue/rust
 
 ### Rollups
 
