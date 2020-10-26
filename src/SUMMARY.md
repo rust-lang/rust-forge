@@ -52,6 +52,7 @@
         - [AWS access for team members](./infra/docs/aws-access.md)
         - [AWS access management](./infra/docs/aws-access-management.md)
         - [Bastion server](./infra/docs/bastion.md)
+        - [Bors](./infra/docs/bors.md)
         - [Crater agents](./infra/docs/crater-agents.md)
         - [Custom GitHub Actions runners](./infra/docs/gha-self-hosted.md)
         - [Discord moderation bot](./infra/docs/discord-mods-bot.md)
