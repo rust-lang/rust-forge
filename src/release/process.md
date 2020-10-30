@@ -13,8 +13,8 @@ prior release.
 
 ## Promote beta to stable (T-3 days, Monday)
 
-Promote beta to stable. Temporarily turn off GitHub branch protection for the
-`stable` branch in rust-lang/rust repo. In your local Rust repo:
+Temporarily turn off GitHub branch protection for the `stable` branch in
+rust-lang/rust repo. In your local Rust repo:
 
 ```sh
 $ git fetch origin
@@ -30,31 +30,21 @@ on the stable branch making the following changes:
 
 Once the PR is sent, r+ it and give it a high `p=1000`.
 
-The stable build will **not** deploy automatically to prod. The
-rust-central-station repository is configured to upload to **dev** every hour if
-it detects a change. You should be able to browse changes in dev.
+After the PR is merged you'll need to start a **dev** release. [Obtain AWS CLI
+credentials][awscli] and run this command from the [simpleinfra] repository:
 
-As soon as this build is done post a message to irlo asking for testing. The
-index is
-https://dev-static-rust-lang-org.s3.amazonaws.com/dist/2015-09-17/index.html and
-our URL is then https://dev-static.rust-lang.org/dist/2015-09-17/index.html.
+```
+./start-release.py dev stable
+```
 
-Test rustup with
+As soon as this build is done create a blog post on Inside Rust asking for
+testing. The index is
+https://dev-static.rust-lang.org/dist/YYYY-MM-DD/index.html.
+
+Test rustup with:
 
 ```sh
 RUSTUP_DIST_SERVER=https://dev-static.rust-lang.org rustup update stable
-```
-
-If something goes wrong, and we rebuild stable artifacts, you'll need to
-invalidate the dev-static bucket for RCS to re-release it.
-
-1. Obtain AWS credentials (i.e., `aws-creds.py` from `rust-lang/simpleinfra`).
-1. Run the `invalidate-dev-static-stable.sh` script in `rust-lang/simpleinfra`.
-1.  (optional) login to central station, and run the following. This starts the
-    dev-static promotion immediately, vs. waiting till the next hour.
-
-```bash
-docker exec -d -it rcs bash -c 'promote-release /tmp/stable stable /data/secrets-dev.toml 2>&1 | logger --tag release-stable'
 ```
 
 ## Promote master to beta (T-2 days, Tuesday)
@@ -117,10 +107,11 @@ Send a PR to the master branch to:
 
 Decide on a time to do the release, T.
 
-- **T-30m** - This is on rust-central-station:
+- **T-30m** - Run the following command in a shell with [AWS
+  credentials][awscli] in the [simpleinfra] repository:
 
   ```
-  docker exec -d -it rcs bash -c 'promote-release /tmp/stable stable /data/secrets.toml 2>&1 | logger --tag release-stable-realz'
+  ./start-release.py prod stable
   ```
 
   That'll, in the background, schedule the `promote-release` binary to run on
@@ -162,38 +153,37 @@ Decide on a time to do the release, T.
 
 Bask in your success.
 
+## Rebuilding stable pre-releases
+
+If something goes wrong and we need to rebuild the stable artifacts, merge the
+PR on the `stable` branch of the [rust-lang/rust] repository. Once the commit
+is merged, issue the following command in a shell with [AWS
+credentials][awscli] on the [simpleinfra] repository:
+
+```
+./start-release.py dev stable --bypass-startup-checks
+```
+
 ## Publishing a nightly based off a try build
 
 Sometimes a PR requires testing how it behaves when downloaded from rustup, for
 example after a manifest change. In those cases it's possible to publish a new
 nightly based off that PR on dev-static.rust-lang.org.
 
-Once the try build finishes make sure the merge commit for your PR is at the
-top of [the `try` branch][rust-try], log into the rust-central-station server
-and run this command:
+Once the try build finishes grab the merge commit SHA and run the following
+command in a shell with [AWS credentials][awscli] on the [simpleinfra]
+repository:
 
-```
-docker exec -d -it rcs bash -c 'PROMOTE_RELEASE_OVERRIDE_BRANCH=try promote-release /tmp/nightly-tmp nightly /data/secrets-dev.toml 2>&1 | logger --tag release-nightly-tmp'
-```
-
-If the `try` branch doesn't contain the merge commit (because a new build
-started in the meantime) you can create a new branch pointing to the merge
-commit and run (replacing `BRANCH_NAME` with the name of the branch):
-
-```
-docker exec -d -it rcs bash -c 'PROMOTE_RELEASE_OVERRIDE_BRANCH=BRANCH_NAME promote-release /tmp/nightly-tmp nightly /data/secrets-dev.toml 2>&1 | logger --tag release-nightly-tmp'
+```sh
+./start-release.py dev nightly $MERGE_COMMIT_SHA
 ```
 
-You can follow the build progress with:
+When the release process end you'll be able to install the new nightly with:
 
-```
-sudo tail -n 1000 -f /var/log/syslog | grep release-nightly-tmp
-```
-
-Once the build ends it's possible to install the new nightly with:
-
-```
+```sh
 RUSTUP_DIST_SERVER=https://dev-static.rust-lang.org rustup toolchain install nightly
 ```
 
-[rust-try]: https://github.com/rust-lang/rust/commits/try
+[awscli]: /infra/docs/aws-access.md#using-the-aws-cli
+[rust-lang/rust]: https://github.com/rust-lang/rust
+[simpleinfra]: https://github.com/rust-lang/simpleinfra
