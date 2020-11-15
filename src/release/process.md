@@ -128,7 +128,7 @@ Decide on a time to do the release, T.
   ```
 
   After this [Update thanks.rust-lang.org][update-thanks] by triggering a build
-  on Travis.
+  on GitHub Actions on the master branch.
 
 - **T-5m** - Merge blog post.
 
@@ -149,7 +149,7 @@ Decide on a time to do the release, T.
 - **T+1hr** Send a PR to the beta branch to comment out `dev: 1` again and
   update the date to download from (modifying `src/stage0.txt`).
 
-[update-thanks]: https://travis-ci.com/rust-lang/thanks
+[update-thanks]: https://github.com/rust-lang/thanks/actions?query=workflow%3ACI
 
 Bask in your success.
 
