@@ -40,9 +40,7 @@ High level overview:
   - Summarize `P-critical` and unassigned `P-high` regressions
   - Summarize I-nominated issues
 - [Final reviews](#final-reviews)
-  - Check toolstate
-  - Check performance stats
-  - Nominate issues
+  - Nominate more issues if needed
   - Re-sync and check the agenda right before the meeting
 
 ### Follow ups from previous meeting
@@ -198,15 +196,7 @@ Note: triagebot automatically creates a topic and notify @*WG-prioritization* me
 
 ### Final reviews
 
-#### Check toolstate
-
-Check [toolstate](https://rust-lang-nursery.github.io/rust-toolstate/) for tool breakage and notify teams in the corresponding channels.
-
-#### Check performance stats
-
-Check [perf regressions](http://perf.rust-lang.org/index.html) and notify involved actors.
-
-#### Nominate P-high issues
+#### Nominate more issues if needed
 
 Check how packed the agenda looks like and if there's room for more nominations.
 
