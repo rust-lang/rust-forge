@@ -137,12 +137,24 @@ Decide on a time to do the release, T.
   - [Hacker News](https://news.ycombinator.com/)
   - [Users forum](https://users.rust-lang.org/)
 
-- **T+5m** - Tag Cargo the same way as rust-lang/rust and then run
-  `cargo publish` for the tag you just created. You'll first need to comment
-  out `cargo-test-macro` from Cargo.toml, then publish `crates-io` (in
-  `crates/crates-io`) and finally publish `cargo` itself.
+- **T+5m** - Release and tag Cargo. In the rust-lang/rust repository on the
+  **stable branch**:
 
-  To publish Cargo you may have to bump the version numbers for the crates-io and Cargo crates; there's no need to do that in a formal commit though, so your tag and the published code may differentiate in that way.
+  ```sh
+  # Remote "rust-lang" is github.com/rust-lang/rust.git
+  git fetch rust-lang
+  git checkout rust-lang/stable
+  # Make sure submodules are at the correct revision.
+  git submodule update
+  cd src/tools/cargo
+  # Publish to crates.io. This will publish internal dependencies first (if
+  # necessary), then publish Cargo itself.
+  ./publish.py
+  # Where YY is the Rust minor release, add one to it (Rust 1.49.0 = Cargo 0.50.0).
+  CARGO_VERSION="0.YY+1.0"
+  git tag -u FA1BE5FE $CARGO_VERSION
+  git push git@github.com:rust-lang/cargo.git $CARGO_VERSION
+  ```
 
 - **T+1hr** Send a PR to the beta branch to comment out `dev: 1` again and
   update the date to download from (modifying `src/stage0.txt`).
