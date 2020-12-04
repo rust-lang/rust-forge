@@ -7,6 +7,7 @@ document contains instructions for them on how to make changes.
 * [Changing DNS records of a domain managed with Terraform](#changing-dns-records-of-a-domain-managed-with-terraform)
 * [Managing DNS for a new domain with Terraform](#managing-dns-for-a-new-domain-with-terraform)
 * [Adding subdomain redirects](#adding-subdomain-redirects)
+* [Transferring domain names to Rust](#transferring-domain-names-to-rust)
 
 ## Changing DNS records of a domain managed with Terraform
 
@@ -148,8 +149,73 @@ CloudFront distribution changes are really slow to propagate. Also, it's normal
 to see a bunch of resources being recreated when a domain is added or removed
 from an existing redirect, as the ACM certificate will need to be regenerated.
 
+## Transferring domain names to Rust
+
+These are the steps a member of the infrastructure team needs to take to
+transfer a domain name to the Rust project's registrar:
+
+1. Ask inside the infrastructure team if this is a domain name the project
+   wants to own. In some more complicated cases this will need to be escalated
+   to the core team.
+
+2. If the domain name doesn’t already use AWS Route 53 as its nameserver, ask
+   the current owner of the domain a list of all the DNS records that will need
+   to be migrated. Then, add all the records to a new hosted zone on Route 53
+   before the transfer of the domain. See the [section below][transfer-dns] on
+   transferring DNS for more information on this step.
+
+3. Ask the current owner to unlock the domain name for transfer, and get the
+   transfer code from them. The transfer code is key to transferring the
+   domain, so avoid receiving it on public communication platforms.
+
+4. Go to the [Transfer Domain][transfer] section of AWS Route 53 and enter the
+   domain name. If it doesn’t give an error (which should detail which steps
+   are missing) enter the transfer code you received earlier, and choose to use
+   an existing Route 53 hosted zone (it should auto-complete the right one).
+   Until the Rust Foundation is up, use Pietro’s details as the domain
+   contacts. Finally review everything and complete the transfer process.
+
+5. Tell the current owner to wait for an email from their registrar, which will
+   ask to click on a link to confirm the domain name transfer.
+
+6. The transfer process will take a while. Once admin@rust-lang.org receives an
+   email telling the domain has been transferred you’re done! 🎉🎉🎉
+
+[transfer-dns]: #transferring-dns
+### Transferring DNS
+
+Most domain names use their registrar as the DNS server, but that means that
+once the domain is transferred away the old registrar also stops serving DNS
+traffic. Because of that we need to ensure all the DNS records are correctly
+copied over to AWS Route 53 before actually starting the transfer process.
+
+Explicitly ask the current domain owner for all the `A`, `AAAA`, `CNAME`, `TXT`
+and `MX` records. Everything except the `MX` records needs to be copied to the
+[Terraform DNS configuration][dns-dir] (create a new file for the domain name,
+and take inspiration from the other domain names).
+
+If you notice some of the records are referring to HTTP redirect services
+provided by the current registrar then those will have to wait until the domain
+has been transferred. Once the transfer occured, add a new [domain
+redirect][redirects-file] on Terraform. This has to be done after the transfer
+to be able to request the TLS certificate for the HTTPS redirect.
+
+If the domain has `MX` records those will need to be migrated to Mailgun. Go to
+[Mailgun][mailgun] and add the domain name there. Ensure it’s in the US region,
+it uses shared IPs, and it has a 1024 bit DKIM key (the 2048 keys do not fit
+into a single AWS Route 53 record). Then copy all the records except the
+`CNAME` tracking one over to the Terraform DNS configuration, and wait for the
+domain to be transferred. Once the transfer happens go back to Mailgun and
+verify the DNS settings for the domain. Finally, add the domain to the [team
+repository’s `config.toml`][team-config] and create the mailing lists you need
+through the usual process.
+
+
 [AWS Route 53]: https://aws.amazon.com/route53/
 [hosted-zones]: https://console.aws.amazon.com/route53/home#hosted-zones:
 [dns-dir]: https://github.com/rust-lang/simpleinfra/tree/master/terraform/services/dns/
 [outputs-file]: https://github.com/rust-lang/simpleinfra/blob/master/terraform/services/dns/outputs.tf
 [redirects-file]: https://github.com/rust-lang/simpleinfra/blob/master/terraform/redirects.tf
+[transfer]: https://console.aws.amazon.com/route53/home#DomainTransfer:
+[mailgun]: https://app.mailgun.com
+[team-config]: https://github.com/rust-lang/team/blob/master/config.toml
