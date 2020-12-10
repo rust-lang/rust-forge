@@ -309,7 +309,7 @@ For Libs PRs, rolling up is usually fine, in particular if it's only a new unsta
 
 See the [rollup guidelines] for more details on when to rollup. The idea is to try collect a number of PRs together and merge them all at once, rather than individually. This can get things merged faster, but might not be appropriate for some PRs that are likely to conflict, or have performance characteristics that would be obscured in a rollup.
 
-### When there’s new public items
+### When there's new public items
 
 If the feature is new, then a tracking issue should be opened for it. Have a look at some previous [tracking issues][Libs tracking issues] to get an idea of what needs to go in there. The `issue` field on `#[unstable]` attributes should be updated with the tracking issue number.
 
@@ -332,6 +332,10 @@ Const functions can be stabilized in a PR that replaces `#[rustc_const_unstable]
 Check whether the function internally depends on other unstable `const` functions through `#[allow_internal_unstable]` attributes and consider how the function could be implemented if its internally unstable calls were removed. See the _Stability attributes_ page for more details on `#[allow_internal_unstable]`.
 
 Where `unsafe` and `const` is involved, e.g., for operations which are "unconst", that the const safety argument for the usage also be documented. That is, a `const fn` has additional determinism (e.g. run-time/compile-time results must correspond and the function's output only depends on its inputs...) restrictions that must be preserved, and those should be argued when `unsafe` is used.
+
+### When a feature is being deprecated
+
+To try reduce noise in the docs from deprecated items, they should be moved to the bottom of the module or `impl` block so they're rendered at the bottom of the docs page. The docs should then be cut down to focus on why the item is deprecated rather than how you might use it.
 
 [API Guidelines]: https://rust-lang.github.io/api-guidelines
 [Unsafe Code Guidelines WG]: https://github.com/rust-lang/unsafe-code-guidelines
