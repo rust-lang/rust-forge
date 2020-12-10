@@ -27,7 +27,6 @@ queue has been merged.
 2. Run the following command in the pull request thread:
 
     ```
-    @rustbot modify labels: +rollup
     @bors r+ rollup=never p=<NUMBER_OF_PRS_IN_ROLLUP>
     ````
 
