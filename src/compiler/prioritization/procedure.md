@@ -62,10 +62,19 @@ High level overview:
 Add `T-compiler` and `libs-impl` labels to corresponding issues that are missing these labels.
 
 - [No team assigned unprioritized I-prioritize](https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+label%3AI-prioritize+-label%3AT-compiler+-label%3Alibs-impl+-label%3AT-lang+-labs%3AT-infra+-label%3AT-libs+-label%3AT-release+-label%3AT-rustdoc)
-- [No team assigned stable nominations](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Astable-nominated+-label%3Astable-accepted++-label%3AT-compiler+-label%3Alibs-impl+-label%3AT-lang+-labs%3AT-infra+-label%3AT-libs+-label%3AT-release+-label%3AT-rustdoc)
-- [No team assigned beta nominations](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Abeta-nominated+-label%3Abeta-accepted++-label%3AT-compiler+-label%3Alibs-impl+-label%3AT-lang+-labs%3AT-infra+-label%3AT-libs+-label%3AT-release+-label%3AT-rustdoc)
-- [No team assigned I-nominated](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3AI-nominated++-label%3AT-compiler+-label%3Alibs-impl+-label%3AT-lang+-labs%3AT-infra+-label%3AT-libs+-label%3AT-release+-label%3AT-rustdoc)
-- [No team assigned PR's waiting on team](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3AS-waiting-on-team++-label%3AT-compiler+-label%3Alibs-impl+-label%3AT-lang+-labs%3AT-infra+-label%3AT-libs+-label%3AT-release+-label%3AT-rustdoc)
+- [No team assigned stable nominations](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Astable-nominated+-label%3Astable-accepted+-label%3AT-compiler+-label%3Alibs-impl+-label%3AT-lang+-labs%3AT-infra+-label%3AT-libs+-label%3AT-release+-label%3AT-rustdoc)
+- [No team assigned beta nominations](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Abeta-nominated+-label%3Abeta-accepted+-label%3AT-compiler+-label%3Alibs-impl+-label%3AT-lang+-labs%3AT-infra+-label%3AT-libs+-label%3AT-release+-label%3AT-rustdoc)
+- [No team assigned I-nominated](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3AI-nominated+-label%3AT-compiler+-label%3Alibs-impl+-label%3AT-lang+-labs%3AT-infra+-label%3AT-libs+-label%3AT-release+-label%3AT-rustdoc)
+- [No team assigned PR's waiting on team](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3AS-waiting-on-team+-label%3AT-compiler+-label%3Alibs-impl+-label%3AT-lang+-labs%3AT-infra+-label%3AT-libs+-label%3AT-release+-label%3AT-rustdoc)
+
+Sanity check the list from above (Github behaves weirdly from time to
+time and we've missed some issues in the past).
+
+- [All unprioritized I-prioritize](https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+label%3AI-prioritize)
+- [All stable nominations](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Astable-nominated+-label%3Astable-accepted)
+- [All beta nominations](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Abeta-nominated+-label%3Abeta-accepted)
+- [All I-nominated](https://github.com/rust-lang/rust/labels/I-nominated)
+- [All PR's waiting on team](https://github.com/rust-lang/rust/labels/S-waiting-on-team)
 
 #### Assign priority to unprioritized issues with "I-prioritize" label
 
