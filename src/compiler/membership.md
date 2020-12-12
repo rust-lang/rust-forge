@@ -121,8 +121,8 @@ compiler team does not necessarily imply writing PRs. There are a wide
 variety of tasks that need to be done to support the compiler and
 which should make one eligible for membership. Such tasks would
 include organizing meetings, participating in meetings, bisecting and
-triaging issues, writing documentation, working on the
-rustc-guide. The most important criteria for elevation to contributor,
+triaging issues, writing documentation, working on the rustc-dev-guide.
+The most important criteria for elevation to contributor,
 in particular, is **regular and consistent** participation. The most
 important criteria for elevation to member is **actively shaping the
 direction of the team or compiler**.
