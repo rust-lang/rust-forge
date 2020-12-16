@@ -17,6 +17,49 @@ this pool for your project in the `rust-lang` organization.
 
 ## Maintenance procedures
 
+### Updating the GitHub Actions runner version
+
+Our self-hosted CI runs on a [custom fork of the GitHub Actions
+runner][rust-lang/gha-runner], which improves the security of the setup. The
+fork needs to be manually rebased every time a new version comes out though,
+and that needs to be done relatively quickly to prevent CI from
+stopping[^self-updates].
+
+Once a new release of [actions/runner] is out, clone [rust-lang/gha-runner] and
+fetch the new tag pushed to the upstream repository. Then, rebase the changes
+on top of the latest tag:
+
+```bash
+git rebase --onto ${NEW_TAG} ${OLD_TAG} ${OLD_TAG}-rust${N}
+```
+
+For example, if the new tag is `v2.275.0`, the old tag is `v2.274.2` and there
+were two releases of our fork, the command to execute would be:
+
+```bash
+git rebase --onto v2.275.0 v2.274.2 v2.274.2-rust2
+```
+
+The last commit to rebase *will* conflict, as that commit updates the version
+number and the release notes. Add the `-rust1` suffix to the new version number
+and remove the description of the changes from the changelog (keeping the
+*"Fork of the GitHub Actions runner used by the Rust Infrastructure Team."*
+sentence). Once the rebase is complete force-push the commits to `main`.
+
+After you force-push the new commits to `main` you're done! CI will create a
+tag, build the release, upload it to GitHub Releases, and automatically push a
+commit to [rust-lang/gha-self-hosted][gha-self-hosted] bumping the pinned
+runner version to download in the images. The servers will then shortly pull
+the latest changes, rebuild the images and restart idle VMs.
+
+[^self-updates]: The GitHub Actions runner really wants to self-update when a
+  new release is out, but such updates would prevent our security mitigations.
+  Because of that, one of the patches in our fork disable self-updates, but
+  that means the runner just stops working until it's updated.
+
+[rust-lang/gha-runner]: https://github.com/rust-lang/gha-runner
+[actions/runner]: https://github.com/actions/runner
+
 ### Changing the instances configuration
 
 The set of instances available in each host is configured through the
