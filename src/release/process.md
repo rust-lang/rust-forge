@@ -63,12 +63,13 @@ minor version of master. First determine the branch point for cargo in
 `rust-lang/rust`, and then create a new branch:
 
 ```sh
-$ cd rust
-$ git fetch rust-lang
-$ CARGO_SHA=`git rev-parse $BRANCH_POINT:src/tools/cargo`
-$ cd src/tools/cargo
-$ git branch rust-1.YY.0 $CARGO_SHA
-$ git push origin rust-1.YY.0
+cd rust
+git fetch rust-lang
+NEW_BETA_VERSION=`git show $BRANCH_POINT:src/version`
+CARGO_SHA=`git rev-parse $BRANCH_POINT:src/tools/cargo`
+cd src/tools/cargo
+git branch rust-$NEW_BETA_VERSION $CARGO_SHA
+git push origin rust-$NEW_BETA_VERSION
 ```
 
 You'll need to temporarily disable branch protection on GitHub to push the new
