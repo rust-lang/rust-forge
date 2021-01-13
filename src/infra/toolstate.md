@@ -50,6 +50,17 @@ break.
 For further details, see the comments in the involved files: [`checktools.sh`],
 [`publish_toolstate.py`] as well as the other files mentioned there.
 
+## Updating tools
+
+Tools can be updated by updating the submodule to the proper commit.
+
+Run `git submodule update --remote path/to/submodule`, add the updates, make
+sure the tests pass, commit, and send a pull request. The path is from the
+root of the rust repository, so for example, the reference is
+`src/doc/reference` and rustfmt is `src/tools/rustfmt`.
+
+While not required, [subup] may assist you with this.
+
 ## Adding a tool
 
 To add a new tool to be tracked, the following steps must be taken:
@@ -77,6 +88,7 @@ To add a new tool to be tracked, the following steps must be taken:
 [`latest.json`]: https://github.com/rust-lang-nursery/rust-toolstate/blob/master/_data/latest.json
 [Book]: https://doc.rust-lang.org/book/
 [Reference]: https://doc.rust-lang.org/reference/
+[subup]: https://github.com/ehuss/subup
 [toolstate]: https://rust-lang-nursery.github.io/rust-toolstate/
 [toolstate repository]: https://github.com/rust-lang-nursery/rust-toolstate/
 [forge]: ../index.html
