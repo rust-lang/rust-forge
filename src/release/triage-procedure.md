@@ -50,6 +50,12 @@ yet want a review.)
 
 ### Procedure
 
+> #### Note
+>
+> This section and the rest of the page are significantly out of date. If you
+> are a member of wg-triage, please ask in `#t-release/triage` on Zulip if you
+> have questions about procedure.
+
 **IMPORTANT:** Whenever you do PR triage, please fill out the following form:
 [goo.gl/forms/YKYVFYjBq28Hm3qQ2](https://goo.gl/forms/YKYVFYjBq28Hm3qQ2). If you
 want to create a bookmark for yourself, you can adapt
