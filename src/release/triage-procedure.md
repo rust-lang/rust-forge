@@ -9,18 +9,28 @@
   obscure cases, like a PR being blocked on another, or waiting for a [crater]
   run -- it is the author's responsibility to push the PR forward.
 - [S-waiting-on-review] - Review is incomplete
-- [S-waiting-on-team] - A T- label is marked, and team has been cc-ed for
+- [S-waiting-on-team] - A `T-` label is marked, and team has been CC'd for
   feedback.
-- [S-waiting-on-bors] - Currently approved, waiting to merge. Managed by [Bors].
+- [S-waiting-on-bors] - Currently approved, waiting to merge. Managed by [bors].
 - [S-waiting-on-crater] - Waiting to see what the impact the PR will have on the
   ecosystem
 - [S-waiting-on-bikeshed] - Waiting on the consensus over a minor detail
 - [S-waiting-on-perf] - Waiting on the results of a perf run
 - [S-blocked] - Waiting for another PR to be merged or for discussion to be
   resolved
+- [S-inactive] - Hasn't had activity in a while
 - [S-blocked-closed] - Closed because resolving the block is expected to take a
   long time
-- [S-inactive-closed] - Closed due to inactivity.
+- [S-inactive-closed] - Closed due to inactivity
+- [S-experimental] - An experimental PR that likely shouldn't be triaged.
+  [S-waiting-on-author] used to be used for this, but [S-experimental]
+  communicates that the PR is work-in-progress.
+
+Also: [PRs with no status tags][no-status-tags]. This is useful to find PRs
+where highfive conked out and didn't assign a reviewer and thus didn't assign
+[S-waiting-on-review]. These PRs can get lost otherwise. (Note that you should
+likely not triage PRs that have `r? @ghost` since that means the author does not
+yet want a review.)
 
 [s-waiting-on-author]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+draft%3Afalse+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-author+-label%3AI-nominated+-label%3Aneeds-fcp
 [s-waiting-on-review]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+draft%3Afalse+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-review+-label%3AI-nominated+-label%3Aneeds-fcp
@@ -30,8 +40,11 @@
 [s-waiting-on-bikeshed]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-bikeshed+sort%3Aupdated-asc
 [s-waiting-on-perf]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-perf+sort%3Aupdated-asc
 [s-blocked]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-blocked+sort%3Aupdated-asc
+[s-inactive]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-inactive+sort%3Aupdated-asc
 [s-blocked-closed]: https://github.com/rust-lang/rust/pulls?q=is%3Apr+label%3AS-blocked-closed+sort%3Aupdated-asc
 [s-inactive-closed]: https://github.com/rust-lang/rust/pulls?q=is%3Apr+label%3AS-inactive-closed+sort%3Aupdated-asc
+[s-experimental]: https://github.com/rust-lang/rust/pulls?q=is%3Apr+label%3AS-experimental+sort%3Aupdated-asc
+[no-status-tags]: https://github.com/rust-lang/rust/pulls?q=is%3Apr+is%3Aopen+-label%3AS-waiting-on-author+-label%3AS-waiting-on-review+-label%3AS-waiting-on-team+-label%3AS-waiting-on-bors+-label%3AS-waiting-on-crater+-label%3AS-waiting-on-bikeshed+-label%3AS-waiting-on-perf+-label%3AS-blocked+-label%3AS-inactive+-label%3AS-blocked-closed+-label%3AS-inactive-closed+-label%3AS-waiting-on-fcp+-label%3AS-experimental
 [crater]: https://github.com/rust-lang-nursery/crater
 [bors]: https://github.com/rust-lang/homu
 
