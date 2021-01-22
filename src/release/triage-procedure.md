@@ -135,7 +135,7 @@ to prefill your GitHub username.
 
 _Note:_ When you are pinging people in triage comments, you should mention that
 you are doing triage in the comment you post. For example, start your comments
-with something like "Ping from triage ..."."
+with something like "Ping from triage ...".
 
 First ensure that the status tag matches the current state of the PR. Change the
 tag if necessary, and apply the procedure for the new tag.
