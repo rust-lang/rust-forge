@@ -50,11 +50,82 @@ yet want a review.)
 
 ### Procedure
 
+We primarily triage three status labels: S-waiting-on-review,
+S-waiting-on-author, and (once in a while) S-blocked. Here is the procedure for
+each:
+
+#### S-waiting-on-review
+
+Click [this link][S-waiting-on-review] to see all PRs with the
+S-waiting-on-review label. Only triage PRs that were last updated 15 days or
+more ago (give or take a day).
+
+For each PR:
+
+1. **If** the PR has new conflicts, CI failed, or a new review has been made
+   **then** change the label to S-waiting-on-author and ping the author.
+
+2. Add the PR to your [report].
+
+#### S-waiting-on-author
+
+Click [this link][S-waiting-on-author] to see all PRs with the
+S-waiting-on-author label. Only triage PRs that were last updated 15 days or
+more ago (give or take a day).
+
+For each PR:
+
+1. **If** the author did what the PR was waiting on them for **then** update the
+   label to S-waiting-on-review.
+
+2. **If** the author is a member of a Rust team (not working groups — teams like
+   T-compiler, T-lang, T-rustdoc, etc.) **then** don't ping anyone.
+
+   **Otherwise,** ping the author.
+
+3. Add the PR to your [report].
+
+#### S-blocked
+
+You only need to check S-blocked PRs occasionally (e.g., once a month).  Click
+[this link][S-blocked] to see all PRs with the S-blocked label.
+
+For each PR:
+
+1. **If** it is still blocked **then** leave it as-is.
+
+   **Otherwise,** if it is no longer blocked, then remove S-blocked (and add a
+   status label like S-waiting-on-review if appropriate).
+
+2. Add the PR to your [report].
+
+#### Triage Report
+[report]: #triage-report
+
+You should record information about each PR you triage in a report. The report
+is just a small document that looks like:
+
+> #### S-waiting-on-review
+>
+> #12345 20 days - still waiting on review - author: ferris, assignee: bors
+>
+> \[...\]
+
+However, each person has a different format for their triage reports, so yours
+does not need to look like that.
+
+Once you are done triaging PRs, post your report in the topic for the current
+week's triage in the `#t-release/triage` Zulip stream.
+
+<div style="margin-bottom: 150px"></div>
+
+-----
+
 > #### Note
 >
-> This section and the rest of the page are significantly out of date. If you
-> are a member of wg-triage, please ask in `#t-release/triage` on Zulip if you
-> have questions about procedure.
+> The rest of this page is significantly out of date. If you are a member of
+> wg-triage, please ask in `#t-release/triage` on Zulip if you have questions
+> about procedure.
 
 **IMPORTANT:** Whenever you do PR triage, please fill out the following form:
 [goo.gl/forms/YKYVFYjBq28Hm3qQ2](https://goo.gl/forms/YKYVFYjBq28Hm3qQ2). If you
