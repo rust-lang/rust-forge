@@ -22,7 +22,7 @@
 - [S-blocked-closed] - Closed because resolving the block is expected to take a
   long time
 - [S-inactive-closed] - Closed due to inactivity
-- [S-experimental] - An experimental PR that likely shouldn't be triaged.
+- [S-experimental] - An experimental PR that shouldn't be triaged.
   [S-waiting-on-author] used to be used for this, but [S-experimental]
   communicates that the PR is work-in-progress.
 
@@ -30,7 +30,7 @@ Also: [PRs with no status tags][no-status-tags]. This is useful to find PRs
 where highfive conked out and didn't assign a reviewer and thus didn't assign
 [S-waiting-on-review]. These PRs can get lost otherwise. (Note that you should
 likely not triage PRs that have `r? @ghost` since that means the author does not
-yet want a review.)
+need a review yet.)
 
 [s-waiting-on-author]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+draft%3Afalse+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-author+-label%3AI-nominated+-label%3Aneeds-fcp
 [s-waiting-on-review]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+draft%3Afalse+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-review+-label%3AI-nominated+-label%3Aneeds-fcp
@@ -421,4 +421,3 @@ if necessary.
 
 [state of rust]: https://github.com/rust-lang/rust/projects/8
 [#release Discord channel]: https://discord.gg/rust-lang
-
