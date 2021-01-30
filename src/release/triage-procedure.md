@@ -62,8 +62,8 @@ more ago (give or take a day).
 
 For each PR:
 
-1. **If** the PR has new conflicts, CI failed, or a new review has been made
-   **then** change the label to S-waiting-on-author and ping the author.
+1. If the PR has new conflicts, CI failed, or a new review has been made then
+   change the label to S-waiting-on-author and ping the author.
 
 2. Add the PR to your [report].
 
@@ -75,13 +75,13 @@ more ago (give or take a day).
 
 For each PR:
 
-1. **If** the author did what the PR was waiting on them for **then** update the
+1. If the author did what the PR was waiting on them for then update the
    label to S-waiting-on-review.
 
-2. **If** the author is a member of a Rust team (not working groups — teams like
-   T-compiler, T-lang, T-rustdoc, etc.) **then** don't ping anyone.
+2. If the author is a member of a Rust team (not working groups — teams like
+   T-compiler, T-lang, T-rustdoc, etc.) then don't ping anyone.
 
-   **Otherwise,** ping the author.
+   Otherwise, ping the author.
 
 3. Add the PR to your [report].
 
@@ -92,9 +92,9 @@ You only need to check S-blocked PRs occasionally (e.g., once a month).  Click
 
 For each PR:
 
-1. **If** it is still blocked **then** leave it as-is.
+1. If it is still blocked then leave it as-is.
 
-   **Otherwise,** if it is no longer blocked, then remove S-blocked (and add a
+   Otherwise, if it is no longer blocked, then remove S-blocked (and add a
    status label like S-waiting-on-review if appropriate).
 
 2. Add the PR to your [report].
