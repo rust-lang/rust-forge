@@ -6,8 +6,12 @@
 
 - [S-waiting-on-author] - Author needs to make changes to address reviewer
   comments, or merge conflicts/test failures are present. This also covers more
-  obscure cases, like a PR being blocked on another, or waiting for a [crater]
-  run -- it is the author's responsibility to push the PR forward.
+  obscure cases, like a PR being blocked on another (usually with the S-blocked
+  label in addition), or waiting for a [crater] run -- it is the author's
+  responsibility to push the PR forward.
+
+  Also used for work-in-progress PRs, sometimes the PR will also be marked as
+  draft in GitHub.
 - [S-waiting-on-review] - Review is incomplete
 - [S-waiting-on-team] - A `T-` label is marked, and team has been CC'd for
   feedback.
@@ -24,13 +28,13 @@
 - [S-inactive-closed] - Closed due to inactivity
 - [S-experimental] - An experimental PR that shouldn't be triaged.
   [S-waiting-on-author] used to be used for this, but [S-experimental]
-  communicates that the PR is work-in-progress.
+  communicates that the PR is an experiment to test out some changes.
 
 Also: [PRs with no status tags][no-status-tags]. This is useful to find PRs
 where highfive conked out and didn't assign a reviewer and thus didn't assign
 [S-waiting-on-review]. These PRs can get lost otherwise. (Note that you should
-likely not triage PRs that have `r? @ghost` since that means the author does not
-need a review yet.)
+likely **not** triage PRs that have `r? @ghost` since that means the author does
+not need a review yet.)
 
 [s-waiting-on-author]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+draft%3Afalse+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-author+-label%3AI-nominated+-label%3Aneeds-fcp
 [s-waiting-on-review]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+draft%3Afalse+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-review+-label%3AI-nominated+-label%3Aneeds-fcp
@@ -111,8 +115,24 @@ is just a small document that looks like:
 >
 > \[...\]
 
-However, each person has a different format for their triage reports, so yours
-does not need to look like that.
+Your report can look different, just make sure you include this information for
+each PR:
+
+1. The PR number (e.g., `#12345`). No need to manually add a link; the Rust
+   Zulip will autolink PR (and issue) numbers.
+
+2. Number of days since last activity. "Activity" means:
+
+   - author, reviewer, or team member commented or reviewed; or
+   - bors commented about merge conflicts; or
+   - PR was pushed to;
+   - etc.
+
+3. Author, reviewer, and who or what (person, team, other PR, etc.) the PR is
+   waiting on.
+
+4. Current status and what the most recent activity was (e.g., merge conflicts,
+   reviewer commented).
 
 Once you are done triaging PRs, post your report in the topic for the current
 week's triage in the `#t-release/triage` Zulip stream.
