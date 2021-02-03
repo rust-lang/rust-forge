@@ -1,7 +1,7 @@
 # Prioritization WG - Procedure
 
 This document details the procedure the WG-prioritization follows to fill the agenda for the weekly meeting of `T-compiler`.
-The working group focuses mainly on triaging `T-compiler` and `libs-impl` bugs, deciding if bugs are critical (potential release blockers) or not and building the agenda for the most important things `T-compiler` needs to discuss.
+The working group focuses mainly on triaging `T-compiler` and `T-libs-impl` bugs, deciding if bugs are critical (potential release blockers) or not and building the agenda for the most important things `T-compiler` needs to discuss.
 
 ## General issues review process
 
@@ -24,7 +24,7 @@ High level overview:
   - Notify @pnkfelix about not properly tagged stable/beta-nominated issues
   - Create the next meeting agenda using the weekly agenda template
 - [Prepare agenda content](#prepare-agenda-content)
-  - Add `T-compiler` and `libs-impl` to unlabelled T-compiler and libs-impl issues
+  - Add `T-compiler` and `T-libs-impl` to unlabelled T-compiler and T-libs-impl issues
   - Assign priority to unprioritized issues with "I-prioritize" label
   - Process MCPs/FCPs
 - [Generate Agenda](#generate-agenda)
@@ -57,19 +57,19 @@ High level overview:
 
 ### Prepare agenda content
 
-#### Add `T-compiler` and `libs-impl` labels
+#### Add `T-compiler` and `T-libs-impl` labels
 
-Add `T-compiler` and `libs-impl` labels to corresponding issues that are missing these labels.
+Add `T-compiler` and `T-libs-impl` labels to corresponding issues that are missing these labels.
 
-- [No team assigned unprioritized I-prioritize](https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+label%3AI-prioritize+-label%3AT-compiler+-label%3AT-cargo+-label%3AT-core+-label%3AT-doc+-label%3AT-infra+-label%3AT-lang+-label%3AT-libs+-label%3Alibs-impl+-label%3AT-release+-label%3AT-rustdoc)
-- [No team assigned stable nominations](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Astable-nominated+-label%3Astable-accepted+-label%3AT-compiler+-label%3AT-cargo+-label%3AT-core+-label%3AT-doc+-label%3AT-infra+-label%3AT-lang+-label%3AT-libs+-label%3Alibs-impl+-label%3AT-release+-label%3AT-rustdoc)
-- [No team assigned beta nominations](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Abeta-nominated+-label%3Abeta-accepted+-label%3AT-compiler+-label%3AT-cargo+-label%3AT-core+-label%3AT-doc+-label%3AT-infra+-label%3AT-lang+-label%3AT-libs+-label%3Alibs-impl+-label%3AT-release+-label%3AT-rustdoc)
-- [No team assigned I-nominated](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3AI-nominated+-label%3AT-compiler+-label%3AT-cargo+-label%3AT-core+-label%3AT-doc+-label%3AT-infra+-label%3AT-lang+-label%3AT-libs+-label%3Alibs-impl+-label%3AT-release+-label%3AT-rustdoc)
-- [No team assigned PR's waiting on team](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3AS-waiting-on-team+-label%3AT-compiler+-label%3AT-cargo+-label%3AT-core+-label%3AT-doc+-label%3AT-infra+-label%3AT-lang+-label%3AT-libs+-label%3Alibs-impl+-label%3AT-release+-label%3AT-rustdoc)
+- [No team assigned unprioritized I-prioritize](https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+label%3AI-prioritize+-label%3AT-compiler+-label%3AT-cargo+-label%3AT-core+-label%3AT-doc+-label%3AT-infra+-label%3AT-lang+-label%3AT-libs+-label%3AT-libs-impl+-label%3AT-release+-label%3AT-rustdoc)
+- [No team assigned stable nominations](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Astable-nominated+-label%3Astable-accepted+-label%3AT-compiler+-label%3AT-cargo+-label%3AT-core+-label%3AT-doc+-label%3AT-infra+-label%3AT-lang+-label%3AT-libs+-label%3AT-libs-impl+-label%3AT-release+-label%3AT-rustdoc)
+- [No team assigned beta nominations](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Abeta-nominated+-label%3Abeta-accepted+-label%3AT-compiler+-label%3AT-cargo+-label%3AT-core+-label%3AT-doc+-label%3AT-infra+-label%3AT-lang+-label%3AT-libs+-label%3AT-libs-impl+-label%3AT-release+-label%3AT-rustdoc)
+- [No team assigned I-nominated](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3AI-nominated+-label%3AT-compiler+-label%3AT-cargo+-label%3AT-core+-label%3AT-doc+-label%3AT-infra+-label%3AT-lang+-label%3AT-libs+-label%3AT-libs-impl+-label%3AT-release+-label%3AT-rustdoc)
+- [No team assigned PR's waiting on team](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3AS-waiting-on-team+-label%3AT-compiler+-label%3AT-cargo+-label%3AT-core+-label%3AT-doc+-label%3AT-infra+-label%3AT-lang+-label%3AT-libs+-label%3AT-libs-impl+-label%3AT-release+-label%3AT-rustdoc)
 
 #### Assign priority to unprioritized issues with "I-prioritize" label
 
-We need all [`I-prioritize T-compiler`](https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+label%3AT-compiler+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+label%3AI-prioritize) and all [`I-prioritize libs-impl`](https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+label%3Alibs-impl+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+label%3AI-prioritize) to be actually prioritized. To do so, we add one of the `P-critical`, `P-high`, `P-medium` or `P-low` labels and remove `I-prioritize` and also add a text such as:
+We need all [`I-prioritize T-compiler`](https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+label%3AT-compiler+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+label%3AI-prioritize) and all [`I-prioritize T-libs-impl`](https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+label%3AT-libs-impl+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+label%3AI-prioritize) to be actually prioritized. To do so, we add one of the `P-critical`, `P-high`, `P-medium` or `P-low` labels and remove `I-prioritize` and also add a text such as:
 
 > Assigning `P-XXX` as [discussed as part of the Prioritization Working Group procedure](link_to_zulip_conversation) and removing `I-prioritize`.
 
@@ -142,7 +142,7 @@ Note: triagebot automatically creates a topic and notify @*WG-prioritization* me
 
 #### Summarize PR's waiting on team
 
-These are PRs waiting for some decision by our team (`T-compiler` or `libs-impl`).
+These are PRs waiting for some decision by our team (`T-compiler` or `T-libs-impl`).
 
 Try to follow the [General issues review process](#general-issues-review-process).
 
@@ -200,9 +200,9 @@ Note: triagebot automatically creates a topic and notify @*WG-prioritization* me
 
 Check how packed the agenda looks like and if there's room for more nominations.
 
-- [Other team's P-critical](https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+label%3AP-critical+-label%3AT-compiler+-label%3Alibs-impl)
+- [Other team's P-critical](https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+label%3AP-critical+-label%3AT-compiler+-label%3AT-libs-impl)
 - [T-compiler P-high](https://github.com/rust-lang/rust/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3AT-compiler+label%3AP-high+)
-- [libs-impl P-high](https://github.com/rust-lang/rust/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3Alibs-impl+label%3AP-high+)
+- [T-libs-impl P-high](https://github.com/rust-lang/rust/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3AT-libs-impl+label%3AP-high+)
 
 #### Re-sync and check the agenda right before the meeting
 
