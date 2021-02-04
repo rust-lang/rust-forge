@@ -24,8 +24,8 @@ High level overview:
   - Notify @pnkfelix about not properly tagged stable/beta-nominated issues
   - Create the next meeting agenda using the weekly agenda template
 - [Prepare agenda content](#prepare-agenda-content)
-  - Add `T-compiler` and `T-libs-impl` to unlabelled T-compiler and T-libs-impl issues
-  - Assign priority to unprioritized issues with "I-prioritize" label
+  - Add `T-compiler` and `T-libs-impl` to unlabelled `T-compiler` and `T-libs-impl` issues
+  - Assign priority to unprioritized issues with `I-prioritize` label
   - Process MCPs/FCPs
 - [Generate Agenda](#generate-agenda)
   - Run cli to generate agenda
@@ -67,7 +67,7 @@ Add `T-compiler` and `T-libs-impl` labels to corresponding issues that are missi
 - [No team assigned I-nominated](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3AI-nominated+-label%3AT-compiler+-label%3AT-cargo+-label%3AT-core+-label%3AT-doc+-label%3AT-infra+-label%3AT-lang+-label%3AT-libs+-label%3AT-libs-impl+-label%3AT-release+-label%3AT-rustdoc)
 - [No team assigned PR's waiting on team](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3AS-waiting-on-team+-label%3AT-compiler+-label%3AT-cargo+-label%3AT-core+-label%3AT-doc+-label%3AT-infra+-label%3AT-lang+-label%3AT-libs+-label%3AT-libs-impl+-label%3AT-release+-label%3AT-rustdoc)
 
-#### Assign priority to unprioritized issues with "I-prioritize" label
+#### Assign priority to unprioritized issues with `I-prioritize` label
 
 We need all [`I-prioritize T-compiler`](https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+label%3AT-compiler+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+label%3AI-prioritize) and all [`I-prioritize T-libs-impl`](https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+label%3AT-libs-impl+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+label%3AI-prioritize) to be actually prioritized. To do so, we add one of the `P-critical`, `P-high`, `P-medium` or `P-low` labels and remove `I-prioritize` and also add a text such as:
 
