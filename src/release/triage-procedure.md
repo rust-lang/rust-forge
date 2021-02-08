@@ -247,9 +247,44 @@ future work.
 
 ## Issue triage
 
-Issue triage is mostly much simpler. After finishing PR triage, go to the [list
-of untagged issues] and add tags as you see fit. The following categories
-should, ideally, be assigned to each issue:
+### Incorrectly Filed Issues
+
+Frequently, issues are filed against the wrong repository. In that case, you can
+use GitHub's "Transfer issue" function to move it to the right place. When you
+do that, please also leave a comment explaining why you moved it.
+
+Some issues might not belong on GitHub at all, in which case they may be closed
+with an appropriate comment pointing to the right place.
+
+Issues in [`rust-lang/rust`] should be closed in the following cases:
+
+* **Language Feature Requests** that might require non-trivial design effort
+  should closed in favor of the [RFC process] or a discussion on [IRLO].
+* **Library Feature Requests** that encompass more than just a small addition
+  to the standard library should likewise be closed in favor of the
+  [RFC process] or discussion on [IRLO].
+* **Questions** about how to use Rust should be closed and the author directed
+  to [URLO] or other official venues.
+* **Usage Errors**, where the problem turns out to be in the user's code, should
+  be closed or converted to diagnostic enhancement requests where applicable
+  (`A-diagnostics` + `C-enhancement`).
+
+What exactly constitutes a "non-trivial" or "large" feature request is left up
+to the personal judgement of the triager.
+
+If you regularly triage incoming issues, it might make sense to make use of
+GitHub's "saved replies" feature to predefine canned replies for common cases.
+
+[`rust-lang/rust`]: https://github.com/rust-lang/rust
+[RFC process]: https://github.com/rust-lang/rfcs
+[IRLO]: https://internals.rust-lang.org/
+[URLO]: https://users.rust-lang.org/
+
+### Labeling Issues
+
+Labels should be added to all newly opened issues, as well as older
+[untagged issues]. The following categories should, ideally, be assigned to each
+issue:
 
 - At least one `A-` tag. This represents the area of the issue, so an issue
   relating to benchmarks or testing would get A-libtest. If you can't find an
@@ -296,7 +331,7 @@ if they require assistance, and inform them that after 14 days this issue will
 be made available to anyone. After 14 days re-add the help tag and deassign them
 if necessary.
 
-[list of untagged issues]: https://github.com/rust-lang/rust/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20sort%3Acreated-asc%20-label%3AC-feature-request%20-label%3AC-enhancement%20-label%3AC-cleanup%20-label%3AC-bug%20-label%3AC-tracking-issue%20-label%3AC-future-compatibility%20-label%3AC-question%20-label%3AC-feature-accepted
+[untagged issues]: https://github.com/rust-lang/rust/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20sort%3Acreated-asc%20-label%3AC-feature-request%20-label%3AC-enhancement%20-label%3AC-cleanup%20-label%3AC-bug%20-label%3AC-tracking-issue%20-label%3AC-future-compatibility%20-label%3AC-question%20-label%3AC-feature-accepted
 
 ## State Of Rust Triage
 
@@ -331,4 +366,3 @@ if necessary.
 
 [state of rust]: https://github.com/rust-lang/rust/projects/8
 [#release Discord channel]: https://discord.gg/rust-lang
-
