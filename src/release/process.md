@@ -106,7 +106,7 @@ Send a PR to the master branch to:
 
 Decide on a time to do the release, T.
 
-- **T-30m** - Run the following command in a shell with [AWS
+- **T-50m** - Run the following command in a shell with [AWS
   credentials][awscli] in the [simpleinfra] repository:
 
   ```
@@ -129,7 +129,7 @@ Decide on a time to do the release, T.
   After this [Update thanks.rust-lang.org][update-thanks] by triggering a build
   on GitHub Actions on the master branch.
 
-- **T-5m** - Merge blog post.
+- **T-2m** - Merge blog post.
 
 - **T** - Tweet and post everything!
 
