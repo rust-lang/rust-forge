@@ -82,12 +82,11 @@ For each PR:
 1. If the author did what the PR was waiting on them for then update the
    label to S-waiting-on-review.
 
-2. If the author is a member of a Rust team (not working groups — teams like
-   T-compiler, T-lang, T-rustdoc, etc.) then don't ping anyone.
+   Otherwise, if the author still needs to do something, then ping the author if
+   they are **not** a member of a Rust team (does not include working groups —
+   only teams like `T-compiler`, `T-lang`, `T-rustdoc`, etc.).
 
-   Otherwise, ping the author.
-
-3. Add the PR to your [report].
+2. Add the PR to your [report].
 
 #### S-blocked
 
