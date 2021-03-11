@@ -1,15 +1,14 @@
-# Beta Backporting
+# Backporting
 
-There's a steady trickle of patches that need to be ported to the beta branch.
-Only a few people are even aware of the process, but this is actually something
-anybody can do.
+There's a steady trickle of patches that need to be ported to the beta and stable branch.
+Only a few people are even aware of the process, but this is actually something anybody can do.
 
-## Backporting in `rust-lang/rust`
+## Beta backporting in `rust-lang/rust`
 
 When somebody identifies a PR that should be backported to beta they tag it
 [`beta-nominated`](https://github.com/rust-lang/rust/pulls?q=is%3Apr+is%3Aclosed+label%3Abeta-nominated).
 That means they want one of the teams to evaluate whether the patch should be
-backported. I also suggest applying the `I-nominated` and and a `T-` (team) tag
+backported. It is also suggested applying the `I-nominated` and and a `T-` (team) tag
 as appropriate: that'll _really_ get their attention. Anybody with triage access
 is free to make these tags. Backports are mostly done to fix regressions. If the
 team thinks it should be backported they'll then additionally tag it
@@ -33,7 +32,21 @@ tag_ (people forget to do this a lot). This last step indicates that the
 backport has been completed, so the `beta-nominated` and `beta-accepted` tags
 have three states.
 
-## Backporting in `rust-lang/cargo`
+If, on the other hand, a backport is declined the `beta-nominated` label is
+removed, closing the procedure.
+
+## Stable backporting in `rust-lang/rust`
+
+Backports to the stable branch work exactly the same as beta ones, labels have
+just a slightly different name: `stable-nominated` identifies a PR to be
+discussed for a backport and `stable-accepted` is a PR accepted for
+backport. Declined stable nomination will have the `stable-nominated` label
+removed.
+
+The `T-release` will decide on a case by case basis if a stable backport will
+warrant a point (.patch) release (f.e. release a `1.50.1` between `1.50` and `1.51`).
+
+## Beta Backporting in `rust-lang/cargo`
 
 The procedure for backporting fixes to Cargo is similar but slightly more
 extended than the `rust-lang/rust` repo's procedure. Currently there aren't
@@ -57,4 +70,3 @@ member has approved the backport to happen you're good to start sending PRs!
 
 After that's all said and done the Cargo change is ready to get scheduled onto
 the beta release!
-
