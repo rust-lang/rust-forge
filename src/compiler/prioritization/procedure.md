@@ -19,10 +19,6 @@ The working group focuses mainly on triaging `T-compiler` and `T-libs-impl` bugs
 
 High level overview:
 
-- [Follow ups from previous meeting](#follow-ups-from-previous-meeting)
-  - Remove `I-nominated` tags of already discussed issues
-  - Notify @pnkfelix about not properly tagged stable/beta-nominated issues
-  - Create the next meeting agenda using the weekly agenda template
 - [Prepare agenda content](#prepare-agenda-content)
   - Add `T-compiler` and `T-libs-impl` to unlabelled `T-compiler` and `T-libs-impl` issues
   - Assign priority to unprioritized issues with `I-prioritize` label
@@ -43,7 +39,14 @@ High level overview:
   - Nominate more issues if needed
   - Re-sync and check the agenda right before the meeting
 
-### Follow ups from previous meeting
+Then, after the meeting (ideally the same day) there are are some [followup
+tasks](#follow-ups-after-meeting):
+  - Remove `I-nominated` tags of already discussed issues
+  - Accept or decline pull requests nominated for backport (according to the
+    meeting decisions)
+  - Create the next meeting agenda using the weekly agenda template
+
+### Follow ups after meeting
 
 - Remove [`to-announce` MCPs](https://github.com/rust-lang/compiler-team/issues?q=is%3Aall+label%3Amajor-change+label%3Ato-announce), only the ones that we've added to the agenda and not the ones that may have showed up between we've built the agenda and we execute this step.
 - Remove `to-announce` FCPs from [rust repo](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Afinished-final-comment-period+label%3Ato-announce), [compiler-team repo](https://github.com/rust-lang/compiler-team/issues?q=is%3Aall+label%3Afinished-final-comment-period+label%3Ato-announce) and [forge repo](https://github.com/rust-lang/rust-forge/issues?q=is%3Aall+label%3Afinished-final-comment-period+label%3Ato-announce), only the ones that we've added to the agenda and not the ones that may have showed up between we've built the agenda and we execute this step.
