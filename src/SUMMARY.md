@@ -69,7 +69,7 @@
 - [Libs](./libs/README.md)
     - [Maintaining the standard library](./libs/maintaining-std.md)
 - [Release](./release/README.md)
-    - [Beta Backporting](./release/beta-backporting.md)
+    - [Backporting](./release/backporting.md)
     - [Preparing Release Notes](./release/release-notes.md)
     - [Release Process](./release/process.md)
     - [Rollup Procedure](./release/rollups.md)

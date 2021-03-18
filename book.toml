@@ -15,7 +15,8 @@ no-section-label=true
 git-repository-url="https://github.com/rust-lang/rust-forge"
 
 [output.html.redirect]
-"beta-backporting.html" = "/release/beta-backporting.html"
+"beta-backporting.html" = "/release/backporting.html"
+"release/beta-backporting.html" = "/release/backporting.html"
 "bibliography.html" = "https://rustc-dev-guide.rust-lang.org/appendix/bibliography.html"
 "channel-layout.html" = "/infra/channel-layout.html"
 "debugging.html" = "https://rustc-dev-guide.rust-lang.org/compiler-debugging.html"
