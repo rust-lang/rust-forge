@@ -160,7 +160,7 @@ Decide on a time to do the release, T.
 - **T+1hr** Send a PR to the beta branch to comment out `dev: 1` again and
   update the date to download from (modifying `src/stage0.txt`).
 
-[update-thanks]: https://github.com/rust-lang/thanks/actions?query=workflow%3ACI
+[update-thanks]: https://github.com/rust-lang/thanks/actions/workflows/ci.yml
 
 Bask in your success.
 
