@@ -2,11 +2,11 @@
 
 If we get a DMCA takedown notice, here's what needs to happen:
 
-## Contact Mozilla Legal
+## Contact Legal
 
-Before removing the crates, [get in touch with legal](../core/legal.md) and ask
-an opinion from them on the received request and whether we have to comply with
-it.
+Before removing the crates, get in touch with legal support, currently by
+emailing the Core team, and ask an opinion from them on the received request and
+whether we have to comply with it.
 
 ## Remove relevant version(s) and/or entire crates from crates.io
 

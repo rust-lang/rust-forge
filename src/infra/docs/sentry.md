@@ -21,9 +21,9 @@ If you're a member of a Rust Team and you want to use Sentry for a project your
 team manages, you need to follow these steps:
 
 1. If the project is public facing (i.e. people outside the team are supposed
-   to access it) you need to contact [Rust's legal counsel][legal] to amend the
-   privacy policy, adding a note that your service is using Sentry too similar
-   to the existing ones.
+   to access it) you need to contact the Core team to request support in
+   amending the privacy policy, adding a note that your service is using Sentry
+   too similar to the existing ones.
 
 2. Once the privacy policy is sorted out (whenever needed), you can contact the
    infrastructure team to create a new project in the Sentry interface and
@@ -45,5 +45,4 @@ icon). Finally, if you created a new team, add the relevant people to it.
 
 [auth]: https://sentry.io/auth/login/
 [teams]: https://sentry.io/settings/rust-lang/teams/
-[legal]: /core/legal.md
 [create]: https://sentry.io/organizations/rust-lang/projects/new/
