@@ -134,8 +134,6 @@ Decide on a time to do the release, T.
 - **T** - Tweet and post everything!
 
   - Twitter [@rustlang](https://twitter.com/rustlang)
-  - Reddit [/r/rust](https://www.reddit.com/r/rust/)
-  - [Hacker News](https://news.ycombinator.com/)
   - [Users forum](https://users.rust-lang.org/)
 
 - **T+5m** - Release and tag Cargo. In the rust-lang/rust repository on the
