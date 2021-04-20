@@ -143,8 +143,6 @@ Decide on a time to do the release, T.
     > Rust `$VERSION` has been released, featuring `$MAJOR_FEATURES`! 🎉 Check
     > out the highlights on our blog: `$LINK`
 
-  - Reddit [/r/rust](https://www.reddit.com/r/rust/)
-  - [Hacker News](https://news.ycombinator.com/)
   - [Users forum](https://users.rust-lang.org/)
 
 - **T+5m** - Release and tag Cargo. In the rust-lang/rust repository on the
