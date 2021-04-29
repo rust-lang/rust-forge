@@ -106,7 +106,12 @@ Send a PR to the master branch to:
 
 Decide on a time to do the release, T.
 
-- **T-30m** - Run the following command in a shell with [AWS
+- **T-50m** - Ensure there is someone with access to the `@rustlang` Twitter
+  account who'll be able to tweet as soon as we publish the blog post. [Steve
+  Klabnik](https://github.com/steveklabnik) usually manages the account, but
+  all Core Team members have access to it.
+
+- **T-50m** - Run the following command in a shell with [AWS
   credentials][awscli] in the [simpleinfra] repository:
 
   ```
@@ -129,13 +134,15 @@ Decide on a time to do the release, T.
   After this [Update thanks.rust-lang.org][update-thanks] by triggering a build
   on GitHub Actions on the master branch.
 
-- **T-5m** - Merge blog post.
+- **T-2m** - Merge blog post.
 
 - **T** - Tweet and post everything!
 
-  - Twitter [@rustlang](https://twitter.com/rustlang)
-  - Reddit [/r/rust](https://www.reddit.com/r/rust/)
-  - [Hacker News](https://news.ycombinator.com/)
+  - Twitter [@rustlang](https://twitter.com/rustlang). Optional template:
+
+    > Rust `$VERSION` has been released, featuring `$MAJOR_FEATURES`! 🎉 Check
+    > out the highlights on our blog: `$LINK`
+
   - [Users forum](https://users.rust-lang.org/)
 
 - **T+5m** - Release and tag Cargo. In the rust-lang/rust repository on the
