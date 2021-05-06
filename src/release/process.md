@@ -98,9 +98,25 @@ branch of rust-lang/rust which:
 
 Send a PR to the master branch to:
 
-- modify src/stage0.txt to bootstrap from yesterday's beta
-- Remove `cfg(stage0)` annotated items
-- Replace `cfg(not(stage0))` with nothing
+- Update `src/stage0.txt` to change `date` to "YYYY-MM-DD" where the date is
+  the archive date when the beta build was uploaded.
+
+- Remove references to the `bootstrap` and `not(bootstrap)` conditional
+  compilation attributes. You can find all of them by installing [ripgrep] and
+  running this command:
+
+  ```
+  rg '#!?\[.*\(bootstrap' -t rust
+  ```
+
+  The general guidelines (both for `#[]` and `#![]`) are:
+
+  - Remove any item annotated with `#[cfg(bootstrap)]`.
+  - Remove any `#[cfg(not(bootstrap))]` attribute while keeping the item.
+  - Remove any `#[cfg_attr(bootstrap, $attr)]` attribute while keeping the item.
+  - Replace any `#[cfg_attr(not(bootstrap), doc="$doc")]` with `$doc` in the
+    relevant documentation block (or in a new documentation block).
+  - Replace any `#[cfg_attr(not(bootstrap), $attr)]` with `#[$attr]`.
 
 ## Release day (Thursday)
 
@@ -196,3 +212,4 @@ RUSTUP_DIST_SERVER=https://dev-static.rust-lang.org rustup toolchain install nig
 [awscli]: /infra/docs/aws-access.md#using-the-aws-cli
 [rust-lang/rust]: https://github.com/rust-lang/rust
 [simpleinfra]: https://github.com/rust-lang/simpleinfra
+[ripgrep]: https://github.com/burntsushi/ripgrep
