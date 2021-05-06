@@ -98,15 +98,31 @@ branch of rust-lang/rust which:
 
 Send a PR to the master branch to:
 
-- modify src/stage0.txt to bootstrap from yesterday's beta
-- Remove `cfg(stage0)` annotated items
-- Replace `cfg(not(stage0))` with nothing
+- Update `src/stage0.txt` to change `date` to "YYYY-MM-DD" where the date is
+  the archive date when the beta build was uploaded.
+
+- Remove references to the `bootstrap` and `not(bootstrap)` conditional
+  compilation attributes. You can find all of them by installing [ripgrep] and
+  running this command:
+
+  ```
+  rg '#!?\[.*\(bootstrap' -t rust
+  ```
+
+  The general guidelines (both for `#[]` and `#![]`) are:
+
+  - Remove any item annotated with `#[cfg(bootstrap)]`.
+  - Remove any `#[cfg(not(bootstrap))]` attribute while keeping the item.
+  - Remove any `#[cfg_attr(bootstrap, $attr)]` attribute while keeping the item.
+  - Replace any `#[cfg_attr(not(bootstrap), doc="$doc")]` with `$doc` in the
+    relevant documentation block (or in a new documentation block).
+  - Replace any `#[cfg_attr(not(bootstrap), $attr)]` with `#[$attr]`.
 
 ## Release day (Thursday)
 
 Decide on a time to do the release, T.
 
-- **T-30m** - Run the following command in a shell with [AWS
+- **T-50m** - Run the following command in a shell with [AWS
   credentials][awscli] in the [simpleinfra] repository:
 
   ```
@@ -129,13 +145,11 @@ Decide on a time to do the release, T.
   After this [Update thanks.rust-lang.org][update-thanks] by triggering a build
   on GitHub Actions on the master branch.
 
-- **T-5m** - Merge blog post.
+- **T-2m** - Merge blog post.
 
 - **T** - Tweet and post everything!
 
   - Twitter [@rustlang](https://twitter.com/rustlang)
-  - Reddit [/r/rust](https://www.reddit.com/r/rust/)
-  - [Hacker News](https://news.ycombinator.com/)
   - [Users forum](https://users.rust-lang.org/)
 
 - **T+5m** - Release and tag Cargo. In the rust-lang/rust repository on the
@@ -198,3 +212,4 @@ RUSTUP_DIST_SERVER=https://dev-static.rust-lang.org rustup toolchain install nig
 [awscli]: /infra/docs/aws-access.md#using-the-aws-cli
 [rust-lang/rust]: https://github.com/rust-lang/rust
 [simpleinfra]: https://github.com/rust-lang/simpleinfra
+[ripgrep]: https://github.com/burntsushi/ripgrep
