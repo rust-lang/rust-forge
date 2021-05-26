@@ -30,6 +30,7 @@
         - [How to run a design meeting](./compiler/steering-meeting/how-to-run-design.md)
 - [crates.io](./crates-io/README.md)
     - [Crate removal](./crates-io/crate-removal.md)
+    - [Database maintenance](./crates-io/db-maintenance.md)
 - [docs.rs](./docs-rs/README.md)
   - [Adding dependencies to the build environment](./docs-rs/add-dependencies.md)
   - [Developing without docker-compose](./docs-rs/no-docker-compose.md)
