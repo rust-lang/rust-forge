@@ -21,6 +21,6 @@ version = "2.33.3"
 default-features = false
 
 [dependencies.mdbook]
-version = "=0.4.9"
+version = "=0.4.10"
 default-features = false
 features = ["search"]
