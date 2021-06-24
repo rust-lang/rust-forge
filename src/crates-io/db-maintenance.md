@@ -28,7 +28,7 @@ can use:
 > visiting the website will still work, but logging in, publishing crates,
 > yanking crates or changing owners will not work.
 
-## Primary Database Checklist
+## Primary database checklist
 
 **1 hour before the maintenance**
 
@@ -67,14 +67,23 @@ can use:
    same does not apply to the follower database, and there could be brief
    periods while the follower is not available.
 
-3. Confirm the application is in read-only mode by trying to publish a crate
-   and logging in.
+3. Wait for the application to be redeployed with the new configuration:
+
+    ```
+    heroku ps:wait -a crates-io
+    ```
 
 3. Run the database maintenance:
 
    ```
    heroku pg:maintenance:run --force -a crates-io
    ```
+
+1. Wait for the maintenance to finish:
+
+    ```
+    heroku pg:wait -a crates-io
+    ```
 
 3. Confirm all the databases are online:
 
@@ -99,8 +108,11 @@ can use:
    variable was *successfully removed*, it doesn't mean removing the variable
    failed.  Failures are indicated with a red badge with a "x" (cross) in it.
 
-3. Confirm the application is working by trying to publish a crate and logging
-   in.
+3. Wait for the application to be redeployed with the new configuration:
+
+    ```
+    heroku ps:wait -a crates-io
+    ```
 
 3. Update the status page and mark the maintenance as completed with this
    message:
@@ -132,5 +144,60 @@ can use:
 
 # Follower database
 
-Instructions and checklists for follower database maintenace aren't written
-yet.
+Performing maintenance on the follower database doesn’t require any external
+communication nor putting the application in read-only mode, as we can just
+redirect all of the follower’s traffic to the primary database. It shouldn’t be
+done during peak traffic periods though, as we’ll increase the primary database
+load by doing this.
+
+## Follower database checklist
+
+**At the start of the maintenance**
+
+1. Configure the application to operate without the follower:
+
+    ```
+    heroku config:set -a crates-io DB_OFFLINE=follower
+    ```
+
+1. Wait for the application to be redeployed with the new configuration:
+
+    ```
+    heroku ps:wait -a crates-io
+    ```
+
+1. Start the database maintenance:
+
+    ```
+    heroku pg:maintenance:run --force -a crates-io READ_ONLY_REPLICA
+    ```
+
+1. Wait for the maintenance to finish:
+
+    ```
+    heroku pg:wait -a crates-io READ_ONLY_REPLICA
+    ```
+
+1. Confirm the follower database is ready:
+
+    ```
+    heroku pg:info -a crates-io
+    ```
+
+1. Confirm the follower database is responding to queries:
+
+    ```
+    echo "SELECT 1;" | heroku pg:psql -a crates-io READ_ONLY_REPLICA
+    ```
+
+1. Enable connections to the follower:
+
+    ```
+    heroku config:unset -a crates-io DB_OFFLINE
+    ```
+
+1. Wait for the application to be redeployed with the new configuration.
+
+    ```
+    heroku ps:wait -a crates-io
+    ```
