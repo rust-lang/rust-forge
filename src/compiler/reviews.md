@@ -1,4 +1,156 @@
-# Review policies
+Review Policy
+=============
+
+It is the purpose of code reviews to
+
+- **reduce** the risk of introducing **bugs** and usability and performance **regressions**,
+- keep our code **maintainable**, **readable**, and **documented**, and
+- ensure that changes are made with the big picture and **appropriate context in mind**.
+
+Reviewing accomplishes this by bringing in another set of eyes
+to look at a proposed change from a different perspective,
+which increases the chance of catching mistakes early and
+uncovering potential blind spots in the reasoning behind the change.
+
+
+## Basic Reviewing Requirements
+
+There are a number of requirements that need to be met in order for reviewing to be effective:
+
+- Reviewers must have a sufficient **understanding of the code** under review.
+    > This is important to help spot non-obvious, unintentional side effects of a given change.
+- Pull requests must provide (1) a concise high-level **description of the change** and (2) the **rationale** behind it.
+  For the rational to be even more useful, authors are encouraged to list potential **points of contention**.
+    > Reviewing code is difficult and reviewers only have a limited amount of time to do it.
+    > Jump-starting the review process by not making the reviewer puzzle together the intention and context
+    > of a pull request will not only speed things up but also improve the quality of the review.
+- Reviewers must have a good idea on whether they are the **right person to approve** the change.
+    > Knowledge of the code under review is an obvious but not the only criterium for answering this question.
+    > The reviewer also needs to decide if they can make the decision alone or if the PR needs to go through
+    > the [major change process][mcp], if they can perform the review in a timely fashion,
+    > and if they are impartial enough to provide a sufficiently unbiased perspective.
+
+
+
+## Reviewing Checklist
+
+The following list of questions (to be posted as part highfive bot's automatic PR response)
+will help reviewers and PR authors alike to bring PRs into good shape and meet the above criteria:
+
+> #### Checklist for PR authors and reviewers
+> * Does the PR message have
+>    * a concise **high-level description** of the changes? (*what* is being changed)
+>    * a clear **rationale** for doing them? (*why* is it being changed)
+>    * a list of potential **points of contention**?
+>    * **links to relevant issues**, RFCs, MCPs, etc?
+> * Does the PR need a **regression test**?
+> * Does the change need to be covered by a **[major change proposal][mcp]**? Is it already covered?
+> * Would someone trying to understand the PR in a year's time be able to quickly **reconstruct what's going on**?
+> * Is the new code **properly documented**? Is existing documentation still up-to-date?
+> * Does the PR introduce a **regression** of any of the following:
+>   * error message quality
+>   * maintainability (e.g. complex code, no documentation, unsafe)
+>   * any specific target platforms
+>   * downstream tooling (e.g. linkers, debuggers)
+>   * compile times
+>   * memory usage
+>
+> #### Checklist for reviewers
+> * Am I the **right person to review** this PR:
+>   * Do I understand the code well enough?
+>   * Would I be able to spot non-obvious side effects?
+>   * Would I be able to fix a bug introduced by this PR?
+>   * Can I do the review in a timely fashion?
+>   * Do I feel pressure to quickly approve the PR for some reason?
+>   * Am I impartial enough?
+> * Before merging:
+>   * Is the **PR message still accurate**?
+>   * Is the **commit history clean** enough?
+
+
+
+## Guidance for dealing with common situations
+
+In most cases common sense is enough for deciding how to apply this policy.
+However, sometimes there are gray areas where it is not immediately clear how to proceed.
+This section lists a few common cases together with guidance on how to deal with them.
+
+* ### I don't think I am a good fit for reviewing - what now?
+  It is completely normal that you get assigned a PR (via highfive or otherwise) but don't feel comfortable reviewing it.
+  Here is what you can do, depending on the concrete case:
+
+  - If the change seems really big or contentious, consider asking for an MCP (see below).
+  - If you know just the right person for the review, assign them via `r? @<github-name>`.
+    It's polite to leave a comment asking them if they can take over --
+    but you don't have to make sure beforehand that they can actually do it.
+  - If you don't know the code well or already have too much on your plate,
+    ask highfive to roll the dice again via `r? @rust-lang/compiler-contributors`.
+
+  You can also always ask specific compiler team members for help finding a reviewer.
+
+* ### It is unclear if something constitutes a major change
+  Deciding if something is a "major change" requiring an [MCP][mcp] is not always straightforward.
+  The official guidelines are [here][whats-a-major-change].
+  When in doubt, err on side of treating something as a major change.
+  You can also nominate the PR for discussion in the compiler team's triage meeting by tagging it `I-nominated`.
+  If you nominate a PR please make sure to state a concrete question for the compiler team to discuss.
+
+* ### Intransparent discussion and rationale
+  Sometimes there are PRs that seem to be the result of some prior discussion, with no description or rationale.
+  They usually have a title like "Change X" and the only content of the PR message is "r? @xyz".
+  Even though the change might make sense and may even have been suggested by a compiler team member this is not good form.
+  The PR message should give a self-contained description of what is being changed,
+  why it is being changed and anything else that might be of interest.
+  Try to put yourself in the shoes of someone who, a few years down the road,
+  needs to fix a bug related to the code touched by the PR and needs to reconstruct the rationale for the way things are.
+
+* ### Reviewer and PR author report to the same entity / work for the same employer
+  There is no rule that prevents two employees of the same company from reviewing each other's PRs.
+  The concerns in such a case are no different than for any other two reviewers.
+  We expect the mechanisms and principles we articulated above to be respected by ALL reviewers, whatever their employer.
+  Does the PR concisely describe the changes that are being made?
+  Does it give a clear, transparent rationale for why the changes make sense
+  so that contributors down the line can follow the reasoning and reconstruct what's going on?
+  Have points of contention been discussed and cleared up?
+  Then you are in the clear.
+
+  If you are in doubt if something is contentious, give a heads up to `@rust-lang/compiler-contributors` and ask for another opinion.
+  If the proposed change is large and/or potentially has a big impact, create a [major change proposal][mcp].
+
+* ### Reviewing and Mentoring
+  In the course of mentoring someone through a PR it often happens that the reviewer has ended up effectively co-writing the changes.
+  This can be a tricky case because the reviewer is effectively approving their own changes.
+  There are a number of considerations to take into account when deciding how to proceed:
+
+  - If the general direction of the changes has already been approved as part of an MCP and the concrete advice given
+    during mentoring was only concerned with resolving minor technical issues, then no further review is required.
+  - Similarly, if any contentious decisions have visibly been discussed and resolved on the PR with other
+    compiler team contributors and the rest of the changes don't deviate from the general direction that has been
+    agreed upon then no further review is required either.
+  - If the PR was opened as a response to a concrete suggestion by the reviewer (and the changes are not entirely trivial)
+    then it is advisable that the final review is done by someone else.
+    However, the initial reviewer/mentor is encouraged to help bring the PR into good shape before handing it off.
+
+  In general, it is advisable to ask for a second opinion by someone knowledgable in the field in such cases,
+  just to increase the chance of uncovering oversights and blindspots a mentor might have.
+
+* ### Nobody understands the code that's being changed
+  Sometimes there is a bug in some code that nobody understands anymore.
+  The original authors are unavailable and it is hard to gauge the implications of a proposed fix.
+  In such a case it is a good idea for reviewers to nominate the PR (by tagging it with `I-nominated`)
+  in order to get it in front of more eyes during the compiler team's triage meeting.
+  In such cases it is also especially valuable to gather and document as much information as possible on the issue,
+  such as a description of the problem being fixed, points of unclarity, potential risks,
+  alternatives that have been considered, et cetera.
+  Reviewers should ask PR authors to add this kind of information as comments in the code
+  and/or to the PR message (which will become part of the git commit history).
+
+
+[mcp]: https://forge.rust-lang.org/compiler/mcp.html
+[whats-a-major-change]: https://forge.rust-lang.org/compiler/mcp.html#what-constitutes-a-major-change
+
+
+## Technical Aspects of Reviewing
 
 Every PR that lands in the compiler and its associated crates must be
 reviewed by at least one person who is knowledgeable with the code in
@@ -11,7 +163,7 @@ will automatically assign someone.
 It is common to leave a `r? @username` comment at some later point to
 request review from someone else. This will also reassign the PR.
 
-## bors
+### bors
 
 We never merge PRs directly. Instead, we use bors. A qualified
 reviewer with bors privileges (e.g., a [compiler
@@ -27,7 +179,7 @@ delegate+` or `@bors delegate=username`. This will allow the PR author
 to approve the PR by issuing `@bors` commands like the ones above
 (but this privilege is limited to the single PR).
 
-## Reverts
+### Reverts
 
 If a merged PR is found to have caused a meaningful unanticipated regression,
 the best policy is to revert it quickly and re-land it later once a fix and
@@ -49,7 +201,7 @@ with one or more compiler team members pointing to this PR, or it's simply
 obvious to everyone involved). Only revert with lower certainty if the issue is
 particularly critical or urgent to fix.
 
-### Creating reverts
+#### Creating reverts
 
 The easiest method for creating a revert is to use the "Revert" button on
 Github. This appears next to the "bors merged commit abcd" message on a pull
@@ -93,7 +245,7 @@ Generally speaking, reverts should have elevated priority and match the `rollup`
 status of the PR they are reverting. If a non-rollup PR is shown to have no
 impact on performance, it can be marked `rollup=always`.
 
-### Forward fixes
+#### Forward fixes
 
 Often it is tempting to address a regression by posting a follow-up PR that,
 rather than reverting the regressing PR, instead augments the original in
@@ -114,7 +266,7 @@ most cases it is much easier to land the PR a second time once a fix can be
 confirmed. Allowing a revert to land takes pressure off of you and your
 reviewers to act quickly and gives you time to address the issue fully.
 
-## Rollups
+### Rollups
 
 All reviewers are strongly encouraged to explicitly mark a PR as to whether or
 not it should be part of a [rollup]. This is usually done either when approving a 
@@ -156,7 +308,7 @@ is substituted with one of the following:
 - `rollup`: this is equivalent to `rollup=always`
 - `rollup-`: this is equivalent to `rollup=maybe`
 
-## Priority
+### Priority
 
 Reviewers are encouraged to set one of the rollup statuses listed above
 instead of setting priority. Bors automatically sorts based on the rollup
@@ -186,7 +338,7 @@ The following is some guidance for setting priorities:
     - Absolutely critical fixes
     - Release promotions
 
-## Expectations for r+
+### Expectations for r+
 
 bors privileges are binary: the bot doesn't know which code you are
 familiar with and what code you are not. They must therefore be used
