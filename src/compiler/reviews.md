@@ -20,7 +20,7 @@ There are a number of requirements that need to be met in order for reviewing to
 - Reviewers must have a sufficient **understanding of the code** under review.
     > This is important to help spot non-obvious, unintentional side effects of a given change.
 - Pull requests must provide (1) a concise high-level **description of the change** and (2) the **rationale** behind it.
-  For the rational to be even more useful, authors are encouraged to list potential **points of contention**.
+  For the rationale to be even more useful, authors are encouraged to list potential **points of contention**.
     > Reviewing code is difficult and reviewers only have a limited amount of time to do it.
     > Jump-starting the review process by not making the reviewer puzzle together the intention and context
     > of a pull request will not only speed things up but also improve the quality of the review.
@@ -84,9 +84,12 @@ This section lists a few common cases together with guidance on how to deal with
     It's polite to leave a comment asking them if they can take over --
     but you don't have to make sure beforehand that they can actually do it.
   - If you don't know the code well or already have too much on your plate,
-    ask highfive to roll the dice again via `r? @rust-lang/compiler-contributors`.
+    ask highfive to roll the dice again via `r? rust-lang/compiler-contributors`.
 
   You can also always ask specific compiler team members for help finding a reviewer.
+  That being said, you are always welcome to do an initial review (to the extent you are comformtable with)
+  and then pass the PR on to the final reviewer.
+  This way the PR author will get helpful feedback sooner and subsequent reviewers will have less work to do.
 
 * ### It is unclear if something constitutes a major change
   Deciding if something is a "major change" requiring an [MCP][mcp] is not always straightforward.
