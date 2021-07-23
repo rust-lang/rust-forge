@@ -19,15 +19,16 @@ There are a number of requirements that need to be met in order for reviewing to
 
 - Reviewers must have a sufficient **understanding of the code** under review.
     > This is important to help spot non-obvious, unintentional side effects of a given change.
-- Pull requests must provide (1) a concise high-level **description of the change** and (2) the **rationale** behind it.
-  For the rationale to be even more useful, authors are encouraged to list potential **points of contention**.
+- Pull request authors must provide (1) a concise high-level **description of the change** and (2) the **rationale** behind it.
+  For the rationale to be even more useful, authors are encouraged to list potential **points of contention**,
+  **compromises** that needed to be made, **alternative approaches** that have been considered, et cetera.
     > Reviewing code is difficult and reviewers only have a limited amount of time to do it.
     > Jump-starting the review process by not making the reviewer puzzle together the intention and context
     > of a pull request will not only speed things up but also improve the quality of the review.
 - Reviewers must have a good idea on whether they are the **right person to approve** the change.
     > Knowledge of the code under review is an obvious but not the only criterium for answering this question.
     > The reviewer also needs to decide if they can make the decision alone or if the PR needs to go through
-    > the [major change process][mcp], if they can perform the review in a timely fashion,
+    > the [major change process][mcp], if they can perform the review sufficiently thorough and in a timely fashion,
     > and if they are impartial enough to provide a sufficiently unbiased perspective.
 
 
@@ -86,7 +87,7 @@ This section lists a few common cases together with guidance on how to deal with
   - If you don't know the code well or already have too much on your plate,
     ask highfive to roll the dice again via `r? rust-lang/compiler-contributors`.
 
-  You can also always ask specific compiler team members for help finding a reviewer.
+  You can also always ask for help on the `#t-compiler/reviews` Zulip stream for finding a reviewer.
   That being said, you are always welcome to do an initial review (to the extent you are comformtable with)
   and then pass the PR on to the final reviewer.
   This way the PR author will get helpful feedback sooner and subsequent reviewers will have less work to do.
@@ -140,9 +141,8 @@ This section lists a few common cases together with guidance on how to deal with
 * ### Nobody understands the code that's being changed
   Sometimes there is a bug in some code that nobody understands anymore.
   The original authors are unavailable and it is hard to gauge the implications of a proposed fix.
-  In such a case it is a good idea for reviewers to nominate the PR (by tagging it with `I-nominated`)
-  in order to get it in front of more eyes during the compiler team's triage meeting.
-  In such cases it is also especially valuable to gather and document as much information as possible on the issue,
+  In such a case it is a good idea for reviewers to ask on the `#t-compiler/reviews` Zulip stream for additional help.
+  It is also especially valuable to gather and document as much information as possible about the issue,
   such as a description of the problem being fixed, points of unclarity, potential risks,
   alternatives that have been considered, et cetera.
   Reviewers should ask PR authors to add this kind of information as comments in the code
