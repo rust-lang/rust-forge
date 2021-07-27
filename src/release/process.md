@@ -26,7 +26,7 @@ $ git checkout origin/master -- RELEASES.md
 Re-enable branch protection for the `stable` branch. Send a PR to rust-lang/rust
 on the stable branch making the following changes:
 
-- Update `src/ci/run.sh` to pass `channel=stable`, not `channel=beta`.
+- Update `src/ci/channel` to `stable`
 
 Once the PR is sent, r+ it and give it a high `p=1000`.
 
@@ -86,13 +86,13 @@ $ git push rust-lang $BRANCH_POINT:beta -f
 Re-enable branch protection on GitHub. Send a PR to the freshly created beta
 branch of rust-lang/rust which:
 
-- Update src/stage0.txt
+- Update `src/stage0.txt`
   - Change `date` to "YYYY-MM-DD" where the date is the archive date the stable
     build was uploaded
   - Change `rustc` to "X.Y.Z" where that's the version of rustc you just build
   - Comment `rustfmt: nightly-YYYY-MM-DD`
   - Uncomment `dev: 1`
-- Update src/ci/run.sh to pass "--release-channel=beta".
+- Update `src/ci/channel` to `beta`
 
 ## Master bootstrap update (T-1 day, Wednesday)
 
