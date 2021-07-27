@@ -26,7 +26,7 @@ $ git checkout origin/master -- RELEASES.md
 Re-enable branch protection for the `stable` branch. Send a PR to rust-lang/rust
 on the stable branch making the following changes:
 
-- Update `src/ci/run.sh` to pass `channel=stable`, not `channel=beta`.
+- Update `src/ci/channel` to `stable`
 
 Once the PR is sent, r+ it and give it a high `p=1000`.
 
@@ -49,50 +49,36 @@ RUSTUP_DIST_SERVER=https://dev-static.rust-lang.org rustup update stable
 
 ## Promote master to beta (T-2 days, Tuesday)
 
-We need to find out the parent commit in which the PR opened last Monday merged.
-
-Go to that PR, and find the "bors merged commit $SHA into rust-lang:master at the bottom.
-
-Locally, run `` export BRANCH_POINT=`git rev-parse $SHA^` `` in the rust-lang/rust
-checkout. This should be bors-authored merge into master of the PR before the
-version bump merged.
-
-Create a new branch on `rust-lang/cargo` for the new beta. Here, `rust-lang` is
-the remote for https://github.com/rust-lang/rust.git. Replace `YY` with the
-minor version of master. First determine the branch point for cargo in
-`rust-lang/rust`, and then create a new branch:
+Gather the relevant information and push the new Cargo branch:
 
 ```sh
-cd rust
-git fetch rust-lang
+git fetch git@github.com:rust-lang/rust
+BRANCH_POINT=`git log --merges --first-parent --format="%P" -1 master -- src/version | awk '{print($1)}'`
 NEW_BETA_VERSION=`git show $BRANCH_POINT:src/version`
 CARGO_SHA=`git rev-parse $BRANCH_POINT:src/tools/cargo`
+
 cd src/tools/cargo
 git branch rust-$NEW_BETA_VERSION $CARGO_SHA
-git push origin rust-$NEW_BETA_VERSION
+git push git@github.com:rust-lang/cargo rust-$NEW_BETA_VERSION
 ```
-
-You'll need to temporarily disable branch protection on GitHub to push the new
-branch.
 
 Temporarily disable banch protection on GitHub for the `beta` branch of the Rust
 repo. Promote rust-lang/rust's master branch to beta as with yesterday:
 
 ```sh
-$ git fetch rust-lang
-$ git push rust-lang $BRANCH_POINT:beta -f
+git push git@github.com:rust-lang/rust $BRANCH_POINT:beta -f
 ```
 
 Re-enable branch protection on GitHub. Send a PR to the freshly created beta
 branch of rust-lang/rust which:
 
-- Update src/stage0.txt
+- Update `src/stage0.txt`
   - Change `date` to "YYYY-MM-DD" where the date is the archive date the stable
     build was uploaded
   - Change `rustc` to "X.Y.Z" where that's the version of rustc you just build
   - Comment `rustfmt: nightly-YYYY-MM-DD`
   - Uncomment `dev: 1`
-- Update src/ci/run.sh to pass "--release-channel=beta".
+- Update `src/ci/channel` to `beta`
 
 ## Master bootstrap update (T-1 day, Wednesday)
 
