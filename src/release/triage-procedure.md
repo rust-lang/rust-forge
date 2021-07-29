@@ -23,9 +23,6 @@
 - [S-blocked] - Waiting for another PR to be merged or for discussion to be
   resolved
 - [S-inactive] - Hasn't had activity in a while
-- [S-blocked-closed] - Closed because resolving the block is expected to take a
-  long time
-- [S-inactive-closed] - Closed due to inactivity
 - [S-experimental] - An experimental PR that shouldn't be triaged.
   [S-waiting-on-author] used to be used for this, but [S-experimental]
   communicates that the PR is an experiment to test out some changes.
@@ -45,10 +42,8 @@ not need a review yet.)
 [s-waiting-on-perf]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-perf+sort%3Aupdated-asc
 [s-blocked]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-blocked+sort%3Aupdated-asc
 [s-inactive]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-inactive+sort%3Aupdated-asc
-[s-blocked-closed]: https://github.com/rust-lang/rust/pulls?q=is%3Apr+label%3AS-blocked-closed+sort%3Aupdated-asc
-[s-inactive-closed]: https://github.com/rust-lang/rust/pulls?q=is%3Apr+label%3AS-inactive-closed+sort%3Aupdated-asc
 [s-experimental]: https://github.com/rust-lang/rust/pulls?q=is%3Apr+label%3AS-experimental+sort%3Aupdated-asc
-[no-status-tags]: https://github.com/rust-lang/rust/pulls?q=is%3Apr+is%3Aopen+-label%3AS-waiting-on-author+-label%3AS-waiting-on-review+-label%3AS-waiting-on-team+-label%3AS-waiting-on-bors+-label%3AS-waiting-on-crater+-label%3AS-waiting-on-bikeshed+-label%3AS-waiting-on-perf+-label%3AS-blocked+-label%3AS-inactive+-label%3AS-blocked-closed+-label%3AS-inactive-closed+-label%3AS-waiting-on-fcp+-label%3AS-experimental
+[no-status-tags]: https://github.com/rust-lang/rust/pulls?q=is%3Apr+is%3Aopen+-label%3AS-waiting-on-author+-label%3AS-waiting-on-review+-label%3AS-waiting-on-team+-label%3AS-waiting-on-bors+-label%3AS-waiting-on-crater+-label%3AS-waiting-on-bikeshed+-label%3AS-waiting-on-perf+-label%3AS-blocked+-label%3AS-inactive+-label%3AS-waiting-on-fcp+-label%3AS-experimental
 [crater]: https://github.com/rust-lang-nursery/crater
 [bors]: https://github.com/rust-lang/homu
 
