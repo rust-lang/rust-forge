@@ -60,7 +60,7 @@ failure was spurious (e.g. due to a network problem or a timeout). If it wasn't 
 find the offending PR and throw it out by copying a link to the rust-highfive comment,
 and writing `Failed in <link_to_comment>, @bors r-`. Hopefully,
 the author or reviewer will give feedback to get the PR fixed or confirm that it's not
-at fault.
+at fault. The failed rollup PR can be closed.
 
 Once you've removed the offending PR, re-create your rollup without it (see 1.).
 Sometimes however, it is hard to find the offending PR. If so, use your intuition
