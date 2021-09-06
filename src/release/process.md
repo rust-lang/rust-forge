@@ -11,7 +11,12 @@ Mark it as `rollup=never`, because if it lands in a rollup as *not* the first
 PR then other pull requests in that rollup will be incorrectly associated with
 the prior release.
 
-## Promote beta to stable (T-3 days, Monday)
+## Promote branches (T-3 days, Monday)
+
+Both promotions should happen on Monday. You can open both PRs at the same
+time, but make sure the stable promotion lands first.
+
+### Beta to stable
 
 Temporarily turn off GitHub branch protection for the `stable` branch in
 rust-lang/rust repo. In your local Rust repo:
@@ -47,7 +52,7 @@ Test rustup with:
 RUSTUP_DIST_SERVER=https://dev-static.rust-lang.org rustup update stable
 ```
 
-## Promote master to beta (T-2 days, Tuesday)
+### Master to beta
 
 Gather the relevant information and push the new Cargo branch:
 
@@ -70,22 +75,14 @@ git push git@github.com:rust-lang/rust $BRANCH_POINT:beta -f
 ```
 
 Re-enable branch protection on GitHub. Send a PR to the freshly created beta
-branch of rust-lang/rust which:
+branch of rust-lang/rust which updates `src/ci/channel` to `beta`.
 
-- Update `src/stage0.txt`
-  - Change `date` to "YYYY-MM-DD" where the date is the archive date the stable
-    build was uploaded
-  - Change `rustc` to "X.Y.Z" where that's the version of rustc you just build
-  - Comment `rustfmt: nightly-YYYY-MM-DD`
-  - Uncomment `dev: 1`
-- Update `src/ci/channel` to `beta`
-
-## Master bootstrap update (T-1 day, Wednesday)
+## Master bootstrap update (T-2 day, Tuesday)
 
 Send a PR to the master branch to:
 
-- Update `src/stage0.txt` to change `date` to "YYYY-MM-DD" where the date is
-  the archive date when the beta build was uploaded.
+- Run `./x.py run src/tools/bump-stage0` to update the bootstrap compiler to
+  the beta you created yesterday.
 
 - Remove references to the `bootstrap` and `not(bootstrap)` conditional
   compilation attributes. You can find all of them by installing [ripgrep] and
@@ -157,8 +154,9 @@ Decide on a time to do the release, T.
   git push git@github.com:rust-lang/cargo.git $CARGO_VERSION
   ```
 
-- **T+1hr** Send a PR to the beta branch to comment out `dev: 1` again and
-  update the date to download from (modifying `src/stage0.txt`).
+- **T+1hr** Send a PR to the beta branch running `./x.py run
+  src/tools/bump-stage0` to bump the boostrap compiler to the stable you
+  just released.
 
 [update-thanks]: https://github.com/rust-lang/thanks/actions/workflows/ci.yml
 
