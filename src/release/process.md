@@ -68,7 +68,7 @@ git push git@github.com:rust-lang/cargo rust-$NEW_BETA_VERSION
 ```
 
 Temporarily disable banch protection on GitHub for the `beta` branch of the Rust
-repo. Promote rust-lang/rust's master branch to beta as with yesterday:
+repo. Promote rust-lang/rust's master branch to beta as you did for stable:
 
 ```sh
 git push git@github.com:rust-lang/rust $BRANCH_POINT:beta -f
