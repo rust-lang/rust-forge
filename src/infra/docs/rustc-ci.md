@@ -39,7 +39,7 @@ for that platform.
 
 [platforms]: https://doc.rust-lang.org/nightly/rustc/platform-support.html
 [rustup-toolchain-install-master]: https://github.com/kennytm/rustup-toolchain-install-master
-[dist-x86_64-linux]: https://github.com/rust-lang/rust/blob/master/src/ci/docker/dist-x86_64-linux/Dockerfile
+[dist-x86_64-linux]: https://github.com/rust-lang/rust/blob/c4be230b4a30eb74e3a3908455731ebc2f731d3d/src/ci/docker/host-x86_64/dist-x86_64-linux/Dockerfile
 
 ## Merging PRs serially with bors
 
