@@ -8,10 +8,9 @@ Only a few people are even aware of the process, but this is actually something 
 Backports of PRs to the beta branch are usually only done to fix regressions.
 Getting a PR backported to the beta branch involves the following process:
 
-1. Add the label [`beta-nominated`](https://github.com/rust-lang/rust/pulls?q=is%3Apr+label%3Abeta-nominated) to the PR to be backported.
+1. Add the label [`beta-nominated`](https://github.com/rust-lang/rust/pulls?q=is%3Apr+label%3Abeta-nominated+-label%3Abeta-accepted) to the PR to be backported.
    This marks the PR as in the state that it needs attention from the appropriate team to decide if it should be backported.
-   It is also suggested to apply the `I-*-nominated` and the appropriate `T-` (team) label: that'll _really_ get their attention!
-   Anybody with triage access is free to make these labels.
+   Anybody with triage access is free to add this label.
 
 2. If the team thinks it should be backported, then they should add the [`beta-accepted`](https://github.com/rust-lang/rust/pulls?q=is%3Apr+label%3Abeta-accepted) label.
    Otherwise they should remove the nominated label.
@@ -22,6 +21,7 @@ Getting a PR backported to the beta branch involves the following process:
 
    1. Create a local branch off the `beta` branch.
    2. Cherry-pick all of the PRs that have both [`beta-nominated` and `beta-accepted`][nominated-plus-accepted] labels.
+      It is usually preferred to not include PRs that have not been merged in case there are any last minute changes, or it fails when running the full CI tests.
    3. (Recommended) Run some tests locally.
       It is not uncommon that the backports may not apply cleanly, or the UI tests need to be re-blessed if there are differences in the output.
    4. Open a PR **against the beta branch** with a title that starts with `[beta]` (so reviewers can see its specialness).
@@ -29,7 +29,8 @@ Getting a PR backported to the beta branch involves the following process:
       [Here's an example](https://github.com/rust-lang/rust/pull/64097).
 
 4. A reviewer (typically from the release team) needs to verify that the backport looks correct and that it's submitted to the beta branch.
-   They will the approve with `@bors r+`.
+   They will then approve with `@bors r+ rollup=never` (to avoid it being rolled up on accident).
+   If the author of the PR has r+ rights, and has not made significant changes while backporting, they can also self-approve the PR.
 
 5. Go through all of the PRs being backported and:
 
