@@ -3,7 +3,7 @@
 // Rust 1.5.0 was released on 2015-12-10
 const EPOCH_DATE = moment.utc('2015-12-10')
 const EPOCH_RELEASE = 5
-const DATE_FORMAT = 'MMMM Do YYYY'
+const DATE_FORMAT = 'MMMM DD YYYY'
 const newReleases = Math.floor(moment.utc().diff(EPOCH_DATE, 'weeks') / 6)
 
 function addRelease (kind, incr, toolsWeek) {
