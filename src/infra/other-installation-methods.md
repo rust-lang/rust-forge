@@ -1,7 +1,7 @@
 # Other Rust Installation Methods
 
 - [Which installer should you use?](#which)
-- [Other ways to install `rustup`](#other-ways-to-install-rustup)
+- [Other ways to install `rustup`](#rustup)
 - [Standalone installers](#standalone)
 - [Source code](#source-code)
 
