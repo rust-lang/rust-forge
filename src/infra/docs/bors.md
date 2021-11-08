@@ -21,7 +21,10 @@ failed are re-approved again on their own.
 
 There are multiple steps needed to add a repository to our Bors instance:
 
-1. Each CI provider needs to have a single GitHub Check Run to gate on. This is
+1. The [@bors] GitHub account needs to be granted write access to the
+   repository.
+
+2. Each CI provider needs to have a single GitHub Check Run to gate on. This is
    not provided by default on GitHub Actions, but it can be simulated with
    these two jobs, which will generate a `bors build finished` check:
 
@@ -56,26 +59,25 @@ There are multiple steps needed to add a repository to our Bors instance:
    on:
       push:
           branches: [ 
-            master, # This is any branch you normally run CI on
             auto,   # Added for bors
             try     # Added for bors
          ]
    ```
 
-2. Add the repository name to the bors permissions array in the [team
+3. Add the repository name to the bors permissions array in the [team
    repository][team-permissions.rs], and grant the `bors.REPOSITORY.review`
    permission to the right teams or people. You can see an example of adding
    bors permissions to a team [here][bors-permission].
 
-3. Add the repository to the `repositories` map in [the Terraform configuration
+4. Add the repository to the `repositories` map in [the Terraform configuration
    file][tf-repos]. This will create a webhook and inject its secret key in the
    bors execution environment.
 
-4. Add the repository to the [Bors configuration][bors-config], taking
+5. Add the repository to the [Bors configuration][bors-config], taking
    inspiration from other repositories. Note that the environment variables used
    in that config will be set automatically as long as you completed step 3 above.
 
-5. Give it a test by commenting `@bors ping` in any PR. If you get a response back,
+6. Give it a test by commenting `@bors ping` in any PR. If you get a response back,
    you can then try to approve the PR with `@bors r+`.
 
 [@bors]: https://github.com/bors
