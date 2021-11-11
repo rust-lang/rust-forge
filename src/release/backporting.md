@@ -8,10 +8,11 @@ Only a few people are even aware of the process, but this is actually something 
 When somebody identifies a PR that should be backported to beta they tag it
 [`beta-nominated`](https://github.com/rust-lang/rust/pulls?q=is%3Apr+is%3Aclosed+label%3Abeta-nominated).
 That means they want one of the teams to evaluate whether the patch should be
-backported. It is also suggested applying the `I-nominated` and and a `T-` (team) tag
-as appropriate: that'll _really_ get their attention. Anybody with triage access
-is free to make these tags. Backports are mostly done to fix regressions. If the
-team thinks it should be backported they'll then additionally tag it
+backported. Also consider applying the `T-*` tag for a specific team, and the
+`I-*-nominated` tag for that team; that'll _really_ get their attention.
+Anybody with triage access is free to make these tags. Backports are mostly
+done to fix regressions. If the team thinks it should be backported they'll
+then additionally tag it
 [`beta-accepted`](https://github.com/rust-lang/rust/pulls?q=is%3Apr+is%3Aclosed+label%3Abeta-accepted).
 
 At that point the PR is ready to be backported. So the list of patches ready for
