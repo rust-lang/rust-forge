@@ -51,16 +51,34 @@ There are multiple steps needed to add a repository to our Bors instance:
    Make sure to replace `[ALL, OTHER, JOBS]` with a list of all the jobs you
    want to gate on.
 
-3. Add the repository name to the `permissions!` macro in the [team
-   repository][team-permissions.rs], and grant the `bors.REPOSITORY.review`
-   permission to the right people.
+   These jobs need to run on specific branches (`auto` and `try`) so it's necessary
+   to add those branches to the list of branches tested by the CI provider. For GitHub
+   Actions that looks like this:
 
-3. Add the repository to the `repositories` map in [the Terraform configuration
+   ```yaml
+   on:
+      push:
+          branches: [ 
+            auto,   # Added for bors
+            try     # Added for bors
+         ]
+   ```
+
+3. Add the repository name to the bors permissions array in the [team
+   repository][team-permissions.rs], and grant the `bors.REPOSITORY.review`
+   permission to the right teams or people. You can see an example of adding
+   bors permissions to a team [here][bors-permission].
+
+4. Add the repository to the `repositories` map in [the Terraform configuration
    file][tf-repos]. This will create a webhook and inject its secret key in the
    bors execution environment.
 
-4. Add the repository to the [Bors configuration][bors-config], taking
-   inspiration from other repositories.
+5. Add the repository to the [Bors configuration][bors-config], taking
+   inspiration from other repositories. Note that the environment variables used
+   in that config will be set automatically as long as you completed step 3 above.
+
+6. Give it a test by commenting `@bors ping` in any PR. If you get a response back,
+   you can then try to approve the PR with `@bors r+`.
 
 [@bors]: https://github.com/bors
 [Homu]: https://github.com/rust-lang/homu
@@ -68,6 +86,7 @@ There are multiple steps needed to add a repository to our Bors instance:
 [bors.rust-lang.org]: https://bors.rust-lang.org
 [ecs]: ./ecs-service.md
 [rust-lang/homu]: https://github.com/rust-lang/homu
-[team-permissions.rs]: https://github.com/rust-lang/team/blob/master/src/permissions.rs
+[team-permissions.rs]: https://github.com/rust-lang/team/blob/52b4370214e1c8eabe483f3a26f22733d94b326f/config.toml#L18-L37
+[bors-permission]: https://github.com/rust-lang/team/blob/a1532ec2b08c9d40c0a2c7643ffe72de9671e265/teams/wg-compiler-performance.toml#L25-L26
 [tf-repos]: https://github.com/rust-lang/simpleinfra/blob/master/terraform/bors/_config.auto.tfvars
 [tf]: https://github.com/rust-lang/simpleinfra/tree/master/terraform/bors/
