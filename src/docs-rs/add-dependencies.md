@@ -32,7 +32,7 @@ docker-compose build
 YOUR_CRATE=/path/to/your/crate
 # avoid docker-compose creating the volume if it doesn't exist
 if [ -e "$YOUR_CRATE" ]; then
-  docker-compose run -e DOCS_RS_LOCAL_DOCKER_IMAGE=build-env \
+  docker-compose run -e DOCSRS_DOCKER_IMAGE=build-env \
                      -e RUST_BACKTRACE=1 \
                      -v "$YOUR_CRATE":/opt/rustwide/workdir \
     web build crate --local /opt/rustwide/workdir
@@ -52,7 +52,7 @@ Rerun the build and start the container; it should take much less time now:
 cd /path/to/crates-build-env
 docker build --tag build-env .
 cd /path/to/docs.rs
-docker-compose run -e DOCS_RS_LOCAL_DOCKER_IMAGE=build-env \
+docker-compose run -e DOCSRS_DOCKER_IMAGE=build-env \
                      -v "$YOUR_CRATE":/opt/rustwide/workdir \
     web build crate --local /opt/rustwide/workdir
 ```
