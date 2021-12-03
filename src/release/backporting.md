@@ -27,18 +27,20 @@ Getting a PR backported to the beta branch involves the following process:
    4. Open a PR **against the beta branch** with a title that starts with `[beta]` (so reviewers can see its specialness).
    5. List all of the PRs being backported in the PR description.
       [Here's an example](https://github.com/rust-lang/rust/pull/64097).
+   6. Go through all of the PRs being backported and:
+
+      * Change the milestone to the correct value for the beta release.
+      * Remove the `beta-nominated` label.
+        This indicates that the backport has been completed.
+
+      If there are a lot of PRs, this can be done quickly by opening the [nominated + accepted][nominated-plus-accepted] query, check all the PRs being backported, and use the "Milestones" and "Label" drop-downs to modify multiple PRs in bulk.
+
+      This last step can be done before or after the beta PR has been merged, though it can be easy to forget if you wait for it to be merged.
 
 4. A reviewer (typically from the release team) needs to verify that the backport looks correct and that it's submitted to the beta branch.
    They will then approve with `@bors r+ rollup=never` (to avoid it being rolled up on accident).
    If the author of the PR has r+ rights, and has not made significant changes while backporting, they can also self-approve the PR.
 
-5. Go through all of the PRs being backported and:
-
-   * Change the milestone to the correct value for the beta release.
-   * Remove the `beta-nominated` label.
-     This indicates that the backport has been completed.
-
-   If there are a lot of PRs, this can be done quickly by opening the [nominated + accepted][nominated-plus-accepted] query, check all the PRs being backported, and use the "Milestones" and "Label" drop-downs to modify multiple PRs in bulk.
 
 In summary, there are three states that a PR can go through:
 1. `beta-nominated`: Needs the team's attention.
