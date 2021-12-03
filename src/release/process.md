@@ -148,8 +148,7 @@ Decide on a time to do the release, T.
   # Publish to crates.io. This will publish internal dependencies first (if
   # necessary), then publish Cargo itself.
   ./publish.py
-  # Where YY is the Rust minor release, add one to it (Rust 1.49.0 = Cargo 0.50.0).
-  CARGO_VERSION="0.YY+1.0"
+  CARGO_VERSION=$(cargo read-manifest | jq -r .version)
   git tag -u FA1BE5FE $CARGO_VERSION
   git push git@github.com:rust-lang/cargo.git $CARGO_VERSION
   ```
