@@ -54,28 +54,18 @@ RUSTUP_DIST_SERVER=https://dev-static.rust-lang.org rustup update stable
 
 ### Master to beta
 
-Gather the relevant information and push the new Cargo branch:
+Run this command in the [simpleinfra] repository, while in a rust-lang/rust
+checkout (branch doesn't matter):
 
 ```sh
-git fetch git@github.com:rust-lang/rust
-BRANCH_POINT=`git log --merges --first-parent --format="%P" -1 master -- src/version | awk '{print($1)}'`
-NEW_BETA_VERSION=`git show $BRANCH_POINT:src/version`
-CARGO_SHA=`git rev-parse $BRANCH_POINT:src/tools/cargo`
-
-cd src/tools/cargo
-git branch rust-$NEW_BETA_VERSION $CARGO_SHA
-git push git@github.com:rust-lang/cargo rust-$NEW_BETA_VERSION
+../simpleinfra/release-scripts/master-to-beta.sh
 ```
 
-Temporarily disable banch protection on GitHub for the `beta` branch of the Rust
-repo. Promote rust-lang/rust's master branch to beta as you did for stable:
+This script sets up the new rust-lang/cargo branch and force pushes the appropriate
+commit to rust-lang/rust's beta branch.
 
-```sh
-git push git@github.com:rust-lang/rust $BRANCH_POINT:beta -f
-```
-
-Re-enable branch protection on GitHub. Send a PR to the freshly created beta
-branch of rust-lang/rust which updates `src/ci/channel` to `beta`.
+Once that's done, send a PR to the freshly created beta branch of rust-lang/rust
+which updates `src/ci/channel` to `beta`.
 
 ## Master bootstrap update (T-2 day, Tuesday)
 
@@ -135,22 +125,12 @@ Decide on a time to do the release, T.
   - Twitter [@rustlang](https://twitter.com/rustlang)
   - [Users forum](https://users.rust-lang.org/)
 
-- **T+5m** - Release and tag Cargo. In the rust-lang/rust repository on the
-  **stable branch**:
+- **T+5m** - Release and tag Cargo. From a rust-lang/rust checkout (script will
+  checkout the stable branch automatically), run the following script from
+  [simpleinfra].
 
   ```sh
-  # Remote "rust-lang" is github.com/rust-lang/rust.git
-  git fetch rust-lang
-  git checkout rust-lang/stable
-  # Make sure submodules are at the correct revision.
-  git submodule update
-  cd src/tools/cargo
-  # Publish to crates.io. This will publish internal dependencies first (if
-  # necessary), then publish Cargo itself.
-  ./publish.py
-  CARGO_VERSION=$(cargo read-manifest | jq -r .version)
-  git tag -u FA1BE5FE $CARGO_VERSION
-  git push git@github.com:rust-lang/cargo.git $CARGO_VERSION
+  ../simpleinfra/release-scripts/tag-cargo.sh
   ```
 
 - **T+1hr** Send a PR to the beta branch running `./x.py run
