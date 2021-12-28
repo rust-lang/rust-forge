@@ -15,7 +15,7 @@ request review from someone else. This will also reassign the PR.
 
 We never merge PRs directly. Instead, we use bors. A qualified
 reviewer with bors privileges (e.g., a [compiler
-contributor](./membership.md) will leave a comment like `@bors r+`.
+contributor](./membership.md)) will leave a comment like `@bors r+`.
 This indicates that they approve the PR.
 
 People with bors privileges may also leave a `@bors r=username`
@@ -83,7 +83,7 @@ The following is some guidance for setting priorities:
     - P-high issue fixes
     - Toolstate fixes
     - Beta-nominated PRs
-    - Submodule updates
+    - Submodule/Subtree updates
 - 5+
     - P-critical issue fixes
 - 10+
