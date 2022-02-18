@@ -6,10 +6,16 @@ The account is handled by a small team of volunteers.
 The account will mostly tweet links to the Rust blog and Rust Insiders blog.
 Additionally it will retweet:
 
-* links to blog posts about Rust, retweeting the original author if possible,
-* questions about Rust, so all followers can help,
-* Meetup or conference announcements,
-* anything else relevant.
+* links to blog posts about Rust, retweeting the original author if possible
+* questions about Rust, so all followers can help
+* Meetup or conference announcements
+* anything else relevant
+
+We will not retweet:
+
+* content that bashes other programming languages/projects or is otherwise unconstructive in its discussion of language/tech choice
+* Personal announcements ("Today I start my job at $COMPANY writing Rust")
+* Learning Rust updates ("Today I started to learn Rust")
 
 The Direct Messages are open to everyone.
 If someone wants something retweeted, they should send the tweet via DM.
