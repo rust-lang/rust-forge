@@ -9,6 +9,7 @@ Additionally it will retweet:
 * links to blog posts about Rust, retweeting the original author if possible
 * questions about Rust, so all followers can help
 * Meetup or conference announcements
+* announcements of new Rust projects
 * anything else relevant
 
 We will not retweet:
