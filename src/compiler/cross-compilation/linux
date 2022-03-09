@@ -1,0 +1,9 @@
+# Cross compiling to 32 bit
+
+In order to run tests for 32 bit on a 64 bit target, add `--target=i686-unknown-linux-gnu` to your `x.py` command.
+
+You need 32 bit C libraries installed, so on ubuntu run
+
+```
+sudo apt-get install gcc-multilib
+```
