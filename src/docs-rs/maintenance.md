@@ -122,9 +122,18 @@ UPDATE queue SET attempt = 0 WHERE attempt >= 5 AND build_time > 'YYYY-MM-DD HH:
 
 ## Removing a crate from the website
 
-Sometimes it might be needed to remove all the content related to a crate from
-docs.rs (for example after receiving a DMCA). To do that, log into the server
-and run:
+The docs.rs application supports deleting all the documentation ever published
+of a crate (for example after receiving a DMCA), by running a CLI command. The
+people who currently have permissions to access the server and run it are:
+
+* docs.rs Team:
+  * [@pietroalbini](https://github.com/pietroalbini)
+  * [@jyn514](https://github.com/jyn514)
+* Infrastructure Team:
+  * [@Mark-Simulacrum](https://github.com/Mark-Simulacrum)
+* People with elevated 1password access
+
+If you are one of these people, log into the server and run:
 
 ```
 cratesfyi database delete-crate CRATE_NAME
