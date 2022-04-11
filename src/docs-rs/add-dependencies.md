@@ -2,6 +2,14 @@
 
 Rustwide internally uses `rustops/crates-build-env` as the build environment for the crate. If you want to add a system package for crates to link to, this is place you're looking for.
 
+## Preconditions
+
+Docker and docker-compose must be installed. For example, on Debian or Ubuntu:
+
+```sh
+apt-get install docker.io docker-compose
+```
+
 ## Getting started
 
 First, clone the crates-build-env and the docs.rs repos:
