@@ -60,7 +60,7 @@ Rerun the build and start the container; it should take much less time now:
 cd ../crates-build-env/linux
 docker build --tag build-env .
 cd ../../docs.rs
-docker-compose run -e DOCS_RS_LOCAL_DOCKER_IMAGE=build-env \
+docker-compose run -e DOCSRS_DOCKER_IMAGE=build-env \
                      -e RUST_BACKTRACE=1 \
                      -v "$YOUR_CRATE":/opt/rustwide/workdir \
     web build crate --local /opt/rustwide/workdir
