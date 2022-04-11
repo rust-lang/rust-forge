@@ -7,7 +7,7 @@ Rustwide internally uses `rustops/crates-build-env` as the build environment for
 Docker and docker-compose must be installed. For example, on Debian or Ubuntu:
 
 ```sh
-apt-get install docker.io docker-compose
+sudo apt-get install docker.io docker-compose
 ```
 
 ## Getting started
