@@ -188,9 +188,7 @@ We currently support linking to commits on these repositories:
 
 ## Read-only view
 
-Zulip by default requires an account for interaction, though this "bug" is being
-actively worked on by the Zulip developers. We currently maintain a read-only
-view of the Zulip at <https://zulip-archive.rust-lang.org>; this has relatively
-up to date information (we update every 5 minutes). If you're linking to Zulip
-from a GitHub comment with the intent to leave a permanent link, this is a good
-place to link to. There is not currently good tooling for generating the links.
+Our Zulip instance has the web-public streams beta feature enabled, and we use
+it for all public streams. Please let us or Zulip developers know if there's any
+problems with this. The previous solution to the web-public view was the zulip
+archive, which now redirects to the web public view.
