@@ -35,8 +35,8 @@ Avoid changing the "Current Release Versions" without also updating the selector
 in `js/index.js`.
 -->
 
-Channel    | Version | Release Date
------------|---------|-------------
+Channel    | Version | Will be stable on
+-----------|---------|------------------
 Stable     | <span id="stable-version"></span>  | <span id="stable-release-date"></span>
 Beta       | <span id="beta-version"></span>    | <span id="beta-release-date"></span>
 Nightly    | <span id="nightly-version"></span> | <span id="nightly-release-date"></span>
