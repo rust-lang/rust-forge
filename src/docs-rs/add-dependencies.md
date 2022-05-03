@@ -2,21 +2,39 @@
 
 Rustwide internally uses `rustops/crates-build-env` as the build environment for the crate. If you want to add a system package for crates to link to, this is place you're looking for.
 
-## Getting started
+## Preconditions
 
-First, clone the crates-build-env repo:
+Docker and docker-compose must be installed. For example, on Debian or Ubuntu:
 
 ```sh
-git clone https://github.com/rust-lang/crates-build-env && cd crates-build-env
+sudo apt-get install docker.io docker-compose
 ```
 
-Next, add the package to `packages.txt`. This should be the name of a package in the **Ubuntu 18.04** Repositories. See [the package home page](https://packages.ubuntu.com/) for a full list/search bar, or use `apt search` locally.
+## Getting started
+
+First, clone the crates-build-env and the docs.rs repos:
+
+```sh
+git clone https://github.com/rust-lang/crates-build-env
+git clone https://github.com/rust-lang/docs.rs
+```
+
+Set the path to the directory of your crate. This must be an absolute path, not a relative path! On platforms with coreutils, you can instead use `$(realpath ../relative/path)` (relative to the docs.rs directory).
+
+```sh
+YOUR_CRATE=/path/to/your/crate
+```
+
+## Add package 
+
+Next, add the package to `crates-build-env/linux/packages.txt` in the correct alphabetical order. This should be the name of a package in the **Ubuntu 20.04** Repositories. See [the package home page](https://packages.ubuntu.com/) for a full list/search bar, or use `apt search` locally.
 
 ## Building the image
 
 Now build the image. This will take a very long time, probably 10-20 minutes.
 
 ```sh
+cd crates-build-env/linux
 docker build --tag build-env .
 ```
 
@@ -25,14 +43,12 @@ docker build --tag build-env .
 Use the image to build your crate.
 
 ```sh
-cd /path/to/docs.rs
+cd ../../docs.rs
+cp .env.sample .env
 docker-compose build
-# NOTE: this must be an absolute path, not a relative path
-# On platforms with coreutils, you can instead use `$(realpath ../relative/path)`
-YOUR_CRATE=/path/to/your/crate
 # avoid docker-compose creating the volume if it doesn't exist
 if [ -e "$YOUR_CRATE" ]; then
-  docker-compose run -e DOCS_RS_LOCAL_DOCKER_IMAGE=build-env \
+  docker-compose run -e DOCSRS_DOCKER_IMAGE=build-env \
                      -e RUST_BACKTRACE=1 \
                      -v "$YOUR_CRATE":/opt/rustwide/workdir \
     web build crate --local /opt/rustwide/workdir
@@ -49,17 +65,23 @@ On line 7 of the Dockerfile, add this line: `RUN apt-get install -y your_second_
 Rerun the build and start the container; it should take much less time now:
 
 ```sh
-cd /path/to/crates-build-env
+cd ../crates-build-env/linux
 docker build --tag build-env .
-cd /path/to/docs.rs
-docker-compose run -e DOCS_RS_LOCAL_DOCKER_IMAGE=build-env \
+cd ../../docs.rs
+docker-compose run -e DOCSRS_DOCKER_IMAGE=build-env \
+                     -e RUST_BACKTRACE=1 \
                      -v "$YOUR_CRATE":/opt/rustwide/workdir \
     web build crate --local /opt/rustwide/workdir
 ```
 
 ## Run the lint script
 
-Before you make a PR, run the shell script `ci/lint.sh` and make sure it passes. It ensures `packages.txt` is in order and will tell you exactly what changes you need to make if not.
+Before you make a PR, run the shell script `lint.sh` and make sure it passes. It ensures `packages.txt` is in order and will tell you exactly what changes you need to make if not.
+
+```sh
+cd ../crates-build-env
+./lint.sh
+```
 
 ## Make a pull request
 
