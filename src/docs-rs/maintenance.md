@@ -129,6 +129,8 @@ people who currently have permissions to access the server and run it are:
 * docs.rs Team:
   * [@pietroalbini](https://github.com/pietroalbini)
   * [@jyn514](https://github.com/jyn514)
+  * [@syphar](github.com/syphar)
+  * [@Nemo157](https://github.com/nemo157)
 * Infrastructure Team:
   * [@Mark-Simulacrum](https://github.com/Mark-Simulacrum)
 * People with elevated 1password access
@@ -136,7 +138,7 @@ people who currently have permissions to access the server and run it are:
 If you are one of these people, log into the server and run:
 
 ```
-cratesfyi database delete-crate CRATE_NAME
+cratesfyi database delete crate CRATE_NAME
 ```
 
 The command will remove all the data from the database, and then remove the
