@@ -82,6 +82,9 @@ necessary try-build and queue a perf run by saying
 (Technically, the requirement is that the `queue` command finishes executing prior
 to the try build completing successfully.)
 
+See the [documentation](https://github.com/rust-lang/rustc-perf/tree/master/collector#benchmarking)
+for further bot commands.
+
 [collector]: https://github.com/rust-lang-nursery/rustc-perf/tree/master/collector
 [web frontend + bot]: https://github.com/rust-lang-nursery/rustc-perf/tree/master/site
 
