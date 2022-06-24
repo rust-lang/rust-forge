@@ -27,3 +27,8 @@ Additionally account handlers may look through the [#rustlang](https://twitter.c
 
 The account will only follow a small number of Project-owned/related Twitter accounts.
 At the time of writing (February 2022) this is only [@cratesiostatus](https://twitter.com/cratesiostatus) and [@rust_foundation](https://twitter.com/rust_foundation).
+
+### Access
+
+Access to the account is controlled through TweetDeck. The main account credentials are stored in the project password manager. 
+Direct access to the account should happen rarely if ever. 
