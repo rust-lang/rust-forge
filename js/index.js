@@ -7,12 +7,14 @@ const DATE_FORMAT = 'MMMM DD YYYY'
 const newReleases = Math.floor(moment.utc().diff(EPOCH_DATE, 'weeks') / 6)
 
 function addRelease (kind, incr, toolsWeek) {
-  const releaseNumber = EPOCH_RELEASE + newReleases + incr
-  const displayVersion = `1.${releaseNumber}`
-  const releaseDate = EPOCH_DATE.clone().add((newReleases + incr) * 6, 'weeks')
+  const releaseNumber = EPOCH_RELEASE + newReleases + incr;
+  const displayVersion = `1.${releaseNumber}`;
+  const releaseDate = EPOCH_DATE.clone().add((newReleases + incr) * 6, 'weeks');
+  const branchDate = EPOCH_DATE.clone().add((newReleases + incr) * 6, 'weeks').subtract(6, 'days');
 
   document.querySelector(`#${kind}-version`).textContent = displayVersion
   document.querySelector(`#${kind}-release-date`).textContent = `${releaseDate.format(DATE_FORMAT)} UTC`
+  document.querySelector(`#${kind}-branch-date`).textContent = `${branchDate.format(DATE_FORMAT)} UTC`
 
   if (toolsWeek) {
     const noBreakagesTo = releaseDate.clone().subtract(6, 'weeks').day(2)

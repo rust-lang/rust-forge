@@ -9,7 +9,7 @@ file an issue or PR on the [Rust Forge GitHub].
 
 ### Help Wanted
 
-Want to contribute to Rust, but don't know where to start? Here's a list of 
+Want to contribute to Rust, but don't know where to start? Here's a list of
 `rust-lang` projects that have marked issues that need help and issues that are
 good first issues.
 
@@ -35,12 +35,15 @@ Avoid changing the "Current Release Versions" without also updating the selector
 in `js/index.js`.
 -->
 
-Channel    | Version | Will be stable on
------------|---------|------------------
-Stable     | <span id="stable-version"></span>  | <span id="stable-release-date"></span>
-Beta       | <span id="beta-version"></span>    | <span id="beta-release-date"></span>
-Nightly    | <span id="nightly-version"></span> | <span id="nightly-release-date"></span>
-Nightly +1 | <span id="next-version"></span>    | <span id="next-release-date"></span>
+Channel    | Version | Will be stable on | Will branch from master on |
+-----------|---------|-------------------|----------------------------|
+Stable     | <span id="stable-version"></span>  | <span id="stable-release-date"></span>  | <span id="stable-branch-date"></span>
+Beta       | <span id="beta-version"></span>    | <span id="beta-release-date"></span>    | <span id="beta-branch-date"></span>
+Nightly    | <span id="nightly-version"></span> | <span id="nightly-release-date"></span> | <span id="nightly-branch-date"></span>
+Nightly +1 | <span id="next-version"></span>    | <span id="next-release-date"></span>    | <span id="next-branch-date"></span>
+
+See the [release process](./release/process.md) documentation for details on
+what happens in the days leading up to a release.
 
 ### No Tools Breakage Week
 To ensure the beta release includes all the tools, no [tool breakages] are
