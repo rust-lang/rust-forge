@@ -1,6 +1,6 @@
 use std::{env, io, path::Path, process};
 
-use clap::{clap_app, ArgMatches};
+use clap::ArgMatches;
 use mdbook::{
     errors::Error,
     preprocess::{CmdPreprocessor, Preprocessor},
