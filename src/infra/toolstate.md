@@ -1,7 +1,7 @@
 # Handling of tools embedded in the rustc repo ("toolstate")
 
 The Rust repository contains several external tools and documents as git
-submodules (e.g. clippy, rls, the [Book], the [Reference]). Many of those are
+submodules (e.g. miri, rls, the [Book], the [Reference]). Many of those are
 very tightly coupled to the compiler and depend on internal APIs that change all
 the time, but they are not actually essential to get the compiler itself to
 work. To make API changes less painful, these tools are allowed to "break"
@@ -32,7 +32,7 @@ rules are for when which tools are (not) allowed to break.
       happening.)
 
     At the time of writing, the following tools are "nightly only": rustc-dev-guide,
-    miri, embedded-book.
+    miri, RLS, embedded-book.
 
 ## Updating the toolstate repository
 
@@ -57,11 +57,14 @@ Tools can be updated by updating the submodule to the proper commit.
 Run `git submodule update --remote path/to/submodule`, add the updates, make
 sure the tests pass, commit, and send a pull request. The path is from the
 root of the rust repository, so for example, the reference is
-`src/doc/reference` and rustfmt is `src/tools/rustfmt`.
+`src/doc/reference` and rls is `src/tools/rls`.
 
 While not required, [subup] may assist you with this.
 
 ## Adding a tool
+
+**NOTE**: We are trying to switch away from submodules and toolstate over time.
+Consider adding a subtree instead of a submodule: [#70651](https://github.com/rust-lang/rust/issues/70651)
 
 To add a new tool to be tracked, the following steps must be taken:
 
