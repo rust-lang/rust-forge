@@ -18,54 +18,32 @@ time, but make sure the stable promotion lands first.
 
 ### Beta to stable
 
-Temporarily turn off GitHub branch protection for the `stable` branch in
-rust-lang/rust repo. In your local Rust repo:
+[Obtain AWS CLI credentials][awscli] and run this command from the [simpleinfra] repository:
 
-```sh
-$ git fetch origin
-$ git push origin origin/beta:stable -f
-# make sure that the release notes file is as fresh as possible
-$ git checkout origin/master -- RELEASES.md
+```
+./release-scripts/promote-release.py branches
 ```
 
-Re-enable branch protection for the `stable` branch. Send a PR to rust-lang/rust
-on the stable branch making the following changes:
+Once that's done, send a PR to the freshly created beta branch of rust-lang/rust
+which updates `src/ci/channel` to `beta`.
+
+Also send a PR to rust-lang/rust targeting the new stable branch making the
+following changes:
 
 - Update `src/ci/channel` to `stable`
+- Update release notes to the latest available copy
+  * e.g., `git checkout origin/master -- RELEASES.md`
 
-Once the PR is sent, r+ it and give it a high `p=1000`.
+Once the PRs are sent, r+ both and give them a high `p=1000` (for stable) and
+`p=10` for beta.
 
 After the PR is merged you'll need to start a **dev** release. [Obtain AWS CLI
 credentials][awscli] and run this command from the [simpleinfra] repository:
 
 ```
-./start-release.py dev stable
+# The date here is of the actual, production, stable release. Used for the blog post.
+./release-scripts/promote-release.py release dev stable --release-date YYYY-MM-DD
 ```
-
-As soon as this build is done create a blog post on Inside Rust asking for
-testing. The index is
-https://dev-static.rust-lang.org/dist/YYYY-MM-DD/index.html.
-
-Test rustup with:
-
-```sh
-RUSTUP_DIST_SERVER=https://dev-static.rust-lang.org rustup update stable
-```
-
-### Master to beta
-
-Run this command in the [simpleinfra] repository, while in a rust-lang/rust
-checkout (branch doesn't matter):
-
-```sh
-../simpleinfra/release-scripts/master-to-beta.sh
-```
-
-This script sets up the new rust-lang/cargo branch and force pushes the appropriate
-commit to rust-lang/rust's beta branch.
-
-Once that's done, send a PR to the freshly created beta branch of rust-lang/rust
-which updates `src/ci/channel` to `beta`.
 
 ## Master bootstrap update (T-2 day, Tuesday)
 
@@ -99,24 +77,13 @@ Decide on a time to do the release, T.
   credentials][awscli] in the [simpleinfra] repository:
 
   ```
-  ./start-release.py prod stable
+  ./release-scripts/promote-release.py release prod stable
   ```
 
   That'll, in the background, schedule the `promote-release` binary to run on
   the production secrets (not the dev secrets). That'll sign everything, upload
   it, update the html index pages, and invalidate the CDN. Note that this takes
-  about 30 minutes right now. Logs are in `/opt/rcs/logs`.
-
-- **T-10m** - Locally, tag the new release and upload it. Use "x.y.z release" as
-  the commit message.
-
-  ```sh
-  $ git tag -u FA1BE5FE 1.3.0 $COMMIT_SHA
-  $ git push rust-lang 1.3.0
-  ```
-
-  After this [Update thanks.rust-lang.org][update-thanks] by triggering a build
-  on GitHub Actions on the master branch.
+  about 30 minutes right now. This will also push a signed tag to rust-lang/rust.
 
 - **T-2m** - Merge blog post.
 
@@ -149,8 +116,11 @@ is merged, issue the following command in a shell with [AWS
 credentials][awscli] on the [simpleinfra] repository:
 
 ```
-./start-release.py dev stable --bypass-startup-checks
+./release-scripts/promote-release.py release dev stable --bypass--startup-checks
 ```
+
+You'll also want to update the previously published blog post and internals post
+with the new information.
 
 ## Publishing a nightly based off a try build
 
@@ -163,7 +133,7 @@ command in a shell with [AWS credentials][awscli] on the [simpleinfra]
 repository:
 
 ```sh
-./start-release.py dev nightly $MERGE_COMMIT_SHA
+./release-scripts/promote-release.py release dev nightly $MERGE_COMMIT_SHA
 ```
 
 When the release process end you'll be able to install the new nightly with:
