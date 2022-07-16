@@ -116,7 +116,7 @@ is merged, issue the following command in a shell with [AWS
 credentials][awscli] on the [simpleinfra] repository:
 
 ```
-./release-scripts/promote-release.py release dev stable --bypass--startup-checks
+./release-scripts/promote-release.py release dev stable --bypass-startup-checks
 ```
 
 You'll also want to update the previously published blog post and internals post
