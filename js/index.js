@@ -10,7 +10,8 @@ function addRelease (kind, incr, toolsWeek) {
   const releaseNumber = EPOCH_RELEASE + newReleases + incr;
   const displayVersion = `1.${releaseNumber}`;
   const releaseDate = EPOCH_DATE.clone().add((newReleases + incr) * 6, 'weeks');
-  const branchDate = EPOCH_DATE.clone().add((newReleases + incr) * 6, 'weeks').subtract(6, 'days');
+  // We branch a little over 6 weeks before the release.
+  const branchDate = EPOCH_DATE.clone().add((newReleases + incr - 1) * 6, 'weeks').subtract(6, 'days');
 
   document.querySelector(`#${kind}-version`).textContent = displayVersion
   document.querySelector(`#${kind}-release-date`).textContent = `${releaseDate.format(DATE_FORMAT)} UTC`
