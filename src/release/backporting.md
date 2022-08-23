@@ -22,6 +22,7 @@ Getting a PR backported to the beta branch involves the following process:
    1. Create a local branch off the `beta` branch.
    2. Cherry-pick all of the PRs that have both [`beta-nominated` and `beta-accepted`][nominated-plus-accepted] labels.
       It is usually preferred to not include PRs that have not been merged in case there are any last minute changes, or it fails when running the full CI tests.
+   3. Run `./x.py run replace-version-placeholder` and if there were any changes, put them into a new commit.
    3. (Recommended) Run some tests locally.
       It is not uncommon that the backports may not apply cleanly, or the UI tests need to be re-blessed if there are differences in the output.
    4. Open a PR **against the beta branch** with a title that starts with `[beta]` (so reviewers can see its specialness).

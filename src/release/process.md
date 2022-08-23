@@ -25,7 +25,13 @@ time, but make sure the stable promotion lands first.
 ```
 
 Once that's done, send a PR to the freshly created beta branch of rust-lang/rust
-which updates `src/ci/channel` to `beta`.
+with two commits:
+
+* The changes caused by running `./x.py run replace-version-placeholder`
+* An update of `src/ci/channel` to `beta`
+
+The version placeholder replacement changes must be in a separate commit so
+that they can be cherry picked to the master branch.
 
 Also send a PR to rust-lang/rust targeting the new stable branch making the
 following changes:
@@ -49,6 +55,10 @@ credentials][awscli] and run this command from the [simpleinfra] repository:
 
 Send a PR to the master branch to:
 
+- Cherry pick the commit that ran `./x.py run replace-version-placeholder`
+  from the now merged beta branch PR. Do not re-run the tool as there might
+  have been other stabilizations on master which were not included in the
+  branched beta, so may not be attributed to the current release.
 - Run `./x.py run src/tools/bump-stage0` to update the bootstrap compiler to
   the beta you created yesterday.
 
