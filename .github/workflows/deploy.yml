@@ -11,6 +11,9 @@ jobs:
   ci:
     name: CI
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: write
     steps:
       - uses: actions/checkout@v2
       - uses: XAMPPRocky/deploy-mdbook@v1.1
