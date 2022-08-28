@@ -205,7 +205,7 @@ saw before.
 ### Toolstate to support allowed failures
 
 The `rust-lang/rust` repo doesn’t only test the compiler on its CI, but also
-all the tools distributed through rustup (like rls, rustfmt, clippy…). Since
+all the tools distributed through rustup (like miri). Since
 those tools rely on the compiler internals (which don’t have any kind of
 stability guarantee) they often break after the compiler code is changed.
 
