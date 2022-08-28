@@ -1,7 +1,7 @@
 # Handling of tools embedded in the rustc repo ("toolstate")
 
 The Rust repository contains several external tools and documents as git
-submodules (e.g. miri, rls, the [Book], the [Reference]). Many of those are
+submodules (e.g. miri, the [Book], the [Reference]). Some of those are
 very tightly coupled to the compiler and depend on internal APIs that change all
 the time, but they are not actually essential to get the compiler itself to
 work. To make API changes less painful, these tools are allowed to "break"
@@ -31,8 +31,8 @@ rules are for when which tools are (not) allowed to break.
       cut. (See the [Forge index][forge] for when the next beta cutoff is
       happening.)
 
-    At the time of writing, the following tools are "nightly only": rustc-dev-guide,
-    miri, RLS, embedded-book.
+    At the time of writing, the following tools are "nightly only":
+    miri, embedded-book.
 
 ## Updating the toolstate repository
 
@@ -57,7 +57,7 @@ Tools can be updated by updating the submodule to the proper commit.
 Run `git submodule update --remote path/to/submodule`, add the updates, make
 sure the tests pass, commit, and send a pull request. The path is from the
 root of the rust repository, so for example, the reference is
-`src/doc/reference` and rls is `src/tools/rls`.
+`src/doc/reference` and miri is `src/tools/miri`.
 
 While not required, [subup] may assist you with this.
 

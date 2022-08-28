@@ -74,7 +74,7 @@ There are then a number of top level sections (tables) which are:
   `["rustc", "cargo", "rust-std", "rust-docs", "rustfmt", "clippy"]`.
 
   Other profiles include `minimal` (`["rustc", "cargo", "rust-std"]`) and
-  `complete` which adds in additional tools such as the `rls`, a copy of the
+  `complete` which adds in additional things such as a copy of the
   standard library source (`rust-src`), `miri`, `lldb`, `llvm-tools`, and
   `rust-analysis`.
 
