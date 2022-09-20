@@ -22,8 +22,19 @@ queue has been merged.
 
 ## Making a Rollup
 
-1. Using the interface on [Homu queue], select a few pull requests and then use
-   "rollup" button to make one. (The text about fairness can be ignored.)
+1. Using the interface on [Homu queue], select pull requests and then
+   use "rollup" button to make a rollup pull request. (The text about
+   fairness can be ignored.)
+   **Important note**:  consider for addition PRs marked as
+   `rollup=always`, `rollup=maybe` and `rollup=iffy`, based on the
+   review policies of [the Rollups section].  Be extra careful when
+   deciding what to include, in particular on `rollup=maybe` and
+   `rollup=iffy` PRs. We should try as much as possible to avoid risking
+   and hit regressions (bugs or perf).  Also consider that contributors
+   often forget to tag things with rollup=never, when they should have
+   done so, so when PRs are not explicitly tagged with rollup, be extra
+   careful.
+
 2. Run the following command in the pull request thread:
 
     ```
