@@ -55,6 +55,7 @@
         - [Bors](./infra/docs/bors.md)
         - [Crater agents](./infra/docs/crater-agents.md)
         - [Custom GitHub Actions runners](./infra/docs/gha-self-hosted.md)
+        - [Dev Desktops](./infra/docs/dev-desktop.md)
         - [GitHub App for dev-desktops](./infra/docs/dev-desktop-github-app.md)
         - [Discord moderation bot](./infra/docs/discord-mods-bot.md)
         - [Domain names and DNS](./infra/docs/dns.md)
