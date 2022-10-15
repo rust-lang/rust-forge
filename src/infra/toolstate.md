@@ -1,21 +1,35 @@
 # Handling of tools embedded in the rustc repo ("toolstate")
 
-The Rust repository contains several external tools and documents as git
-submodules (e.g. miri, the [Book], the [Reference]). Some of those are
-very tightly coupled to the compiler and depend on internal APIs that change all
-the time, but they are not actually essential to get the compiler itself to
-work. To make API changes less painful, these tools are allowed to "break"
-temporarily. PRs can still land and nightlies still get released even when some
-tools are broken. Their current status is managed by the
-[toolstate system][toolstate]. (Cargo is not subject to the toolstate system and
-instead just has to always work.)
+The Rust repository contains several external git submodules (e.g. the [Book],
+the [Reference]). The [toolstate system][toolstate] is used to allow these
+submodules to be in a broken state, except for beta releases.
 
-The three possible states of a "tool" (this includes the documentation managed
-by the toolstate system, where we run doctests) are: `test-pass`, `test-fail`,
+This is necessary because the documentation is tested both on the
+`rust-lang/rust` CI, and on the CI of the documentation repo. If there is a
+change to `rustc` that breaks the documentation, it would not be possible to
+update the documentation since the not-yet-merged version of rustc that breaks
+it doesn't exist, yet. We usually require CI to be in a passing state in both
+repos.
+
+The toolstate system solves this problem by temporarily allowing the
+documentation to be in a "failing" state on `rust-lang/rust`. When the tests
+start failing, the maintainers of the submodule will be notified. They will
+then be responsible for getting it fixed.
+
+The three possible states of a "tool" are: `test-pass`, `test-fail`,
 `build-fail`.
 
 This page gives a rough overview how the toolstate system works, and what the
 rules are for when which tools are (not) allowed to break.
+
+> **Note**: Historically, the toolstate system was used for managing tools
+> that were closely coupled with the compiler (like rustfmt or miri). However,
+> those have since been transitioned to use git subtrees instead, so that
+> those tools must always pass their tests, and any failures must be resolved
+> within the PR that breaks them.
+>
+> This document uses the term "tool", but as of this writing, the only thing
+> tracked is external documentation.
 
 ## Toolstate Rules
 
@@ -32,7 +46,7 @@ rules are for when which tools are (not) allowed to break.
       happening.)
 
     At the time of writing, the following tools are "nightly only":
-    miri, embedded-book.
+    embedded-book.
 
 ## Updating the toolstate repository
 
@@ -57,7 +71,7 @@ Tools can be updated by updating the submodule to the proper commit.
 Run `git submodule update --remote path/to/submodule`, add the updates, make
 sure the tests pass, commit, and send a pull request. The path is from the
 root of the rust repository, so for example, the reference is
-`src/doc/reference` and miri is `src/tools/miri`.
+`src/doc/reference`.
 
 While not required, [subup] may assist you with this.
 

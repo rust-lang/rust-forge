@@ -2,7 +2,7 @@
 
 ## Which jobs we run
 
-The `rust-lang/rust` repository uses Azure Pipelines to test [all the other
+The `rust-lang/rust` repository uses GitHub Actions to test [all the other
 platforms][platforms] we support. We currently have two kinds of jobs running
 for each commit we want to merge to master:
 
@@ -26,14 +26,14 @@ platform’s custom Docker container. This has a lot of advantages for us:
   underlying image (switching from the trusty image to xenial was painless for
   us).
 - We can use ancient build environments to ensure maximum binary compatibility,
-  for example [using CentOS 5][dist-x86_64-linux] on our Linux builders.
+  for example [using CentOS 7][dist-x86_64-linux] on our Linux builders.
 - We can avoid reinstalling tools (like QEMU or the Android emulator) every
   time thanks to Docker image caching.
 - Users can run the same tests in the same environment locally by just running
   `src/ci/docker/run.sh image-name`, which is awesome to debug failures.
 
 We also run tests for less common architectures (mainly Tier 2 and Tier 3
-platforms) on Azure Pipelines. Since those platforms are not x86 we either run
+platforms) in CI. Since those platforms are not x86 we either run
 everything inside QEMU or just cross-compile if we don’t want to run the tests
 for that platform.
 
@@ -63,10 +63,10 @@ Since the merge commit is based on the latest master and only one can be tested
 at the same time, when the results are green master is fast-forwarded to that
 merge commit.
 
-Unfortunately testing a single PR at the time, combined with our long CI (~3.5
+Unfortunately testing a single PR at the time, combined with our long CI (~3
 hours for a full run), means we can’t merge too many PRs in a single day, and a
 single failure greatly impacts our throughput for the day. The maximum number
-of PRs we can merge in a day is 7.
+of PRs we can merge in a day is around 8.
 
 [bors]: https://github.com/bors
 [homu]: https://github.com/rust-lang/homu
@@ -96,31 +96,26 @@ same time, even if there is a normal PR in progress.
 
 ## Which branches we test
 
-Our builders are defined in `src/ci/azure-pipelines/`, and they depend on the
-branch used for the build. Each job is configured in one of the top `.yml`
-files.
+Our builders are defined in [`src/ci/github-actions/ci.yml`].
+
+[`src/ci/github-actions/ci.yml`]: https://github.com/rust-lang/rust/blob/master/src/ci/github-actions/ci.yml
 
 ### PR builds
 
 All the commits pushed in a PR run a limited set of tests: a job containing a
 bunch of lints plus a cross-compile check build to Windows mingw (without
-producing any artifacts) and the `x86_64-gnu-llvm-6.0` non-dist builder. Those
+producing any artifacts) and the `x86_64-gnu-llvm-13` non-dist builder. Those
 two builders are enough to catch most of the common errors introduced in a PR,
 but they don’t cover other platforms at all. Unfortunately it would take too
 many resources to run the full test suite for each commit on every PR.
 
-Additionally, if the PR changes submodules the `x86_64-gnu-tools` non-dist
+Additionally, if the PR changes certain tools, the `x86_64-gnu-tools` non-dist
 builder is run.
 
 ### The `try` branch
 
-On the main rust repo try builds produce just a Linux toolchain. Builds on
-those branches run a job containing the lint builder and both the dist and
-non-dist builders for `linux-x86_64`. Usually we don’t need `try` builds for
-other platforms, but on the rare cases when this is needed we just add a
-temporary commit that changes the `src/ci/azure-pipelines/try.yml` file to
-enable the builders we need on that platform (disabling Linux to avoid wasting
-CI resources).
+On the main rust repo, `try` builds produce just a Linux toolchain using the
+`dist-x86_64-linux` image.
 
 ### The `auto` branch
 
@@ -138,23 +133,19 @@ below).
 ### Other branches
 
 Other branches are just disabled and don’t run any kind of builds, since all
-the in-progress branches will eventually be tested in a PR. We try to encourage
-contributors to create branches on their own fork, but there is no way for us
-to disable that.
+the in-progress branches will eventually be tested in a PR.
 
 ## Caching
 
-The main rust repository doesn’t use the native Azure Pipelines caching tools.
+The main rust repository doesn’t use the native GitHub Actions caching tools.
 All our caching is uploaded to an S3 bucket we control
 (`rust-lang-ci-sccache2`), and it’s used mainly for two things:
 
 ### Docker images caching
 
 The Docker images we use to run most of the Linux-based builders take a *long*
-time to fully build: every time we need to build them (for example when the CI
-scripts change) we consistently reach the build timeout, forcing us to retry
-the merge. To avoid the timeouts we cache the exported images on the S3 bucket
-(with `docker save`/`docker load`).
+time to fully build. To speed up the build, we cache the exported images on the
+S3 bucket (with `docker save`/`docker load`).
 
 Since we test multiple, diverged branches (`master`, `beta` and `stable`) we
 can’t rely on a single cache for the images, otherwise builds on a branch would
@@ -175,17 +166,6 @@ we do with our S3 bucket.
 
 During the years we developed some custom tooling to improve our CI experience.
 
-### Cancelbot to keep the queue short
-
-We have limited CI capacity on Azure Pipelines, and while that’s enough for a
-single build we can’t run more than one at the time. Unfortunately when a job
-fails the other jobs on the same build will continue to run, limiting the
-available capacity. To avoid the issue we have a tool called [cancelbot] that
-runs in cron every 2 minutes and kills all the jobs not related to a running
-build through the API.
-
-[cancelbot]: https://github.com/rust-lang/rust-central-station/tree/master/cancelbot
-
 ### Rust Log Analyzer to show the error message in PRs
 
 The build logs for `rust-lang/rust` are huge, and it’s not practical to find
@@ -204,19 +184,18 @@ saw before.
 
 ### Toolstate to support allowed failures
 
-The `rust-lang/rust` repo doesn’t only test the compiler on its CI, but also
-all the tools distributed through rustup (like miri). Since
-those tools rely on the compiler internals (which don’t have any kind of
-stability guarantee) they often break after the compiler code is changed.
+The `rust-lang/rust` repo doesn’t only test the compiler on its CI, but also a
+variety of tools and documentation. Some documentation is pulled in via git
+submodules. If we blocked merging rustc PRs on the documentation being fixed,
+we would be stuck in a chicken-and-egg problem, because the documentation's CI
+would not pass since updating it would need the not-yet-merged version of
+rustc to test against (and we usually require CI to be passing).
 
-If we blocked merging rustc PRs on the tools being fixed we would be stuck in a
-chicken-and-egg problem, because the tools need the new rustc to be fixed but
-we can’t merge the rustc change until the tools are fixed. To avoid the problem
-most of the tools are allowed to fail, and their status is recorded in
-[rust-toolstate]. When a tool breaks a bot automatically pings the tool authors
-so they know about the breakage, and it records the failure on the toolstate
-repository. The release process will then ignore broken tools on nightly,
-removing them from the shipped nightlies.
+To avoid the problem, submodules are allowed to fail, and their status is
+recorded in [rust-toolstate]. When a submodule breaks, a bot automatically
+pings the maintainers so they know about the breakage, and it records the
+failure on the toolstate repository. The release process will then ignore
+broken tools on nightly, removing them from the shipped nightlies.
 
 While tool failures are allowed most of the time, they’re automatically
 forbidden a week before a release: we don’t care if tools are broken on nightly
@@ -226,4 +205,4 @@ few days before we promote nightly to beta.
 More information is available in the [toolstate documentation].
 
 [rust-toolstate]: https://rust-lang-nursery.github.io/rust-toolstate
-[toolstate documentation]: https://forge.rust-lang.org/infra/toolstate.html
+[toolstate documentation]: ../toolstate.md
