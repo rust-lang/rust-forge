@@ -26,7 +26,7 @@ platform’s custom Docker container. This has a lot of advantages for us:
   underlying image (switching from the trusty image to xenial was painless for
   us).
 - We can use ancient build environments to ensure maximum binary compatibility,
-  for example [using CentOS 7][dist-x86_64-linux] on our Linux builders.
+  for example [using older CentOS releases][dist-x86_64-linux] on our Linux builders.
 - We can avoid reinstalling tools (like QEMU or the Android emulator) every
   time thanks to Docker image caching.
 - Users can run the same tests in the same environment locally by just running
@@ -104,10 +104,11 @@ Our builders are defined in [`src/ci/github-actions/ci.yml`].
 
 All the commits pushed in a PR run a limited set of tests: a job containing a
 bunch of lints plus a cross-compile check build to Windows mingw (without
-producing any artifacts) and the `x86_64-gnu-llvm-13` non-dist builder. Those
-two builders are enough to catch most of the common errors introduced in a PR,
-but they don’t cover other platforms at all. Unfortunately it would take too
-many resources to run the full test suite for each commit on every PR.
+producing any artifacts) and the `x86_64-gnu-llvm-##` non-dist builder (where
+`##` is the *system* LLVM version we are currently testing). Those two
+builders are enough to catch most of the common errors introduced in a PR, but
+they don’t cover other platforms at all. Unfortunately it would take too many
+resources to run the full test suite for each commit on every PR.
 
 Additionally, if the PR changes certain tools, the `x86_64-gnu-tools` non-dist
 builder is run.
