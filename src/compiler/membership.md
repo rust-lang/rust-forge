@@ -60,7 +60,7 @@ Being promoted to contributor implies a number of privileges:
   
 It also implies some obligations (in some cases, optional obligations):
 
-- Contributors will be asked if they wish to be added to highfive rotation.
+- Contributors will be asked if they wish to be added to the reviewer rotation.
 - Contributors are held to a higher standard than ordinary folk when
   it comes to the [Code of Conduct][CoC].
 
