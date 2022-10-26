@@ -110,7 +110,8 @@ builders are enough to catch most of the common errors introduced in a PR, but
 they don’t cover other platforms at all. Unfortunately it would take too many
 resources to run the full test suite for each commit on every PR.
 
-Additionally, if the PR changes certain tools, the `x86_64-gnu-tools` non-dist
+Additionally, if the PR changes certain tools (or certain platform-specific
+parts of std to check for miri breakage), the `x86_64-gnu-tools` non-dist
 builder is run.
 
 ### The `try` branch
