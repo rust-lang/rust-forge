@@ -28,7 +28,7 @@
   communicates that the PR is an experiment to test out some changes.
 
 Also: [PRs with no status tags][no-status-tags]. This is useful to find PRs
-where highfive conked out and didn't assign a reviewer and thus didn't assign
+where rustbot conked out and didn't assign a reviewer and thus didn't assign
 [S-waiting-on-review]. These PRs can get lost otherwise. (Note that you should
 likely **not** triage PRs that have `r? @ghost` since that means the author does
 not need a review yet.)

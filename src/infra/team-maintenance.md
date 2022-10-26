@@ -32,9 +32,9 @@ To make a full team member, the following places need to be modified:
   [rust-lang-nursery/TEAM][gh-nursery-team] teams on github must be updated
 - the
   [internals discussion board has per-team groups](https://internals.rust-lang.org/admin/groups/custom)
-- the list of reviewers highfive uses is set in [rust-lang/highfive][highfive]
-  - the configs are set per-repo; some teams are listed in `rust.json`, whereas
-    those that span multiple repos are set in `_global.json`
+- if the member is going to join the review rotation, they will need to be
+  added to the `[assign.owners]` section of `triagebot.toml` of the repos
+  where they will be reviewing
 
 ### Team member departure
 
@@ -45,6 +45,7 @@ Remove the team member from any and all places:
 - The [GitHub team][gh-team], [GitHub nursery team][gh-nursery-team]
 - [team repo]
 - [toolstate notifications]
+- `triagebot.toml` files of all repos they were involved in
 
 [gh-team]: https://github.com/orgs/rust-lang/teams
 [gh-nursery-team]: https://github.com/orgs/rust-lang-nursery/teams

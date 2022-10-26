@@ -5,7 +5,7 @@ reviewed by at least one person who is knowledgeable with the code in
 question.
 
 When a PR is opened, you can request a reviewer by including `r?
-@username` in the PR description. If you don't do so, the highfive bot
+@username` in the PR description. If you don't do so, rustbot
 will automatically assign someone.
 
 It is common to leave a `r? @username` comment at some later point to
