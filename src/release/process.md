@@ -12,7 +12,7 @@ PR then other pull requests in that rollup will be incorrectly associated with
 the prior release.
 
 This is effectively when the beta branch forks -- when beta is promoted, it will
-be based off of the commit just before this version number bump PR.
+be based off of the PR that landed just before this version number bump PR.
 
 ## Promote branches (T-3 days, Monday)
 
