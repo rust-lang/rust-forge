@@ -11,6 +11,9 @@ Mark it as `rollup=never`, because if it lands in a rollup as *not* the first
 PR then other pull requests in that rollup will be incorrectly associated with
 the prior release.
 
+This is effectively when the beta branch forks -- when beta is promoted, it will
+be based off of the commit just before this version number bump PR.
+
 ## Promote branches (T-3 days, Monday)
 
 Both promotions should happen on Monday. You can open both PRs at the same
