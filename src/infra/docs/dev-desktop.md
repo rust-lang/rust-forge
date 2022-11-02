@@ -35,8 +35,12 @@ authentication, and automatically fetch the user’s public keys from GitHub.
 You can connect to the instance with the following command:
 
 ```shell
-ssh <your-username>@<instance>
+ssh <your-username>@<name>.infra.rust-lang.org
 ```
+
+Replace `<name>` with the machine name from the table at the top of the page.
+For example, connect to `dev-desktop-eu-1` using the hostname
+`dev-desktop-eu-1.infra.rust-lang.org`.
 
 If you don’t have a public key on GitHub, read the following guides that explain
 how to create an SSH key and add it to your GitHub account. It might take a few
