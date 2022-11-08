@@ -10,9 +10,23 @@ This document outlines why we use CDNs, for what, and how we have set them up.
 
 ## Objectives
 
-- Reduce costs of outbound traffic by caching resources in the CDN
-- Reduce load on origin servers to save compute resources
-- Provide a way to rewrite legacy URLs for some resources
+We have three goals for our use of CDNs in our infrastructure:
+
+1. Reduce costs of outbound traffic through cheaper pricing and caching
+2. Reduce load on origin servers to save compute resources
+3. Provide a way to rewrite legacy URLs for some resources
+
+### Reducing Costs
+
+As an open source project, we have to be very mindful of our infrastructure
+costs. Outbound traffic is by far one of the most expensive items on our monthly
+bills, and one that will continue to increase as Rust gets more popular.
+
+Cloud providers typically charge different rates for outbound traffic based on
+the service. For example, serving data straight from [Amazon S3] is more
+expensive than serving the same data through an [Amazon CloudFront]
+distribution. This is why we now use a CDN by default, even for services that
+can't make use of other features of a CDN such as caching.
 
 ## Infrastructure
 
