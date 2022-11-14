@@ -52,7 +52,7 @@ queue has been merged.
 
 The queue is sorted by rollup status. In general, a good rollup includes one or two `iffy` PRs (if available), a bunch of `maybe` (unmarked) PRs, and a large pile of `always` PRs. A rollup should never include `rollup=never` PRs.
 
-The actual absolute size of the rollup can depend based on experience, people new to making rollups might start with including 1 `iffy`, 4 `maybe`s, and 5 `never`s, but more experienced people might even make a rollup of 1-2 `iffy`s, 8 `maybe`s, and 10 `never`s! Massive rollups are rarely needed, but as your intuition grows you'll get better at judging risk when including PRs in a rollup.
+The actual absolute size of the rollup can depend based on experience, people new to making rollups might start with including 1 `iffy`, 4 `maybe`s, and 5 `always`s, but more experienced people might even make a rollup of 1-2 `iffy`s, 8 `maybe`s, and 10 `always`s! Massive rollups are rarely needed, but as your intuition grows you'll get better at judging risk when including PRs in a rollup.
 
 Don't hesitate to downgrade the rollup status of a PR! If your intuition tells you that a `rollup=always` PR has some chances for failures, mark it `rollup=maybe` or `rollup=iffy`. A lot of the unmarked `maybe` PRs are categorized as such because the reviewer may not have considered rollupability, so it's always worth picking them with a critical eye. Similarly, if a PR causes your rollup to fail, it's worth considering changing its rollup status
 
