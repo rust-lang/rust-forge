@@ -53,6 +53,7 @@
         - [AWS access management](./infra/docs/aws-access-management.md)
         - [Bastion server](./infra/docs/bastion.md)
         - [Bors](./infra/docs/bors.md)
+        - [CDN](./infra/docs/cdn.md)
         - [Crater agents](./infra/docs/crater-agents.md)
         - [Custom GitHub Actions runners](./infra/docs/gha-self-hosted.md)
         - [Dev Desktops](./infra/docs/dev-desktop.md)
