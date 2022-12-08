@@ -97,9 +97,17 @@ impact on performance, it can be marked `rollup=always`.
 
 Often it is tempting to address a regression by posting a follow-up PR that,
 rather than reverting the regressing PR, instead augments the original in
-small ways without reverting its changes overall. However,
-if real-world users have reported being affected, this practice is strongly
-discouraged unless a high-confidence fix is already in the bors queue.
+small ways without reverting its changes overall. However, if real-world users
+have reported being affected, this practice is strongly discouraged unless one
+of the following is true:
+
+* A high-confidence fix is already in the bors queue.
+* The regression has made it to a release branch (beta or stable) and a
+  [backport] is needed. Often the "smallest possible change" is desired for a
+  backport. The offending PR may or may not still be reverted on the main
+  branch; this is left to the discretion of someone who can `r+` it.
+
+[backport]: ../release/backporting.md
 
 While it can feel like a significant step backward to have your PR reverted, in
 most cases it is much easier to land the PR a second time once a fix can be
