@@ -27,6 +27,83 @@ delegate+` or `@bors delegate=username`. This will allow the PR author
 to approve the PR by issuing `@bors` commands like the ones above
 (but this privilege is limited to the single PR).
 
+## Reverts
+
+If a merged PR is found to have caused a meaningful regression, the best policy
+is to revert it quickly and re-land it later once a fix and regression test are
+added.
+
+A "meaningful regression" in this case is up to the judgment of the person
+approving the revert. As a rule of thumb, this would be a bug in a stable
+or otherwise important feature that causes code to stop compiling, changes
+runtime behavior, or triggers a (warn-by-default or higher) lint incorrectly in
+real-world code.
+
+When these criteria are in doubt, and especially if real-world code is affected,
+revert the PR. This allows bleeding edge users to continue to use and report
+bugs on HEAD with a higher degree of certainty about where new bugs are introduced.
+
+Before being reverted, a PR should be shown to cause a regression with a fairly
+high degree of certainty (e.g. bisection on commits, or bisection on nightlies
+with one or more compiler team members pointing to this PR, or it's simply
+obvious to everyone involved). Only revert with lower certainty if the issue is
+particularly critical or urgent to fix.
+
+### Creating reverts
+
+The easiest method for creating a revert is to use the "Revert" button on
+Github. This appears next to the "bors merged commit abcd" message on a pull
+request, and creates a new pull request.
+
+![Location of the "Revert" button](revert-button.png)
+
+Alternatively, a revert commit can be created using the git CLI and then
+uploaded as a pull request:
+
+```terminal
+$ git revert -m 1 62d5bee
+```
+
+It's polite to tag the author and reviewer of the original PR so they know
+what's going on. You can use the following message template:
+
+```
+Reverts rust-lang/rust#123456
+cc @author @reviewer
+
+This revert is based on the following report of a regression caused by this PR:
+<link to issue or comment(s)>
+
+In accordance with the compiler team [revert policy], PRs that cause meaningful
+regressions should be reverted and re-landed once the regression has been fixed
+(and a regression test has been added, where appropriate).
+[revert policy]: https://forge.rust-lang.org/compiler/reviews.html#reverts
+
+Fear not! Regressions happen. Please rest assured that this does not
+represent a negative judgment of your contribution or ability to contribute
+positively to Rust in the future. We simply want to prioritize keeping existing
+use cases working, and keep the compiler more stable for everyone.
+
+r? compiler
+```
+
+If you have r+ privileges, you can self-approve a revert.
+
+Generally speaking, reverts should have elevated priority and match the `rollup`
+status of the PR they are reverting. If a non-rollup PR is shown to have no
+impact on performance, it can be marked `rollup=always`.
+
+### Forward fixes
+
+Often it is tempting to "forward fix" a regression with a follow-up PR. However,
+if real-world users have reported being affected, this practice is strongly
+discouraged unless a high-confidence fix is already in the bors queue.
+
+While it can feel like a significant step backward to have your PR reverted, in
+most cases it is much easier to land the PR a second time once a fix can be
+confirmed. Allowing a revert to land takes pressure off of you and your
+reviewers to act quickly and gives you time to address the issue fully.
+
 ## Rollups
 
 All reviewers are strongly encouraged to explicitly mark a PR as to whether or
@@ -82,6 +159,7 @@ The following is some guidance for setting priorities:
 - 1-5
     - P-high issue fixes
     - Toolstate fixes
+    - Reverts containing the above
     - Beta-nominated PRs
     - Submodule/Subtree updates
 - 5+
