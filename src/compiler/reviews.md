@@ -95,7 +95,9 @@ impact on performance, it can be marked `rollup=always`.
 
 ### Forward fixes
 
-Often it is tempting to "forward fix" a regression with a follow-up PR. However,
+Often it is tempting to address a regression by posting a follow-up PR that,
+rather than reverting the regressing PR, instead augments the original in
+small ways without reverting its changes overall. However,
 if real-world users have reported being affected, this practice is strongly
 discouraged unless a high-confidence fix is already in the bors queue.
 
