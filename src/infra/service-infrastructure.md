@@ -19,8 +19,7 @@ your own work, please let the infrastructure team know.
 ([bot user account](https://github.com/rust-highfive)) which welcomes newcomers
 and assigns reviewers.
 
-> **Note**: Highfive is currently being replaced by [rustbot](#rustbot). This
-> service will be shut down in the future once the migration is complete.
+> **Note**: Highfive has been replaced by [rustbot](#rustbot).
 
 ## Rust Log Analyzer
 
