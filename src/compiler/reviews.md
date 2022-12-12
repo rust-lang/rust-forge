@@ -29,9 +29,9 @@ to approve the PR by issuing `@bors` commands like the ones above
 
 ## Reverts
 
-If a merged PR is found to have caused a meaningful regression, the best policy
-is to revert it quickly and re-land it later once a fix and regression test are
-added.
+If a merged PR is found to have caused a meaningful unanticipated regression,
+the best policy is to revert it quickly and re-land it later once a fix and
+regression test are added.
 
 A "meaningful regression" in this case is up to the judgment of the person
 approving the revert. As a rule of thumb, this would be a bug in a stable
