@@ -50,3 +50,7 @@ to use the following regions for new resources:
   want to use a cheaper region here to benefit at least a little bit.
 - `eu-central-1` - Since we're not deploying that many resources to Europe, we
   want to optimize for location here.
+
+When deploying new resources, they should be deployed to `us-east-2` by default.
+Only resources that need to be geographically distributed should be deployed to
+`eu-central-1`.
