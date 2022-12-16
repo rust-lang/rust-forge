@@ -51,6 +51,7 @@
     - [Documentation](./infra/docs/README.md)
         - [AWS access for team members](./infra/docs/aws-access.md)
         - [AWS access management](./infra/docs/aws-access-management.md)
+        - [AWS regions](./infra/docs/aws-regions.md)
         - [Bastion server](./infra/docs/bastion.md)
         - [Bors](./infra/docs/bors.md)
         - [CDN](./infra/docs/cdn.md)
