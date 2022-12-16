@@ -7,7 +7,9 @@ free access to high-powered cloud compute. They are part of the
 | Machine            | Architecture | Perf enabled | Location       |
 |--------------------|--------------|--------------|----------------|
 | `dev-desktop-eu-1` | `aarch64`    | Yes          | Germany        |
-| `dev-desktop-us-1` | `aarch64`    | Yes          | East Coast, US |
+| `dev-desktop-eu-2` | `amd64`      | No           | Netherlands    |
+| `dev-desktop-us-1` | `aarch64`    | Yes          | N. Virgina, US |
+| `dev-desktop-us-2` | `amd64`      | No           | Washington, US |
 
 ## How to apply to the program
 
