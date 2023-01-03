@@ -6,7 +6,7 @@ A developer submitting a pull request to rust-lang/rust, experiences the followi
 
 - A small subset of tests and checks are run on each commit to catch common errors.
 - When the PR is ready and approved, the "bors" tool enqueues a full CI run.
-- The full run is either performed or the PR is "rolled up" with other changes.
+- The full run either queues the specific PR or the PR is "rolled up" with other changes.
 - Eventually a CI run containing the changes from the PR is performed and either passes or fails with an error the developer must address.
 
 ## Which jobs we run
