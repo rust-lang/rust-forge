@@ -92,12 +92,14 @@ The large CI run times and requirement for a large builder pool is worth it beca
 
 Bors [runs on ecs](https://github.com/rust-lang/simpleinfra/blob/master/terraform/bors/app.tf) and uses a sqlite database running in a volume as storage.
 
-[^1]: As of December 2022, the bottleneck are the macOS builders. Hopefully faster macOS builders will be coming soon!
+[^1]: As of January 2023, the bottleneck are the `dist-x86_64-linux` and `dist-x86_64-linux-alt` runners because of their usage of [BOLT] and [PGO] optimization tooling.
 
 [bors]: https://github.com/bors
 [homu]: https://github.com/rust-lang/homu
 [homu-queue]: https://bors.rust-lang.org/queue/rust
 [rust-lang-ci/rust]: https://github.com/rust-lang-ci/rust
+[BOLT]: https://github.com/facebookincubator/BOLT
+[PGO]: https://en.wikipedia.org/wiki/Profile-guided_optimization
 
 ### Rollups
 
