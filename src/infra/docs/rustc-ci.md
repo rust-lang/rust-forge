@@ -90,11 +90,13 @@ hours for a full run)[^1], means we can’t merge too many PRs in a single day, 
 single failure greatly impacts our throughput for the day. The maximum number
 of PRs we can merge in a day is around 8.
 
-The large CI run times and requirement for a large builder pool is worth it because it: 
+The large CI run times and requirement for a large builder pool is largely due to the
+fact that full release artifacts are built in the `dist-` builders. This is worth it 
+because these release artifacts: 
 
-- allows perf testing even at a later date 
-- allows bisection when bugs are discover later
-- ensures release quality since if we're always releasing, we catch problems very early
+- allow perf testing even at a later date 
+- allow bisection when bugs are discovered later
+- ensure release quality since if we're always releasing, we can catch problems early
 
 Bors [runs on ecs](https://github.com/rust-lang/simpleinfra/blob/master/terraform/bors/app.tf) and uses a sqlite database running in a volume as storage.
 
