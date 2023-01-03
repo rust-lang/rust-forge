@@ -3,10 +3,11 @@
 Rust CI ensures that the master branch of rust-lang/rust is always in a valid state.
 
 A developer submitting a pull request to rust-lang/rust, experiences the following:
-* A small subset of tests and checks are run on each commit to catch common errors.
-* When the PR is ready and approved, the "bors" tool enqueues a full CI run.
-* The full run is either performed or the PR is "rolled up" with other changes.
-* Eventually a CI run containing the changes from the PR is performed and either passes or fails with an error the developer must address.
+
+- A small subset of tests and checks are run on each commit to catch common errors.
+- When the PR is ready and approved, the "bors" tool enqueues a full CI run.
+- The full run is either performed or the PR is "rolled up" with other changes.
+- Eventually a CI run containing the changes from the PR is performed and either passes or fails with an error the developer must address.
 
 ## Which jobs we run
 
@@ -84,9 +85,10 @@ single failure greatly impacts our throughput for the day. The maximum number
 of PRs we can merge in a day is around 8.
 
 The large CI run times and requirement for a large builder pool is worth it because it: 
-* allows perf testing even at a later date 
-* allows bisection when bugs are discover later
-* ensures release quality since if we're always releasing, we catch problems very early
+
+- allows perf testing even at a later date 
+- allows bisection when bugs are discover later
+- ensures release quality since if we're always releasing, we catch problems very early
 
 Bors [runs on ecs](https://github.com/rust-lang/simpleinfra/blob/master/terraform/bors/app.tf) and uses a sqlite database running in a volume as storage.
 
@@ -241,9 +243,9 @@ GitHub Actions does not natively support templating which can cause configuratio
 
 This templating language is fairly straightforward:
 
-* `&` indicates a template section
-* `*` expands the indicated template in place
-* `<<` merges yaml dictionaries
+- `&` indicates a template section
+- `*` expands the indicated template in place
+- `<<` merges yaml dictionaries
 
 [rust-toolstate]: https://rust-lang-nursery.github.io/rust-toolstate
 [toolstate documentation]: ../toolstate.md
