@@ -80,7 +80,10 @@ Since the merge commit is based on the latest master and only one can be tested
 at the same time, when the results are green master is fast-forwarded to that
 merge commit.
 
-The `auto` branch and other branches used by bors live on a fork of the rust-lang/rust: [rust-lang-ci/rust]. This as originally done to some security limitations in GitHub Actions. These limitations have been addressed, but we've not yet done the work of removing the use of a fork.
+The `auto` branch and other branches used by bors live on a fork of rust-lang/rust: 
+[rust-lang-ci/rust]. This was originally done due to some security limitations in GitHub 
+Actions. These limitations have been addressed, but we've not yet done the work of removing 
+the use of the fork.
 
 Unfortunately testing a single PR at the time, combined with our long CI (~3
 hours for a full run)[^1], means we can’t merge too many PRs in a single day, and a
