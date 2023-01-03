@@ -39,7 +39,6 @@ platform’s custom [Docker container]. This has a lot of advantages for us:
   time thanks to Docker image caching.
 - Users can run the same tests in the same environment locally by just running
   `src/ci/docker/run.sh image-name`, which is awesome to debug failures.
-- Forces the use of portable scripts to drive the CI process which keeps the CI fairly platform independent (i.e., we are not overly reliant on GitHub Actions).
 
 The docker images prefixed with `dist-` are used for building artifacts while those without that prefix run tests and checks.
 
@@ -49,6 +48,10 @@ everything inside QEMU or just cross-compile if we don’t want to run the tests
 for that platform.
 
 These builders are running on a special pool of builders set up and maintained for us by GitHub.
+
+Almost all build steps shell out to separate scripts. This keeps the CI fairly platform independent (i.e., we are not 
+overly reliant on GitHub Actions). GitHub Actions is only relied on for bootstrapping the CI process and for orchestrating
+the scripts that drive the process.
 
 [platforms]: https://doc.rust-lang.org/nightly/rustc/platform-support.html
 [rustup-toolchain-install-master]: https://github.com/kennytm/rustup-toolchain-install-master
