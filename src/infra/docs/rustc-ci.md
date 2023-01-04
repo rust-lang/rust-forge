@@ -1,8 +1,17 @@
 # How the Rust CI works
 
+Rust CI ensures that the master branch of rust-lang/rust is always in a valid state.
+
+A developer submitting a pull request to rust-lang/rust, experiences the following:
+
+- A small subset of tests and checks are run on each commit to catch common errors.
+- When the PR is ready and approved, the "bors" tool enqueues a full CI run.
+- The full run either queues the specific PR or the PR is "rolled up" with other changes.
+- Eventually a CI run containing the changes from the PR is performed and either passes or fails with an error the developer must address.
+
 ## Which jobs we run
 
-The `rust-lang/rust` repository uses GitHub Actions to test [all the other
+The `rust-lang/rust` repository uses GitHub Actions to test [all the
 platforms][platforms] we support. We currently have two kinds of jobs running
 for each commit we want to merge to master:
 
@@ -12,7 +21,6 @@ for each commit we want to merge to master:
   [rustup-toolchain-install-master] tool; The same builds are also used for
   actual releases: our release process basically consists of copying those
   artifacts from `rust-lang-ci2` to the production endpoint and signing them.
-
 - Non-dist jobs run our full test suite on the platform, and the test suite of
   all the tools we ship through rustup; The amount of stuff we test depends on
   the platform (for example some tests are run only on Tier 1 platforms), and
@@ -20,7 +28,7 @@ for each commit we want to merge to master:
   wasting CI resources.
 
 All the builds except those on macOS and Windows are executed inside that
-platform’s custom Docker container. This has a lot of advantages for us:
+platform’s custom [Docker container]. This has a lot of advantages for us:
 
 - The build environment is consistent regardless of the changes of the
   underlying image (switching from the trusty image to xenial was painless for
@@ -32,13 +40,22 @@ platform’s custom Docker container. This has a lot of advantages for us:
 - Users can run the same tests in the same environment locally by just running
   `src/ci/docker/run.sh image-name`, which is awesome to debug failures.
 
+The docker images prefixed with `dist-` are used for building artifacts while those without that prefix run tests and checks.
+
 We also run tests for less common architectures (mainly Tier 2 and Tier 3
 platforms) in CI. Since those platforms are not x86 we either run
 everything inside QEMU or just cross-compile if we don’t want to run the tests
 for that platform.
 
+These builders are running on a special pool of builders set up and maintained for us by GitHub.
+
+Almost all build steps shell out to separate scripts. This keeps the CI fairly platform independent (i.e., we are not 
+overly reliant on GitHub Actions). GitHub Actions is only relied on for bootstrapping the CI process and for orchestrating
+the scripts that drive the process.
+
 [platforms]: https://doc.rust-lang.org/nightly/rustc/platform-support.html
 [rustup-toolchain-install-master]: https://github.com/kennytm/rustup-toolchain-install-master
+[Docker container]: https://github.com/rust-lang/rust/tree/master/src/ci/docker
 [dist-x86_64-linux]: https://github.com/rust-lang/rust/blob/master/src/ci/docker/host-x86_64/dist-x86_64-linux/Dockerfile
 
 ## Merging PRs serially with bors
@@ -63,14 +80,34 @@ Since the merge commit is based on the latest master and only one can be tested
 at the same time, when the results are green master is fast-forwarded to that
 merge commit.
 
+The `auto` branch and other branches used by bors live on a fork of rust-lang/rust: 
+[rust-lang-ci/rust]. This was originally done due to some security limitations in GitHub 
+Actions. These limitations have been addressed, but we've not yet done the work of removing 
+the use of the fork.
+
 Unfortunately testing a single PR at the time, combined with our long CI (~3
-hours for a full run), means we can’t merge too many PRs in a single day, and a
+hours for a full run)[^1], means we can’t merge too many PRs in a single day, and a
 single failure greatly impacts our throughput for the day. The maximum number
 of PRs we can merge in a day is around 8.
+
+The large CI run times and requirement for a large builder pool is largely due to the
+fact that full release artifacts are built in the `dist-` builders. This is worth it 
+because these release artifacts: 
+
+- allow perf testing even at a later date 
+- allow bisection when bugs are discovered later
+- ensure release quality since if we're always releasing, we can catch problems early
+
+Bors [runs on ecs](https://github.com/rust-lang/simpleinfra/blob/master/terraform/bors/app.tf) and uses a sqlite database running in a volume as storage.
+
+[^1]: As of January 2023, the bottleneck are the `dist-x86_64-linux` and `dist-x86_64-linux-alt` runners because of their usage of [BOLT] and [PGO] optimization tooling.
 
 [bors]: https://github.com/bors
 [homu]: https://github.com/rust-lang/homu
 [homu-queue]: https://bors.rust-lang.org/queue/rust
+[rust-lang-ci/rust]: https://github.com/rust-lang-ci/rust
+[BOLT]: https://github.com/facebookincubator/BOLT
+[PGO]: https://en.wikipedia.org/wiki/Profile-guided_optimization
 
 ### Rollups
 
@@ -78,9 +115,11 @@ Some PRs don’t need the full test suite to be executed: trivial changes like
 typo fixes or README improvements *shouldn’t* break the build, and testing
 every single one of them for 2 to 3 hours is a big waste of time. To solve this
 we do a "rollup", a PR where we merge all the trivial PRs so they can be tested
-together. Rollups are created manually by a team member who uses their
-judgement to decide if a PR is risky or not, and are the best tool we have at
+together. Rollups are created manually by a team member using the "create a rollup" button on the [bors queue]. The team member uses their
+judgment to decide if a PR is risky or not, and are the best tool we have at
 the moment to keep the queue in a manageable state.
+
+[bors queue]: https://bors.rust-lang.org/queue/rust
 
 ### Try builds
 
@@ -90,6 +129,8 @@ ecosystem][crater]. Bors supports creating them by pushing the merge commit on
 a separate branch (`try`), and they basically work the same as normal builds,
 without the actual merge at the end. Any number of try builds can happen at the
 same time, even if there is a normal PR in progress.
+
+You can see the CI configuration for try builds [here](https://github.com/rust-lang/rust/blob/9d46c7a3e69966782e163877151c1f0cea8b630a/src/ci/github-actions/ci.yml#L728-L741).
 
 [perf]: https://perf.rust-lang.org
 [crater]: https://github.com/rust-lang/crater
@@ -179,8 +220,8 @@ automatically, posting it on the PR.
 The bot is not hardcoded to look for error strings, but was trained with a
 bunch of build failures to recognize which lines are common between builds and
 which are not. While the generated snippets can be weird sometimes, the bot is
-pretty good at identifying the relevant lines even if it’s an error we never
-saw before.
+pretty good at identifying the relevant lines even if it’s an error we've never
+seen before.
 
 [rla]: https://github.com/rust-lang/rust-log-analyzer
 
@@ -206,5 +247,18 @@ few days before we promote nightly to beta.
 
 More information is available in the [toolstate documentation].
 
+### GitHub Actions Templating
+
+GitHub Actions does not natively support templating which can cause configurations to be large and difficult to change. We use YAML anchors for templating and a custom tool, [`expand-yaml-anchors`], to expand [the template] into the CI configuration that [GitHub uses][ci config].
+
+This templating language is fairly straightforward:
+
+- `&` indicates a template section
+- `*` expands the indicated template in place
+- `<<` merges yaml dictionaries
+
 [rust-toolstate]: https://rust-lang-nursery.github.io/rust-toolstate
 [toolstate documentation]: ../toolstate.md
+[`expand-yaml-anchors`]: https://github.com/rust-lang/rust/tree/master/src/tools/expand-yaml-anchors
+[the template]: https://github.com/rust-lang/rust/blob/736c675d2ab65bcde6554e1b73340c2dbc27c85a/src/ci/github-actions/ci.yml
+[ci config]: https://github.com/rust-lang/rust/blob/master/.github/workflows/ci.yml
