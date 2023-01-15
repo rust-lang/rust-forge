@@ -132,7 +132,7 @@ In summary:
    a local folder
 2. Then open VS Code on your machine and install
    the [Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
-3. Open the command palette and search for “Remote-SS: Connect to host”
+3. Open the command palette and search for “Remote-SSH: Connect to host”
 4. Enter your username and the instance name (`<your-username>@<instance>`)
 5. Select the path for the cloned repository from step 1
 6. Install any extensions that you want to run on the server (e.g.
