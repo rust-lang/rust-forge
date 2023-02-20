@@ -119,7 +119,7 @@ Try to follow the [General issues review process](#general-issues-review-process
 Issues labeled with `I-compiler-nominated` generally are nominated to specifically have the compiler team dedicate them a special slice of the meeting (generally towards the end). After the discussion, add a comment on Github linking the Zulip message where the discussion started (so everyone can read). `T-compiler` sometimes writes a summary of the discussion on the issue itself.
 
 Try to follow the [General issues review process](#general-issues-review-process):
-- Check if an issue is needs a discussion and add the label `I-compiler-nominated`
+- Check if an issue needs a discussion and add the label `I-compiler-nominated`
 - When added to the agenda, add some context:
   - Who the assignee is
   - Is this an issue or a pull request: if it's an issue, does it have a pull request that fixes it?
