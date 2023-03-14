@@ -40,7 +40,6 @@ To make a full team member, the following places need to be modified:
 
 Remove the team member from any and all places:
 
-- [highfive]
 - 1password
 - The [GitHub team][gh-team], [GitHub nursery team][gh-nursery-team]
 - [team repo]
@@ -49,7 +48,6 @@ Remove the team member from any and all places:
 
 [gh-team]: https://github.com/orgs/rust-lang/teams
 [gh-nursery-team]: https://github.com/orgs/rust-lang-nursery/teams
-[highfive]: https://github.com/rust-lang/highfive/tree/master/highfive/configs
 [team repo]: https://github.com/rust-lang/team/tree/master/teams
 [team website]: https://www.rust-lang.org/governance
 [toolstate notifications]: https://github.com/rust-lang/rust/blob/master/src/tools/publish_toolstate.py
