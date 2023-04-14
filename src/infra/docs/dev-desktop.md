@@ -51,6 +51,16 @@ minutes after the key has been added before the dev desktops get updated.
 - [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 - [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
+To make the command easier, you can configure an alias in your `~/.ssh/config` like so:
+
+```ssh-config
+Host rustvm
+  User <your-username>
+  HostName <name>.infra.rust-lang.org
+```
+
+Then you can connect with `ssh rustvm`.
+
 ## How to set up your account
 
 When connecting to the machine for the first time, there are a few things you
