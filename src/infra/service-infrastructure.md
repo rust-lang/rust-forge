@@ -13,15 +13,6 @@ your own work, please let the infrastructure team know.
 
 [rust-central-station]: https://github.com/rust-lang/rust-central-station
 
-## Highfive
-
-[Highfive](https://github.com/rust-lang/highfive) is a bot
-([bot user account](https://github.com/rust-highfive)) which welcomes newcomers
-and assigns reviewers.
-
-> **Note**: Highfive is currently being replaced by [rustbot](#rustbot). This
-> service will be shut down in the future once the migration is complete.
-
 ## Rust Log Analyzer
 
 The [Rust Log Analyzer](https://github.com/rust-lang/rust-log-analyzer)
@@ -138,5 +129,11 @@ Tracker](https://alexcrichton.github.io/rust-ci-timing-tracker/) tracks and
 compares how long CI jobs take over time. It is run by [Alex
 Crichton](https://github.com/alexcrichton/rust-ci-timing-tracker).
 
-[crates.io]: https://crates.io/
+## Highfive (retired)
 
+[Highfive](https://github.com/rust-lang/highfive) is a bot
+([bot user account](https://github.com/rust-highfive)) which was previously
+used to welcome newcomers and assigned reviewers. This service has been
+replaced with [rustbot](#rustbot).
+
+[crates.io]: https://crates.io/
