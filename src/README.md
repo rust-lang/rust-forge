@@ -21,7 +21,7 @@ Repository                  | Description
 [www.rust-lang.org][gh/www] | The Rust website
 
 [gh/rust]: https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+label%3AE-help-wanted+no%3Aassignee
-[gh/cargo]: https://github.com/rust-lang/cargo/issues?q=is%3Aopen+is%3Aissue+label%3AE-help-wanted+no%3Aassignee
+[gh/cargo]: https://github.com/rust-lang/cargo/issues?q=is%3Aopen+is%3Aissue+label%3AS-accepted+no%3Aassignee
 [gh/crates.io]: https://github.com/rust-lang/crates.io/issues?q=is%3Aopen+is%3Aissue+label%3AE-help-wanted+no%3Aassignee
 [gh/www]: https://github.com/rust-lang/www.rust-lang.org/issues?q=is%3Aopen+label%3A%22good+first+issue%22+no%3Aassignee
 
