@@ -31,8 +31,6 @@
         - [How to run the planning meeting](./compiler/steering-meeting/how-to-run-planning.md)
         - [How to run a design meeting](./compiler/steering-meeting/how-to-run-design.md)
 - [crates.io](./crates-io/README.md)
-    - [Crate removal](./crates-io/crate-removal.md)
-    - [Database maintenance](./crates-io/db-maintenance.md)
 - [docs.rs](./docs-rs/README.md)
   - [Adding dependencies to the build environment](./docs-rs/add-dependencies.md)
   - [Self-hosting a docs.rs instance](./docs-rs/self-hosting.md)
