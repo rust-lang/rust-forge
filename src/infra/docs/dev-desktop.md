@@ -15,7 +15,8 @@ free access to high-powered cloud compute. They are part of the
 
 At this time, access to the program and the compute instances is limited to
 maintainers and core contributors of the Rust Project. While the program is
-under development, it is invite-only.
+under development, it is limited to [certain teams]. If you are in one of these
+teams, you should automatically have access.
 
 If you feel like your work on the Rust project would be significantly improved
 by access to a powerful build machine, reach out to [infra@rust-lang.org] with
@@ -156,3 +157,4 @@ We might ask you to create an issue in the [rust-lang/simpleinfra] repository.
 [rust-lang/rust]: https://github.com/rust-lang/rust
 [rust-lang/simpleinfra]: https://github.com/rust-lang/simpleinfra
 [visual studio code]: https://code.visualstudio.com/
+[certain teams]: https://github.com/search?q=repo%3Arust-lang%2Fteam+path%3Ateams%2F*.toml+dev-desktop&type=code&ref=advsearch
