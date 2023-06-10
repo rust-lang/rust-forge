@@ -13,6 +13,7 @@ command = "./build.bash"
 additional-js = ["js/moment.min.js", "js/index.js"]
 no-section-label=true
 git-repository-url="https://github.com/rust-lang/rust-forge"
+curly-quotes = true
 
 [output.html.redirect]
 "beta-backporting.html" = "/release/backporting.html"
@@ -48,3 +49,4 @@ git-repository-url="https://github.com/rust-lang/rust-forge"
 "chat/email.html" = "platforms/email.html"
 "chat/zulip/index.html" = "platforms/zulip/index.html"
 "chat/zulip.html" = "platforms/zulip.html"
+"platforms/zulip/triagebot.html" = "/triagebot/index.html"
