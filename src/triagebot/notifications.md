@@ -8,7 +8,7 @@ Each registered team member has a notifications page at:
 
 `https://triage.rust-lang.org/notifications?user=<github-username>`
 
-Whenever you are mentioned on GitHub with a direction mention (`@user`) or via a team mention (`@rust-lang/libs`) anywhere in the rust-lang organization, this will add an entry to the notifications list.
+Whenever you are mentioned on GitHub with a direct mention (`@user`) or via a team mention (`@rust-lang/libs`) anywhere in the rust-lang organization, this will add an entry to the notifications list.
 
 The notifications list can also be edited via Zulip by [private-messaging triagebot](https://rust-lang.zulipchat.com/#narrow/pm-with/261224-triage-rust-lang-bot).
 Any Rust organization member can edit their notifications page, or pages of other Rust organization team members.
