@@ -4,7 +4,7 @@ The lang team uses the agenda generator to assist with meeting agendas.
 
 ## Usage
 
-The agenda generator can be viewed at <https://triagebot.infra.rust-lang.org/agenda>.
+The agenda generator can be viewed at <https://triage.rust-lang.org/agenda>.
 
 ## Configuration
 

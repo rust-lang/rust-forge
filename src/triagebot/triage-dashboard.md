@@ -4,9 +4,9 @@ The triage dashboard is used to assist with triaging open pull requests.
 
 ## Usage
 
-The triage dashboard for repositories can be found at <https://triagebot.infra.rust-lang.org/triage>.
+The triage dashboard for repositories can be found at <https://triage.rust-lang.org/triage>.
 
-Any rust-lang repository can be viewed with the form `https://triagebot.infra.rust-lang.org/triage/<owner>/<repo>`.
+Any rust-lang repository can be viewed with the form `https://triage.rust-lang.org/triage/<owner>/<repo>`.
 
 ## Configuration
 
