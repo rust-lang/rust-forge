@@ -32,7 +32,10 @@ The following pages explain the syntax needed for each feature.
 
 For example, the `rust-lang/rust` configuration file is at <https://github.com/rust-lang/rust/blob/master/triagebot.toml>.
 
-When first adding `triagebot.toml` to a new repository, you will need to ping `@simulacrum` on the [`#t-infra`](https://rust-lang.zulipchat.com/#narrow/stream/242791-t-infra) Zulip stream to enable the relevant permissions for the automation on the repository.
+When first adding `triagebot.toml` to a new repository, you will need to enable permissions for the bot to operate.
+This can be done by posting a PR to the [`rust-lang/team`](https://github.com/rust-lang/team) database to add `bots = ["rustbot"]` to the repository in the `repos/rust-lang` directory.
+Note that not all repositories are currently managed through the team database.
+For those, reach out to the infrastructure team on the [`#t-infra`](https://rust-lang.zulipchat.com/#narrow/stream/242791-t-infra) Zulip stream to enable the relevant permissions for the automation on the repository.
 
 ## Common command summary
 
