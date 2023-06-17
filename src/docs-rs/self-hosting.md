@@ -20,7 +20,7 @@ Docs.rs has a few basic requirements:
 * LXC tools (doc builds run inside an LXC container)
 
 ```console
-$ curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain nightly
+$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain nightly
 $ source $HOME/.cargo/env
 # apt install build-essential git curl cmake gcc g++ pkg-config libmagic-dev libssl-dev zlib1g-dev postgresql lxc-utils
 ```
@@ -109,7 +109,7 @@ Inside the container, we also need to set up a `cratesfyi` user, and install Rus
 
 ```console
 lxc-attach -n cratesfyi-container -- adduser --disabled-login --disabled-password --gecos "" cratesfyi
-lxc-attach -n cratesfyi-container -- su - cratesfyi -c 'curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain nightly'
+lxc-attach -n cratesfyi-container -- su - cratesfyi -c 'curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain nightly'
 lxc-attach -n cratesfyi-container -- su - cratesfyi -c 'rustup target add i686-apple-darwin'
 lxc-attach -n cratesfyi-container -- su - cratesfyi -c 'rustup target add i686-pc-windows-msvc'
 lxc-attach -n cratesfyi-container -- su - cratesfyi -c 'rustup target add i686-unknown-linux-gnu'
