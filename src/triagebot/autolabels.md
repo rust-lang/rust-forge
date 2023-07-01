@@ -66,6 +66,17 @@ For example:
 new_pr = true
 ```
 
+### Triggered by new issues
+
+Labels can be added to any issue when it is opened.
+Set the `new_issue = true` config option to enable this.
+For example:
+
+```toml
+[autolabel."new-issue"]
+new_issue = true
+```
+
 ## Implementation
 
 See [`src/handlers/autolabel.rs`](https://github.com/rust-lang/triagebot/blob/HEAD/src/handlers/autolabel.rs).
