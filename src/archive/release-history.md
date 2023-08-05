@@ -3,9 +3,9 @@ This is an archive of Rust release artifacts from 0.1–1.7.0. Each release is
 signed with the Rust [GPG signing key][key] ([older key][pre-0.8-key], [even
 older key][pre-0.5-key]).
 
-[key]: https://www.rust-lang.org/rust-key.gpg.ascii
-[pre-0.8-key]: https://www.rust-lang.org/rust-key-old.gpg.ascii
-[pre-0.5-key]: https://www.rust-lang.org/rust-key-very-old.gpg.ascii
+[key]: https://static.rust-lang.org/rust-key.gpg.ascii
+[pre-0.8-key]: https://static.rust-lang.org/rust-key-old.gpg
+[pre-0.5-key]: https://static.rust-lang.org/rust-key-very-old.gpg.ascii
 
 ## 1.7.0
 
