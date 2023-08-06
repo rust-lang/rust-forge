@@ -62,6 +62,7 @@
   - [Maintenance procedures](./docs-rs/maintenance.md)
 - [Governance](./governance/README.md)
     - [Leadership Council](./governance/council.md)
+    - [Moderation](./governance/moderation.md)
 - [Infrastructure](./infra/README.md)
     - [Other Installation Methods](./infra/other-installation-methods.md)
     - [Release Channel Layout](./infra/channel-layout.md)
