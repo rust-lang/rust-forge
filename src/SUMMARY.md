@@ -61,6 +61,7 @@
   - [Self-hosting a docs.rs instance](./docs-rs/self-hosting.md)
   - [Maintenance procedures](./docs-rs/maintenance.md)
 - [Governance](./governance/README.md)
+    - [Leadership Council](./governance/council.md)
 - [Infrastructure](./infra/README.md)
     - [Other Installation Methods](./infra/other-installation-methods.md)
     - [Release Channel Layout](./infra/channel-layout.md)
