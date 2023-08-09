@@ -1,5 +1,6 @@
 # GitHub
-Github is where the Rust project hosts all of its code, as well as large parts
+
+GitHub is where the Rust project hosts all of its code, as well as large parts
 of its discussions.
 
 ## Organisations
@@ -17,17 +18,6 @@ of its discussions.
 [`rust-cli`]: https://github.com/rust-cli
 [`rust-secure-code`]: https://github.com/rust-secure-code
 [`rust-gamedev`]: https://github.com/rust-gamedev
-
-## Team Repositories
-
-- [Compiler Team](https://github.com/rust-lang/compiler-team)
-- [Core Team](https://github.com/rust-lang/core-team)
-- [Crates.io Team](https://github.com/rust-lang/crates-io-cargo-teams)
-- [Infrastructure Team](https://github.com/rust-lang/infra-team)
-- [Language Team](https://github.com/rust-lang/lang-team)
-- [Moderation Team](https://github.com/rust-lang/moderation-team)
-- [Release Team](https://github.com/rust-lang/release-team)
-
 
 ## Administration FAQ
 
