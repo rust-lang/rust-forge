@@ -33,7 +33,6 @@
     - [Triagebot Dashboard](./triagebot/triage-dashboard.md)
     - [Zulip Meeting Management](./triagebot/zulip-meeting.md)
     - [Zulip Notifications](./triagebot/zulip-notifications.md)
-- [Core](./core/README.md)
 - [Community](./community/README.md)
     - [State of Rust Survey FAQ](./community/survey-faq.md)
 - [Compiler](./compiler/README.md)

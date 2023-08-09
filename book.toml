@@ -51,3 +51,4 @@ curly-quotes = true
 "chat/zulip.html" = "/platforms/zulip.html"
 "platforms/zulip/triagebot.html" = "/triagebot/index.html"
 "core/blogs.html" = "/platforms/blogs.html"
+"core/index.html" = "/governance/council.html"
