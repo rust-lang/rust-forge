@@ -23,13 +23,11 @@ of its discussions.
 
 > Who administrates the `rust-lang` organisation?
 
-All core team members have the `admin` role.
+The infrastructure team is responsible for administrating the GitHub organization.
 
 > How do I create a new repository under the `rust-lang` organisation, or make
   changes that require `admin` level permissions?
 
-You can contact a GitHub admin directly, or post the request in [`project leads
-(public)`] stream on Zulip and an admin will be able to respond to your request
-there.
+New repositories may be created by submitting a PR to add the repository in the [Rust team database][teams].
 
-[`project leads (public)`]: https://rust-lang.zulipchat.com/#narrow/stream/217588-project-leads.20(public)
+[teams]: https://github.com/rust-lang/team
