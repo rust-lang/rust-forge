@@ -12,7 +12,7 @@ Manual assignment can be done by posting a comment on the PR with the text:
 * `r? @octocat` --- Assigns a specific user.
 * `r? octocat` --- The `@` is optional.
 * `r? libs` --- Chooses a random person from the libs ad-hoc group defined in `triagebot.toml`.
-  For example, for the [rust-lang/rust] repository, see [`triagebot.toml`](https://github.com/rust-lang/rust/blob/master/triagebot.toml) for a list of ad-hoc group names.
+  For example, for the [rust-lang/rust](https://github.com/rust-lang/rust) repository, see [`triagebot.toml`](https://github.com/rust-lang/rust/blob/master/triagebot.toml) for a list of ad-hoc group names.
 * `r? rust-lang/libs` --- The `rust-lang/` org name prefix is optional.
 * `r? rustdoc` --- Chooses a random person from the rustdoc team.
   See the [teams database](https://github.com/rust-lang/team/tree/master/teams) for a list of team names.

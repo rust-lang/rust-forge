@@ -68,7 +68,7 @@ Paste the markdown file of this week [performance triage logs](https://github.co
 
 ### Announce the meeting on Zulip
 
-About two hours before the scheduled meeting, create a new topic on the Zulip stream `#t-compiler/meetings` titled "[weekly] YYYY-MM-DD" using the the following message template:
+About two hours before the scheduled meeting, create a new topic on the Zulip stream `#t-compiler/meetings` titled "\[weekly] YYYY-MM-DD" using the the following message template:
 
 ```text
 Hi @*T-compiler/meeting*; the triage meeting will happen tomorrow in about 2 hours.

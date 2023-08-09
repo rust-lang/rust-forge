@@ -1,6 +1,9 @@
 # Self hosting a docs.rs instance
 
-These are instructions for deploying the server in a production environment. For instructions on developing locally without docker-compose, see [Developing without docker-compose](no-docker-compose.html).
+These are instructions for deploying the server in a production environment. For instructions on developing locally without docker-compose, see [Developing without docker-compose][no-docker-compose].
+
+<!-- NOTE: This link is outdated, and should probably be migrated to this site. -->
+[no-docker-compose]: https://github.com/rust-lang/docs.rs/wiki/Developing-without-docker-compose
 
 Here is a breakdown of what it takes to turn a regular server into its own version of docs.rs.
 

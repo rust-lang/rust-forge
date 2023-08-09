@@ -1,6 +1,6 @@
 # State of Rust Survey FAQ
 
-In this FAQ we try to answer common questions about the Annual State of the Rust Language Community Survey. If in your opinion there is a missing question or if you have a concern about this document, please do not hesitate to contact the [Rust Community Team](community-team@rust-lang.org) or open an [issue with the Community Team](https://github.com/rust-community/team/issues).
+In this FAQ we try to answer common questions about the Annual State of the Rust Language Community Survey. If in your opinion there is a missing question or if you have a concern about this document, please do not hesitate to contact the [Rust Community Team](mailto:community-team@rust-lang.org) or open an [issue with the Community Team](https://github.com/rust-community/team/issues).
 
 ## Why is this survey important for the Rust project?
 

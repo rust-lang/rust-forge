@@ -26,7 +26,7 @@ To actually make the final selection, we recommend
     * Typical ratio is 2 technical, 1 non-technical, but this is not set in stone
     * It's ok to have fewer than 3 meetings
 
-[compiler-team]: XXX
+[compiler-team]: https://github.com/rust-lang/compiler-team/
 
 ## Announce the meetings
 

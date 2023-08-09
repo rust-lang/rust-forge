@@ -84,7 +84,7 @@ There are multiple steps needed to add a repository to our Bors instance:
 [Homu]: https://github.com/rust-lang/homu
 [bors-config]: https://github.com/rust-lang/homu/blob/master/cfg.production.toml
 [bors.rust-lang.org]: https://bors.rust-lang.org
-[ecs]: ./ecs-service.md
+[ecs]: ./ecs-services.md
 [rust-lang/homu]: https://github.com/rust-lang/homu
 [team-permissions.rs]: https://github.com/rust-lang/team/blob/52b4370214e1c8eabe483f3a26f22733d94b326f/config.toml#L18-L37
 [bors-permission]: https://github.com/rust-lang/team/blob/a1532ec2b08c9d40c0a2c7643ffe72de9671e265/teams/wg-compiler-performance.toml#L25-L26
