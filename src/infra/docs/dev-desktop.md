@@ -73,9 +73,9 @@ git config --global user.email "your-email"
 ## How to customize your shell
 
 You can set your default shell on the dev desktops by adding yourself to a
-configuration file in the [`rust-lang/simpleinfra`][simpleinfra] repository.
-Open `ansible/roles/dev-desktop/defaults/main.yml`, look for the variable
-`vars_user_config`, and add yourself to the list.
+configuration file in the [`rust-lang/simpleinfra`][simpleinfra-vars-user-config]
+repository. Open `ansible/roles/dev-desktop/defaults/main.yml`, look for the
+variable `vars_user_config`, and add yourself to the list.
 
 ```yaml
 vars_user_config:
@@ -180,4 +180,4 @@ We might ask you to create an issue in the [rust-lang/simpleinfra] repository.
 [rust-lang/simpleinfra]: https://github.com/rust-lang/simpleinfra
 [visual studio code]: https://code.visualstudio.com/
 [certain teams]: https://github.com/search?q=repo%3Arust-lang%2Fteam+path%3Ateams%2F*.toml+dev-desktop&type=code&ref=advsearch
-[simpleinfra]: https://github.com/rust-lang/simpleinfra/blob/dbf839ef25155df1f33c18f151283436b0f70f3b/ansible/roles/dev-desktop/defaults/main.yml#L12:L16
+[simpleinfra-vars-user-config]: https://github.com/rust-lang/simpleinfra/blob/dbf839ef25155df1f33c18f151283436b0f70f3b/ansible/roles/dev-desktop/defaults/main.yml#L12:L16
