@@ -72,8 +72,10 @@ git config --global user.email "your-email"
 
 ## How to customize your shell
 
-You can configure your default shell by opening a pull request against the
-[Simpleinfra ansible] to modify the `vars_user_config` as shown bloe:
+You can set your default shell on the dev desktops by adding yourself to a
+configuration file in the [`rust-lang/simpleinfra`][simpleinfra] repository.
+Open `ansible/roles/dev-desktop/defaults/main.yml`, look for the variable
+`vars_user_config`, and add yourself to the list.
 
 ```yaml
 vars_user_config:
@@ -82,6 +84,13 @@ vars_user_config:
   - username: gh-WaffleLapkin
     shell: /usr/bin/fish
 ```
+
+Open a pull request and request a review from `@rust-lang/infra` (or ping us in
+`#t-infra` on Zulip).
+
+After the pull request is merged, an infrastructure admin has to deploy the
+new configuration to the dev desktops. Only after that will your default shell
+be changed.
 
 ## How to install a Rust toolchain
 
