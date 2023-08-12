@@ -28,7 +28,7 @@ and coordinates and adjusts the organizational structure of Project teams.
 - [Duties, expectations, and constraints on the Council](#duties-expectations-and-constraints-on-the-council)
 - [Structure of the Council](#structure-of-the-council)
   - [Top-level teams](#top-level-teams)
-    - [The "launching pad" top-level team](#the-launching-pad-top-level-team)
+    - [The Launching Pad top-level team](#the-launching-pad-top-level-team)
     - [Removing top-level teams](#removing-top-level-teams)
   - [Alternates and forgoing representation](#alternates-and-forgoing-representation)
   - [Term limits](#term-limits)
@@ -104,7 +104,7 @@ Any member of the top-level team or a member of any of their subteams is eligibl
 Each representative represents at most one top-level team, even if they're also a member of other teams. The primary responsibility of representing any Rust team falls to the representative of the top-level team they fall under.[^under-multiple-teams]
 
 All teams in the Rust Project must ultimately fall under at least one top-level team.
-The ["launching pad" team][launching-pad] serves as a temporary home for teams that do not currently have a parent team.
+The [Launching Pad team][launching-pad] serves as a temporary home for teams that do not currently have a parent team.
 This ensures that all teams have representation on the Council.
 
 ## Top-level teams
@@ -133,20 +133,20 @@ The set of top-level teams is:
 - Moderation
 - Release
 
-### The "launching pad" top-level team
+### The Launching Pad top-level team
 [launching-pad]: #the-launching-pad-top-level-team
 
-The "launching pad" team *temporarily* accepts subteams that otherwise do not have a top-level team to slot underneath of. This ensures that all teams have representation on the Council, while more permanent parent teams are found or established.
+The Launching Pad team *temporarily* accepts subteams that otherwise do not have a top-level team to slot underneath of. This ensures that all teams have representation on the Council, while more permanent parent teams are found or established.
 
-The "launching pad" team is an umbrella team: it has no direct members, only subteam representatives.
+The Launching Pad team is an umbrella team: it has no direct members, only subteam representatives.
 
-The Council should work to find or create a more appropriate parent for each subteam of the "launching pad", and subsequently move those subteams to their new parent team.
+The Council should work to find or create a more appropriate parent for each subteam of the Launching Pad, and subsequently move those subteams to their new parent team.
 
-In some cases, an appropriate parent team may exist but not yet be ready to accept subteams; the launching pad can serve as an interim home in such cases.
+In some cases, an appropriate parent team may exist but not yet be ready to accept subteams; the Launching Pad can serve as an interim home in such cases.
 
-The launching pad also serves as a default home for subteams of a team that's removed or reorganized away, if that removal or reorganization does not explicitly place those subteams somewhere else in the organization.
+The Launching Pad also serves as a default home for subteams of a team that's removed or reorganized away, if that removal or reorganization does not explicitly place those subteams somewhere else in the organization.
 
-The Council must review subteam membership in the "launching pad" every 6 months to ensure that proper progress is being made on finding all subteams new parent teams. As with other top-level teams, the "launching pad" team can be retired (and have its representation within the Council removed) if the Council finds it to be no longer necessary. The process for retiring the "launching pad" team is the same as with other top-level teams. Alternatively, the Council is free to give the "launching pad" team its own purview.
+The Council must review subteam membership in the Launching Pad every 6 months to ensure that proper progress is being made on finding all subteams new parent teams. As with other top-level teams, the Launching Pad team can be retired (and have its representation within the Council removed) if the Council finds it to be no longer necessary. The process for retiring the Launching Pad team is the same as with other top-level teams. Alternatively, the Council is free to give the Launching Pad team its own purview.
 
 ### Removing top-level teams
 
