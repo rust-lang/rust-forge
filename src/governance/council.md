@@ -1,12 +1,12 @@
 # Leadership Council
 
-This document defines the authority[^authority] and policies of the Rust Leadership Council to ensure successful operation of the Rust Project.
+This document defines the authority[^authority] and policies of the Rust Leadership Council ("Council") to ensure successful operation of the Rust Project.
 
 This document serves as a living document defining the current accepted set of policies governing the Council.
 The basis of this document started with the text of [RFC 3392] which established the Council,
 and may be updated via the [RFC process](https://rust-lang.github.io/rfcs/).
 
-The Leadership Council delegates much of this authority to teams (which includes subteams,
+The Council delegates much of this authority to teams (which includes subteams,
 working groups, etc.[^teams]) who autonomously make decisions concerning their purviews.
 However, the Council retains some decision-making authority, outlined and delimited by this document.
 
@@ -61,7 +61,7 @@ and coordinates and adjusts the organizational structure of Project teams.
 
 The Rust project consists of hundreds of globally distributed people, organized into teams with various purviews. However, a great deal of work falls outside the purview of any established team, and still needs to get done.
 
-The Leadership Council focuses on identifying and prioritizing work outside of team purviews. The Council primarily delegates that work, rather than doing that work itself. The Council can also serve as a coordination, organization, and accountability body between teams, such as for cross-team efforts, roadmaps, and the long-term success of the Project.
+The Council focuses on identifying and prioritizing work outside of team purviews. The Council primarily delegates that work, rather than doing that work itself. The Council can also serve as a coordination, organization, and accountability body between teams, such as for cross-team efforts, roadmaps, and the long-term success of the Project.
 
 # Duties, expectations, and constraints on the Council
 
@@ -210,7 +210,7 @@ While some teams may not currently have an abundance of candidates who fit this 
 
 ## Credentials
 
-The Leadership Council does not have privileged access to administrative credentials for the project.
+The Council does not have privileged access to administrative credentials for the project.
 This access solely resides with the infrastructure team[^infra-creds].
 The infrastructure team's responsibilities include ensuring teams have the tools and access needed to do their work effectively, while balancing against security and maintainability of our infrastructure.
 The Council can help coordinate which teams should have access through policy.
@@ -224,7 +224,7 @@ The Council delegates a purview to the Project directors to represent the Projec
 # The Council's decision-making process
 [decision-making]: #the-council-s-decision-making-process
 
-The Leadership Council make decisions of two different types: operational decisions and policy decisions. Certain considerations may be placed on a given decision depending on its classification. However, by default, the Council uses a consent decision-making process for all decisions regardless of classification.
+The Council make decisions of two different types: operational decisions and policy decisions. Certain considerations may be placed on a given decision depending on its classification. However, by default, the Council uses a consent decision-making process for all decisions regardless of classification.
 
 ## Operational vs policy decisions
 
@@ -248,7 +248,7 @@ The Council uses consent decision-making where instead of being asked "do you ag
 ### Approval criteria
 
 The consent decision-making process has the following approval criteria:
-- Posting the proposal in one of the Leadership Council's designated communication spaces (a meeting or a specific channel).
+- Posting the proposal in one of the Council's designated communication spaces (a meeting or a specific channel).
 - Having confirmation that at least N-2 Council representatives (where N is the total number of Council representatives) have fully reviewed the final proposal and give their consent.
 - Having no outstanding explicit objections from any Council representative.
 - Providing a minimum 10 days for feedback.
@@ -310,7 +310,7 @@ All policy decisions should have an evaluation date as part of the policy. Initi
 
 # Transparency and oversight for decision making
 
-Decisions made by the Leadership Council will necessarily require varying levels of transparency and oversight based on the kind of decision being made. This section gives guidance on how the Council will seek oversight for its decisions, and what qualifies decisions to be made in private or in public.
+Decisions made by the Council will necessarily require varying levels of transparency and oversight based on the kind of decision being made. This section gives guidance on how the Council will seek oversight for its decisions, and what qualifies decisions to be made in private or in public.
 
 This RFC places certain decisions into each category. All decisions not specifically enumerated must use the public policy process. The Council may evolve the categorization through the [public policy process][decisions-that-the-council-must-make-via-public-proposal].
 
@@ -383,7 +383,7 @@ Decisions in this category require the Council to publicly seek feedback from th
 
 Following the existing RFC process, public proposals must have a minimum time-delay for feedback before the decision takes effect. Any representative may request that the feedback period for a particular decision is extended to at most 20 days total. The Council may make an internal operational decision to extend the feedback period beyond 20 days. The time-delay for feedback starts only when the necessary threshold for approval is otherwise met, including there not being any raised objections. If objections are raised and resolved during the time-delay, the waiting period starts again.
 
-The Leadership Council is expected to evolve over time to meet the evolving needs of the teams, the Rust Project, and the community. Such evolutionary changes may be small or large in scope and require corresponding amounts of oversight. Changes that materially impact the shape of the Council would need to be part of a public decision process.
+The Council is expected to evolve over time to meet the evolving needs of the teams, the Rust Project, and the community. Such evolutionary changes may be small or large in scope and require corresponding amounts of oversight. Changes that materially impact the shape of the Council would need to be part of a public decision process.
 
 As an exception to the above, modifications or removals of a single top-level team (other than the moderation team) may occur with the unanimous agreement of the Council absent the representative delegated by that top-level team.
 
@@ -391,7 +391,7 @@ The Council is permitted to have private *discussions* even on something that ul
 
 Note that all decisions fall into this category unless explicitly designated (via this document or future public proposals) to fall into another category, so this list (unlike those in the other two categories) is intentionally vague/broad: it is intended to give guidance on what likely should belong in this category without necessarily being prescriptive.
 
-- Any decision that has the effect of modifying the list of decision-makers on the Leadership Council or the decision-making process of the Leadership Council. For instance:
+- Any decision that has the effect of modifying the list of decision-makers on the Council or the decision-making process of the Council. For instance:
     - Changing this list (or this document in general).
     - Modifying the publication and approval process used for the Council's public proposals. Such a proposal must use the existing established process, not the proposed process.
     - Adding, modifying, or removing policies affecting eligibility for Council representatives.
@@ -405,7 +405,7 @@ Note that all decisions fall into this category unless explicitly designated (vi
     - A legal/licensing policy affecting Rust Project software or other work of the Rust Project.
     - A change to the Code of Conduct.
     - A policy affecting eligibility for membership in the Rust Project or any team thereof.
-    - A change to how the moderation team moderates Council representatives or the Leadership Council as a whole. Such decisions must be made jointly with the moderation team.
+    - A change to how the moderation team moderates Council representatives or the Council as a whole. Such decisions must be made jointly with the moderation team.
     - An agreement with another project or organization that makes any ongoing commitments on behalf of the Rust Project. (One-off commitments involving teams that have agreed to those commitments are fine.)
     - Creating or substantially modifying legal structures (e.g. additional Foundations, changing relationship with the Rust Foundation, partnering with other legal entities).
     - Making policy decisions requested by one or more teams that would be within the normal purviews of those teams. (Note that teams can ask for Council input without requesting a Council decision.)
