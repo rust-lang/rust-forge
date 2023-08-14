@@ -70,6 +70,28 @@ git config --global user.name "Your name"
 git config --global user.email "your-email"
 ```
 
+## How to customize your shell
+
+You can set your default shell on the dev desktops by adding yourself to a
+configuration file in the [`rust-lang/simpleinfra`][simpleinfra-vars-user-config]
+repository. Open `ansible/roles/dev-desktop/defaults/main.yml`, look for the
+variable `vars_user_config`, and add yourself to the list.
+
+```yaml
+vars_user_config:
+  - username: gh-jdno
+    shell: /usr/bin/zsh
+  - username: gh-WaffleLapkin
+    shell: /usr/bin/fish
+```
+
+Open a pull request and request a review from `@rust-lang/infra` (or ping us in
+`#t-infra` on Zulip).
+
+After the pull request is merged, an infrastructure admin has to deploy the
+new configuration to the dev desktops. Only after that will your default shell
+be changed.
+
 ## How to install a Rust toolchain
 
 The dev desktops don’t have Rust pre-installed, but instead make it easy to
@@ -158,3 +180,4 @@ We might ask you to create an issue in the [rust-lang/simpleinfra] repository.
 [rust-lang/simpleinfra]: https://github.com/rust-lang/simpleinfra
 [visual studio code]: https://code.visualstudio.com/
 [certain teams]: https://github.com/search?q=repo%3Arust-lang%2Fteam+path%3Ateams%2F*.toml+dev-desktop&type=code&ref=advsearch
+[simpleinfra-vars-user-config]: https://github.com/rust-lang/simpleinfra/blob/dbf839ef25155df1f33c18f151283436b0f70f3b/ansible/roles/dev-desktop/defaults/main.yml#L12:L16
