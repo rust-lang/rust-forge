@@ -27,7 +27,7 @@ The answers from the survey will be anonymized, aggregated, and summarized. A hi
 
 ### How is personally identifiable information handled?
 
-Nearly every question in the survey is optional. You are welcome to share as much or as little information as you are comfortable with. Only the Rust language Core Team and the Community Team Survey Leads will have access to the raw data from the survey. All the answers are anonymized prior to be shared with the rest of the teams and prior to the results publication.
+Nearly every question in the survey is optional. You are welcome to share as much or as little information as you are comfortable with. Only the Community Team Survey Leads will have access to the raw data from the survey. All the answers are anonymized prior to be shared with the rest of the teams and prior to the results publication.
 
 ### Why is the survey collecting contact information?
 
@@ -39,7 +39,7 @@ The survey optionally collects contact information for the following cases if yo
 - Rust training
 - interest in a Rust team contacting you about your survey responses
 
-If you would like to be contacted about any of this, or any other concerns, but you don't want to associate your email with your survey responses, you can instead email the Rust Community Team at community-team@rust-lang.org or the Core Team at core-team@rust-lang.org, and we will connect you to the right people.
+If you would like to be contacted about any of this, or any other concerns, but you don't want to associate your email with your survey responses, you can instead email the Rust Community Team at community-team@rust-lang.org, and we will connect you to the right people.
 
 ## Where and when is the survey results report published?
 
