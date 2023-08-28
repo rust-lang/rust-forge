@@ -181,6 +181,7 @@ We currently support linking to issues on a few repositories:
 * rust-lang/stdarch with `stdarch#3434`
 * rust-lang/team with `team#3434`
 * rust-lang/unsafe-code-guidelines with `ucg#3434`
+* rust-lang/cargo with `cargo#3434`
 
 We currently support linking to commits on these repositories:
 
