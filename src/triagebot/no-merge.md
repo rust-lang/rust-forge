@@ -21,8 +21,9 @@ This feature is enabled on a repository by having a `[no-merges]` table in `tria
 
 There are three optional values that can be specified in the table:
 
-* `exclude_labels` --- A list of strings of label names to exclude.
-  PRs with these labels set will not be checked for merge commits.
+* `exclude_titles` --- A list of strings of title segments to exclude.
+  PRs with titles containing these substrings will not be checked for merge commits.
+  Case sensitive.
 
 * `labels` --- A list of strings of label names to add.
   These labels will be set on the PR when merge commits are detected.
