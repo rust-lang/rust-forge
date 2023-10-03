@@ -162,6 +162,19 @@ In summary:
    rust-analyzer)
 7. Use VS Code to run or debug the code remotely
 
+## How to request new packages and tools
+
+If you need a specific tool or package that is not installed on the dev
+desktops, you can request its installation by opening a pull request against
+the [rust-lang/simpleinfra] repository. The Ansible role [`dev-desktop`](https://github.com/rust-lang/simpleinfra/blob/master/ansible/roles/dev-desktop)
+contains a tasks called [`dependencies.yml`](https://github.com/rust-lang/simpleinfra/blob/master/ansible/roles/dev-desktop/tasks/dependencies.yml)
+that lists the system packages that are installed on the machines. Add the
+required package to this list, open a pull request, and ping `@rust-lang/infra`
+for a review.
+
+It helps to check <https://packages.ubuntu.com/> first and make sure that the
+package is available for both `arm64` and `amd64` architectures.
+
 ## How to give feedback and report issues
 
 If you experience any problems with the dev desktops, or have feedback and
