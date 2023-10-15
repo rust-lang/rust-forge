@@ -28,6 +28,7 @@
     - [Pinging](./triagebot/pinging.md)
     - [Requesting Prioritization](./triagebot/requesting-prioritization.md)
     - [Review Changes Requested](./triagebot/review-submitted.md)
+    - [Review Requested](./triagebot/review-requested.md)
     - [Rustc Commit Tracking](./triagebot/rustc-commit-list.md)
     - [Shortcuts](./triagebot/shortcuts.md)
     - [Triagebot Dashboard](./triagebot/triage-dashboard.md)
