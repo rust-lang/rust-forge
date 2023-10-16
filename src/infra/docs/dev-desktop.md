@@ -173,7 +173,8 @@ required package to this list, open a pull request, and ping `@rust-lang/infra`
 for a review.
 
 It helps to check <https://packages.ubuntu.com/> first and make sure that the
-package is available for both `arm64` and `amd64` architectures.
+package is available for both `arm64` and `amd64` architectures. The dev
+desktops are currently running Ubuntu 22.04 LTS.
 
 ## How to give feedback and report issues
 
