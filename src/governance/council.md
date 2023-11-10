@@ -222,7 +222,7 @@ The Council is responsible for establishing the process for selecting Project di
 The Council delegates a purview to the Project directors to represent the Project's interests on the Foundation Board and to make certain decisions on Foundation-related matters. The exact boundaries of that purview are not yet specified.
 
 # The Council's decision-making process
-[decision-making]: #the-council-s-decision-making-process
+[decision-making]: #the-councils-decision-making-process
 
 The Council make decisions of two different types: operational decisions and policy decisions. Certain considerations may be placed on a given decision depending on its classification. However, by default, the Council uses a consent decision-making process for all decisions regardless of classification.
 
