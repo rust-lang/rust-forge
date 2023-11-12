@@ -21,7 +21,7 @@ If you're a member of a Rust Team and you want to use Sentry for a project your
 team manages, you need to follow these steps:
 
 1. If the project is public facing (i.e. people outside the team are supposed
-   to access it) you need to contact the Core team to request support in
+   to access it) you need to contact the Leadership Council to request support in
    amending the privacy policy, adding a note that your service is using Sentry
    too similar to the existing ones.
 

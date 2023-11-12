@@ -155,7 +155,7 @@ When the release process end you'll be able to install the new nightly with:
 RUSTUP_DIST_SERVER=https://dev-static.rust-lang.org rustup toolchain install nightly
 ```
 
-[awscli]: /infra/docs/aws-access.md#using-the-aws-cli
+[awscli]: ../infra/docs/aws-access.md#using-the-aws-cli
 [rust-lang/rust]: https://github.com/rust-lang/rust
 [simpleinfra]: https://github.com/rust-lang/simpleinfra
 [ripgrep]: https://github.com/burntsushi/ripgrep

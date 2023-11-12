@@ -46,15 +46,15 @@ much context. Posts on the team blog can assume a lot more context and familiari
 
 ## Writing for the Main Rust blog
 
-The core team ultimately decides what to post on the main Rust blog.
+The Leadership Council ultimately decides what to post on the main Rust blog.
 
 Post proposals describing exciting developments from within the Rust org are welcome, as well as
 posts that describe exciting applications of Rust. We do not generally do “promotional
 cross-posting” with other projects, however.
 
-If you would like to propose a blog post for the main blog, please reach out to a [core team
-member](https://www.rust-lang.org/governance/teams/core). It is not suggested to just open PRs
-against the main Rust blog that add posts without first discussing it with a core team member.
+If you would like to propose a blog post for the main blog,
+please reach out to a [Leadership Council member](https://www.rust-lang.org/governance/teams/leadership-council).
+It is not suggested to just open PRs against the main Rust blog that add posts without first discussing it with a Leadership Council member.
 
 ### Release note blog posts
 

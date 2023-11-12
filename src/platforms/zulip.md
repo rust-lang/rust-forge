@@ -166,21 +166,16 @@ list gives a few more "special cased" repositories.
 
 Don't forget that standard Markdown syntax for links also works.
 
-We currently support linking to issues on a few repositories:
+We support linking to issues on repositories inside the `rust-lang` GitHub organisation
+without requiring the `rust-lang/` prefix. For example:
 
-* rust-lang/rust with [`#4545`](https://github.com/rust-lang/rust/issues/4545) or `rust#4545`
 * rust-lang/rfcs with `RFC#3434` or `rfc#3434`
 * rust-lang/async-book with `async-book#2334`
-* rust-lang/chalk with `chalk#2334`
-* rust-lang/compiler-team with `compiler-team#3433`
-* rust-lang/ena with `ena#3434`
-* rust-lang/miri with `miri#3434`
-* rust-lang/polonius with `polonius#3434`
-* rust-analyzer/rust-analyzer with `rust-analyzer#3434`
-* rust-lang/rustc-dev-guide with `rustc-dev-guide#3434`
-* rust-lang/stdarch with `stdarch#3434`
-* rust-lang/team with `team#3434`
-* rust-lang/unsafe-code-guidelines with `ucg#3434`
+* rust-lang/cargo with `cargo#2334`
+
+`rust-lang/rust` issues can linked without needing any prefix:
+
+* rust-lang/rust with [`#4545`](https://github.com/rust-lang/rust/issues/4545) or `rust#4545`
 
 We currently support linking to commits on these repositories:
 

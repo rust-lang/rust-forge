@@ -48,8 +48,8 @@ Documentation on rfcbot commands can be found
 
 [rustbot](https://github.com/rust-lang/triagebot) is a bot ([bot user
 account](https://github.com/rustbot)) to assist with managing issues and PRs
-to allow users to label and assign without GitHub permissions. See [the
-wiki](https://github.com/rust-lang/triagebot/wiki) for more information.
+to allow users to label and assign without GitHub permissions. See
+[triagebot](../triagebot/index.html) for more information.
 
 ## DXR
 

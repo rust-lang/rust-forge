@@ -1,0 +1,30 @@
+[relabel]
+
+[autolabel."S-waiting-on-review"]
+new_pr = true
+
+[shortcut]
+
+[assign]
+warn_non_default_branch = true
+
+[assign.adhoc_groups]
+fallback = [
+    "@Mark-Simulacrum",
+    "@ehuss",
+]
+
+[assign.owners]
+"/blacksmith" = ["@ehuss"]
+"/js" = ["@ehuss"]
+"/src/community" = ["community"]
+"/src/compiler" = ["compiler", "compiler-contributors"]
+"/src/crates-io" = ["crates-io"]
+"/src/docs-rs" = ["docs-rs"]
+"/src/governance" = ["ehuss"]
+"/src/infra" = ["infra"]
+"/src/lang" = ["lang"]
+"/src/libs" = ["libs"]
+"/src/platforms" = ["infra"]
+"/src/release" = ["release"]
+"/src/triagebot" = ["triagebot"]

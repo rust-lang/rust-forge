@@ -10,7 +10,7 @@ currently maintained by the infrastructure team.
 
 ## Twitter Guidelines
 
-The project runs the Twitter account [@rustlang](https://twitter.com/rustlang)
+The project runs the Twitter account [@rustlang](https://twitter.com/rustlang).
 The account is handled by a small team of volunteers.
 
 The account will mostly tweet links to the Rust blog and Rust Insiders blog.

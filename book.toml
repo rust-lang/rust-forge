@@ -13,6 +13,7 @@ command = "./build.bash"
 additional-js = ["js/moment.min.js", "js/index.js"]
 no-section-label=true
 git-repository-url="https://github.com/rust-lang/rust-forge"
+curly-quotes = true
 
 [output.html.redirect]
 "beta-backporting.html" = "/release/backporting.html"
@@ -43,8 +44,11 @@ git-repository-url="https://github.com/rust-lang/rust-forge"
 "compiler/diagnostic-codes.html" = "https://rustc-dev-guide.rust-lang.org/diagnostics/diagnostic-codes.html"
 "compiler/profile-queries.html" = "https://rustc-dev-guide.rust-lang.org/queries/profiling.html"
 "chat/index.html" = "/platforms/index.html"
-"chat/discord.html" = "platforms/discord.html"
-"github.html" = "platforms/github.html"
-"chat/email.html" = "platforms/email.html"
-"chat/zulip/index.html" = "platforms/zulip/index.html"
-"chat/zulip.html" = "platforms/zulip.html"
+"chat/discord.html" = "/platforms/discord.html"
+"github.html" = "/platforms/github.html"
+"chat/email.html" = "/platforms/email.html"
+"chat/zulip/index.html" = "/platforms/zulip/index.html"
+"chat/zulip.html" = "/platforms/zulip.html"
+"platforms/zulip/triagebot.html" = "/triagebot/index.html"
+"core/blogs.html" = "/platforms/blogs.html"
+"core/index.html" = "/governance/council.html"

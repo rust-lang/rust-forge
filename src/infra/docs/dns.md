@@ -156,7 +156,7 @@ transfer a domain name to the Rust project's registrar:
 
 1. Ask inside the infrastructure team if this is a domain name the project
    wants to own. In some more complicated cases this will need to be escalated
-   to the core team.
+   to the Leadership Council.
 
 2. If the domain name doesn’t already use AWS Route 53 as its nameserver, ask
    the current owner of the domain a list of all the DNS records that will need
