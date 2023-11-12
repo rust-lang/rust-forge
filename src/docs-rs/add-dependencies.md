@@ -1,6 +1,6 @@
 # Add a dependency to the build environment
 
-Rustwide internally uses `rustops/crates-build-env` as the build environment for the crate. If you want to add a system package for crates to link to, this is place you're looking for.
+Rustwide internally uses `rust-lang/crates-build-env` as the build environment for the crate. If you want to add a system package for crates to link to, this is place you're looking for.
 
 ## Preconditions
 
