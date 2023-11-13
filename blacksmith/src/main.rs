@@ -1,6 +1,5 @@
 use std::{env, io, path::Path, process};
 
-use clap::ArgMatches;
 use mdbook::{
     errors::Error,
     preprocess::{CmdPreprocessor, Preprocessor},
@@ -20,15 +19,6 @@ fn main() {
             .filter_level(log::LevelFilter::Info)
             .init();
     }
-
-    let matches = clap::clap_app!(blacksmith =>
-        (about: clap::crate_description!())
-        (@subcommand supports =>
-            (about: "Check whether a renderer is supported by this preprocessor")
-            (@arg renderer: +takes_value +required)
-        )
-    )
-    .get_matches();
 
     macro_rules! log_unwrap {
         ($result:expr) => {
@@ -51,25 +41,34 @@ fn main() {
         Blacksmith::new()
     };
 
-    if let Some(sub_args) = matches.subcommand_matches("supports") {
-        handle_supports(&blacksmith, sub_args);
-    } else {
-        let mut update_cache = false;
-        if blacksmith.is_stale(CACHE_TTL_SECONDS) {
-            blacksmith = log_unwrap!(Blacksmith::init());
-            update_cache = true;
-        } else {
-            log::info!("Using cached data in {}", cache_file.display());
+    let mut args = std::env::args().skip(1);
+    match args.next().as_deref() {
+        Some("supports") => {
+            let renderer = args.next().expect("renderer name must be second argument");
+            handle_supports(&blacksmith, &renderer);
         }
-        log_unwrap!(handle_preprocessing(&blacksmith));
+        Some(arg) => {
+            eprintln!("unknown argument: {arg}");
+            std::process::exit(1);
+        }
+        None => {}
+    }
 
-        if update_cache {
-            log::info!("Storing the cache in {}", cache_file.display());
-            log_unwrap!(std::fs::write(
-                &cache_file,
-                &log_unwrap!(serde_json::to_vec(&blacksmith))
-            ));
-        }
+    let mut update_cache = false;
+    if blacksmith.is_stale(CACHE_TTL_SECONDS) {
+        blacksmith = log_unwrap!(Blacksmith::init());
+        update_cache = true;
+    } else {
+        log::info!("Using cached data in {}", cache_file.display());
+    }
+    log_unwrap!(handle_preprocessing(&blacksmith));
+
+    if update_cache {
+        log::info!("Storing the cache in {}", cache_file.display());
+        log_unwrap!(std::fs::write(
+            &cache_file,
+            &log_unwrap!(serde_json::to_vec(&blacksmith))
+        ));
     }
 }
 
@@ -94,9 +93,8 @@ fn handle_preprocessing(pre: &Blacksmith) -> Result<(), Error> {
     Ok(())
 }
 
-fn handle_supports(pre: &Blacksmith, sub_args: &ArgMatches) -> ! {
-    let renderer = sub_args.value_of("renderer").expect("Required argument");
-    let supported = pre.supports_renderer(&renderer);
+fn handle_supports(pre: &Blacksmith, renderer: &str) -> ! {
+    let supported = pre.supports_renderer(renderer);
 
     // Signal whether the renderer is supported by exiting with 1 or 0.
     if supported {

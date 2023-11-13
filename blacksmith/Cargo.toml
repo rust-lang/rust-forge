@@ -8,19 +8,15 @@ publish = false
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-env_logger = "0.8.3"
-log = "0.4.14"
-regex = "1.5.4"
-reqwest = { version = "0.11", features = ["blocking"] }
-serde = { version = "1.0.130", features = ["derive"] }
-serde_json = "1.0.71"
-toml = "0.5.8"
-
-[dependencies.clap]
-version = "3"
-default-features = false
+env_logger = "0.10.1"
+log = "0.4.20"
+regex = "1.10.2"
+reqwest = { version = "0.11.22", features = ["blocking"] }
+serde = { version = "1.0.192", features = ["derive"] }
+serde_json = "1.0.108"
+toml = "0.8.8"
 
 [dependencies.mdbook]
-version = "0.4.21"
+version = "0.4.35"
 default-features = false
 features = ["search"]
