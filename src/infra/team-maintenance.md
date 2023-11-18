@@ -51,7 +51,7 @@ the above policies.
 
 Note also that the [infra-admins] team maintains "root" credentials to Rust
 infrastructure, including the team repo, in order to make changes if needed to
-keep infrastructure opertaional. Those rights should only be exercised when
+keep infrastructure operational. Those rights should only be exercised when
 required though, with team-admins being the first point of contact for changes.
 (There may be overlap between the two teams).
 
