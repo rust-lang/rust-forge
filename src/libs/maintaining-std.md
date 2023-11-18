@@ -227,12 +227,6 @@ impl<T: Copy> RcFromSlice<T> for Rc<[T]> {
 
 Only specialization using the `min_specialization` feature should be used. The full `specialization` feature is known to be unsound.
 
-### Are const generics involved?
-
-Const generics are currently unstable. You can track their progress [here][rust/issues/44580].
-
-Using const generics in public APIs is ok, but only const generics using the `min_const_generics` feature should be used publicly for now.
-
 ### Are there public enums?
 
 Public enums should have a `#[non_exhaustive]` attribute if there's any possibility of new variants being introduced, so that they can be added without causing breakage.
