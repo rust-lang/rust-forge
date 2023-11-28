@@ -133,7 +133,19 @@ The compiler-team repo issues are intended to be low traffic and used for proced
 
 ## How does one register as reviewer, register approval, or raise an objection?
 
-These types of procedural comments can be left on the issue (it's also good to leave a message in Zulip). See the previous section.
+These types of procedural comments can be left on the issue (it's also good to leave a message in Zulip). See the
+previous section. To facilitate a machine parsable scanning of the concerns please use the following syntax to formally
+register a concern:
+```
+@rustbot concern reason-for-concern
+
+<long description of the concern>
+```
+
+And the following syntax to lift a concern when resolved:
+```
+@rustbot resolve reason-for-concern
+```
 
 ## Who decides whether a concern is unresolved?
 
