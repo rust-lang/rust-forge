@@ -240,7 +240,7 @@ Since the Rust compiler is written in Rust, it must be built by a precompiled
 As such, source builds require an Internet connection to fetch snapshots, and an
 OS that can execute the available snapshot binaries.
 
-See https://doc.rust-lang.org/nightly/rustc/platform-support.html for a list of
+See [Platform support](https://doc.rust-lang.org/nightly/rustc/platform-support.html) for a list of
 supported platforms.
 Only "host tools" platforms have a pre-compiled snapshot binary available; to
 compile for a platform without host tools you must cross-compile.
