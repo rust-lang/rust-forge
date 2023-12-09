@@ -14,7 +14,7 @@ systems integrated with it.
 
 # Rules for changes to team repo
 
-Pull requests to the repository are merged by the [team-admins], who use these rules to merge PRs:
+Pull requests to the repository are merged by the [team-repo-admins], who use these rules to merge PRs:
 
 ### `people`, `teams`, and `repos` directories
 
@@ -32,7 +32,7 @@ approve the change. Any team lead in the "parent team" chain may do so. This inc
 * Changing other metadata (website descriptions, Zulip groups, etc.)
 * Changing access to repositories owned by their team
   * For repositories ownership is not currently formally tracked. Until that is
-    added, the team-admins are expected to exercise their understanding of
+    added, the team-repo-admins are expected to exercise their understanding of
     which team owns the repository, when in doubt asking for clarification and
     codifying in a comment in the relevant repository.
 
@@ -42,7 +42,7 @@ The team repository additionally contains code to transform and validate the
 TOML user-edited files. This is owned by the Infrastructure team and approval
 should be sought for changes.
 
-### Who belongs to team-admins?
+### Who belongs to team-repo-admins?
 
 This group of people is nominated & approved by the Leadership Council, but is
 not selected through any formal criteria. Eventually, we hope that the need for
@@ -52,7 +52,7 @@ the above policies.
 Note also that the [infra-admins] team maintains "root" credentials to Rust
 infrastructure, including the team repo, in order to make changes if needed to
 keep infrastructure operational. Those rights should only be exercised when
-required though, with team-admins being the first point of contact for changes.
+required though, with team-repo-admins being the first point of contact for changes.
 (There may be overlap between the two teams).
 
 # Extra steps for changes
@@ -78,4 +78,4 @@ Remove the team member from any and all places:
 [gh-nursery-team]: https://github.com/orgs/rust-lang-nursery/teams
 [team repo]: https://github.com/rust-lang/team/tree/master/teams
 [team website]: https://www.rust-lang.org/governance
-[team-admins]: TODO
+[team-repo-admins]: TODO
