@@ -117,7 +117,9 @@ reviewers to act quickly and gives you time to address the issue fully.
 ## Rollups
 
 All reviewers are strongly encouraged to explicitly mark a PR as to whether or
-not it should be part of a [rollup] with one of the following:
+not it should be part of a [rollup]. This is usually done either when approving a 
+PR with `@bors r+ $ROLLUP_STATUS` or with `@bors $ROLLUP_STATUS` where `$ROLLUP_STATUS` 
+is substituted with one of the following:
 
 - `rollup=always`: These PRs are very unlikely to break tests or have performance
   implications. Example scenarios:
@@ -127,12 +129,12 @@ not it should be part of a [rollup] with one of the following:
     - Your PR is not landing possibly-breaking or behavior altering changes.
         - Feature stabilization without other changes is likely fine to
           rollup, though.
-- `rollup=maybe`: This is the **default** if you do not specify a rollup
-  status. Use this if you don't have much confidence that it won't break
-  tests. This can be used if you aren't sure if it should be one of the other
-  categories. Since this is the default, there is usually no need to
-  explicitly specify this, unless you are un-marking the rollup level from a
-  previous command.
+    - When in doubt do not use this option!
+- `rollup=maybe`: This is the default if `@bors r+` does not specify any rollup 
+  status at all. Use this if you have some doubt that the change won't break 
+  tests. This can be used if you aren't sure if it should be one of the other 
+  categories. Since this is the default, there is usually no need to explicitly 
+  specify this, unless you are un-marking the rollup level from a previous command.
 - `rollup=iffy`: Use this for mildly risky PRs (more risky than "maybe").
   Example scenarios:
     - The PR is large and non-additive (note: adding 2000 lines of completely
@@ -151,10 +153,8 @@ not it should be part of a [rollup] with one of the following:
       rollup).
     - Has a high chance of failure.
     - Is otherwise dangerous to rollup.
-
-> **Note**:\
-> `@bors rollup` is equivalent to `@bors rollup=always`\
-> `@bors rollup-` is equivalent to `@bors rollup=never`
+- `rollup`: this is equivalent to `rollup=always`
+- `rollup-`: this is equivalent to `rollup=maybe`
 
 ## Priority
 
