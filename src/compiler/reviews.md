@@ -67,7 +67,7 @@ is substituted with one of the following:
     - Has a high chance of failure.
     - Is otherwise dangerous to rollup.
 - `rollup`: this is equivalent to `rollup=always`
-- `rollup-`: this is equivalent to `rollup=never`
+- `rollup-`: this is equivalent to `rollup=maybe`
 
 ## Priority
 
