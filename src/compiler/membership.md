@@ -43,14 +43,20 @@ when they have demonstrated three things:
   Conduct][CoC]. They should not only obey the letter of the CoC but
   also its spirit.
   
-[CoC]: https://www.rust-lang.org/policies/code-of-conduct  
+[CoC]: https://www.rust-lang.org/policies/code-of-conduct
 
 Being promoted to contributor implies a number of privileges:
 
-- Contributors have r+ privileges and can do reviews (they are
-  expected to use those powers appropriately, as discussed
-  previously). They also have access to control perf/rustc-timer and
-  other similar bots.
+- Contributors have `r+` (approve a pull request) privileges and can do reviews
+  (they are expected to use those powers appropriately, as discussed
+  previously). They also have access to control perf/rustc-timer and other
+  similar bots. See the documentation for `bors` and `r+`
+  [here](https://rustc-dev-guide.rust-lang.org/compiler-team.html#team-membership).
+
+  Tip: some baseline rules around bors permissions are: don't do a `try` build
+  unless you have done a check for malicious code first and don't `r+` unless
+  you are reasonably confident that you can effectively review the code in
+  question.
 - Contributors are members of the organization so they can modify
   labels and be assigned to issues.
 - Contributors are a member of the rust-lang/compiler team on GitHub,
@@ -63,6 +69,36 @@ It also implies some obligations (in some cases, optional obligations):
 - Contributors will be asked if they wish to be added to the reviewer rotation.
 - Contributors are held to a higher standard than ordinary folk when
   it comes to the [Code of Conduct][CoC].
+
+## What it means to be a compiler contributor
+
+Once you're a member of the compiler team contributors, a number of events will
+happen:
+- You will gain access to a private Zulip stream, where internal discussions
+happen or ideas in very draft state are shared. Come and say hello to your new
+team members!
+- You will be subscribed and gain write access to the following Github repositories:
+  - [rust-lang/rustc_apfloat](https://github.com/rust-lang/rustc_apfloat)
+  - [rust-lang/ar_archive_writer](https://github.com/rust-lang/ar_archive_writer)
+  - [rust-lang/project-thir-unsafeck](https://github.com/rust-lang/project-thir-unsafeck)
+  - [rust-lang/odht](https://github.com/rust-lang/odht)
+  - [rust-lang/wg-incr-comp](https://github.com/rust-lang/wg-incr-comp)
+  - [rust-lang/project-rfc-2229](https://github.com/rust-lang/project-rfc-2229)
+  - [rust-lang/rustc-demangle](https://github.com/rust-lang/rustc-demangle)
+  - [rust-lang/surveys-private](https://github.com/rust-lang/surveys-private)
+  - [rust-lang/rfcs](https://github.com/rust-lang/rfcs)
+
+  Some of them are pretty quiet or obsolete, so don't worry about all of them.
+
+  Tip: Github automatically adds you as subscriber to every repo you get write
+  permission too. You can disable this in the settings
+  ([here](https://github.com/settings/notifications)).
+
+- You will also be subscribed to the `all@rust-lang.org` mailing list. See
+[this file](https://github.com/rust-lang/team/blob/HEAD/teams/all.toml) to
+check how subscriptions to mailing lists work. It's a very low-volume mailing
+list (maybe a few emails per year), it's a way to communicate things to all
+contributors. You will not receive spam from this address.
 
 ## Full members
 
