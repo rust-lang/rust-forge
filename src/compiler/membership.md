@@ -98,7 +98,7 @@ team members!
 [this file](https://github.com/rust-lang/team/blob/HEAD/teams/all.toml) to
 check how subscriptions to mailing lists work. It's a very low-volume mailing
 list (maybe a few emails per year), it's a way to communicate things to all
-contributors. You will not receive spam from this address.
+contributors. We will not send you spam from this address.
 
 ## Full members
 
