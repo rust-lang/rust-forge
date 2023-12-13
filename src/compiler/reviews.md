@@ -35,7 +35,7 @@ There are a number of requirements that need to be met in order for reviewing to
 
 ## Reviewing Checklist
 
-The following list of questions (to be posted as part highfive bot's automatic PR response)
+The following list of questions (to be posted as part rustbot's automatic PR response)
 will help reviewers and PR authors alike to bring PRs into good shape and meet the above criteria:
 
 > #### Checklist for PR authors and reviewers
@@ -77,7 +77,7 @@ However, sometimes there are gray areas where it is not immediately clear how to
 This section lists a few common cases together with guidance on how to deal with them.
 
 * ### I don't think I am a good fit for reviewing - what now?
-  It is completely normal that you get assigned a PR (via highfive or otherwise) but don't feel comfortable reviewing it.
+  It is completely normal that you get assigned a PR (via rustbot or otherwise) but don't feel comfortable reviewing it.
   Here is what you can do, depending on the concrete case:
 
   - If the change seems really big or contentious, consider asking for an MCP (see below).
@@ -85,7 +85,7 @@ This section lists a few common cases together with guidance on how to deal with
     It's polite to leave a comment asking them if they can take over --
     but you don't have to make sure beforehand that they can actually do it.
   - If you don't know the code well or already have too much on your plate,
-    ask highfive to roll the dice again via `r? rust-lang/compiler-contributors`.
+    ask rustbot to roll the dice again via `r? compiler`.
 
   You can also always ask for help on the `#t-compiler/reviews` Zulip stream for finding a reviewer.
   That being said, you are always welcome to do an initial review (to the extent you are comformtable with)
