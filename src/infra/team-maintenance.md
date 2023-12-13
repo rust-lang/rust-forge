@@ -78,4 +78,5 @@ Remove the team member from any and all places:
 [gh-nursery-team]: https://github.com/orgs/rust-lang-nursery/teams
 [team repo]: https://github.com/rust-lang/team/tree/master/teams
 [team website]: https://www.rust-lang.org/governance
-[team-repo-admins]: TODO
+[team-repo-admins]: https://github.com/rust-lang/team/blob/master/teams/team-repo-admins.toml
+[infra-admins]: https://github.com/rust-lang/team/blob/master/teams/infra-admins.toml
