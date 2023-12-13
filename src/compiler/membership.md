@@ -77,18 +77,11 @@ happen:
 - You will gain access to a private Zulip stream, where internal discussions
 happen or ideas in very draft state are shared. Come and say hello to your new
 team members!
-- You will be subscribed and gain write access to the following Github repositories:
-  - [rust-lang/rustc_apfloat](https://github.com/rust-lang/rustc_apfloat)
-  - [rust-lang/ar_archive_writer](https://github.com/rust-lang/ar_archive_writer)
-  - [rust-lang/project-thir-unsafeck](https://github.com/rust-lang/project-thir-unsafeck)
-  - [rust-lang/odht](https://github.com/rust-lang/odht)
-  - [rust-lang/wg-incr-comp](https://github.com/rust-lang/wg-incr-comp)
-  - [rust-lang/project-rfc-2229](https://github.com/rust-lang/project-rfc-2229)
-  - [rust-lang/rustc-demangle](https://github.com/rust-lang/rustc-demangle)
-  - [rust-lang/surveys-private](https://github.com/rust-lang/surveys-private)
-  - [rust-lang/rfcs](https://github.com/rust-lang/rfcs)
-
-  Some of them are pretty quiet or obsolete, so don't worry about all of them.
+- You will be subscribed and gain write access to a number of Github
+  repositories. Check [this GitHub
+  page](https://github.com/orgs/rust-lang/teams/compiler-contributors/repositories)
+  to see which repositories you have now access to. Some of them are pretty
+  quiet or obsolete, so don't worry about all of them.
 
   Tip: Github automatically adds you as subscriber to every repo you get write
   permission too. You can disable this in the settings
