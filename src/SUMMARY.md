@@ -104,6 +104,7 @@
     - [Rollup Procedure](./release/rollups.md)
     - [Triage Procedure](./release/triage-procedure.md)
     - [Triaging Crater Runs](./release/crater.md)
+- [Edition Releases](./editions/edition-releases.md)
 - [Archive](./archive/README.md)
     - [Friends of the Tree](./archive/fott.md)
     - [Release History](./archive/release-history.md)
