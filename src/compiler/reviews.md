@@ -87,7 +87,7 @@ This section lists a few common cases together with guidance on how to deal with
   - If you don't know the code well or already have too much on your plate,
     ask rustbot to roll the dice again via `r? compiler`.
 
-  You can also always ask for help on the `#t-compiler/reviews` Zulip stream for finding a reviewer.
+  You can also always ask for help on the `#t-compiler` Zulip stream for finding a reviewer.
   That being said, you are always welcome to do an initial review (to the extent you are comformtable with)
   and then pass the PR on to the final reviewer.
   This way the PR author will get helpful feedback sooner and subsequent reviewers will have less work to do.
@@ -99,7 +99,7 @@ This section lists a few common cases together with guidance on how to deal with
   You can also nominate the PR for discussion in the compiler team's triage meeting by tagging it `I-nominated`.
   If you nominate a PR please make sure to state a concrete question for the compiler team to discuss.
 
-* ### Intransparent discussion and rationale
+* ### Discussion or rationale is too intransparent
   Sometimes there are PRs that seem to be the result of some prior discussion, with no description or rationale.
   They usually have a title like "Change X" and the only content of the PR message is "r? @xyz".
   Even though the change might make sense and may even have been suggested by a compiler team member this is not good form.
@@ -141,13 +141,14 @@ This section lists a few common cases together with guidance on how to deal with
 * ### Nobody understands the code that's being changed
   Sometimes there is a bug in some code that nobody understands anymore.
   The original authors are unavailable and it is hard to gauge the implications of a proposed fix.
-  In such a case it is a good idea for reviewers to ask on the `#t-compiler/reviews` Zulip stream for additional help.
+  In such a case it is a good idea for reviewers to I-nominate the PR (if they intend to stay the 
+  main reviewer) or assign a compiler team lead to the issue and add the S-waiting-on-team label. 
+  In both cases, the PR will be brought in the weekly triage meeting.
   It is also especially valuable to gather and document as much information as possible about the issue,
   such as a description of the problem being fixed, points of unclarity, potential risks,
   alternatives that have been considered, et cetera.
   Reviewers should ask PR authors to add this kind of information as comments in the code
   and/or to the PR message (which will become part of the git commit history).
-
 
 [mcp]: https://forge.rust-lang.org/compiler/mcp.html
 [whats-a-major-change]: https://forge.rust-lang.org/compiler/mcp.html#what-constitutes-a-major-change
