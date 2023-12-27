@@ -30,13 +30,13 @@ It's okay if not all of these are always considered; treat it as a guideline, no
 
 - The issue should make sense, that is, it should present a problem.
     - For example, if an issue is a question about Rust in general, the issue should be closed and the user redirected to URLO/Discord.
-      You can of course answer the question too :) (but make sure to mention that the user should go to URLO/Discord next time).
+      You can of course answer the question too :) (but make sure to mention that the user should go to [URLO]/[Discord] next time).
 - Add appropriate labels ([Labels](#labels))
     - Specifically, `T-*` and `C-*` are the most relevant
 - If the issue contains no reproduction but needs one (when in doubt, it needs one), ask for one and add the `S-needs-repro` label
 - The issue tracker is the wrong place for some kinds of feature requests. Suggest the author where they can get support.
     - Standard library API requests should follow [libs-api processes](https://std-dev-guide.rust-lang.org/development/feature-lifecycle.html).
-    - Language changes should be redirected to [IRLO](https://internals.rust-lang.org/) or Zulip (t-lang).
+    - Language changes should be redirected to [IRLO] or Zulip ([t-lang](https://rust-lang.zulipchat.com/#narrow/stream/213817-t-lang)).
 - If the issue could benefit from bisecting the regression (when in doubt, it can), add `E-needs-bisection` (or do the bisection yourself)
 - Does this issue require nightly? Add `requires-nightly`.
 - Is the issue a regression? Apply the `regression-untriaged` label (or figure out what regression it is exactly)
@@ -49,6 +49,10 @@ For applying and removing labels, unprivileged users can use **@rustbot** to add
 For example, `@rustbot label +T-compiler +C-bug +A-linkage +O-macos -needs-triage`.
 
 To see a list of all labels, check out the "labels" page next to the search bar in the issue tracker.
+
+[URLO]: https://users.rust-lang.org
+[IRLO]: https://internals.rust-lang.org/
+[Discord]: https://discord.gg/rust-lang
 
 ## Further triaging
 
