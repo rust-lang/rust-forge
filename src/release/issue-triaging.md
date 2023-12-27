@@ -34,7 +34,7 @@ It's okay if not all of these are always considered; treat it as a guideline, no
 - Add appropriate labels ([Labels](#labels))
     - Specifically, `T-*` and `C-*` are the most relevant
 - If the issue contains no reproduction but needs one (when in doubt, it needs one), ask for one and add the `S-needs-repro` label
-- The issue tracker is the wrong place for some kinds of feature requests. Tell the author about it.
+- The issue tracker is the wrong place for some kinds of feature requests. Suggest the author where they can get support.
     - Standard library API requests should follow [libs-api processes](https://std-dev-guide.rust-lang.org/development/feature-lifecycle.html).
     - Language changes should be redirected to [IRLO](https://internals.rust-lang.org/) or Zulip (t-lang).
 - If the issue could benefit from bisecting the regression (when in doubt, it can), add `E-needs-bisection` (or do the bisection yourself)
