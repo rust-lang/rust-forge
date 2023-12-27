@@ -23,7 +23,7 @@ as triaging work is highly parallelizable and easy to get started with.
 When an issue is opened, it gets the `needs-triage` label. This ensures that every issue gets an initial
 look and that no issue is ignored, or that when it is ignored, it is at least visibly ignored by still having the label.
 
-`needs-triage` is an initial checkpoint. The effort needed to get an issue past the label should be minimal.
+`needs-triage` is an initial checkpoint. The effort needed to get an issue past the label should be small.
 
 To do the initial triage and remove the `needs-triage` label, the following conditions should be fulfilled/considered.
 It's okay if not all of these are always considered; treat it as a guideline, not a hard checklist. It is also not exhaustive.
@@ -33,15 +33,15 @@ It's okay if not all of these are always considered; treat it as a guideline, no
       You can of course answer the question too :) (but make sure to mention that the user should go to URLO/Discord next time).
 - Add appropriate labels ([Labels](#labels))
     - Specifically, `T-*` and `C-*` are the most relevant
-- If the issue contains no reproduction but needs one, ask for one and add the `S-needs-repro` label
-- The issue is the wrong place for some kinds of feature requests. Tell the author about it.
-    - Library API requests should follow [its processes](https://std-dev-guide.rust-lang.org/development/feature-lifecycle.html).
+- If the issue contains no reproduction but needs one (when in doubt, it needs one), ask for one and add the `S-needs-repro` label
+- The issue tracker is the wrong place for some kinds of feature requests. Tell the author about it.
+    - Standard library API requests should follow [libs-api processes](https://std-dev-guide.rust-lang.org/development/feature-lifecycle.html).
     - Language changes should be redirected to [IRLO](https://internals.rust-lang.org/) or Zulip (t-lang).
-- If the issue could benefit from bisecting the regression, add `E-needs-bisection` (or do the bisection yourself)
+- If the issue could benefit from bisecting the regression (when in doubt, it can), add `E-needs-bisection` (or do the bisection yourself)
 - Does this issue require nightly? Add `requires-nightly`.
 - Is the issue a regression? Apply the `regression-untriaged` label (or figure out what regression it is exactly)
 - If you happen to know people who this issue is relevant to, ping them.
-    - For example, write `cc @ThatPerson` if `ThatPerson` has been working a lot on the problematic feature recently
+    - For example, write `cc @ThatPerson` if `ThatPerson` has been working a lot on the feature in question recently.
 - Does this issue require incomplete or internal features? Add `requires-{incomplete,internal}-features`.
 
 For applying and removing labels, unprivileged users can use **@rustbot** to add or remove
@@ -70,7 +70,7 @@ Triaging them the same way as `needs-triage` is also useful.
 
 There are many different labels that can be applied to issues.
 
-- `needs-triage`: signals that an issue is new and needs initial triage
+- `needs-triage`: Signals that an issue is new and needs initial triage
 - `T-*`: Specifies the team or teams that this issue is relevant to, for example compiler, types or libs
 - `WG-*`: Specifies the working groups that this issue is relevant to, for example WG-debugging.
 - `C-*`: Specifies the category of the label, for example a bug, tracking issue or discussion
