@@ -9,6 +9,7 @@
   - [Zulip](./platforms/zulip.md)
       - [Moderation](./platforms/zulip/moderation.md)
   - [Blogs](./platforms/blogs.md)
+  - [Calendars](./platforms/calendars.md)
 - [Triagebot](./triagebot/README.md)
     - [Agenda Generator](./triagebot/agenda.md)
     - [Issue Assignment](./triagebot/issue-assignment.md)
