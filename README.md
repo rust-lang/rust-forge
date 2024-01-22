@@ -52,12 +52,13 @@ standard --fix js/
 
 ## Adding teams
 
-Any Rust team can have a section in the Rust Forge. If you'd like to add your team, you first need to add them as an item to `src/SUMMARY.md`, like below, replacing `TEAM NAME` with your respective team's name to show on Forge, and `<TEAM_NAME>` with a filesystem- and URL-friendly version of that name where your documentation will be stored.
+Any Rust team, working group, or project group can have a section in the Rust Forge.
+First, please send a PR to add your team to the [`repos/rust-lang/rust-forge.toml`][team-repo] file to give your team permissions.
+
+To add your team to the book, add it to [`src/SUMMARY.md`], like below, replacing `<TEAM_NAME>` with a filesystem- and URL-friendly version of your team's name:
 
 ```markdown
-- [TEAM NAME](src/<TEAM_NAME>/README.md)
-<!-- or -->
-- [TEAM NAME](src/<TEAM_NAME>.md)
+- [<TEAM NAME>](src/<TEAM_NAME>/README.md)
 ```
 
 If you run `mdbook build`, `mdbook` will automatically create the folder and file for your team.
@@ -67,3 +68,16 @@ It's recommended that you put general team information in `src/<TEAM_NAME>/READM
 ```markdown
 - [TOPIC](src/<TEAM_NAME>/TOPIC.md)
 ```
+
+Teams are responsible for merging their own content.
+Please add your team to the `[assign.owners]` section of [`triagebot.toml`] so that the bot will auto-assign someone from the team.
+
+[team-repo]: https://github.com/rust-lang/team/blob/master/repos/rust-lang/rust-forge.toml
+[`src/SUMMARY.md`]: https://github.com/rust-lang/rust-forge/blob/master/src/SUMMARY.md
+[`triagebot.toml`]: https://github.com/rust-lang/rust-forge/blob/master/triagebot.toml
+
+## Maintenance of Rust Forge
+
+The [Rust infra team] is responsible for maintaining the Rust Forge, ensuring that its build and publish system works, and coordinating any technical issues with teams.
+
+[Rust infra team]: https://www.rust-lang.org/governance/teams/infra
