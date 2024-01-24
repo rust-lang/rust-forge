@@ -132,6 +132,18 @@ same time, even if there is a normal PR in progress.
 
 You can see the CI configuration for try builds [here](https://github.com/rust-lang/rust/blob/9d46c7a3e69966782e163877151c1f0cea8b630a/src/ci/github-actions/ci.yml#L728-L741).
 
+If you want to perform a try build with a different configuration (e.g. try to
+perform a compiler build for a different architecture), you can temporarily change
+the `try` CI job in your PR:
+
+1) Open `src/ci/github-actions/ci.yml`
+2) Find the CI job that you want to run (e.g. `dist-aarch64-linux`)
+3) Copy-paste the entry of the CI job
+4) Find the `try:` job in the file
+5) Replace the `dist-x86_64-linux` job in the matrix with the copied entry from step 3)
+6) Run `python3 x.py run src/tools/expand-yaml-anchors`
+7) Push your changes and start a try build with `@bors try`
+
 [perf]: https://perf.rust-lang.org
 [crater]: https://github.com/rust-lang/crater
 
