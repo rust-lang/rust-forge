@@ -14,6 +14,7 @@
     - [Agenda Generator](./triagebot/agenda.md)
     - [Issue Assignment](./triagebot/issue-assignment.md)
     - [PR Assignment](./triagebot/pr-assignment.md)
+    - [Tracking PR assignment](./triagebot/pr-assignment-tracking.md)
     - [Autolabels](./triagebot/autolabels.md)
     - [Close](./triagebot/close.md)
     - [Documentation Updates](./triagebot/doc-updates.md)

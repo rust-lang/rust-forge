@@ -3,6 +3,8 @@
 Triagebot handles automatic and manual assignment of GitHub PRs.
 It also handles welcoming new users when they post a PR.
 
+Rust contributors can track and manage their own work queue using the Zulipchat integration. See [Tracking PR assignment](/triagebot/pr-assignment-tracking.md).
+
 ## Usage
 
 Automatic assignment of new PRs is handled by the configuration in the `triagebot.toml`, described [below](#configuration).
