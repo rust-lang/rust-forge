@@ -13,6 +13,7 @@ command = "./build.bash"
 additional-js = ["js/moment.min.js", "js/index.js"]
 no-section-label=true
 git-repository-url="https://github.com/rust-lang/rust-forge"
+edit-url-template = "https://github.com/rust-lang/rust-forge/edit/master/{path}"
 curly-quotes = true
 
 [output.html.redirect]
