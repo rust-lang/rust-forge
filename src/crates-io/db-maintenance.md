@@ -23,10 +23,10 @@ can use:
 > The crates.io team will perform a database maintenance on YYYY-MM-DD from
 > hh:mm to hh:mm UTC.
 >
-> We expect this to take less than 5 minutes to complete. During maintenance
+> We expect this to take less than 5 minutes to complete. During maintenance,
 > crates.io will only be available in read-only mode: downloading crates and
 > visiting the website will still work, but logging in, publishing crates,
-> yanking crates or changing owners will not work.
+> yanking crates, or changing owners will not work.
 
 ## Primary database checklist
 
