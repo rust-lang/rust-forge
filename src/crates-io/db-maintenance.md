@@ -51,10 +51,10 @@ can use:
 
    > Scheduled maintenance on our database is starting.
    >
-   > We expect this to take less than 5 minutes to complete. During maintenance
+   > We expect this to take less than 5 minutes to complete. During maintenance,
    > crates.io will only be available in read-only mode: downloading crates and
    > visiting the website will still work, but logging in, publishing crates,
-   > yanking crates or changing owners will not work.
+   > yanking crates, or changing owners will not work.
 
 3. Configure the application to be in read-only mode without the follower:
 
