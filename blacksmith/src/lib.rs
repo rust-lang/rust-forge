@@ -45,6 +45,7 @@ pub struct Blacksmith {
     rustup: Vec<String>,
     stable_version: Option<String>,
     platforms: BTreeMap<String, Platform>,
+    previous_stable_versions: Vec<(String, Vec<String>)>,
 }
 
 impl Blacksmith {
@@ -121,6 +122,63 @@ impl Blacksmith {
                     _ => unreachable!(),
                 }
             }
+        }
+
+        let mut stable_version = SemVersion::from_str(&blacksmith.stable_version.clone().unwrap());
+
+        // Go backwards in stable versions
+        while let Some(mut previous_stable_version) = stable_version.previous() {
+            let channel_url = if previous_stable_version.patch.is_none() {
+                // Download https://static.rust-lang.org/dist/channel-rust-{major.minor}.toml
+                // and see if we had patch versions of it.
+                format!(
+                    "{}{}.{}.toml",
+                    CHANNEL_URL_PREFIX,
+                    previous_stable_version.major,
+                    previous_stable_version.minor
+                )
+            } else {
+                // Download https://static.rust-lang.org/dist/channel-rust-{major.minor.patch}.toml and process it.
+                format!(
+                    "{}{}.{}.{}.toml",
+                    CHANNEL_URL_PREFIX,
+                    previous_stable_version.major,
+                    previous_stable_version.minor,
+                    previous_stable_version.patch.unwrap()
+                )
+            };
+
+            let content = reqwest::blocking::get(&channel_url)?.text()?;
+            let rust = toml::from_str::<crate::channel::Channel>(&content)?
+                .pkg
+                .rust;
+
+            log::info!(
+                "Found {} targets for stable v{}",
+                rust.target.len(),
+                rust.version
+            );
+
+            let version = rust.version.split(' ').next().unwrap().to_string();
+
+            let platforms = rust
+                .target
+                .into_iter()
+                .filter_map(|(target, content)| {
+                    if content.available {
+                        Some(target)
+                    } else {
+                        None
+                    }
+                })
+                .collect::<Vec<_>>();
+
+            blacksmith
+                .previous_stable_versions
+                .push((version.clone(), platforms));
+
+            previous_stable_version = SemVersion::from_str(&version);
+            stable_version = previous_stable_version;
         }
 
         blacksmith.last_update = unix_time();
@@ -209,6 +267,45 @@ impl Blacksmith {
         buffer
     }
 
+    /// Generates tables of links to the previous stable standalone installer packages for
+    /// each platform.
+    fn generate_previous_stable_standalone_installers_tables(&self) -> String {
+        let mut buffer = String::new();
+
+        for (stable_version, platforms) in &self.previous_stable_versions {
+            writeln!(buffer, "## Stable ({})", stable_version).unwrap();
+            writeln!(buffer, "").unwrap();
+
+            writeln!(buffer, "platform | stable ({})", stable_version).unwrap();
+            writeln!(buffer, "---------|--------").unwrap();
+
+            for name in platforms {
+                let extension = if name.contains("windows") {
+                    "msi"
+                } else if name.contains("darwin") {
+                    "pkg"
+                } else {
+                    "tar.gz"
+                };
+
+                let stable_links =
+                    generate_standalone_links("rust", stable_version, name, extension);
+
+                writeln!(
+                    buffer,
+                    "`{name}` | {stable}",
+                    name = name,
+                    stable = stable_links,
+                )
+                .unwrap();
+            }
+
+            writeln!(buffer, "").unwrap();
+        }
+
+        buffer
+    }
+
     /// Generates a similar table to `generate_standalone_installers_table`
     /// except for the rust source code packages.
     fn generate_source_code_table(&self) -> String {
@@ -288,16 +385,23 @@ impl Preprocessor for Blacksmith {
 
         let rustup_init_list = self.generate_rustup_init_list();
         let standalone_installers_table = self.generate_standalone_installers_table();
+        let previous_stable_standalone_installers_tables =
+            self.generate_previous_stable_standalone_installers_tables();
         let source_code_table = self.generate_source_code_table();
 
         // TODO: Currently we're performing a global search for any of the
         // variables as that's the most flexible for adding more dynamic
-        // content, and the time to traverse is fast enough to not be noticable.
+        // content, and the time to traverse is fast enough to not be noticeable.
         // However if the processing time begins to become a bottleneck this
         // should change.
         for item in &mut book.sections {
             recursive_replace(item, "{{#rustup_init_list}}", &rustup_init_list);
             recursive_replace(item, "{{#installer_table}}", &standalone_installers_table);
+            recursive_replace(
+                item,
+                "{{#previous_stable_standalone_installers_tables}}",
+                &previous_stable_standalone_installers_tables,
+            );
             recursive_replace(item, "{{#source_code_table}}", &source_code_table);
         }
 
@@ -308,5 +412,98 @@ impl Preprocessor for Blacksmith {
     /// markdown.
     fn supports_renderer(&self, _renderer: &str) -> bool {
         true
+    }
+}
+
+#[derive(Eq, PartialEq, Debug)]
+struct SemVersion {
+    major: u32,
+    minor: u32,
+    // None represents that we haven't checked the highest patch version of this
+    // stable major.minor Rust.
+    patch: Option<u32>,
+}
+
+impl SemVersion {
+    fn new_with_patch(major: u32, minor: u32, patch: u32) -> Self {
+        assert_eq!(major, 1); // We are not planning Rust v2 yet.
+        Self {
+            major,
+            minor,
+            patch: Some(patch),
+        }
+    }
+
+    fn from_str(version: &str) -> Self {
+        let stable_version_parts = version
+            .split('.')
+            .map(|p| p.parse::<u32>().unwrap())
+            .collect::<Vec<_>>();
+        assert_eq!(stable_version_parts.len(), 3);
+
+        Self::new_with_patch(
+            stable_version_parts[0],
+            stable_version_parts[1],
+            stable_version_parts[2],
+        )
+    }
+
+    fn previous(&self) -> Option<Self> {
+        if self.patch.is_none() {
+            panic!("Cannot get previous version without knowing the current patch number.");
+        }
+
+        // TODO: Figure out how to get manifests for Rust <= 1.7
+        if self.major == 1 && self.minor == 8 && self.patch.unwrap() == 0 {
+            return None;
+        }
+
+        if self.patch.is_some() && self.patch.unwrap() > 0 {
+            return Some(Self {
+                major: self.major,
+                minor: self.minor,
+                patch: Some(self.patch.unwrap() - 1),
+            });
+        }
+
+        if self.minor > 0 {
+            return Some(Self {
+                major: self.major,
+                minor: self.minor - 1,
+                patch: None,
+            });
+        }
+
+        // We don't plan Rust v2 yet.
+        None
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn sem_version_previous_works_with_patch() {
+        let latest = SemVersion::from_str("1.68.2");
+        assert_eq!(latest, SemVersion::new_with_patch(1, 68, 2));
+        let previous = latest.previous().unwrap();
+        assert_eq!(previous, SemVersion::new_with_patch(1, 68, 1));
+        let previous = previous.previous().unwrap();
+        assert_eq!(previous, SemVersion::new_with_patch(1, 68, 0));
+        let previous = previous.previous().unwrap();
+        let expected = SemVersion {
+            major: 1,
+            minor: 67,
+            patch: None,
+        };
+        assert_eq!(previous, expected);
+    }
+
+    #[test]
+    fn sem_version_previous_stops_after_1_8() {
+        let latest = SemVersion::new_with_patch(1, 8, 0);
+        let previous = latest.previous();
+        assert_eq!(previous, None);
     }
 }
