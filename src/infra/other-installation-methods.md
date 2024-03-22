@@ -96,9 +96,7 @@ Each of these binaries is signed with the [Rust signing key], which is
 [available on keybase.io], by the Rust build infrastructure, with [GPG]. In the
 tables below, the `.asc` files are the signatures.
 
-<!-- FIXME: Show this sentence again once we've found a quick way to display the archives.
-Past releases can be found in [the archives].
--->
+Past releases can be found in [the archive].
 
 {{#installer_table}}
 
@@ -120,5 +118,4 @@ Past releases can be found in [the archives].
 [rust signing key]: https://static.rust-lang.org/rust-key.gpg.ascii
 [gpg]: https://gnupg.org/
 [available on keybase.io]: https://keybase.io/rust
-[the archives]: https://static.rust-lang.org/dist/index.html
-
+[the archive]: ../infra/archive-stable-version-installers.md
