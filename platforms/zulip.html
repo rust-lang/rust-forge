@@ -1,0 +1,385 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Zulip - Rust Forge</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="Supplemental documentation for contributing to The Rust Programming Language">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Overview</a></li><li class="chapter-item expanded "><a href="../platforms/index.html">Platforms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../platforms/twitter.html">Twitter</a></li><li class="chapter-item expanded "><a href="../platforms/discord.html">Discord</a></li><li class="chapter-item expanded "><a href="../platforms/email.html">Email</a></li><li class="chapter-item expanded "><a href="../platforms/github.html">GitHub</a></li><li class="chapter-item expanded "><a href="../platforms/zulip.html" class="active">Zulip</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../platforms/zulip/moderation.html">Moderation</a></li></ol></li><li class="chapter-item expanded "><a href="../platforms/blogs.html">Blogs</a></li><li class="chapter-item expanded "><a href="../platforms/calendars.html">Calendars</a></li></ol></li><li class="chapter-item expanded "><a href="../triagebot/index.html">Triagebot</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../triagebot/agenda.html">Agenda Generator</a></li><li class="chapter-item expanded "><a href="../triagebot/issue-assignment.html">Issue Assignment</a></li><li class="chapter-item expanded "><a href="../triagebot/pr-assignment.html">PR Assignment</a></li><li class="chapter-item expanded "><a href="../triagebot/pr-assignment-tracking.html">Tracking PR assignment</a></li><li class="chapter-item expanded "><a href="../triagebot/autolabels.html">Autolabels</a></li><li class="chapter-item expanded "><a href="../triagebot/close.html">Close</a></li><li class="chapter-item expanded "><a href="../triagebot/doc-updates.html">Documentation Updates</a></li><li class="chapter-item expanded "><a href="../triagebot/github-releases.html">GitHub Releases</a></li><li class="chapter-item expanded "><a href="../triagebot/glacier.html">Glacier</a></li><li class="chapter-item expanded "><a href="../triagebot/labeling.html">Labeling</a></li><li class="chapter-item expanded "><a href="../triagebot/major-changes.html">Major Changes</a></li><li class="chapter-item expanded "><a href="../triagebot/mentions.html">Mentions</a></li><li class="chapter-item expanded "><a href="../triagebot/no-merge.html">No Merge Policy</a></li><li class="chapter-item expanded "><a href="../triagebot/nominate.html">Nominate</a></li><li class="chapter-item expanded "><a href="../triagebot/note.html">Note</a></li><li class="chapter-item expanded "><a href="../triagebot/notifications.html">Notifications</a></li><li class="chapter-item expanded "><a href="../triagebot/pinging.html">Pinging</a></li><li class="chapter-item expanded "><a href="../triagebot/requesting-prioritization.html">Requesting Prioritization</a></li><li class="chapter-item expanded "><a href="../triagebot/review-submitted.html">Review Changes Requested</a></li><li class="chapter-item expanded "><a href="../triagebot/review-requested.html">Review Requested</a></li><li class="chapter-item expanded "><a href="../triagebot/rustc-commit-list.html">Rustc Commit Tracking</a></li><li class="chapter-item expanded "><a href="../triagebot/shortcuts.html">Shortcuts</a></li><li class="chapter-item expanded "><a href="../triagebot/triage-dashboard.html">Triagebot Dashboard</a></li><li class="chapter-item expanded "><a href="../triagebot/zulip-meeting.html">Zulip Meeting Management</a></li><li class="chapter-item expanded "><a href="../triagebot/zulip-notifications.html">Zulip Notifications</a></li></ol></li><li class="chapter-item expanded "><a href="../community/index.html">Community</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../community/survey-faq.html">State of Rust Survey FAQ</a></li></ol></li><li class="chapter-item expanded "><a href="../compiler/index.html">Compiler</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/cross-compilation/index.html">Cross Compilation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/cross-compilation/windows.html">Windows</a></li></ol></li><li class="chapter-item expanded "><a href="../compiler/cross-team-collaboration.html">Cross-team Collaboration</a></li><li class="chapter-item expanded "><a href="../compiler/reviews.html">Review policies</a></li><li class="chapter-item expanded "><a href="../compiler/new_option.html">So you want to add a new option to rustc?</a></li><li class="chapter-item expanded "><a href="../compiler/mcp.html">Major Change Proposals</a></li><li class="chapter-item expanded "><a href="../compiler/membership.html">Membership</a></li><li class="chapter-item expanded "><a href="../compiler/prioritization.html">Prioritization</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/prioritization/procedure.html">Procedure</a></li><li class="chapter-item expanded "><a href="../compiler/prioritization/priority-levels.html">Priority Levels</a></li></ol></li><li class="chapter-item expanded "><a href="../compiler/notification-groups.html">Notification groups</a></li><li class="chapter-item expanded "><a href="../compiler/triage-meeting.html">Triage Meeting</a></li><li class="chapter-item expanded "><a href="../compiler/steering-meeting.html">Steering Meeting</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/steering-meeting/submit.html">Submitting a proposal</a></li><li class="chapter-item expanded "><a href="../compiler/steering-meeting/how-to-run-planning.html">How to run the planning meeting</a></li><li class="chapter-item expanded "><a href="../compiler/steering-meeting/how-to-run-design.html">How to run a design meeting</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../crates-io/index.html">crates.io</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../crates-io/crate-removal.html">Crate removal</a></li><li class="chapter-item expanded "><a href="../crates-io/db-maintenance.html">Database maintenance</a></li></ol></li><li class="chapter-item expanded "><a href="../docs-rs/index.html">docs.rs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../docs-rs/add-dependencies.html">Adding dependencies to the build environment</a></li><li class="chapter-item expanded "><a href="../docs-rs/self-hosting.html">Self-hosting a docs.rs instance</a></li><li class="chapter-item expanded "><a href="../docs-rs/maintenance.html">Maintenance procedures</a></li></ol></li><li class="chapter-item expanded "><a href="../governance/index.html">Governance</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../governance/council.html">Leadership Council</a></li><li class="chapter-item expanded "><a href="../governance/moderation.html">Moderation</a></li></ol></li><li class="chapter-item expanded "><a href="../infra/index.html">Infrastructure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/other-installation-methods.html">Other Installation Methods</a></li><li class="chapter-item expanded "><a href="../infra/channel-layout.html">Release Channel Layout</a></li><li class="chapter-item expanded "><a href="../infra/service-infrastructure.html">Service Infrastructure</a></li><li class="chapter-item expanded "><a href="../infra/team-maintenance.html">Team Maintenance</a></li><li class="chapter-item expanded "><a href="../infra/toolstate.html">The Toolstate System</a></li><li class="chapter-item expanded "><a href="../infra/policies/index.html">Policies</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/policies/broken-nightlies.html">Broken nightlies</a></li></ol></li><li class="chapter-item expanded "><a href="../infra/guidelines/index.html">Guidelines</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/guidelines/static-websites.html">Static websites</a></li></ol></li><li class="chapter-item expanded "><a href="../infra/docs/index.html">Documentation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/docs/aws-access.html">AWS access for team members</a></li><li class="chapter-item expanded "><a href="../infra/docs/aws-access-management.html">AWS access management</a></li><li class="chapter-item expanded "><a href="../infra/docs/aws-regions.html">AWS regions</a></li><li class="chapter-item expanded "><a href="../infra/docs/bastion.html">Bastion server</a></li><li class="chapter-item expanded "><a href="../infra/docs/bors.html">Bors</a></li><li class="chapter-item expanded "><a href="../infra/docs/cdn.html">CDN</a></li><li class="chapter-item expanded "><a href="../infra/docs/crater-agents.html">Crater agents</a></li><li class="chapter-item expanded "><a href="../infra/docs/gha-self-hosted.html">Custom GitHub Actions runners</a></li><li class="chapter-item expanded "><a href="../infra/docs/dev-desktop.html">Dev Desktops</a></li><li class="chapter-item expanded "><a href="../infra/docs/dev-desktop-github-app.html">GitHub App for dev-desktops</a></li><li class="chapter-item expanded "><a href="../infra/docs/discord-mods-bot.html">Discord moderation bot</a></li><li class="chapter-item expanded "><a href="../infra/docs/dns.html">Domain names and DNS</a></li><li class="chapter-item expanded "><a href="../infra/docs/docs-rs.html">docs.rs</a></li><li class="chapter-item expanded "><a href="../infra/docs/ecs-services.html">ECS services management</a></li><li class="chapter-item expanded "><a href="../infra/docs/monitoring.html">Monitoring</a></li><li class="chapter-item expanded "><a href="../infra/docs/rust-bots.html">rust-bots server</a></li><li class="chapter-item expanded "><a href="../infra/docs/rustc-ci.html">rust-lang/rust CI</a></li><li class="chapter-item expanded "><a href="../infra/docs/sentry.html">Sentry</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../lang/index.html">Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../lang/rfc-merge-procedure.html">RFC Merge Procedure</a></li><li class="chapter-item expanded "><a href="../lang/triage-meeting-procedure.html">Triage Meeting Procedure</a></li></ol></li><li class="chapter-item expanded "><a href="../libs/index.html">Libs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../libs/maintaining-std.html">Maintaining the standard library</a></li></ol></li><li class="chapter-item expanded "><a href="../release/index.html">Release</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../release/backporting.html">Backporting</a></li><li class="chapter-item expanded "><a href="../release/release-notes.html">Preparing Release Notes</a></li><li class="chapter-item expanded "><a href="../release/process.html">Release Process</a></li><li class="chapter-item expanded "><a href="../release/rollups.html">Rollup Procedure</a></li><li class="chapter-item expanded "><a href="../release/triage-procedure.html">Triage Procedure</a></li><li class="chapter-item expanded "><a href="../release/issue-triaging.html">Issue Triaging</a></li><li class="chapter-item expanded "><a href="../release/crater.html">Triaging Crater Runs</a></li></ol></li><li class="chapter-item expanded "><a href="../editions/edition-releases.html">Edition Releases</a></li><li class="chapter-item expanded "><a href="../archive/index.html">Archive</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../archive/fott.html">Friends of the Tree</a></li><li class="chapter-item expanded "><a href="../archive/release-history.html">Release History</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rust Forge</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/rust-forge" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/rust-forge/edit/master/src/platforms/zulip.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="zulip"><a class="header" href="#zulip">Zulip</a></h1>
+<p><a href="https://rust-lang.zulipchat.com">Rust’s Zulip</a> is used by a number of teams, notably
+the compiler, language, and library teams, along with their working groups.</p>
+<p>Zulip can be an unintuitive platform to get started with. To get started, take a
+look at the <a href="https://zulipchat.com/help/getting-started-with-zulip">getting started
+guide</a>. For more detail,
+examine the <a href="https://zulipchat.com/help/">Zulip user documentation</a>!</p>
+<h2 id="where-to-go-for-help-with-using-zulip"><a class="header" href="#where-to-go-for-help-with-using-zulip">Where to go for help with using Zulip</a></h2>
+<p>If you’re testing a feature, or want to get help, the <code>#zulip</code> stream is the
+place to go. Like elsewhere, the best thing to do is to create a new topic
+for each question.</p>
+<h2 id="getting-started"><a class="header" href="#getting-started">Getting started</a></h2>
+<p>It is recommended to first look at the official <a href="https://zulipchat.com/help/getting-started-with-zulip">getting started
+guide</a>. Like Rust itself,
+Zulip is a bit special and reading the documentation before digging can be
+really helpful.</p>
+<p>You’ll definitely want to configure the streams that you’re subscribed to when
+getting started; the default set is quite limited, and there are many groups
+that exist beyond it. Subscribing to a stream is very low cost – it is similar
+to being “in” an IRC channel, except that logs are available for all streams,
+regardless of subscription status.</p>
+<p>It’s not necessary to introduce yourself, but feel free to say hello in the
+<code>#new members</code> stream.</p>
+<h2 id="user-groups"><a class="header" href="#user-groups">User groups</a></h2>
+<p>User groups can be pinged by anyone with the <code>@&lt;group&gt;</code> notation, same as
+pinging another user. Groups can be created by anyone, and anyone can join a
+group.</p>
+<p>Users should feel free to join (or leave) groups on their own. Furthermore,
+users should feel free to create groups as needed, though it is currently
+expected that this is somewhat rare. You should name your group similar to how
+you would name a stream for the same purpose, though groups can be more
+fine-grained (or less). For example, <code>@T-compiler/meeting</code> currently does not
+have a dedicated stream.</p>
+<h2 id="appropriate-conversation"><a class="header" href="#appropriate-conversation">Appropriate conversation</a></h2>
+<p>In most streams, you should try to keep conversations related to team business.
+The <code>#general</code> stream is a bit broader, but even there, discussions should be
+closely related to Rust (though may not relate to projects of any particular
+team). All channels are expected to be used for discussions related to the Rust
+project, though; discussions of (for example) wildlife or sightseeing are not
+appropriate.</p>
+<h2 id="streams"><a class="header" href="#streams">Streams</a></h2>
+<p>These are similar to “channels” on other platforms (i.e., there should not be
+too many). On the other hand, you can choose which streams you subscribe to, so
+there can be more than channels on other platforms. Read <a href="https://zulipchat.com/help/about-streams-and-topics">Zulip’s
+documentation</a> for more
+details.</p>
+<p>Streams are appropriate for any Rust official group. For example, working
+groups, project groups, teams are all examples of official groups. These should
+ideally also be represented in the <a href="../infra/team-maintenance.html">team repository</a>.</p>
+<h3 id="default-streams"><a class="header" href="#default-streams">Default streams</a></h3>
+<p><strong>This section is still under debate, and it is not yet clear which direction we
+will go. It is non-normative, and should not be used yet for modifications to
+the Zulip instance.</strong></p>
+<p>The default set of streams is chosen to allow incoming people to be able to have
+at least one place to go that can then, if necessary, direct them to a more
+specific location.</p>
+<p>Currently that means that every top-level group present on Zulip is by default
+visible. Specifically, no stream that contains a <code>/</code> will be enabled by default.</p>
+<p>Currently this set is:</p>
+<ul>
+<li>general</li>
+<li>t-lang</li>
+<li>t-compiler</li>
+<li>t-libs</li>
+<li>project-ffi-unwind</li>
+<li>project-inline-asm</li>
+<li>project-safe-transmute</li>
+<li>rust-survey-2019</li>
+<li>wg-async-foundations</li>
+<li>wg-database</li>
+<li>wg-formal-methods</li>
+<li>wg-secure-code</li>
+<li>wg-traits</li>
+<li>zulip</li>
+</ul>
+<p>An alternative, minimalistic, approach is to use:</p>
+<ul>
+<li>general</li>
+<li>zulip</li>
+<li>announce</li>
+<li>new members</li>
+</ul>
+<p>as the default set, which would push people into customizing their default set when
+starting out.</p>
+<h3 id="stream-naming"><a class="header" href="#stream-naming">Stream naming</a></h3>
+<p>A stream should be named such as <code>#t-{team}/{group name}</code>. For example,
+<code>#t-compiler/wg-parallel-rustc</code>. More levels of nesting are fine, e.g., a
+working group might want “subgroups” as well, though you may want to omit the
+team name in such a case – keeping the stream name short is good for usability,
+to avoid confusion between different streams which share the same prefix.</p>
+<p>If no top-level team exists, or the group spans multiple teams (e.g.,
+project-ffi-unwind), then the top level team should be omitted.</p>
+<p>Streams should be clearly communicated as being for a specific purpose. That
+purpose can be broad, but it should likely include a group of some kind (even if
+that group is transient, e.g., people who are having trouble with the rust build
+system, or people working on the compiler). Furthermore, we do not currently
+intend for this Zulip to be a general place for community projects not
+affiliated with the Rust organization; if they wish to use Zulip, it is <a href="https://zulipchat.com/for/open-source/">free
+for open source</a>.</p>
+<p>When a new stream is created, you should announce it in <code>#announce</code>. This is
+generally done automatically by Zulip.</p>
+<h2 id="topics"><a class="header" href="#topics">Topics</a></h2>
+<p>A topic is attached to every message within a given stream (these are the
+subdivisions within streams). Topics are generally transient, and live for as
+long as there is active discussion on a topic. Thinking of topics like email
+subjects is helpful.</p>
+<p>New conversation in a given stream should almost always start in a new topic,
+not a preexisting one. Unlike (for example) GitHub issues, you should not
+attempt to search for a past topic on the same subject. Do not spend too long on
+the name of the topic, either, beyond trying to make it short. Topics should
+generally be no longer than 20 characters (loosely two to three words), to make
+sure it is visible to users.</p>
+<p>You should eagerly fork new discussion topics into fresh topics. Note that this
+can be done with the tail of another topic (if accidentally you diverge into
+another area of discussion).</p>
+<p>To fork from an existing topic, see Zulip’s documentation
+<a href="https://zulipchat.com/help/rename-a-topic">here</a>.</p>
+<h2 id="messages"><a class="header" href="#messages">Messages</a></h2>
+<p>Zulip is a unique platform which combines synchronous and
+asynchronous communication in one location. You should not generally expect that
+your messages will receive a response quickly, and unlike (for example) Discord,
+there is likely not much reason to “re-ping” on a particular issue every few
+hours as your message is unlikely to vanish into history, being isolated to a
+specific topic.</p>
+<h3 id="linkifiers"><a class="header" href="#linkifiers">Linkifiers</a></h3>
+<p>Our Zulip supports a lot of helpful linkifiers, and we’re generally happy to add
+more on request. See <a href="https://rust-lang.zulipchat.com/help/add-a-custom-linkification-filter">the
+documentation</a>
+for the format. Propose one in <code>#zulip</code>!</p>
+<p>Generally, <code>github-org/repo#123</code> works for linking to an issue or PR; the below
+list gives a few more “special cased” repositories.</p>
+<p>Don’t forget that standard Markdown syntax for links also works.</p>
+<p>We support linking to issues on repositories inside the <code>rust-lang</code> GitHub organisation
+without requiring the <code>rust-lang/</code> prefix. For example:</p>
+<ul>
+<li>rust-lang/rfcs with <code>RFC#3434</code> or <code>rfc#3434</code></li>
+<li>rust-lang/async-book with <code>async-book#2334</code></li>
+<li>rust-lang/cargo with <code>cargo#2334</code></li>
+</ul>
+<p><code>rust-lang/rust</code> issues can linked without needing any prefix:</p>
+<ul>
+<li>rust-lang/rust with <a href="https://github.com/rust-lang/rust/issues/4545"><code>#4545</code></a> or <code>rust#4545</code></li>
+</ul>
+<p>We currently support linking to commits on these repositories:</p>
+<ul>
+<li>rust-lang/rust with 40-character long SHAs, e.g., <a href="https://github.com/rust-lang/rust/commit/25434f898b499876203a3b95c1b38bad5ed2cc5d"><code>25434f898b499876203a3b95c1b38bad5ed2cc5d</code></a></li>
+</ul>
+<h2 id="read-only-view"><a class="header" href="#read-only-view">Read-only view</a></h2>
+<p>Our Zulip instance has the web-public streams beta feature enabled, and we use
+it for all public streams. Please let us or Zulip developers know if there’s any
+problems with this. The previous solution to the web-public view was the zulip
+archive, which now redirects to the web public view.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../platforms/github.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../platforms/zulip/moderation.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../platforms/github.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../platforms/zulip/moderation.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../js/moment.min.js"></script>
+        <script src="../js/index.js"></script>
+
+
+    </div>
+    </body>
+</html>

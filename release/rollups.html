@@ -1,0 +1,306 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Rollup Procedure - Rust Forge</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="Supplemental documentation for contributing to The Rust Programming Language">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Overview</a></li><li class="chapter-item expanded "><a href="../platforms/index.html">Platforms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../platforms/twitter.html">Twitter</a></li><li class="chapter-item expanded "><a href="../platforms/discord.html">Discord</a></li><li class="chapter-item expanded "><a href="../platforms/email.html">Email</a></li><li class="chapter-item expanded "><a href="../platforms/github.html">GitHub</a></li><li class="chapter-item expanded "><a href="../platforms/zulip.html">Zulip</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../platforms/zulip/moderation.html">Moderation</a></li></ol></li><li class="chapter-item expanded "><a href="../platforms/blogs.html">Blogs</a></li><li class="chapter-item expanded "><a href="../platforms/calendars.html">Calendars</a></li></ol></li><li class="chapter-item expanded "><a href="../triagebot/index.html">Triagebot</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../triagebot/agenda.html">Agenda Generator</a></li><li class="chapter-item expanded "><a href="../triagebot/issue-assignment.html">Issue Assignment</a></li><li class="chapter-item expanded "><a href="../triagebot/pr-assignment.html">PR Assignment</a></li><li class="chapter-item expanded "><a href="../triagebot/pr-assignment-tracking.html">Tracking PR assignment</a></li><li class="chapter-item expanded "><a href="../triagebot/autolabels.html">Autolabels</a></li><li class="chapter-item expanded "><a href="../triagebot/close.html">Close</a></li><li class="chapter-item expanded "><a href="../triagebot/doc-updates.html">Documentation Updates</a></li><li class="chapter-item expanded "><a href="../triagebot/github-releases.html">GitHub Releases</a></li><li class="chapter-item expanded "><a href="../triagebot/glacier.html">Glacier</a></li><li class="chapter-item expanded "><a href="../triagebot/labeling.html">Labeling</a></li><li class="chapter-item expanded "><a href="../triagebot/major-changes.html">Major Changes</a></li><li class="chapter-item expanded "><a href="../triagebot/mentions.html">Mentions</a></li><li class="chapter-item expanded "><a href="../triagebot/no-merge.html">No Merge Policy</a></li><li class="chapter-item expanded "><a href="../triagebot/nominate.html">Nominate</a></li><li class="chapter-item expanded "><a href="../triagebot/note.html">Note</a></li><li class="chapter-item expanded "><a href="../triagebot/notifications.html">Notifications</a></li><li class="chapter-item expanded "><a href="../triagebot/pinging.html">Pinging</a></li><li class="chapter-item expanded "><a href="../triagebot/requesting-prioritization.html">Requesting Prioritization</a></li><li class="chapter-item expanded "><a href="../triagebot/review-submitted.html">Review Changes Requested</a></li><li class="chapter-item expanded "><a href="../triagebot/review-requested.html">Review Requested</a></li><li class="chapter-item expanded "><a href="../triagebot/rustc-commit-list.html">Rustc Commit Tracking</a></li><li class="chapter-item expanded "><a href="../triagebot/shortcuts.html">Shortcuts</a></li><li class="chapter-item expanded "><a href="../triagebot/triage-dashboard.html">Triagebot Dashboard</a></li><li class="chapter-item expanded "><a href="../triagebot/zulip-meeting.html">Zulip Meeting Management</a></li><li class="chapter-item expanded "><a href="../triagebot/zulip-notifications.html">Zulip Notifications</a></li></ol></li><li class="chapter-item expanded "><a href="../community/index.html">Community</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../community/survey-faq.html">State of Rust Survey FAQ</a></li></ol></li><li class="chapter-item expanded "><a href="../compiler/index.html">Compiler</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/cross-compilation/index.html">Cross Compilation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/cross-compilation/windows.html">Windows</a></li></ol></li><li class="chapter-item expanded "><a href="../compiler/cross-team-collaboration.html">Cross-team Collaboration</a></li><li class="chapter-item expanded "><a href="../compiler/reviews.html">Review policies</a></li><li class="chapter-item expanded "><a href="../compiler/new_option.html">So you want to add a new option to rustc?</a></li><li class="chapter-item expanded "><a href="../compiler/mcp.html">Major Change Proposals</a></li><li class="chapter-item expanded "><a href="../compiler/membership.html">Membership</a></li><li class="chapter-item expanded "><a href="../compiler/prioritization.html">Prioritization</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/prioritization/procedure.html">Procedure</a></li><li class="chapter-item expanded "><a href="../compiler/prioritization/priority-levels.html">Priority Levels</a></li></ol></li><li class="chapter-item expanded "><a href="../compiler/notification-groups.html">Notification groups</a></li><li class="chapter-item expanded "><a href="../compiler/triage-meeting.html">Triage Meeting</a></li><li class="chapter-item expanded "><a href="../compiler/steering-meeting.html">Steering Meeting</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/steering-meeting/submit.html">Submitting a proposal</a></li><li class="chapter-item expanded "><a href="../compiler/steering-meeting/how-to-run-planning.html">How to run the planning meeting</a></li><li class="chapter-item expanded "><a href="../compiler/steering-meeting/how-to-run-design.html">How to run a design meeting</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../crates-io/index.html">crates.io</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../crates-io/crate-removal.html">Crate removal</a></li><li class="chapter-item expanded "><a href="../crates-io/db-maintenance.html">Database maintenance</a></li></ol></li><li class="chapter-item expanded "><a href="../docs-rs/index.html">docs.rs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../docs-rs/add-dependencies.html">Adding dependencies to the build environment</a></li><li class="chapter-item expanded "><a href="../docs-rs/self-hosting.html">Self-hosting a docs.rs instance</a></li><li class="chapter-item expanded "><a href="../docs-rs/maintenance.html">Maintenance procedures</a></li></ol></li><li class="chapter-item expanded "><a href="../governance/index.html">Governance</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../governance/council.html">Leadership Council</a></li><li class="chapter-item expanded "><a href="../governance/moderation.html">Moderation</a></li></ol></li><li class="chapter-item expanded "><a href="../infra/index.html">Infrastructure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/other-installation-methods.html">Other Installation Methods</a></li><li class="chapter-item expanded "><a href="../infra/channel-layout.html">Release Channel Layout</a></li><li class="chapter-item expanded "><a href="../infra/service-infrastructure.html">Service Infrastructure</a></li><li class="chapter-item expanded "><a href="../infra/team-maintenance.html">Team Maintenance</a></li><li class="chapter-item expanded "><a href="../infra/toolstate.html">The Toolstate System</a></li><li class="chapter-item expanded "><a href="../infra/policies/index.html">Policies</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/policies/broken-nightlies.html">Broken nightlies</a></li></ol></li><li class="chapter-item expanded "><a href="../infra/guidelines/index.html">Guidelines</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/guidelines/static-websites.html">Static websites</a></li></ol></li><li class="chapter-item expanded "><a href="../infra/docs/index.html">Documentation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/docs/aws-access.html">AWS access for team members</a></li><li class="chapter-item expanded "><a href="../infra/docs/aws-access-management.html">AWS access management</a></li><li class="chapter-item expanded "><a href="../infra/docs/aws-regions.html">AWS regions</a></li><li class="chapter-item expanded "><a href="../infra/docs/bastion.html">Bastion server</a></li><li class="chapter-item expanded "><a href="../infra/docs/bors.html">Bors</a></li><li class="chapter-item expanded "><a href="../infra/docs/cdn.html">CDN</a></li><li class="chapter-item expanded "><a href="../infra/docs/crater-agents.html">Crater agents</a></li><li class="chapter-item expanded "><a href="../infra/docs/gha-self-hosted.html">Custom GitHub Actions runners</a></li><li class="chapter-item expanded "><a href="../infra/docs/dev-desktop.html">Dev Desktops</a></li><li class="chapter-item expanded "><a href="../infra/docs/dev-desktop-github-app.html">GitHub App for dev-desktops</a></li><li class="chapter-item expanded "><a href="../infra/docs/discord-mods-bot.html">Discord moderation bot</a></li><li class="chapter-item expanded "><a href="../infra/docs/dns.html">Domain names and DNS</a></li><li class="chapter-item expanded "><a href="../infra/docs/docs-rs.html">docs.rs</a></li><li class="chapter-item expanded "><a href="../infra/docs/ecs-services.html">ECS services management</a></li><li class="chapter-item expanded "><a href="../infra/docs/monitoring.html">Monitoring</a></li><li class="chapter-item expanded "><a href="../infra/docs/rust-bots.html">rust-bots server</a></li><li class="chapter-item expanded "><a href="../infra/docs/rustc-ci.html">rust-lang/rust CI</a></li><li class="chapter-item expanded "><a href="../infra/docs/sentry.html">Sentry</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../lang/index.html">Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../lang/rfc-merge-procedure.html">RFC Merge Procedure</a></li><li class="chapter-item expanded "><a href="../lang/triage-meeting-procedure.html">Triage Meeting Procedure</a></li></ol></li><li class="chapter-item expanded "><a href="../libs/index.html">Libs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../libs/maintaining-std.html">Maintaining the standard library</a></li></ol></li><li class="chapter-item expanded "><a href="../release/index.html">Release</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../release/backporting.html">Backporting</a></li><li class="chapter-item expanded "><a href="../release/release-notes.html">Preparing Release Notes</a></li><li class="chapter-item expanded "><a href="../release/process.html">Release Process</a></li><li class="chapter-item expanded "><a href="../release/rollups.html" class="active">Rollup Procedure</a></li><li class="chapter-item expanded "><a href="../release/triage-procedure.html">Triage Procedure</a></li><li class="chapter-item expanded "><a href="../release/issue-triaging.html">Issue Triaging</a></li><li class="chapter-item expanded "><a href="../release/crater.html">Triaging Crater Runs</a></li></ol></li><li class="chapter-item expanded "><a href="../editions/edition-releases.html">Edition Releases</a></li><li class="chapter-item expanded "><a href="../archive/index.html">Archive</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../archive/fott.html">Friends of the Tree</a></li><li class="chapter-item expanded "><a href="../archive/release-history.html">Release History</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rust Forge</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/rust-forge" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/rust-forge/edit/master/src/release/rollups.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="rollup-procedure"><a class="header" href="#rollup-procedure">Rollup Procedure</a></h1>
+<h2 id="background"><a class="header" href="#background">Background</a></h2>
+<p>The Rust project has a policy that every pull request must be tested after merge
+before it can be pushed to master. As PR volume increases this can scale poorly,
+especially given the long (~3.5hr) current CI duration for Rust.</p>
+<p>Enter rollups! Changes that are small, not performance sensitive, or not platform
+dependent are marked with the <code>rollup</code> command to bors (<code>@bors r+ rollup</code> to
+approve a PR and mark as a rollup, <code>@bors rollup</code> to mark a previously approved
+PR, <code>@bors rollup-</code> to un-mark as a rollup).  ‘Performing a Rollup’ then means
+collecting these changes into one PR and merging them all at once. The rollup
+command accepts four values <code>always</code>, <code>maybe</code>, <code>iffy</code>, and <code>never</code>. See <a href="../compiler/reviews.html#rollups">the
+Rollups section</a> of the review policies for guidance on what these different
+statuses mean.</p>
+<p>You can see the list of rollup PRs on Rust’s <a href="https://bors.rust-lang.org/queue/rust">Homu queue</a>, they are
+listed at the bottom of the ‘approved’ queue with a priority of ‘rollup’ meaning
+they will not be merged by themselves until everything in front of them in the
+queue has been merged.</p>
+<h2 id="making-a-rollup"><a class="header" href="#making-a-rollup">Making a Rollup</a></h2>
+<ol>
+<li>
+<p>Using the interface on <a href="https://bors.rust-lang.org/queue/rust">Homu queue</a>, select pull requests and then
+use “rollup” button to make a rollup pull request. (The text about
+fairness can be ignored.)
+<strong>Important note</strong>:  consider for addition PRs marked as
+<code>rollup=always</code>, <code>rollup=maybe</code> and <code>rollup=iffy</code>, based on the
+review policies of <a href="../compiler/reviews.html#rollups">the Rollups section</a>.  Be extra careful when
+deciding what to include, in particular on <code>rollup=maybe</code> and
+<code>rollup=iffy</code> PRs. We should try as much as possible to avoid risking
+and hit regressions (bugs or perf).  Also consider that contributors
+often forget to tag things with rollup=never, when they should have
+done so, so when PRs are not explicitly tagged with rollup, be extra
+careful.</p>
+</li>
+<li>
+<p>Run the following command in the pull request thread:</p>
+<pre><code>@bors r+ rollup=never p=5
+</code></pre>
+</li>
+<li>
+<p>If the rollup fails, use the logs rust-log-analyzer
+provides to bisect the failure to a specific PR and do
+<code>@bors r-</code>. If the PR is running, you need to do <code>@bors r- retry</code>. Otherwise,
+your rollup succeeded. If it did, proceed to the next rollup (every now and
+then let <code>rollup=never</code> and toolstate PRs progress).</p>
+</li>
+<li>
+<p>Recreate the rollup without the offending PR starting again from <strong>1.</strong>. There’s a link in the rollup PR’s body to automatically prefill the rollup UI with the existing PRs (minus any PRs that have been <code>r-</code>d)</p>
+</li>
+</ol>
+<h2 id="selecting-pull-requests"><a class="header" href="#selecting-pull-requests">Selecting Pull Requests</a></h2>
+<p>The queue is sorted by rollup status. In general, a good rollup includes one or two <code>iffy</code> PRs (if available), a bunch of <code>maybe</code> (unmarked) PRs, and a large pile of <code>always</code> PRs. A rollup should never include <code>rollup=never</code> PRs.</p>
+<p>The actual absolute size of the rollup can depend based on experience, people new to making rollups might start with including 1 <code>iffy</code>, 4 <code>maybe</code>s, and 5 <code>always</code>s, but more experienced people might even make a rollup of 1-2 <code>iffy</code>s, 8 <code>maybe</code>s, and 10 <code>always</code>s! Massive rollups are rarely needed, but as your intuition grows you’ll get better at judging risk when including PRs in a rollup.</p>
+<p>Don’t hesitate to downgrade the rollup status of a PR! If your intuition tells you that a <code>rollup=always</code> PR has some chances for failures, mark it <code>rollup=maybe</code> or <code>rollup=iffy</code>. A lot of the unmarked <code>maybe</code> PRs are categorized as such because the reviewer may not have considered rollupability, so it’s always worth picking them with a critical eye. Similarly, if a PR causes your rollup to fail, it’s worth considering changing its rollup status</p>
+<p>Generally, PRs, that touch CI configuration or the bootstrapping process are probably <code>iffy</code> and should be handled with care. On the other hand, PRs that just edit docs are usually <code>rollup=always</code>.</p>
+<p>Avoid having too many PRs with large diffs or submodule changes in the same rollup. Also avoid having PRs you suspect will have large perf impacts, and mark them as <code>rollup=never</code>.</p>
+<p>It’s tempting to avoid including <code>iffy</code> PRs at all since ideally you want your rollup to succeed. However, it’s worth remembering that the job of the PR queue is to <em>test</em> PRs, not to land them. As such, a rollup that fails because of an <code>iffy</code> PR is a good thing, since that PR would have to be tested at <em>some point</em> anyway and it would have taken up the same amount of time to test if it never got included in a rollup. One way to look at rollups when it comes to <code>iffy</code> PRs is that a rollup is a way for a bunch of other PRs to piggyback on the CI cycle that the <code>iffy</code> PR needs anyway. If rollups avoid <code>iffy</code> PRs entirely what ends up happening is that these PRs tend to languish in the queue for a long time, which isn’t good.</p>
+<p>Similarly, make sure to leave some spare CI cycles so that <code>never</code> PRs also get a chance! If you’re the only person making rollups it’s worth letting them run during times you’re not paying attention to the queue, but these days there are rollup authors in multiple time zones, so it’s often best to just keep an eye on the relative size of the queue and put aside a couple CI cycles for <code>never</code> PRs, especially if they pile up.</p>
+<p>Try to be fair with rollups: Rollups are a way for things to jump the queue. For <code>rollup=maybe</code> PRs, try to include the oldest one (at the top of the section) so that newer PRs aren’t jumping the queue over older PRs entirely. You don’t have to include every PR older than PRs included in your rollup, but try to include the oldest. Similar to the perspective around <code>iffy</code>, it’s useful to look at a rollup as a way for other PRs to piggyback on the CI cycle of the oldest PR in queue.</p>
+<h2 id="failed-rollups"><a class="header" href="#failed-rollups">Failed rollups</a></h2>
+<p>If the rollup has failed, run the <code>@bors retry</code> command if the
+failure was spurious (e.g. due to a network problem or a timeout). If it wasn’t spurious,
+find the offending PR and throw it out by copying a link to the rust-logs-analyzer comment,
+and writing <code>Failed in &lt;link_to_comment&gt;, @bors r-</code>. Hopefully,
+the author or reviewer will give feedback to get the PR fixed or confirm that it’s not
+at fault. The failed rollup PR can be closed.</p>
+<p>Once you’ve removed the offending PR, re-create your rollup without it (see 1.).
+Sometimes however, it is hard to find the offending PR. If so, use your intuition
+to avoid the PRs that you suspect are the problem and recreate the rollup.
+Another strategy is to raise the priority of the PRs you suspect,
+mark them as <code>rollup=never</code> (or <code>iffy</code>) and let bors test them standalone to dismiss
+or confirm your hypothesis.</p>
+<p>If a rollup continues to fail you can run the <code>@bors rollup=never</code> command to
+never rollup the PR in question.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../release/process.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../release/triage-procedure.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../release/process.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../release/triage-procedure.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../js/moment.min.js"></script>
+        <script src="../js/index.js"></script>
+
+
+    </div>
+    </body>
+</html>

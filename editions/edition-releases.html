@@ -1,0 +1,438 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Edition Releases - Rust Forge</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="Supplemental documentation for contributing to The Rust Programming Language">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Overview</a></li><li class="chapter-item expanded "><a href="../platforms/index.html">Platforms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../platforms/twitter.html">Twitter</a></li><li class="chapter-item expanded "><a href="../platforms/discord.html">Discord</a></li><li class="chapter-item expanded "><a href="../platforms/email.html">Email</a></li><li class="chapter-item expanded "><a href="../platforms/github.html">GitHub</a></li><li class="chapter-item expanded "><a href="../platforms/zulip.html">Zulip</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../platforms/zulip/moderation.html">Moderation</a></li></ol></li><li class="chapter-item expanded "><a href="../platforms/blogs.html">Blogs</a></li><li class="chapter-item expanded "><a href="../platforms/calendars.html">Calendars</a></li></ol></li><li class="chapter-item expanded "><a href="../triagebot/index.html">Triagebot</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../triagebot/agenda.html">Agenda Generator</a></li><li class="chapter-item expanded "><a href="../triagebot/issue-assignment.html">Issue Assignment</a></li><li class="chapter-item expanded "><a href="../triagebot/pr-assignment.html">PR Assignment</a></li><li class="chapter-item expanded "><a href="../triagebot/pr-assignment-tracking.html">Tracking PR assignment</a></li><li class="chapter-item expanded "><a href="../triagebot/autolabels.html">Autolabels</a></li><li class="chapter-item expanded "><a href="../triagebot/close.html">Close</a></li><li class="chapter-item expanded "><a href="../triagebot/doc-updates.html">Documentation Updates</a></li><li class="chapter-item expanded "><a href="../triagebot/github-releases.html">GitHub Releases</a></li><li class="chapter-item expanded "><a href="../triagebot/glacier.html">Glacier</a></li><li class="chapter-item expanded "><a href="../triagebot/labeling.html">Labeling</a></li><li class="chapter-item expanded "><a href="../triagebot/major-changes.html">Major Changes</a></li><li class="chapter-item expanded "><a href="../triagebot/mentions.html">Mentions</a></li><li class="chapter-item expanded "><a href="../triagebot/no-merge.html">No Merge Policy</a></li><li class="chapter-item expanded "><a href="../triagebot/nominate.html">Nominate</a></li><li class="chapter-item expanded "><a href="../triagebot/note.html">Note</a></li><li class="chapter-item expanded "><a href="../triagebot/notifications.html">Notifications</a></li><li class="chapter-item expanded "><a href="../triagebot/pinging.html">Pinging</a></li><li class="chapter-item expanded "><a href="../triagebot/requesting-prioritization.html">Requesting Prioritization</a></li><li class="chapter-item expanded "><a href="../triagebot/review-submitted.html">Review Changes Requested</a></li><li class="chapter-item expanded "><a href="../triagebot/review-requested.html">Review Requested</a></li><li class="chapter-item expanded "><a href="../triagebot/rustc-commit-list.html">Rustc Commit Tracking</a></li><li class="chapter-item expanded "><a href="../triagebot/shortcuts.html">Shortcuts</a></li><li class="chapter-item expanded "><a href="../triagebot/triage-dashboard.html">Triagebot Dashboard</a></li><li class="chapter-item expanded "><a href="../triagebot/zulip-meeting.html">Zulip Meeting Management</a></li><li class="chapter-item expanded "><a href="../triagebot/zulip-notifications.html">Zulip Notifications</a></li></ol></li><li class="chapter-item expanded "><a href="../community/index.html">Community</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../community/survey-faq.html">State of Rust Survey FAQ</a></li></ol></li><li class="chapter-item expanded "><a href="../compiler/index.html">Compiler</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/cross-compilation/index.html">Cross Compilation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/cross-compilation/windows.html">Windows</a></li></ol></li><li class="chapter-item expanded "><a href="../compiler/cross-team-collaboration.html">Cross-team Collaboration</a></li><li class="chapter-item expanded "><a href="../compiler/reviews.html">Review policies</a></li><li class="chapter-item expanded "><a href="../compiler/new_option.html">So you want to add a new option to rustc?</a></li><li class="chapter-item expanded "><a href="../compiler/mcp.html">Major Change Proposals</a></li><li class="chapter-item expanded "><a href="../compiler/membership.html">Membership</a></li><li class="chapter-item expanded "><a href="../compiler/prioritization.html">Prioritization</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/prioritization/procedure.html">Procedure</a></li><li class="chapter-item expanded "><a href="../compiler/prioritization/priority-levels.html">Priority Levels</a></li></ol></li><li class="chapter-item expanded "><a href="../compiler/notification-groups.html">Notification groups</a></li><li class="chapter-item expanded "><a href="../compiler/triage-meeting.html">Triage Meeting</a></li><li class="chapter-item expanded "><a href="../compiler/steering-meeting.html">Steering Meeting</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/steering-meeting/submit.html">Submitting a proposal</a></li><li class="chapter-item expanded "><a href="../compiler/steering-meeting/how-to-run-planning.html">How to run the planning meeting</a></li><li class="chapter-item expanded "><a href="../compiler/steering-meeting/how-to-run-design.html">How to run a design meeting</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../crates-io/index.html">crates.io</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../crates-io/crate-removal.html">Crate removal</a></li><li class="chapter-item expanded "><a href="../crates-io/db-maintenance.html">Database maintenance</a></li></ol></li><li class="chapter-item expanded "><a href="../docs-rs/index.html">docs.rs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../docs-rs/add-dependencies.html">Adding dependencies to the build environment</a></li><li class="chapter-item expanded "><a href="../docs-rs/self-hosting.html">Self-hosting a docs.rs instance</a></li><li class="chapter-item expanded "><a href="../docs-rs/maintenance.html">Maintenance procedures</a></li></ol></li><li class="chapter-item expanded "><a href="../governance/index.html">Governance</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../governance/council.html">Leadership Council</a></li><li class="chapter-item expanded "><a href="../governance/moderation.html">Moderation</a></li></ol></li><li class="chapter-item expanded "><a href="../infra/index.html">Infrastructure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/other-installation-methods.html">Other Installation Methods</a></li><li class="chapter-item expanded "><a href="../infra/channel-layout.html">Release Channel Layout</a></li><li class="chapter-item expanded "><a href="../infra/service-infrastructure.html">Service Infrastructure</a></li><li class="chapter-item expanded "><a href="../infra/team-maintenance.html">Team Maintenance</a></li><li class="chapter-item expanded "><a href="../infra/toolstate.html">The Toolstate System</a></li><li class="chapter-item expanded "><a href="../infra/policies/index.html">Policies</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/policies/broken-nightlies.html">Broken nightlies</a></li></ol></li><li class="chapter-item expanded "><a href="../infra/guidelines/index.html">Guidelines</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/guidelines/static-websites.html">Static websites</a></li></ol></li><li class="chapter-item expanded "><a href="../infra/docs/index.html">Documentation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/docs/aws-access.html">AWS access for team members</a></li><li class="chapter-item expanded "><a href="../infra/docs/aws-access-management.html">AWS access management</a></li><li class="chapter-item expanded "><a href="../infra/docs/aws-regions.html">AWS regions</a></li><li class="chapter-item expanded "><a href="../infra/docs/bastion.html">Bastion server</a></li><li class="chapter-item expanded "><a href="../infra/docs/bors.html">Bors</a></li><li class="chapter-item expanded "><a href="../infra/docs/cdn.html">CDN</a></li><li class="chapter-item expanded "><a href="../infra/docs/crater-agents.html">Crater agents</a></li><li class="chapter-item expanded "><a href="../infra/docs/gha-self-hosted.html">Custom GitHub Actions runners</a></li><li class="chapter-item expanded "><a href="../infra/docs/dev-desktop.html">Dev Desktops</a></li><li class="chapter-item expanded "><a href="../infra/docs/dev-desktop-github-app.html">GitHub App for dev-desktops</a></li><li class="chapter-item expanded "><a href="../infra/docs/discord-mods-bot.html">Discord moderation bot</a></li><li class="chapter-item expanded "><a href="../infra/docs/dns.html">Domain names and DNS</a></li><li class="chapter-item expanded "><a href="../infra/docs/docs-rs.html">docs.rs</a></li><li class="chapter-item expanded "><a href="../infra/docs/ecs-services.html">ECS services management</a></li><li class="chapter-item expanded "><a href="../infra/docs/monitoring.html">Monitoring</a></li><li class="chapter-item expanded "><a href="../infra/docs/rust-bots.html">rust-bots server</a></li><li class="chapter-item expanded "><a href="../infra/docs/rustc-ci.html">rust-lang/rust CI</a></li><li class="chapter-item expanded "><a href="../infra/docs/sentry.html">Sentry</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../lang/index.html">Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../lang/rfc-merge-procedure.html">RFC Merge Procedure</a></li><li class="chapter-item expanded "><a href="../lang/triage-meeting-procedure.html">Triage Meeting Procedure</a></li></ol></li><li class="chapter-item expanded "><a href="../libs/index.html">Libs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../libs/maintaining-std.html">Maintaining the standard library</a></li></ol></li><li class="chapter-item expanded "><a href="../release/index.html">Release</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../release/backporting.html">Backporting</a></li><li class="chapter-item expanded "><a href="../release/release-notes.html">Preparing Release Notes</a></li><li class="chapter-item expanded "><a href="../release/process.html">Release Process</a></li><li class="chapter-item expanded "><a href="../release/rollups.html">Rollup Procedure</a></li><li class="chapter-item expanded "><a href="../release/triage-procedure.html">Triage Procedure</a></li><li class="chapter-item expanded "><a href="../release/issue-triaging.html">Issue Triaging</a></li><li class="chapter-item expanded "><a href="../release/crater.html">Triaging Crater Runs</a></li></ol></li><li class="chapter-item expanded "><a href="../editions/edition-releases.html" class="active">Edition Releases</a></li><li class="chapter-item expanded "><a href="../archive/index.html">Archive</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../archive/fott.html">Friends of the Tree</a></li><li class="chapter-item expanded "><a href="../archive/release-history.html">Release History</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rust Forge</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/rust-forge" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/rust-forge/edit/master/src/editions/edition-releases.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="edition-releases"><a class="header" href="#edition-releases">Edition Releases</a></h1>
+<p>This document gives an overview of how to manage an Edition release.
+This assumes that you are familiar with what Editions are (see the <a href="https://doc.rust-lang.org/edition-guide/">Edition Guide</a>).</p>
+<h2 id="edition-project-group"><a class="header" href="#edition-project-group">Edition project group</a></h2>
+<p><a href="https://rust-lang.github.io/rfcs/3501-edition-2024.html">RFC 3501</a> established that the Leadership Council is responsible for forming a project group who takes responsibility for managing the Edition.</p>
+<h3 id="project-group-leads"><a class="header" href="#project-group-leads">Project group leads</a></h3>
+<p>It is recommended that the project group have 2-3 leads, to make it easier to coordinate and quickly make decisions and actions that will be needed within a relatively tight timeline.</p>
+<p>The other consideration is commitment and time availability.
+Unlike most of the work we do in Rust, Editions have a fixed timeline.
+This requires a different sort of commitment.
+Ordinarily our system is pretty tolerant of people coming and going or experiencing unexpected delays.
+There is less room for that with the Edition.
+Leads should be able to commit to meeting regularly and following up on action items in a timely fashion.
+(Of course, things happen, people take vacations, whatever; we’ll deal and make it work. But you get the idea.)</p>
+<p>Another thing to consider is that the time requirements vary significantly from month to month.
+There may be some months where there is nothing to do, and a few where there is a fairly high time requirement (10+ hours in a week).
+This is also highly variable based on how many changes are in an Edition.</p>
+<h3 id="project-group-members"><a class="header" href="#project-group-members">Project group members</a></h3>
+<p>Additional members of the Edition Project Group can help with shorter-term action items,
+or to help with specific aspects of the process (such as writing documentation, implementing migration lints, fixing bugs, authoring progress updates and blog posts, etc.).</p>
+<h2 id="phases"><a class="header" href="#phases">Phases</a></h2>
+<p>Running an Edition involves many steps, coordinated across the project.</p>
+<ol>
+<li>Preparation phase.
+This is the time approximately 1-3 years before the Editions ships that involves all the preparation work.
+The sooner these tasks can be performed, the better.
+<ol>
+<li>Preliminary support for the next edition should be added to tools.
+It might be nice to make this automated in the future. Examples:
+<ul>
+<li><a href="https://github.com/rust-lang/rust/pull/94461"><code>rustc</code> support for <code>--edition</code> flag</a></li>
+<li><a href="https://github.com/rust-lang/cargo/pull/12771"><code>cargo</code> support for <code>edition</code> setting</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/94461"><code>rustfmt</code> support for <code>--edition</code> flag</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/94461"><code>clippy</code> support for <code>--edition</code> flag</a></li>
+<li><a href="https://github.com/rust-lang/rust-analyzer/pull/7123"><code>rust-analyzer</code> support for editions</a></li>
+</ul>
+</li>
+<li>Teams start their proposals and implementation work.</li>
+</ol>
+</li>
+<li>The Leadership Council sets up a Project Group to run the edition (approximately 1 year before the final release).</li>
+<li>Final deadline phase.
+This is the period starting about one year before the Edition release.
+This starts the series of final deadlines for anything to be added to the Edition.
+See <a href="#sample-timeline">Sample timeline</a> below for the set of deadlines during the course of the year.</li>
+</ol>
+<h3 id="feature-phases"><a class="header" href="#feature-phases">Feature phases</a></h3>
+<p>Each feature goes through a series of phases.
+This process can start at any time.
+The process can take a highly variable length of time, sometimes completing very quickly and sometimes taking many years.</p>
+<ol>
+<li>Individuals and teams propose an Edition change.
+The exact process will vary by team, but a common way to start is to post a Pre-RFC on <a href="https://internals.rust-lang.org/">IRLO</a>.</li>
+<li>An RFC should be posted with the proposed Edition change.</li>
+<li>The team accepts the RFC.
+This indicates that the team <em>wants</em> the idea in principle, but does not guarantee that it will make it in time for a specific Edition.</li>
+<li>Either the RFC or the team should put together a migration plan that defines how migrations will be handled from the previous edition.
+It’s OK for some kinds of breakage to require people to make manual edits to the code, but that has to be rare, and ideally it should be noisy (i.e., people will get compilation errors, not surprising semantics at runtime).
+<strong>It’s up to the edition leads to make the call on what is “rare enough”.</strong></li>
+<li>Implement the feature and migration support.</li>
+<li>Informal testing should happen on nightly by people most interested in the feature.
+Issues should be identified and fixed during this time.</li>
+<li>The team responsible for the feature should make a final call if the feature is ready for the next edition by the feature cutoff date.
+This should be done in conjunction with the Edition Project Group.</li>
+<li>Document the change in places such as the <a href="https://doc.rust-lang.org/edition-guide/">Edition Guide</a> and <a href="https://doc.rust-lang.org/reference/">the Reference</a>.</li>
+</ol>
+<h3 id="sample-timeline"><a class="header" href="#sample-timeline">Sample timeline</a></h3>
+<p>The following is a sample set of deadlines of the Edition.</p>
+<p>This is shown as milestones relative to the release.
+Previous Edition releases have hit stable late in the year (October), but it is highly encouraged for future Editions to release earlier in the year, such as June.</p>
+<p>These dates are not very fixed (for example, Rust releases on a 6 week cadence, so the exact release date shuffles around), and the Edition Project Group should adjust these as desired.</p>
+<ul>
+<li>1-3 years before the Edition release date
+<ul>
+<li>Teams should be planning and implementing their Edition changes.</li>
+</ul>
+</li>
+<li>T-11 months
+<ul>
+<li>Leadership Council ensures the Edition Project Group is formed and ready.</li>
+<li>Blog post announcing the Edition schedule.</li>
+<li>Edition Project Group should start coordinating with teams for their list of changes, and set up a tracking tool to track the changes.</li>
+<li>Tools should have preliminary support for the next edition (ideally this should be done soon after the previous Edition).</li>
+<li>Public blog post calling for the final list of features, and to communicate the final deadlines. <a href="https://blog.rust-lang.org/inside-rust/2021/03/04/planning-rust-2021.html">Example</a></li>
+</ul>
+</li>
+<li>T-10 months
+<ul>
+<li>Last chance for Pre-RFC proposals.</li>
+</ul>
+</li>
+<li>T-9 months
+<ul>
+<li>Last chance for RFC approvals.</li>
+</ul>
+</li>
+<li>T-8 months
+<ul>
+<li>Final list of Edition changes is complete, all RFCs approved.</li>
+<li>Public blog post informing what is included in the Edition. <a href="https://blog.rust-lang.org/2021/05/11/edition-2021.html">Example</a></li>
+</ul>
+</li>
+<li>T-7 months</li>
+<li>T-6 months</li>
+<li>T-5 months
+<ul>
+<li>All features and migrations implemented on nightly. All feature gates should be removed.</li>
+</ul>
+</li>
+<li>T-4 months
+<ul>
+<li>Crater test all migrations (see <a href="#crater-migration-test">Crater migration test</a> below).</li>
+<li>Edition Project Group should be tracking all edition issues to ensure they get resolved in time.</li>
+</ul>
+</li>
+<li>T-3 months
+<ul>
+<li>Public blog post calling for final testing on nightly. <a href="https://blog.rust-lang.org/2021/07/21/Rust-2021-public-testing.html">Example</a></li>
+</ul>
+</li>
+<li>T-2 months
+<ul>
+<li>Most issues have been fixed.</li>
+<li>Documentation finished (the <a href="https://doc.rust-lang.org/edition-guide/">Edition Guide</a>, <a href="https://doc.rust-lang.org/reference/">the Reference</a>, etc.).</li>
+<li>The Edition Project Group should make a final go/no-go decision on stabilizing the Edition, or if it has to be delayed to the next release.</li>
+<li>Edition is stabilized on nightly for all tools (rustc, cargo, etc.).</li>
+</ul>
+</li>
+<li>T-1 months
+<ul>
+<li>Edition reaches beta, last chance for any backports.</li>
+<li>Work with Release team to prepare release announcement. <a href="https://blog.rust-lang.org/2021/10/21/Rust-1.56.0.html">Example</a></li>
+</ul>
+</li>
+<li>T-0 months
+<ul>
+<li>Edition is released on stable.</li>
+</ul>
+</li>
+</ul>
+<h2 id="crater-migration-test"><a class="header" href="#crater-migration-test">Crater migration test</a></h2>
+<p>Crater does not directly support testing migration lints.
+To perform a crater run, a modified version of <code>cargo</code> must be used which will perform the steps necessary to migrate a crate.
+<a href="https://github.com/rust-lang/rust/pull/87190">#87190</a> contains an example of what this looks like.
+This roughly performs the following steps:</p>
+<ol>
+<li>Crater runs <code>cargo check</code> using the previous master build.</li>
+<li>Crater runs <code>cargo check</code> using the modified <code>cargo</code>. This modified <code>cargo check</code> will perform the following steps instead of doing a normal check.</li>
+<li>Copies the package to a temp directory (since the source directory is read-only in crater).</li>
+<li>Checks if the package’s edition is older than the current edition. If so, skip it, since we only want to test migration of the current edition.</li>
+<li>Runs <code>cargo fix --edition --allow-no-vcs --allow-dirty</code>.</li>
+<li>Modifies <code>Cargo.toml</code> to set the new edition.</li>
+<li>Runs <code>cargo check</code> with a special environment variable so that the real <code>cargo check</code> can run.</li>
+</ol>
+<p>The modified cargo also allows setting the new edition without <code>cargo-features</code> being used.</p>
+<p>If the final <code>cargo fix</code> or <code>cargo check</code> steps fail, and the check succeeded on the previous master build, then that signals a regression where the migration failed.</p>
+<p>The Edition Project Group is then responsible for analyzing the report, and filing issues for any problems, and following up with teams for getting those fixed.</p>
+<p>This process may need to be repeated several times as problems are fixed and need to be re-tested.</p>
+<p>Beware that the process of running this and analyzing the reports may take a long time, depending on how many changes are in the Edition.
+The 2021 Edition took about a month, which involved analyzing hundreds of regressions, determining root causes, and re-running crater after fixes had been implemented.</p>
+<h2 id="blog-posts-and-announcements"><a class="header" href="#blog-posts-and-announcements">Blog posts and announcements</a></h2>
+<p>It is highly encouraged for the Edition Project Group and the involved teams to communicate with everyone early and frequently.
+Major milestones should be announced on the Rust blog.
+Inside Rust blog posts should be made regularly (such as monthly) with updates about the overall progress and timelines.</p>
+<p>Partly in public messaging, but ideally everywhere, <strong>reiterate what editions are and how they work (no code breaks! no ecosystem split!)</strong>.
+There is always confusion.
+Last time, if I recall, some reporters reached out to the Rust Foundation for clarification.
+The Edition Project Group should coordinate with the Foundation team on public messaging, as they will get questions.</p>
+<h2 id="tracking-tools"><a class="header" href="#tracking-tools">Tracking tools</a></h2>
+<p>The Edition Project Group should decide which tools they want to use to track the progress of the edition.
+Individual teams will also likely want to choose the tools that are best for them.
+In the past, we have used a mix of different tools, such as GitHub Projects, GitHub issue labels, Google Sheets, HackMd, etc.
+Use whatever you are comfortable with, just keep in mind that it should be publicly accessible.</p>
+<p>Examples:</p>
+<ul>
+<li><a href="https://github.com/rust-lang/rust/issues/44581">2018 Tracking Issue</a></li>
+<li><a href="https://github.com/rust-lang/rust/projects/3">2018 GitHub Project</a></li>
+<li><a href="https://docs.google.com/spreadsheets/d/1chZ2SL9T444nvU9al1kQ7TJMwC3IVQQV2xIv1HWGQ_k/edit#gid=1034375760">2021 Tracking Spreadsheet</a></li>
+<li><a href="https://github.com/orgs/rust-lang/projects/7">2021 GitHub Project</a></li>
+<li><a href="https://hackmd.io/3eG6OZWHRbSMxoRxzwNhGQ?view">2021 HackMd</a></li>
+<li><a href="https://github.com/rust-lang/rust/issues/85811">2021 Tracking Issue</a></li>
+<li><a href="https://github.com/rust-lang/rust/issues/117258">2024 Tracking Issue</a></li>
+<li><a href="https://hackmd.io/@klAMrLz3QN-4luTZek9cWA/H175lzyea">2024 HackMd</a></li>
+</ul>
+<p>Examples of individual team tracking:</p>
+<ul>
+<li><a href="https://github.com/rust-lang/lang-team/blob/HEAD/src/roadmaps/roadmap-2024.md">Lang team 2024 roadmap</a></li>
+<li><a href="https://github.com/orgs/rust-lang/projects/43/views/1">Lang team 2024 planning GitHub Project</a></li>
+<li><a href="https://github.com/rust-lang/rust/issues?q=is%3Aissue+label%3Alang-team-202x-edition">Lang team issues label</a></li>
+<li><a href="https://github.com/orgs/rust-lang/projects/30">Cargo 2024 planning GitHub Project</a></li>
+</ul>
+<h2 id="implementation-notes"><a class="header" href="#implementation-notes">Implementation notes</a></h2>
+<p>Individual teams and projects have their own resources for how to implement Edition changes.
+The following are some links for additional information if you are looking on how Edition changes are implemented.</p>
+<ul>
+<li><a href="https://doc.rust-lang.org/nightly/edition-guide/editions/advanced-migrations.html#how-migrations-work">How migrations work</a> if you need a refresher of how the underlying system works.</li>
+<li>The rustc-dev-guide has an <a href="https://rustc-dev-guide.rust-lang.org/guides/editions.html">Editions chapter</a> which contains information on how to implement edition-specific changes in rustc.</li>
+<li>The Rust Style Guide has information on <a href="https://doc.rust-lang.org/nightly/style-guide/editions.html">Rust style editions</a>, which define styling changes across editions.</li>
+</ul>
+<h2 id="historical-context"><a class="header" href="#historical-context">Historical context</a></h2>
+<ul>
+<li><a href="https://rust-lang.github.io/rfcs/2052-epochs.html">RFC 2052</a> started the Edition system, and kicked off the 2018 Edition.</li>
+<li><a href="https://rust-lang.github.io/rfcs/3085-edition-2021.html">RFC 3085</a> set the plan for the 2021 Edition, as well as clarifying and changing the meaning of an Edition.</li>
+<li><a href="https://rust-lang.github.io/rfcs/3501-edition-2024.html">RFC 3501</a> kicked off the 2024 Edition, as well as formalizing the 3-year cadence and establishing the process for managing future Editions.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../release/crater.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../archive/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../release/crater.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../archive/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../js/moment.min.js"></script>
+        <script src="../js/index.js"></script>
+
+
+    </div>
+    </body>
+</html>

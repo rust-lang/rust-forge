@@ -1,0 +1,296 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Moderation - Rust Forge</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="Supplemental documentation for contributing to The Rust Programming Language">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Overview</a></li><li class="chapter-item expanded "><a href="../platforms/index.html">Platforms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../platforms/twitter.html">Twitter</a></li><li class="chapter-item expanded "><a href="../platforms/discord.html">Discord</a></li><li class="chapter-item expanded "><a href="../platforms/email.html">Email</a></li><li class="chapter-item expanded "><a href="../platforms/github.html">GitHub</a></li><li class="chapter-item expanded "><a href="../platforms/zulip.html">Zulip</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../platforms/zulip/moderation.html">Moderation</a></li></ol></li><li class="chapter-item expanded "><a href="../platforms/blogs.html">Blogs</a></li><li class="chapter-item expanded "><a href="../platforms/calendars.html">Calendars</a></li></ol></li><li class="chapter-item expanded "><a href="../triagebot/index.html">Triagebot</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../triagebot/agenda.html">Agenda Generator</a></li><li class="chapter-item expanded "><a href="../triagebot/issue-assignment.html">Issue Assignment</a></li><li class="chapter-item expanded "><a href="../triagebot/pr-assignment.html">PR Assignment</a></li><li class="chapter-item expanded "><a href="../triagebot/pr-assignment-tracking.html">Tracking PR assignment</a></li><li class="chapter-item expanded "><a href="../triagebot/autolabels.html">Autolabels</a></li><li class="chapter-item expanded "><a href="../triagebot/close.html">Close</a></li><li class="chapter-item expanded "><a href="../triagebot/doc-updates.html">Documentation Updates</a></li><li class="chapter-item expanded "><a href="../triagebot/github-releases.html">GitHub Releases</a></li><li class="chapter-item expanded "><a href="../triagebot/glacier.html">Glacier</a></li><li class="chapter-item expanded "><a href="../triagebot/labeling.html">Labeling</a></li><li class="chapter-item expanded "><a href="../triagebot/major-changes.html">Major Changes</a></li><li class="chapter-item expanded "><a href="../triagebot/mentions.html">Mentions</a></li><li class="chapter-item expanded "><a href="../triagebot/no-merge.html">No Merge Policy</a></li><li class="chapter-item expanded "><a href="../triagebot/nominate.html">Nominate</a></li><li class="chapter-item expanded "><a href="../triagebot/note.html">Note</a></li><li class="chapter-item expanded "><a href="../triagebot/notifications.html">Notifications</a></li><li class="chapter-item expanded "><a href="../triagebot/pinging.html">Pinging</a></li><li class="chapter-item expanded "><a href="../triagebot/requesting-prioritization.html">Requesting Prioritization</a></li><li class="chapter-item expanded "><a href="../triagebot/review-submitted.html">Review Changes Requested</a></li><li class="chapter-item expanded "><a href="../triagebot/review-requested.html">Review Requested</a></li><li class="chapter-item expanded "><a href="../triagebot/rustc-commit-list.html">Rustc Commit Tracking</a></li><li class="chapter-item expanded "><a href="../triagebot/shortcuts.html">Shortcuts</a></li><li class="chapter-item expanded "><a href="../triagebot/triage-dashboard.html">Triagebot Dashboard</a></li><li class="chapter-item expanded "><a href="../triagebot/zulip-meeting.html">Zulip Meeting Management</a></li><li class="chapter-item expanded "><a href="../triagebot/zulip-notifications.html">Zulip Notifications</a></li></ol></li><li class="chapter-item expanded "><a href="../community/index.html">Community</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../community/survey-faq.html">State of Rust Survey FAQ</a></li></ol></li><li class="chapter-item expanded "><a href="../compiler/index.html">Compiler</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/cross-compilation/index.html">Cross Compilation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/cross-compilation/windows.html">Windows</a></li></ol></li><li class="chapter-item expanded "><a href="../compiler/cross-team-collaboration.html">Cross-team Collaboration</a></li><li class="chapter-item expanded "><a href="../compiler/reviews.html">Review policies</a></li><li class="chapter-item expanded "><a href="../compiler/new_option.html">So you want to add a new option to rustc?</a></li><li class="chapter-item expanded "><a href="../compiler/mcp.html">Major Change Proposals</a></li><li class="chapter-item expanded "><a href="../compiler/membership.html">Membership</a></li><li class="chapter-item expanded "><a href="../compiler/prioritization.html">Prioritization</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/prioritization/procedure.html">Procedure</a></li><li class="chapter-item expanded "><a href="../compiler/prioritization/priority-levels.html">Priority Levels</a></li></ol></li><li class="chapter-item expanded "><a href="../compiler/notification-groups.html">Notification groups</a></li><li class="chapter-item expanded "><a href="../compiler/triage-meeting.html">Triage Meeting</a></li><li class="chapter-item expanded "><a href="../compiler/steering-meeting.html">Steering Meeting</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/steering-meeting/submit.html">Submitting a proposal</a></li><li class="chapter-item expanded "><a href="../compiler/steering-meeting/how-to-run-planning.html">How to run the planning meeting</a></li><li class="chapter-item expanded "><a href="../compiler/steering-meeting/how-to-run-design.html">How to run a design meeting</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../crates-io/index.html">crates.io</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../crates-io/crate-removal.html">Crate removal</a></li><li class="chapter-item expanded "><a href="../crates-io/db-maintenance.html">Database maintenance</a></li></ol></li><li class="chapter-item expanded "><a href="../docs-rs/index.html">docs.rs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../docs-rs/add-dependencies.html">Adding dependencies to the build environment</a></li><li class="chapter-item expanded "><a href="../docs-rs/self-hosting.html">Self-hosting a docs.rs instance</a></li><li class="chapter-item expanded "><a href="../docs-rs/maintenance.html">Maintenance procedures</a></li></ol></li><li class="chapter-item expanded "><a href="../governance/index.html">Governance</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../governance/council.html">Leadership Council</a></li><li class="chapter-item expanded "><a href="../governance/moderation.html" class="active">Moderation</a></li></ol></li><li class="chapter-item expanded "><a href="../infra/index.html">Infrastructure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/other-installation-methods.html">Other Installation Methods</a></li><li class="chapter-item expanded "><a href="../infra/channel-layout.html">Release Channel Layout</a></li><li class="chapter-item expanded "><a href="../infra/service-infrastructure.html">Service Infrastructure</a></li><li class="chapter-item expanded "><a href="../infra/team-maintenance.html">Team Maintenance</a></li><li class="chapter-item expanded "><a href="../infra/toolstate.html">The Toolstate System</a></li><li class="chapter-item expanded "><a href="../infra/policies/index.html">Policies</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/policies/broken-nightlies.html">Broken nightlies</a></li></ol></li><li class="chapter-item expanded "><a href="../infra/guidelines/index.html">Guidelines</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/guidelines/static-websites.html">Static websites</a></li></ol></li><li class="chapter-item expanded "><a href="../infra/docs/index.html">Documentation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/docs/aws-access.html">AWS access for team members</a></li><li class="chapter-item expanded "><a href="../infra/docs/aws-access-management.html">AWS access management</a></li><li class="chapter-item expanded "><a href="../infra/docs/aws-regions.html">AWS regions</a></li><li class="chapter-item expanded "><a href="../infra/docs/bastion.html">Bastion server</a></li><li class="chapter-item expanded "><a href="../infra/docs/bors.html">Bors</a></li><li class="chapter-item expanded "><a href="../infra/docs/cdn.html">CDN</a></li><li class="chapter-item expanded "><a href="../infra/docs/crater-agents.html">Crater agents</a></li><li class="chapter-item expanded "><a href="../infra/docs/gha-self-hosted.html">Custom GitHub Actions runners</a></li><li class="chapter-item expanded "><a href="../infra/docs/dev-desktop.html">Dev Desktops</a></li><li class="chapter-item expanded "><a href="../infra/docs/dev-desktop-github-app.html">GitHub App for dev-desktops</a></li><li class="chapter-item expanded "><a href="../infra/docs/discord-mods-bot.html">Discord moderation bot</a></li><li class="chapter-item expanded "><a href="../infra/docs/dns.html">Domain names and DNS</a></li><li class="chapter-item expanded "><a href="../infra/docs/docs-rs.html">docs.rs</a></li><li class="chapter-item expanded "><a href="../infra/docs/ecs-services.html">ECS services management</a></li><li class="chapter-item expanded "><a href="../infra/docs/monitoring.html">Monitoring</a></li><li class="chapter-item expanded "><a href="../infra/docs/rust-bots.html">rust-bots server</a></li><li class="chapter-item expanded "><a href="../infra/docs/rustc-ci.html">rust-lang/rust CI</a></li><li class="chapter-item expanded "><a href="../infra/docs/sentry.html">Sentry</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../lang/index.html">Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../lang/rfc-merge-procedure.html">RFC Merge Procedure</a></li><li class="chapter-item expanded "><a href="../lang/triage-meeting-procedure.html">Triage Meeting Procedure</a></li></ol></li><li class="chapter-item expanded "><a href="../libs/index.html">Libs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../libs/maintaining-std.html">Maintaining the standard library</a></li></ol></li><li class="chapter-item expanded "><a href="../release/index.html">Release</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../release/backporting.html">Backporting</a></li><li class="chapter-item expanded "><a href="../release/release-notes.html">Preparing Release Notes</a></li><li class="chapter-item expanded "><a href="../release/process.html">Release Process</a></li><li class="chapter-item expanded "><a href="../release/rollups.html">Rollup Procedure</a></li><li class="chapter-item expanded "><a href="../release/triage-procedure.html">Triage Procedure</a></li><li class="chapter-item expanded "><a href="../release/issue-triaging.html">Issue Triaging</a></li><li class="chapter-item expanded "><a href="../release/crater.html">Triaging Crater Runs</a></li></ol></li><li class="chapter-item expanded "><a href="../editions/edition-releases.html">Edition Releases</a></li><li class="chapter-item expanded "><a href="../archive/index.html">Archive</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../archive/fott.html">Friends of the Tree</a></li><li class="chapter-item expanded "><a href="../archive/release-history.html">Release History</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rust Forge</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/rust-forge" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/rust-forge/edit/master/src/governance/moderation.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="moderation-disagreements-and-conflicts"><a class="header" href="#moderation-disagreements-and-conflicts">Moderation, disagreements, and conflicts</a></h1>
+<p>This section describes the roles of the Leadership Council and the moderation team in helping resolve disagreements and conflicts, as well as the interactions between those teams.</p>
+<p>Disagreements and conflicts fall on a spectrum of interpersonal interaction. Disagreements are more factual and/or technical misalignments, while conflicts are more social or relational roadblocks to collaboration. Many interactions might display aspects of both disagreement and conflict. The Council can help with aspects of disagreement, while aspects of conflict are the purview of the moderation team.</p>
+<p>This document does not specify moderation policy in general, only the portion of it necessary to specify interactions with the Council and the checks and balances between the Council and the moderation team. General moderation policy is out of scope for this document.</p>
+<p>Much of the work of the Rust Project involves collaboration with other people, all of whom care deeply about their work. It’s normal for people to disagree, and to feel strongly about that disagreement. Disagreement can also be a powerful tool for surfacing and addressing issues, and ideally, people who disagree can collaboratively and (mostly) amicably explore those disagreements without escalating into interpersonal conflicts.</p>
+<p>Situations where disagreements and conflicts arise may be complex. Disagreements can escalate into conflicts, and conflicts can de-escalate into disagreements. If the distinction between a disagreement and a conflict is not clear in the situation, or if participants disagree, assume the situation is a conflict.</p>
+<p>In the event of a conflict, involved parties should reach out to the moderation team to help resolve the conflict as soon as possible. Time is a critical resource in attempting to resolve a conflict before it gets worse or causes more harm.</p>
+<h2 id="disagreements-among-teams"><a class="header" href="#disagreements-among-teams">Disagreements among teams</a></h2>
+<p>Where possible, teams should attempt to resolve disagreements on their own, with assistance from the Council as needed. The Council can make judgment calls to settle disagreements, but teams need to maintain good working relationships with each other to avoid persistent disagreements or escalations into conflicts.</p>
+<p>Potential resolution paths for disagreements between teams could include selecting a previously discussed option, devising a new option, deciding whose purview the decision falls in, or deciding that the decision is outside the purviews of both teams and leaving it to the Council to find a new home for that work.</p>
+<h2 id="conflicts-involving-teams-or-project-members"><a class="header" href="#conflicts-involving-teams-or-project-members">Conflicts involving teams or Project members</a></h2>
+<p>Conflicts involving teams or Project members should be brought to the moderation team as soon as possible. The Council can help mitigate the impact of those conflicts on pending/urgent decisions, but the moderation team is responsible for helping with conflicts and interpersonal issues, across teams or otherwise.</p>
+<p>Individuals or teams may also voluntarily engage in other processes to address conflicts or interpersonal issues, such as non-binding external mediation. Individuals or teams should keep the moderation team in the loop when doing so, and should seek guidance from the moderation team regarding appropriate resources or approaches for doing so. Individuals or teams must not use resources that would produce a conflict of interest.</p>
+<h2 id="contingent-moderators"><a class="header" href="#contingent-moderators">Contingent moderators</a></h2>
+<p>The moderation team must at all times maintain a publicly documented list of “contingent moderators”, who must be approved by both the moderation team and the Council via internal consent decision. The moderation team and contingent moderation team should both consist of at least three members each. The contingent moderators must be:</p>
+<ul>
+<li>Not part of the current moderation team <em>or</em> the Leadership Council.</li>
+<li>Widely trusted by Rust Project members as jointly determined by the Council and moderation team; this will often mean they’re already part of the Project in some capacity.</li>
+<li>Qualified to do moderation work and <a href="#audits">audits</a> as jointly determined by the Council and moderation team. More detailed criteria and guidelines will be established by moderation policy, which is out of scope for this document.</li>
+<li>Willing to serve as contingent moderators: willing to do audits, and willing to do interim moderation work if the moderation team dissolves or becomes unavailable, until they can appoint new full moderators. (The contingent moderators are not expected to be willing to do moderation work long-term.)</li>
+<li>Willing to stay familiar with moderation policy and procedure to the standards expected of a moderation team member (including any associated training). Contingent moderators should receive the same opportunities for training as the moderation team where possible.</li>
+</ul>
+<p>The need for contingent moderators arises in a high-tension situation, and the Project and Council must be prepared to trust them to step into that situation. Choosing people known and trusted by the rest of the Project helps lower tensions in that situation.</p>
+<p>Moderation is a high-burnout activity, and individual moderators or the moderation team may find itself wishing to step away from that work. Note that one or more individual moderators may always choose to step down, in which case the moderation team should identify and bring in new moderators to fill any gaps or shortfalls; if the moderation team asks a contingent moderator to become a full moderator, the team should then appoint a new contingent moderator. An individual moderator who stepped down <em>may</em> be selected as a contingent moderator. If the moderation team as a whole becomes simultaneously unavailable (as determined jointly by the Council and contingent moderators via internal consent decision), or chooses to step down simultaneously, the contingent moderators become the interim moderation team and must promptly appoint new contingent moderators and start seeking new full moderators.</p>
+<p>As the contingent moderator role does not have any regular required activities outside of exceptional situations, those appointed to that role must have regular check-ins with the moderation team, to reconfirm that they’re still willing to serve in that role, and to avoid a circumstance in which the contingent moderators are abruptly needed and turn out to be unavailable.</p>
+<h2 id="moderation-team-policies-and-procedures"><a class="header" href="#moderation-team-policies-and-procedures">Moderation team policies and procedures</a></h2>
+<p>The moderation team has a duty to have robust policies and procedures in place. The Council provides oversight and assistance to ensure that the moderation team has those policies and procedures and that they are sufficiently robust.</p>
+<p>The Council may provide feedback to the moderation team and the moderation team is required to consider all feedback received. If the Council feels the moderation team has not followed moderation policies and procedures, the Council may <a href="#audits">require an audit</a> by the contingent moderators. However, the Council may not overrule a moderation decision or policy.</p>
+<h2 id="audits"><a class="header" href="#audits">Audits</a></h2>
+<p>If any Council member believes a moderation decision (or series of decisions) has not followed the moderation team’s policies and procedures, they should promptly inform the moderation team. The Council and moderation team should then engage with each other, discuss and understand these concerns, and work to address them.</p>
+<p>One of the mechanisms this document provides for checking the moderation team’s actions in a privacy-preserving manner is an audit mechanism. In any case where any Council member believes moderation team actions have not followed documented policies or procedures, the Council member may decide to initiate the audit process. (In particular, they might do this in response to a report from a community member involved in a moderation situation.) This happens <em>in addition</em> to the above engagement and conversation; it is not a replacement for direct communication between the Council and the moderation team.</p>
+<p>In an audit, the contingent moderation team works with the moderation team to establish whether the moderation team followed documented policies and procedures. This mechanism necessarily involves the contingent moderation team using their own judgment to evaluate moderation policy, specific evidence or communications, and corresponding moderation actions or proposed actions. However, this mechanism is not intended to second-guess the actions themselves; the audit mechanism focuses on establishing whether the moderation team is acting according to its established policy and procedures, as well as highlighting unintended negative consequences of the policies and procedures themselves.</p>
+<p>The contingent moderators also reach out to the Council to find out any additional context they might need.</p>
+<p>Moderation processes and audits both take time, and must be performed with diligence. However, the Council, contingent moderators, and moderation team should all aim to communicate their concerns and expectations to each other in a reasonably timely fashion and maintain open lines of communication.</p>
+<p>Contingent moderators must not take part in decisions or audits for which they have a conflict of interest. Contingent moderators must not have access to private information provided to moderation before the contingent moderator was publicly listed as part of the contingent moderation team; this gives people speaking with the moderation team the opportunity to evaluate potential concerns or conflicts of interest.</p>
+<p>The discussions with the Council and the contingent moderation team may discover that the moderation team had to make an exception in policy for a particular case, as there was an unexpected condition in policies or that there was contextual information that couldn’t be incorporated in policy. This is an expected scenario that merits additional scrutiny by the contingent moderation team on the rationale for making an exception and the process for deciding the necessity to make an exception, but is not inherently a violation of moderation team responsibilities.</p>
+<p>As the audit process and the Council/moderation discussions proceed, the moderation team may decide to alter moderation policies and/or change the outcome of specific moderation decisions or proposed decisions. This is solely a decision for the moderation team to make.</p>
+<p>The contingent moderation team must report the results of the audit to the moderation team and the Council for their review. This must not include any details that may reveal private information, either directly or indirectly. Together with the discussions with the moderation team, this should aim to address the concerns of the Council.</p>
+<h2 id="last-resort-accountability"><a class="header" href="#last-resort-accountability">Last-resort accountability</a></h2>
+<p>The Leadership Council and moderation team each have substantial power within the Rust Project. This document provides many tools by which they can work out conflicts. This section outlines the last-resort mechanisms by which those teams can hold each other accountable. This section is written in the hopes that it will never be needed, and that teams will make every possible effort to resolve conflicts without reaching this point.</p>
+<p>If the Council believes there is a systemic problem with the moderation team (whether based on an audit report from the contingent moderation team or otherwise), and the Council and moderation team cannot voluntarily come to agreement on how to address the situation, then as a <strong>last resort</strong>, the Council (by unanimous decision) may simultaneously dissolve itself and the moderation team. The top-level teams must then appoint new representatives to the Council, and the contingent moderation team becomes the new interim moderation team.</p>
+<p>Conversely, if the moderation team believes the Council has a systemic problem, and the Council and moderation team cannot voluntarily come to agreement on how to address the situation, then as a <strong>last resort</strong>, the moderation team (by unanimous decision) may simultaneously dissolve itself and the Council. This process can only be enacted if there are at least three moderation team members. The top-level teams must then appoint new representatives to the Council, and the contingent moderation team becomes the new interim moderation team.</p>
+<p>The moderation team’s representative is recused from the decision to dissolve the Council and moderation team to avoid conflicts of interest, though that representative must still step down as well.</p>
+<p>The removed representatives and moderators may not serve on either the Council or the moderation team for at least one year.</p>
+<p>By default, the new Council and interim moderation team will take responsibility for clearly communicating the transition.</p>
+<p>This mechanism is an absolute last resort. It will almost certainly produce suboptimal outcomes, to say the least. If situations escalate to this outcome, many things have gone <em>horribly</em> wrong, and those cleaning up the aftermath should endeavor to prevent it from ever happening again. The indication (by either the moderation team or the Council) that the situation <em>might</em> escalate to this point should be considered a strong signal to come to the table and find a way to do “Something Else which is Not That” to avoid the situation.</p>
+<h2 id="moderation-actions-involving-project-members"><a class="header" href="#moderation-actions-involving-project-members">Moderation actions involving Project members</a></h2>
+<p>The moderation team, in the course of doing moderation work, necessarily requires the ability to take action not just against members of the Rust community but also against members of the Rust Project. Those actions may span the ladder of escalation all the way from a conversation to removal from the Project. This puts the moderation team in a position of power and trust. This document seeks to provide appropriate accountability and cross-checks for the moderation team, as well as for the Council.</p>
+<p>If the moderation team plans to enact externally visible sanctions against any member of the Rust Project (anything that would create a conspicuous absence, such as removal from a role, or exclusion from participation in a Project space for more than a week), then any party may request that an <a href="#audits">audit</a> take place by reaching out to either the Council or contingent moderators, and that audit will be automatically granted.</p>
+<p>Until June 2024, audits are automatically performed even without a request, to ensure the process is functional. After that time, the Council and moderation team will jointly review and decide whether to renew this provision.</p>
+<p>When the moderation team sends a warning to a Project member, or sends a notification of moderation action regarding a Project member, that message will mention the option of requesting an audit.</p>
+<p>Conflicts regarding Project members should be brought to the moderation team as soon as possible.</p>
+<h2 id="conflicts-involving-council-representatives"><a class="header" href="#conflicts-involving-council-representatives">Conflicts involving Council representatives</a></h2>
+<p>Conflicts involving Council representatives, or alternates, follow the same process as conflicts involving Project members. The moderation team has the same ability to moderate representatives or alternates as any other member of the Project, including the required <a href="#audits">audit</a> by the contingent moderators for any externally visible sanction. This remains subject to the same accountability mechanisms as for other decisions of the moderation team.</p>
+<p>In addition to the range of moderation actions already available, the moderation team may take the following additional actions for representatives or alternates as a near-last resort, as a lesser step on the ladder of escalation than removing a member from the Project entirely. These actions are not generally specific to the Council, and apply to other Rust teams as well.</p>
+<ul>
+<li>The moderation team may decide to remove a representative from the Council. The top-level team represented by that representative should delegate a new representative to serve the remainder of the term, starting immediately.</li>
+<li>The moderation team may decide to prevent a Project member from becoming a Council representative.</li>
+<li>The moderation team and Council (excluding the affected parties) may jointly decide (as a private operational consent decision) to apply other sanctions limiting the representative’s involvement in the Council. (In this scenario, representatives are not excluded if they have a conflict of interest, as the entire Council will have to cooperate to make the sanctions effective. If the conflicts of interest thus prevent applying these partial sanctions, the moderation team always has the option of full sanctions such as removal.)</li>
+</ul>
+<p>All of these also trigger a required audit. The Council must also be notified of any moderation actions involving representatives or alternates, or actions directly preventing people from becoming representatives.</p>
+<h2 id="conflicts-involving-moderation-team-members"><a class="header" href="#conflicts-involving-moderation-team-members">Conflicts involving moderation team members</a></h2>
+<p>Conflicts involving a member of the moderation team will be handled by the remaining members of the moderation team (minus any with a conflict of interest), <em>together with</em> the contingent moderation team to provide additional oversight. Any member of the moderation or contingent moderation team should confer with the Council if there is a more systemic issue within the moderation team. The contingent moderators must audit this decision and must provide an audit report to the Council and moderation team.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../governance/council.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../infra/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../governance/council.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../infra/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../js/moment.min.js"></script>
+        <script src="../js/index.js"></script>
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,521 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Friends of the Tree - Rust Forge</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="Supplemental documentation for contributing to The Rust Programming Language">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Overview</a></li><li class="chapter-item expanded "><a href="../platforms/index.html">Platforms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../platforms/twitter.html">Twitter</a></li><li class="chapter-item expanded "><a href="../platforms/discord.html">Discord</a></li><li class="chapter-item expanded "><a href="../platforms/email.html">Email</a></li><li class="chapter-item expanded "><a href="../platforms/github.html">GitHub</a></li><li class="chapter-item expanded "><a href="../platforms/zulip.html">Zulip</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../platforms/zulip/moderation.html">Moderation</a></li></ol></li><li class="chapter-item expanded "><a href="../platforms/blogs.html">Blogs</a></li><li class="chapter-item expanded "><a href="../platforms/calendars.html">Calendars</a></li></ol></li><li class="chapter-item expanded "><a href="../triagebot/index.html">Triagebot</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../triagebot/agenda.html">Agenda Generator</a></li><li class="chapter-item expanded "><a href="../triagebot/issue-assignment.html">Issue Assignment</a></li><li class="chapter-item expanded "><a href="../triagebot/pr-assignment.html">PR Assignment</a></li><li class="chapter-item expanded "><a href="../triagebot/pr-assignment-tracking.html">Tracking PR assignment</a></li><li class="chapter-item expanded "><a href="../triagebot/autolabels.html">Autolabels</a></li><li class="chapter-item expanded "><a href="../triagebot/close.html">Close</a></li><li class="chapter-item expanded "><a href="../triagebot/doc-updates.html">Documentation Updates</a></li><li class="chapter-item expanded "><a href="../triagebot/github-releases.html">GitHub Releases</a></li><li class="chapter-item expanded "><a href="../triagebot/glacier.html">Glacier</a></li><li class="chapter-item expanded "><a href="../triagebot/labeling.html">Labeling</a></li><li class="chapter-item expanded "><a href="../triagebot/major-changes.html">Major Changes</a></li><li class="chapter-item expanded "><a href="../triagebot/mentions.html">Mentions</a></li><li class="chapter-item expanded "><a href="../triagebot/no-merge.html">No Merge Policy</a></li><li class="chapter-item expanded "><a href="../triagebot/nominate.html">Nominate</a></li><li class="chapter-item expanded "><a href="../triagebot/note.html">Note</a></li><li class="chapter-item expanded "><a href="../triagebot/notifications.html">Notifications</a></li><li class="chapter-item expanded "><a href="../triagebot/pinging.html">Pinging</a></li><li class="chapter-item expanded "><a href="../triagebot/requesting-prioritization.html">Requesting Prioritization</a></li><li class="chapter-item expanded "><a href="../triagebot/review-submitted.html">Review Changes Requested</a></li><li class="chapter-item expanded "><a href="../triagebot/review-requested.html">Review Requested</a></li><li class="chapter-item expanded "><a href="../triagebot/rustc-commit-list.html">Rustc Commit Tracking</a></li><li class="chapter-item expanded "><a href="../triagebot/shortcuts.html">Shortcuts</a></li><li class="chapter-item expanded "><a href="../triagebot/triage-dashboard.html">Triagebot Dashboard</a></li><li class="chapter-item expanded "><a href="../triagebot/zulip-meeting.html">Zulip Meeting Management</a></li><li class="chapter-item expanded "><a href="../triagebot/zulip-notifications.html">Zulip Notifications</a></li></ol></li><li class="chapter-item expanded "><a href="../community/index.html">Community</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../community/survey-faq.html">State of Rust Survey FAQ</a></li></ol></li><li class="chapter-item expanded "><a href="../compiler/index.html">Compiler</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/cross-compilation/index.html">Cross Compilation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/cross-compilation/windows.html">Windows</a></li></ol></li><li class="chapter-item expanded "><a href="../compiler/cross-team-collaboration.html">Cross-team Collaboration</a></li><li class="chapter-item expanded "><a href="../compiler/reviews.html">Review policies</a></li><li class="chapter-item expanded "><a href="../compiler/new_option.html">So you want to add a new option to rustc?</a></li><li class="chapter-item expanded "><a href="../compiler/mcp.html">Major Change Proposals</a></li><li class="chapter-item expanded "><a href="../compiler/membership.html">Membership</a></li><li class="chapter-item expanded "><a href="../compiler/prioritization.html">Prioritization</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/prioritization/procedure.html">Procedure</a></li><li class="chapter-item expanded "><a href="../compiler/prioritization/priority-levels.html">Priority Levels</a></li></ol></li><li class="chapter-item expanded "><a href="../compiler/notification-groups.html">Notification groups</a></li><li class="chapter-item expanded "><a href="../compiler/triage-meeting.html">Triage Meeting</a></li><li class="chapter-item expanded "><a href="../compiler/steering-meeting.html">Steering Meeting</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/steering-meeting/submit.html">Submitting a proposal</a></li><li class="chapter-item expanded "><a href="../compiler/steering-meeting/how-to-run-planning.html">How to run the planning meeting</a></li><li class="chapter-item expanded "><a href="../compiler/steering-meeting/how-to-run-design.html">How to run a design meeting</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../crates-io/index.html">crates.io</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../crates-io/crate-removal.html">Crate removal</a></li><li class="chapter-item expanded "><a href="../crates-io/db-maintenance.html">Database maintenance</a></li></ol></li><li class="chapter-item expanded "><a href="../docs-rs/index.html">docs.rs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../docs-rs/add-dependencies.html">Adding dependencies to the build environment</a></li><li class="chapter-item expanded "><a href="../docs-rs/self-hosting.html">Self-hosting a docs.rs instance</a></li><li class="chapter-item expanded "><a href="../docs-rs/maintenance.html">Maintenance procedures</a></li></ol></li><li class="chapter-item expanded "><a href="../governance/index.html">Governance</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../governance/council.html">Leadership Council</a></li><li class="chapter-item expanded "><a href="../governance/moderation.html">Moderation</a></li></ol></li><li class="chapter-item expanded "><a href="../infra/index.html">Infrastructure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/other-installation-methods.html">Other Installation Methods</a></li><li class="chapter-item expanded "><a href="../infra/channel-layout.html">Release Channel Layout</a></li><li class="chapter-item expanded "><a href="../infra/service-infrastructure.html">Service Infrastructure</a></li><li class="chapter-item expanded "><a href="../infra/team-maintenance.html">Team Maintenance</a></li><li class="chapter-item expanded "><a href="../infra/toolstate.html">The Toolstate System</a></li><li class="chapter-item expanded "><a href="../infra/policies/index.html">Policies</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/policies/broken-nightlies.html">Broken nightlies</a></li></ol></li><li class="chapter-item expanded "><a href="../infra/guidelines/index.html">Guidelines</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/guidelines/static-websites.html">Static websites</a></li></ol></li><li class="chapter-item expanded "><a href="../infra/docs/index.html">Documentation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/docs/aws-access.html">AWS access for team members</a></li><li class="chapter-item expanded "><a href="../infra/docs/aws-access-management.html">AWS access management</a></li><li class="chapter-item expanded "><a href="../infra/docs/aws-regions.html">AWS regions</a></li><li class="chapter-item expanded "><a href="../infra/docs/bastion.html">Bastion server</a></li><li class="chapter-item expanded "><a href="../infra/docs/bors.html">Bors</a></li><li class="chapter-item expanded "><a href="../infra/docs/cdn.html">CDN</a></li><li class="chapter-item expanded "><a href="../infra/docs/crater-agents.html">Crater agents</a></li><li class="chapter-item expanded "><a href="../infra/docs/gha-self-hosted.html">Custom GitHub Actions runners</a></li><li class="chapter-item expanded "><a href="../infra/docs/dev-desktop.html">Dev Desktops</a></li><li class="chapter-item expanded "><a href="../infra/docs/dev-desktop-github-app.html">GitHub App for dev-desktops</a></li><li class="chapter-item expanded "><a href="../infra/docs/discord-mods-bot.html">Discord moderation bot</a></li><li class="chapter-item expanded "><a href="../infra/docs/dns.html">Domain names and DNS</a></li><li class="chapter-item expanded "><a href="../infra/docs/docs-rs.html">docs.rs</a></li><li class="chapter-item expanded "><a href="../infra/docs/ecs-services.html">ECS services management</a></li><li class="chapter-item expanded "><a href="../infra/docs/monitoring.html">Monitoring</a></li><li class="chapter-item expanded "><a href="../infra/docs/rust-bots.html">rust-bots server</a></li><li class="chapter-item expanded "><a href="../infra/docs/rustc-ci.html">rust-lang/rust CI</a></li><li class="chapter-item expanded "><a href="../infra/docs/sentry.html">Sentry</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../lang/index.html">Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../lang/rfc-merge-procedure.html">RFC Merge Procedure</a></li><li class="chapter-item expanded "><a href="../lang/triage-meeting-procedure.html">Triage Meeting Procedure</a></li></ol></li><li class="chapter-item expanded "><a href="../libs/index.html">Libs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../libs/maintaining-std.html">Maintaining the standard library</a></li></ol></li><li class="chapter-item expanded "><a href="../release/index.html">Release</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../release/backporting.html">Backporting</a></li><li class="chapter-item expanded "><a href="../release/release-notes.html">Preparing Release Notes</a></li><li class="chapter-item expanded "><a href="../release/process.html">Release Process</a></li><li class="chapter-item expanded "><a href="../release/rollups.html">Rollup Procedure</a></li><li class="chapter-item expanded "><a href="../release/triage-procedure.html">Triage Procedure</a></li><li class="chapter-item expanded "><a href="../release/issue-triaging.html">Issue Triaging</a></li><li class="chapter-item expanded "><a href="../release/crater.html">Triaging Crater Runs</a></li></ol></li><li class="chapter-item expanded "><a href="../editions/edition-releases.html">Edition Releases</a></li><li class="chapter-item expanded "><a href="../archive/index.html">Archive</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../archive/fott.html" class="active">Friends of the Tree</a></li><li class="chapter-item expanded "><a href="../archive/release-history.html">Release History</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rust Forge</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/rust-forge" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/rust-forge/edit/master/src/archive/fott.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="friends-of-the-tree"><a class="header" href="#friends-of-the-tree">Friends of the Tree</a></h1>
+<p><a href="http://www.rust-lang.org/team.html">The Rust Team</a> likes to occasionally
+recognize people who have made outstanding contributions to The Rust Project,
+its ecosystem, and its community. These people are ‘Friends of the Tree’,
+archived here for eternal glory.</p>
+<h2 id="2016-02-26-mitaa"><a class="header" href="#2016-02-26-mitaa">2016-02-26 @mitaa</a></h2>
+<p>This week we would like to nominate @mitaa as Friend of the Tree. Recently @mitaa
+<a href="https://github.com/rust-lang/rust/pull/31837">has</a> <a href="https://github.com/rust-lang/rust/pull/31835">sent</a> <a href="https://github.com/rust-lang/rust/pull/31839">a</a> <a href="https://github.com/rust-lang/rust/pull/31715">wave</a> <a href="https://github.com/rust-lang/rust/pull/31626">of</a> <a href="https://github.com/rust-lang/rust/pull/31614">fixes</a> <a href="https://github.com/rust-lang/rust/pull/31602">to</a>
+<a href="https://github.com/rust-lang/rust/pull/31596">rustdoc</a> (yes those are all separate links) with even more on the way!
+Rustdoc has historically been a tool in need of some love, and the extra help in
+fixing bugs is especially appreciated. Thanks @mitaa!</p>
+<h2 id="2016-02-12-jeffrey-seyfried-jseyfried"><a class="header" href="#2016-02-12-jeffrey-seyfried-jseyfried">2016-02-12 Jeffrey Seyfried (@jseyfried)</a></h2>
+<p><strong>This week’s friend of the tree is Jeffrey Seyfried (@jseyfried)!</strong></p>
+<p>Jeffrey Seyfried (@jseyfried) has made some awesome contributions to name
+resolution. He has fixed a ton of bugs, reported previously unknown edge cases,
+and done some big refactorings, all of which have helped improve a complex and
+somewhat neglected part of the compiler.</p>
+<h2 id="2015-12-04-vadim-petrochenkov-petrochenkov"><a class="header" href="#2015-12-04-vadim-petrochenkov-petrochenkov">2015-12-04 Vadim Petrochenkov @petrochenkov</a></h2>
+<p>This week we’d like to nominate @petrochenkov for Friend of the Tree. Vadim has
+been doing some absolutely amazing compiler work recently such as <a href="https://github.com/rust-lang/rust/pull/29726">fixing
+privacy bugs</a>, <a href="https://github.com/rust-lang/rust/pull/29748">fixing hygiene bugs</a>, <a href="https://github.com/rust-lang/rust/pull/29383">fixing pattern bugs</a>,
+<a href="https://github.com/rust-lang/rust/pull/29952">paving the way</a> and <a href="https://github.com/rust-lang/rust/pull/30206">implementing <code>#[deprecated]</code></a>,
+<a href="https://github.com/rust-lang/rust/pull/29973">fixing and closing many privacy holes</a>, <a href="https://github.com/rust-lang/rust/pull/30087">refactoring</a>
+<a href="https://github.com/rust-lang/rust/pull/30095">and</a> <a href="https://github.com/rust-lang/rust/pull/30145">improving</a> the HIR, and reviving <a href="https://github.com/rust-lang/rust/pull/30184">the old type ascription
+PR</a>. The list of outstanding bugs and projects in the compiler is
+growing ever smaller now; thanks @petrochenkov!</p>
+<h2 id="2015-11-16-peter-atashian-windowsbunny-retep998"><a class="header" href="#2015-11-16-peter-atashian-windowsbunny-retep998">2015-11-16 Peter Atashian (WindowsBunny, retep998)</a></h2>
+<p>In his own words, WindowsBunny is “a hopping encyclopedia of all the issues
+windows users might run into and how to solve them.” One of the heroes that make
+Rust work on Windows, he actively pushes the frontiers of what Rust can do on
+the platform. He is also notably the maintainer of the
+<a href="https://crates.io/crates/winapi">winapi</a> family of crates, a comprehensive set
+of bindings to the Windows system APIs. You da bunny, WindowsBunny. Also, a
+friend of the tree.</p>
+<p><a href="https://internals.rust-lang.org/t/subteam-reports-2015-11-16/2910">Source</a>.</p>
+<h2 id="2015-10-31-marcus-klaas"><a class="header" href="#2015-10-31-marcus-klaas">2015-10-31 Marcus Klaas</a></h2>
+<p>Today @nrc would like to nominated @marcusklaas as Friend of the Tree:</p>
+<p>Marcus is one of the primary authors of
+<a href="https://github.com/nrc/rustfmt">rustfmt</a>. He has been involved since the early
+days and is now the
+<a href="https://github.com/nrc/rustfmt/graphs/contributors">top contributor</a>. He has
+fixed innumerable bugs, implemented new features, reviewed a tonne of PRs, and
+contributed to the design of the project. Rustfmt would not be the software it
+is today without his hard work; he is indeed a Friend Of The Tree.</p>
+<h2 id="2015-10-16-ryan-prichard"><a class="header" href="#2015-10-16-ryan-prichard">2015-10-16 Ryan Prichard</a></h2>
+<p>nmatsakis would also like to declare Ryan Prichard a <strong>Friend of the Tree</strong>.
+Over the last few months, Ryan has been comparing the Rust compiler’s parsing
+behavior with that of the rust-grammar project, which aims to create a LALR(1)
+grammar for parsing Rust. Ryan has found a number of inconsistencies and bugs
+between the two. This kind of work is useful for two reasons: it finds bugs,
+obviously, which are often hard to uncover any other way. Second, it helps pave
+the way for a true Rust reference grammar outside of the compiler source itself.
+So Ryan Prichard, thanks!</p>
+<h2 id="2015-10-02-vikrant-chaudhary"><a class="header" href="#2015-10-02-vikrant-chaudhary">2015-10-02 Vikrant Chaudhary</a></h2>
+<p><a href="https://github.com/nasa42">Vikrant Chaudhary (nasa42)</a> is an individual who
+believes in the Rust community. Since June he has been contributing to
+<a href="http://this-week-in-rust.org">This Week in Rust</a>, coordinating its publication
+on
+<a href="https://users.rust-lang.org/t/this-week-in-rust-editors-thread/1806/51">urlo</a>,
+and stirring up contributions. He recently rolled out an overhaul to the site’s
+design that brings it more inline with the main website. Today Vikrant is the
+main editor on the weekly newsletter, assisted by
+<a href="http://github.com/llogiq">llogiq</a> and other contributors. Thanks for keeping
+TWiR running, Vikrant, you friend of the tree.</p>
+<p><a href="https://internals.rust-lang.org/t/subteam-reports-2015-10-02/2716">Source</a>.</p>
+<h2 id="2015-07-24-tshepang-lekhonkhobe"><a class="header" href="#2015-07-24-tshepang-lekhonkhobe">2015-07-24 Tshepang Lekhonkhobe</a></h2>
+<p><a href="http://github.com/Gankra">@Gankra</a> has nominated
+<a href="http://github.com/tshepang">@tshepang</a> for Friend of the Tree this week:</p>
+<p>Over the last year Tshepang has landed over 100 improvements to our
+documentation. Tshepang saw where documentation was not, and said “No. This will
+not do.”</p>
+<p>We should all endeavor to care about docs as much as Tshepang.</p>
+<p><a href="https://internals.rust-lang.org/t/subteam-reports-2015-07-24/2397">Source</a>.</p>
+<h2 id="2015-05-19-chris-morgan"><a class="header" href="#2015-05-19-chris-morgan">2015-05-19 Chris Morgan</a></h2>
+<p>I’d like to nominate Chris Morgan (@chris-morgan) for Friend of the Tree today.
+Chris recently redesigned the play.rust-lang.org site for the 1.0 release,
+giving the site a more modern and rustic feel to it. Chris has been contributing
+to Rust for quite some time now, his first contribution dating back to July 2013
+and also being one of the early pioneers in the space of HTTP libraries written
+in Rust. Chris truly is a friend of the tree!</p>
+<h2 id="2015-03-24-andrew-gallant-burntsushi"><a class="header" href="#2015-03-24-andrew-gallant-burntsushi">2015-03-24 Andrew Gallant (BurntSushi)</a></h2>
+<p><a href="https://github.com/burntsushi">BurntSushi</a> is an individual who practically needs no introduction. He’s
+written many of the world’s most popular crates, including <a href="https://github.com/docopt/docopt.rs">docopt.rs</a>, <a href="https://github.com/rust-lang/regex">regex</a>,
+<a href="https://github.com/BurntSushi/quickcheck">quickcheck</a>, <a href="https://github.com/BurntSushi/rust-cbor">cbor</a>, and <a href="https://github.com/BurntSushi/byteorder">byteorder</a>. Don’t forget his CSV swiss-army-knife,
+<a href="https://github.com/BurntSushi/xsv">xsv</a>, built on <a href="https://github.com/BurntSushi/rust-csv">rust-csv</a>. Feedback from his early work on libraries helped
+informed the evolution of Rust during a critical time in its development, and
+BurntSushi continues to churn out the kind of Rust gems that can only come from
+someone who is a skilled friendofthetree.</p>
+<h2 id="2015-03-03-manish-goregaokar-manishearth"><a class="header" href="#2015-03-03-manish-goregaokar-manishearth">2015-03-03 Manish Goregaokar (Manishearth)</a></h2>
+<p>Manish started working on Servo as part of the GSoC program in 2014, where he
+implemented XMLHttpRequest. Since then he’s become in integral part of the Servo
+team while finishing his university studies and organizing Rust community
+events. In 2015 he took an interest in bors’ queue and started making rollup PRs
+to accelerate the integration process. Nursing the PR queue is the kind of
+time-consuming labor that creates friends of the tree like Manish, the rollup
+friend of the tree.</p>
+<h2 id="2015-02-17-toby-scrace"><a class="header" href="#2015-02-17-toby-scrace">2015-02-17 Toby Scrace</a></h2>
+<p>Today I would like to nominate Toby Scrace as Friend of the Tree. Toby emailed
+me over the weekend about a login vulnerability on crates.io where you could log
+in to whomever the previously logged in user was regardless of whether the
+GitHub authentication was successful or not. I very much appreciate Toby
+emailing me privately ahead of time, and I definitely feel that Toby has earned
+becoming Friend of the Tree.</p>
+<h2 id="2015-02-10-jonathan-reem-reem"><a class="header" href="#2015-02-10-jonathan-reem-reem">2015-02-10 Jonathan Reem (reem)</a></h2>
+<p>Jonathan Reem has been making an impact on Rust since May 2014. His primary
+contribution has been as the main author of the prominent <a href="https://github.com/iron/iron">Iron</a> web
+framework, though he has also created several other popular projects including
+the testing framework <a href="https://github.com/reem/stainless">stainless</a>. His practical experience with these projects
+has led to several improvements in upstream rust, most notably his complete
+rewrite of the <code>TaskPool</code> type. Reem is doing everything he can to advance the
+Rust cause.</p>
+<h2 id="2015-01-20-barosl-lee-barosl"><a class="header" href="#2015-01-20-barosl-lee-barosl">2015-01-20 Barosl Lee (barosl)</a></h2>
+<p>Today I would like to nominate Barosl Lee (@barosl) for Friend of the Tree.
+Barosl has recently rewritten our bors cron job in a new project called <a href="https://github.com/barosl/homu">homu</a>.
+Homu has a number of benefits including:</p>
+<ul>
+<li>Zero “down time” between testing different PRs (compared to 30+ minutes for
+bors!)</li>
+<li>A new rollup button to create separate rollup PRs from other PRs.</li>
+<li>Multiple repositories are supported (Cargo and Rust are on the same page)</li>
+</ul>
+<p>Homu was recently deployed for rust-lang/rust thanks to a number of issues being
+closed out by Barosl, and it’s been working fantastically so far! Barosl has
+also been super responsive to any new issues cropping up. Barosl truly is a
+Friend of the Tree!</p>
+<h2 id="2015-01-13-kang-seonghoon-lifthrasiir-yurume"><a class="header" href="#2015-01-13-kang-seonghoon-lifthrasiir-yurume">2015-01-13 Kang Seonghoon (lifthrasiir, Yurume)</a></h2>
+<p>Seonghoon has been an active member of the Rust community since early 2013, and
+although he has made a number of valuable contributions to Rust itself, his
+greatest work has been in developing key libraries out of tree. <a href="https://github.com/lifthrasiir/rust-encoding">rust-encoding</a>,
+one of the most popular crates in Cargo, performs character encoding, and
+<a href="https://github.com/lifthrasiir/rust-chrono">rust-chrono</a> date / time handling, both of which fill critical holes in the
+functionality of the standard library. <a href="https://github.com/lifthrasiir/rust-strconv">rust-strconv</a> is a prototype of
+efficient numerical string conversions that is a candidate for future inclusion
+in the standard library. He maintains a <a href="https://lifthrasiir.github.io/rustlog/">blog</a> where he discusses his
+work.</p>
+<h2 id="2015-01-06-jorge-aparicio-japaric"><a class="header" href="#2015-01-06-jorge-aparicio-japaric">2015-01-06 Jorge Aparicio (japaric)</a></h2>
+<p>I nominate Jorge Aparicio (japaric) for Friend of the Tree (for the second time,
+no less!). japaric has done tremendous work porting the codebase to use the new
+language features that are now available. First, he converted APIs in the
+standard library to take full advantage of DST after it landed. Next, he
+converted APIs to use unboxed closures. Then, he converted a large portion of
+the libraries to use associated types. Finally, he removed boxed closures from
+the compiler entirely. He has also worked to roll out RFCs changing the
+overloaded operators and comparison traits, including both their definitions and
+their impact on the standard library. And this list excludes a number of smaller
+changes, like deprecating older syntax. The alpha release would not be where it
+is without him; Japaric is simply one of the best friends the tree has ever had.</p>
+<h2 id="2014-12-30-kevin-ballard-kballard-eridius"><a class="header" href="#2014-12-30-kevin-ballard-kballard-eridius">2014-12-30 Kevin Ballard (kballard, Eridius)</a></h2>
+<p>This is a belated recognition of Kevin Ballard (aka @kballard, aka Eridius) as a
+friend of the tree. Kevin put a lot of work into Unicode issues in Rust,
+especially as related to platform-specific constraints. He wrote the current
+path module in part to accommodate these constraints, and participated in the
+recent redesign of the module. He has also been a dedicated and watchful
+reviewer. Thanks, Kevin, for your contributions!</p>
+<h2 id="2014-12-16-gábor-lehel-glaebhoerl"><a class="header" href="#2014-12-16-gábor-lehel-glaebhoerl">2014-12-16 Gábor Lehel (glaebhoerl)</a></h2>
+<p>Gabor’s major contributions to Rust have been in the area of language design. In
+the last year he has produced a number of very high quality RFCs, and though
+many of them of not yet been accepted, his ideas are often thought-provoking and
+have had a strong influence on the direction of the language. His <a href="https://github.com/rust-lang/rfcs/pull/243">trait based
+exception handling RFC</a> was particularly innovative, as well that <a href="https://github.com/rust-lang/rfcs/pull/146">for
+future-proofing checked arithmetic</a>. Gabor is an exceedingly clever
+Friend of the Tree.</p>
+<h2 id="2014-11-11-brian-koropoff-unwound"><a class="header" href="#2014-11-11-brian-koropoff-unwound">2014-11-11 Brian Koropoff (unwound)</a></h2>
+<p>In the last few weeks, he has fixed many, many tricky ICEs all over the
+compiler, but particularly in the area of unboxed closures and the borrow
+checker. He has also completely rewritten how unboxed closures interact with
+monomorphization and had a huge impact on making them usable. Brian Koropoff is
+truly a Friend of the Tree.</p>
+<h2 id="2014-10-07-alexis-beingessner-gankra"><a class="header" href="#2014-10-07-alexis-beingessner-gankra">2014-10-07 Alexis Beingessner (Gankra)</a></h2>
+<p>Alexis Beingessner (aka @Gankra) began contributing to Rust in July, and has
+already had a major impact on several library-related areas. Her main focus has
+been collections. She completely rewrote BTree, providing a vastly more complete
+and efficient implementation. She proposed and implemented the new Entry API.
+She’s written extensive new documentation for the collections crate. She pitched
+in on collections reform.</p>
+<p>And she added collapse-all to rustdoc!</p>
+<p>Alexis is, without a doubt, a FOTT.</p>
+<h2 id="2014-09-02-jorge-aparicio-japaric"><a class="header" href="#2014-09-02-jorge-aparicio-japaric">2014-09-02 Jorge Aparicio (japaric)</a></h2>
+<p>Jorge has made several high-impact contributions to the wider Rust community. He
+is the primary author of rustbyexample.com, and last week published “eulermark”,
+a comparison of language performance on project Euler problems, which happily
+showed Rust performing quite well. As part of his benchmarking work he has
+ported the ‘criterion’ benchmarking framework to Rust.</p>
+<h2 id="2014-07-29-björn-steinbrink-dotdash-doener"><a class="header" href="#2014-07-29-björn-steinbrink-dotdash-doener">2014-07-29 Björn Steinbrink (dotdash, doener)</a></h2>
+<p>Contributing since April 2013. Björn has done many optimizations for Rust,
+including removing allocation bloat in iterators, fmt, and managed boxes;
+optimizing <code>fail!</code>; adding strategic inlining in the libraries; speeding up data
+structures in the compiler; eliminating quadratic blowup in translation, and
+other IR bloat problems.</p>
+<p>He’s really done an amazing number of optimizations to Rust.</p>
+<p>Most recently he earned huge kudos by teaching LLVM about the lifetime of
+variables, allowing Rust to make much more efficient use of the stack.</p>
+<p>Björn is a total FOTT.</p>
+<h2 id="2014-07-22-jonas-hietala-treeman"><a class="header" href="#2014-07-22-jonas-hietala-treeman">2014-07-22 Jonas Hietala (treeman)</a></h2>
+<p>Jonas Hietala, aka @treeman, has been contributing a large amount of
+documentation examples recently for modules such as hashmap, treemap,
+priority_queue, collections, bigint, and vec. He has also additionally been
+fixing UI bugs in the compiler such as those related to format!</p>
+<p>Jonas continues to add new examples/documentation every day, making
+documentation more approachable and understandable for all newcomers. Jonas
+truly is a friend of the tree!</p>
+<h2 id="2014-07-08-sven-nilson-bvssvni-long_void"><a class="header" href="#2014-07-08-sven-nilson-bvssvni-long_void">2014-07-08 Sven Nilson (bvssvni, long_void)</a></h2>
+<p>Sven Nilson has done a great deal of work to build up the Rust crate ecosystem,
+starting with the well-regarded rust-empty project that provides boilerplate
+build infrastructure and - crucially - integrates well with other tools like
+Cargo.</p>
+<p>His Piston project is one of the most promising Rust projects, and its one that
+integrates a number of crates, stressing Rust’s tooling at just the right time:
+when we need to start learning how to support large-scale external projects.</p>
+<p>Sven is a friend of the tree.</p>
+<h2 id="2014-06-24-jakub-wieczorek-jakub-"><a class="header" href="#2014-06-24-jakub-wieczorek-jakub-">2014-06-24 Jakub Wieczorek (jakub-)</a></h2>
+<p>jakub-, otherwise known as Jakub Wieczorek, has recently been working very hard
+to improve and fix lots of match-related functionality, a place where very few
+dare to venture! Most of this code appears to be untouched for quite some time
+now, and it’s receiving some well-deserved love now.</p>
+<p>Jakub has fixed 10 bugs this month alone, many of which have been long-standing
+problems in the compiler. He has also been very responsive in fixing bugs as
+well as triaging issues that come up from fun match assertions.</p>
+<p>Jakub truly is a friend of the tree!</p>
+<h2 id="2014-04-22-klutzy"><a class="header" href="#2014-04-22-klutzy">2014-04-22 klutzy</a></h2>
+<p>klutzy has been doing an amazing amount of Windows work for years now. He picks
+up issues that affect our quality on Windows and picks them off 1 by 1. It’s
+tedious and doesn’t get a ton of thanks, but is hugely appreciated by us. As
+part of the Korean community, he has also done a lot of work for the local
+community there. He is a friend of the tree. Thank you!</p>
+<ul>
+<li>Rust on Windows crusader</li>
+<li>Fixed issues with x86 C ABI struct arguments</li>
+<li>Fixed multiple issues with non-US locales</li>
+</ul>
+<h2 id="2014-03-18-clark-gaebel-cgaebel"><a class="header" href="#2014-03-18-clark-gaebel-cgaebel">2014-03-18 Clark Gaebel (cgaebel)</a></h2>
+<p>This week’s friend of the tree is Clark Gaebel. He just landed a huge first
+contribution to Rust. He dove in and made our hashmaps significantly faster by
+implementing Robin Hood hashing. He is an excellent friend of the tree.</p>
+<h2 id="2014-02-25-erick-tryzelaar-erickt"><a class="header" href="#2014-02-25-erick-tryzelaar-erickt">2014-02-25 Erick Tryzelaar (erickt)</a></h2>
+<ul>
+<li>Contributing since May 2011</li>
+<li>Wrote the serialization crate</li>
+<li>Organizes the bay area Rust meetups</li>
+<li>Just rewrote the Hash trait</li>
+</ul>
+<h2 id="2014-02-11-flavio-percoco-flaper87"><a class="header" href="#2014-02-11-flavio-percoco-flaper87">2014-02-11 Flavio Percoco (FlaPer87)</a></h2>
+<ul>
+<li>Contributing since September</li>
+<li>Does issue triage</li>
+<li>Organizing community events in Italy</li>
+<li>Optimized the ‘pow’ function</li>
+<li>Recently been fixing lots of small but important bugs</li>
+</ul>
+<h2 id="2014-01-27---jeff-olson-olsonjefferey"><a class="header" href="#2014-01-27---jeff-olson-olsonjefferey">2014-01-27 - Jeff Olson (olsonjefferey)</a></h2>
+<ul>
+<li>Contributing since February 2012</li>
+<li>Did the original libuv integration</li>
+<li>Implemented our second attempt at I/O, first using libuv</li>
+<li>Ported parts of the C++ runtime to Rust</li>
+<li>Implemented file I/O for the newest runtime</li>
+<li>Last week published an article about file I/O on the Safari books blog</li>
+</ul>
+<h2 id="2014-01-21---steven-fackler-sfackler"><a class="header" href="#2014-01-21---steven-fackler-sfackler">2014-01-21 - Steven Fackler (sfackler)</a></h2>
+<ul>
+<li>Contributing since last May</li>
+<li>CMU grad</li>
+<li>Lots of library improvements, Base64, Bitv, I/O</li>
+<li>Rustdoc improvements</li>
+<li>Mut/RefCell</li>
+<li>std::io::util</li>
+<li>external module loading</li>
+</ul>
+<h2 id="2014-01-14---eduard-burtescu-eddyb"><a class="header" href="#2014-01-14---eduard-burtescu-eddyb">2014-01-14 - Eduard Burtescu (eddyb)</a></h2>
+<ul>
+<li>Contributing since October</li>
+<li>Working on the compiler, including trans</li>
+<li>Reduced rustc memory usage</li>
+<li>Optimized vector operations</li>
+<li>Helping refactor the compiler to eliminate use of deprecated features</li>
+<li>Cleaned up ancient code in the compiler</li>
+<li>Removed our long-standing incorrect use of the environment argument to pass
+the self param</li>
+</ul>
+<h2 id="2014-01-07---vadim-chugunov-vadimcn"><a class="header" href="#2014-01-07---vadim-chugunov-vadimcn">2014-01-07 - Vadim Chugunov (vadimcn)</a></h2>
+<ul>
+<li>Contributing since June</li>
+<li>Fixed numerous bugs on Windows</li>
+<li>Fixing broken tests</li>
+<li>Improved compatibility with newer mingw versions</li>
+<li>Eliminated our runtime C++ dependency by implementing unwinding through
+libunwind</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../archive/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../archive/release-history.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../archive/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../archive/release-history.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../js/moment.min.js"></script>
+        <script src="../js/index.js"></script>
+
+
+    </div>
+    </body>
+</html>

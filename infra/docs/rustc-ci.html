@@ -1,0 +1,431 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>rust-lang/rust CI - Rust Forge</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="Supplemental documentation for contributing to The Rust Programming Language">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">Overview</a></li><li class="chapter-item expanded "><a href="../../platforms/index.html">Platforms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../platforms/twitter.html">Twitter</a></li><li class="chapter-item expanded "><a href="../../platforms/discord.html">Discord</a></li><li class="chapter-item expanded "><a href="../../platforms/email.html">Email</a></li><li class="chapter-item expanded "><a href="../../platforms/github.html">GitHub</a></li><li class="chapter-item expanded "><a href="../../platforms/zulip.html">Zulip</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../platforms/zulip/moderation.html">Moderation</a></li></ol></li><li class="chapter-item expanded "><a href="../../platforms/blogs.html">Blogs</a></li><li class="chapter-item expanded "><a href="../../platforms/calendars.html">Calendars</a></li></ol></li><li class="chapter-item expanded "><a href="../../triagebot/index.html">Triagebot</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../triagebot/agenda.html">Agenda Generator</a></li><li class="chapter-item expanded "><a href="../../triagebot/issue-assignment.html">Issue Assignment</a></li><li class="chapter-item expanded "><a href="../../triagebot/pr-assignment.html">PR Assignment</a></li><li class="chapter-item expanded "><a href="../../triagebot/pr-assignment-tracking.html">Tracking PR assignment</a></li><li class="chapter-item expanded "><a href="../../triagebot/autolabels.html">Autolabels</a></li><li class="chapter-item expanded "><a href="../../triagebot/close.html">Close</a></li><li class="chapter-item expanded "><a href="../../triagebot/doc-updates.html">Documentation Updates</a></li><li class="chapter-item expanded "><a href="../../triagebot/github-releases.html">GitHub Releases</a></li><li class="chapter-item expanded "><a href="../../triagebot/glacier.html">Glacier</a></li><li class="chapter-item expanded "><a href="../../triagebot/labeling.html">Labeling</a></li><li class="chapter-item expanded "><a href="../../triagebot/major-changes.html">Major Changes</a></li><li class="chapter-item expanded "><a href="../../triagebot/mentions.html">Mentions</a></li><li class="chapter-item expanded "><a href="../../triagebot/no-merge.html">No Merge Policy</a></li><li class="chapter-item expanded "><a href="../../triagebot/nominate.html">Nominate</a></li><li class="chapter-item expanded "><a href="../../triagebot/note.html">Note</a></li><li class="chapter-item expanded "><a href="../../triagebot/notifications.html">Notifications</a></li><li class="chapter-item expanded "><a href="../../triagebot/pinging.html">Pinging</a></li><li class="chapter-item expanded "><a href="../../triagebot/requesting-prioritization.html">Requesting Prioritization</a></li><li class="chapter-item expanded "><a href="../../triagebot/review-submitted.html">Review Changes Requested</a></li><li class="chapter-item expanded "><a href="../../triagebot/review-requested.html">Review Requested</a></li><li class="chapter-item expanded "><a href="../../triagebot/rustc-commit-list.html">Rustc Commit Tracking</a></li><li class="chapter-item expanded "><a href="../../triagebot/shortcuts.html">Shortcuts</a></li><li class="chapter-item expanded "><a href="../../triagebot/triage-dashboard.html">Triagebot Dashboard</a></li><li class="chapter-item expanded "><a href="../../triagebot/zulip-meeting.html">Zulip Meeting Management</a></li><li class="chapter-item expanded "><a href="../../triagebot/zulip-notifications.html">Zulip Notifications</a></li></ol></li><li class="chapter-item expanded "><a href="../../community/index.html">Community</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../community/survey-faq.html">State of Rust Survey FAQ</a></li></ol></li><li class="chapter-item expanded "><a href="../../compiler/index.html">Compiler</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../compiler/cross-compilation/index.html">Cross Compilation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../compiler/cross-compilation/windows.html">Windows</a></li></ol></li><li class="chapter-item expanded "><a href="../../compiler/cross-team-collaboration.html">Cross-team Collaboration</a></li><li class="chapter-item expanded "><a href="../../compiler/reviews.html">Review policies</a></li><li class="chapter-item expanded "><a href="../../compiler/new_option.html">So you want to add a new option to rustc?</a></li><li class="chapter-item expanded "><a href="../../compiler/mcp.html">Major Change Proposals</a></li><li class="chapter-item expanded "><a href="../../compiler/membership.html">Membership</a></li><li class="chapter-item expanded "><a href="../../compiler/prioritization.html">Prioritization</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../compiler/prioritization/procedure.html">Procedure</a></li><li class="chapter-item expanded "><a href="../../compiler/prioritization/priority-levels.html">Priority Levels</a></li></ol></li><li class="chapter-item expanded "><a href="../../compiler/notification-groups.html">Notification groups</a></li><li class="chapter-item expanded "><a href="../../compiler/triage-meeting.html">Triage Meeting</a></li><li class="chapter-item expanded "><a href="../../compiler/steering-meeting.html">Steering Meeting</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../compiler/steering-meeting/submit.html">Submitting a proposal</a></li><li class="chapter-item expanded "><a href="../../compiler/steering-meeting/how-to-run-planning.html">How to run the planning meeting</a></li><li class="chapter-item expanded "><a href="../../compiler/steering-meeting/how-to-run-design.html">How to run a design meeting</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../crates-io/index.html">crates.io</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../crates-io/crate-removal.html">Crate removal</a></li><li class="chapter-item expanded "><a href="../../crates-io/db-maintenance.html">Database maintenance</a></li></ol></li><li class="chapter-item expanded "><a href="../../docs-rs/index.html">docs.rs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../docs-rs/add-dependencies.html">Adding dependencies to the build environment</a></li><li class="chapter-item expanded "><a href="../../docs-rs/self-hosting.html">Self-hosting a docs.rs instance</a></li><li class="chapter-item expanded "><a href="../../docs-rs/maintenance.html">Maintenance procedures</a></li></ol></li><li class="chapter-item expanded "><a href="../../governance/index.html">Governance</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../governance/council.html">Leadership Council</a></li><li class="chapter-item expanded "><a href="../../governance/moderation.html">Moderation</a></li></ol></li><li class="chapter-item expanded "><a href="../../infra/index.html">Infrastructure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../infra/other-installation-methods.html">Other Installation Methods</a></li><li class="chapter-item expanded "><a href="../../infra/channel-layout.html">Release Channel Layout</a></li><li class="chapter-item expanded "><a href="../../infra/service-infrastructure.html">Service Infrastructure</a></li><li class="chapter-item expanded "><a href="../../infra/team-maintenance.html">Team Maintenance</a></li><li class="chapter-item expanded "><a href="../../infra/toolstate.html">The Toolstate System</a></li><li class="chapter-item expanded "><a href="../../infra/policies/index.html">Policies</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../infra/policies/broken-nightlies.html">Broken nightlies</a></li></ol></li><li class="chapter-item expanded "><a href="../../infra/guidelines/index.html">Guidelines</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../infra/guidelines/static-websites.html">Static websites</a></li></ol></li><li class="chapter-item expanded "><a href="../../infra/docs/index.html">Documentation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../infra/docs/aws-access.html">AWS access for team members</a></li><li class="chapter-item expanded "><a href="../../infra/docs/aws-access-management.html">AWS access management</a></li><li class="chapter-item expanded "><a href="../../infra/docs/aws-regions.html">AWS regions</a></li><li class="chapter-item expanded "><a href="../../infra/docs/bastion.html">Bastion server</a></li><li class="chapter-item expanded "><a href="../../infra/docs/bors.html">Bors</a></li><li class="chapter-item expanded "><a href="../../infra/docs/cdn.html">CDN</a></li><li class="chapter-item expanded "><a href="../../infra/docs/crater-agents.html">Crater agents</a></li><li class="chapter-item expanded "><a href="../../infra/docs/gha-self-hosted.html">Custom GitHub Actions runners</a></li><li class="chapter-item expanded "><a href="../../infra/docs/dev-desktop.html">Dev Desktops</a></li><li class="chapter-item expanded "><a href="../../infra/docs/dev-desktop-github-app.html">GitHub App for dev-desktops</a></li><li class="chapter-item expanded "><a href="../../infra/docs/discord-mods-bot.html">Discord moderation bot</a></li><li class="chapter-item expanded "><a href="../../infra/docs/dns.html">Domain names and DNS</a></li><li class="chapter-item expanded "><a href="../../infra/docs/docs-rs.html">docs.rs</a></li><li class="chapter-item expanded "><a href="../../infra/docs/ecs-services.html">ECS services management</a></li><li class="chapter-item expanded "><a href="../../infra/docs/monitoring.html">Monitoring</a></li><li class="chapter-item expanded "><a href="../../infra/docs/rust-bots.html">rust-bots server</a></li><li class="chapter-item expanded "><a href="../../infra/docs/rustc-ci.html" class="active">rust-lang/rust CI</a></li><li class="chapter-item expanded "><a href="../../infra/docs/sentry.html">Sentry</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../lang/index.html">Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../lang/rfc-merge-procedure.html">RFC Merge Procedure</a></li><li class="chapter-item expanded "><a href="../../lang/triage-meeting-procedure.html">Triage Meeting Procedure</a></li></ol></li><li class="chapter-item expanded "><a href="../../libs/index.html">Libs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../libs/maintaining-std.html">Maintaining the standard library</a></li></ol></li><li class="chapter-item expanded "><a href="../../release/index.html">Release</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../release/backporting.html">Backporting</a></li><li class="chapter-item expanded "><a href="../../release/release-notes.html">Preparing Release Notes</a></li><li class="chapter-item expanded "><a href="../../release/process.html">Release Process</a></li><li class="chapter-item expanded "><a href="../../release/rollups.html">Rollup Procedure</a></li><li class="chapter-item expanded "><a href="../../release/triage-procedure.html">Triage Procedure</a></li><li class="chapter-item expanded "><a href="../../release/issue-triaging.html">Issue Triaging</a></li><li class="chapter-item expanded "><a href="../../release/crater.html">Triaging Crater Runs</a></li></ol></li><li class="chapter-item expanded "><a href="../../editions/edition-releases.html">Edition Releases</a></li><li class="chapter-item expanded "><a href="../../archive/index.html">Archive</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../archive/fott.html">Friends of the Tree</a></li><li class="chapter-item expanded "><a href="../../archive/release-history.html">Release History</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rust Forge</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/rust-forge" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/rust-forge/edit/master/src/infra/docs/rustc-ci.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="how-the-rust-ci-works"><a class="header" href="#how-the-rust-ci-works">How the Rust CI works</a></h1>
+<p>Rust CI ensures that the master branch of rust-lang/rust is always in a valid state.</p>
+<p>A developer submitting a pull request to rust-lang/rust, experiences the following:</p>
+<ul>
+<li>A small subset of tests and checks are run on each commit to catch common errors.</li>
+<li>When the PR is ready and approved, the “bors” tool enqueues a full CI run.</li>
+<li>The full run either queues the specific PR or the PR is “rolled up” with other changes.</li>
+<li>Eventually a CI run containing the changes from the PR is performed and either passes or fails with an error the developer must address.</li>
+</ul>
+<h2 id="which-jobs-we-run"><a class="header" href="#which-jobs-we-run">Which jobs we run</a></h2>
+<p>The <code>rust-lang/rust</code> repository uses GitHub Actions to test <a href="https://doc.rust-lang.org/nightly/rustc/platform-support.html">all the
+platforms</a> we support. We currently have two kinds of jobs running
+for each commit we want to merge to master:</p>
+<ul>
+<li>Dist jobs build a full release of the compiler for that platform, including
+all the tools we ship through rustup; Those builds are then uploaded to the
+<code>rust-lang-ci2</code> S3 bucket and are available to be locally installed with the
+<a href="https://github.com/kennytm/rustup-toolchain-install-master">rustup-toolchain-install-master</a> tool; The same builds are also used for
+actual releases: our release process basically consists of copying those
+artifacts from <code>rust-lang-ci2</code> to the production endpoint and signing them.</li>
+<li>Non-dist jobs run our full test suite on the platform, and the test suite of
+all the tools we ship through rustup; The amount of stuff we test depends on
+the platform (for example some tests are run only on Tier 1 platforms), and
+some quicker platforms are grouped together on the same builder to avoid
+wasting CI resources.</li>
+</ul>
+<p>All the builds except those on macOS and Windows are executed inside that
+platform’s custom <a href="https://github.com/rust-lang/rust/tree/master/src/ci/docker">Docker container</a>. This has a lot of advantages for us:</p>
+<ul>
+<li>The build environment is consistent regardless of the changes of the
+underlying image (switching from the trusty image to xenial was painless for
+us).</li>
+<li>We can use ancient build environments to ensure maximum binary compatibility,
+for example <a href="https://github.com/rust-lang/rust/blob/master/src/ci/docker/host-x86_64/dist-x86_64-linux/Dockerfile">using older CentOS releases</a> on our Linux builders.</li>
+<li>We can avoid reinstalling tools (like QEMU or the Android emulator) every
+time thanks to Docker image caching.</li>
+<li>Users can run the same tests in the same environment locally by just running
+<code>src/ci/docker/run.sh image-name</code>, which is awesome to debug failures.</li>
+</ul>
+<p>The docker images prefixed with <code>dist-</code> are used for building artifacts while those without that prefix run tests and checks.</p>
+<p>We also run tests for less common architectures (mainly Tier 2 and Tier 3
+platforms) in CI. Since those platforms are not x86 we either run
+everything inside QEMU or just cross-compile if we don’t want to run the tests
+for that platform.</p>
+<p>These builders are running on a special pool of builders set up and maintained for us by GitHub.</p>
+<p>Almost all build steps shell out to separate scripts. This keeps the CI fairly platform independent (i.e., we are not 
+overly reliant on GitHub Actions). GitHub Actions is only relied on for bootstrapping the CI process and for orchestrating
+the scripts that drive the process.</p>
+<h2 id="merging-prs-serially-with-bors"><a class="header" href="#merging-prs-serially-with-bors">Merging PRs serially with bors</a></h2>
+<p>CI services usually test the last commit of a branch merged with the last
+commit in master, and while that’s great to check if the feature works in
+isolation it doesn’t provide any guarantee the code is going to work once it’s
+merged. Breakages like these usually happen when another, incompatible PR is
+merged after the build happened.</p>
+<p>To ensure a master that works all the time we forbid manual merges: instead all
+PRs have to be approved through our bot, <a href="https://github.com/bors">bors</a> (the software behind it is
+called <a href="https://github.com/rust-lang/homu">homu</a>). All the approved PRs are put <a href="https://bors.rust-lang.org/queue/rust">in a queue</a> (sorted
+by priority and creation date) and are automatically tested one at the time. If
+all the builders are green the PR is merged, otherwise the failure is recorded
+and the PR will have to be re-approved again.</p>
+<p>Bors doesn’t interact with CI services directly, but it works by pushing the
+merge commit it wants to test to a branch called <code>auto</code>, and detecting the
+outcome of the build by listening for either Commit Statuses or Check Runs.
+Since the merge commit is based on the latest master and only one can be tested
+at the same time, when the results are green master is fast-forwarded to that
+merge commit.</p>
+<p>The <code>auto</code> branch and other branches used by bors live on a fork of rust-lang/rust: 
+<a href="https://github.com/rust-lang-ci/rust">rust-lang-ci/rust</a>. This was originally done due to some security limitations in GitHub 
+Actions. These limitations have been addressed, but we’ve not yet done the work of removing 
+the use of the fork.</p>
+<p>Unfortunately testing a single PR at the time, combined with our long CI (~3
+hours for a full run)<sup class="footnote-reference"><a href="#1">1</a></sup>, means we can’t merge too many PRs in a single day, and a
+single failure greatly impacts our throughput for the day. The maximum number
+of PRs we can merge in a day is around 8.</p>
+<p>The large CI run times and requirement for a large builder pool is largely due to the
+fact that full release artifacts are built in the <code>dist-</code> builders. This is worth it 
+because these release artifacts: </p>
+<ul>
+<li>allow perf testing even at a later date </li>
+<li>allow bisection when bugs are discovered later</li>
+<li>ensure release quality since if we’re always releasing, we can catch problems early</li>
+</ul>
+<p>Bors <a href="https://github.com/rust-lang/simpleinfra/blob/master/terraform/bors/app.tf">runs on ecs</a> and uses a sqlite database running in a volume as storage.</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>As of January 2023, the bottleneck are the <code>dist-x86_64-linux</code> and <code>dist-x86_64-linux-alt</code> runners because of their usage of <a href="https://github.com/facebookincubator/BOLT">BOLT</a> and <a href="https://en.wikipedia.org/wiki/Profile-guided_optimization">PGO</a> optimization tooling.</p>
+</div>
+<h3 id="rollups"><a class="header" href="#rollups">Rollups</a></h3>
+<p>Some PRs don’t need the full test suite to be executed: trivial changes like
+typo fixes or README improvements <em>shouldn’t</em> break the build, and testing
+every single one of them for 2 to 3 hours is a big waste of time. To solve this
+we do a “rollup”, a PR where we merge all the trivial PRs so they can be tested
+together. Rollups are created manually by a team member using the “create a rollup” button on the <a href="https://bors.rust-lang.org/queue/rust">bors queue</a>. The team member uses their
+judgment to decide if a PR is risky or not, and are the best tool we have at
+the moment to keep the queue in a manageable state.</p>
+<h3 id="try-builds"><a class="header" href="#try-builds">Try builds</a></h3>
+<p>Sometimes we need a working compiler build before approving a PR, usually for
+<a href="https://perf.rust-lang.org">benchmarking</a> or <a href="https://github.com/rust-lang/crater">checking the impact of the PR across the
+ecosystem</a>. Bors supports creating them by pushing the merge commit on
+a separate branch (<code>try</code>), and they basically work the same as normal builds,
+without the actual merge at the end. Any number of try builds can happen at the
+same time, even if there is a normal PR in progress.</p>
+<p>You can see the CI configuration for try builds <a href="https://github.com/rust-lang/rust/blob/9d46c7a3e69966782e163877151c1f0cea8b630a/src/ci/github-actions/ci.yml#L728-L741">here</a>.</p>
+<p>If you want to perform a try build with a different configuration (e.g. try to
+perform a compiler build for a different architecture), you can temporarily change
+the <code>try</code> CI job in your PR:</p>
+<ol>
+<li>Open <code>src/ci/github-actions/ci.yml</code></li>
+<li>Find the CI job that you want to run (e.g. <code>dist-aarch64-linux</code>)</li>
+<li>Copy-paste the entry of the CI job</li>
+<li>Find the <code>try:</code> job in the file</li>
+<li>Replace the <code>dist-x86_64-linux</code> job in the matrix with the copied entry from step 3)</li>
+<li>Run <code>python3 x.py run src/tools/expand-yaml-anchors</code></li>
+<li>Push your changes and start a try build with <code>@bors try</code></li>
+</ol>
+<h2 id="which-branches-we-test"><a class="header" href="#which-branches-we-test">Which branches we test</a></h2>
+<p>Our builders are defined in <a href="https://github.com/rust-lang/rust/blob/master/src/ci/github-actions/ci.yml"><code>src/ci/github-actions/ci.yml</code></a>.</p>
+<h3 id="pr-builds"><a class="header" href="#pr-builds">PR builds</a></h3>
+<p>All the commits pushed in a PR run a limited set of tests: a job containing a
+bunch of lints plus a cross-compile check build to Windows mingw (without
+producing any artifacts) and the <code>x86_64-gnu-llvm-##</code> non-dist builder (where
+<code>##</code> is the <em>system</em> LLVM version we are currently testing). Those two
+builders are enough to catch most of the common errors introduced in a PR, but
+they don’t cover other platforms at all. Unfortunately it would take too many
+resources to run the full test suite for each commit on every PR.</p>
+<p>Additionally, if the PR changes certain tools (or certain platform-specific
+parts of std to check for miri breakage), the <code>x86_64-gnu-tools</code> non-dist
+builder is run.</p>
+<h3 id="the-try-branch"><a class="header" href="#the-try-branch">The <code>try</code> branch</a></h3>
+<p>On the main rust repo, <code>try</code> builds produce just a Linux toolchain using the
+<code>dist-x86_64-linux</code> image.</p>
+<h3 id="the-auto-branch"><a class="header" href="#the-auto-branch">The <code>auto</code> branch</a></h3>
+<p>This branch is used by bors to run all the tests on a PR before merging it, so
+all the builders are enabled for it. bors will repeatedly force-push on it
+(every time a new commit is tested).</p>
+<h3 id="the-master-branch"><a class="header" href="#the-master-branch">The <code>master</code> branch</a></h3>
+<p>Since all the commits to <code>master</code> are fast-forwarded from the <code>auto</code> branch (if
+they pass all the tests there) we don’t need to build or test anything. A quick
+job is executed on each push to update toolstate (see the toolstate description
+below).</p>
+<h3 id="other-branches"><a class="header" href="#other-branches">Other branches</a></h3>
+<p>Other branches are just disabled and don’t run any kind of builds, since all
+the in-progress branches will eventually be tested in a PR.</p>
+<h2 id="caching"><a class="header" href="#caching">Caching</a></h2>
+<p>The main rust repository doesn’t use the native GitHub Actions caching tools.
+All our caching is uploaded to an S3 bucket we control
+(<code>rust-lang-ci-sccache2</code>), and it’s used mainly for two things:</p>
+<h3 id="docker-images-caching"><a class="header" href="#docker-images-caching">Docker images caching</a></h3>
+<p>The Docker images we use to run most of the Linux-based builders take a <em>long</em>
+time to fully build. To speed up the build, we cache the exported images on the
+S3 bucket (with <code>docker save</code>/<code>docker load</code>).</p>
+<p>Since we test multiple, diverged branches (<code>master</code>, <code>beta</code> and <code>stable</code>) we
+can’t rely on a single cache for the images, otherwise builds on a branch would
+override the cache for the others. Instead we store the images identifying them
+with a custom hash, made from the host’s Docker version and the contents of all
+the Dockerfiles and related scripts.</p>
+<h3 id="llvm-caching-with-sccache"><a class="header" href="#llvm-caching-with-sccache">LLVM caching with sccache</a></h3>
+<p>We build some C/C++ stuff during the build and we rely on <a href="https://github.com/mozilla/sccache">sccache</a> to cache
+intermediate LLVM artifacts. Sccache is a distributed ccache developed by
+Mozilla, and it can use an object storage bucket as the storage backend, like
+we do with our S3 bucket.</p>
+<h2 id="custom-tooling-around-ci"><a class="header" href="#custom-tooling-around-ci">Custom tooling around CI</a></h2>
+<p>During the years we developed some custom tooling to improve our CI experience.</p>
+<h3 id="rust-log-analyzer-to-show-the-error-message-in-prs"><a class="header" href="#rust-log-analyzer-to-show-the-error-message-in-prs">Rust Log Analyzer to show the error message in PRs</a></h3>
+<p>The build logs for <code>rust-lang/rust</code> are huge, and it’s not practical to find
+what caused the build to fail by looking at the logs. To improve the
+developers’ experience we developed a bot called <a href="https://github.com/rust-lang/rust-log-analyzer">Rust Log Analyzer</a> (RLA)
+that receives the build logs on failure and extracts the error message
+automatically, posting it on the PR.</p>
+<p>The bot is not hardcoded to look for error strings, but was trained with a
+bunch of build failures to recognize which lines are common between builds and
+which are not. While the generated snippets can be weird sometimes, the bot is
+pretty good at identifying the relevant lines even if it’s an error we’ve never
+seen before.</p>
+<h3 id="toolstate-to-support-allowed-failures"><a class="header" href="#toolstate-to-support-allowed-failures">Toolstate to support allowed failures</a></h3>
+<p>The <code>rust-lang/rust</code> repo doesn’t only test the compiler on its CI, but also a
+variety of tools and documentation. Some documentation is pulled in via git
+submodules. If we blocked merging rustc PRs on the documentation being fixed,
+we would be stuck in a chicken-and-egg problem, because the documentation’s CI
+would not pass since updating it would need the not-yet-merged version of
+rustc to test against (and we usually require CI to be passing).</p>
+<p>To avoid the problem, submodules are allowed to fail, and their status is
+recorded in <a href="https://rust-lang-nursery.github.io/rust-toolstate">rust-toolstate</a>. When a submodule breaks, a bot automatically
+pings the maintainers so they know about the breakage, and it records the
+failure on the toolstate repository. The release process will then ignore
+broken tools on nightly, removing them from the shipped nightlies.</p>
+<p>While tool failures are allowed most of the time, they’re automatically
+forbidden a week before a release: we don’t care if tools are broken on nightly
+but they must work on beta and stable, so they also need to work on nightly a
+few days before we promote nightly to beta.</p>
+<p>More information is available in the <a href="../toolstate.html">toolstate documentation</a>.</p>
+<h3 id="github-actions-templating"><a class="header" href="#github-actions-templating">GitHub Actions Templating</a></h3>
+<p>GitHub Actions does not natively support templating which can cause configurations to be large and difficult to change. We use YAML anchors for templating and a custom tool, <a href="https://github.com/rust-lang/rust/tree/master/src/tools/expand-yaml-anchors"><code>expand-yaml-anchors</code></a>, to expand <a href="https://github.com/rust-lang/rust/blob/736c675d2ab65bcde6554e1b73340c2dbc27c85a/src/ci/github-actions/ci.yml">the template</a> into the CI configuration that <a href="https://github.com/rust-lang/rust/blob/master/.github/workflows/ci.yml">GitHub uses</a>.</p>
+<p>This templating language is fairly straightforward:</p>
+<ul>
+<li><code>&amp;</code> indicates a template section</li>
+<li><code>*</code> expands the indicated template in place</li>
+<li><code>&lt;&lt;</code> merges yaml dictionaries</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../infra/docs/rust-bots.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../infra/docs/sentry.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../infra/docs/rust-bots.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../infra/docs/sentry.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../js/moment.min.js"></script>
+        <script src="../../js/index.js"></script>
+
+
+    </div>
+    </body>
+</html>

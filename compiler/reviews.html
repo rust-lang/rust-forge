@@ -1,0 +1,429 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Review policies - Rust Forge</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="Supplemental documentation for contributing to The Rust Programming Language">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Overview</a></li><li class="chapter-item expanded "><a href="../platforms/index.html">Platforms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../platforms/twitter.html">Twitter</a></li><li class="chapter-item expanded "><a href="../platforms/discord.html">Discord</a></li><li class="chapter-item expanded "><a href="../platforms/email.html">Email</a></li><li class="chapter-item expanded "><a href="../platforms/github.html">GitHub</a></li><li class="chapter-item expanded "><a href="../platforms/zulip.html">Zulip</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../platforms/zulip/moderation.html">Moderation</a></li></ol></li><li class="chapter-item expanded "><a href="../platforms/blogs.html">Blogs</a></li><li class="chapter-item expanded "><a href="../platforms/calendars.html">Calendars</a></li></ol></li><li class="chapter-item expanded "><a href="../triagebot/index.html">Triagebot</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../triagebot/agenda.html">Agenda Generator</a></li><li class="chapter-item expanded "><a href="../triagebot/issue-assignment.html">Issue Assignment</a></li><li class="chapter-item expanded "><a href="../triagebot/pr-assignment.html">PR Assignment</a></li><li class="chapter-item expanded "><a href="../triagebot/pr-assignment-tracking.html">Tracking PR assignment</a></li><li class="chapter-item expanded "><a href="../triagebot/autolabels.html">Autolabels</a></li><li class="chapter-item expanded "><a href="../triagebot/close.html">Close</a></li><li class="chapter-item expanded "><a href="../triagebot/doc-updates.html">Documentation Updates</a></li><li class="chapter-item expanded "><a href="../triagebot/github-releases.html">GitHub Releases</a></li><li class="chapter-item expanded "><a href="../triagebot/glacier.html">Glacier</a></li><li class="chapter-item expanded "><a href="../triagebot/labeling.html">Labeling</a></li><li class="chapter-item expanded "><a href="../triagebot/major-changes.html">Major Changes</a></li><li class="chapter-item expanded "><a href="../triagebot/mentions.html">Mentions</a></li><li class="chapter-item expanded "><a href="../triagebot/no-merge.html">No Merge Policy</a></li><li class="chapter-item expanded "><a href="../triagebot/nominate.html">Nominate</a></li><li class="chapter-item expanded "><a href="../triagebot/note.html">Note</a></li><li class="chapter-item expanded "><a href="../triagebot/notifications.html">Notifications</a></li><li class="chapter-item expanded "><a href="../triagebot/pinging.html">Pinging</a></li><li class="chapter-item expanded "><a href="../triagebot/requesting-prioritization.html">Requesting Prioritization</a></li><li class="chapter-item expanded "><a href="../triagebot/review-submitted.html">Review Changes Requested</a></li><li class="chapter-item expanded "><a href="../triagebot/review-requested.html">Review Requested</a></li><li class="chapter-item expanded "><a href="../triagebot/rustc-commit-list.html">Rustc Commit Tracking</a></li><li class="chapter-item expanded "><a href="../triagebot/shortcuts.html">Shortcuts</a></li><li class="chapter-item expanded "><a href="../triagebot/triage-dashboard.html">Triagebot Dashboard</a></li><li class="chapter-item expanded "><a href="../triagebot/zulip-meeting.html">Zulip Meeting Management</a></li><li class="chapter-item expanded "><a href="../triagebot/zulip-notifications.html">Zulip Notifications</a></li></ol></li><li class="chapter-item expanded "><a href="../community/index.html">Community</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../community/survey-faq.html">State of Rust Survey FAQ</a></li></ol></li><li class="chapter-item expanded "><a href="../compiler/index.html">Compiler</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/cross-compilation/index.html">Cross Compilation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/cross-compilation/windows.html">Windows</a></li></ol></li><li class="chapter-item expanded "><a href="../compiler/cross-team-collaboration.html">Cross-team Collaboration</a></li><li class="chapter-item expanded "><a href="../compiler/reviews.html" class="active">Review policies</a></li><li class="chapter-item expanded "><a href="../compiler/new_option.html">So you want to add a new option to rustc?</a></li><li class="chapter-item expanded "><a href="../compiler/mcp.html">Major Change Proposals</a></li><li class="chapter-item expanded "><a href="../compiler/membership.html">Membership</a></li><li class="chapter-item expanded "><a href="../compiler/prioritization.html">Prioritization</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/prioritization/procedure.html">Procedure</a></li><li class="chapter-item expanded "><a href="../compiler/prioritization/priority-levels.html">Priority Levels</a></li></ol></li><li class="chapter-item expanded "><a href="../compiler/notification-groups.html">Notification groups</a></li><li class="chapter-item expanded "><a href="../compiler/triage-meeting.html">Triage Meeting</a></li><li class="chapter-item expanded "><a href="../compiler/steering-meeting.html">Steering Meeting</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/steering-meeting/submit.html">Submitting a proposal</a></li><li class="chapter-item expanded "><a href="../compiler/steering-meeting/how-to-run-planning.html">How to run the planning meeting</a></li><li class="chapter-item expanded "><a href="../compiler/steering-meeting/how-to-run-design.html">How to run a design meeting</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../crates-io/index.html">crates.io</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../crates-io/crate-removal.html">Crate removal</a></li><li class="chapter-item expanded "><a href="../crates-io/db-maintenance.html">Database maintenance</a></li></ol></li><li class="chapter-item expanded "><a href="../docs-rs/index.html">docs.rs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../docs-rs/add-dependencies.html">Adding dependencies to the build environment</a></li><li class="chapter-item expanded "><a href="../docs-rs/self-hosting.html">Self-hosting a docs.rs instance</a></li><li class="chapter-item expanded "><a href="../docs-rs/maintenance.html">Maintenance procedures</a></li></ol></li><li class="chapter-item expanded "><a href="../governance/index.html">Governance</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../governance/council.html">Leadership Council</a></li><li class="chapter-item expanded "><a href="../governance/moderation.html">Moderation</a></li></ol></li><li class="chapter-item expanded "><a href="../infra/index.html">Infrastructure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/other-installation-methods.html">Other Installation Methods</a></li><li class="chapter-item expanded "><a href="../infra/channel-layout.html">Release Channel Layout</a></li><li class="chapter-item expanded "><a href="../infra/service-infrastructure.html">Service Infrastructure</a></li><li class="chapter-item expanded "><a href="../infra/team-maintenance.html">Team Maintenance</a></li><li class="chapter-item expanded "><a href="../infra/toolstate.html">The Toolstate System</a></li><li class="chapter-item expanded "><a href="../infra/policies/index.html">Policies</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/policies/broken-nightlies.html">Broken nightlies</a></li></ol></li><li class="chapter-item expanded "><a href="../infra/guidelines/index.html">Guidelines</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/guidelines/static-websites.html">Static websites</a></li></ol></li><li class="chapter-item expanded "><a href="../infra/docs/index.html">Documentation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/docs/aws-access.html">AWS access for team members</a></li><li class="chapter-item expanded "><a href="../infra/docs/aws-access-management.html">AWS access management</a></li><li class="chapter-item expanded "><a href="../infra/docs/aws-regions.html">AWS regions</a></li><li class="chapter-item expanded "><a href="../infra/docs/bastion.html">Bastion server</a></li><li class="chapter-item expanded "><a href="../infra/docs/bors.html">Bors</a></li><li class="chapter-item expanded "><a href="../infra/docs/cdn.html">CDN</a></li><li class="chapter-item expanded "><a href="../infra/docs/crater-agents.html">Crater agents</a></li><li class="chapter-item expanded "><a href="../infra/docs/gha-self-hosted.html">Custom GitHub Actions runners</a></li><li class="chapter-item expanded "><a href="../infra/docs/dev-desktop.html">Dev Desktops</a></li><li class="chapter-item expanded "><a href="../infra/docs/dev-desktop-github-app.html">GitHub App for dev-desktops</a></li><li class="chapter-item expanded "><a href="../infra/docs/discord-mods-bot.html">Discord moderation bot</a></li><li class="chapter-item expanded "><a href="../infra/docs/dns.html">Domain names and DNS</a></li><li class="chapter-item expanded "><a href="../infra/docs/docs-rs.html">docs.rs</a></li><li class="chapter-item expanded "><a href="../infra/docs/ecs-services.html">ECS services management</a></li><li class="chapter-item expanded "><a href="../infra/docs/monitoring.html">Monitoring</a></li><li class="chapter-item expanded "><a href="../infra/docs/rust-bots.html">rust-bots server</a></li><li class="chapter-item expanded "><a href="../infra/docs/rustc-ci.html">rust-lang/rust CI</a></li><li class="chapter-item expanded "><a href="../infra/docs/sentry.html">Sentry</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../lang/index.html">Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../lang/rfc-merge-procedure.html">RFC Merge Procedure</a></li><li class="chapter-item expanded "><a href="../lang/triage-meeting-procedure.html">Triage Meeting Procedure</a></li></ol></li><li class="chapter-item expanded "><a href="../libs/index.html">Libs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../libs/maintaining-std.html">Maintaining the standard library</a></li></ol></li><li class="chapter-item expanded "><a href="../release/index.html">Release</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../release/backporting.html">Backporting</a></li><li class="chapter-item expanded "><a href="../release/release-notes.html">Preparing Release Notes</a></li><li class="chapter-item expanded "><a href="../release/process.html">Release Process</a></li><li class="chapter-item expanded "><a href="../release/rollups.html">Rollup Procedure</a></li><li class="chapter-item expanded "><a href="../release/triage-procedure.html">Triage Procedure</a></li><li class="chapter-item expanded "><a href="../release/issue-triaging.html">Issue Triaging</a></li><li class="chapter-item expanded "><a href="../release/crater.html">Triaging Crater Runs</a></li></ol></li><li class="chapter-item expanded "><a href="../editions/edition-releases.html">Edition Releases</a></li><li class="chapter-item expanded "><a href="../archive/index.html">Archive</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../archive/fott.html">Friends of the Tree</a></li><li class="chapter-item expanded "><a href="../archive/release-history.html">Release History</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rust Forge</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/rust-forge" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/rust-forge/edit/master/src/compiler/reviews.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="review-policies"><a class="header" href="#review-policies">Review policies</a></h1>
+<p>Every PR that lands in the compiler and its associated crates must be
+reviewed by at least one person who is knowledgeable with the code in
+question.</p>
+<p>When a PR is opened, you can request a reviewer by including <code>r? @username</code> in the PR description. If you don’t do so, rustbot
+will automatically assign someone.</p>
+<p>It is common to leave a <code>r? @username</code> comment at some later point to
+request review from someone else. This will also reassign the PR.</p>
+<h2 id="bors"><a class="header" href="#bors">bors</a></h2>
+<p>We never merge PRs directly. Instead, we use bors. A qualified
+reviewer with bors privileges (e.g., a <a href="./membership.html">compiler
+contributor</a>) will leave a comment like <code>@bors r+</code>.
+This indicates that they approve the PR.</p>
+<p>People with bors privileges may also leave a <code>@bors r=username</code>
+command. This indicates that the PR was already approved by
+<code>@username</code>. This is commonly done after rebasing.</p>
+<p>Finally, in some cases, PRs can be “delegated” by writing <code>@bors delegate+</code> or <code>@bors delegate=username</code>. This will allow the PR author
+to approve the PR by issuing <code>@bors</code> commands like the ones above
+(but this privilege is limited to the single PR).</p>
+<h2 id="reverts"><a class="header" href="#reverts">Reverts</a></h2>
+<p>If a merged PR is found to have caused a meaningful unanticipated regression,
+the best policy is to revert it quickly and re-land it later once a fix and
+regression test are added.</p>
+<p>A “meaningful regression” in this case is up to the judgment of the person
+approving the revert. As a rule of thumb, this would be a bug in a stable
+or otherwise important feature that causes code to stop compiling, changes
+runtime behavior, or triggers a (warn-by-default or higher) lint incorrectly in
+real-world code.</p>
+<p>When these criteria are in doubt, and especially if real-world code is affected,
+revert the PR. This allows bleeding edge users to continue to use and report
+bugs on HEAD with a higher degree of certainty about where new bugs are introduced.</p>
+<p>Before being reverted, a PR should be shown to cause a regression with a fairly
+high degree of certainty (e.g. bisection on commits, or bisection on nightlies
+with one or more compiler team members pointing to this PR, or it’s simply
+obvious to everyone involved). Only revert with lower certainty if the issue is
+particularly critical or urgent to fix.</p>
+<h3 id="creating-reverts"><a class="header" href="#creating-reverts">Creating reverts</a></h3>
+<p>The easiest method for creating a revert is to use the “Revert” button on
+Github. This appears next to the “bors merged commit abcd” message on a pull
+request, and creates a new pull request.</p>
+<p><img src="revert-button.png" alt="Location of the “Revert” button" /></p>
+<p>Alternatively, a revert commit can be created using the git CLI and then
+uploaded as a pull request:</p>
+<pre><code class="language-terminal">$ git revert -m 1 62d5bee
+</code></pre>
+<p>It’s polite to tag the author and reviewer of the original PR so they know
+what’s going on. You can use the following message template:</p>
+<pre><code>Reverts rust-lang/rust#123456
+cc @author @reviewer
+
+This revert is based on the following report of a regression caused by this PR:
+&lt;link to issue or comment(s)&gt;
+
+In accordance with the compiler team [revert policy], PRs that cause meaningful
+regressions should be reverted and re-landed once the regression has been fixed
+(and a regression test has been added, where appropriate).
+[revert policy]: https://forge.rust-lang.org/compiler/reviews.html#reverts
+
+Fear not! Regressions happen. Please rest assured that this does not
+represent a negative judgment of your contribution or ability to contribute
+positively to Rust in the future. We simply want to prioritize keeping existing
+use cases working, and keep the compiler more stable for everyone.
+
+r? compiler
+</code></pre>
+<p>If you have r+ privileges, you can self-approve a revert.</p>
+<p>Generally speaking, reverts should have elevated priority and match the <code>rollup</code>
+status of the PR they are reverting. If a non-rollup PR is shown to have no
+impact on performance, it can be marked <code>rollup=always</code>.</p>
+<h3 id="forward-fixes"><a class="header" href="#forward-fixes">Forward fixes</a></h3>
+<p>Often it is tempting to address a regression by posting a follow-up PR that,
+rather than reverting the regressing PR, instead augments the original in
+small ways without reverting its changes overall. However, if real-world users
+have reported being affected, this practice is strongly discouraged unless one
+of the following is true:</p>
+<ul>
+<li>A high-confidence fix is already in the bors queue.</li>
+<li>The regression has made it to a release branch (beta or stable) and a
+<a href="../release/backporting.html">backport</a> is needed. Often the “smallest possible change” is desired for a
+backport. The offending PR may or may not still be reverted on the main
+branch; this is left to the discretion of someone who can <code>r+</code> it.</li>
+</ul>
+<p>While it can feel like a significant step backward to have your PR reverted, in
+most cases it is much easier to land the PR a second time once a fix can be
+confirmed. Allowing a revert to land takes pressure off of you and your
+reviewers to act quickly and gives you time to address the issue fully.</p>
+<h2 id="rollups"><a class="header" href="#rollups">Rollups</a></h2>
+<p>All reviewers are strongly encouraged to explicitly mark a PR as to whether or
+not it should be part of a <a href="../release/rollups.html">rollup</a>. This is usually done either when approving a 
+PR with <code>@bors r+ $ROLLUP_STATUS</code> or with <code>@bors $ROLLUP_STATUS</code> where <code>$ROLLUP_STATUS</code> 
+is substituted with one of the following:</p>
+<ul>
+<li><code>rollup=always</code>: These PRs are very unlikely to break tests or have performance
+implications. Example scenarios:
+<ul>
+<li>Changes are limited to documentation, comments, etc. that is highly
+unlikely to fail a build.</li>
+<li>Changes cannot have performance implications.</li>
+<li>Your PR is not landing possibly-breaking or behavior altering changes.
+<ul>
+<li>Feature stabilization without other changes is likely fine to
+rollup, though.</li>
+</ul>
+</li>
+<li>When in doubt do not use this option!</li>
+</ul>
+</li>
+<li><code>rollup=maybe</code>: This is the default if <code>@bors r+</code> does not specify any rollup 
+status at all. Use this if you have some doubt that the change won’t break 
+tests. This can be used if you aren’t sure if it should be one of the other 
+categories. Since this is the default, there is usually no need to explicitly 
+specify this, unless you are un-marking the rollup level from a previous command.</li>
+<li><code>rollup=iffy</code>: Use this for mildly risky PRs (more risky than “maybe”).
+Example scenarios:
+<ul>
+<li>The PR is large and non-additive (note: adding 2000 lines of completely
+new tests is fine to rollup).</li>
+<li>Messes too much with:
+<ul>
+<li>LLVM or code generation</li>
+<li>bootstrap or the build system</li>
+<li>build-manifest</li>
+</ul>
+</li>
+<li>Has platform-specific changes that are not checked by the normal PR checks.</li>
+<li>May be affected by MIR migrate mode.</li>
+</ul>
+</li>
+<li><code>rollup=never</code>: This should <em>never</em> be included in a rollup (<strong>please</strong>
+include a comment explaining why you have chosen this). Example scenarios:
+<ul>
+<li>May have performance implications.</li>
+<li>May cause unclear regressions (we would likely want to bisect to this PR
+specifically, as it would be hard to identify as the cause from a
+rollup).</li>
+<li>Has a high chance of failure.</li>
+<li>Is otherwise dangerous to rollup.</li>
+</ul>
+</li>
+<li><code>rollup</code>: this is equivalent to <code>rollup=always</code></li>
+<li><code>rollup-</code>: this is equivalent to <code>rollup=maybe</code></li>
+</ul>
+<h2 id="priority"><a class="header" href="#priority">Priority</a></h2>
+<p>Reviewers are encouraged to set one of the rollup statuses listed above
+instead of setting priority. Bors automatically sorts based on the rollup
+status (never is the highest priority, always is the lowest), and also by PR
+age. If you do change the priority, please use your best judgment to balance
+fairness with other PRs.</p>
+<p>The following is some guidance for setting priorities:</p>
+<ul>
+<li>1-5
+<ul>
+<li>P-high issue fixes</li>
+<li>Toolstate fixes</li>
+<li>Reverts containing the above</li>
+<li>Beta-nominated PRs</li>
+<li>Submodule/Subtree updates</li>
+</ul>
+</li>
+<li>5+
+<ul>
+<li>P-critical issue fixes</li>
+</ul>
+</li>
+<li>10+
+<ul>
+<li>Bitrot-prone PRs (particularly very large ones that touch many files)</li>
+<li>Urgent PRs</li>
+<li>Beta backports</li>
+</ul>
+</li>
+<li>20+
+<ul>
+<li>High priority that needs to jump ahead of any rollups</li>
+<li>Fixes or changes something that has a high risk of being re-broken by
+another PR in the queue.</li>
+</ul>
+</li>
+<li>1000
+<ul>
+<li>Absolutely critical fixes</li>
+<li>Release promotions</li>
+</ul>
+</li>
+</ul>
+<h2 id="expectations-for-r"><a class="header" href="#expectations-for-r">Expectations for r+</a></h2>
+<p>bors privileges are binary: the bot doesn’t know which code you are
+familiar with and what code you are not. They must therefore be used
+with discretion. Do not r+ code that you do not know well – you can
+definitely <strong>review</strong> such code, but try to hand off reviewing to
+someone else for the final r+.</p>
+<p>Similarly, never issue a <code>r=username</code> command unless that person has
+done the review, and the code has not changed substantially since the
+review was done.  Rebasing is fine, but changes in functionality
+typically require re-review (though it’s a good idea to try and
+highlight what has changed, to help the reviewer).</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../compiler/cross-team-collaboration.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../compiler/new_option.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../compiler/cross-team-collaboration.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../compiler/new_option.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../js/moment.min.js"></script>
+        <script src="../js/index.js"></script>
+
+
+    </div>
+    </body>
+</html>

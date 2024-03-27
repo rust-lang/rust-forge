@@ -1,0 +1,396 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Self-hosting a docs.rs instance - Rust Forge</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="Supplemental documentation for contributing to The Rust Programming Language">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Overview</a></li><li class="chapter-item expanded "><a href="../platforms/index.html">Platforms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../platforms/twitter.html">Twitter</a></li><li class="chapter-item expanded "><a href="../platforms/discord.html">Discord</a></li><li class="chapter-item expanded "><a href="../platforms/email.html">Email</a></li><li class="chapter-item expanded "><a href="../platforms/github.html">GitHub</a></li><li class="chapter-item expanded "><a href="../platforms/zulip.html">Zulip</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../platforms/zulip/moderation.html">Moderation</a></li></ol></li><li class="chapter-item expanded "><a href="../platforms/blogs.html">Blogs</a></li><li class="chapter-item expanded "><a href="../platforms/calendars.html">Calendars</a></li></ol></li><li class="chapter-item expanded "><a href="../triagebot/index.html">Triagebot</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../triagebot/agenda.html">Agenda Generator</a></li><li class="chapter-item expanded "><a href="../triagebot/issue-assignment.html">Issue Assignment</a></li><li class="chapter-item expanded "><a href="../triagebot/pr-assignment.html">PR Assignment</a></li><li class="chapter-item expanded "><a href="../triagebot/pr-assignment-tracking.html">Tracking PR assignment</a></li><li class="chapter-item expanded "><a href="../triagebot/autolabels.html">Autolabels</a></li><li class="chapter-item expanded "><a href="../triagebot/close.html">Close</a></li><li class="chapter-item expanded "><a href="../triagebot/doc-updates.html">Documentation Updates</a></li><li class="chapter-item expanded "><a href="../triagebot/github-releases.html">GitHub Releases</a></li><li class="chapter-item expanded "><a href="../triagebot/glacier.html">Glacier</a></li><li class="chapter-item expanded "><a href="../triagebot/labeling.html">Labeling</a></li><li class="chapter-item expanded "><a href="../triagebot/major-changes.html">Major Changes</a></li><li class="chapter-item expanded "><a href="../triagebot/mentions.html">Mentions</a></li><li class="chapter-item expanded "><a href="../triagebot/no-merge.html">No Merge Policy</a></li><li class="chapter-item expanded "><a href="../triagebot/nominate.html">Nominate</a></li><li class="chapter-item expanded "><a href="../triagebot/note.html">Note</a></li><li class="chapter-item expanded "><a href="../triagebot/notifications.html">Notifications</a></li><li class="chapter-item expanded "><a href="../triagebot/pinging.html">Pinging</a></li><li class="chapter-item expanded "><a href="../triagebot/requesting-prioritization.html">Requesting Prioritization</a></li><li class="chapter-item expanded "><a href="../triagebot/review-submitted.html">Review Changes Requested</a></li><li class="chapter-item expanded "><a href="../triagebot/review-requested.html">Review Requested</a></li><li class="chapter-item expanded "><a href="../triagebot/rustc-commit-list.html">Rustc Commit Tracking</a></li><li class="chapter-item expanded "><a href="../triagebot/shortcuts.html">Shortcuts</a></li><li class="chapter-item expanded "><a href="../triagebot/triage-dashboard.html">Triagebot Dashboard</a></li><li class="chapter-item expanded "><a href="../triagebot/zulip-meeting.html">Zulip Meeting Management</a></li><li class="chapter-item expanded "><a href="../triagebot/zulip-notifications.html">Zulip Notifications</a></li></ol></li><li class="chapter-item expanded "><a href="../community/index.html">Community</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../community/survey-faq.html">State of Rust Survey FAQ</a></li></ol></li><li class="chapter-item expanded "><a href="../compiler/index.html">Compiler</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/cross-compilation/index.html">Cross Compilation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/cross-compilation/windows.html">Windows</a></li></ol></li><li class="chapter-item expanded "><a href="../compiler/cross-team-collaboration.html">Cross-team Collaboration</a></li><li class="chapter-item expanded "><a href="../compiler/reviews.html">Review policies</a></li><li class="chapter-item expanded "><a href="../compiler/new_option.html">So you want to add a new option to rustc?</a></li><li class="chapter-item expanded "><a href="../compiler/mcp.html">Major Change Proposals</a></li><li class="chapter-item expanded "><a href="../compiler/membership.html">Membership</a></li><li class="chapter-item expanded "><a href="../compiler/prioritization.html">Prioritization</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/prioritization/procedure.html">Procedure</a></li><li class="chapter-item expanded "><a href="../compiler/prioritization/priority-levels.html">Priority Levels</a></li></ol></li><li class="chapter-item expanded "><a href="../compiler/notification-groups.html">Notification groups</a></li><li class="chapter-item expanded "><a href="../compiler/triage-meeting.html">Triage Meeting</a></li><li class="chapter-item expanded "><a href="../compiler/steering-meeting.html">Steering Meeting</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/steering-meeting/submit.html">Submitting a proposal</a></li><li class="chapter-item expanded "><a href="../compiler/steering-meeting/how-to-run-planning.html">How to run the planning meeting</a></li><li class="chapter-item expanded "><a href="../compiler/steering-meeting/how-to-run-design.html">How to run a design meeting</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../crates-io/index.html">crates.io</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../crates-io/crate-removal.html">Crate removal</a></li><li class="chapter-item expanded "><a href="../crates-io/db-maintenance.html">Database maintenance</a></li></ol></li><li class="chapter-item expanded "><a href="../docs-rs/index.html">docs.rs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../docs-rs/add-dependencies.html">Adding dependencies to the build environment</a></li><li class="chapter-item expanded "><a href="../docs-rs/self-hosting.html" class="active">Self-hosting a docs.rs instance</a></li><li class="chapter-item expanded "><a href="../docs-rs/maintenance.html">Maintenance procedures</a></li></ol></li><li class="chapter-item expanded "><a href="../governance/index.html">Governance</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../governance/council.html">Leadership Council</a></li><li class="chapter-item expanded "><a href="../governance/moderation.html">Moderation</a></li></ol></li><li class="chapter-item expanded "><a href="../infra/index.html">Infrastructure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/other-installation-methods.html">Other Installation Methods</a></li><li class="chapter-item expanded "><a href="../infra/channel-layout.html">Release Channel Layout</a></li><li class="chapter-item expanded "><a href="../infra/service-infrastructure.html">Service Infrastructure</a></li><li class="chapter-item expanded "><a href="../infra/team-maintenance.html">Team Maintenance</a></li><li class="chapter-item expanded "><a href="../infra/toolstate.html">The Toolstate System</a></li><li class="chapter-item expanded "><a href="../infra/policies/index.html">Policies</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/policies/broken-nightlies.html">Broken nightlies</a></li></ol></li><li class="chapter-item expanded "><a href="../infra/guidelines/index.html">Guidelines</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/guidelines/static-websites.html">Static websites</a></li></ol></li><li class="chapter-item expanded "><a href="../infra/docs/index.html">Documentation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/docs/aws-access.html">AWS access for team members</a></li><li class="chapter-item expanded "><a href="../infra/docs/aws-access-management.html">AWS access management</a></li><li class="chapter-item expanded "><a href="../infra/docs/aws-regions.html">AWS regions</a></li><li class="chapter-item expanded "><a href="../infra/docs/bastion.html">Bastion server</a></li><li class="chapter-item expanded "><a href="../infra/docs/bors.html">Bors</a></li><li class="chapter-item expanded "><a href="../infra/docs/cdn.html">CDN</a></li><li class="chapter-item expanded "><a href="../infra/docs/crater-agents.html">Crater agents</a></li><li class="chapter-item expanded "><a href="../infra/docs/gha-self-hosted.html">Custom GitHub Actions runners</a></li><li class="chapter-item expanded "><a href="../infra/docs/dev-desktop.html">Dev Desktops</a></li><li class="chapter-item expanded "><a href="../infra/docs/dev-desktop-github-app.html">GitHub App for dev-desktops</a></li><li class="chapter-item expanded "><a href="../infra/docs/discord-mods-bot.html">Discord moderation bot</a></li><li class="chapter-item expanded "><a href="../infra/docs/dns.html">Domain names and DNS</a></li><li class="chapter-item expanded "><a href="../infra/docs/docs-rs.html">docs.rs</a></li><li class="chapter-item expanded "><a href="../infra/docs/ecs-services.html">ECS services management</a></li><li class="chapter-item expanded "><a href="../infra/docs/monitoring.html">Monitoring</a></li><li class="chapter-item expanded "><a href="../infra/docs/rust-bots.html">rust-bots server</a></li><li class="chapter-item expanded "><a href="../infra/docs/rustc-ci.html">rust-lang/rust CI</a></li><li class="chapter-item expanded "><a href="../infra/docs/sentry.html">Sentry</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../lang/index.html">Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../lang/rfc-merge-procedure.html">RFC Merge Procedure</a></li><li class="chapter-item expanded "><a href="../lang/triage-meeting-procedure.html">Triage Meeting Procedure</a></li></ol></li><li class="chapter-item expanded "><a href="../libs/index.html">Libs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../libs/maintaining-std.html">Maintaining the standard library</a></li></ol></li><li class="chapter-item expanded "><a href="../release/index.html">Release</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../release/backporting.html">Backporting</a></li><li class="chapter-item expanded "><a href="../release/release-notes.html">Preparing Release Notes</a></li><li class="chapter-item expanded "><a href="../release/process.html">Release Process</a></li><li class="chapter-item expanded "><a href="../release/rollups.html">Rollup Procedure</a></li><li class="chapter-item expanded "><a href="../release/triage-procedure.html">Triage Procedure</a></li><li class="chapter-item expanded "><a href="../release/issue-triaging.html">Issue Triaging</a></li><li class="chapter-item expanded "><a href="../release/crater.html">Triaging Crater Runs</a></li></ol></li><li class="chapter-item expanded "><a href="../editions/edition-releases.html">Edition Releases</a></li><li class="chapter-item expanded "><a href="../archive/index.html">Archive</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../archive/fott.html">Friends of the Tree</a></li><li class="chapter-item expanded "><a href="../archive/release-history.html">Release History</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rust Forge</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/rust-forge" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/rust-forge/edit/master/src/docs-rs/self-hosting.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="self-hosting-a-docsrs-instance"><a class="header" href="#self-hosting-a-docsrs-instance">Self hosting a docs.rs instance</a></h1>
+<p>These are instructions for deploying the server in a production environment. For instructions on developing locally without docker-compose, see <a href="https://github.com/rust-lang/docs.rs/wiki/Developing-without-docker-compose">Developing without docker-compose</a>.</p>
+<!-- NOTE: This link is outdated, and should probably be migrated to this site. -->
+<p>Here is a breakdown of what it takes to turn a regular server into its own version of docs.rs.</p>
+<p>Beware: This process is rather rough! Attempts at cleaning it up, automating setup components, etc, would be greatly appreciated!</p>
+<h2 id="requirements"><a class="header" href="#requirements">Requirements</a></h2>
+<p>The commands and package names on this page will assume an Ubuntu server running systemd, but hopefully the explanatory text should give enough information to adapt to other systems. Note that docs.rs depends on the host being <code>x86_64-unknown-linux-gnu</code>.</p>
+<p>Docs.rs has a few basic requirements:</p>
+<ul>
+<li>Rust (preferably via <code>rustup</code>)</li>
+<li>Git</li>
+<li>CMake, GCC, G++, and <code>pkg-config</code> (to build dependencies for crates and docs.rs itself)</li>
+<li>OpenSSL, zlib, curl, and <code>libmagic</code> (to link against)</li>
+<li>PostgreSQL</li>
+<li>LXC tools (doc builds run inside an LXC container)</li>
+</ul>
+<pre><code class="language-console">$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain nightly
+$ source $HOME/.cargo/env
+# apt install build-essential git curl cmake gcc g++ pkg-config libmagic-dev libssl-dev zlib1g-dev postgresql lxc-utils
+</code></pre>
+<h2 id="the-cratesfyi-user"><a class="header" href="#the-cratesfyi-user">The <code>cratesfyi</code> user</a></h2>
+<p>To help things out later on, we can create a new unprivileged user that will run the server process. This user will own all the files required by the docs.rs process. This user will need to be able to run <code>lxc-attach</code> through <code>sudo</code> to be able to run docs builds, so give it a sudoers file at the same time:</p>
+<pre><code class="language-console"># adduser --disabled-login --disabled-password --gecos &quot;&quot; cratesfyi
+# echo 'cratesfyi  ALL=(ALL) NOPASSWD: /usr/bin/lxc-attach' &gt; /etc/sudoers.d/cratesfyi
+</code></pre>
+<p>(The name <code>cratesfyi</code> is a historical one: Before the site was called “docs.rs”, it was called “crates.fyi” instead. If you want to update the name of the user, feel free! Just be aware that the name <code>cratesfyi</code> will be used throughout this document.)</p>
+<h2 id="the-prefix-directory"><a class="header" href="#the-prefix-directory">The “prefix” directory</a></h2>
+<p>In addition to the LXC container, docs.rs also stores several related files in a “prefix” directory. This directory can be stored anywhere, but the <code>cratesfyi</code> user needs to be able to access it:</p>
+<pre><code class="language-console"># mkdir /cratesfyi-prefix
+# chown cratesfyi:cratesfyi /cratesfyi-prefix
+</code></pre>
+<p>Now we can set up some required folders. To make sure they all have proper ownership, run them all as <code>cratesfyi</code>:</p>
+<pre><code class="language-console">$ sudo -u cratesfyi mkdir -vp /cratesfyi-prefix/documentations /cratesfyi-prefix/public_html /cratesfyi-prefix/sources
+$ sudo -u cratesfyi git clone https://github.com/rust-lang/crates.io-index.git /cratesfyi-prefix/crates.io-index
+$ sudo -u cratesfyi git --git-dir=/cratesfyi-prefix/crates.io-index/.git branch crates-index-diff_last-seen
+</code></pre>
+<p>(That last command is used to set up the <code>crates-index-diff</code> crate, so we can start monitoring new crate releases.)</p>
+<h2 id="lxc-container"><a class="header" href="#lxc-container">LXC container</a></h2>
+<p>To help contain what crates’ build scripts can access, documentation builds run inside an LXC container. To create one inside the prefix directory:</p>
+<pre><code class="language-console"># LANG=C lxc-create -n cratesfyi-container -P /cratesfyi-prefix -t download -- --dist ubuntu --release bionic --arch amd64
+# ln -s /cratesfyi-prefix/cratesfyi-container /var/lib/lxc
+# chmod 755 /cratesfyi-prefix/cratesfyi-container
+# chmod 755 /var/lib/lxc
+</code></pre>
+<p>(To make deployment simpler, it’s important that the OS the container is using is the same as the host! In this case, the host is assumed to be running 64-bit Ubuntu 18.04. If you make the container use a different release or distribution, you’ll need to build docs.rs separately inside the container when deploying.)</p>
+<p>You’ll also need to configure networking for the container. The following is a sample <code>/etc/default/lxc-net</code> that enables NAT networking for the container:</p>
+<pre><code>USE_LXC_BRIDGE=&quot;true&quot;
+LXC_BRIDGE=&quot;lxcbr0&quot;
+LXC_ADDR=&quot;10.0.3.1&quot;
+LXC_NETMASK=&quot;255.255.255.0&quot;
+LXC_NETWORK=&quot;10.0.3.0/24&quot;
+LXC_DHCP_RANGE=&quot;10.0.3.2,10.0.3.254&quot;
+LXC_DHCP_MAX=&quot;253&quot;
+LXC_DHCP_CONFILE=&quot;&quot;
+LXC_DOMAIN=&quot;&quot;
+</code></pre>
+<p>In addition, you’ll need to set the container’s configuration to use this. Add the following lines to <code>/cratesfyi-prefix/cratesfyi-container/config</code>:</p>
+<pre><code>lxc.net.0.type = veth
+lxc.net.0.link = lxcbr0
+</code></pre>
+<p>Now you can reload the LXC network configuration, start up the container, and set it up to auto-start when the host boots:</p>
+<pre><code class="language-console"># systemctl restart lxc-net
+# systemctl enable lxc@cratesfyi-container.service
+# systemctl start lxc@cratesfyi-container.service
+</code></pre>
+<p>Now we need to do some setup <em>inside</em> this container. You can either copy all these commands so that each one attaches on its own, or you can run <code>lxc-console -n cratesfyi-container</code> to open a root shell inside the container and skip the <code>lxc-attach</code> prefix.</p>
+<pre><code class="language-console"># lxc-attach -n cratesfyi-container -- apt update
+# lxc-attach -n cratesfyi-container -- apt upgrade
+# lxc-attach -n cratesfyi-container -- apt install curl ca-certificates binutils gcc libc6-dev libmagic1 pkg-config build-essential
+</code></pre>
+<p>Inside the container, we also need to set up a <code>cratesfyi</code> user, and install Rust for it. In addition to the base Rust installation, we also need to install all the default targets so that we can build docs for all the Tier 1 platforms. The Rust compiler installed inside the container is the one that builds all the docs, so if you want to use a new Rustdoc feature, this is the compiler to update.</p>
+<pre><code class="language-console">lxc-attach -n cratesfyi-container -- adduser --disabled-login --disabled-password --gecos &quot;&quot; cratesfyi
+lxc-attach -n cratesfyi-container -- su - cratesfyi -c 'curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain nightly'
+lxc-attach -n cratesfyi-container -- su - cratesfyi -c 'rustup target add i686-apple-darwin'
+lxc-attach -n cratesfyi-container -- su - cratesfyi -c 'rustup target add i686-pc-windows-msvc'
+lxc-attach -n cratesfyi-container -- su - cratesfyi -c 'rustup target add i686-unknown-linux-gnu'
+lxc-attach -n cratesfyi-container -- su - cratesfyi -c 'rustup target add x86_64-apple-darwin'
+lxc-attach -n cratesfyi-container -- su - cratesfyi -c 'rustup target add x86_64-pc-windows-msvc'
+</code></pre>
+<p>Now that we have Rust installed inside the container, we can use a trick to give the <code>cratesfyi</code> user on the <em>host</em> the same Rust compiler as the <em>container</em>. By symlinking the following directories into its user directory, we don’t need to track a <em>third</em> toolchain.</p>
+<pre><code class="language-console">for directory in .cargo .rustup .multirust; do  [[ -h /home/cratesfyi/$directory ]] || sudo -u cratesfyi ln -vs /var/lib/lxc/cratesfyi-container/rootfs/home/cratesfyi/$directory /home/cratesfyi/; done
+</code></pre>
+<h2 id="environment-for-the-cratesfyi-user"><a class="header" href="#environment-for-the-cratesfyi-user">Environment for the <code>cratesfyi</code> user</a></h2>
+<p>To ensure that the docs.rs server is configured properly, we need to set a few environment variables. The primary ones are going into a separate environment file, so we can load them into the systemd service that will manage the server.</p>
+<p>Write the following into <code>/home/cratesfyi/.cratesfyi.env</code>. If you have a GitHub access token that the site can use to collect repository information, add it here, but otherwise leave it blank. The variables need to exist, but they can be blank to skip that collection.</p>
+<pre><code>CRATESFYI_PREFIX=/cratesfyi-prefix
+CRATESFYI_DATABASE_URL=postgresql://cratesfyi:password@localhost
+CRATESFYI_CONTAINER_NAME=cratesfyi-container
+CRATESFYI_GITHUB_USERNAME=
+CRATESFYI_GITHUB_ACCESSTOKEN=
+RUST_LOG=cratesfyi
+</code></pre>
+<p>Now add the following to <code>/home/cratesfyi/.profile</code>:</p>
+<pre><code class="language-sh">export $(cat $HOME/.cratesfyi.env | xargs -d '\n')
+export PATH=&quot;$HOME/.cargo/bin:$PATH&quot;
+export PATH=&quot;$PATH:$HOME/docs.rs/target/release&quot;
+</code></pre>
+<h2 id="docsrs-build"><a class="header" href="#docsrs-build">Docs.rs build</a></h2>
+<p>Now we can actually clone and build the docs.rs source! The location of it doesn’t matter much, but again, we want it to be owned by <code>cratesfyi</code> so it can build and run the final executable. In addition, we copy the built <code>cratesfyi</code> binary into the container so that it can be used to arrange builds on the inside.</p>
+<pre><code class="language-console">sudo -u cratesfyi git clone https://github.com/rust-lang-nursery/docs.rs.git ~cratesfyi/docs.rs
+sudo su - cratesfyi -c 'cd ~/docs.rs &amp;&amp; cargo build --release'
+cp -v /home/cratesfyi/docs.rs/target/release/cratesfyi /var/lib/lxc/cratesfyi-container/rootfs/usr/local/bin
+</code></pre>
+<h2 id="postgresql"><a class="header" href="#postgresql">PostgreSQL</a></h2>
+<p>Now that we have the repository built, we can use it to set up the database. Docs.rs uses a Postgres database to store information about crates and their documentation. To set one up, we first need to ask Postgres to create the database, and then run the docs.rs command to create the initial tables and content:</p>
+<pre><code class="language-console">sudo -u postgres sh -c &quot;psql -c \&quot;CREATE USER cratesfyi WITH PASSWORD 'password';\&quot;&quot;
+sudo -u postgres sh -c &quot;psql -c \&quot;CREATE DATABASE cratesfyi OWNER cratesfyi;\&quot;&quot;
+sudo su - cratesfyi -c &quot;cd ~/docs.rs &amp;&amp; cargo run --release -- database init&quot;
+sudo su - cratesfyi -c &quot;cd ~/docs.rs &amp;&amp; cargo run --release -- build add-essential-files&quot;
+sudo su - cratesfyi -c &quot;cd ~/docs.rs &amp;&amp; cargo run --release -- build crate rand 0.5.5&quot;
+sudo su - cratesfyi -c &quot;cd ~/docs.rs &amp;&amp; cargo run --release -- database update-search-index&quot;
+sudo su - cratesfyi -c &quot;cd ~/docs.rs &amp;&amp; cargo run --release -- database update-release-activity&quot;
+</code></pre>
+<h2 id="server-configuration"><a class="header" href="#server-configuration">Server configuration</a></h2>
+<p>We’re almost there! At this point, we’ve got all the pieces in place to run the site. Now we can set up a systemd service that will run the daemon that will collect crate information, orchestrate builds, and serve the website. The following systemd service file can be placed in <code>/etc/systemd/system/cratesfyi.service</code>:</p>
+<pre><code class="language-systemd">[Unit]
+Description=Cratesfyi daemon
+After=network.target postgresql.service
+
+[Service]
+User=cratesfyi
+Group=cratesfyi
+Type=forking
+PIDFile=/cratesfyi-prefix/cratesfyi.pid
+EnvironmentFile=/home/cratesfyi/.cratesfyi.env
+ExecStart=/home/cratesfyi/docs.rs/target/release/cratesfyi daemon
+WorkingDirectory=/home/cratesfyi/docs.rs
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>Enabling and running that will serve the website on <code>http://localhost:3000</code>, so if you want to route public traffic to it, you’ll need to set up something like nginx to proxy the connections to it.</p>
+<h2 id="updating-rust"><a class="header" href="#updating-rust">Updating Rust</a></h2>
+<p>If you want to update the Rust compiler used to build crates (and the Rustdoc that comes with it), you need to make sure you don’t interrupt any existing crate builds. The daemon waits for 60 seconds between checking for new crates, so you need to make sure you catch it during that window. Since we hooked the daemon into systemd, the logs will be available in its journal. Running <code>journalctl -efu cratesfyi</code> (it may need to be run as root if nothing appears) will show the latest log output and show new entries as they appear. You’re looking for a message like “Finished building new crates, going back to sleep” or “Queue is empty, going back to sleep”, which indicates that the crate-building thread is waiting.</p>
+<p>To prevent the queue from building more crates, run the following:</p>
+<pre><code class="language-console">sudo su - cratesfyi -c &quot;cd ~/docs.rs &amp;&amp; cargo run --release -- build lock&quot;
+</code></pre>
+<p>This will create a lock file in the prefix directory that will prevent more crates from being built. At this point, you can update the rustc inside the container and add the rustdoc static files to the database:</p>
+<pre><code class="language-console">lxc-attach -n cratesfyi-container -- su - cratesfyi -c 'rustup update'
+sudo su - cratesfyi -c &quot;cd ~/docs.rs &amp;&amp; cargo run --release -- build add-essential-files&quot;
+</code></pre>
+<p>Once this is done, you can unlock the queue to allow crates to build again:</p>
+<pre><code class="language-console">sudo su - cratesfyi -c &quot;cd ~/docs.rs &amp;&amp; cargo run --release -- build unlock&quot;
+</code></pre>
+<p>And we’re done! New crates will start being built with the new rustc. If you want to rebuild any existing docs with the new rustdoc, you need to manually build them - there’s no automated way to rebuild failed docs or docs from a certain rust version yet.</p>
+<h2 id="updating-docsrs"><a class="header" href="#updating-docsrs">Updating docs.rs</a></h2>
+<p>To update the code for docs.rs itself, you can follow a similar approach. First, watch the logs so you can stop the daemon from building more crates. (You can replace the lock command with a <code>systemctl stop cratesfyi</code> if you don’t mind the web server being down while you build.)</p>
+<pre><code class="language-console"># journalctl -efu cratesfyi
+(wait for build daemon to sleep)
+$ sudo su - cratesfyi -c &quot;cd ~/docs.rs &amp;&amp; cargo run --release -- build lock&quot;
+</code></pre>
+<p>Once the daemon has stopped, you can start updating the code and rebuilding:</p>
+<pre><code class="language-console">$ sudo su - cratesfyi -c &quot;cd ~/docs.rs &amp;&amp; git pull&quot;
+$ sudo su - cratesfyi -c &quot;cd ~/docs.rs &amp;&amp; cargo build --release&quot;
+</code></pre>
+<p>Now that we have a shiny new build, we need to make sure the service is using it:</p>
+<pre><code class="language-console"># cp -v /home/cratesfyi/docs.rs/target/release/cratesfyi /var/lib/lxc/cratesfyi-container/rootfs/usr/local/bin
+# systemctl restart cratesfyi
+</code></pre>
+<p>Next, we can unlock the builder so it can start checking new crates:</p>
+<pre><code class="language-console">$ sudo su - cratesfyi -c &quot;cd ~/docs.rs &amp;&amp; cargo run --release -- build unlock&quot;
+</code></pre>
+<p>And we’re done! Changes to the site or the build behavior should be visible now.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../docs-rs/add-dependencies.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../docs-rs/maintenance.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../docs-rs/add-dependencies.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../docs-rs/maintenance.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../js/moment.min.js"></script>
+        <script src="../js/index.js"></script>
+
+
+    </div>
+    </body>
+</html>
