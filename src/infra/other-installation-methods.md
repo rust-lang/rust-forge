@@ -104,7 +104,61 @@ Past releases can be found in [the archives].
 
 ## Source code
 
+If you want to build the Rust toolchain from source code, you can use the following
+links to download source code tarballs.
+
 {{#source_code_table}}
+
+If you want to make sure that the published source tarball matches what is in the
+`rust` git repository, you can use the following script as a template:
+
+<details>
+<summary>Script for reproducing source tarball contents</summary>
+
+```bash
+#!/bin/bash
+
+set -e
+
+# You can use either a commit SHA or a stable release version (e.g. 1.XY.Z)
+TAG=a8cfc83801301c2b4f0fd030192e268eeb15d473
+# TAG=1.77.1
+
+# Clone Rust toolchain repository from GitHub
+git clone https://github.com/rust-lang/rust
+cd rust
+git reset --hard ${TAG}
+
+cat >config.toml << EOF
+[rust]
+# Use for a commit SHA
+channel = "nightly"
+
+# Use for a stable release
+# channel = "stable"
+
+[dist]
+compression-formats = ["xz"]
+compression-profile = "fast"
+EOF
+
+# Build the source tarball from git into build/dist/
+./x dist rustc-src
+
+# Download source tarball for a commit SHA
+wget https://ci-artifacts.rust-lang.org/rustc-builds/${TAG}/rustc-nightly-src.tar.xz
+
+# Download a source tarball for a stable release
+# wget https://static.rust-lang.org/dist/rustc-${TAG}-src.tar.xz
+
+# Decompress the tarballs and compare their contents
+cd build/dist
+mkdir archive-local && tar -xf rustc-*-src.tar.xz --strip-components=1 -Carchive-local
+mkdir archive-ci && tar -xf ../../rustc-*-src.tar.xz --strip-components=1 -Carchive-ci 
+diff --brief --recursive archive-local archive-ci
+```
+
+</details>
 
 [installation page]: https://www.rust-lang.org/tools/install
 [`rustup`]: https://github.com/rust-lang/rustup.rs
