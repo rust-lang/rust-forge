@@ -81,7 +81,7 @@ what they each specifically generate.
 
 The official Rust standalone installers contain a single release of Rust, and
 are suitable for offline installation. They come in three forms: tarballs
-(extension `.tar.gz`), that work in any Unix-like environment, Windows
+(extension `.tar.xz`), that work in any Unix-like environment, Windows
 installers (`.msi`), and Mac installers (`.pkg`). These installers come with
 `rustc`, `cargo`, `rustdoc`, the standard library, and the standard
 documentation, but do not provide access to additional cross-targets like

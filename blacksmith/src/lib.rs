@@ -174,7 +174,7 @@ impl Blacksmith {
             } else if name.contains("darwin") {
                 "pkg"
             } else {
-                "tar.gz"
+                "tar.xz"
             };
 
             let stable_links = platform
@@ -224,7 +224,7 @@ impl Blacksmith {
                     buffer,
                     "stable ({}) | {}",
                     stable_version,
-                    generate_standalone_links("rustc", stable_version, "src", "tar.gz")
+                    generate_standalone_links("rustc", stable_version, "src", "tar.xz")
                 )
                 .unwrap();
             } else {
@@ -232,7 +232,7 @@ impl Blacksmith {
                     buffer,
                     "{} | {}",
                     channel,
-                    generate_standalone_links("rustc", &channel, "src", "tar.gz")
+                    generate_standalone_links("rustc", &channel, "src", "tar.xz")
                 )
                 .unwrap();
             }
