@@ -3,7 +3,7 @@
 If you contribute in some capacity to the Rust compiler development, you might also be assigned pull requests to be reviewed.
 
 You can check your current review assignment in two ways:
-- by visiting this [GitHub URL](https://github.com/pulls/assigned)
+- by visiting this [GitHub URL](https://github.com/pulls?q=org%3Arust-lang+is%3Aopen+is%3Apr+assignee%3A%40me+archived%3Afalse)
 - by interacting with the `triagebot` on the [Zulip chat](/platforms/zulip.md) in a DM (Direct Messages) thread. You can open a direct message session with the `triagebot` clicking on [this link](https://rust-lang.zulipchat.com/#narrow/dm/261224-triagebot) (requires Zulip login).
 
 This chapter will describe how to interact with the `triagebot` on Zulip.
