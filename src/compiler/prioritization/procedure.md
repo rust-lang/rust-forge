@@ -52,7 +52,7 @@ To accept an MCP, remove `final-comment-period` label, add `major-change-accepte
 
 ### Generate the meeting's agenda
 
-Run triagebot's CLI to generate the agenda. You need to clone [https://github.com/rust-lang/triagebot](https://github.com/rust-lang/triagebot) (there is no official prepackaged release for this tool) and export two environment variables: `GITHUB_API_TOKEN` and optionally a `GOOGLE_API_KEY` to access a public Google calendar (if this env var is not found, meetings should be manually copy&pasted [from here](https://calendar.google.com/calendar/embed?src=6u5rrtce6lrtv07pfi3damgjus%40group.calendar.google.com)).
+Run triagebot's CLI to generate the agenda. You need to clone [https://github.com/rust-lang/triagebot](https://github.com/rust-lang/triagebot) (there is no official prepackaged release for this tool) and export two environment variables: `GITHUB_TOKEN` and optionally a `GOOGLE_API_KEY` to access a public Google calendar (if this env var is not found, meetings should be manually copy&pasted [from here](https://calendar.google.com/calendar/embed?src=6u5rrtce6lrtv07pfi3damgjus%40group.calendar.google.com)).
 
 To generate the meeting's agenda, run:
 
