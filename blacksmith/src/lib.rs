@@ -15,6 +15,7 @@ use mdbook::{
 
 const CHANNELS: &[&str] = &["stable", "beta", "nightly"];
 const CHANNEL_URL_PREFIX: &str = "https://static.rust-lang.org/dist/channel-rust-";
+const MANIFESTS_URL: &str = "https://static.rust-lang.org/manifests.txt";
 const RUSTUP_URLS: &str =
     "https://raw.githubusercontent.com/rust-lang/rustup.rs/stable/ci/cloudfront-invalidation.txt";
 
@@ -45,6 +46,8 @@ pub struct Blacksmith {
     rustup: Vec<String>,
     stable_version: Option<String>,
     platforms: BTreeMap<String, Platform>,
+    #[serde(default)]
+    previous_stable_versions: Vec<(String, Vec<String>)>,
 }
 
 impl Blacksmith {
@@ -121,6 +124,64 @@ impl Blacksmith {
                     _ => unreachable!(),
                 }
             }
+        }
+
+        let latest_stable_version = &blacksmith.stable_version.clone().unwrap();
+
+        // Go over stable versions in https://static.rust-lang.org/manifests.txt in reverse order.
+        let manifests_content = reqwest::blocking::get(MANIFESTS_URL)?.text()?;
+        let stable_manifest_url_regex =
+            regex::Regex::new(r"^static\.rust-lang\.org/dist/\d{4}-\d{2}-\d{2}/channel-rust-1\.(\d+)\.(\d+)\.toml$").unwrap();
+        for manifest_url in manifests_content.lines().rev() {
+            let minor;
+            let patch;
+
+            // Check if it's a stable version.
+            if let Some(captures) = stable_manifest_url_regex.captures(&(manifest_url)) {
+                minor = captures.get(1).unwrap().as_str();
+                patch = captures.get(2).unwrap().as_str();
+            } else {
+                continue
+            }
+
+            let full_version = format!("1.{}.{}", minor, patch);
+
+            // Skip latest stable version.
+            if &full_version == latest_stable_version {
+                continue
+            }
+
+            // Download https://static.rust-lang.org/dist/channel-rust-{major.minor.patch}.toml and process it.
+            let channel_url = format!("{}{}.toml", CHANNEL_URL_PREFIX, full_version);
+
+            let content = reqwest::blocking::get(&channel_url)?.text()?;
+            let rust = toml::from_str::<crate::channel::Channel>(&content)?
+                .pkg
+                .rust;
+
+            log::info!(
+                "Found {} targets for stable v{}",
+                rust.target.len(),
+                rust.version
+            );
+
+            let version = rust.version.split(' ').next().unwrap().to_string();
+
+            let platforms = rust
+                .target
+                .into_iter()
+                .filter_map(|(target, content)| {
+                    if content.available {
+                        Some(target)
+                    } else {
+                        None
+                    }
+                })
+                .collect::<Vec<_>>();
+
+            blacksmith
+                .previous_stable_versions
+                .push((version.clone(), platforms));
         }
 
         blacksmith.last_update = unix_time();
@@ -209,6 +270,45 @@ impl Blacksmith {
         buffer
     }
 
+    /// Generates tables of links to the previous stable standalone installer packages for
+    /// each platform.
+    fn generate_previous_stable_standalone_installers_tables(&self) -> String {
+        let mut buffer = String::new();
+
+        for (stable_version, platforms) in &self.previous_stable_versions {
+            writeln!(buffer, "## Stable ({})", stable_version).unwrap();
+            writeln!(buffer, "").unwrap();
+
+            writeln!(buffer, "platform | stable ({})", stable_version).unwrap();
+            writeln!(buffer, "---------|--------").unwrap();
+
+            for name in platforms {
+                let extension = if name.contains("windows") {
+                    "msi"
+                } else if name.contains("darwin") {
+                    "pkg"
+                } else {
+                    "tar.gz"
+                };
+
+                let stable_links =
+                    generate_standalone_links("rust", stable_version, name, extension);
+
+                writeln!(
+                    buffer,
+                    "`{name}` | {stable}",
+                    name = name,
+                    stable = stable_links,
+                )
+                .unwrap();
+            }
+
+            writeln!(buffer, "").unwrap();
+        }
+
+        buffer
+    }
+
     /// Generates a similar table to `generate_standalone_installers_table`
     /// except for the rust source code packages.
     fn generate_source_code_table(&self) -> String {
@@ -288,16 +388,23 @@ impl Preprocessor for Blacksmith {
 
         let rustup_init_list = self.generate_rustup_init_list();
         let standalone_installers_table = self.generate_standalone_installers_table();
+        let previous_stable_standalone_installers_tables =
+            self.generate_previous_stable_standalone_installers_tables();
         let source_code_table = self.generate_source_code_table();
 
         // TODO: Currently we're performing a global search for any of the
         // variables as that's the most flexible for adding more dynamic
-        // content, and the time to traverse is fast enough to not be noticable.
+        // content, and the time to traverse is fast enough to not be noticeable.
         // However if the processing time begins to become a bottleneck this
         // should change.
         for item in &mut book.sections {
             recursive_replace(item, "{{#rustup_init_list}}", &rustup_init_list);
             recursive_replace(item, "{{#installer_table}}", &standalone_installers_table);
+            recursive_replace(
+                item,
+                "{{#previous_stable_standalone_installers_tables}}",
+                &previous_stable_standalone_installers_tables,
+            );
             recursive_replace(item, "{{#source_code_table}}", &source_code_table);
         }
 

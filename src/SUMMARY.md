@@ -68,6 +68,7 @@
     - [Moderation](./governance/moderation.md)
 - [Infrastructure](./infra/README.md)
     - [Other Installation Methods](./infra/other-installation-methods.md)
+    - [Archive of Rust Stable Standalone Installers](./infra/archive-stable-version-installers.md)
     - [Release Channel Layout](./infra/channel-layout.md)
     - [Service Infrastructure](./infra/service-infrastructure.md)
     - [Team Maintenance](./infra/team-maintenance.md)
