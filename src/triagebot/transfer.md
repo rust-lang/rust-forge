@@ -6,7 +6,7 @@ The `transfer` command allows you to transfer a GitHub issue from one repository
 
 To transfer an issue to another repository, enter a comment with the form:
 
-`@rustbot transfer` *repository-name*
+`@rustbot transfer <repository-name>`
 
 It is recommended to also include a comment explaining why you are transferring. For example:
 
@@ -19,7 +19,7 @@ implements diagnostic reports.
 
 **IMPORTANT: There will be no visual indication that the issue is being transferred.** Due to GitHub API limitations, you will not see any activity. **You must reload the page** to view the issue in its new location. It may take a few moments for GitHub to transfer all the data.
 
-**WARNING:** Transferring is a partially destructive command. For example, labels and milestones that don't exist in the target repository will be removed.
+**WARNING:** Transferring is a partially destructive command. For example, labels and milestones that don't exist in the target repository will be removed from the issue.
 
 The transfer command is limited to team members of the rust-lang org, and transfers can only happen to repositories in the rust-lang org.
 
