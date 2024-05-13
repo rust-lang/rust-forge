@@ -46,7 +46,9 @@ message_on_close = "Issue #{number} has been closed. Thanks for participating!"
 message_on_reopen = "Issue #{number} has been reopened. Pinging @*T-types*."
 
 # The Zulip notification will not be posted unless the issue/PR has all of these labels.
-required_labels = ["I-nominated"]
+# Please replace the `{team}` placeholder with the appropriate team to be notified for the nomination
+# (ex. `I-compiler-nominated`, `I-lang-nominated`, ...)
+required_labels = ["I-{team}-nominated"]
 ```
 
 ## Implementation
