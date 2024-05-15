@@ -75,25 +75,50 @@ Triaging them the same way as `needs-triage` is also useful.
 There are many different labels that can be applied to issues.
 
 - `needs-triage`: Signals that an issue is new and needs initial triage
-- `T-*`: Specifies the team or teams that this issue is relevant to, for example compiler, types or libs
-- `WG-*`: Specifies the working groups that this issue is relevant to, for example WG-debugging.
-- `C-*`: Specifies the category of the label, for example a bug, tracking issue or discussion
-    - `A-diagnostics` issues usually don't have any C label.
+- [`T-*`]: Specifies the team or teams that this issue is relevant to. For example `T-compiler`, `T-types` or `T-libs`.
+- [`WG-*`]: Specifies the working groups that this issue is relevant to, for example `WG-debugging`.
+- [`PG-*`]: Specifies the project groups that this issue is relevant to, for example the `PG-exploit-mitigations`.
+- [`C-*`]: Specifies the category of the label, for example a bug, tracking issue or discussion
+    - `A-diagnostics` issues usually don't have any `C-*` label.
     - Also note `C-optimization` for missed compiler optimizations.
-- `O-*`: For platform-specific issues, specifies the platform (architecture or operating system). For example macos, aarch64, windows
-- `A-*`: The areas that the issue is relevant to, for example linkage, patterns, diagnostics
-- `F-*`: When the issue concerns a specific (usually unstable) feature
+- [`O-*`]: For target-specific issues, specifies the compile target[^1] or compile target family (most notably the platform, i.e., the architecture or operating system). For example `O-macos`, `O-aarch64`, `O-windows`, `O-windows-msvc`.
+- [`A-*`]: The areas that the issue is relevant to, for example `A-linkage`, `A-patterns`, `A-diagnostics`.
+- [`L-*`]: When the issue concerns a specific lint.
+- [`F-*`]: When the issue concerns a specific (usually unstable, usually language) feature.
+- [`-Z*`]: When the issue concerns a specific unstable `-Z` compiler flag.
 - `requires-nightly`: This issue is not relevant to the stable compiler
 - `requires-{incomplete,internal}-features`: This issue requires an incomplete or internal feature. The latter often means that the issue
     should be closed in accordance with compiler [MCP 620](https://github.com/rust-lang/compiler-team/issues/620).
-- `regression-*`: Labels for tracking issues that are regressions.
-- `D-*`: Labels for diagnostics issue.
-- `I-*`: Different labels about the nature (originally, importance) of a bug. For example ICE, slow code, heavy code (binary size), crashes, unsoundness.
-  There are also some other `I-*` labels that don't really fit into this. For triaging, focus on `I-slow`, `I-heavy`, `I-ICE`, `I-crash`, `I-unsound`.
-- `P-*`: Priority labels. Applied using the [Compiler Prioritization procedure](../compiler/prioritization.md)
-- `S-*`: The status of an issue, for example S-needs-repro.
-- `E-*`: Calls for participation, for example to minimize an issue 
+- [`regression-*`]: Labels for tracking issues that are regressions.
+- [`D-*`]: Labels for diagnostic issues.
+- [`I-*`]: Different labels about the nature[^2] of a bug. For example ICE, slow code, heavy code (binary size), crashes, unsoundness.
+  There are also some other `I-*` labels that don't really fit into this. For triaging, focus on `I-ICE`, `I-crash`, `I-hang`, `I-slow`, `I-heavy`, `I-compiletime` and `I-unsound`.
+- [`P-*`]: Priority labels. Applied using the [compiler prioritization procedure](../compiler/prioritization.md).
+- [`S-*`]: The status of an issue, for example `S-needs-repro`.
+- [`E-*`]: Calls for participation[^3], for example to minimize an issue.
     - `E-mentor`: A mentor is available to help with the issue, which makes for good first issues.
     - `E-needs-mcve`: This issue has a reproduction, but it is not minimal, it should be minimized.
+    - `E-needs-bisection`: This issue needs a bisection, for example using [cargo-bisect-rustc](https://github.com/rust-lang/cargo-bisect-rustc).
     - `E-needs-test`: The issue has been fixed, but no test has been added for it. After someone adds a test, it can be closed.
     - `E-{easy,medium,hard}`: Someone has estimated how hard the issue is to fix. This can help with finding good first issues, but is [bound to be inaccurate](https://en.wikipedia.org/wiki/Curse_of_knowledge).
+
+See also section [Issue Triage](https://rustc-dev-guide.rust-lang.org/contributing.html#issue-triage) in the Rust Compiler Development Guide.
+
+[`T-*`]: https://github.com/rust-lang/rust/labels?q=T-
+[`WG-*`]: https://github.com/rust-lang/rust/labels?q=WG-
+[`PG-*`]: https://github.com/rust-lang/rust/labels?q=PG-
+[`C-*`]: https://github.com/rust-lang/rust/labels?q=C-
+[`O-*`]: https://github.com/rust-lang/rust/labels?q=O-
+[`A-*`]: https://github.com/rust-lang/rust/labels?q=A-
+[`L-*`]: https://github.com/rust-lang/rust/labels?q=L-
+[`F-*`]: https://github.com/rust-lang/rust/labels?q=F-
+[`-Z*`]: https://github.com/rust-lang/rust/labels?q=-Z
+[`regression-*`]: https://github.com/rust-lang/rust/labels?q=regression-
+[`D-*`]: https://github.com/rust-lang/rust/labels?q=D-
+[`I-*`]: https://github.com/rust-lang/rust/labels?q=I-
+[`P-*`]: https://github.com/rust-lang/rust/labels?q=P-
+[`S-*`]: https://github.com/rust-lang/rust/labels?q=S-
+[`E-*`]: https://github.com/rust-lang/rust/labels?q=E-
+[^1]: The `O` in `O-*` labels originally stood for *operating system (OS)*.
+[^2]: The `I` in `I-*` labels originally stood for *importance*. This makes the most sense for the `I-*-nominated` labels. For most `I-*` labels however it makes sense to interpret the `I` as *issue (kind)*.
+[^3]: The `E` in `E-*` labels stands for *experience*.
