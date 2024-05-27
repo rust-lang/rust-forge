@@ -39,8 +39,7 @@ There are three optional values that can be specified in the table:
 > 
 > ```shell-session
 > $ # rebase
-> $ git rebase -i master
-> $ # delete any merge commits in the editor that appears
+> $ git pull --rebase https://github.com/rust-lang/rust.git master
 > $ git push --force-with-lease
 > ```
 
