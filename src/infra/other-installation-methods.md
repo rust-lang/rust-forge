@@ -79,26 +79,9 @@ what they each specifically generate.
 
 <span id="standalone"></span>
 
-The official Rust standalone installers contain a single release of Rust, and
-are suitable for offline installation. They come in three forms: tarballs
-(extension `.tar.xz`), that work in any Unix-like environment, Windows
-installers (`.msi`), and Mac installers (`.pkg`). These installers come with
-`rustc`, `cargo`, `rustdoc`, the standard library, and the standard
-documentation, but do not provide access to additional cross-targets like
-`rustup` does.
+{{#include shared-standalone-installers.md}}
 
-The most common reasons to use these are:
-
-- Offline installation
-- Preferring a more platform-integrated, graphical installer on Windows
-
-Each of these binaries is signed with the [Rust signing key], which is
-[available on keybase.io], by the Rust build infrastructure, with [GPG]. In the
-tables below, the `.asc` files are the signatures.
-
-<!-- FIXME: Show this sentence again once we've found a quick way to display the archives.
-Past releases can be found in [the archives].
--->
+Past releases can be found in [the archive].
 
 {{#installer_table}}
 
@@ -170,8 +153,4 @@ diff rustc-*-src.tar build/dist/rustc-*-src.tar
 [chocolatey]: http://chocolatey.org/
 [scoop]: https://scoop.sh/
 [three tiers]: https://doc.rust-lang.org/nightly/rustc/platform-support.html
-[rust signing key]: https://static.rust-lang.org/rust-key.gpg.ascii
-[gpg]: https://gnupg.org/
-[available on keybase.io]: https://keybase.io/rust
-[the archives]: https://static.rust-lang.org/dist/index.html
-
+[the archive]: ../infra/archive-stable-version-installers.md
