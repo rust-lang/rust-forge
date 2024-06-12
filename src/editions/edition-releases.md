@@ -44,6 +44,7 @@ Running an Edition involves many steps, coordinated across the project.
         - [`rustfmt` support for `--edition` flag](https://github.com/rust-lang/rust/pull/94461)
         - [`clippy` support for `--edition` flag](https://github.com/rust-lang/rust/pull/94461)
         - [`rust-analyzer` support for editions](https://github.com/rust-lang/rust-analyzer/pull/7123)
+        - [`mdbook` support for editions](https://github.com/rust-lang/mdBook/pull/2398)
     1. Teams start their proposals and implementation work.
 1. The Leadership Council sets up a Project Group to run the edition (approximately 1 year before the final release).
 1. Final deadline phase.
