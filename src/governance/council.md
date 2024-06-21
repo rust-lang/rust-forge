@@ -124,14 +124,12 @@ When the Council creates a new top-level team, that team then designates a Counc
 The set of top-level teams is:
 
 - Compiler
-- Crates.io
 - Dev tools
 - Infrastructure
 - Language
 - Launching Pad
 - Library
 - Moderation
-- Release
 
 ### The Launching Pad top-level team
 [launching-pad]: #the-launching-pad-top-level-team
