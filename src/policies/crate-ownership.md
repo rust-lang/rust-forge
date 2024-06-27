@@ -1,35 +1,12 @@
 # Rust crate ownership policy
 
-- Feature Name: none
-- Start Date: 2021-05-04
-- RFC PR: [rust-lang/rfcs#3119](https://github.com/rust-lang/rfcs/pull/3119)
-- Rust Issue: [rust-lang/rust#88867](https://github.com/rust-lang/rust/issues/88867)
+## Introduction
 
-
-# Summary
-[summary]: #summary
-
-Have a more intentional policy around crates published by the Rust project, to be applied to existing and future crates published by us.
-
-# Motivation
-[motivation]: #motivation
-
-
-Currently there are around a hundred crates that are maintained under a rust-lang GitHub organization and published to crates.io. These exist for a wide range of reasons: some are published for the express purposes of being used by the wider Rust community, others are internal dependencies of rustc (or otherwise), yet others are experiments.
-
-Given that the stamp of an official Rust team carries a degree of weight, it is confusing for community members to have to differentiate between the two, and can lead to incorrect expectations being set. Over a prolonged period of time, this can end up in crates that were never intended to be used widely becoming key dependencies in the ecosystem.
-
-Furthermore, these crates are not necessarily clear on who owns them. Some are owned (in the crates.io sense) by the generic `rust-lang-owner` crates.io account, some are owned by a GitHub team (like `rust-lang/libs`), and yet others are only owned by personal accounts. It seems like we should have some consistency here.
-
-# Reference-Level Explanation
-
-Once accepted, the policy sections of this RFC should be posted on
-<https://forge.rust-lang.org/> in a "Rust-lang Crates Policy" section; this RFC will not be the canonical home of the up-to-date crates policy.
+This document covers the policy for crates published by the Rust project. This was initially adopted via [RFC 3119](https://github.com/rust-lang/rfcs/pull/3119).
 
 ## Categories
 
-We propose the following categories of published crates:
-
+Rust crates published by the Rust project fall into one of the following categories:
 
  - **Intentional artifacts**: These are crates which are intentionally released by some team (usually libs), are actively maintained, are intended to be used by external users, and intentionally have an air of officialness. Example: [libc](https://crates.io/crates/libc)
  - **Internal use**: These are crates which are used by some “internal client”, like rustc, crates.io, docs.rs, etc. Their primary purpose is not to be used by external users, though the teams that maintain them (typically the teams of their internal client) may wish for the crate to have wider adoption. The line can be blurry between these and “intentional artifacts” and ultimately depends on the goals of the team. Example: [conduit](https://crates.io/crates/conduit), [measureme](https://crates.io/crates/measureme). There are two subcategories based on whether they are intended to ever show up as a transitive dependency:
@@ -108,17 +85,17 @@ These should by and large not be considered to be "team managed" crates; this ca
 
 ## Transitions and new crates
 
-Teams should feel free to create new crates in any of these categories; however "Intentional Artifact" crates must be accompanied with an RFC. As we move towards having team charters, this can transition to being a charter change (which may require an RFC or use its own process). Teams should notify core@rust-lang.org when they've created such crates so that the core team may track these crates and ensure this policy is applied.
+Teams should feel free to create new crates in any of these categories; however "Intentional Artifact" crates must be accompanied with an RFC. As we move towards having team charters, this can transition to being a charter change (which may require an RFC or use its own process). Teams should notify <council@rust-lang.org> when they've created such crates so that the Leadership Council may track these crates and ensure this policy is applied.
 
 From time to time a team's plan for a crate may change: experiments may conclude, crates may need to be deprecated, or the team may decide to release something for wider usage.
 
-In general, teams should notify core@rust-lang.org when such a transition is being made.
+In general, teams should notify <council@rust-lang.org> when such a transition is being made.
 
 Any transition _away_ from "Intentional Artifact" requires an RFC.
 
 Any transition to "Intentional Artifact" should ideally be accompanied by an RFC, and an update to the team charter if there is one.
 
-Expatriation should basically _never_ occur anymore, but it also requires an RFC and core team approval in case it is really necessary. If a team wishes to stop working on a crate, they should deprecate it and encourage the community to fork it or build their own thing. The repository may be transferred out, however the `crates.io` name is kept by the Rust project and the new group of maintainers will need to pick a new crate name.
+Expatriation should basically _never_ occur anymore, but it also requires an RFC and Leadership Council approval in case it is really necessary. If a team wishes to stop working on a crate, they should deprecate it and encourage the community to fork it or build their own thing. The repository may be transferred out, however the `crates.io` name is kept by the Rust project and the new group of maintainers will need to pick a new crate name.
 
 If "transitively intentional" crates are being deprecated care should be taken to ensure security issues will still be handled.
 
@@ -129,8 +106,6 @@ Transitions between the other types can be made at will since they explicitly an
 
 An audit should be performed on all existing potentially "official" crates, collecting them in a list and roughly determining what their team and category should be.
 
-(We have a list with a preliminary audit already and plan to post it to this RFC as an example soon)
-
 Once we have this list, we can approach teams with lists of crates and request that they verify that the categorization is accurate. In the case of some crates this might take some time as the team may need to work out what their intentions are with a particular crate.
 
 Then, working with the teams, we make these changes to their documentation. We also make sure all crates have the appropriate `rust-lang/teamname` github owner, and remove personal accounts from the owners list.
@@ -138,23 +113,3 @@ Then, working with the teams, we make these changes to their documentation. We a
 For crates that are in direct use by a lot of the wider community, if we end up categorizing them as anything other than "intentional artifact", there should be an attempt to announce this "change" to the community. While there was no formal commitment made in case of these crates, the vague sense of officialness may have made people believe there was, and we should at least try to rectify this so that people are not continually misled. Whether or not this needs to be done, and how, can be figured out by the individual teams.
 
 A large part of this work can be parallelized; and it does not need to occur all at once.
-
-# Drawbacks
-[drawbacks]: #drawbacks
-
-This is a lot of work, but as we move towards a more deliberately structured project, it is probably necessary work.
-
-
-# Rationale and alternatives
-[rationale-and-alternatives]: #rationale-and-alternatives
-
-An alternative here is mostly to continue as is. This will become increasingly untenable as we add more and more crates; with the constant danger of internal crates becoming accidental artifacts that the ecosystem depends on.
-
-Another alternative is to ask teams to be clear about the level of support offered in their crates without standardizing the process. This could work, but could lead to less cross-team legibility and would be harder to track.
-
-# Unresolved questions
-[unresolved-questions]: #unresolved-questions
-
- - How should we handle expatriated crates?
- - Are there any missing categories?
- - What should the text blurbs be for the various categories? Should we be mandating a specific text blurb, or just require a general idea be communicated with some leeway?
