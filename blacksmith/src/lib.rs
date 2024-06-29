@@ -232,28 +232,28 @@ impl Blacksmith {
         writeln!(buffer, "---------|--------|------|--------").unwrap();
 
         for (name, platform) in &self.platforms {
-            let extension = if name.contains("windows") {
-                "msi"
+            let extensions: &[&str] = if name.contains("windows") {
+                &["msi", "tar.xz"]
             } else if name.contains("darwin") {
-                "pkg"
+                &["pkg", "tar.xz"]
             } else {
-                "tar.xz"
+                &["tar.xz"]
             };
 
             let stable_links = platform
                 .stable
                 .as_ref()
-                .map(|version| generate_standalone_links("rust", version, name, extension))
+                .map(|version| generate_standalone_links("rust", version, name, extensions))
                 .unwrap_or_else(String::new);
 
             let beta_links = if platform.beta {
-                generate_standalone_links("rust", "beta", name, extension)
+                generate_standalone_links("rust", "beta", name, extensions)
             } else {
                 String::new()
             };
 
             let nightly_links = if platform.nightly {
-                generate_standalone_links("rust", "nightly", name, extension)
+                generate_standalone_links("rust", "nightly", name, extensions)
             } else {
                 String::new()
             };
@@ -285,16 +285,16 @@ impl Blacksmith {
             writeln!(buffer, "---------|--------").unwrap();
 
             for name in platforms {
-                let extension = if name.contains("windows") {
-                    "msi"
+                let extensions: &[&str] = if name.contains("windows") {
+                    &["msi", "tar.gz"]
                 } else if name.contains("darwin") {
-                    "pkg"
+                    &["pkg", "tar.gz"]
                 } else {
-                    "tar.gz"
+                    &["tar.gz"]
                 };
 
                 let stable_links =
-                    generate_standalone_links("rust", stable_version, name, extension);
+                    generate_standalone_links("rust", stable_version, name, extensions);
 
                 writeln!(
                     buffer,
@@ -326,7 +326,7 @@ impl Blacksmith {
                     buffer,
                     "stable ({}) | {}",
                     stable_version,
-                    generate_standalone_links("rustc", stable_version, "src", "tar.xz")
+                    generate_standalone_links("rustc", stable_version, "src", &["tar.xz"])
                 )
                 .unwrap();
             } else {
@@ -334,7 +334,7 @@ impl Blacksmith {
                     buffer,
                     "{} | {}",
                     channel,
-                    generate_standalone_links("rustc", &channel, "src", "tar.xz")
+                    generate_standalone_links("rustc", &channel, "src", &["tar.xz"])
                 )
                 .unwrap();
             }
@@ -346,20 +346,27 @@ impl Blacksmith {
 
 /// Generates links to standalone installers provided a rust version or channel,
 /// target name, and file extension.
-fn generate_standalone_links(base: &str, stem: &str, name: &str, extension: &str) -> String {
-    let url = format!(
-        "https://static.rust-lang.org/dist/{base}-{stem}-{name}.{extension}",
-        extension = extension,
-        name = name,
-        stem = stem,
-        base = base,
-    );
+fn generate_standalone_links(base: &str, stem: &str, name: &str, extensions: &[&str]) -> String {
+    let mut result = String::new();
+    for extension in extensions {
+        if !result.is_empty() {
+            result.push_str(" <br> ");
+        }
+        let url = format!(
+            "https://static.rust-lang.org/dist/{base}-{stem}-{name}.{extension}",
+            extension = extension,
+            name = name,
+            stem = stem,
+            base = base,
+        );
 
-    format!(
-        "[{extension}]({url}) <br> [{extension}.asc]({url}.asc)",
-        extension = extension,
-        url = url,
-    )
+        result.push_str(&format!(
+            "[{extension}]({url}) <br> [{extension}.asc]({url}.asc)",
+            extension = extension,
+            url = url,
+        ));
+    }
+    result
 }
 
 fn unix_time() -> Option<u64> {
