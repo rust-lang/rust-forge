@@ -130,8 +130,10 @@ impl Blacksmith {
 
         // Go over stable versions in https://static.rust-lang.org/manifests.txt in reverse order.
         let manifests_content = reqwest::blocking::get(MANIFESTS_URL)?.text()?;
-        let stable_manifest_url_regex =
-            regex::Regex::new(r"^static\.rust-lang\.org/dist/\d{4}-\d{2}-\d{2}/channel-rust-1\.(\d+)\.(\d+)\.toml$").unwrap();
+        let stable_manifest_url_regex = regex::Regex::new(
+            r"^static\.rust-lang\.org/dist/\d{4}-\d{2}-\d{2}/channel-rust-1\.(\d+)\.(\d+)\.toml$",
+        )
+        .unwrap();
         for manifest_url in manifests_content.lines().rev() {
             let minor;
             let patch;
@@ -141,14 +143,14 @@ impl Blacksmith {
                 minor = captures.get(1).unwrap().as_str();
                 patch = captures.get(2).unwrap().as_str();
             } else {
-                continue
+                continue;
             }
 
             let full_version = format!("1.{}.{}", minor, patch);
 
             // Skip latest stable version.
             if &full_version == latest_stable_version {
-                continue
+                continue;
             }
 
             // Download https://static.rust-lang.org/dist/channel-rust-{major.minor.patch}.toml and process it.
