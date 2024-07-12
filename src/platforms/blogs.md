@@ -2,8 +2,11 @@
 
 ## Context
 
-The Rust project maintains two blogs. The “main blog” (blog.rust-lang.org) and a “team blog”
-(blog.rust-lang.org/inside-rust). This document provides the guidelines for what it takes to write
+The Rust project maintains two blogs.
+The “main blog” ([blog.rust-lang.org](https://blog.rust-lang.org/index.html))
+and a “team blog”
+([blog.rust-lang.org/inside-rust](https://blog.rust-lang.org/inside-rust/)).
+This document provides the guidelines for what it takes to write
 a post for each of those blogs, as well as how to propose a post and to choose which blog is most
 appropriate.
 
