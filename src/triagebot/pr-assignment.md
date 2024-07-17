@@ -74,6 +74,16 @@ fallback = ["@Mark-Simulacrum"]
 If the `owners` map is configured, then triagebot will automatically select a reviewer based on which files were modified in the PR.
 The existence of the owners table also enables the ability for users to post a comment with `r? name` to set the assignment to a specific user.
 
+### Vacation
+
+If a reviewer wants to temporarily prevent themselves from being assigned (automatically or manually) they can add themselves to the special
+`assign.users_on_vacation` group.
+
+```toml
+[assign]
+users_on_vacation = ["jyn514", "ChrisDenton"]
+```
+
 ### Additional new PR trigger options
 
 Triagebot will also post a welcome message to the user.
