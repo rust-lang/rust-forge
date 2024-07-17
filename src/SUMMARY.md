@@ -66,6 +66,8 @@
 - [Governance](./governance/README.md)
     - [Leadership Council](./governance/council.md)
     - [Moderation](./governance/moderation.md)
+- [Policies](./policies/README.md)
+    - [Crate ownership policy](./policies/crate-ownership.md)
 - [Infrastructure](./infra/README.md)
     - [Other Installation Methods](./infra/other-installation-methods.md)
     - [Archive of Rust Stable Standalone Installers](./infra/archive-stable-version-installers.md)
