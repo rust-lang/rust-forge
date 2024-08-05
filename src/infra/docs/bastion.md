@@ -61,7 +61,7 @@ When running the following commands, replace `USERNAME` and `IP_ADDRESS` with th
 
 1. Run:
    ```
-   aws ssm put-parameter --type String --name "/prod/bastion/allowed-ips/USERNAME" --value "IP_ADDRESS/32"
+   aws ssm put-parameter --type String --name "/prod/bastion/allowed-ips/USERNAME" --value "IP_ADDRESS/32" --region us-west-1
    ```
 2. Add the username to the list in
    [`terraform/bastion/firewall.tf`][allowed-ips] (local variable
@@ -72,7 +72,7 @@ When running the following commands, replace `USERNAME` and `IP_ADDRESS` with th
 
 1. Run:
    ```
-   aws ssm put-parameter --overwrite --type String --name "/prod/bastion/allowed-ips/USERNAME" --value "IP_ADDRESS/32"
+   aws ssm put-parameter --overwrite --type String --name "/prod/bastion/allowed-ips/USERNAME" --value "IP_ADDRESS/32" --region us-west-1
    ```
 2. [apply the Terraform configuration][terraform-apply].
 
@@ -80,7 +80,7 @@ When running the following commands, replace `USERNAME` and `IP_ADDRESS` with th
 
 1. Run:
    ```
-   aws ssm delete-parameter --name "/prod/bastion/allowed-ips/USERNAME"
+   aws ssm delete-parameter --name "/prod/bastion/allowed-ips/USERNAME" --region us-west-1
    ```
 2. Remove the username from the list in
    [`terraform/bastion/firewall.tf`][allowed-ips] (local variable
