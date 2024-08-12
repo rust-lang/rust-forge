@@ -1,9 +1,9 @@
 # Bastion server
 
-* FQDN: `bastion.infra.rust-lang.org`
-* [Ansible playbook][ansible] to deploy this server.
-* [Terraform configuration][terraform] to create AWS resources.
-* [Instance metrics][grafana] (only available to infra team members).
+- FQDN: `bastion.infra.rust-lang.org`
+- [Ansible playbook][ansible] to deploy this server.
+- [Terraform configuration][terraform] to create AWS resources.
+- [Instance metrics][grafana] (only available to infra team members).
 
 ## Logging into servers through the bastion
 
@@ -12,20 +12,28 @@ directly to a production server with SSH. Instead, all connections must come
 from a small server called the "bastion", which only allows connections from a
 few whitelisted networks and logs any connection attempt.
 
-To log into a server through the bastion you can use SSH's `-J` flag:
+To log into a server through the bastion, use one of the following methods:
 
-```
-ssh -J bastion.infra.rust-lang.org servername.infra.rust-lang.org
-```
+- Use SSH's `-J` flag:
 
-It's also possible to configure SSH to always jump through the bastion when
-connecting to a host. Add this snippet to your SSH configuration file (usually
-located in `~/.ssh/config`):
+  ```
+  ssh -J <username>@bastion.infra.rust-lang.org <username>@servername.infra.rust-lang.org
+  ```
 
-```
-Host servername.infra.rust-lang.org
-    ProxyJump bastion.infra.rust-lang.org
-```
+- Configure your SSH client to always jump through the bastion when connecting to a host:
+
+  - Add this snippet to your SSH configuration file (usually located in `~/.ssh/config`):
+
+    ```
+    Host servername.infra.rust-lang.org
+        ProxyJump <username>@bastion.infra.rust-lang.org
+    ```
+
+  - Use SSH:
+
+    ```
+    ssh <username>@servername.infra.rust-lang.org
+    ```
 
 Please remember the bastion server only allows connections from a small list of
 IP addresses. Infra team members with AWS access can change the whitelist, but
@@ -71,17 +79,21 @@ When running the following commands, replace `USERNAME` and `IP_ADDRESS` with th
 ### Updating a whitelisted IP
 
 1. Run:
+
    ```
    aws ssm put-parameter --overwrite --type String --name "/prod/bastion/allowed-ips/USERNAME" --value "IP_ADDRESS/32" --region us-west-1
    ```
+
 2. [apply the Terraform configuration][terraform-apply].
 
 ### Removing a whitelisted IP
 
 1. Run:
+
    ```
    aws ssm delete-parameter --name "/prod/bastion/allowed-ips/USERNAME" --region us-west-1
    ```
+
 2. Remove the username from the list in
    [`terraform/bastion/firewall.tf`][allowed-ips] (local variable
    `allowed_users`).
