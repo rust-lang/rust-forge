@@ -2,10 +2,10 @@
 
 Here's how Rust is currently released:
 
-## Bump the stable version number (T-6 days, Friday the week before)
+## Bump the stable version number (Friday the week before)
 
 Open a PR bumping the version number in `src/version`. `r+ rollup=never` this
-PR.
+PR (self-approve it).
 
 Mark it as `rollup=never`, because if it lands in a rollup as *not* the first
 PR then other pull requests in that rollup will be incorrectly associated with
@@ -14,56 +14,87 @@ the prior release.
 This is effectively when the beta branch forks -- when beta is promoted, it will
 be based off of the PR that landed just before this version number bump PR.
 
-## Promote branches (T-3 days, Monday)
+## Promote branches (Monday)
 
 Both promotions should happen on Monday. You can open both PRs at the same
-time, but make sure the stable promotion lands first.
+time, but prioritize landing the stable promotion first (to maximize the
+pre-release testing period).
 
-### Beta to stable
+### Updating the base of the `beta` and `stable` branches
 
-[Obtain AWS CLI credentials][awscli] and run this command from the [simpleinfra] repository:
+Run this command from the [rust-lang/release-team] repository[^auth]:
 
 ```
-./release-scripts/promote-release.py branches
+./scripts/start-release.py update-rust-branches
 ```
 
-Once that's done, send a PR to the freshly created beta branch of rust-lang/rust
-with two commits:
+Remember that `start-release.py` starts a job in the background, and the script
+will exit *before* the branches are updated. Watch the logs to see when the
+background job finishes before proceeding.
 
-* The changes caused by running `./x.py run replace-version-placeholder`
-* An update of `src/ci/channel` to `beta`
+### `stable` PR
 
-The version placeholder replacement changes must be in a separate commit so
-that they can be cherry picked to the master branch.
-
-Also send a PR to rust-lang/rust targeting the new stable branch making the
+Send a PR to [rust-lang/rust] targeting the new `stable` branch making the
 following changes:
 
-- Update `src/ci/channel` to `stable`
-- Update release notes to the latest available copy
-  * e.g., `git checkout origin/master -- RELEASES.md`
+- Update release notes to the latest available copy:
 
-Once the PRs are sent, r+ both and give them a high `p=1000` (for stable) and
-`p=10` for beta.
+  - If the release notes PR was merged:
 
-After the PR is merged you'll need to start a **dev** release. [Obtain AWS CLI
-credentials][awscli] and run this command from the [simpleinfra] repository:
+    ```
+    git checkout origin/master -- RELEASES.md
+    ```
+
+  - Otherwise, manually copy `RELEASES.md` from the pending release notes PR
+
+- Update `src/ci/channel` to `stable`:
+
+  ```
+  git checkout origin/master -- RELEASES.md
+  ```
+
+Self-approve the PR with `r+ rollup=never p=1000`.
+
+### `beta` PR
+
+Send a PR to [rust-lang/rust] targeting the new `beta` branch with these
+changes:
+
+* Run this command and create a **separate commit** with just its output:
+
+  ```
+  ./x.py run replace-version-placeholder
+  ```
+
+* Update `src/ci/channel` to `beta`
+
+Self-approve the PR with `r+ rollup=never p=10`.
+
+### Publish the pre-release on the `dev-static` environment
+
+After the `stable` PR is merged you'll need to start the pre-release. Run this command from the
+[rust-lang/release-team] repository[^auth]:
 
 ```
-# The date here is of the actual, production, stable release. Used for the blog post.
-./release-scripts/promote-release.py release dev stable --release-date YYYY-MM-DD
+./scripts/start-release.py publish-rust-dev-stable YYYY-MM-DD
 ```
 
-## Master bootstrap update (T-2 day, Tuesday)
+You need to replace `YYYY-MM-DD` with the date of the release (Thursday).
+
+## Master bootstrap update (Tuesday)
 
 Send a PR to the master branch to:
 
-- Cherry pick the commit that ran `./x.py run replace-version-placeholder`
+- Cherry pick the commit that ran `replace-version-placeholder`
   from the now merged beta branch PR. Do not re-run the tool as there might
   have been other stabilizations on master which were not included in the
   branched beta, so may not be attributed to the current release.
-- Run `./x.py run src/tools/bump-stage0` to update the bootstrap compiler to
-  the beta you created yesterday.
+
+- Run this to update the bootstrap compiler to the beta you created yesterday:
+
+  ```
+  ./x.py run src/tools/bump-stage0
+  ```
 
 - Remove references to the `bootstrap` and `not(bootstrap)` conditional
   compilation attributes. You can find all of them by installing [ripgrep] and
@@ -84,78 +115,55 @@ Send a PR to the master branch to:
 
 ## Release day (Thursday)
 
-Decide on a time to do the release, T.
+Decide on a time to do the release. Let Mara know of the time, so that she can
+be ready to post the release on the project's social media channels.
 
-- **T-50m** - Run the following command in a shell with [AWS
-  credentials][awscli] in the [simpleinfra] repository:
+As of September 2024 a release takes between 75 and 90 minutes to complete, so
+start the release process earlier enough to hit the time you planned.
 
-  ```
-  ./release-scripts/promote-release.py release prod stable
-  ```
+To start the release, Run this command in the [rust-lang/release-team]
+repository[^auth]:
 
-  That'll, in the background, schedule the `promote-release` binary to run on
-  the production secrets (not the dev secrets). That'll sign everything, upload
-  it, update the html index pages, and invalidate the CDN. Note that this takes
-  about 30 minutes right now. This will also push a signed tag to rust-lang/rust.
+```
+./scripts/start-release.py publish-rust-prod-stable
+```
 
-- **T-2m** - Merge blog post.
+The command will start a background job to invoke [`promote-release`] targeting
+the production environment, and it will show the instructions to follow its
+logs.
 
-- **T** - Tweet and post everything!
+When the release process completes, merge the blog post PR and inform Mara to
+announce the release on social media. Finally, bask in your success 🎉
 
-  - Twitter [@rustlang](https://twitter.com/rustlang)
-  - [Users forum](https://users.rust-lang.org/)
+## Beta stage0 update (Friday)
 
-- **T+5m** - Release and tag Cargo. From a rust-lang/rust checkout (script will
-  checkout the stable branch automatically), run the following script from
-  [simpleinfra].
+Send a PR to the beta branch updating the stage0 to the stable release you
+published:
 
-  ```sh
-  ../simpleinfra/release-scripts/tag-cargo.sh
-  ```
+```
+./x run src/tools/bump-stage0
+```
 
-- **T+1hr** Send a PR to the beta branch running `./x.py run
-  src/tools/bump-stage0` to bump the boostrap compiler to the stable you
-  just released.
-
-[update-thanks]: https://github.com/rust-lang/thanks/actions/workflows/ci.yml
-
-Bask in your success.
-
-## Rebuilding stable pre-releases
+## Appendix: Rebuilding stable pre-releases
 
 If something goes wrong and we need to rebuild the stable artifacts, merge the
 PR on the `stable` branch of the [rust-lang/rust] repository. Once the commit
-is merged, issue the following command in a shell with [AWS
-credentials][awscli] on the [simpleinfra] repository:
+is merged, [authenticate with AWS][awscli] and run this command in the
+[rust-lang/release-team] repository:
 
 ```
-./release-scripts/promote-release.py release dev stable --bypass-startup-checks
+./scripts/start-release.py publish-rust-dev-stable-rebuild
 ```
 
-You'll also want to update the previously published blog post and internals post
-with the new information.
+You'll also want to update the previously published pre-release announcement on
+the blog and internals with the new information.
 
-## Publishing a nightly based off a try build
+[^auth]: Publishing releases require authentication, and only authorized
+  members of the release team can invoke it. The command will prompt you on how
+  to setup your environment and how to authenticate with AWS the first time you
+  execute it.
 
-Sometimes a PR requires testing how it behaves when downloaded from rustup, for
-example after a manifest change. In those cases it's possible to publish a new
-nightly based off that PR on dev-static.rust-lang.org.
-
-Once the try build finishes grab the merge commit SHA and run the following
-command in a shell with [AWS credentials][awscli] on the [simpleinfra]
-repository:
-
-```sh
-./release-scripts/promote-release.py release dev nightly $MERGE_COMMIT_SHA
-```
-
-When the release process end you'll be able to install the new nightly with:
-
-```sh
-RUSTUP_DIST_SERVER=https://dev-static.rust-lang.org rustup toolchain install nightly
-```
-
-[awscli]: ../infra/docs/aws-access.md#using-the-aws-cli
-[rust-lang/rust]: https://github.com/rust-lang/rust
-[simpleinfra]: https://github.com/rust-lang/simpleinfra
+[rust-lang/rust]: https://github.com/[rust-lang/rust]
+[rust-lang/release-team]: https://github.com/rust-lang/release-team
 [ripgrep]: https://github.com/burntsushi/ripgrep
+[`promote-release`]: https://github.com/rust-lang/promote-release
