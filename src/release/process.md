@@ -47,11 +47,7 @@ following changes:
 
   - Otherwise, manually copy `RELEASES.md` from the pending release notes PR
 
-- Update `src/ci/channel` to `stable`:
-
-  ```
-  git checkout origin/master -- RELEASES.md
-  ```
+- Update `src/ci/channel` to `stable`
 
 Self-approve the PR with `r+ rollup=never p=1000`.
 
@@ -115,8 +111,9 @@ Send a PR to the master branch to:
 
 ## Release day (Thursday)
 
-Decide on a time to do the release. Let Mara know of the time, so that she can
-be ready to post the release on the project's social media channels.
+Decide on a time to do the release. Let the Social Media coordinator (currently Mara)
+know of the time, so that she can be ready to post the release on the project's social
+media channels.
 
 As of September 2024 a release takes between 75 and 90 minutes to complete, so
 start the release process earlier enough to hit the time you planned.
