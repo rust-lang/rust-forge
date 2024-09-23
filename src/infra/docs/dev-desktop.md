@@ -186,6 +186,16 @@ It helps to check <https://packages.ubuntu.com/> first and make sure that the
 package is available for both `arm64` and `amd64` architectures. The dev
 desktops are currently running Ubuntu 22.04 LTS.
 
+## Available disk space
+
+Every user has a quota of how much disk space they can use.
+Currently, the quota is set to
+[150GB](https://github.com/rust-lang/simpleinfra/blob/8a59e4faeb75a09b072671c74a7cb70160ebef50/ansible/roles/dev-desktop/defaults/main.yml#L7).
+
+Exceeding the quota will result in the error `Disk quota exceeded (os error 122)`.
+
+The [remarks on disk space] section of the rustc dev guide contains some tips on how to clean your disk space.
+
 ## How to give feedback and report issues
 
 If you experience any problems with the dev desktops, or have feedback and
@@ -202,6 +212,7 @@ We might ask you to create an issue in the [rust-lang/simpleinfra] repository.
 [rust foundation]: https://foundation.rust-lang.org/
 [rust-lang/rust]: https://github.com/rust-lang/rust
 [rust-lang/simpleinfra]: https://github.com/rust-lang/simpleinfra
+[remarks on disk space]: https://rustc-dev-guide.rust-lang.org/building/how-to-build-and-run.html#remarks-on-disk-space
 [visual studio code]: https://code.visualstudio.com/
 [certain teams]: https://github.com/search?q=repo%3Arust-lang%2Fteam+path%3Ateams%2F*.toml+dev-desktop&type=code&ref=advsearch
 [simpleinfra-vars-user-config]: https://github.com/rust-lang/simpleinfra/blob/dbf839ef25155df1f33c18f151283436b0f70f3b/ansible/roles/dev-desktop/defaults/main.yml#L12:L16
