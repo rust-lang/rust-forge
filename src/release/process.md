@@ -2,6 +2,24 @@
 
 Here's how Rust is currently released:
 
+## A note about the `start-release.py` script
+
+Steps of the release process that require interacting with our production
+environment are executed through the `start-release.py` script. The script
+requires you to install programs and configure your local environmet, and it
+will guide you through the setup.
+
+The first time you run the script (or when the pre-requisites change), you will
+need to invoke the script *multiple times* until everything is setup correctly.
+
+`start-release.py` will always start a CI job in the background. To know when
+it finishes, you have to watch the logs. WHen the build finishes, a line like
+this will appear in the logs:
+
+```
+Phase complete: UPLOAD_ARTIFACTS State: SUCCEEDED
+```
+
 ## Bump the stable version number (Friday the week before)
 
 Open a PR bumping the version number in `src/version`. `r+ rollup=never` this
@@ -51,6 +69,15 @@ following changes:
 
 Self-approve the PR with `r+ rollup=never p=1000`.
 
+Note that we need to merge this PR as soon as possible, to maximise the
+pre-release testing time. If another PR is being tested by bors, and CI is not
+going to finish soon (use your judgement here), you can "yield"
+priority to the stable release PR by going into that PR and typing this
+comment:
+
+> @bors retry  
+> Yield priority to the stable release.
+
 ### `beta` PR
 
 Send a PR to [rust-lang/rust] targeting the new `beta` branch with these
@@ -78,6 +105,11 @@ After the `stable` PR is merged you'll need to start the pre-release. Run this c
 You need to replace `YYYY-MM-DD` with the date of the release (Thursday).
 
 ## Master bootstrap update (Tuesday)
+
+This step can only be done after the new beta has been released. The release
+process for the beta happens automatically at 00:00 UTC every day, so if the
+beta PR landed after that you will have to wait another day. You can check
+whether beta has been released by installing it with rustup.
 
 Send a PR to the master branch to:
 
@@ -109,11 +141,19 @@ Send a PR to the master branch to:
     relevant documentation block (or in a new documentation block).
   - Replace any `#[cfg_attr(not(bootstrap), $attr)]` with `#[$attr]`.
 
+  Note that if a PR adds `cfg(bootstrap)` and is merged between the beta PR and
+  the master bootstrap update, the `rg` invocation will show them even though
+  they won't have to be removed. The easiest way to handle this is to change
+  them anyway and let CI show you the failure.
+
 ## Release day (Thursday)
 
-Decide on a time to do the release. Let the Social Media coordinator (currently Mara)
-know of the time, so that she can be ready to post the release on the project's social
-media channels.
+Decide on a time to do the release. You are fully in charge of deciding when
+the release happens, pick the time that works best for you. The only constraint
+is, the release process must start and finish within the release day (in UTC).
+
+Let the Social Media coordinator (currently Mara) know of the time, so that she
+can be ready to post the release on the project's social media channels.
 
 As of September 2024 a release takes between 75 and 90 minutes to complete, so
 start the release process earlier enough to hit the time you planned.
