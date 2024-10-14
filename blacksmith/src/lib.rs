@@ -128,6 +128,12 @@ impl Blacksmith {
 
         let latest_stable_version = &blacksmith.stable_version.clone().unwrap();
 
+        // We need to use a map to deduplicate entries and sort them in the correct order.
+        // There are multiple entries for stable 1.8.0, 1.14.0, 1.15.1, 1.49.0 in MANIFESTS_URL.
+        // Keys contain (minor_version, patch_version) and values contain (full_version, platforms).
+        let mut previous_stable_version_map: BTreeMap<(u32, u32), (String, Vec<String>)> =
+            BTreeMap::new();
+
         // Go over stable versions in https://static.rust-lang.org/manifests.txt in reverse order.
         let manifests_content = reqwest::blocking::get(MANIFESTS_URL)?.text()?;
         let stable_manifest_url_regex = regex::Regex::new(
@@ -140,13 +146,18 @@ impl Blacksmith {
 
             // Check if it's a stable version.
             if let Some(captures) = stable_manifest_url_regex.captures(&(manifest_url)) {
-                minor = captures.get(1).unwrap().as_str();
-                patch = captures.get(2).unwrap().as_str();
+                minor = captures.get(1).unwrap().as_str().parse::<u32>().unwrap();
+                patch = captures.get(2).unwrap().as_str().parse::<u32>().unwrap();
             } else {
                 continue;
             }
 
             let full_version = format!("1.{}.{}", minor, patch);
+
+            // Check if we already processed that version.
+            if previous_stable_version_map.contains_key(&(minor, patch)) {
+                continue;
+            }
 
             // Skip latest stable version.
             if &full_version == latest_stable_version {
@@ -169,6 +180,9 @@ impl Blacksmith {
 
             let version = rust.version.split(' ').next().unwrap().to_string();
 
+            // Sanity check.
+            assert_eq!(&full_version, &version);
+
             let platforms = rust
                 .target
                 .into_iter()
@@ -181,9 +195,13 @@ impl Blacksmith {
                 })
                 .collect::<Vec<_>>();
 
+            previous_stable_version_map.insert((minor, patch), (version, platforms));
+        }
+
+        for (_, (version, platforms)) in previous_stable_version_map.into_iter().rev() {
             blacksmith
                 .previous_stable_versions
-                .push((version.clone(), platforms));
+                .push((version, platforms));
         }
 
         blacksmith.last_update = unix_time();
