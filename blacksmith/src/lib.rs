@@ -198,6 +198,62 @@ impl Blacksmith {
             previous_stable_version_map.insert((minor, patch), (version, platforms));
         }
 
+        // There are no manifests for stable versions before 1.8.0,
+        // so we hardcode them instead.
+        // i686-pc-windows-msvc wasn't supported until version 1.3.0.
+        for minor in 3..8 {
+            previous_stable_version_map.insert(
+                (minor, 0),
+                (
+                    format!("1.{}.0", minor),
+                    Vec::from([
+                        "i686-apple-darwin".to_string(),
+                        "i686-pc-windows-gnu".to_string(),
+                        "i686-pc-windows-msvc".to_string(),
+                        "i686-unknown-linux-gnu".to_string(),
+                        "x86_64-apple-darwin".to_string(),
+                        "x86_64-pc-windows-gnu".to_string(),
+                        "x86_64-pc-windows-msvc".to_string(),
+                        "x86_64-unknown-linux-gnu".to_string(),
+                    ]),
+                ),
+            );
+        }
+
+        // x86_64-pc-windows-msvc wasn't supported until version 1.2.0.
+        previous_stable_version_map.insert(
+            (2, 0),
+            (
+                "1.2.0".to_string(),
+                Vec::from([
+                    "i686-apple-darwin".to_string(),
+                    "i686-pc-windows-gnu".to_string(),
+                    "i686-unknown-linux-gnu".to_string(),
+                    "x86_64-apple-darwin".to_string(),
+                    "x86_64-pc-windows-gnu".to_string(),
+                    "x86_64-pc-windows-msvc".to_string(),
+                    "x86_64-unknown-linux-gnu".to_string(),
+                ]),
+            ),
+        );
+
+        for minor in 0..2 {
+            previous_stable_version_map.insert(
+                (minor, 0),
+                (
+                    format!("1.{}.0", minor),
+                    Vec::from([
+                        "i686-apple-darwin".to_string(),
+                        "i686-pc-windows-gnu".to_string(),
+                        "i686-unknown-linux-gnu".to_string(),
+                        "x86_64-apple-darwin".to_string(),
+                        "x86_64-pc-windows-gnu".to_string(),
+                        "x86_64-unknown-linux-gnu".to_string(),
+                    ]),
+                ),
+            );
+        }
+
         for (_, (version, platforms)) in previous_stable_version_map.into_iter().rev() {
             blacksmith
                 .previous_stable_versions
