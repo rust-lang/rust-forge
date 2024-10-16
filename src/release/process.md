@@ -129,7 +129,7 @@ Send a PR to the master branch to:
   running this command:
 
   ```
-  rg '#!?\[.*\(bootstrap' -t rust
+  rg '#!?\[.*\(bootstrap' -t rust -t toml
   ```
 
   The general guidelines (both for `#[]` and `#![]`) are:
