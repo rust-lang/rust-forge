@@ -56,12 +56,15 @@ To see a list of all labels, check out the "labels" page next to the search bar 
 
 ### ICE Triage
 For [Issues that have both I-ICE and needs-triage](https://github.com/rust-lang/rust/issues?q=is%3Aissue%20state%3Aopen%20label%3AI-ICE%20label%3Aneeds-triage)
-* If it an older (like latest stable) version of rust, ask for or check the latest nightly (potentially check for duplicates)
+* Check that the issue is actually an ICE, and not more accuratly described with `I-crash` or `I-hang`.
+* If it is an older (like latest stable) version of rust, ask for or check the latest nightly.
+* Check for duplicates, but don't close as duplicate unless you're sure they represent the same underlying issue.
+  Prefer simply linking to the issue as possibly related/duplicate.
 * If it does not have a reproduction, comment asking for one and add S-needs-repro. if there isn't one for around a month it should generally be closed.
-* If the reproduction is not minimal, add `E-needs-mcve` or create a Minimal Complete and Verifyable Example yourself.
+* If the reproduction is not minimal, add `E-needs-mcve` or create a Minimal Complete and Verifible Example yourself.
 * Add `A-*` labels based on the code that causes the issue (check backtraces!),
   and the nature of the repro (eg. if the repro is a weird trait impl or the backtrace points to `rustc_trait_selection`, add `A-traits`)
-* Add `F-*`, `requires-*`, and `regression-*` labels as appropriate.
+* Add `T-*`, `WG-*`, `PG-*`, `F-*`, `requires-*`, and `regression-*` labels as appropriate.
 
 
 ## Further triaging
