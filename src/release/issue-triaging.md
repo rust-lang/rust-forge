@@ -80,10 +80,14 @@ There are many different labels that can be applied to issues.
 - [`PG-*`]: Specifies the project groups that this issue is relevant to, for example the `PG-exploit-mitigations`.
 - [`C-*`]: Specifies the category of the label, for example a bug, tracking issue or discussion
     - `A-diagnostics` issues usually don't have any `C-*` label.
-    - Also note `C-optimization` for missed compiler optimizations.
+    - `C-optimization` for missed compiler optimizations.
+    - `C-defective-hardware` for hardware bugs that are beyond our control.
+    - `C-external-bug` for software bugs that affect us but we don't have direct control over, but is worth tracking from our side.
 - [`O-*`]: For target-specific issues, specifies the compile target[^1] or compile target family (most notably the platform, i.e., the architecture or operating system). For example `O-macos`, `O-aarch64`, `O-windows`, `O-windows-msvc`.
 - [`A-*`]: The areas that the issue is relevant to, for example `A-linkage`, `A-patterns`, `A-diagnostics`.
 - [`L-*`]: When the issue concerns a specific lint.
+    - `L-false-positive` if the lint fires on a case that it should not have fired on.
+    - `L-false-negative` if the lint misses a case where it should have fired on.
 - [`F-*`]: When the issue concerns a specific (usually unstable, usually language) feature.
 - [`-Z*`]: When the issue concerns a specific unstable `-Z` compiler flag.
 - `requires-nightly`: This issue is not relevant to the stable compiler
@@ -91,6 +95,7 @@ There are many different labels that can be applied to issues.
     should be closed in accordance with compiler [MCP 620](https://github.com/rust-lang/compiler-team/issues/620).
 - [`regression-*`]: Labels for tracking issues that are regressions.
 - [`D-*`]: Labels for diagnostic issues.
+    - `D-diagnostic-infra`: This issue is about the diagnostics infrastructure itself.
 - [`I-*`]: Different labels about the nature[^2] of a bug. For example ICE, slow code, heavy code (binary size), crashes, unsoundness.
   There are also some other `I-*` labels that don't really fit into this. For triaging, focus on `I-ICE`, `I-crash`, `I-hang`, `I-slow`, `I-heavy`, `I-compiletime` and `I-unsound`.
 - [`P-*`]: Priority labels. Applied using the [compiler prioritization procedure](../compiler/prioritization.md).
@@ -99,6 +104,8 @@ There are many different labels that can be applied to issues.
     - `E-mentor`: A mentor is available to help with the issue, which makes for good first issues.
     - `E-needs-mcve`: This issue has a reproduction, but it is not minimal, it should be minimized.
     - `E-needs-bisection`: This issue needs a bisection, for example using [cargo-bisect-rustc](https://github.com/rust-lang/cargo-bisect-rustc).
+    - `E-needs-investigation`: This issue needs further investigation to determine root causes and the nature of the issue.
+    - `E-needs-design`: This issue will require some substantial design effort (exploration, prototyping, discussions, etc.).
     - `E-needs-test`: The issue has been fixed, but no test has been added for it. After someone adds a test, it can be closed.
     - `E-{easy,medium,hard}`: Someone has estimated how hard the issue is to fix. This can help with finding good first issues, but is [bound to be inaccurate](https://en.wikipedia.org/wiki/Curse_of_knowledge).
 
