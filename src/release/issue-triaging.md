@@ -67,9 +67,6 @@ Another useful thing to do is go through `E-needs-mcve` and `E-needs-bisection` 
 (using [cargo-bisect-rustc](`https://github.com/rust-lang/cargo-bisect-rustc`)). When you provide one, you can also remove the label
 using rustbot (`@rustbot label -E-needs-bisection`).
 
-At the time of writing, there is also the `needs-triage-legacy` label, for older issues that are suspected to not have been triaged.
-Triaging them the same way as `needs-triage` is also useful.
-
 ## Labels
 
 There are many different labels that can be applied to issues.
