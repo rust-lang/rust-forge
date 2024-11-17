@@ -200,7 +200,7 @@ the blog and internals with the new information.
   to setup your environment and how to authenticate with AWS the first time you
   execute it.
 
-[rust-lang/rust]: https://github.com/[rust-lang/rust]
+[rust-lang/rust]: https://github.com/rust-lang/rust
 [rust-lang/release-team]: https://github.com/rust-lang/release-team
 [ripgrep]: https://github.com/burntsushi/ripgrep
 [`promote-release`]: https://github.com/rust-lang/promote-release
