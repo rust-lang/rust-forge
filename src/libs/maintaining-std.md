@@ -277,7 +277,7 @@ struct OptionCell<T> {
 
 #### `mem::replace` and `mem::swap`
 
-Any value behind a `&mut` reference can be replaced with a new one using `mem::replace` or `mem::swap`, so code shouldn't assume any reachable mutable references can't have their internals changed by replacing.
+Any `Sized` value behind a `&mut` reference can be replaced with a new one using `mem::replace` or `mem::swap`, so code shouldn't assume any reachable mutable references can't have their internals changed by replacing.
 
 #### `mem::forget`
 

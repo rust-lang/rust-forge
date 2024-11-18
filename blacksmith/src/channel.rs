@@ -1,5 +1,5 @@
-use std::collections::BTreeMap;
 use serde::Deserialize;
+use std::collections::BTreeMap;
 
 #[derive(Deserialize)]
 pub struct Target {
@@ -21,4 +21,3 @@ pub struct Packages {
 pub struct Channel {
     pub pkg: Packages,
 }
-

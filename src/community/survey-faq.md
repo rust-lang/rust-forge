@@ -47,6 +47,7 @@ We expect to publish results from the survey within a month or two of the survey
 
 ## Where can I see the previous survey reports?
 
+- [State of Rust 2023](https://blog.rust-lang.org/2024/02/19/2023-Rust-Annual-Survey-2023-results.html)
 - [State of Rust 2022](https://blog.rust-lang.org/2023/08/07/Rust-Survey-2023-Results.html)
 - [State of Rust 2021](https://blog.rust-lang.org/2022/02/15/Rust-Survey-2021.html)
 - [State of Rust 2020](https://blog.rust-lang.org/2020/12/16/rust-survey-2020.html)

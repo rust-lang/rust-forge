@@ -20,6 +20,7 @@
   ecosystem
 - [S-waiting-on-bikeshed] - Waiting on the consensus over a minor detail
 - [S-waiting-on-perf] - Waiting on the results of a perf run
+- [S-waiting-on-ACP] - Waiting on API change proposal (ACP)
 - [S-blocked] - Waiting for another PR to be merged or for discussion to be
   resolved
 - [S-inactive] - Hasn't had activity in a while
@@ -40,10 +41,11 @@ not need a review yet.)
 [s-waiting-on-crater]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-crater+sort%3Aupdated-asc
 [s-waiting-on-bikeshed]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-bikeshed+sort%3Aupdated-asc
 [s-waiting-on-perf]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-perf+sort%3Aupdated-asc
+[s-waiting-on-acp]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-ACP+sort%3Aupdated-asc
 [s-blocked]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-blocked+sort%3Aupdated-asc
 [s-inactive]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-inactive+sort%3Aupdated-asc
 [s-experimental]: https://github.com/rust-lang/rust/pulls?q=is%3Apr+label%3AS-experimental+sort%3Aupdated-asc
-[no-status-tags]: https://github.com/rust-lang/rust/pulls?q=is%3Apr+is%3Aopen+-label%3AS-waiting-on-author+-label%3AS-waiting-on-review+-label%3AS-waiting-on-team+-label%3AS-waiting-on-bors+-label%3AS-waiting-on-crater+-label%3AS-waiting-on-bikeshed+-label%3AS-waiting-on-perf+-label%3AS-blocked+-label%3AS-inactive+-label%3AS-waiting-on-fcp+-label%3AS-experimental
+[no-status-tags]: https://github.com/rust-lang/rust/pulls?q=is%3Apr+is%3Aopen+-label%3AS-waiting-on-author+-label%3AS-waiting-on-review+-label%3AS-waiting-on-team+-label%3AS-waiting-on-bors+-label%3AS-waiting-on-crater+-label%3AS-waiting-on-bikeshed+-label%3AS-waiting-on-perf+-label%3AS-blocked+-label%3AS-inactive+-label%3AS-waiting-on-fcp+-label%3AS-waiting-on-ACP+-label%3AS-experimental
 [crater]: https://github.com/rust-lang-nursery/crater
 [bors]: https://github.com/rust-lang/homu
 

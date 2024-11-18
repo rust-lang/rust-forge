@@ -19,15 +19,22 @@ of its discussions.
 [`rust-secure-code`]: https://github.com/rust-secure-code
 [`rust-gamedev`]: https://github.com/rust-gamedev
 
-## Administration FAQ
+## rust-lang organization policy
 
-> Who administrates the `rust-lang` organisation?
+The following is the policy for management of the [`rust-lang`] organization.
 
-The infrastructure team is responsible for administrating the GitHub organization.
+### Access
 
-> How do I create a new repository under the `rust-lang` organisation, or make
-  changes that require `admin` level permissions?
+All access to the `rust-lang` GitHub organization is managed via the [`team` repository][team][^team-policy]. Teams that want to assign access levels, or create new repositories should open a Pull Request to that repository to request the change.
 
-New repositories may be created by submitting a PR to add the repository in the [Rust team database][teams].
+The [Infrastructure Team] is responsible for overall administration of the `rust-lang` GitHub organization. Selected members of the Infrastructure Team may be organization owners if their work requires it.
 
-[teams]: https://github.com/rust-lang/team
+All GitHub accounts used to interact with the Rust-Lang GitHub organization (owner or non-owner) must have [2FA] enabled. This is enforced by GitHub.
+
+Bot accounts controlled by the Infrastructure Team (such as the triagebot) can be granted any level of access required for them to work at the discretion of the Infrastructure Team.
+
+[^team-policy]: See [Team Maintenance](../infra/team-maintenance.md) for policy on how the team repo is managed.
+
+[Infrastructure Team]: https://github.com/rust-lang/infra-team/
+[team]: https://github.com/rust-lang/team
+[2FA]: https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa
