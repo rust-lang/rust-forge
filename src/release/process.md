@@ -146,6 +146,12 @@ Send a PR to the master branch to:
   they won't have to be removed. The easiest way to handle this is to change
   them anyway and let CI show you the failure.
 
+- Ensure there are no new warnings or Clippy lints affecting the codebase:
+
+  ```
+  ./x clippy ci
+  ```
+
 ## Release day (Thursday)
 
 Decide on a time to do the release. You are fully in charge of deciding when
