@@ -24,6 +24,7 @@
     - [Labeling](./triagebot/labeling.md)
     - [Major Changes](./triagebot/major-changes.md)
     - [Mentions](./triagebot/mentions.md)
+    - [Merge Conflicts](./triagebot/merge-conflicts.md)
     - [No Merge Policy](./triagebot/no-merge.md)
     - [Nominate](./triagebot/nominate.md)
     - [Note](./triagebot/note.md)
