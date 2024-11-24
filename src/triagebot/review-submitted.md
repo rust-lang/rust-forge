@@ -16,7 +16,7 @@ This feature is enabled on a repository by having a `[review-submitted]` table i
 # These labels are removed when a review is submitted.
 review_labels = ["S-waiting-on-review"]
 # This label is added when a review is submitted.
-reviewed_label = ["S-waiting-on-author"]
+reviewed_label = "S-waiting-on-author"
 ```
 
 ## Implementation
