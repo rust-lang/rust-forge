@@ -16,7 +16,7 @@ systems integrated with it.
 
 Pull requests to the repository are merged by the [team-repo-admins], who use these rules to merge PRs:
 
-### `people`, `teams`, and `repos` directories
+### `people` and `teams` directories
 
 If a change is related to an individual and does not expand permissions, then only the individual's approval is required. If the change has already been made outside of the team repo (e.g., GitHub username change) then it is considered implicitly approved. This non-exhaustively includes:
 
@@ -28,13 +28,28 @@ If a change will grant additional permissions, then a team lead needs to
 approve the change. Any team lead in the "parent team" chain may do so. This includes:
 
 * Adding new subteams under an existing team
-* Granting additional access (bors, dev-desktop access, etc.)
 * Changing other metadata (website descriptions, Zulip groups, etc.)
+
+### `repo` directory
+
+The `repo` directory differs slightly from the other directories in that it is
+not only used to manage access to repositories, but also configures them and
+manages their automation.
+
+The following changes must be approved and merged by a `team-repo-admin`:
+
 * Changing access to repositories owned by their team
   * For repositories ownership is not currently formally tracked. Until that is
     added, the team-repo-admins are expected to exercise their understanding of
     which team owns the repository, when in doubt asking for clarification and
     codifying in a comment in the relevant repository.
+
+On the other hand, changes to the configuration or automation of repositories
+may be approved and merged by `infra-admins`:
+
+* Changing the [general repository settings](https://github.com/rust-lang/team/blob/master/docs/toml-schema.md#general-repository-settings)
+  * This includes granting bots access to the repository.
+* Changing the [repository branch protections](https://github.com/rust-lang/team/blob/master/docs/toml-schema.md#repository-branch-protections)
 
 ### Source code changes
 
