@@ -21,11 +21,11 @@ implements diagnostic reports.
 
 **WARNING:** Transferring is a partially destructive command. For example, labels and milestones that don't exist in the target repository will be removed from the issue.
 
-The transfer command is limited to team members of the rust-lang org, and transfers can only happen to repositories in the rust-lang org.
+The transfer command is limited to team members of the rust-lang org, and transfers can only happen to repositories in the rust-lang org. Also, the destination repository must have triagebot enabled on it.
 
 ## Configuration
 
-The source repository must have an empty `transfer` table to enable transfers *from* that repository. Issues can be transferred to any repository in the rust-lang org.
+The source repository must have an empty `transfer` table to enable transfers *from* that repository. Issues can be transferred to any repository in the rust-lang org (that has triagebot enabled).
 
 ```toml
 [transfer]
