@@ -124,7 +124,7 @@ changes that affect cargo.
 
 Please direct technical conversation to the Zulip stream.
 
-The compiler-team repo issues are intended to be low traffic and used for procedural purposes. Note that to "second" a design or offer to review,  you should be someone who is familiar with the code, typically but not necessarily a compiler team member or contributor. 
+The compiler-team repo issues are intended to be low traffic and used for procedural purposes. Note that to "second" a design or offer to review, you should be someone who is familiar with the code, typically but not necessarily a compiler team member or contributor.
 
 * Announcing that you "second" or approve of the design.
 * Announcing that you would be able to review or mentor the work.
@@ -137,14 +137,14 @@ These types of procedural comments can be left on the issue (it's also good to l
 previous section. To facilitate a machine parsable scanning of the concerns please use the following syntax to formally
 register a concern:
 ```
-@rustbot concern reason-for-concern
+@rfcbot concern reason-for-concern
 
 <long description of the concern>
 ```
 
 And the following syntax to lift a concern when resolved:
 ```
-@rustbot resolve reason-for-concern
+@rfcbot resolve reason-for-concern
 ```
 
 ## Who decides whether a concern is unresolved?
