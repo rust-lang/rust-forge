@@ -1,0 +1,310 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Crate ownership policy - Rust Forge</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="Supplemental documentation for contributing to The Rust Programming Language">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Overview</a></li><li class="chapter-item expanded "><a href="../platforms/index.html">Platforms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../platforms/twitter.html">Twitter</a></li><li class="chapter-item expanded "><a href="../platforms/discord.html">Discord</a></li><li class="chapter-item expanded "><a href="../platforms/email.html">Email</a></li><li class="chapter-item expanded "><a href="../platforms/github.html">GitHub</a></li><li class="chapter-item expanded "><a href="../platforms/zulip.html">Zulip</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../platforms/zulip/moderation.html">Moderation</a></li></ol></li><li class="chapter-item expanded "><a href="../platforms/blogs.html">Blogs</a></li><li class="chapter-item expanded "><a href="../platforms/calendars.html">Calendars</a></li></ol></li><li class="chapter-item expanded "><a href="../triagebot/index.html">Triagebot</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../triagebot/agenda.html">Agenda Generator</a></li><li class="chapter-item expanded "><a href="../triagebot/issue-assignment.html">Issue Assignment</a></li><li class="chapter-item expanded "><a href="../triagebot/pr-assignment.html">PR Assignment</a></li><li class="chapter-item expanded "><a href="../triagebot/pr-assignment-tracking.html">Tracking PR assignment</a></li><li class="chapter-item expanded "><a href="../triagebot/autolabels.html">Autolabels</a></li><li class="chapter-item expanded "><a href="../triagebot/close.html">Close</a></li><li class="chapter-item expanded "><a href="../triagebot/doc-updates.html">Documentation Updates</a></li><li class="chapter-item expanded "><a href="../triagebot/github-releases.html">GitHub Releases</a></li><li class="chapter-item expanded "><a href="../triagebot/glacier.html">Glacier</a></li><li class="chapter-item expanded "><a href="../triagebot/transfer.html">Issue Transfer</a></li><li class="chapter-item expanded "><a href="../triagebot/labeling.html">Labeling</a></li><li class="chapter-item expanded "><a href="../triagebot/major-changes.html">Major Changes</a></li><li class="chapter-item expanded "><a href="../triagebot/mentions.html">Mentions</a></li><li class="chapter-item expanded "><a href="../triagebot/merge-conflicts.html">Merge Conflicts</a></li><li class="chapter-item expanded "><a href="../triagebot/no-merge.html">No Merge Policy</a></li><li class="chapter-item expanded "><a href="../triagebot/nominate.html">Nominate</a></li><li class="chapter-item expanded "><a href="../triagebot/note.html">Note</a></li><li class="chapter-item expanded "><a href="../triagebot/notifications.html">Notifications</a></li><li class="chapter-item expanded "><a href="../triagebot/pinging.html">Pinging</a></li><li class="chapter-item expanded "><a href="../triagebot/requesting-prioritization.html">Requesting Prioritization</a></li><li class="chapter-item expanded "><a href="../triagebot/review-submitted.html">Review Changes Requested</a></li><li class="chapter-item expanded "><a href="../triagebot/review-requested.html">Review Requested</a></li><li class="chapter-item expanded "><a href="../triagebot/rustc-commit-list.html">Rustc Commit Tracking</a></li><li class="chapter-item expanded "><a href="../triagebot/shortcuts.html">Shortcuts</a></li><li class="chapter-item expanded "><a href="../triagebot/triage-dashboard.html">Triagebot Dashboard</a></li><li class="chapter-item expanded "><a href="../triagebot/zulip-meeting.html">Zulip Meeting Management</a></li><li class="chapter-item expanded "><a href="../triagebot/zulip-notifications.html">Zulip Notifications</a></li><li class="chapter-item expanded "><a href="../triagebot/bot-pull-requests.html">GitHub Actions created PR open/closer</a></li></ol></li><li class="chapter-item expanded "><a href="../community/index.html">Community</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../community/survey-faq.html">State of Rust Survey FAQ</a></li></ol></li><li class="chapter-item expanded "><a href="../compiler/index.html">Compiler</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/cross-compilation/index.html">Cross Compilation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/cross-compilation/windows.html">Windows</a></li></ol></li><li class="chapter-item expanded "><a href="../compiler/cross-team-collaboration.html">Cross-team Collaboration</a></li><li class="chapter-item expanded "><a href="../compiler/reviews.html">Review policies</a></li><li class="chapter-item expanded "><a href="../compiler/new_option.html">So you want to add a new option to rustc?</a></li><li class="chapter-item expanded "><a href="../compiler/mcp.html">Major Change Proposals</a></li><li class="chapter-item expanded "><a href="../compiler/membership.html">Membership</a></li><li class="chapter-item expanded "><a href="../compiler/prioritization.html">Prioritization</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/prioritization/procedure.html">Procedure</a></li><li class="chapter-item expanded "><a href="../compiler/prioritization/priority-levels.html">Priority Levels</a></li></ol></li><li class="chapter-item expanded "><a href="../compiler/notification-groups.html">Notification groups</a></li><li class="chapter-item expanded "><a href="../compiler/triage-meeting.html">Triage Meeting</a></li><li class="chapter-item expanded "><a href="../compiler/steering-meeting.html">Steering Meeting</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../compiler/steering-meeting/submit.html">Submitting a proposal</a></li><li class="chapter-item expanded "><a href="../compiler/steering-meeting/how-to-run-planning.html">How to run the planning meeting</a></li><li class="chapter-item expanded "><a href="../compiler/steering-meeting/how-to-run-design.html">How to run a design meeting</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../crates-io/index.html">crates.io</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../crates-io/crate-removal.html">Crate removal</a></li><li class="chapter-item expanded "><a href="../crates-io/db-maintenance.html">Database maintenance</a></li></ol></li><li class="chapter-item expanded "><a href="../docs-rs/index.html">docs.rs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../docs-rs/add-dependencies.html">Adding dependencies to the build environment</a></li><li class="chapter-item expanded "><a href="../docs-rs/self-hosting.html">Self-hosting a docs.rs instance</a></li><li class="chapter-item expanded "><a href="../docs-rs/maintenance.html">Maintenance procedures</a></li></ol></li><li class="chapter-item expanded "><a href="../governance/index.html">Governance</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../governance/council.html">Leadership Council</a></li><li class="chapter-item expanded "><a href="../governance/moderation.html">Moderation</a></li></ol></li><li class="chapter-item expanded "><a href="../policies/index.html">Policies</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../policies/crate-ownership.html" class="active">Crate ownership policy</a></li></ol></li><li class="chapter-item expanded "><a href="../infra/index.html">Infrastructure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/other-installation-methods.html">Other Installation Methods</a></li><li class="chapter-item expanded "><a href="../infra/archive-stable-version-installers.html">Archive of Rust Stable Standalone Installers</a></li><li class="chapter-item expanded "><a href="../infra/channel-layout.html">Release Channel Layout</a></li><li class="chapter-item expanded "><a href="../infra/service-infrastructure.html">Service Infrastructure</a></li><li class="chapter-item expanded "><a href="../infra/team-maintenance.html">Team Maintenance</a></li><li class="chapter-item expanded "><a href="../infra/toolstate.html">The Toolstate System</a></li><li class="chapter-item expanded "><a href="../infra/policies/index.html">Policies</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/policies/broken-nightlies.html">Broken nightlies</a></li></ol></li><li class="chapter-item expanded "><a href="../infra/guidelines/index.html">Guidelines</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/guidelines/static-websites.html">Static websites</a></li></ol></li><li class="chapter-item expanded "><a href="../infra/docs/index.html">Documentation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra/docs/aws-access.html">AWS access for team members</a></li><li class="chapter-item expanded "><a href="../infra/docs/aws-access-management.html">AWS access management</a></li><li class="chapter-item expanded "><a href="../infra/docs/aws-regions.html">AWS regions</a></li><li class="chapter-item expanded "><a href="../infra/docs/bastion.html">Bastion server</a></li><li class="chapter-item expanded "><a href="../infra/docs/bors.html">Bors</a></li><li class="chapter-item expanded "><a href="../infra/docs/cdn.html">CDN</a></li><li class="chapter-item expanded "><a href="../infra/docs/crater-agents.html">Crater agents</a></li><li class="chapter-item expanded "><a href="../infra/docs/dev-desktop.html">Dev Desktops</a></li><li class="chapter-item expanded "><a href="../infra/docs/dev-desktop-github-app.html">GitHub App for dev-desktops</a></li><li class="chapter-item expanded "><a href="../infra/docs/discord-mods-bot.html">Discord moderation bot</a></li><li class="chapter-item expanded "><a href="../infra/docs/dns.html">Domain names and DNS</a></li><li class="chapter-item expanded "><a href="../infra/docs/docs-rs.html">docs.rs</a></li><li class="chapter-item expanded "><a href="../infra/docs/ecs-services.html">ECS services management</a></li><li class="chapter-item expanded "><a href="../infra/docs/monitoring.html">Monitoring</a></li><li class="chapter-item expanded "><a href="../infra/docs/rust-bots.html">rust-bots server</a></li><li class="chapter-item expanded "><a href="../infra/docs/rustc-ci.html">rust-lang/rust CI</a></li><li class="chapter-item expanded "><a href="../infra/docs/sentry.html">Sentry</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../lang/index.html">Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../lang/rfc-merge-procedure.html">RFC Merge Procedure</a></li><li class="chapter-item expanded "><a href="../lang/triage-meeting-procedure.html">Triage Meeting Procedure</a></li></ol></li><li class="chapter-item expanded "><a href="../libs/index.html">Libs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../libs/maintaining-std.html">Maintaining the standard library</a></li></ol></li><li class="chapter-item expanded "><a href="../release/index.html">Release</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../release/backporting.html">Backporting</a></li><li class="chapter-item expanded "><a href="../release/release-notes.html">Preparing Release Notes</a></li><li class="chapter-item expanded "><a href="../release/process.html">Release Process</a></li><li class="chapter-item expanded "><a href="../release/rollups.html">Rollup Procedure</a></li><li class="chapter-item expanded "><a href="../release/triage-procedure.html">Triage Procedure</a></li><li class="chapter-item expanded "><a href="../release/issue-triaging.html">Issue Triaging</a></li><li class="chapter-item expanded "><a href="../release/crater.html">Triaging Crater Runs</a></li></ol></li><li class="chapter-item expanded "><a href="../editions/edition-releases.html">Edition Releases</a></li><li class="chapter-item expanded "><a href="../archive/index.html">Archive</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../archive/fott.html">Friends of the Tree</a></li><li class="chapter-item expanded "><a href="../archive/release-history.html">Release History</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rust Forge</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/rust-forge" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/rust-forge/edit/master/src/policies/crate-ownership.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="rust-crate-ownership-policy"><a class="header" href="#rust-crate-ownership-policy">Rust crate ownership policy</a></h1>
+<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
+<p>This document covers the policy for crates published by the Rust project. This was initially adopted via <a href="https://github.com/rust-lang/rfcs/pull/3119">RFC 3119</a>.</p>
+<h2 id="categories"><a class="header" href="#categories">Categories</a></h2>
+<p>Rust crates published by the Rust project fall into one of the following categories:</p>
+<ul>
+<li><strong>Intentional artifacts</strong>: These are crates which are intentionally released by some team (usually libs), are actively maintained, are intended to be used by external users, and intentionally have an air of officialness. Example: <a href="https://crates.io/crates/libc">libc</a></li>
+<li><strong>Internal use</strong>: These are crates which are used by some “internal client”, like rustc, crates.io, docs.rs, etc. Their primary purpose is not to be used by external users, though the teams that maintain them (typically the teams of their internal client) may wish for the crate to have wider adoption. The line can be blurry between these and “intentional artifacts” and ultimately depends on the goals of the team. Example: <a href="https://crates.io/crates/conduit">conduit</a>, <a href="https://crates.io/crates/measureme">measureme</a>. There are two subcategories based on whether they are intended to ever show up as a transitive dependency:
+<ul>
+<li><strong>Transitively intentional</strong>: These are dependencies of intentional artifact libraries, and will show up in users’ dependency trees, even if they are not intended to be <em>directly</em> used. The Rust Project still needs to handle security issues in these crates <em>as if</em> they are “intentional artifacts”.</li>
+<li><strong>Not transitively intentional</strong>: These are dependencies of shipped binaries, CI tooling, the stdlib, or are otherwise not expected to show up in users’ dependency trees. The Rust Project may need to handle security issues in these crates <em>internally</em>, but does not necessarily need to message the wider public about security issues in these crates. If a security issue in one of these crates affects a published binary (or crates.io, etc), that will still need to be handled as a bug in the binary or website.</li>
+</ul>
+</li>
+<li><strong>Experiment</strong>: This was an experiment by a team, intended to be picked up by users to better inform API design (or whatever), without a long-term commitment to maintainership. Example: <a href="https://crates.io/crates/failure">failure</a></li>
+<li><strong>Deprecated</strong>: This used to be an “intentional artifact” (or experiment/internal use) but isn’t anymore. Example: <a href="https://crates.io/crates/rustc-serialize">rustc-serialize</a></li>
+<li><strong>Placeholder</strong>: Not a functional crate, used for holding on to the name of an official tool, etc. Example: <a href="https://crates.io/crates/rustup">rustup</a></li>
+<li><strong>Expatriated</strong>: This may have been an “intentional artifact”, and still is intended to be used by external users, but is no longer intended to be official. In such cases the crate is no longer owned/managed by the Rust project. Example: <a href="https://crates.io/crates/rand">rand</a></li>
+</ul>
+<h2 id="policy"><a class="header" href="#policy">Policy</a></h2>
+<p>Every crate in the organization must be owned by at least one team on crates.io. Teams should use <code>rust-lang/foo</code> teams for this. Non-expatriated crates may not have personal accounts as owners; if a crate needs additional owners that are not part of teams; the team should create a project group. Note that this does not forbid non-team (or project group) users from having maintainer access to the repository; it simply forbids them from <em>publishing</em>.</p>
+<p>Currently it is not possible for a crate to be owned by <em>only</em> a team; the <code>rust-lang-owner</code> account (or a similar account to be decided by the infra team) can be used as a stopgap in such cases. We should try to phase this account out as much as possible, in order to make sure it is clear who is responsible for each crate. For crates being auto-published, a <code>rust-lang/publish-bots</code> team (or individual bot accounts) can be used to allow bot accounts to publish crates.</p>
+<p>Each crate in the organization, and any future crates in the organization, must decide which to which category they belong in according to the above categorization. If you’re not sure what the category should be when registering a crate, or do not wish to make a decision just yet, pick “Experimental”.</p>
+<p>Each published crate must contain a README. At a minimum, this README must mention the primary owning team. Based on their categories, crates are also required to include the following information in their READMEs and documentation roots:</p>
+<h3 id="intentional-artifact"><a class="header" href="#intentional-artifact">Intentional artifact</a></h3>
+<p>“Intentional artifact” crates can choose their commitments but should be clear about what they are in their messaging. If and when a team has a charter, the crate should also be mentioned in the charter as an intentional artifact. Deprecating an intentional artifact should not be taken lightly and will require an RFC.</p>
+<p>An example of such messaging would be text like:</p>
+<blockquote>
+<p>This crate is maintained by The Rust [team] Team for use by the wider ecosystem. This crate is post-1.0 and follows <a href="https://doc.rust-lang.org/cargo/reference/semver.html">semver compatibility</a> for its APIs.</p>
+</blockquote>
+<p>Security issues in these crates should be handled with the appropriate weight and careful messaging by the Security Response WG, and should be reported <a href="https://www.rust-lang.org/policies/security">according to the project’s security policy</a>.</p>
+<h3 id="internal-use"><a class="header" href="#internal-use">Internal use</a></h3>
+<p>“Internal use” crates should contain the following text near the top of the readme/documentation:</p>
+<blockquote>
+<p>This crate is maintained by [team], primarily for use by [rust project(s)] and not intended for external use (except as a transitive dependency). This crate may make major changes to its APIs or be deprecated without warning.</p>
+</blockquote>
+<p>The “except as a transitive dependency” text should be included if the crate is a dependency of an intentional-artifact library (“transitively intentional”).</p>
+<p>Security issues in transitively intentional libraries should be handled as if they were intentional artifacts.</p>
+<h3 id="experiment"><a class="header" href="#experiment">Experiment</a></h3>
+<p>“Experiment” crates should mention they are experiments. Experiment crates may be intended to be used in a scoped sort of way; so if they are intended to be used they should be clear about what they are guaranteeing.</p>
+<p>An example of such messaging would be text like:</p>
+<blockquote>
+<p>This crate is maintained by [team] as a part of an experiment around [thingy]. We encourage people to try to use this crate in their projects and provide feedback through [method], but do not guarantee long term maintenance.</p>
+</blockquote>
+<p>or, for experiments that are not intended to be used at all:</p>
+<blockquote>
+<p>This crate is maintained by [team] and is an internal experiment. We do not guarantee stability or long term maintenance, use at your own risk.</p>
+</blockquote>
+<p>Ideally, experimental crates that are published for feedback purposes will have a document to link to that lists out the purpose, rough duration, and processes of the experiment.</p>
+<h3 id="deprecated"><a class="header" href="#deprecated">Deprecated</a></h3>
+<p>“Deprecated” crates should contain the following text near the top of the readme/documentation:</p>
+<blockquote>
+<p>This crate is deprecated and not intended to be used.</p>
+</blockquote>
+<h3 id="placeholder"><a class="header" href="#placeholder">Placeholder</a></h3>
+<p>“Placeholder” crates should contain the following text in their published readme/documentation:</p>
+<blockquote>
+<p>This crate is a functionally empty crate that exists to reserve the crate name of [tool]. It should not be used.</p>
+</blockquote>
+<p>In general it is better to have an empty placeholder crate published instead of reserving the crate via yanking, so that there is a readme that helps people understand why the crate is unavailable.</p>
+<h3 id="expatriated"><a class="header" href="#expatriated">Expatriated</a></h3>
+<p>It’s unclear if any action should be taken on these beyond removing any semblance of officialness (including rust-lang/foo team owners). We currently have only one such crate (<code>rand</code>).</p>
+<p>These should by and large not be considered to be “team managed” crates; this category is in this RFC for completeness to be able to talk about expatriation as an end state.</p>
+<h2 id="transitions-and-new-crates"><a class="header" href="#transitions-and-new-crates">Transitions and new crates</a></h2>
+<p>Teams should feel free to create new crates in any of these categories; however “Intentional Artifact” crates must be accompanied with an RFC. As we move towards having team charters, this can transition to being a charter change (which may require an RFC or use its own process). Teams should notify <a href="mailto:council@rust-lang.org">council@rust-lang.org</a> when they’ve created such crates so that the Leadership Council may track these crates and ensure this policy is applied.</p>
+<p>From time to time a team’s plan for a crate may change: experiments may conclude, crates may need to be deprecated, or the team may decide to release something for wider usage.</p>
+<p>In general, teams should notify <a href="mailto:council@rust-lang.org">council@rust-lang.org</a> when such a transition is being made.</p>
+<p>Any transition <em>away</em> from “Intentional Artifact” requires an RFC.</p>
+<p>Any transition to “Intentional Artifact” should ideally be accompanied by an RFC, and an update to the team charter if there is one.</p>
+<p>Expatriation should basically <em>never</em> occur anymore, but it also requires an RFC and Leadership Council approval in case it is really necessary. If a team wishes to stop working on a crate, they should deprecate it and encourage the community to fork it or build their own thing. The repository may be transferred out, however the <code>crates.io</code> name is kept by the Rust project and the new group of maintainers will need to pick a new crate name.</p>
+<p>If “transitively intentional” crates are being deprecated care should be taken to ensure security issues will still be handled.</p>
+<p>Transitions between the other types can be made at will since they explicitly and clearly state their lack of a strong stability/maintenance guarantee.</p>
+<h2 id="applying-this-to-existing-crates"><a class="header" href="#applying-this-to-existing-crates">Applying this to existing crates</a></h2>
+<p>An audit should be performed on all existing potentially “official” crates, collecting them in a list and roughly determining what their team and category should be.</p>
+<p>Once we have this list, we can approach teams with lists of crates and request that they verify that the categorization is accurate. In the case of some crates this might take some time as the team may need to work out what their intentions are with a particular crate.</p>
+<p>Then, working with the teams, we make these changes to their documentation. We also make sure all crates have the appropriate <code>rust-lang/teamname</code> github owner, and remove personal accounts from the owners list.</p>
+<p>For crates that are in direct use by a lot of the wider community, if we end up categorizing them as anything other than “intentional artifact”, there should be an attempt to announce this “change” to the community. While there was no formal commitment made in case of these crates, the vague sense of officialness may have made people believe there was, and we should at least try to rectify this so that people are not continually misled. Whether or not this needs to be done, and how, can be figured out by the individual teams.</p>
+<p>A large part of this work can be parallelized; and it does not need to occur all at once.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../policies/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../infra/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../policies/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../infra/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../js/moment.min.js"></script>
+        <script src="../js/index.js"></script>
+
+
+    </div>
+    </body>
+</html>
