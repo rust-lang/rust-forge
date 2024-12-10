@@ -45,7 +45,7 @@
     - [Cross Compilation](./compiler/cross-compilation/README.md)
         - [Windows](./compiler/cross-compilation/windows.md)
     - [Cross-team Collaboration](./compiler/cross-team-collaboration.md)
-    - [Review policies](./compiler/reviews.md)
+    - [Review policy](./compiler/reviews.md)
     - [So you want to add a new option to rustc?](./compiler/new_option.md)
     - [Major Change Proposals](./compiler/mcp.md)
     - [Membership](./compiler/membership.md)
