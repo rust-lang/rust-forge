@@ -145,6 +145,8 @@ depending on the concrete case:
   `#t-compiler/private` to ask the rest of the team -- for someone who might be
   able to review it, or even if the team is comfortable with accepting the
   change at all.
+- If the change is intended for another team, roll a reviewer from the relevant
+  team.
 
 You can also always ask for help on the `#t-compiler` Zulip stream for finding a
 reviewer. That being said, you are always welcome to do an initial review (to
@@ -259,6 +261,48 @@ understanding.
 Reviewers should ask PR authors to add this kind of information as comments in
 the code and/or to the PR message (which will become part of the git commit
 history).
+
+### PR makes a change to support use of rustc internals for external projects
+
+This will need to be determined on a case-by-case basis.
+
+In general, we should allow changes making things public, cleaning up things or
+making them more general, as long as the owners of the compiler region agree (so
+just assign to them).
+
+As a concrete example: if someone is using the mir interpreter, and they want to
+make something public, it is likely not a problem, but there are some functions
+that are module- or crate-private on purpose, as they uphold invariants within
+the mir interpreter. So basically, just assign such PRs to the relevant people
+(usually they get pinged anyway due to having told highfive that they want to
+get pinged on changes to these parts).
+
+Require a doc comment on such APIs identifying which external consumers the API
+concerns, and for what kinds of purpose.
+
+If this is possibly contentious, ask for an [mcp].
+
+Note that this can non-obviously bound supposedly-internal compiler APIs to
+external consumers. Convey to the external consumers (that are not `rust-lang/`
+projects) that we can offer the convenience so as long as it does not impose
+significant maintenance burden on the compiler, e.g. gets in the way of
+refactorings, and no hard stability guarantees are promised.
+
+### The PR is very large and complicated
+
+Reviewers are **not** expected to stomach PRs that are very large and
+complicated. Bring the PR to the attention of the team (through zulip threads
+and/or nominate for compiler triage meeting), and the team can decide if:
+
+- The team can find suitable reviewers who can aid the PR author to break up the
+  large change into smaller logical PRs that are possible to review on their
+  own, but also in the context of the larger change.
+- The team does not have the bandwidth, or team members are is not ready or
+  willing or able to accept the large change as-is. In such cases, the team
+  should make a decision to postpone or close, and clearly communicate the
+  decision to the PR author to explain the reasoning. It is very frustrating if
+  a PR stalls for many months only for it to be rejected anyway.
+
 
 [mcp]: https://forge.rust-lang.org/compiler/mcp.html
 [whats-a-major-change]:
@@ -531,4 +575,21 @@ require re-review. It is very helpful for the reviewer if the PR author can
 produce a brief summary of what has changed since last review, in addition to
 responding to individual review comments.
 
+## Social aspects of reviewing
+
+First and foremost, PR authors and compiler reviews alike are expected to uphold
+the [Code of Conduct][coc]. Simply speaking, a reviewer is expected to be
+respectful to the PR author, even if the reviewer disagrees with the changes.
+
+Reviewers are encouraged to consider matters from the perspectives of the PR
+author too. If a change is stuck due to procedural reasons or reviewer bandwidth
+for months without any resolution (including a resolution that the compiler
+might not be ready to accept such a change at present time, but thank the PR
+author for the contributions anyway), and accrues constant merge conflicts, it
+can be very frustrating.
+
+If some discussions are getting heated, ask the [moderation
+team](https://www.rust-lang.org/governance/teams/moderation) to step in.
+
+[coc]: https://www.rust-lang.org/policies/code-of-conduct
 [rollup]: ../release/rollups.md
