@@ -87,7 +87,7 @@ bring PRs into good shape and meet the above criteria:
 >    * **Links to relevant issues**, RFCs, MCPs, etc?
 > * Does the PR need a **regression test**? Does the PR have **sufficient test
 >   coverage**?
-> * Does the change need to be covered by a **major change proposal ([MCP])**? Is
+> * Does the change need to be covered by a **Major Change Proposal ([MCP])**? Is
 >   it already covered? If there is already a MCP open, was it already accepted,
 >   or is the PR blocked on that?
 > * Does the PR need a **perf run**?
