@@ -575,6 +575,8 @@ require re-review. It is very helpful for the reviewer if the PR author can
 produce a brief summary of what has changed since last review, in addition to
 responding to individual review comments.
 
+Please refer to [bors documentation for bot usage](../infra/docs/bors.md).
+
 ## Social aspects of reviewing
 
 First and foremost, PR authors and compiler reviews alike are expected to uphold
