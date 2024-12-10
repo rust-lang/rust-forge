@@ -107,6 +107,19 @@ contributing_url = "https://rustc-dev-guide.rust-lang.org/contributing.html"
 
 Additionally, triagebot will post a comment with a warning if the PR modifies any submodules.
 
+#### Exceptions to default branch warning
+
+Some PRs may have a different default branch than the rest of the PRs, in these cases it is possible to add exceptions based on the PR title, which will therefore warn if the PR is targeting a different branch than specified.
+
+```toml
+[assign]
+warn_non_default_branch.enable = true
+
+[[assign.warn_non_default_branch.exceptions]]
+title = "[beta" # title contains "[beta" in it
+branch = "beta"
+```
+
 ## Implementation
 
 See [`parser/src/command/assign.rs`](https://github.com/rust-lang/triagebot/blob/HEAD/parser/src/command/assign.rs) and [`src/handlers/assign.rs`](https://github.com/rust-lang/triagebot/blob/HEAD/src/handlers/assign.rs).
