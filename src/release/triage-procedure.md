@@ -138,7 +138,7 @@ If a topic does not exist, you can generate its title with the following `bash`
 one-liner (requires GNU date):
 
 ```bash
-echo "$(date -I --date="$([ "z$(date +%a)" = "zMon" ] && echo 'today' || echo 'last monday')") to $(date -I --date="$([ "z$(date +%a)" = "zSun" ] && echo 'today' || echo 'next sunday')")"`
+echo "$(date -I --date="$([ "z$(date +%a)" = "zMon" ] && echo 'today' || echo 'last monday')") to $(date -I --date="$([ "z$(date +%a)" = "zSun" ] && echo 'today' || echo 'next sunday')")"
 ```
 
 #### Avoiding duplicate work
