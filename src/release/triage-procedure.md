@@ -131,4 +131,18 @@ each PR:
    reviewer commented).
 
 Once you are done triaging PRs, post your report in the topic for the current
-week's triage in the `#t-release/triage` Zulip stream.
+week's triage in the `#t-release/triage` Zulip stream. the topic should have a
+name like `YYYY-MM-DD to YYYY-MM-DD`. Note that this uses a monday-sunday week.
+
+If a topic does not exist, you can generate its title with the following `bash`
+one-liner (requires GNU date):
+
+```bash
+echo "$(date -I --date="$([ "z$(date +%a)" = "zMon" ] && echo 'today' || echo 'last monday')") to $(date -I --date="$([ "z$(date +%a)" = "zSun" ] && echo 'today' || echo 'next sunday')")"
+```
+
+#### Avoiding duplicate work
+
+Since triaging is sometimes done by looking at oldest issues first, re-applying
+one of the `S-*` labels will update an issue/PR's last-modified timestamp,
+signaling to other triagers that it has already been taken care of.
