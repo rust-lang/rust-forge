@@ -144,5 +144,5 @@ echo "$(date -I --date="$([ "z$(date +%a)" = "zMon" ] && echo 'today' || echo 'l
 #### Avoiding duplicate work
 
 Since triaging is sometimes done by looking at oldest issues first, re-applying
-the one of the `S-*` labels will update an issue/PR's last-modified timestamp,
+one of the `S-*` labels will update an issue/PR's last-modified timestamp,
 signaling to other triagers that it has already been taken care of.
