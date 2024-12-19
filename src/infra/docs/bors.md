@@ -12,10 +12,10 @@ from the [rust-lang/homu] repository onto our [ECS cluster][ecs].
 ### Fixing inconsistencies in the queue
 
 Homu is quite buggy, and it might happen that the queue doesn't reflect the
-actual state in the repositories. This can be fixed by pressing the
-"Synchronize" button in the queue page. Note that the synchronization process
-itself is a bit buggy, and it might happen that PRs which were approved but
-failed are re-approved again on their own.
+actual state in the repositories.
+
+See [Fixing inconsistencies in the bors queue](./bors/queue-resync.md) for
+instructions on how to do this properly.
 
 ### Adding a new repository to bors
 
