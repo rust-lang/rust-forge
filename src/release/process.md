@@ -13,7 +13,7 @@ The first time you run the script (or when the pre-requisites change), you will
 need to invoke the script *multiple times* until everything is setup correctly.
 
 `start-release.py` will always start a CI job in the background. To know when
-it finishes, you have to watch the logs. WHen the build finishes, a line like
+it finishes, you have to watch the logs. When the build finishes, a line like
 this will appear in the logs:
 
 ```
