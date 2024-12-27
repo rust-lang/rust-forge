@@ -1,6 +1,14 @@
 Review Policy
 =============
 
+This document describes our review policy for contributions to the Rust
+compiler. Its intended audience are contributors and reviewers as well.
+
+The purpose of this policy is to help contributors shape pull requests that
+are easier to review - by clarifying the Rust project expectations - and for
+reviewers as well - by having a handy list of common things to check. The
+project will benefit if both parties have clear how to work together.
+
 It is the purpose of code reviews to:
 
 - **Reduce** the risk of introducing **bugs** and usability and performance
@@ -43,9 +51,10 @@ be effective:
     for answering this question.
   - Procedure wise, the reviewer also needs to decide:
     - Can the reviewer make the decision alone?
-    - Does the PR needs to go through the [Major Change Process][mcp], or does
-      it need a T-compiler [Final Comment Period][fcp] sign-off, or does it need
-      a full [Request For Comments (RFC)][rfc]?
+    - Does the PR needs to go through the [Major Change Process][MCP], or does
+      it need a T-compiler Final Comment Period sign-off (a buffer of time to
+      allow last comments or concerns before an official approval), or does it
+      need a full [Request For Comments (RFC)][rfc]?
     - Does the PR need reviews and/or sign-off from other teams, particularly
       T-lang?
     - Can the changes break stable code or begin accepting new code that we do
@@ -78,7 +87,7 @@ bring PRs into good shape and meet the above criteria:
 >    * **Links to relevant issues**, RFCs, MCPs, etc?
 > * Does the PR need a **regression test**? Does the PR have **sufficient test
 >   coverage**?
-> * Does the change need to be covered by a **[major change proposal][mcp]**? Is
+> * Does the change need to be covered by a **major change proposal ([MCP])**? Is
 >   it already covered? If there is already a MCP open, was it already accepted,
 >   or is the PR blocked on that?
 > * Does the PR need a **perf run**?
@@ -146,7 +155,7 @@ depending on the concrete case:
   able to review it, or even if the team is comfortable with accepting the
   change at all.
 - If the change is intended for another team, roll a reviewer from the relevant
-  team.
+  team (example `r? compiler`)
 
 You can also always ask for help on the `#t-compiler` Zulip stream for finding a
 reviewer. That being said, you are always welcome to do an initial review (to
@@ -157,7 +166,7 @@ understanding of diverse areas in the compiler.
 
 ### It is unclear if something constitutes a major change
 
-Deciding if something is a "major change" requiring an [MCP][mcp] is not always
+Deciding if something is a "major change" requiring an [MCP] is not always
 straightforward. The official guidelines are [here][whats-a-major-change]. When
 in doubt, err on side of treating something as a major change. You can also
 nominate the PR for discussion in the compiler team's triage meeting by tagging
@@ -216,7 +225,7 @@ discussed and cleared up? Then you are in the clear.
 If you are in doubt if something is contentious, give a heads up to
 `@rust-lang/compiler` and ask for another opinion. If the proposed change is
 large and/or potentially has a big impact, you can discuss in a `#t-compiler`
-zulip topic, and/or create a [Major Change Proposal][mcp].
+zulip topic, and/or create a [Major Change Proposal][MCP].
 
 ### Reviewing and Mentoring
 
@@ -246,7 +255,7 @@ and blindspots a mentor might have.
 Sometimes there is a bug in some code that nobody understands anymore. The
 original authors are unavailable and it is hard to gauge the implications of a
 proposed fix. In such a case it is a good idea for reviewers to
-`I-compiler-nominate` the PR (if they intend to stay the main reviewer) or
+`I-compiler-nominated` the PR (if they intend to stay the main reviewer) or
 assign a compiler team lead to the issue and add the `S-waiting-on-team` label.
 
 In both cases, the PR will be brought in the weekly triage meeting. It is also
@@ -280,7 +289,7 @@ get pinged on changes to these parts).
 Require a doc comment on such APIs identifying which external consumers the API
 concerns, and for what kinds of purpose.
 
-If this is possibly contentious, ask for an [mcp].
+If this is possibly contentious, ask for an [MCP].
 
 Note that this can non-obviously bound supposedly-internal compiler APIs to
 external consumers. Convey to the external consumers (that are not `rust-lang/`
@@ -291,7 +300,14 @@ refactorings, and no hard stability guarantees are promised.
 ### The PR is very large and complicated
 
 Reviewers are **not** expected to stomach PRs that are very large and
-complicated. Bring the PR to the attention of the team (through zulip threads
+complicated. It is expected from contributors to split their work to make a
+review feasable, for example a series of more digestible PRs which are
+individually more logically self-contained. In general, before submitting large
+impact changes, it is expected the contributor to have discussed the design
+previously with the relevant team(s) so it is contributor's duty to reference
+such discussions.
+
+When in doubt, bring the PR to the attention of the team (through zulip threads
 and/or nominate for compiler triage meeting), and the team can decide if:
 
 - The team can find suitable reviewers who can aid the PR author to break up the
@@ -304,7 +320,7 @@ and/or nominate for compiler triage meeting), and the team can decide if:
   a PR stalls for many months only for it to be rejected anyway.
 
 
-[mcp]: https://forge.rust-lang.org/compiler/mcp.html
+[MCP]: https://forge.rust-lang.org/compiler/mcp.html
 [whats-a-major-change]:
     https://forge.rust-lang.org/compiler/mcp.html#what-constitutes-a-major-change
 
