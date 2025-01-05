@@ -1,125 +1,180 @@
 # Issue triaging
 
-This page is about the `rust-lang/rust` repository. Other repositories may have different processes.
+This page is about the [`rust-lang/rust`] repository. Other repositories under the `rust-lang` GitHub organization likely have different processes.
 
-Tracking issues (label `C-tracking-issue`) don't fit into this procedure and are treated differently.
+Tracking issues (issues labeled `C-tracking-issue`) don't fit into this procedure and are treated differently.
 
 ## Motivation
 
-The `rust-lang/rust` repository has thousands of issues and hundreds of people working on it.
-It is impossible for all people to check and solve issues. The goals of triaging are connecting
-issues to the relevant people, and helping them be more effective at fixing the issue.
+The [`rust-lang/rust`] repository has thousands of issues and hundreds of people working on it. It is impossible for all people to check and solve issues. The goals of triaging are to:
 
-In practice, it is unrealistic for all issues to be solved quickly and found by right people.
-Through applications of labels we make the issue tracker more searchable for future reference,
-so that people in the future have an easier time finding related issues or issues they are interested
-in working on.
+- Improve **discoverability**:
+    - Categorize which teams an issue may concern.
+    - Make sure regressions are properly tagged and tracked.
+    - Connect issues to the relevant people (especially relevant teams).
+- First-pass **coarse classification** of the issue nature:
+    - Is this issue a bug, or is this discussion, or is this a user-side problem?
+- Identify if the issue is **sufficiently actionable**:
+    - Does the report need further info, like reproduction steps, a reproducer, or build/execution environment info?
+    - Does the reproducer need minimization?
+- Make it easier for contributors to **filter** issues by applying suitable labels.
 
-Triaging can be done by **everyone**, no matter your permissions. We encourage everyone to help here,
-as triaging work is highly parallelizable and easy to get started with.
+In practice, it is unrealistic for all issues to be solved quickly and found by right people. Through applications of labels we make the issue tracker more searchable for future reference, so that people in the future have an easier time finding related issues or issues they are interested in working on.
+
+Triaging can be done by **everyone**, no matter if you have write access to [`rust-lang/rust`] or not. We encourage everyone to help here, as triaging work is highly parallelizable and easy to get started with.
+
+Some actions that require write access to [`rust-lang/rust`] include:
+
+- Using `@rustbot transfer` to transfer the issue to another repository under `rust-lang` GitHub organization.
+- Closing the issue.
+- Using `@rustbot` to apply certain labels that require write access (see "Applying and removing labels" section below).
+
+If you don't have write access but you assess that these actions should be done, you can just open a new topic in [`t-release/triage`] zulip channel, or add a comment linking to the issue in an existing topic in the [`t-release/triage`] channel.
 
 ## Initial triaging
 
-When an issue is opened, it gets the `needs-triage` label. This ensures that every issue gets an initial
-look and that no issue is ignored, or that when it is ignored, it is at least visibly ignored by still having the label.
+When an issue is opened, it usually receives the `needs-triage` label automatically. This is done so that untriaged issues are easily discovered and are filterable, to make sure that new issues receive an initial triaging pass (describe below). `needs-triage` is an *initial* checkpoint. The effort needed to get an issue past the label should be small.
 
-`needs-triage` is an initial checkpoint. The effort needed to get an issue past the label should be small.
-
-To do the initial triage and remove the `needs-triage` label, the following conditions should be fulfilled/considered.
-It's okay if not all of these are always considered; treat it as a guideline, not a hard checklist. It is also not exhaustive.
+To do the initial triage and remove the `needs-triage` label, the following conditions should be fulfilled/considered. It's okay if not all of these are always considered. Treat this non-exhaustive list as a guideline, not a hard checklist:
 
 - The issue should make sense, that is, it should present a problem.
-    - For example, if an issue is a question about Rust in general, the issue should be closed and the user redirected to URLO/Discord.
-      You can of course answer the question too :) (but make sure to mention that the user should go to [URLO]/[Discord] next time).
-- Add appropriate labels ([Labels](#labels))
-    - Specifically, `T-*` and `C-*` are the most relevant
-- If the issue contains no reproduction but needs one (when in doubt, it needs one), ask for one and add the `S-needs-repro` label
-- The issue tracker is the wrong place for some kinds of feature requests. Suggest the author where they can get support.
+    - For example, if an issue is a question about Rust in general, the issue should be closed and the user redirected to [URLO]/[Discord]. You can, of course, answer the question too, but make sure to mention that the user should go to [URLO]/[Discord] next time.
+- Check if this issue is a duplicate of earlier-reported issues.
+    - If you are certain this is a duplicate, close this issue as a duplicate of the earlier issue. Make sure this is obvious in the backlink of the earlier issue, or explicitly link to the duplicate issue.
+    - If you are not sure, you can still leave a comment to indicate the other issue is possibly a duplicate, similar, or related.
+- Add appropriate labels ([Labels](#labels)).
+    - Specifically, team labels (`T-*`) and issue category labels (`C-*`) are the most important, because team members will usually rely on those as a baseline to filter what concerns the team (e.g. during triage meetings).
+- If the issue contains no reproduction but needs one (when in doubt, it needs one), ask for one and add the `S-needs-repro` label.
+- If the issue lacks information (e.g. system information, the exact invocation used), then request that the reporter provide the information that is important to reproduce the problem. Add the `S-needs-info` label.
+- The issue tracker is the wrong place for some kinds of feature requests. Redirect the author to proper channels:
     - Standard library API requests should follow [libs-api processes](https://std-dev-guide.rust-lang.org/development/feature-lifecycle.html).
-    - Language changes should be redirected to [IRLO] or Zulip ([t-lang](https://rust-lang.zulipchat.com/#narrow/stream/213817-t-lang)).
-- If the issue could benefit from bisecting the regression (when in doubt, it can), add `E-needs-bisection` (or do the bisection yourself)
-- Does this issue require nightly? Add `requires-nightly`.
-- Is the issue a regression? Apply the `regression-untriaged` label (or figure out what regression it is exactly)
+    - Language changes should be redirected to [IRLO] or T-lang zulip channel ([t-lang](https://rust-lang.zulipchat.com/#narrow/stream/213817-t-lang)).
+- If the issue could benefit from bisecting the regression (when in doubt, it can), add `E-needs-bisection` (or do the bisection yourself). An useful bisection tool is [`cargo-bisect-rustc`].
+    - If there is a bisection and the bisection outcome is convincing, add `S-has-bisection`.
+- If the reported example is large and/or complex (e.g. a lot of code, has a lot of external dependencies, has unrelated warnings or errors that obfuscates the actual problem), add `E-needs-mcve` to indicate the need to minimize the example.
+    - If there is a Minimal, Complete and Verifiable Example (MCVE), then tag the issue with `S-has-mcve`. Double-check that the minimization is valid, e.g. the MCVE is for the original problem and has not drifted to a different problem.
+- Is the issue a regression? If so, apply the `regression-untriaged` label (or figure out what regression it is exactly). Generally speaking, an issue is considered a regression if something used to work, but no longer does.
 - If you happen to know people who this issue is relevant to, ping them.
     - For example, write `cc @ThatPerson` if `ThatPerson` has been working a lot on the feature in question recently.
+- Does this issue require nightly? Add `requires-nightly`.
 - Does this issue require incomplete or internal features? Add `requires-{incomplete,internal}-features`.
 
-For applying and removing labels, unprivileged users can use **@rustbot** to add or remove
-[the labels allowed by the `triagebot.toml` configuration](https://github.com/rust-lang/rust/blob/master/triagebot.toml).
-For example, `@rustbot label +T-compiler +C-bug +A-linkage +O-macos -needs-triage`.
+### Applying and removing labels
+
+Users without write access to [`rust-lang/rust`] can use **@rustbot** to add or remove [the labels allowed by the `triagebot.toml` configuration](https://github.com/rust-lang/rust/blob/master/triagebot.toml) as a workaround.
+
+Users with write access should change the labels directly to avoid sending a notification to everyone subscribed to the issue unnecessarily.
+
+For example:
+
+```
+@rustbot label +T-compiler +C-bug +A-linkage +O-macos -needs-triage
+```
 
 To see a list of all labels, check out the "labels" page next to the search bar in the issue tracker.
 
-[URLO]: https://users.rust-lang.org
-[IRLO]: https://internals.rust-lang.org/
-[Discord]: https://discord.gg/rust-lang
+Note that some labels may only be applied by users with write access to [`rust-lang/rust`]. Refer to the `allow-unauthenticated` list under `[relabel]` section in [`triagebot.toml`](https://github.com/rust-lang/rust/blob/master/triagebot.toml) to see what labels users without write access may use.
 
-### ICE Triage
-For [Issues that have both I-ICE and needs-triage](https://github.com/rust-lang/rust/issues?q=is%3Aissue%20state%3Aopen%20label%3AI-ICE%20label%3Aneeds-triage)
-* Check that the issue is actually an ICE, and not more accuratly described with `I-crash` or `I-hang`.
-* If it is an older (like latest stable) version of rust, ask for or check the latest nightly.
-* Check for duplicates, but don't close as duplicate unless you're sure they represent the same underlying issue.
-  Prefer simply linking to the issue as possibly related/duplicate.
-* If it does not have a reproduction, comment asking for one and add S-needs-repro. if there isn't one for around a month it should generally be closed.
-* If the reproduction is not minimal, add `E-needs-mcve` or create a Minimal Complete and Verifible Example yourself.
-* Add `A-*` labels based on the code that causes the issue (check backtraces!),
-  and the nature of the repro (eg. if the repro is a weird trait impl or the backtrace points to `rustc_trait_selection`, add `A-traits`)
-* Add `T-*`, `WG-*`, `PG-*`, `F-*`, `requires-*`, and `regression-*` labels as appropriate.
-
-
-## Further triaging
-
-For issues that have been through the initial triaging step (that is, don't have the `needs-triage` label anymore), there are usually
-still things that can be improved. There are often many more labels that could be applied (using rustbot again if you don't have privileges).
-
-Additionally, old (there is no clear definition of old yet, but something on the order of months) `S-needs-repro` issues can be closed
-if there is no way to make progress without a reproduction. This requires privileges, but if you don't have them, you can just link the issue
-on Zulip (for example in `t-release/triage` or `general`) and someone with privileges can close it for you.
-
-Another useful thing to do is go through `E-needs-mcve` and `E-needs-bisection` issues and creating minimizations or bisecting the issue
-(using [cargo-bisect-rustc](`https://github.com/rust-lang/cargo-bisect-rustc`)). When you provide one, you can also remove the label
-using rustbot (`@rustbot label -E-needs-bisection`).
-
-## Labels
+### Labels
 
 There are many different labels that can be applied to issues.
 
-- `needs-triage`: Signals that an issue is new and needs initial triage
+- `needs-triage`: Signals that an issue is new and needs initial triage.
 - [`T-*`]: Specifies the team or teams that this issue is relevant to. For example `T-compiler`, `T-types` or `T-libs`.
 - [`WG-*`]: Specifies the working groups that this issue is relevant to, for example `WG-debugging`.
 - [`PG-*`]: Specifies the project groups that this issue is relevant to, for example the `PG-exploit-mitigations`.
-- [`C-*`]: Specifies the category of the label, for example a bug, tracking issue or discussion
-    - `A-diagnostics` issues usually don't have any `C-*` label.
-    - `C-optimization` for missed compiler optimizations.
-    - `C-defective-hardware` for hardware bugs that are beyond our control.
-    - `C-external-bug` for software bugs that affect us but we don't have direct control over, but is worth tracking from our side.
+- [`C-*`]: Specifies the category of the label, for example a bug, tracking issue or discussion.
+    - `C-optimization`: For missed compiler optimizations.
+    - `C-defective-hardware`: For hardware bugs that are beyond our control.
+    - `C-gub`: If the problem is due to user error, e.g. undefined behavior.
+    - `C-discussion`: Not a bug, but still worth discussing.
+    - `C-external-bug`: For software bugs that affect us but we don't have direct control over, but is worth tracking from our side.
 - [`O-*`]: For target-specific issues, specifies the compile target[^1] or compile target family (most notably the platform, i.e., the architecture or operating system). For example `O-macos`, `O-aarch64`, `O-windows`, `O-windows-msvc`.
-- [`A-*`]: The areas that the issue is relevant to, for example `A-linkage`, `A-patterns`, `A-diagnostics`.
-- [`L-*`]: When the issue concerns a specific lint.
-    - `L-false-positive` if the lint fires on a case that it should not have fired on.
-    - `L-false-negative` if the lint misses a case where it should have fired on.
-- [`F-*`]: When the issue concerns a specific (usually unstable, usually language) feature.
-- [`-Z*`]: When the issue concerns a specific unstable `-Z` compiler flag.
-- `requires-nightly`: This issue is not relevant to the stable compiler
-- `requires-{incomplete,internal}-features`: This issue requires an incomplete or internal feature. The latter often means that the issue
-    should be closed in accordance with compiler [MCP 620](https://github.com/rust-lang/compiler-team/issues/620).
-- [`regression-*`]: Labels for tracking issues that are regressions.
+    - Where possible, specify the most specific target-category. For instance, if an issue affects `*-windows-gnu` but not `*-windows-msvc`, prefer `O-windows-gnu` over the generic `O-windows`.
+- [`A-*`]: The areas that the issue is relevant to, for example `A-linkage`, `A-patterns` or `A-diagnostics`. This is particularly helpful for filtering issues.
+    - `A-diagnostics`: Issues created from the diagnostics issue template only have `A-diagnostics` and not `C-bug`.
 - [`D-*`]: Labels for diagnostic issues.
     - `D-diagnostic-infra`: This issue is about the diagnostics infrastructure itself.
-- [`I-*`]: Different labels about the nature[^2] of a bug. For example ICE, slow code, heavy code (binary size), crashes, unsoundness.
-  There are also some other `I-*` labels that don't really fit into this. For triaging, focus on `I-ICE`, `I-crash`, `I-hang`, `I-slow`, `I-heavy`, `I-compiletime` and `I-unsound`.
+- [`L-*`]: When the issue concerns a specific lint.
+    - `L-false-positive` if the lint fires on a case that it should not have fired on.
+    - `L-false-negative` if the lint misses a case where it should have fired.
+- [`F-*`]: When the issue concerns a specific (usually unstable, usually language) feature.
+- [`-Z*`]: When the issue concerns a specific unstable `-Z` compiler flag.
+- `requires-nightly`: This issue only affects the nightly channel compiler, and does not affect the beta or stable channel compiler.
+- `requires-{incomplete,internal}-features`: This issue requires an incomplete or internal feature. The latter often means that the issue should be closed in accordance with compiler [MCP 620](https://github.com/rust-lang/compiler-team/issues/620).
+- [`regression-*`]: Labels for tracking issues that are regressions.
+    - `regression-untriaged`: The nature and kind of regression is unclear; indicates further regression triage is necessary.
+    - `regression-from-stable-to-stable`: Something that regressed from an older stable release, which has already reached the latest stable release or even earlier stable releases.
+    - `regression-from-stable-to-{beta,nightly}`: Something that regressed from the a stable release to beta or nightly channel.
+- [`I-*`]: Different labels about the nature[^2] of an issue.
+    - `I-ICE`: Internal compiler error.
+    - `I-prioritize`: Indicates that the issue should be additionally triaged by the [T-compiler prioritization working group (WG-priority)](../compiler/prioritization.md) to assign a priority `P-*` if applicable to indicate the urgency.
+    - `I-heavy`: Heavy code (binary size).
+    - `I-slow`: Slow run-time performance.
+    - `I-hang`: The compilation fails to complete after a long time.
+    - `I-crash`: The compiler or generated code crashes but does not manifest as an ICE, e.g. SIGSEGV or access violations.
+    - `I-unsound`: Library, compiler, type system or language unsoundness.
+    - `I-compilemem`: Excessive memory usage during compilation.
+    - `I-compiletime`: Slow compilation time. 
+    - `I-{team}-nominated`: Issue is nominated for discussion by `{team}`. E.g. `I-compiler-nominated`.
+    - `I-lang-easy-decision`: The decision needed by T-lang is conjectured (by the person applying the label) to be easy or perfunctory. Note that this label does not imply `I-lang-nominated`; the nomination label should be applied simultaneously if the person apply the label wants to nominate the issue for T-lang discussion.
 - [`P-*`]: Priority labels. Applied using the [compiler prioritization procedure](../compiler/prioritization.md).
-- [`S-*`]: The status of an issue, for example `S-needs-repro`.
 - [`E-*`]: Calls for participation[^3], for example to minimize an issue.
-    - `E-mentor`: A mentor is available to help with the issue, which makes for good first issues.
-    - `E-needs-mcve`: This issue has a reproduction, but it is not minimal, it should be minimized.
-    - `E-needs-bisection`: This issue needs a bisection, for example using [cargo-bisect-rustc](https://github.com/rust-lang/cargo-bisect-rustc).
+    - `E-mentor`: A mentor is available to help with the issue, which makes for a good first issue. Make sure that the intended mentor is actually willing and available to mentor.
+    - `E-needs-mcve`: This issue has a reproduction, but it is not minimal. It should be minimized.
+    - `E-needs-bisection`: This issue needs a bisection, for example using [`cargo-bisect-rustc`].
     - `E-needs-investigation`: This issue needs further investigation to determine root causes and the nature of the issue.
     - `E-needs-design`: This issue will require some substantial design effort (exploration, prototyping, discussions, etc.).
     - `E-needs-test`: The issue has been fixed, but no test has been added for it. After someone adds a test, it can be closed.
     - `E-{easy,medium,hard}`: Someone has estimated how hard the issue is to fix. This can help with finding good first issues, but is [bound to be inaccurate](https://en.wikipedia.org/wiki/Curse_of_knowledge).
+- [`S-*`]: The status of an issue, for example `S-needs-repro` or `S-needs-info`.
+    - `S-needs-info`: Needs more information from issue reporter.
+    - `S-needs-repro`: Needs reproducer (code sample, repro steps, etc.).
+    - `S-bug-has-test`: Issue has a known-bug test in [`rust-lang/rust`] `tests/crashes` test suite or elsewhere.
+    - `S-has-bisection`: A bisection has been performed and the bisection result is convincing.
+    - `S-waiting-on-LLVM`: Waiting on upstream LLVM PR or fix.
+    - `S-tracking-forever`: The tracking issue is never intended to be closed.
 
-See also section [Issue Triage](https://rustc-dev-guide.rust-lang.org/contributing.html#issue-triage) in the Rust Compiler Development Guide.
+### Relnotes issues
+
+Release note issues will currently come with `needs-triage` by default. The triage for relnotes is usually best done if you have sufficient context. Leave them as-is if you don't.
+
+- Remove unrelated area `A-*` labels that concern the actual PR, but not the actual user-facing relnotes.
+- Remove unrelated `T-*` or `WG-*` labels.
+- Remove `needs-triage` if the relnotes wording has been confirmed/changed by the PR author, reviewer or a relevant team member.
+
+### Internal Compiler Error (ICE) issue triage
+
+For issues that include an Internal Compiler Error (ICE):
+
+- Make sure the issue is tagged with `I-ICE`, `T-compiler` and `C-bug`.
+- Check that the issue is actually an ICE, and not more accurately described with `I-crash` or `I-hang`.
+- If it is an older (like latest stable) version of rust, ask:
+    - Does the ICE reproduce on beta and latest nightly.
+    - If older stable, ask if the ICE reproduces on latest stable.
+- Check for duplicates, but don't close as duplicate unless you're sure they represent the same underlying issue. Prefer simply linking to the issue as possibly related/duplicate.
+    - A good way is to search the ICE message. Be careful to not close as duplicate when the same ICE message may have different root causes.
+- If it does not have a reproduction, comment asking for one and add ` S-needs-repro`.
+    - If there isn't one for around a month it should generally be closed.
+- If the reproduction is not minimal, add `E-needs-mcve` or create a MCVE yourself. See the "Initial triaging" section for more details on MCVE procedure.
+- Add `A-*` labels based on the code that causes the issue (check backtraces!), and the nature of the repro (e.g. if the repro is a weird trait impl or the backtrace points to `rustc_trait_selection`, add `A-traits`).
+- Add `T-*`, `WG-*`, `PG-*`, `F-*`, `requires-*`, and `regression-*` labels as appropriate.
+    - Usually the ICE should be tagged `T-compiler`. If the issue concerns the type system (e.g. trait solver), also tag the issue with `T-types`.
+
+## Further triaging
+
+For issues that have been through the initial triaging step (that is, don't have the `needs-triage` label anymore), there are usually still things that can be improved. There are often many more labels that could be applied (using rustbot again if you don't have write access to [`rust-lang/rust`]).
+
+Additionally, old (there is no clear definition of old yet, but something on the order of months) `S-needs-repro` issues can be closed if there is no way to make progress without a reproduction. This requires write access to [`rust-lang/rust`], but if you don't have them, you can just link the issue on Zulip (for example in [`t-release/triage`] or `general`) and someone with write access can close it for you.
+
+Another useful thing to do is to go through `E-needs-mcve` and `E-needs-bisection` issues and create minimizations or bisecting the issue (using [`cargo-bisect-rustc`]). When you provide one, you can also remove the label using rustbot (`@rustbot label -E-needs-bisection`).
+
+[`rust-lang/rust`]: https://github.com/rust-lang/rust
+[URLO]: https://users.rust-lang.org
+[IRLO]: https://internals.rust-lang.org/
+[Discord]: https://discord.gg/rust-lang
+[`cargo-bisect-rustc`]: https://github.com/rust-lang/cargo-bisect-rustc
+[`t-release/triage`]: https://rust-lang.zulipchat.com/#narrow/stream/242269-t-release.2Ftriage
 
 [`T-*`]: https://github.com/rust-lang/rust/labels?q=T-
 [`WG-*`]: https://github.com/rust-lang/rust/labels?q=WG-
@@ -136,6 +191,7 @@ See also section [Issue Triage](https://rustc-dev-guide.rust-lang.org/contributi
 [`P-*`]: https://github.com/rust-lang/rust/labels?q=P-
 [`S-*`]: https://github.com/rust-lang/rust/labels?q=S-
 [`E-*`]: https://github.com/rust-lang/rust/labels?q=E-
+
 [^1]: The `O` in `O-*` labels originally stood for *operating system (OS)*.
 [^2]: The `I` in `I-*` labels originally stood for *importance*. This makes the most sense for the `I-*-nominated` labels. For most `I-*` labels however it makes sense to interpret the `I` as *issue (kind)*.
 [^3]: The `E` in `E-*` labels stands for *experience*.
