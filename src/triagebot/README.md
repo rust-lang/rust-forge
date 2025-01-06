@@ -18,7 +18,7 @@ will set the given labels on a GitHub issue or pull request, even for people who
 ## GitHub commands
 
 Commands on GitHub issues or pull requests are usually issued by writing `@rustbot` followed by the command anywhere in the comment.
-`@rustbot` will ignore commands in markdown code blocks, inline code spans, or blockquotes.
+`@rustbot` will ignore commands in markdown code blocks, inline code spans, HTML blocks, or blockquotes.
 Multiple rustbot commands can be entered in a single comment.
 
 Triagebot also allows editing of a comment.
