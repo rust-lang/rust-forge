@@ -30,6 +30,7 @@
     - [Note](./triagebot/note.md)
     - [Notifications](./triagebot/notifications.md)
     - [Pinging](./triagebot/pinging.md)
+    - [Rendered link](./triagebot/rendered-link.md)
     - [Requesting Prioritization](./triagebot/requesting-prioritization.md)
     - [Review Changes Requested](./triagebot/review-submitted.md)
     - [Review Requested](./triagebot/review-requested.md)
