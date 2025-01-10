@@ -17,5 +17,20 @@ link. Reuse the PR titles or write descriptions as needed for clarity.
 Try to keep the language of the document independent of en-US or en-UK, when it
 can't be avoided defer to en-US grammar and syntax.
 
-[relnotes]: https://github.com/rust-lang/relnotes
+## Pinging `relnotes-interest-group` for relnotes PR and relnotes blog post
 
+Contributors may be interested to help review the relnotes PRs and relnotes
+blog posts (e.g. on behalf of their team). They can opt-in to being pinged by
+adding themselves to the
+[`relnotes-interest-group` marker team][relnotes-interest-group].
+
+When creating a relnotes PR and release blog post, please ping this
+notification group via
+
+```
+@rustbot ping relnotes-interest-group
+```
+
+
+[relnotes]: https://github.com/rust-lang/relnotes
+[relnotes-interest-group]: https://github.com/rust-lang/team/blob/master/teams/relnotes-interest-group.toml
