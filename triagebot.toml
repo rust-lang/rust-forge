@@ -5,6 +5,9 @@ new_pr = true
 
 [shortcut]
 
+[rendered-link]
+trigger-files = ["src/"]
+
 [assign]
 warn_non_default_branch = true
 
