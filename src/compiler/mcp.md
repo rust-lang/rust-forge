@@ -40,7 +40,7 @@ If you would like to make a [major change] to the compiler, the process is as fo
     * Alternatively, you can submit a [design meeting proposal] to have a longer, focused discussion.
 * To be accepted, a major change proposal needs three things:
     * One or more **reviewers**, who commit to reviewing the work. This can be the person making the proposal, if they intend to mentor others.
-    * A **second**, a member of the compiler team or a contributor who approves of the idea, but is not the one originating the proposal.
+    * A **second**, a member of the compiler team who approves of the idea, but is not the one originating the proposal.
     * A **final comment period** (a 10 day wait to give people time to comment).
         * The FCP can be skipped if the change is easily reversed and/or further objections are considered unlikely. This often happens if there has been a lot of prior discussion, for example.
 * Once the FCP completes, if there are no outstanding concerns, PRs can start to land.
@@ -99,7 +99,7 @@ Note that whether something is a major change proposal is not necessarily relate
 
 The MCP "seconding" process is only meant to be used to get agreement
 on the technical architecture we plan to use. It is not sufficient to
-stabilize new features or make public-facing changes like adding a -C
+stabilize new features or make public-facing changes like adding a `-C`
 flag. For that, an `rfcbot fcp` is required (or perhaps an RFC, if the
 change is large enough).
 
@@ -124,7 +124,7 @@ changes that affect cargo.
 
 Please direct technical conversation to the Zulip stream.
 
-The compiler-team repo issues are intended to be low traffic and used for procedural purposes. Note that to "second" a design or offer to review, you should be someone who is familiar with the code, typically but not necessarily a compiler team member or contributor.
+The compiler-team repo issues are intended to be low traffic and used for procedural purposes. Note that to "second" a design or offer to review, you should be someone who is familiar with the code, typically but not necessarily a compiler team member.
 
 * Announcing that you "second" or approve of the design.
 * Announcing that you would be able to review or mentor the work.
