@@ -104,6 +104,7 @@
 - [Language](./lang/README.md)
     - [RFC Merge Procedure](./lang/rfc-merge-procedure.md)
     - [Triage Meeting Procedure](./lang/triage-meeting-procedure.md)
+    - [Stabilization procedure](./lang/stabilization-procedure.md)
 - [Libs](./libs/README.md)
     - [Maintaining the standard library](./libs/maintaining-std.md)
 - [Release](./release/README.md)
