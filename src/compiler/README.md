@@ -1,17 +1,27 @@
 # Compiler
-This section documents the Rust compiler itself, its APIs, and how to
-contribute and provide bug fixes for the compiler.
+Rust's compiler team are responsible for maintaining the Rust compiler, improving its performance
+and considering the stabilization of compiler features.
 
-### External Links
-* The [Rustc Dev Guide] documents how the compiler works as well providing helpful
-  information to help get new contributors involved in the development.
-* Rustc's [internal documentation].
-* The [Compiler team] website is the home for all of the compiler
-  team's planning.
-* oli-obk's [FIXME page] lists all of the `FIXME` comments in the Rust compiler.
+We use the Forge to document the team's processes, policies and working practices, if you'd like to
+read about how the compiler works and instructions on how to set up a development environment,
+you're looking for the [rustc-dev-guide](https://rustc-dev-guide.rust-lang.org/).
 
-
-[Compiler team]: https://rust-lang.github.io/compiler-team/
-[FIXME page]: https://oli-obk.github.io/fixmeh/
-[Rustc Dev Guide]: https://rustc-dev-guide.rust-lang.org/
-[internal documentation]: https://doc.rust-lang.org/nightly/nightly-rustc/rustc_middle/
+- [Calendar](./calendar.md)
+  - *How do I subscribe to the compiler team's calendar?*
+- [Cross-team Collaboration](./cross-team-collaboration.md)
+  - *How do I request the help of the compiler team?*
+- [Meetings](./meetings.md)
+  - *What meetings do the compiler team run and how can I attend?*
+- [Membership](./membership.md)
+  - *What is expected of compiler team members and how do I join?*
+- [Resources](./resources.md)
+  - *What useful resources are available for contributors and team members?*
+- [Review Policy](./reviews.md)
+  - *How do I make a contribution which is easy to review? How do I start reviewing as a team member?*
+- [Proposals, Approval and Stabilization](./proposals-and-stabilization.md)
+  - *How do I propose a change to the compiler team? What approval is necessary for my change?*
+- [Third-party and Out-of-tree Crates Policy](./third-party-out-of-tree.md)
+  - *When can I add third-party crates to the compiler? When can I create a out-of-tree crate for
+     the compiler?*
+- [Triage and Prioritization](./prioritization.md)
+  - *How are compiler issues triaged and prioritized?*
