@@ -35,10 +35,25 @@ The release note text is automatically pulled in subsequent steps, and should us
 
 * Compatibility Notes
 * Library
+* Stabilized APIs
+* Const Stabilized APIs
 * Language
 * Compiler
 * Internal Changes
 * Other
+
+Stabilized APIs and Const Stabilized APIs should both be formatted roughly as follows:
+
+```
+- [`std::ptr::null_mut`](https://doc.rust-lang.org/std/ptr/fn.null_mut.html)
+```
+
+Note that:
+
+* this is not a PR link, but directly links the standard library docs.
+* the link is to stable docs (and so may not actually work at time of writing)
+* the API is directly noted. Sometimes we compress APIs (e.g., `uN` for
+  unsigned integers) to avoid too much text.
 
 ## Release team: Step 3: Confirm all issues/PRs needing relnotes are labeled `relnotes`
 
@@ -81,14 +96,12 @@ This produces console output (stderr) like this:
 
 ```text
 Did not use "Libraries" from Tracking issue for release notes of #132515: Fix and undeprecate home_dir() <https://github.com/rust-lang/rust/issues/132650>
-Did not use "Stabilized APIs" from Tracking issue for release notes of #67521: Tracking issue for const `alloc::Layout` <https://github.com/rust-lang/rust/issues/134725>
 Did not use "Category (e.g. Language, Compiler, Libraries, Compatibility notes, ...)" from Tracking issue for release notes of #132187: Add Extend impls for tuples of arity 1 through 12 <https://github.com/rust-lang/rust/issues/133975>
 ```
 
 These lines typically mean that someone either hasn't updated or used a keyword not in the list above, for example:
 
 * Libraries should be Library
-* Stabilized APIs is not yet supported (FIXME!)
 * Category ... needs updating.
 
 The runner of the tool should go update these issues with the right contents
