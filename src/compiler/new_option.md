@@ -1,41 +1,8 @@
-# So you want to add a new (stable) option to rustc
-
-So you want to add a new command-line flag to rustc. What is the procedure?
-
-## Is this a perma-unstable option?
-
-The first question to ask yourself is:
-
-* Is this a "perma-unstable" option meant only for debugging rustc (e.g., `-Ztreat-err-as-bug`)?
-
-If so, you can just add it in a PR, no check-off is required beyond ordinary review.
-
-## Other options
-
-If this option is meant to be used by end-users or to be exposed on the stable channel, however, it represents a "public commitment" on the part of rustc that we will have to maintain, and hence there are a few more details to take care of.
-
-There are two main things to take care of, and they can proceed in either order, but both must be completed:
-
-* Proposal and check-off
-* Implementation and documentation
-
-Finally, some options begin as unstable and only get stabilized over time, in which case you will also need:
-
-* Tracking issue and stabilization
-
-### Proposal and check-off
 
 The "proposal" part describes the motivation and design of the new option you wish to add. It doesn't necessarily have to be very long. It takes the form of a [Major Change Proposal][MCP].
 
 [MCP]: https://forge.rust-lang.org/compiler/mcp.html
 
-The proposal should include the following:
-
-* **Motivation:** what is this flag used for?
-* **Design:** What input does the flag take and what is its observable effect?
-* **Implementation notes:** You don't have to talk about the implementation normally, but if there are any key things to note (i.e., it was very invasive to implement), you night note them here.
-* **Precedent, links, and related material:** Are similar flags available on other compilers/linkers/tools, like clang or lld?
-* **Alternatives, concerns, and key decisions:** Were there any alernatives considered? If so, why did you pick this design?
 
 Note that it is fine if you don't have any implementation notes, precedent, or alternatives to discuss.
 

@@ -2,11 +2,6 @@
 
 ## What is it?
 
-The triage meeting is a weekly meeting where we go over the open
-issues, look at regressions, consider beta backports, and other such
-business. In the tail end of the meeting, we also do brief check-ins
-with active working groups to get an idea what they've been working
-on.
 
 ## When and where is it?
 
