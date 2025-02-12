@@ -137,6 +137,22 @@ in the PR description, pointing at step 6 (i.e., prefer suggesting updates not o
 The next release team meeting should also discuss this PR for selecting blog
 post topics (see below for blog post process).
 
+### Pinging `relnotes-interest-group` for relnotes PR and release blog post
+
+Contributors may be interested to help review the relnotes PRs and release
+blog posts (e.g. on behalf of their team). They can opt-in to being pinged by
+adding themselves to the
+[`relnotes-interest-group` marker team][relnotes-interest-group].
+
+When creating a relnotes PR and release blog post, please ping this
+notification group via
+
+```
+@rustbot ping relnotes-interest-group
+```
+
+[relnotes-interest-group]: https://github.com/rust-lang/team/blob/master/teams/relnotes-interest-group.toml
+
 ## All: Step 6: Incorporate edits from relnotes PR
 
 You'll typically get a lot (several dozen) of comments on the PR with typo
