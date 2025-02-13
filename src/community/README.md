@@ -7,7 +7,7 @@ This section documents the processes of the community team, and related projects
 - The [Community team] GitHub repository contains information about how the community team organizes.
 - The [RustBridge] website contains information on hosting your own local RustBridge event.
 - [Rustlings] is an project with small exercises designed around getting newcomers used to reading and writing Rust.
-- The [State of Rust] is an annual community survey that asks the Rust community about their opinions of Rust.
+- The [State of Rust] is an annual community survey gathering insights and feedbacks from Rust users, and all those who are interested in the future of Rust more generally.
 
 [community team]: https://github.com/rust-community/team
 [rustbridge]: https://rustbridge.com
