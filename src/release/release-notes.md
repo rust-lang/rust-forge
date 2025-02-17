@@ -122,7 +122,7 @@ will also drop the item from the tool's output.
 
 ## Release team: Step 5: Publish relnotes PR
 
-See example from 1.84: https://github.com/rust-lang/rust/pull/134568
+See example from 1.84: <https://github.com/rust-lang/rust/pull/134568>
 
 Take the `relnotes.md` you have locally (typically without library
 stabilizations in today's world, you'll add them at a later point -- we want
