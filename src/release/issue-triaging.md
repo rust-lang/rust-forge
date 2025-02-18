@@ -93,6 +93,7 @@ There are many different labels that can be applied to issues.
     - Where possible, specify the most specific target-category. For instance, if an issue affects `*-windows-gnu` but not `*-windows-msvc`, prefer `O-windows-gnu` over the generic `O-windows`.
 - [`A-*`]: The areas that the issue is relevant to, for example `A-linkage`, `A-patterns` or `A-diagnostics`. This is particularly helpful for filtering issues.
     - `A-diagnostics`: Issues created from the diagnostics issue template only have `A-diagnostics` and not `C-bug`.
+- [`B-*`]: Issues which are blockers.
 - [`D-*`]: Labels for diagnostic issues.
     - `D-diagnostic-infra`: This issue is about the diagnostics infrastructure itself.
 - [`L-*`]: When the issue concerns a specific lint.
@@ -134,6 +135,15 @@ There are many different labels that can be applied to issues.
     - `S-has-bisection`: A bisection has been performed and the bisection result is convincing.
     - `S-waiting-on-LLVM`: Waiting on upstream LLVM PR or fix.
     - `S-tracking-forever`: The tracking issue is never intended to be closed.
+- [`beta-nominated`]: Tracks changes nominated for being [backported to beta].
+- [`beta-accepted`]: Tracks changes that have been approved for being [backported to beta]. `T-release` will usually handle the backport.
+- [`stable-nominated`]: Tracks changes nominated for being [backported to stable], in anticipation of a point release.
+- [`stable-accepted`]: Tracks changes that have been approved for being [backported to stable]. `T-release` will usually handle the backport.
+- [`relnotes`]: Changes that are proposed to be documented in the release notes of the next release
+  - It makes triagebot create a new relnotes issue ([example][relnotes issue example])
+  - It also marks relnotes issues, so it can be processed by T-release relnotes tooling
+  - An FCP will also cause a relnotes issue to be created, if it's started on an issue.
+- [`metabug`]: Tracks other bugs.
 
 ### Relnotes issues
 
@@ -179,6 +189,7 @@ Another useful thing to do is to go through `E-needs-mcve` and `E-needs-bisectio
 [`T-*`]: https://github.com/rust-lang/rust/labels?q=T-
 [`WG-*`]: https://github.com/rust-lang/rust/labels?q=WG-
 [`PG-*`]: https://github.com/rust-lang/rust/labels?q=PG-
+[`B-*`]: https://github.com/rust-lang/rust/labels?q=B-
 [`C-*`]: https://github.com/rust-lang/rust/labels?q=C-
 [`O-*`]: https://github.com/rust-lang/rust/labels?q=O-
 [`A-*`]: https://github.com/rust-lang/rust/labels?q=A-
@@ -191,6 +202,15 @@ Another useful thing to do is to go through `E-needs-mcve` and `E-needs-bisectio
 [`P-*`]: https://github.com/rust-lang/rust/labels?q=P-
 [`S-*`]: https://github.com/rust-lang/rust/labels?q=S-
 [`E-*`]: https://github.com/rust-lang/rust/labels?q=E-
+[`beta-nominated`]: https://github.com/rust-lang/rust/labels/beta-nominated
+[`stable-nominated`]: https://github.com/rust-lang/rust/labels/stable-nominated
+[`beta-accepted`]: https://github.com/rust-lang/rust/labels/beta-accepted
+[`stable-accepted`]: https://github.com/rust-lang/rust/labels/stable-accepted
+[backported to beta]: backporting.md#beta-backporting-in-rust-langrust
+[backported to stable]: backporting.md#stable-backporting-in-rust-langrust
+[`relnotes`]: https://github.com/rust-lang/rust/labels/relnotes
+[`metabug`]: https://github.com/rust-lang/rust/labels/metabug
+[relnotes issue example]: https://github.com/rust-lang/rust/issues/137132
 
 [^1]: The `O` in `O-*` labels originally stood for *operating system (OS)*.
 [^2]: The `I` in `I-*` labels originally stood for *importance*. This makes the most sense for the `I-*-nominated` labels. For most `I-*` labels however it makes sense to interpret the `I` as *issue (kind)*.
