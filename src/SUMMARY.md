@@ -41,7 +41,6 @@
     - [Zulip Notifications](./triagebot/zulip-notifications.md)
     - [GitHub Actions created PR open/closer](./triagebot/bot-pull-requests.md)
 - [Community](./community/README.md)
-    - [State of Rust Survey FAQ](./community/survey-faq.md)
 - [Compiler](./compiler/README.md)
     - [Cross Compilation](./compiler/cross-compilation/README.md)
         - [Windows](./compiler/cross-compilation/windows.md)
