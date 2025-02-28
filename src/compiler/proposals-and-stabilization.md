@@ -328,9 +328,23 @@ circumstance.
   - **Approve using:** r+ (compiler leads)
   - Open a PR with the change affecting licensing and assign it to the team leads for review
 
+### CI: Building and Testing
+
+- Adding a new [Ecosystem Testing][ecosystem_testing] CI job that may block PR CI, or Merge CI, or otherwise may present a failure notification to contributors:
+  - **Propose using:** MCP
+  - **Approve using:** Seconding
+  - Document the new test job in `rustc-dev-guide`. Describe its purpose and failure protocol:
+    - What's being built and tested?
+    - What actions are expected to be taken if the job fails. Can the job be temporarily disabled?
+    - Points of contact. Is there a ping group? Or relevant maintainers that can be consulted for advice/help?
+    - If the job involves additional build systems / tooling, please link docs for them / quick usage steps.
+    - If the job is intended to catch intentional/unintentional breakages, how should they be resolved?
+
+
 [stabilization_guide]: https://rustc-dev-guide.rust-lang.org/stabilization_guide.html
 [tier_policy]: https://doc.rust-lang.org/rustc/target-tier-policy.html
 [mcps]: https://github.com/rust-lang/compiler-team/issues?q=label%3Amajor-change
 [rfcs]: https://github.com/rust-lang/rfcs
 [rust]: https://github.com/rust-lang/rust
 [compiler_lint_eg]: https://doc.rust-lang.org/rustc/lints/listing/deny-by-default.html#explicit-builtin-cfgs-in-flags
+[ecosystem_testing]: https://rustc-dev-guide.rust-lang.org/tests/ecosystem.html
