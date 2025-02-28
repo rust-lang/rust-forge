@@ -50,6 +50,7 @@
     - [Resources](./compiler/resources.md)
     - [Review Policy](./compiler/reviews.md)
     - [Proposals, Approval and Stabilization](./compiler/proposals-and-stabilization.md)
+        - [Adding custom test jobs/components to rust-lang/rust CI](./compiler/proposals-and-stabilization/custom-test-jobs.md)
     - [Third-party and Out-of-tree Crates Policy](./compiler/third-party-out-of-tree.md)
     - [Triage and Prioritization](./compiler/prioritization.md)
     - [Operations](./compiler/operations.md)
