@@ -329,9 +329,15 @@ circumstance.
   - **Approve using:** r+ (compiler leads)
   - Open a PR with the change affecting licensing and assign it to the team leads for review
 
+### Adding ecosystem/integration test jobs/components to rust-lang/rust CI
+
+See [*Adding ecosystem/integration test jobs/components to rust-lang/rust CI*](./proposals-and-stabilization/custom-test-jobs.md).
+
+
 [stabilization_guide]: https://rustc-dev-guide.rust-lang.org/stabilization_guide.html
 [tier_policy]: https://doc.rust-lang.org/rustc/target-tier-policy.html
 [mcps]: https://github.com/rust-lang/compiler-team/issues?q=label%3Amajor-change
 [rfcs]: https://github.com/rust-lang/rfcs
 [rust]: https://github.com/rust-lang/rust
 [compiler_lint_eg]: https://doc.rust-lang.org/rustc/lints/listing/deny-by-default.html#explicit-builtin-cfgs-in-flags
+[ecosystem_testing]: https://rustc-dev-guide.rust-lang.org/tests/ecosystem.html
