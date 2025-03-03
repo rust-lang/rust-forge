@@ -9,6 +9,8 @@ performance triage reports and discussing nominated issues. Triage meetings are 
 [the team calendar](./calendar.md). Anyone can attend and it is recommended that compiler team
 members do.
 
+Agendas of triage meetings are stored on [HackMD][meeting_triage_notes].
+
 ### Generating the triage meeting agenda
 See [*Prioritization*](./prioritization.md) for documentation on generating the triage meeting
 agenda.
@@ -19,7 +21,7 @@ discussions. Steering/planning meetings operate on a repeating schedule:
 
 - **Week 1:** Planning meeting
   - Select the topics for the next three meetings from the team's proposed meetings.
-- **Week 2-4:** Steering meeting 
+- **Week 2-4:** Steering meeting
   - Discuss the planned topic.
 
 During planning meetings, the team lead running the meeting will attempt to identify topics which
@@ -52,5 +54,9 @@ Any contributor can propose a meeting topic. Some examples of good steering meet
 Scheduled planning and steering meetings can be found on the [compiler team's
 calendar](./calendar.md).
 
+Minutes of steering meetings are stored on [HackMD][meeting_steering_notes].
+
 [team_repo]: https://github.com/rust-lang/compiler-team
 [meetings_channel]: https://rust-lang.zulipchat.com/#narrow/channel/238009-t-compiler.2Fmeetings
+[meeting_steering_notes]: https://hackmd.io/team/rust-compiler-team?nav=overview&tags=%5B%22steering%22%5D&tagtree-filter=true
+[meeting_triage_notes]: https://hackmd.io/team/rust-compiler-team?nav=overview&tags=%5B%22weekly%22%5D&tagtree-filter=true
