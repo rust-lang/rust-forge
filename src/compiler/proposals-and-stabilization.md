@@ -246,6 +246,7 @@ circumstance.
 - Proposing a new target
   - **Propose using:** PR
   - **Approve using:** r+ (compiler leads)
+  - You can `r? compiler_leads` on the PR to roll one of the compiler leads as the reviewer.
   - Open a PR with the new target (w/ relevant documentation updates) and document adherence to the
     [target tier policy][tier_policy] in the description. New targets must start as tier three
   - New targets should be assigned to the compiler team co-leads to check for any licensing
