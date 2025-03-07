@@ -52,6 +52,7 @@
     - [Proposals, Approval and Stabilization](./compiler/proposals-and-stabilization.md)
     - [Third-party and Out-of-tree Crates Policy](./compiler/third-party-out-of-tree.md)
     - [Triage and Prioritization](./compiler/prioritization.md)
+    - [Operations](./compiler/operations.md)
 - [crates.io](./crates-io/README.md)
     - [Crate removal](./crates-io/crate-removal.md)
     - [Database maintenance](./crates-io/db-maintenance.md)
