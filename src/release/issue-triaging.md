@@ -145,6 +145,15 @@ There are many different labels that can be applied to issues.
   - An FCP will also cause a relnotes issue to be created, if it's started on an issue.
 - [`metabug`]: Tracks other bugs.
 
+### Creating labels
+
+<div class="warning">
+Triagebot needs to support `@rustbot label: xxx` usages terminated with a period or whitespace (as inline invocation), so the label name must consist of only alphanumeric or hyphen (`-`) or underscore (`_`) characters.
+</div>
+
+- Check existing labels to make sure you're not duplicating them.
+- Discuss in <https://rust-lang.zulipchat.com/#narrow/channel/242269-t-release.2Ftriage/topic/New.20labels> if the new label may be non-conventional or controversial. Leave a comment about the new label as an FYI for others.
+
 ### Relnotes issues
 
 Release note issues will currently come with `needs-triage` by default. The triage for relnotes is usually best done if you have sufficient context. Leave them as-is if you don't.
