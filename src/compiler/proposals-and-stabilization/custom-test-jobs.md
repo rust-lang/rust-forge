@@ -7,7 +7,7 @@ This policy is applicable to proposals for adding new test jobs or adjusting exi
 For example, this includes but is not limited to:
 
 - Ecosystem test jobs, such as Rust for Linux or Fuchsia;
-- Custom codegen backend test components, such as `codegen_cranelift` or `codegen_gcc`, which are not part of the "main" distributed toolchain.
+- Custom codegen backend test components, such as `codegen_gcc`, which are not part of the "main" distributed toolchain.
 
 ## Background
 
@@ -23,7 +23,7 @@ To help with this, please follow the process described below if you'd like to pr
 
 ## Process for adding a custom test job to rust-lang/rust CI
 
-![Flowchart of the process for adding a custom test job/component to rust-lang/rust CI](./custom-test-jobs/test-job-flow.png)
+![Flowchart of the process for adding a custom test job/component to rust-lang/rust CI](./custom-test-jobs/test-job-flow.svg)
 
 ## Custom Test Job/Component Template
 
