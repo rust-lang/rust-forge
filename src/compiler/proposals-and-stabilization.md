@@ -198,6 +198,11 @@ circumstance.
   - **Approve using:** FCP
   - Open a PR and follow the [stabilization guide][stabilization_guide]. The assigned reviewer will
     check that the stabilization guide has been followed, review the code and start an FCP
+- Extending the behavior of a stable flag
+  - **Propose using:** MCP
+  - **Approve using:** Seconding
+  - Describe the rationale for extending the behavior of the flag. Once discussion has concluded,
+    a team member may second the proposal
 
 ### Attributes
 
