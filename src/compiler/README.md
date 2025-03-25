@@ -25,5 +25,7 @@ you're looking for the [rustc-dev-guide](https://rustc-dev-guide.rust-lang.org/)
      the compiler?*
 - [Triage and Prioritization](./prioritization.md)
   - *How are compiler issues triaged and prioritized?*
+- [Working Areas](./working-areas.md)
+  - *Specific areas of work around the compiler*
 - [Operations](./operations.md)
   - *Supporting the compiler team*
