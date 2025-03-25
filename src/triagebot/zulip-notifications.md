@@ -22,7 +22,7 @@ This feature is enabled on a repository by having a `[notify-zulip]` table in `t
 [notify-zulip."label-name"]
 # The Zulip stream to post to.
 # Can be found by looking for the first number in URLs, e.g. https://rust-lang.zulipchat.com/#narrow/stream/131828-t-compiler
-zulip_stream = 245100 # #t-compiler/wg-prioritization/alerts
+zulip_stream = 245100 # #t-compiler/prioritization/alerts
 
 # The Zulip topic to post to.
 # {number} is replaced with the issue/PR number.

@@ -124,7 +124,7 @@ First, ensure that relevant issues are labelled as `T-compiler`..
 ..and that prioritization has been completed. Regressions labeled with `I-prioritize` are signaling
 that a priority assessment is waiting. When this label is added to an issue, the `triagebot` creates
 automatically a notification for @*WG-prioritization* members on [the
-`#t-compiler/wg-prioritization/alerts` Zulip channel][prio_channel].
+`#t-compiler/prioritization/alerts` Zulip channel][prio_channel].
 
 [prio_channel]: https://rust-lang.zulipchat.com/#narrow/stream/245100-t-compiler.2Fwg-prioritization.2Falerts
 
@@ -190,8 +190,8 @@ About two hours prior to the meeting, announce and share the completed agenda in
 upcoming meeting (creating it if it does not already exist):
 
 ```text
-Hello @*T-compiler/meeting*, triage meeting in about 2h
-Pre-triage done in #**t-compiler/wg-prioritization/alerts**.
+Hello @*T-compiler/meeting*, triage meeting in about 2h.
+Pre-triage done in #**t-compiler/prioritization/alerts**.
 Meeting agenda [on HackMD](https://hackmd.io/link_to_hackmd_agenda)
 ```
 
