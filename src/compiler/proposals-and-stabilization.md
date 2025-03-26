@@ -329,9 +329,9 @@ circumstance.
   - **Approve using:** r+ (compiler leads)
   - Open a PR with the change affecting licensing and assign it to the team leads for review
 
-### Adding new custom test jobs/components to rust-lang/rust CI
+### Adding ecosystem/integration test jobs/components to rust-lang/rust CI
 
-See [Adding custom test jobs or adding custom test components to rust-lang/rust CI](./proposals-and-stabilization/custom-test-jobs.md).
+See [*Adding ecosystem/integration test jobs/components to rust-lang/rust CI*](./proposals-and-stabilization/custom-test-jobs.md).
 
 
 [stabilization_guide]: https://rustc-dev-guide.rust-lang.org/stabilization_guide.html
