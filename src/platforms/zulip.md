@@ -105,7 +105,7 @@ starting out.
 ### Stream naming
 
 A stream should be named such as `#t-{team}/{group name}`. For example,
-`#t-compiler/wg-parallel-rustc`. More levels of nesting are fine, e.g., a
+`#t-compiler/parallel-rustc`. More levels of nesting are fine, e.g., a
 working group might want "subgroups" as well, though you may want to omit the
 team name in such a case -- keeping the stream name short is good for usability,
 to avoid confusion between different streams which share the same prefix.
