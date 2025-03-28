@@ -67,14 +67,20 @@ fail, potentially blocking PR / Full Merge CI in completely unrelated PRs.
 
 ---
 
-> The ecosystem/integration test job/component ("test job/component") proposed for the
-> [rust-lang/rust] CI must:
->
-> - Be approved by the compiler team through a proposed MCP, where the MCP is seconded by a compiler
->   team member, and the MCP is accepted with no blocking concerns.
-> - Have no blocking concerns from the library team.
-> - Have the implementation PR be reviewed and approved by the infrastructure team.
-> - Be properly documented on [rustc-dev-guide] (preferably as part of the implementation PR).
+```markdown
+## Ecosystem and Integration Test Job/Component Policy
+
+The ecosystem/integration test job/component ("test job/component") proposed for the
+[rust-lang/rust] CI must:
+
+- Be approved by the compiler team through a proposed MCP, where the MCP is seconded by a compiler
+  team member, and the MCP is accepted with no blocking concerns.
+- Have no blocking concerns from the library team.
+- Have the implementation PR be reviewed and approved by the infrastructure team.
+- Be properly documented on [rustc-dev-guide] (preferably as part of the implementation PR).
+
+Please complete the sections below so [rust-lang/rust] teams can have sufficient context about the 
+proposed test job/component.
 
 ### Test job/component rationale
 
@@ -233,6 +239,10 @@ this question.*
 
 *Please provide responses here, replacing this sentence.*
 
+
+[rust-lang/rust]: https://github.com/rust-lang/rust
+[rustc-dev-guide]: https://github.com/rust-lang/rustc-dev-guide
+```
 
 [rust-lang/rust]: https://github.com/rust-lang/rust
 [rustc-dev-guide]: https://github.com/rust-lang/rustc-dev-guide
