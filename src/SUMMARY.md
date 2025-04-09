@@ -16,6 +16,7 @@
     - [PR Assignment](./triagebot/pr-assignment.md)
     - [Tracking PR assignment](./triagebot/pr-assignment-tracking.md)
     - [Autolabels](./triagebot/autolabels.md)
+    - [Canonicalize Issue Links](./triagebot/canonicalize-issue-links.md)
     - [Close](./triagebot/close.md)
     - [Documentation Updates](./triagebot/doc-updates.md)
     - [GitHub Releases](./triagebot/github-releases.md)
