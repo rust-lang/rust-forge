@@ -27,5 +27,7 @@ you're looking for the [rustc-dev-guide](https://rustc-dev-guide.rust-lang.org/)
   - *How are compiler issues triaged and prioritized?*
 - [Working Areas](./working-areas.md)
   - *Specific areas of work around the compiler*
+- [Repository we maintain](https://github.com/orgs/rust-lang/teams/compiler/repositories)
+  - *Various code repositories maintained by the Compiler Team*
 - [Operations](./operations.md)
   - *Supporting the compiler team*
