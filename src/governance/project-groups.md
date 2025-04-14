@@ -72,11 +72,9 @@ Since project groups are approved by their relevant parent team over the core te
 - If applicable, which other groups or teams do you expect to have close contact with?
 - Where do you see your group needing help?
 
-
 [rust-lang.org]: https://rust-lang.org
 [zulip]: https://rust-lang.zulipchat.com
 [discord]: https://discord.gg/rust-lang
-[code of conduct]: https://www.rust-lang.org/policies/code-of-conduct
 
 ## Initial Setup
 
