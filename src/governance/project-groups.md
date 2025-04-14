@@ -19,7 +19,7 @@ Project groups are a kind of Rust team intended to work on a specific project wi
 
 A Project Group is a group of people working on a particular project or responsibilities at the behest of an official Rust team. Some project groups are are ephemeral, meaning that they are archived once the project is complete. However, there are project groups that have continual work and maintenance.
 
-Examples of project groups around specific feature  include [FFI Unwind], [Inline ASM], and [Safe Transmute]. Examples built around continual work and maintenance could include [Triage], and [Rustup].
+Examples of project groups around specific feature include [FFI Unwind], [Inline ASM], and [Safe Transmute].
 
 The goal of a project is build a community or formalise an existing community around a particular feature or project in the organisation, and use this space to discuss and iterate on that feature.
 
@@ -32,8 +32,6 @@ This process has also been unsuitable to describe features that can take multipl
 [ffi unwind]: https://github.com/rust-lang/project-ffi-unwind
 [inline asm]: https://github.com/rust-lang/project-inline-asm
 [safe transmute]: https://github.com/rust-lang/project-safe-transmute
-[triage]: https://github.com/rust-lang/team/blob/master/teams/wg-triage.toml
-[rustup]: https://github.com/rust-lang/team/blob/master/teams/wg-rustup.toml
 
 ## Project Group Creation
 A project group should have the following;
