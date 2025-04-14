@@ -66,6 +66,7 @@
 - [Governance](./governance/README.md)
     - [Leadership Council](./governance/council.md)
     - [Moderation](./governance/moderation.md)
+    - [Project groups](./governance/project-groups.md)
 - [Policies](./policies/README.md)
     - [Crate ownership policy](./policies/crate-ownership.md)
 - [Infrastructure](./infra/README.md)
