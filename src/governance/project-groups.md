@@ -1,10 +1,9 @@
-- Start Date: 2015-05-21
-- RFC PR: [rust-lang/rfcs#2856](https://github.com/rust-lang/rfcs/pull/2856)
-- Rust Issue: N/A
+# Project groups
 
-# Summary
+## Introduction
 
-- Formalize project groups as groups dedicated to specific projects within the context of a Rust team.
+Project groups are a kind of Rust team intended to work on a specific project with the goal bringing the project to completion. They were first defined in [RFC 2856]. In summary:
+
 - Project groups are created via team consensus (such as an RFC) and have a "parent team(s)"
 - The groups then drive the project to completion, e.g. by authoring follow-up RFCs and doing design work.
 - Once the work has been concluded, the group is archived.
@@ -14,21 +13,7 @@
   - An associated repository.
   - Dedicated streams on Discord/Zulip/etc.
 
-# Motivation
-
-Working groups in Rust were not created through the RFC process, as such there's not much documentation on exactly what a working group does, what are its responsibilities, and also importantly setting expectations or goals. There is one definition of "Working Group" available in [rust-lang#54445]; quoted below.
-
-> A Rust Working Group is a set of people working at common purpose. Working Groups are associated with a Rust team. Unlike a Rust Team, Working Groups don't have "formal decision making power", though often they are charged with drawing up recommendations, RFCs, or other documents for the teams (which is then intended to make the final decision).
-
-While this definition is true in the broad sense, it does not define the difference between what has come to be called "Domain Working Groups" and "Team Working Groups". This RFC aims to provide clarity by providing new distinct terminology that matches the intent behind "Team Working Groups", as well as codify some of the processes that these groups have been using to help facilitate creating new groups.
-
-[rust-lang#54445]: https://github.com/rust-lang/rust/issues/54445
-
-# Guide-level explanation
-
-To address this confusion this RFC proposes switching from using "Team Working Group" in favour of "Project Group". This would serve as a catch all term for the sub teams of the existing teams to organise around specific efforts, such as certain project or effort in the Rust team.
-
-**Note:** Currently existing working groups should remain working groups unless explicitly re-proposed through the project group process detailed in this RFC.
+[RFC 2856]: https://rust-lang.github.io/rfcs/2856-project-groups.html
 
 ## Life-cycle of a Project Group
 This is a high level overview of the complete process of a project group.
@@ -55,7 +40,7 @@ This is a high level overview of the complete process of a project group.
 
 - Specify the liaison, and shepherd(s). (See [Project Group Creation](#project-group-creation))
 - Write a short motivation, and some notes on possible solutions.
-- How consensus is reached would vary from team to team, some would require an RFC while others could decide in a meeting. (See [Future Work](#future-work))
+- How consensus is reached would vary from team to team, some would require an RFC while others could decide in a meeting.
 
 3. Create infrastructure for group.
 
@@ -97,7 +82,7 @@ This is a high level overview of the complete process of a project group.
 [`rust-lang/team`]: https://github.com/rust-lang/team
 [internals]: https://internals.rust-lang.org
 
-# Reference-level explanation
+## Project group definition
 
 A Project Group is a group of people working on a particular project or responsibilities at the behest of an official Rust team. Some project groups are are ephemeral, meaning that they are archived once the project is complete. However, there are project groups that have continual work and maintenance.
 
@@ -194,19 +179,3 @@ This would involve a discussion between the members of the group, and ideally th
 The blog post should try to cover the output of the group, such as RFCs or projects, as well what the group thought worked and importantly what didn't work. This should help us iterate on this initial RFC and help us find and address issues that come up in the process.
 
 Both the retrospective and the archival announcement can and likely should be written as a single post. However there will be times where having a timely retrospective will not be possible, and in that case a shorter separate announcement post is appropriate.
-
-# Drawbacks
-
-- There's a lot of inertia around the Working Group terminology, and switching to new terminology will likely cause some confusion, though hopefully only in the short term.
-
-# Future Work
-
-- An initial version of this RFC also specified Working & Community Groups, however we found that we want to discuss that topic in more depth, and didn't want to block Project Groups, so it was removed. See [wg-governance#46] for tracking future progress.
-- Ideally the Governance WG would prefer if teams obtained consensus to form groups through RFCs, as they an open process that allows us to easily keep track of decisions. However we recognise that the current RFC process is maybe too heavyweight for it work for some teams currently. We're currently looking how we can simplify some of this process, see [wg-governance#38] for further information.
-
-[wg-governance#38]: https://github.com/rust-lang/wg-governance/issues/38
-[wg-governance#46]: https://github.com/rust-lang/wg-governance/issues/46
-
-# Unresolved questions
-
-[unresolved-questions]: #unresolved-questions
