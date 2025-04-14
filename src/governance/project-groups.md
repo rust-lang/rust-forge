@@ -125,55 +125,57 @@ This is a high level overview of the complete process of a project group.
 
 1. Exploratory period.
 
-- Initial discussions of the problem area.
-  - Teams are not obligated to look at or respond to any of the initial discussions. Of course, interested members are free to participate.
-- Write a short motivation for the project.
-- Find a person from the relevant team who's willing to act as a liaison.
-  - Finding a liaison is specific to each team, you should consult the team's documentation on how to propose project groups.
-  - You may not always be able to find someone who is willing to act as liaison. It's up to each team to decide how many new efforts they'll have the bandwidth for, which may at times be none.
+   - Initial discussions of the problem area.
+     - Teams are not obligated to look at or respond to any of the initial discussions. Of course, interested members are free to participate.
+   - Write a short motivation for the project.
+   - Find a person from the relevant team who's willing to act as a liaison.
+     - Finding a liaison is specific to each team, you should consult the team's documentation on how to propose project groups.
+     - You may not always be able to find someone who is willing to act as liaison. It's up to each team to decide how many new efforts they'll have the bandwidth for, which may at times be none.
 
 2. Obtain the consensus of the team to create group.
 
-- Specify the liaison, and shepherd(s). (See [Project Group Creation](#project-group-creation))
-- Write a short motivation, and some notes on possible solutions.
-- How consensus is reached would vary from team to team, some would require an RFC while others could decide in a meeting.
+   - Specify the liaison, and shepherd(s). (See [Project Group Creation](#project-group-creation))
+   - Write a short motivation, and some notes on possible solutions.
+   - How consensus is reached would vary from team to team, some would require an RFC while others could decide in a meeting.
 
 3. Create infrastructure for group.
 
-- GitHub repository under `rust-lang` for hosting work and discussions, such as for draft RFCs.
-- A Discord channel or a Zulip stream for communication.
-- Project group in [`rust-lang/team`], as well as a team on GitHub, for handling permissions.
+   - GitHub repository under `rust-lang` for hosting work and discussions, such as for draft RFCs.
+   - A Discord channel or a Zulip stream for communication.
+   - Project group in [`rust-lang/team`], as well as a team on GitHub, for handling permissions.
 
 4. Create a post on the Inside Rust blog announcing creation of the group. Be sure to include the following information.
-  - An introduction
-  - The charter (either linked or inlined) \[See [Creating The Charter](#creating-the-charter)\]
-  - A link to your group's GitHub repository
-  - If your group is open for participants, provide information on how they can contribute.
-    - If you're also planning on running regular meetings, include when your group plans to meet along with a link to calendar event for the meeting.
+
+   - An introduction
+   - The charter (either linked or inlined) \[See [Creating The Charter](#creating-the-charter)\]
+   - A link to your group's GitHub repository
+   - If your group is open for participants, provide information on how they can contribute.
+     - If you're also planning on running regular meetings, include when your group plans to meet along with a link to calendar event for the meeting.
 
 5. The group works towards the goals laid out in their charter.
 
 6. When active work has stopped a group is "archived".
-- Archival can be started by the project group shepherds, the liaison, or the lead(s) of the parent team if needed.
-- Archival is not necessarily a permanent state, it is only a reflection on the current status of the group.
-  - Similarly a groups archival doesn't imply that work in that area has been exhausted
-- Reasons to archive (non-exhaustive):
-  - Nobody in the group has time anymore or higher priority things arose.
-  - There's a blocking issue that can't be resolved.
-  - Don't see any additional work to do in this area in the near future.
-  - The work was done to a satisfactory state.
-  - The group decided the idea wasn't so good after all.
+
+   - Archival can be started by the project group shepherds, the liaison, or the lead(s) of the parent team if needed.
+   - Archival is not necessarily a permanent state, it is only a reflection on the current status of the group.
+     - Similarly a groups archival doesn't imply that work in that area has been exhausted
+   - Reasons to archive (non-exhaustive):
+     - Nobody in the group has time anymore or higher priority things arose.
+     - There's a blocking issue that can't be resolved.
+     - Don't see any additional work to do in this area in the near future.
+     - The work was done to a satisfactory state.
+     - The group decided the idea wasn't so good after all.
 
 7. Create a blog post announcing the archival of the group.
 
-- The scope of this post will vary based on the scope of the group, but ideally it would include some of the following.
-  - Overview of decisions, RFCs, and other output the group produced.
-  - Thoughts on the process, how it worked (or didn't as case may be), any difficulties encountered, and what they would want to be improved.
+   - The scope of this post will vary based on the scope of the group, but ideally it would include some of the following.
+     - Overview of decisions, RFCs, and other output the group produced.
+     - Thoughts on the process, how it worked (or didn't as case may be), any difficulties encountered, and what they would want to be improved.
 
 8. Archive infrastructure.
 
-- Archive GitHub repository to be read-only.
-- Archive chat channel(s) on any platforms.
+   - Archive GitHub repository to be read-only.
+   - Archive chat channel(s) on any platforms.
 
 [`rust-lang/team`]: https://github.com/rust-lang/team
 [internals]: https://internals.rust-lang.org
