@@ -53,7 +53,8 @@ A project group should have the following;
   - Ideally the group should use the same platform as their parent team to ease communication, though there may be cases where the team agrees to a group trying out a different platform.
 
 ### Creating The Charter
-Since project groups are approved by their relevant parent team over the core team, it's up to each team decide their specific requirements. However the author recommends that a group should try to make a charter that addresses the following questions.
+
+Since project groups are approved by their relevant parent team, it's up to each team decide their specific requirements. However the author recommends that a group should try to make a charter that addresses the following questions.
 
 - What value do you see your group bringing to the organisation?
 - What support do you need, and separately want, from the Rust organization?
