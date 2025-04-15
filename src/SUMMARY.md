@@ -21,6 +21,7 @@
     - [Documentation Updates](./triagebot/doc-updates.md)
     - [GitHub Releases](./triagebot/github-releases.md)
     - [Glacier](./triagebot/glacier.md)
+    - [Issue Links](./triagebot/issue-links.md)
     - [Issue Transfer](./triagebot/transfer.md)
     - [Labeling](./triagebot/labeling.md)
     - [Major Changes](./triagebot/major-changes.md)
