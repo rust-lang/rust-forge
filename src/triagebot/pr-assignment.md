@@ -27,6 +27,8 @@ When looking up a name, triagebot will first look at ad-hoc groups, then rust-la
 
 PRs can only be assigned to users with write permissions to the repo, any rust-lang org members with read permissions, or anyone who has commented on the PR.
 
+To enable the ability for users to post a comment with `r? name` to set the assignment to a specific user, add a `[assign]` table to `triagebot.toml`.
+
 ### Ghost
 
 Using `r? ghost` in the initial PR top-level comment when opening a PR will disable triagebot's auto-assignment.
@@ -72,7 +74,6 @@ fallback = ["@Mark-Simulacrum"]
 ```
 
 If the `owners` map is configured, then triagebot will automatically select a reviewer based on which files were modified in the PR.
-The existence of the owners table also enables the ability for users to post a comment with `r? name` to set the assignment to a specific user.
 
 ### Vacation
 
