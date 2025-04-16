@@ -17,7 +17,7 @@ Project groups are a kind of Rust team intended to work on a specific project wi
 
 ## Project group definition
 
-A Project Group is a group of people working on a particular project or responsibilities at the behest of an official Rust team. Some project groups are are ephemeral, meaning that they are archived once the project is complete. However, there are project groups that have continual work and maintenance.
+A Project Group is a group of people working on a particular project or responsibilities at the behest of an official Rust team. Some project groups are ephemeral, meaning that they are archived once the project is complete. However, there are project groups that have continual work and maintenance.
 
 Examples of project groups around specific feature include [FFI Unwind], [Inline ASM], and [Safe Transmute].
 
@@ -37,7 +37,7 @@ This process has also been unsuitable to describe features that can take multipl
 A project group should have the following;
 
 - **Leads** — At least one person who acts as the leader of the group and is typically responsible for writing the initial charter, handling administrative and communication tasks, as well as delegating those responsibilities to other members in the group.
-- **Liaisons** — A member from a official Rust team that is sponsoring the work, and acts as a point of contact between the team and the group. They may or may be that directly involved, but they should check-in periodically and be able to represent the work in meetings with the team. They should also look out for when this might intersect with other work happening in the team that is beyond the working group itself.
+- **Liaisons** — A member from a official Rust team that is sponsoring the work, and acts as a point of contact between the team and the group. They may or may not be that directly involved, but they should check-in periodically and be able to represent the work in meetings with the team. They should also look out for when this might intersect with other work happening in the team that is beyond the working group itself.
   - Liaisons may also be but are not required to be one of the leads.
 - **Members** — Individuals who regularly participate and/or contribute to the project group.
   - Membership requirements for groups are decided by the shepherd and should be stated in the charter.
@@ -96,13 +96,13 @@ At some point, the group's work will conclude. Whether because the work is compl
 
 ### Announcement
 
-A group that is considering archival should first figure out what should happen to any crates, repositories, or projects that they started. In general these projects should be migrated to other groups or individuals, or archived if there is there isn't any suitable candidate for maintaining the project.
+A group that is considering archival should first figure out what should happen to any crates, repositories, or projects that they started. In general these projects should be migrated to other groups or individuals, or archived if there isn't any suitable candidate for maintaining the project.
 
 Once that has been resolved the group should write an announcement of their archival along with any relevant details about the migration and/or archival of projects.
 
 ### Retrospective
 
-While this RFC attempts to address some of the current organisational problems within the organisation, the author doesn't believe will be a panacea to those problems or that we won't encounter new problems in the future. As part of that, the RFC introduce having retrospectives with the groups once significant time has past or the group has been finished it's project.
+While this RFC attempts to address some of the current organisational problems within the organisation, the author doesn't believe will be a panacea to those problems or that we won't encounter new problems in the future. As part of that, the RFC introduce having retrospectives with the groups once significant time has past or the group has finished its project.
 
 This would involve a discussion between the members of the group, and ideally their parent team and the Governance working group. The retrospective should produce a public blog post on the Inside Rust blog, however any feedback a member has that they would want to keep private would be omitted.
 
