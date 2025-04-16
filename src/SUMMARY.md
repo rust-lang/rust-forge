@@ -53,6 +53,7 @@
     - [Resources](./compiler/resources.md)
     - [Review Policy](./compiler/reviews.md)
     - [Proposals, Approval and Stabilization](./compiler/proposals-and-stabilization.md)
+        - [Adding ecosystem/integration test jobs/components to `rust-lang/rust` CI](./compiler/proposals-and-stabilization/ecosystem-integration-tests.md)
     - [Third-party and Out-of-tree Crates Policy](./compiler/third-party-out-of-tree.md)
     - [Triage and Prioritization](./compiler/prioritization.md)
     - [Working Areas](./compiler/working-areas.md)
