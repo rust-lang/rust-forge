@@ -279,7 +279,7 @@ circumstance.
   - **Approve using:** FCP
   - Write an MCP describing why the target should be demoted/removed and once discussion has
     concluded, an FCP can be started to approve the demotion/removal.
-  - If approved and affecting a tier two or one target , the change should be accompanied by a
+  - If approved and affecting a tier two or one target, the change should be accompanied by a
     blog post announcing the change with a notice period of at least one release before the change
     applies.
 - Changing target baseline (e.g. minimum Darwin or Windows version bump)
