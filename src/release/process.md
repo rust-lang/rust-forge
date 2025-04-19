@@ -206,6 +206,7 @@ the blog and internals with the new information.
   to setup your environment and how to authenticate with AWS the first time you
   execute it.
 
+[awscli]: https://forge.rust-lang.org/infra/docs/aws-access.html#using-the-aws-console
 [rust-lang/rust]: https://github.com/rust-lang/rust
 [rust-lang/release-team]: https://github.com/rust-lang/release-team
 [ripgrep]: https://github.com/burntsushi/ripgrep
