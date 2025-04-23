@@ -1,6 +1,8 @@
 # Operations
 
-Here is a list of recurring tasks to support the compiler team and help keep things moving forward. Ideally run through this list every week. If there are blockers or doubts, after having acquired the right context, don't hesitate to ping people around. Keep in mind that contributors are the best resource of the project and we want to be mindful of their time.
+"Operations" is a part of the Compiler Team that takes care of organizational work and in general help things moving forward. T-compiler ops lives on Zulip under [#t-compiler/ops](#).
+
+Here is a list of recurring tasks. Ideally run through this list every week. If there are blockers or doubts, after having acquired the right context, don't hesitate to ping people around. Keep in mind that contributors are the best resource of the project and we want to be mindful of their time.
 
 ## Issues hygiene
 
@@ -37,6 +39,10 @@ Some useful filters when looking at regressions.
 ## After the release
 
 - Check which regressions can be closed as "accepted". Add a comment clarifying that the PR causing the regression is accepted as breaking change, example: "Closing since PR #123456 will be mentioned in the release notes". Check carefully, don't be trigger-happy. Discussions and comments about this practice can be directed on [Zulip](https://rust-lang.zulipchat.com/#narrow/channel/242269-t-release.2Ftriage/topic/beta.20regressions.20that.20are.20no.20more/near/456509338).
+
+## Meetings
+
+T-compiler has two kinds of meetings: triage and design meetings. Triage meetings happen weekly, there is a [tool](https://github.com/rust-lang/triagebot/commit/bc82955ff15f69571bcc47d2efbfc9d4f7a6dabb) to generate 80% of the meeting's agenda. Design meetings proposals are advanced on the [T-compiler repository](https://github.com/rust-lang/compiler-team/issues?q=sort%3Aupdated-desc%20is%3Aissue%20is%3Aopen%20label%3Ameeting-proposal) and scheduled during recurrent *steering* meetings (where the next *design* meetings are scheduled). Design meetings also need an agenda and a bit of work to summarize the topic and bring together documentation, invite relevant people and so on.
 
 ## Rest of the world
 
