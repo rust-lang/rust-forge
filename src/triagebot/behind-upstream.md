@@ -12,6 +12,8 @@ which may have new test cases, so it won't pass. We need to rebase the PR to the
 
 ## Configuration
 
+> The default threshold is currently set at **7 days**.
+
 This feature is enabled on a repository by having a `[behind-upstream]` table in `triagebot.toml`:
 
 ```toml
