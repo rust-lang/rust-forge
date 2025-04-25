@@ -15,7 +15,7 @@ Rust crates published by the Rust project fall into one of the following categor
  - **Experiment**: This was an experiment by a team, intended to be picked up by users to better inform API design (or whatever), without a long-term commitment to maintainership. Example: [failure](https://crates.io/crates/failure)
  - **Deprecated**: This used to be an “intentional artifact” (or experiment/internal use) but isn’t anymore. Example: [rustc-serialize](https://crates.io/crates/rustc-serialize)
  - **Placeholder**: Not a functional crate, used for holding on to the name of an official tool, etc. Example: [rustup](https://crates.io/crates/rustup)
- - **Expatriated**: This may have been an “intentional artifact”, and still is intended to be used by external users, but is no longer intended to be official. In such cases the crate is no longer owned/managed by the Rust project. Example: [rand](https://crates.io/crates/rand)
+ - **Expatriated**: This may have been owned by the Rust Project and is still intended to be used by external users, but is no longer intended to be official. In such cases the crate is no longer owned/managed by the Rust project. Example: [rand](https://crates.io/crates/rand)
 
 ## Policy
 
