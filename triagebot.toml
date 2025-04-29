@@ -24,6 +24,7 @@ fallback = [
 "/src/compiler" = ["compiler"]
 "/src/crates-io" = ["crates-io"]
 "/src/docs-rs" = ["docs-rs"]
+"/src/editions" = ["edition"]
 "/src/governance" = ["ehuss"]
 "/src/infra" = ["infra"]
 "/src/lang" = ["lang"]
