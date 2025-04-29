@@ -151,6 +151,18 @@ This process may need to be repeated several times as problems are fixed and nee
 Beware that the process of running this and analyzing the reports may take a long time, depending on how many changes are in the Edition.
 The 2021 Edition took about a month, which involved analyzing hundreds of regressions, determining root causes, and re-running crater after fixes had been implemented.
 
+## Stabilizing an edition
+
+Once the edition team has approved the stabilization, actually stabilizing can be done by anyone. Stabilizing the edition involves getting the compiler, documentation, and all the tools updated:
+
+- Stabilize in rustc. See [rustc stabilization instructions](https://rustc-dev-guide.rust-lang.org/guides/editions.html#stabilizing-an-edition).
+- Stabilize in cargo (after rustc update hits nightly). See [cargo stabilization instructions](https://doc.rust-lang.org/nightly/nightly-rustc/cargo/core/features/enum.Edition.html#stabilization-instructions).
+    - Update the cargo submodule.
+- Update the edition guide to indicate it is stabilized. [Example for Rust 2024](https://github.com/rust-lang/edition-guide/pull/338).
+- Merge all pending edition PRs to the reference, and update it to default to the newly stabilized edition ([example for Rust 2024](https://github.com/rust-lang/reference/pull/1684)).
+- Update all the book submodules.
+- Publish a new version of mdbook that properly supports the new edition. [Example for Rust 2024](https://github.com/rust-lang/mdBook/pull/2495).
+
 ## Blog posts and announcements
 
 It is highly encouraged for the Edition Project Group and the involved teams to communicate with everyone early and frequently.
