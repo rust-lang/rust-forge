@@ -80,7 +80,7 @@ Note that some labels may only be applied by users with write access to [`rust-l
 There are many different labels that can be applied to issues.
 
 - `needs-triage`: Signals that an issue is new and needs initial triage.
-- [`T-*`]: Specifies the team or teams that this issue is relevant to. For example `T-compiler`, `T-types` or `T-libs`.
+- [`T-*`]: Specifies the team or teams that this issue is relevant to. For example `T-compiler`, `T-types` or `T-libs`.  See [Team Examples](#team-examples) for more details.
 - [`WG-*`]: Specifies the working groups that this issue is relevant to, for example `WG-debugging`.
 - [`PG-*`]: Specifies the project groups that this issue is relevant to, for example the `PG-exploit-mitigations`.
 - [`C-*`]: Specifies the category of the label, for example a bug, tracking issue or discussion.
@@ -144,6 +144,36 @@ There are many different labels that can be applied to issues.
   - It also marks relnotes issues, so it can be processed by T-release relnotes tooling
   - An FCP will also cause a relnotes issue to be created, if it's started on an issue.
 - [`metabug`]: Tracks other bugs.
+
+#### Team Examples
+This section gives a list of examples of kinds of issues that should be assigned to a specific team.
+
+##### T-compiler
+Anything related to the compiler implementation, such as diagnostics and ICEs.
+
+##### T-libs
+* Changes to implementation details of library functions
+* Spelling, grammar, and organizational changes in library docs
+
+##### T-libs-api
+* New library apis, such as functions and methods
+* Changes to signatures of unstable functions
+* Semantic changes to library documentation,
+  such as guaranteeing that a function will produce a certain error code in some situation
+* Type inference breakage due to library changes, such as new trait implementations
+
+##### T-lang
+* New keywords/language features
+* Changes to the keyword docs in the standard library
+
+##### T-spec
+* Changes to [the reference](https://github.com/rust-lang/reference/)
+
+##### T-opsem
+* Changes to [the nomicon](https://doc.rust-lang.org/nomicon/)
+* Changes to the semantics of the abstract machine, such as the sematics of atomics.
+* Changes to the docs of unsafe pointer functions
+* Changes to the docs of `core::ptr`
 
 ### Creating labels
 
