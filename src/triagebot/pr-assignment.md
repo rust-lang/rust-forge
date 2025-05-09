@@ -77,8 +77,10 @@ If the `owners` map is configured, then triagebot will automatically select a re
 
 ### Vacation
 
-If a reviewer wants to temporarily prevent themselves from being assigned (automatically or manually) they can add themselves to the special
+If a reviewer wants to temporarily prevent themselves from being automatically assigned they can add themselves to the special
 `assign.users_on_vacation` group.
+
+They will still be able to be assigned via their name, in which case triagebot will post a warning that the person is on vacation.
 
 ```toml
 [assign]
