@@ -67,6 +67,15 @@ following changes:
 
 - Update `src/ci/channel` to `stable`
 
+You should also check whether there are beta backports that weren't merged
+before the branch update, and cherry-pick them into the `stable` PR:
+
+* [List of PRs targeting the beta branch.][target-beta]
+* [List of PRs approved for beta backport.][approved-beta]
+* [List of PRs *nominated* for beta backport.][nominated-beta] Note that PRs in
+  this list are not approved: you should follow up with the relevant teams to
+  decide what to do with them.
+
 Self-approve the PR with `r+ rollup=never p=1000`.
 
 Note that we need to merge this PR as soon as possible, to maximise the
@@ -211,3 +220,6 @@ the blog and internals with the new information.
 [rust-lang/release-team]: https://github.com/rust-lang/release-team
 [ripgrep]: https://github.com/burntsushi/ripgrep
 [`promote-release`]: https://github.com/rust-lang/promote-release
+[target-beta]: https://github.com/rust-lang/rust/pulls?q=is%3Apr+is%3Aopen+base%3Abeta
+[approved-beta]: https://github.com/rust-lang/rust/pulls?q=label%3Abeta-nominated+label%3Abeta-accepted
+[nominated-beta]: https://github.com/rust-lang/rust/pulls?q=label%3Abeta-nominated
