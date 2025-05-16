@@ -1,6 +1,7 @@
 # Rust Forge
 
 [Overview](./README.md)
+- [Onboarding to the project](./onboarding.md)
 - [Platforms](./platforms/README.md)
   - [Twitter](./platforms/twitter.md)
   - [Discord](./platforms/discord.md)
