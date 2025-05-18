@@ -30,7 +30,7 @@ the following information:
 Each user has their own account on the dev desktops. The account is named after
 the user’s GitHub handle, with `gh-` as a prefix. For example, a user with the
 GitHub handle `user` will have a user account with the name `gh-user` on the dev
-desktop.
+desktop. Note that the GitHub handle is case-sensitive, so gh-User and gh-user are treated as distinct accounts.
 
 Users can connect to the dev desktop with SSH. The dev desktops use public key
 authentication, and automatically fetch the user’s public keys from GitHub.
