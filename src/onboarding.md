@@ -29,7 +29,7 @@ comfortable with, though bias towards being public.
 Leadership Council positions are elected by the Project teams on a rotating
 calendar; see [Council term limits] for more details.
 
-[Council term limits]: https://rust-lang.github.io/rfcs/3392-leadership-council.html#term-limits
+[Council term limits]: governance/council.md#term-limits
 
 ## Relationship to Foundation
 
