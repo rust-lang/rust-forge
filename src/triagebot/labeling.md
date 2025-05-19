@@ -23,6 +23,7 @@ Some examples of variants you can use:
 * `@rustbot modify labels to +T-lang and -T-compiler`
 * `@rustbot modify labels: +T-lang and -T-compiler`
 * `@rustbot modify labels to +T-lang -T-compiler`
+* `@rustbot labels "+good first issue"`
 
 The command can be terminated with a `.`, `;`, or the end of the line.
 
@@ -35,7 +36,7 @@ Formally the grammar is:
 > &nbsp;&nbsp; | `labels`
 >
 > label-list →\
-> &nbsp;&nbsp; &nbsp;&nbsp; *label-delta*\
+> &nbsp;&nbsp; &nbsp;&nbsp; *label-delta*<sup>+</sup>\
 > &nbsp;&nbsp; | *label-delta* `and` *label-list*\
 > &nbsp;&nbsp; | *label-delta* `,` *label-list*\
 > &nbsp;&nbsp; | *label-delta* `,` `and` *label-list*
@@ -43,7 +44,12 @@ Formally the grammar is:
 > label-delta →\
 > &nbsp;&nbsp; &nbsp;&nbsp; `+` *label*\
 > &nbsp;&nbsp; | `-` *label*\
-> &nbsp;&nbsp; | *label*
+> &nbsp;&nbsp; | *label* \
+> &nbsp;&nbsp; | `"` `+` *label-quoted* `"`\
+> &nbsp;&nbsp; | `"` `-` *label-quoted* `"`\
+> &nbsp;&nbsp; | `"` *label-quoted* `"`
+>
+> label-quoted → \[^"]*
 >
 > label → \[^.,:!?;\n() ]+
 
@@ -77,4 +83,4 @@ allow-unauthenticated = [
 
 ## Implementation
 
-See [`src/handlers/autolabel.rs`](https://github.com/rust-lang/triagebot/blob/HEAD/src/handlers/autolabel.rs).
+See [`src/handlers/relabel.rs`](https://github.com/rust-lang/triagebot/blob/HEAD/src/handlers/relabel.rs).
