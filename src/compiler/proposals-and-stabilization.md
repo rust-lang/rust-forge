@@ -334,6 +334,10 @@ circumstance.
   - **Approve using:** r+ (compiler leads)
   - Open a PR with the change affecting licensing and assign it to the team leads for review
 
+### Stable/beta channel backport nominations of compiler changes
+
+See [*Backports*](./backports.md).
+
 ### Adding ecosystem/integration test jobs/components to rust-lang/rust CI
 
 See [*Adding ecosystem/integration test jobs/components to rust-lang/rust CI*](./proposals-and-stabilization/custom-test-jobs.md).
