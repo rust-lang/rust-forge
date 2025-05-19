@@ -1,8 +1,14 @@
 # Operations
 
-"Operations" is a part of the Compiler Team that takes care of organizational work and in general help things moving forward. T-compiler ops lives on Zulip under [#t-compiler/ops](#).
+"Operations" is a part of the Compiler Team that takes care of organizational and maintenance work and in general help things moving forward. T-compiler ops lives on Zulip under [#t-compiler/ops][t-compiler-ops].
 
-Here is a list of recurring tasks. Ideally run through this list every week. If there are blockers or doubts, after having acquired the right context, don't hesitate to ping people around. Keep in mind that contributors are the best resource of the project and we want to be mindful of their time.
+Here is a list of recurring tasks. Ideally run through this list every week. If there are blockers or doubts, after having acquired the right context, don't hesitate to ping people around. Contributors are the best resource of the project (and we want to be mindful of their time) and are always helpful.
+
+You can trigger a discussion about a specific topic, issue or pull request by opening a new topic on Zulip in [#t-compiler][t-compiler] or, if it needs consensus and more focus from the team, it can can be labeled `I-compiler-nominated` and will be discussed in a meeting (see section [Meetings][meetings]).
+
+[meetings]: #meetings
+[t-compiler]: https://rust-lang.zulipchat.com/#narrow/channel/131828-t-compiler
+[t-compiler-ops]: #
 
 ## Issues hygiene
 
@@ -34,11 +40,11 @@ Some useful filters when looking at regressions.
 - [No regression without priority](https://github.com/rust-lang/compiler-team/issues?q=is%3Aissue+is%3Aopen+label%3Afinal-comment-period+sort%3Acreated-asc): ensure they've been fixed and if not try to get the team attention.
 - No [beta regressions](https://github.com/rust-lang/compiler-team/issues?q=is%3Aissue+is%3Aopen+label%3Afinal-comment-period+sort%3Acreated-asc) or [stable regressions](https://github.com/rust-lang/compiler-team/issues?q=is%3Aissue+is%3Aopen+label%3Afinal-comment-period+sort%3Acreated-asc) regressions without an owner, filter out those out without a PR.
 - No [beta regressions](https://github.com/rust-lang/rust/issues?q=label%3Aregression-from-stable-to-beta+label%3AT-compiler+is%3Aopen) or [stable regressions](https://github.com/rust-lang/rust/issues?q=label%3Aregression-from-stable-to-stable+label%3AT-compiler+is%3Aopen) regressions work in progress, ideally they should all be merged.
-- Ensure breaking changes (i.e. regressions agreed to be acceptable) has a corresponding issue tagged `relnotes-tracking-issue`, see [list of release notes](https://github.com/rust-lang/rust/issues?q=sort%3Aupdated-desc+is%3Aopen+label%3Arelnotes-tracking-issue). T-release will then pick them up and add them to the release notes.
+- Ensure breaking changes (i.e. regressions agreed to be acceptable) have a corresponding issue tagged `relnotes-tracking-issue`, see [list of release notes](https://github.com/rust-lang/rust/issues?q=sort%3Aupdated-desc+is%3Aopen+label%3Arelnotes-tracking-issue). T-release will then pick them up and add them to the release notes.
 
 ## After the release
 
-- Check which regressions can be closed as "accepted". Add a comment clarifying that the PR causing the regression is accepted as breaking change, example: "Closing since PR #123456 will be mentioned in the release notes". Check carefully, don't be trigger-happy. Discussions and comments about this practice can be directed on [Zulip](https://rust-lang.zulipchat.com/#narrow/channel/242269-t-release.2Ftriage/topic/beta.20regressions.20that.20are.20no.20more/near/456509338).
+- Check carefully which regressions can be closed as "accepted". Add a comment clarifying that the PR causing the regression is accepted as breaking change, example: "Closing since PR #123456 will be mentioned in the release notes". Discussions and comments about this practice can be directed on [Zulip](https://rust-lang.zulipchat.com/#narrow/channel/242269-t-release.2Ftriage/topic/beta.20regressions.20that.20are.20no.20more/near/456509338).
 
 ## Meetings
 
