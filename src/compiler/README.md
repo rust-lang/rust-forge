@@ -20,6 +20,9 @@ you're looking for the [rustc-dev-guide](https://rustc-dev-guide.rust-lang.org/)
   - *How do I make a contribution which is easy to review? How do I start reviewing as a team member?*
 - [Proposals, Approval and Stabilization](./proposals-and-stabilization.md)
   - *How do I propose a change to the compiler team? What approval is necessary for my change?*
+- [Backports](./backports.md)
+  - *How do I request a beta and/or stable backport of a compiler change? How will compiler 
+    backport nominations be handled?*
 - [Third-party and Out-of-tree Crates Policy](./third-party-out-of-tree.md)
   - *When can I add third-party crates to the compiler? When can I create a out-of-tree crate for
      the compiler?*
