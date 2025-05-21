@@ -19,6 +19,13 @@ This feature is enabled on a repository by having a `[issue-links]` table in `tr
 [issue-links]
 ```
 
+### Without commits checking
+
+```toml
+[issue-links]
+check-commits = false # defaults to true
+```
+
 ## Implementation
 
 See [`src/handlers/issue_links.rs`](https://github.com/rust-lang/triagebot/blob/HEAD/src/handlers/issue_links.rs) and [`src/handlers/check_commits/issue_links.rs`](https://github.com/rust-lang/triagebot/blob/HEAD/src/handlers/check_commits/issue_links.rs).
