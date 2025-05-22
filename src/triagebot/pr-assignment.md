@@ -3,7 +3,9 @@
 Triagebot handles automatic and manual assignment of GitHub PRs.
 It also handles welcoming new users when they post a PR.
 
-Rust contributors can track and manage their own work queue using the Zulipchat integration. See [Tracking PR assignment](/triagebot/pr-assignment-tracking.md).
+Contributors to the `rust-lang/rust` repository can track and manage their own work queue using Zulip integration. See [Review queue tracking](review-queue-tracking.md).
+
+You can check which pull requests in the `rust-lang` organization are assigned to you at this [GitHub URL](https://github.com/pulls?q=org%3Arust-lang+is%3Aopen+is%3Apr+assignee%3A%40me+archived%3Afalse).
 
 ## Usage
 
@@ -84,6 +86,8 @@ If a reviewer wants to temporarily prevent themselves from being assigned (autom
 [assign]
 users_on_vacation = ["jyn514", "ChrisDenton"]
 ```
+
+On `rust-lang/rust`, you can also configure vacation using [Zulip integration](review-queue-tracking.md#usage).
 
 ### Additional new PR trigger options
 

@@ -15,7 +15,7 @@
     - [Agenda Generator](./triagebot/agenda.md)
     - [Issue Assignment](./triagebot/issue-assignment.md)
     - [PR Assignment](./triagebot/pr-assignment.md)
-    - [Tracking PR assignment](./triagebot/pr-assignment-tracking.md)
+      - [Review queue tracking](triagebot/review-queue-tracking.md)
     - [Autolabels](./triagebot/autolabels.md)
     - [Behind Upstream](./triagebot/behind-upstream.md)
     - [Canonicalize Issue Links](./triagebot/canonicalize-issue-links.md)
