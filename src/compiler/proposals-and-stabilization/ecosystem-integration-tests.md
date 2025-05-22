@@ -124,7 +124,7 @@ proposed test job/component.
 > format the github handles in the style:**
 >
 > ```
-> [@github_handle_1](https://github.com/github_handle_2)
+> [@github_handle_1](https://github.com/github_handle_1)
 > [@github_handle_2](https://github.com/github_handle_2)
 > ```
 >

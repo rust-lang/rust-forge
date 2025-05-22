@@ -31,14 +31,14 @@ Some useful filters when looking at regressions.
 ## PRs hygiene
 
 - Every PR should have a team assigned
-  - [PR without a team label](https://github.com/rust-lang/rust/pulls?q=is%3Apr+is%3Aopen+draft%3Afalse+-label%3AT-libs-api+-label%3AT-libs+-label%3AT-rustdoc+-label%3AT-compiler+-label%3AT-lang+-label%3AT-infra+-label%3AT-release+-label%3AT-types+-label%3AT-style+-label%3AT-bootstrap+-label%3AT-opsem+sort%3Acreated-asc)
-  - [Waiting on author](https://github.com/rust-lang/rust/pulls?q=is%3Apr+is%3Aopen+draft%3Afalse+-label%3AT-libs-api+-label%3AT-libs+-label%3AT-rustdoc+-label%3AT-compiler+-label%3AT-lang+-label%3AT-infra+-label%3AT-release+-label%3AT-types+-label%3AT-style+-label%3AT-bootstrap+label%3AS-waiting-on-author+sort%3Aupdated-asc)
-  - [Waiting on a review](https://github.com/rust-lang/rust/pulls?q=is%3Apr+is%3Aopen+draft%3Afalse+-label%3AT-libs-api+-label%3AT-libs+-label%3AT-rustdoc+-label%3AT-compiler+-label%3AT-lang+-label%3AT-infra+-label%3AT-release+-label%3AT-types+-label%3AT-style+-label%3AT-bootstrap+label%3AS-waiting-on-review+sort%3Aupdated-asc)
+  - [PR without a team label](https://github.com/rust-lang/rust/pulls?q=is%3Apr+is%3Aopen+draft%3Afalse+-label%3AT-libs-api+-label%3AT-libs+-label%3AT-rustdoc+-label%3AT-rustdoc-frontend+-label%3AT-compiler+-label%3AT-lang+-label%3AT-infra+-label%3AT-release+-label%3AT-types+-label%3AT-style+-label%3AT-bootstrap+-label%3AT-opsem+sort%3Acreated-asc)
+  - [Waiting on author](https://github.com/rust-lang/rust/pulls?q=is%3Apr+is%3Aopen+draft%3Afalse+-label%3AT-libs-api+-label%3AT-libs+-label%3AT-rustdoc+-label%3AT-rustdoc-frontend+-label%3AT-compiler+-label%3AT-lang+-label%3AT-infra+-label%3AT-release+-label%3AT-types+-label%3AT-style+-label%3AT-bootstrap+label%3AS-waiting-on-author+sort%3Aupdated-asc)
+  - [Waiting on a review](https://github.com/rust-lang/rust/pulls?q=is%3Apr+is%3Aopen+draft%3Afalse+-label%3AT-libs-api+-label%3AT-libs+-label%3AT-rustdoc+-label%3AT-rustdoc-frontend+-label%3AT-compiler+-label%3AT-lang+-label%3AT-infra+-label%3AT-release+-label%3AT-types+-label%3AT-style+-label%3AT-bootstrap+label%3AS-waiting-on-review+sort%3Aupdated-asc)
 
 ## Things to do a week before the release:
 
-- [No regression without priority](https://github.com/rust-lang/compiler-team/issues?q=is%3Aissue+is%3Aopen+label%3Afinal-comment-period+sort%3Acreated-asc): ensure they've been fixed and if not try to get the team attention.
-- No [beta regressions](https://github.com/rust-lang/compiler-team/issues?q=is%3Aissue+is%3Aopen+label%3Afinal-comment-period+sort%3Acreated-asc) or [stable regressions](https://github.com/rust-lang/compiler-team/issues?q=is%3Aissue+is%3Aopen+label%3Afinal-comment-period+sort%3Acreated-asc) regressions without an owner, filter out those out without a PR.
+- [No regression without priority](https://github.com/rust-lang/rust/issues?q=label%3AT-compiler%20is%3Aopen%20%20label%3AI-prioritize): ensure they've been fixed and if not try to get the team attention.
+- No [beta regressions](https://github.com/rust-lang/rust/issues?q=label%3Aregression-from-stable-to-beta%20label%3AT-compiler%20is%3Aopen%20no%3Aassignee) or [stable regressions](https://github.com/rust-lang/rust/issues?q=label%3Aregression-from-stable-to-stable%20label%3AT-compiler%20is%3Aopen%20no%3Aassignee) regressions without an owner, filter out those out without a PR.
 - No [beta regressions](https://github.com/rust-lang/rust/issues?q=label%3Aregression-from-stable-to-beta+label%3AT-compiler+is%3Aopen) or [stable regressions](https://github.com/rust-lang/rust/issues?q=label%3Aregression-from-stable-to-stable+label%3AT-compiler+is%3Aopen) regressions work in progress, ideally they should all be merged.
 - Ensure breaking changes (i.e. regressions agreed to be acceptable) have a corresponding issue tagged `relnotes-tracking-issue`, see [list of release notes](https://github.com/rust-lang/rust/issues?q=sort%3Aupdated-desc+is%3Aopen+label%3Arelnotes-tracking-issue). T-release will then pick them up and add them to the release notes.
 
@@ -48,7 +48,7 @@ Some useful filters when looking at regressions.
 
 ## Meetings
 
-T-compiler has two kinds of meetings: triage and design meetings. Triage meetings happen weekly, there is a [tool](https://github.com/rust-lang/triagebot/commit/bc82955ff15f69571bcc47d2efbfc9d4f7a6dabb) to generate 80% of the meeting's agenda. Design meetings proposals are advanced on the [T-compiler repository](https://github.com/rust-lang/compiler-team/issues?q=sort%3Aupdated-desc%20is%3Aissue%20is%3Aopen%20label%3Ameeting-proposal) and scheduled during recurrent *steering* meetings (where the next *design* meetings are scheduled). Design meetings also need an agenda and a bit of work to summarize the topic and bring together documentation, invite relevant people and so on.
+T-compiler has two kinds of meetings: triage and design meetings. Triage meetings happen weekly, there is a [tool](https://github.com/rust-lang/triagebot/blob/master/src/bin/prioritization-agenda.rs) to generate 80% of the meeting's agenda. Design meetings proposals are advanced on the [T-compiler repository](https://github.com/rust-lang/compiler-team/issues?q=sort%3Aupdated-desc%20is%3Aissue%20is%3Aopen%20label%3Ameeting-proposal) and scheduled during recurrent *steering* meetings (where the next *design* meetings are scheduled). Design meetings also need an agenda and a bit of work to summarize the topic and bring together documentation, invite relevant people and so on.
 
 ## Rest of the world
 
