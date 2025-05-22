@@ -18,6 +18,7 @@ Moderation team.
 
 Escalating to the Council can be done via:
 
+- GitHub, via a [new issue](https://github.com/rust-lang/leadership-council/issues/new/choose). This will get discussed at the regular council meeting (to which all project members are [invited](https://github.com/rust-lang/leadership-council/blob/main/procedures/meeting-observers.md)).
 - Zulip, on [#council](https://rust-lang.zulipchat.com/#narrow/channel/392734-council).
 - Zulip DM, to your council representative (see
   [council](https://www.rust-lang.org/governance/teams/leadership-council) for
