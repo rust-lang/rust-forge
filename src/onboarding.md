@@ -4,6 +4,27 @@ This document is a starting point for a new team member (or a refresh for
 existing team members) on things that are useful to know as a member of the
 project, in particular in terms of where to raise concerns or get help.
 
+## Joining a team
+
+Each team has different policies for joining new team members, as well as different responsibilities once you join. For now, you should talk to a team lead to learn what the team's policy is (and please encourage them to document the policy here!). In general, most teams expect you to at least:
+- Contribute to the team for at least a couple months before joining
+- Respond within a reasonable time to [Final Comment Periods][fcps] on RFCs and PRs.
+
+[fcps]: https://rust-lang.github.io/rfcs/#what-the-process-is
+
+### Joining wg-triage
+
+One exception to the above is wg-triage, which we highly recommend as an introduction to working on the project. wg-triage works on triaging issues and PRs in the rust-lang/rust repository, and does not require prior experience with programming or compilers. Feel free to join wg-triage if you have ever interacted with the Rust project (interacting frequently enough that we recognize you is encouraged but not required).
+
+To join this team, simply talk to [Dylan-DPC] and then open a PR to [rust-lang/team][team-repo]. See [team#1826] for an example of what changes to make.
+
+For more information about wg-triage, see [Triage Procedure].
+
+[team-repo]: https://github.com/rust-lang/team
+[team#1826]: https://github.com/rust-lang/team/pull/1826
+[Dylan-DPC]: https://rust-lang.zulipchat.com/#user/120823
+[Triage Procedure]: ./release/triage-procedure.md
+
 ## Relationship to Council
 
 The Leadership Council formally takes positions on behalf of the Project when
