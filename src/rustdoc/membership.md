@@ -110,9 +110,7 @@ they may publicly indicate that, though they should indicate the time period for
 active as well.
 
 ### Automatic alumni status after 6 months of inactivity
-If a member or maintainer has been inactive in rustdoc for 6 months, then we will ask them if
-they would like to go to alumni status. If they respond yes or do not respond, they can be placed on
-alumni status. If they would prefer to remain active, that is also fine, but they will get asked
-again periodically if they continue to be inactive.
+If a member or maintainer has been inactive in rustdoc for 6 months, they will be moved to the
+alumni status.
 
 [team]: https://github.com/rust-lang/team
