@@ -21,7 +21,7 @@ implements diagnostic reports.
 
 **WARNING:** Transferring is a partially destructive command. For example, labels and milestones that don't exist in the target repository will be removed from the issue.
 
-The transfer command is limited to team members of the rust-lang org, and transfers can only happen to repositories in the rust-lang org. Also, the destination repository must have triagebot enabled on it.
+The transfer command is limited to team members of the rust-lang org, as well as members of `wg-triage`, `wg-prioritization`, and `wg-async`, and transfers can only happen to repositories in the rust-lang org. Also, the destination repository must have triagebot enabled on it.
 
 ## Configuration
 
