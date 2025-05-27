@@ -154,3 +154,33 @@ If a member or maintainer has been inactive in the compiler for 6 months, then w
 they would like to go to alumni status. If they respond yes or do not respond, they can be placed on
 alumni status.  If they would prefer to remain active, that is also fine, but they will get asked
 again periodically if they continue to be inactive.
+
+### Process: Adding a new team member
+When a potential team member has been nominated by existing members, there is a standard process
+that can be followed by team leads to add the new team member:
+
+1. Contact the nominatees asking if they are interested in joining the team:
+
+```quote
+Hey $name, you've been nominated for compiler team membership by a few people on the compiler
+team! The [compiler team re-org RFC][rfc] has the full details as to what this means. This would
+grant you permission to resources like bors and such.
+
+This would not require you to take on additional work or responsibilities (though joining the
+review queue is encouraged), and is just public recognition of the great work you've already been
+doing around the compiler!
+
+If you would like to accept, please let me know and I can update the teams repo accordingly.
+
+[rfc]: https://rust-lang.github.io/rfcs/3599-compiler-team-reorganisation.html#team-members
+```
+
+2. Add the new nominee to the teams repository and to the [compiler team][team]. This will sync
+   with Zulip, GitHub, etc. to give the new team member access and permissions.
+
+3. Draft a Inside Rust blog post introducing the new team members. See [previous][p1] [examples][p2]
+   for a template.
+
+[team]: https://github.com/rust-lang/team/blob/master/teams/compiler.toml
+[p1]: https://blog.rust-lang.org/inside-rust/2024/11/12/compiler-team-new-members/
+[p2]: https://blog.rust-lang.org/inside-rust/2024/11/01/compiler-team-reorg/
