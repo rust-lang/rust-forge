@@ -20,6 +20,7 @@
     - [Behind Upstream](./triagebot/behind-upstream.md)
     - [Canonicalize Issue Links](./triagebot/canonicalize-issue-links.md)
     - [Close](./triagebot/close.md)
+    - [Concern](./triagebot/concern.md)
     - [Documentation Updates](./triagebot/doc-updates.md)
     - [GitHub Releases](./triagebot/github-releases.md)
     - [Issue Links](./triagebot/issue-links.md)
