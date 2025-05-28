@@ -1,11 +1,6 @@
 mod channel;
 
-use std::{
-    collections::BTreeMap,
-    fmt::Write,
-    io::{BufRead, BufReader},
-    time::SystemTime,
-};
+use std::{collections::BTreeMap, fmt::Write, time::SystemTime};
 
 use mdbook::{
     book::{Book, BookItem},
@@ -16,8 +11,6 @@ use mdbook::{
 const CHANNELS: &[&str] = &["stable", "beta", "nightly"];
 const CHANNEL_URL_PREFIX: &str = "https://static.rust-lang.org/dist/channel-rust-";
 const MANIFESTS_URL: &str = "https://static.rust-lang.org/manifests.txt";
-const RUSTUP_URLS: &str =
-    "https://raw.githubusercontent.com/rust-lang/rustup.rs/stable/ci/cloudfront-invalidation.txt";
 
 /// A representation of a rust target platform. `stable`, `beta`, and `nightly`
 /// represent whether the platform is available on that channel. `stable` also
@@ -43,7 +36,6 @@ impl Default for Platform {
 #[derive(Default, serde::Serialize, serde::Deserialize)]
 pub struct Blacksmith {
     last_update: Option<u64>,
-    rustup: Vec<String>,
     stable_version: Option<String>,
     platforms: BTreeMap<String, Platform>,
     #[serde(default)]
@@ -69,17 +61,6 @@ impl Blacksmith {
     /// distribution channels.
     pub fn init() -> Result<Self, Box<dyn std::error::Error>> {
         let mut blacksmith = Self::new();
-
-        let rustup_url_regex =
-            regex::Regex::new(r"^rustup/dist/([^/]+)/rustup-init(?:\.exe)?$").unwrap();
-        for line in BufReader::new(reqwest::blocking::get(RUSTUP_URLS)?).lines() {
-            if let Some(m) = rustup_url_regex.captures(&(line?)) {
-                blacksmith
-                    .rustup
-                    .push(m.get(1).unwrap().as_str().to_string());
-            }
-        }
-        log::info!("Found {} targets for rustup", blacksmith.rustup.len());
 
         for &channel_name in CHANNELS {
             let channel_url = format!("{}{}.toml", CHANNEL_URL_PREFIX, channel_name);
@@ -264,34 +245,6 @@ impl Blacksmith {
         Ok(blacksmith)
     }
 
-    /// Creates a list of hyperlinks to `rustup-init` based on what targets
-    /// rustup provided using the following URL schema. Where `target` is the
-    /// platforms target tuple (`x86_64-apple-darwin`) and `suffix` is a target
-    /// specific file extension.
-    /// ```url
-    /// https://static.rust-lang.org/rustup/dist/{target}/rustup-init{suffix}
-    /// ```
-    fn generate_rustup_init_list(&self) -> String {
-        let mut buffer = String::new();
-
-        for target in &self.rustup {
-            let suffix = if target.contains("windows") {
-                ".exe"
-            } else {
-                ""
-            };
-
-            writeln!(
-                buffer,
-                "- [{target}](https://static.rust-lang.org/rustup/dist/{target}/rustup-init{suffix})",
-                target = target,
-                suffix = suffix,
-            ).unwrap();
-        }
-
-        buffer
-    }
-
     /// Generates a table of links to the standalone installer packages for
     /// each platform.
     fn generate_standalone_installers_table(&self) -> String {
@@ -469,7 +422,6 @@ impl Preprocessor for Blacksmith {
             }
         }
 
-        let rustup_init_list = self.generate_rustup_init_list();
         let standalone_installers_table = self.generate_standalone_installers_table();
         let previous_stable_standalone_installers_tables =
             self.generate_previous_stable_standalone_installers_tables();
@@ -481,7 +433,6 @@ impl Preprocessor for Blacksmith {
         // However if the processing time begins to become a bottleneck this
         // should change.
         for item in &mut book.sections {
-            recursive_replace(item, "{{#rustup_init_list}}", &rustup_init_list);
             recursive_replace(item, "{{#installer_table}}", &standalone_installers_table);
             recursive_replace(
                 item,
