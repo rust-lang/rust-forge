@@ -159,7 +159,7 @@ again periodically if they continue to be inactive.
 When a potential team member has been nominated by existing members, there is a standard process
 that can be followed by team leads to add the new team member:
 
-1. Contact the nominatees asking if they are interested in joining the team:
+1. Contact the nominees asking if they are interested in joining the team:
 
 ```quote
 Hey $name, you've been nominated for compiler team membership by a few people on the compiler
