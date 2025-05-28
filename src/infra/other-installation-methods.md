@@ -49,31 +49,8 @@ itself. Such targets can be installed with the `rustup target add` command.
 
 <span id="rustup"></span>
 
-The way to install `rustup` differs by platform:
-
-- On Unix, run `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh` in your shell. This
-  downloads and runs [`rustup-init.sh`], which in turn downloads and runs the
-  correct version of the `rustup-init` executable for your platform.
-- On Windows, download and run [`rustup-init.exe`].
-
-`rustup-init` can be configured interactively, and all options can additionally
-be controlled by command-line arguments, which can be passed through the shell
-script. Pass `--help` to `rustup-init` as follows to display the arguments
-`rustup-init` accepts:
-
-```
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --help
-```
-
-If you prefer not to use the shell script, you may directly download
-`rustup-init` for the platform of your choice:
-
-<!-- `{{#rustup_init_list}}`, `{{#installer_table}}`, and `{{#source_code_table}}`
-are generated at build time. Please refer to the `blacksmith` preprocessor for
-what they each specifically generate.
--->
-
-{{#rustup_init_list}}
+Please refer to `rustup`'s [Other installation
+methods](https://rust-lang.github.io/rustup/installation/other.html).
 
 ## Standalone installers
 
@@ -82,6 +59,12 @@ what they each specifically generate.
 {{#include shared-standalone-installers.md}}
 
 Past releases can be found in [the archive].
+
+<!--
+`{{#installer_table}}` and `{{#source_code_table}}`
+are generated at build time. Please refer to the `blacksmith` preprocessor for
+what they each specifically generate.
+-->
 
 {{#installer_table}}
 
