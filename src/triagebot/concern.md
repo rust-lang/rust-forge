@@ -16,7 +16,7 @@ The concern is then added in the top comment of the GitHub issue to a special se
 
 ### Resolving a concern
 
-Concerns can be resolved by writing a comment with command:
+Concerns can be resolved by writing a comment with the command:
 
 ```text
 @rustbot resolve my concern title
@@ -30,7 +30,7 @@ This feature is enabled by having a `[concern]` table in `triagebot.toml`:
 
 ```toml
 [concern]
-labels = ["has-concerns"] # optional, list of labels automaticaly when there are un-resolved concerns
+labels = ["has-concerns"] # optional, list of labels to be added to the issue/PR when there are un-resolved concerns
 ```
 
 ## Implementation
