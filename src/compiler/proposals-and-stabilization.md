@@ -79,7 +79,7 @@ Zulip). See the previous section. To facilitate a machine parsable scanning of t
 please use the following syntax to formally register a concern:
 
 ```
-@rfcbot concern reason-for-concern
+@rustbot concern reason-for-concern
 
 <long description of the concern>
 ```
@@ -87,13 +87,13 @@ please use the following syntax to formally register a concern:
 And the following syntax to lift a concern when resolved:
 
 ```
-@rfcbot resolve reason-for-concern
+@rustbot resolve reason-for-concern
 ```
 
 MCPs can be seconded using:
 
 ```
-@rfcbot second
+@rustbot second
 ```
 
 ##### Who decides whether a concern is unresolved?
