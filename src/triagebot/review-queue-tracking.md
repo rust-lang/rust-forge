@@ -1,8 +1,8 @@
 # Review queue tracking
 
-Triagebot supports more advanced tracking of reviewers' workload in the `rust-lang` repository. It tracks how many "relevant" pull requests are assigned to each reviewer, and allows reviewers to configure maximum capacity of such PRs, and also if they want to be automatically assigned or not.
+Triagebot supports more advanced tracking of reviewers' workload in the `rust-lang/rust` repository. It tracks how many "relevant" pull requests are assigned to each reviewer, and allows reviewers to configure maximum capacity of such PRs, and also if they want to be automatically assigned or not.
 
-This pages describes how the review queue works and how you can interact with `triagebot` on Zulip to configure and examine the review queue.
+This page describes how the review queue works and how you can interact with `triagebot` on Zulip to configure and examine the review queue.
 
 ## Configuration
 
@@ -10,7 +10,7 @@ To enable review queue tracking for a repository, include `[pr-tracking]` table 
 
 To take the review queue into account when assigning reviewers on PRs, add a `[assign.review_prefs]` table to `triagebot.toml`.
 
-> Note that this functionality currently only works only for the `rust-lang/rust` repository (it is hardcoded in `triagebot`). Enabling it for more repositories requires additional design and implementation work.
+> Note that this functionality currently only works for the `rust-lang/rust` repository (it is hardcoded in `triagebot`). Enabling it for more repositories requires additional design and implementation work.
 
 ## Review queue design
 
@@ -24,7 +24,7 @@ Currently, the heuristic for what makes a PR "relevant" works as follows:
 
 If a PR passes all these checks and it is assigned to reviewer `R`, it will be considered to be in `R`'s review queue.
 
-See the implementation of the [`waits_for_a_review`](https://github.com/rust-lang/triagebot/blob/HEAD/src/handlers/pr_tracking.rs#L289) function in triagebot for more details.
+See the implementation of the [`waits_for_a_review`](https://github.com/rust-lang/triagebot/blob/7044e5449aaf29eea939bc7db81c63b7c872b9b8/src/handlers/pr_tracking.rs#L277-L304) function in triagebot for more details.
 
 ## Review preferences
 
