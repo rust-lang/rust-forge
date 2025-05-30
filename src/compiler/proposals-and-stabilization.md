@@ -263,11 +263,31 @@ circumstance.
     in the description
   - New targets should be assigned to the compiler team co-leads to ensure that any demands on
     the project infrastructure are considered and checked with relevant teams
+- Renaming a target or making a breaking change to a tier three target
+  - **Propose using:** PR
+  - **Approve using:** r+
+  - Open an PR with the proposed rename and describe the motivation for the change and obtain a r+
+    from the reviewer.
+- Renaming a target or making a breaking change to a tier two target
+  - **Propose using:** MCP
+  - **Approve using:** FCP
+  - Open an MCP describing the motivation for the change and start an FCP to approve, start an FCP.
+  - If approved, the change should be accompanied by a blog post announcing the change with a
+    notice period of at least one release before the change applies.
+- Renaming a target or making a breaking change to a tier one target
+  - **Propose using:** RFC
+  - **Approve using:** FCP
+  - Open an RFC describing the motivation for the change and start an FCP to approve, start an FCP.
+  - If approved, the change should be accompanied by a blog post announcing the change with a
+    notice period of at least one release before the change applies.
 - Demoting/removing a target
   - **Propose using:** MCP
   - **Approve using:** FCP
   - Write an MCP describing why the target should be demoted/removed and once discussion has
     concluded, an FCP can be started to approve the demotion/removal.
+  - If approved and affecting a tier two or one target , the change should be accompanied by a
+    blog post announcing the change with a notice period of at least one release before the change
+    applies.
 - Changing target baseline (e.g. minimum Darwin or Windows version bump)
   - **Propose using:** MCP
   - **Approve using:** FCP
