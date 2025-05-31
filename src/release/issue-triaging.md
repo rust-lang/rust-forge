@@ -75,6 +75,10 @@ To see a list of all labels, check out the "labels" page next to the search bar 
 
 Note that some labels may only be applied by users with write access to [`rust-lang/rust`]. Refer to the `allow-unauthenticated` list under `[relabel]` section in [`triagebot.toml`](https://github.com/rust-lang/rust/blob/master/triagebot.toml) to see what labels users without write access may use.
 
+### Relnotes triage
+
+For issues labeled as `relnotes-tracking-issue`, the `needs-triage` tag should not be removed until the release notes text has been cleaned up.
+
 ### Labels
 
 There are many different labels that can be applied to issues.
