@@ -125,6 +125,18 @@ title = "[beta" # title contains "[beta" in it
 branch = "beta"
 ```
 
+#### Custom welcome messages
+
+Some repositories may want to use custom welcome messages instead of the preconfigured ones. It is possible to customize the welcome message shown when an "auto reviewer" is found by triagebot and the one shown when no reviewer is found. If provided, the `contributing_url` will still be used.
+
+```toml
+[assign.custom_welcome_messages]
+welcome-message = "Welcome message, assigning {assignee}!"
+welcome-message-no-reviewer = "Welcome message for when no auto-reviewer could be selected!"
+```
+
+If `[assign.custom_welcome_messages]` is present, both custom messages must be provided.
+
 ## Implementation
 
 See [`parser/src/command/assign.rs`](https://github.com/rust-lang/triagebot/blob/HEAD/parser/src/command/assign.rs) and [`src/handlers/assign.rs`](https://github.com/rust-lang/triagebot/blob/HEAD/src/handlers/assign.rs).
