@@ -32,3 +32,4 @@ fallback = [
 "/src/platforms" = ["infra"]
 "/src/release" = ["release"]
 "/src/triagebot" = ["triagebot"]
+"/src/wg-rustc-dev-guide" = ["wg-rustc-dev-guide"]
