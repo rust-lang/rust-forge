@@ -20,11 +20,11 @@ If you spot anything that is outdated, under specified, missing, or just plain i
 
 ## If you’re ever unsure…
 
-Maintaining the standard library can feel like a daunting responsibility! Through automated reviewer assignment via [`triagebot`][assignment], you’ll find yourself dropped into a lot of new contexts.
+Maintaining the standard library can feel like a daunting responsibility! Through automated reviewer assignment via [`triagebot`][pr_assignment], you’ll find yourself dropped into a lot of new contexts.
 
 Ping the `@rust-lang/libs` team on GitHub anytime. We’re all here to help!
 
-If you don’t think you’re the best person to review a PR then use [`triagebot`][assignment] to assign it to somebody else.
+If you don’t think you’re the best person to review a PR then use [`triagebot`][pr_assignment] to assign it to somebody else.
 
 ## Finding reviews waiting for your input
 
@@ -339,7 +339,7 @@ To try reduce noise in the docs from deprecated items, they should be moved to t
 [`rust-lang/rust-forge`]: https://github.com/rust-lang/rust-forge
 [`rfcbot`]: https://github.com/rust-lang/rfcbot-rs
 [`bors`]: https://github.com/rust-lang/homu
-[assignment]: https://github.com/rust-lang/triagebot/wiki/Assignment
+[pr_assignment]: ../triagebot/pr-assignment.md
 [`crater`]: https://github.com/rust-lang/crater
 [`rust-timer`]: https://github.com/rust-lang-nursery/rustc-perf
 [Libs tracking issues]: https://github.com/rust-lang/rust/issues?q=label%3AC-tracking-issue+label%3AT-libs
