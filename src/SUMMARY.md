@@ -61,6 +61,7 @@
     - [Triage and Prioritization](./compiler/prioritization.md)
     - [Working Areas](./compiler/working-areas.md)
     - [Operations](./compiler/operations.md)
+- [Rustc Dev Guide](./wg-rustc-dev-guide/README.md)
 - [crates.io](./crates-io/README.md)
     - [Crate removal](./crates-io/crate-removal.md)
     - [Database maintenance](./crates-io/db-maintenance.md)
