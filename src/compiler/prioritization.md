@@ -49,9 +49,7 @@ Examples of things we typically judge to be “critical” bugs:
   - If a regression has been in stable for a release or two (either because we are still awaiting a
     fix, or because the bug had laid dormant i.e. undetected), we typically lower the priority as
     well, because by that time, if the users have not raised a ruckus about the regression, that
-    is a sign that it is inherently not a critical issue.
-    - e.g. [an issue that would have been `P-critical` but ended up being
-      `P-high`][critical_downgrade_example]
+    is a sign that it is inherently not a critical issue
 - Regressions where code still compiles but does something different than it used to do (dynamic
   semantics have changed)
   - Mitigating conditions that may lower priority:
@@ -75,8 +73,6 @@ Examples of things we typically judge to be “critical” bugs:
 
 A `P-critical` issue will receive the most attention. It must be assigned one or several people as
 soon as possible, and the rest of the team should do their best to help them out if/when applicable.
-
-[critical_downgrade_example]: https://rust-lang.zulipchat.com/#narrow/stream/227806-t-compiler.2Fwg-prioritization/topic/pre-meeting.20triage.202020-04-09.20.2354818
 
 ## P-high
 `P-high` issues are issues that need attention from the compiler team, but not to the point that
@@ -122,14 +118,13 @@ First, ensure that relevant issues are labelled as `T-compiler`..
 - [Issues classified with priority `P-high`](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3AP-high+-label%3AT-compiler+-label%3AT-cargo+-label%3AT-core+-label%3AT-doc+-label%3AT-infra+-label%3AT-lang+-label%3AT-libs+-label%3AT-libs-api+-label%3AT-release+-label%3AT-rustdoc+-label%3AA-rustdoc+-label%3AA-rustdoc-ui)
 
 ..and that prioritization has been completed. Regressions labeled with `I-prioritize` are signaling
-that a priority assessment is waiting. When this label is added to an issue, the `triagebot` creates
-automatically a notification for @*WG-prioritization* members on [the
-`#t-compiler/prioritization/alerts` Zulip channel][prio_channel].
+that a priority assessment is waiting. When this label is added to an issue, the `triagebot` sends a
+notification to the [`#t-compiler/prioritization/alerts`][prio_channel] Zulip channel.
 
-[prio_channel]: https://rust-lang.zulipchat.com/#narrow/stream/245100-t-compiler.2Fwg-prioritization.2Falerts
+[prio_channel]: https://rust-lang.zulipchat.com/#narrow/channel/245100-t-compiler.2Fprioritization.2Falerts
 
 To assign a priority, replace the `I-prioritize` label with one of `P-critical`, `P-high`,
-`P-medium` or `P-low` and adding a succinct comment to link the Zulip discussion where the issue
+`P-medium` or `P-low` and add a succinct comment to link the Zulip discussion where the issue
 prioritization occurred, example of a template for the comment:
 
 > Assigning priority (discussion on [Zulip](#)).
@@ -138,12 +133,11 @@ prioritization occurred, example of a template for the comment:
 
 Tip: use [Github Saved Replies](https://docs.github.com/get-started/writing-on-github/working-with-saved-replies) to create a template comment.
 
-Ideally, all [`T-compiler` issues with a `I-prioritize` label][issues_needing_prio] to have a
+Ideally, all [`T-compiler` issues with a `I-prioritize` label][issues_needing_prio] should have a
 priority assigned, or strive to reach this goal: sometimes different factors are blocking issues
-from being assigned a priority label, either because the report or the context is unclear or
-because cannot be reproduced and an MCVE would help. Don't hesitate to ask for clarifications to
-the issue reporter or ping the `ICEbreaker` team when an ICE ("Internal Compiler Errors") needs a
-reduction (add a comment on the issue with `@rustbot ping icebreakers-cleanup-crew`)
+from being assigned a priority label, either because the report or the context is unclear or because
+cannot be reproduced and an MCVE would help. Don't hesitate to ask for clarifications to the issue
+reporter or to other contributors.
 
 Review [stable][stable_regressions], [beta][beta_regressions] and [nightly][nightly_regressions] and
 try to ensure they are assigned when possikle.
@@ -159,19 +153,16 @@ close the issue.
 
 [mcp_fcp]: https://github.com/rust-lang/compiler-team/issues?q=is%3Aissue+is%3Aopen+label%3Amajor-change+label%3Afinal-comment-period
 
-Finally, the meeting agenda can be generated. Clone and build [`triagebot`][triagebot] and set the
-`GITHUB_TOKEN` environment variable with a GitHub API token.
+Finally, the meeting agenda can be generated. Clone and build [`triagebot`][triagebot] and run:
 
 [triagebot]: https://github.com/rust-lang/triagebot
-
-Then generate the agenda with:
 
 ```
 $ cargo run --bin prioritization-agenda
 ```
 
 Copy the content into a new HackMD in the "Rust Lang Compiler Team" space. Copy the most recent
-[performance triage logs][perf_triage_log] and remove anything that won't display well in Zulip
+[performance triage logs][perf_triage_log] (doing a bit of cleanup, removing anything that won't display well in Zulip)
 
 [perf_triage_log]: https://github.com/rust-lang/rustc-perf/tree/master/triage#triage-logs
 

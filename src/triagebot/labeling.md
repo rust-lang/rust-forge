@@ -56,7 +56,7 @@ Formally the grammar is:
 
 ### Permissions
 
-All labels can be assigned by rust-lang organization team members (and wg-triage, wg-prioritization, and wg-async).
+All labels can be assigned by rust-lang organization team members (and wg-triage, wg-async).
 Users not on a team can only assign labels that are explicitly authorized in `triagebot.toml`.
 It is encouraged for maintainers to allow the majority of labels to be applied by anyone.
 An example of one that would be restricted is `beta-accepted`, since accepting a backport to beta is usually only done by a team member.

@@ -9,7 +9,7 @@ The message will include a `cc` line that `@`-mentions all members of the team.
 
 ## Usage
 
-On repositories with a ping group configured, any Rust team member (and wg-triage, wg-prioritization, and wg-async) can write a GitHub comment such as:
+On repositories with a ping group configured, any Rust team member (and wg-triage, wg-async) can write a GitHub comment such as:
 
 ```text
 @rustbot ping windows
@@ -21,7 +21,7 @@ which would cause triagebot to post a comment notifying the members of the `wind
 
 To be pinged, teams have to be created in the [Rust team repository](https://github.com/rust-lang/team).
 Frequently those teams will be marked as `marker-team`, meaning that they do not appear on the website.
-The [Icebreakers LLVM team](https://github.com/rust-lang/team/blob/master/teams/icebreakers-llvm.toml#L2) is an example.
+The [WASM team](https://github.com/rust-lang/team/blob/master/teams/wasm.toml#L2) is an example.
 
 Additionally, the team needs to be configured in the repository's `triagebot.toml` file.
 
