@@ -103,8 +103,9 @@ Crates comes with a [bot to trigger experiments](https://github.com/rust-lang/cr
 
 [docs.rs](https://docs.rs/) builds and serves the rustdoc documentation for
 all crates on [crates.io]. Issues may be filed on the [docs.rs
-repository](https://github.com/rust-lang/docs.rs). See the #docs-rs channel on
-Discord for discussion or urgent issues.
+repository](https://github.com/rust-lang/docs.rs). See the [#t-docs-rs
+channel](https://rust-lang.zulipchat.com/#narrow/channel/356853-t-docs-rs/)
+on Zulip for discussion or urgent issues.
 
 ## Toolstate
 
