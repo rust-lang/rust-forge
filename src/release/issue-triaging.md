@@ -113,14 +113,14 @@ There are many different labels that can be applied to issues.
     - `regression-from-stable-to-{beta,nightly}`: Something that regressed from the a stable release to beta or nightly channel.
 - [`I-*`]: Different labels about the nature[^2] of an issue.
     - `I-ICE`: Internal compiler error.
-    - `I-prioritize`: Indicates that the issue should be additionally triaged by the [T-compiler prioritization working group (WG-priority)](../compiler/prioritization.md) to assign a priority `P-*` if applicable to indicate the urgency.
+    - `I-prioritize`: Indicates that the issue should be additionally triaged by [T-compiler/ops](../compiler/prioritization.md) to assign a priority `P-*` if applicable to indicate the urgency.
     - `I-heavy`: Heavy code (binary size).
     - `I-slow`: Slow run-time performance.
     - `I-hang`: The compilation fails to complete after a long time.
     - `I-crash`: The compiler or generated code crashes but does not manifest as an ICE, e.g. SIGSEGV or access violations.
     - `I-unsound`: Library, compiler, type system or language unsoundness.
     - `I-compilemem`: Excessive memory usage during compilation.
-    - `I-compiletime`: Slow compilation time. 
+    - `I-compiletime`: Slow compilation time.
     - `I-{team}-nominated`: Issue is nominated for discussion by `{team}`. E.g. `I-compiler-nominated`.
     - `I-lang-easy-decision`: The decision needed by T-lang is conjectured (by the person applying the label) to be easy or perfunctory. Note that this label does not imply `I-lang-nominated`; the nomination label should be applied simultaneously if the person apply the label wants to nominate the issue for T-lang discussion.
 - [`P-*`]: Priority labels. Applied using the [compiler prioritization procedure](../compiler/prioritization.md).
