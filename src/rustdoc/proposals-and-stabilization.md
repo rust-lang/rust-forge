@@ -69,10 +69,6 @@ A good proposal will address the following:
 * **Alternatives, concerns, and key decisions:** Were there any alternatives considered? If so, why
   did you pick this design?
 
-## What proposal/approval do I need?
-This section aims to exhaustively detail which proposal and approval is necessary for any given
-circumstance.
-
 [rfcs]: https://github.com/rust-lang/rfcs
 [Haddock]: https://haskell-haddock.readthedocs.io/latest/
 [Wikipedia]: https://www.wikipedia.org/
