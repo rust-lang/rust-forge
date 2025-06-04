@@ -45,6 +45,7 @@ Being promoted to member implies a number of privileges:
 
 It also implies some obligations (in some cases, optional obligations):
 
+- Members are expected to respond to FCPs in maximum 4 weeks (28 days).
 - Members may take part in various other [maintainer activities] to help the team.
 - Members are held to a higher standard than ordinary folk when it comes to the [Code of
   Conduct][CoC].
@@ -71,15 +72,17 @@ we have three main areas:
 - Internals: The internals of rustdoc: interacting with the compiler, doctests, generating
   rustdoc internal code representation, parsing command line arguments, lints, etc.
 
-These groups are NOT full-fledge teams, and as such, to be part of any of these groups, you need to
+These groups are NOT full-fledged teams, and as such, to be part of any of these groups, you need to
 be a member of the rustdoc team.
 
 For now, only the front-end group has an official status in the
 [team repository](https://github.com/rust-lang/team) and is called `rustdoc-frontend`. If a rustdoc
 team member is interested to be part of this group, they can ask to be added into it.
 
-Being part of the front-end group doesn't change your rustdoc team membership. However
-you will be assigned for reviews on front-end pull requests and on front-end FCPs.
+Let's take the front-end group as an example. It is a part of the rustdoc team, so you need to be a
+member of the rustdoc team to be able to join this group. Being part of the front-end group means
+you are encouraged to be part of the review rotations for front-end pull requests and you will need
+to respond on front-end FCPs.
 
 ## How promotion decisions are made
 [hdam]: #how-promotion-decisions-are-made

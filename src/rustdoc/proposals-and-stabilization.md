@@ -9,11 +9,11 @@ There are two mechanisms that the team can use to approve a proposal (not all ap
 are suitable for each method of making a proposal - see below):
 
 - r+
-  - A proposal is r+'d when it is approved to be merged.
+  - A proposal (an RFC or an FCP) is r+'d when it is approved to be merged.
   - r+ can only be used to approve a PR.
 - FCP
-  - A final comment period will require sign-off from a majority of the rustdoc team to approve
-    a proposal and then a ten day waiting period.
+  - A final comment period will require sign-off from a majority (all members minus 2)
+    of the rustdoc team to approve a proposal and then a ten day waiting period.
   - FCPs can be used to approve any form of proposal.
 
 ## Proposals
@@ -33,7 +33,8 @@ the nature of the proposal, described below.
     proposal mechanism, suitable for most proposals. PRs are preferred when the proposal is
     accompanied by a small patchset (such as stabilization of a compiler flag or addition of
     a new target).
-  - PR proposals can be approved by *FCPs* or *r+*.
+  - PR proposals can be approved by *FCPs* or *r+*. See *When are FCPs/RFCs required?*
+    section below when *r+* isn't sufficient alone.
 
 [rustdoc zulip thread]: https://rust-lang.zulipchat.com/#narrow/channel/266220-t-rustdoc
 
@@ -43,8 +44,8 @@ An FCP will be needed for any stabilization of small user-facing changes, like U
 command-line arguments, new attributes, etc. However, if the change is considered too big/important,
 an RFC will need to be written and approved before the change will be accepted.
 
-When opening an FCP, make sure only the relevant subteam is labeled on the issue, to avoid pinging
-people with changes they aren't interested in.
+When starting an FCP, make sure only the relevant subteam is labeled on the issue/PR, to avoid
+pinging people with changes they aren't interested in.
 
 ### What happens if someone makes a contribution that requires an approval and doesn't have one?
 If the approval required for the contribution requires an RFC, then the contribution
@@ -68,10 +69,6 @@ A good proposal will address the following:
   documentation websites, like [Haddock], [Wikipedia], [Racket]?
 * **Alternatives, concerns, and key decisions:** Were there any alternatives considered? If so, why
   did you pick this design?
-
-## What proposal/approval do I need?
-This section aims to exhaustively detail which proposal and approval is necessary for any given
-circumstance.
 
 [rfcs]: https://github.com/rust-lang/rfcs
 [Haddock]: https://haskell-haddock.readthedocs.io/latest/

@@ -11,6 +11,6 @@ There are various resources which are useful to contributors and team members.
 If there are additional resources which would be useful to a contributor or compiler team member,
 feel free to submit a PR to add it here.
 
-[dev_guide]: https://rustc-dev-guide.rust-lang.org/ 
+[dev_guide]: https://rustc-dev-guide.rust-lang.org/rustdoc.html
 [rustc]: https://doc.rust-lang.org/nightly/nightly-rustc/rustc_middle/index.html
 [rustdoc]: https://doc.rust-lang.org/nightly/nightly-rustc/rustdoc/index.html

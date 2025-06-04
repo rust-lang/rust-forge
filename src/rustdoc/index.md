@@ -4,7 +4,7 @@ and considering the stabilization of rustdoc features.
 
 We use the Forge to document the team's processes, policies and working practices, if you'd like to
 read about how the compiler and rustdoc work and instructions on how to set up a development environment,
-you're looking for the [rustc-dev-guide](https://rustc-dev-guide.rust-lang.org/).
+you're looking for the [rustc-dev-guide](https://rustc-dev-guide.rust-lang.org/rustdoc.html).
 
 - [Calendar](./calendar.md)
   - *How do I subscribe to the compiler team's calendar?*
