@@ -32,6 +32,10 @@ second_label = "final-comment-period"
 # Typically this is used to track what needs to be discussed at a meeting.
 meeting_label = "to-announce"
 
+# Label that indicates there are active concerns on the MCP
+# Typically tracked by `@rustbot concern`
+concerns_label = "has-concerns"
+
 # When this label is added to an issue, that triggers acceptance of the proposal
 # which sends an update to Zulip.
 # Defaults to "major-change-accepted".
