@@ -10,7 +10,7 @@ Each registered team member has a notifications page at:
 
 Whenever you are mentioned on GitHub with a direct mention (`@user`) or via a team mention (`@rust-lang/libs`) anywhere in the rust-lang organization, this will add an entry to the notifications list.
 
-The notifications list can also be edited via Zulip by [private-messaging triagebot](https://rust-lang.zulipchat.com/#narrow/pm-with/261224-triage-rust-lang-bot).
+The notifications list can also be edited via Zulip by [private-messaging triagebot](zulip-commands.md#direct-message-commands).
 Any Rust organization member can edit their notifications page, or pages of other Rust organization team members.
 To do so, the editor must have a `zulip-id` listed in their `people/username.toml` file in the [team repository](https://github.com/rust-lang/team/).
 The bot will tell you which ID to use when talking to it for the first time; please `r? @Mark-Simulacrum` on PRs adding Zulip IDs.
@@ -37,10 +37,6 @@ This moves the notification at index `from` to the index `to`.
  * `meta <idx> <metadata...>`
 
 This adds some text as a sub-bullet to the notification at `idx`. If the metadata is empty, the text is removed.
-
- * `as <github username> <command...>`
-
-This executes any of the above commands as if you were the other GitHub user.
 
 ## Configuration
 

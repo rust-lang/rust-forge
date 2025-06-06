@@ -37,24 +37,11 @@ Note that the review preferences only affect assignment based on adhoc groups or
 
 ## Usage
 
-You can examine your review queue and configure your review preferences by sending a DM (Direct Message) to the `triagebot` bot account on the [Zulip chat](../platforms/zulip.md). You can open a DM session with the `triagebot` bot by clicking on [this link](https://rust-lang.zulipchat.com/#narrow/dm/261224-triagebot) (requires Zulip login).
+You can examine your review queue and configure your review preferences by sending a [Direct Message command](zulip-commands.md#direct-message-commands) to `triagebot`:
 
-You can send a message with one of these commands to `triagebot`:
-
-- `work help` --- Show the available commands.
-- `work show` --- Show the contents of your review queue (in the `rust-lang/rust` repository) and your review preferences.
-- `work set-pr-limit <number>|unlimited` --- Set your review capacity to `<number>` or remove the capacity limit (`unlimited`).
-- `work set-rotation-mode off|on` --- Set your rotation mode to be `on` or `off`.
-
-You can also run the above commands on behalf of other GitHub users with the following message:
-
-```
-as <github-username> <command>
-# e.g.
-as MyFavouriteGitHubUser work show
-```
-
-`triagebot` will notify the user that you have executed a command on their behalf. Note that this functionality is intended for rare occasions or debugging, please do not use it often.
+- `work show`: Show the contents of your review queue (in the `rust-lang/rust` repository) and your review preferences.
+- `work set-pr-limit <number>|unlimited`: Set your review capacity to `<number>` or remove the capacity limit (`unlimited`).
+- `work set-rotation-mode off|on`: Set your rotation mode to be `on` or `off`.
 
 ## Implementation
 
