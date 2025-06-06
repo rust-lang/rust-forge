@@ -59,5 +59,5 @@ Minutes of steering meetings are stored on [HackMD][meeting_steering_notes].
 
 [team_repo]: https://github.com/rust-lang/compiler-team
 [meetings_channel]: https://rust-lang.zulipchat.com/#narrow/channel/238009-t-compiler.2Fmeetings
-[meeting_steering_notes]: https://hackmd.io/team/rust-compiler-team?nav=overview&tags=%5B%22steering%22%5D&tagtree-filter=true
-[meeting_triage_notes]: https://hackmd.io/team/rust-compiler-team?nav=overview&tags=%5B%22weekly%22%5D&tagtree-filter=true
+[meeting_steering_notes]: https://hackmd.io/@rust-compiler-team?tags=%5B%22steering%22%5D
+[meeting_triage_notes]: https://hackmd.io/@rust-compiler-team?tags=%5B%22weekly%22%5D
