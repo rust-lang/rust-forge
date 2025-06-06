@@ -195,9 +195,8 @@ After the meeting, there are a few closing tasks:
   commit the agenda as minutes to the `compiler-team` repository.
 - Remove the `to-announce` label from [MCPs][mcps], unless this label was added exactly during
   the meeting (and therefore will be seen during the following meeting).
-- Remove `to-announce` FCPs from [`rust-lang/rust` repo][announce], [`compiler-team`
-  repo][team_announce] and [forge repo][forge_announce]. Same disclaimer as before regarding changes
-  during the meeting.
+- Remove `to-announce` FCPs from [`rust-lang/rust`][rust_announce], [`compiler-team`][team_announce]
+  and the [forge][forge_announce]. Same disclaimer as before regarding changes during the meeting.
 - Accept or decline [`beta nominated`][beta_nominated] and [`stable nominated`][beta_nominated]
   backports that have been accepted during the meeting. For more info check [`t-release` backporting
   docs][release_backports]

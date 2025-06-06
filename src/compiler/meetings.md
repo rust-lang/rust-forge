@@ -2,12 +2,13 @@
 The compiler team host various regular meetings to keep on top of regular business necessary for
 the running of the team and delivery of a high-quality compiler toolchain.
 
+All the T-compiler meetings are held in our Zulip chat [`#t-compiler/meetings`][meetings_channel],
+in text-mode only.
+
 ## Triage Meeting
-The weekly triage meeting takes place on Zulip: considering any backports, reviewing
-performance triage reports and discussing nominated issues. Triage meetings are held in the
-[`#t-compiler/meetings`][meetings_channel] on Zulip. You can find the up-to-date meeting times in
-[the team calendar](./calendar.md). Anyone can attend and it is recommended that compiler team
-members do.
+During the weekly triage meeting the team considers backports, reviews performance triage reports
+and discusses nominated issues. You can find the up-to-date meeting times in [the team
+calendar](./calendar.md). Anyone can attend and it is recommended that compiler team members do.
 
 Agendas of triage meetings are stored on [HackMD][meeting_triage_notes].
 
@@ -16,8 +17,8 @@ See [*Prioritization*](./prioritization.md) for documentation on generating the 
 agenda.
 
 ## Steering/Planning Meeting
-The weekly steering/planning meeting also takes place on Zulip and is intended to host high-level
-discussions. Steering/planning meetings operate on a repeating schedule:
+At a regular cadence, the team also meets to discuss high-level topics. Steering/planning meetings
+operate on a repeating schedule:
 
 - **Week 1:** Planning meeting
   - Select the topics for the next three meetings from the team's proposed meetings.
