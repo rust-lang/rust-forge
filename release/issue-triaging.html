@@ -1,0 +1,510 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Issue Triaging - Rust Forge</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Supplemental documentation for contributing to The Rust Programming Language">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rust Forge</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/rust-forge" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/rust-forge/edit/master/src/release/issue-triaging.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="issue-triaging"><a class="header" href="#issue-triaging">Issue triaging</a></h1>
+<p>This page is about the <a href="https://github.com/rust-lang/rust"><code>rust-lang/rust</code></a> repository. Other repositories under the <code>rust-lang</code> GitHub organization likely have different processes.</p>
+<p>Tracking issues (issues labeled <code>C-tracking-issue</code>) don’t fit into this procedure and are treated differently.</p>
+<h2 id="motivation"><a class="header" href="#motivation">Motivation</a></h2>
+<p>The <a href="https://github.com/rust-lang/rust"><code>rust-lang/rust</code></a> repository has thousands of issues and hundreds of people working on it. It is impossible for all people to check and solve issues. The goals of triaging are to:</p>
+<ul>
+<li>Improve <strong>discoverability</strong>:
+<ul>
+<li>Categorize which teams an issue may concern.</li>
+<li>Make sure regressions are properly tagged and tracked.</li>
+<li>Connect issues to the relevant people (especially relevant teams).</li>
+</ul>
+</li>
+<li>First-pass <strong>coarse classification</strong> of the issue nature:
+<ul>
+<li>Is this issue a bug, or is this discussion, or is this a user-side problem?</li>
+</ul>
+</li>
+<li>Identify if the issue is <strong>sufficiently actionable</strong>:
+<ul>
+<li>Does the report need further info, like reproduction steps, a reproducer, or build/execution environment info?</li>
+<li>Does the reproducer need minimization?</li>
+</ul>
+</li>
+<li>Make it easier for contributors to <strong>filter</strong> issues by applying suitable labels.</li>
+</ul>
+<p>In practice, it is unrealistic for all issues to be solved quickly and found by right people. Through applications of labels we make the issue tracker more searchable for future reference, so that people in the future have an easier time finding related issues or issues they are interested in working on.</p>
+<p>Triaging can be done by <strong>everyone</strong>, no matter if you have write access to <a href="https://github.com/rust-lang/rust"><code>rust-lang/rust</code></a> or not. We encourage everyone to help here, as triaging work is highly parallelizable and easy to get started with.</p>
+<p>Some actions that require write access to <a href="https://github.com/rust-lang/rust"><code>rust-lang/rust</code></a> include:</p>
+<ul>
+<li>Using <code>@rustbot transfer</code> to transfer the issue to another repository under <code>rust-lang</code> GitHub organization.</li>
+<li>Closing the issue.</li>
+<li>Using <code>@rustbot</code> to apply certain labels that require write access (see “Applying and removing labels” section below).</li>
+</ul>
+<p>If you don’t have write access but you assess that these actions should be done, you can just open a new topic in <a href="https://rust-lang.zulipchat.com/#narrow/stream/242269-t-release.2Ftriage"><code>t-release/triage</code></a> zulip channel, or add a comment linking to the issue in an existing topic in the <a href="https://rust-lang.zulipchat.com/#narrow/stream/242269-t-release.2Ftriage"><code>t-release/triage</code></a> channel.</p>
+<h2 id="initial-triaging"><a class="header" href="#initial-triaging">Initial triaging</a></h2>
+<p>When an issue is opened, it usually receives the <code>needs-triage</code> label automatically. This is done so that untriaged issues are easily discovered and are filterable, to make sure that new issues receive an initial triaging pass (describe below). <code>needs-triage</code> is an <em>initial</em> checkpoint. The effort needed to get an issue past the label should be small.</p>
+<p>To do the initial triage and remove the <code>needs-triage</code> label, the following conditions should be fulfilled/considered. It’s okay if not all of these are always considered. Treat this non-exhaustive list as a guideline, not a hard checklist:</p>
+<ul>
+<li>The issue should make sense, that is, it should present a problem.
+<ul>
+<li>For example, if an issue is a question about Rust in general, the issue should be closed and the user redirected to <a href="https://users.rust-lang.org">URLO</a>/<a href="https://discord.gg/rust-lang">Discord</a>. You can, of course, answer the question too, but make sure to mention that the user should go to <a href="https://users.rust-lang.org">URLO</a>/<a href="https://discord.gg/rust-lang">Discord</a> next time.</li>
+</ul>
+</li>
+<li>Check if this issue is a duplicate of earlier-reported issues.
+<ul>
+<li>If you are certain this is a duplicate, close this issue as a duplicate of the earlier issue. Make sure this is obvious in the backlink of the earlier issue, or explicitly link to the duplicate issue.</li>
+<li>If you are not sure, you can still leave a comment to indicate the other issue is possibly a duplicate, similar, or related.</li>
+</ul>
+</li>
+<li>Add appropriate labels (<a href="#labels">Labels</a>).
+<ul>
+<li>Specifically, team labels (<code>T-*</code>) and issue category labels (<code>C-*</code>) are the most important, because team members will usually rely on those as a baseline to filter what concerns the team (e.g. during triage meetings).</li>
+</ul>
+</li>
+<li>If the issue contains no reproduction but needs one (when in doubt, it needs one), ask for one and add the <code>S-needs-repro</code> label.</li>
+<li>If the issue lacks information (e.g. system information, the exact invocation used), then request that the reporter provide the information that is important to reproduce the problem. Add the <code>S-needs-info</code> label.</li>
+<li>The issue tracker is the wrong place for some kinds of feature requests. Redirect the author to proper channels:
+<ul>
+<li>Standard library API requests should follow <a href="https://std-dev-guide.rust-lang.org/development/feature-lifecycle.html">libs-api processes</a>.</li>
+<li>Language changes should be redirected to <a href="https://internals.rust-lang.org/">IRLO</a> or T-lang zulip channel (<a href="https://rust-lang.zulipchat.com/#narrow/stream/213817-t-lang">t-lang</a>).</li>
+</ul>
+</li>
+<li>If the issue could benefit from bisecting the regression (when in doubt, it can), add <code>E-needs-bisection</code> (or do the bisection yourself). An useful bisection tool is <a href="https://github.com/rust-lang/cargo-bisect-rustc"><code>cargo-bisect-rustc</code></a>.
+<ul>
+<li>If there is a bisection and the bisection outcome is convincing, add <code>S-has-bisection</code>.</li>
+</ul>
+</li>
+<li>If the reported example is large and/or complex (e.g. a lot of code, has a lot of external dependencies, has unrelated warnings or errors that obfuscates the actual problem), add <code>E-needs-mcve</code> to indicate the need to minimize the example.
+<ul>
+<li>If there is a Minimal, Complete and Verifiable Example (MCVE), then tag the issue with <code>S-has-mcve</code>. Double-check that the minimization is valid, e.g. the MCVE is for the original problem and has not drifted to a different problem.</li>
+</ul>
+</li>
+<li>Is the issue a regression? If so, apply the <code>regression-untriaged</code> label (or figure out what regression it is exactly). Generally speaking, an issue is considered a regression if something used to work, but no longer does.</li>
+<li>If you happen to know people who this issue is relevant to, ping them.
+<ul>
+<li>For example, write <code>cc @ThatPerson</code> if <code>ThatPerson</code> has been working a lot on the feature in question recently.</li>
+</ul>
+</li>
+<li>Does this issue require nightly? Add <code>requires-nightly</code>.</li>
+<li>Does this issue require incomplete or internal features? Add <code>requires-{incomplete,internal}-features</code>.</li>
+</ul>
+<h3 id="applying-and-removing-labels"><a class="header" href="#applying-and-removing-labels">Applying and removing labels</a></h3>
+<p>Users without write access to <a href="https://github.com/rust-lang/rust"><code>rust-lang/rust</code></a> can use <strong>@rustbot</strong> to add or remove <a href="https://github.com/rust-lang/rust/blob/master/triagebot.toml">the labels allowed by the <code>triagebot.toml</code> configuration</a> as a workaround.</p>
+<p>Users with write access should change the labels directly to avoid sending a notification to everyone subscribed to the issue unnecessarily.</p>
+<p>For example:</p>
+<pre><code>@rustbot label +T-compiler +C-bug +A-linkage +O-macos -needs-triage
+</code></pre>
+<p>To see a list of all labels, check out the “labels” page next to the search bar in the issue tracker.</p>
+<p>Note that some labels may only be applied by users with write access to <a href="https://github.com/rust-lang/rust"><code>rust-lang/rust</code></a>. Refer to the <code>allow-unauthenticated</code> list under <code>[relabel]</code> section in <a href="https://github.com/rust-lang/rust/blob/master/triagebot.toml"><code>triagebot.toml</code></a> to see what labels users without write access may use.</p>
+<h3 id="relnotes-triage"><a class="header" href="#relnotes-triage">Relnotes triage</a></h3>
+<p>For issues labeled as <code>relnotes-tracking-issue</code>, the <code>needs-triage</code> tag should not be removed until the release notes text has been cleaned up.</p>
+<h3 id="labels"><a class="header" href="#labels">Labels</a></h3>
+<p>There are many different labels that can be applied to issues.</p>
+<ul>
+<li><code>needs-triage</code>: Signals that an issue is new and needs initial triage.</li>
+<li><a href="https://github.com/rust-lang/rust/labels?q=T-"><code>T-*</code></a>: Specifies the team or teams that this issue is relevant to. For example <code>T-compiler</code>, <code>T-types</code> or <code>T-libs</code>.  See <a href="#team-examples">Team Examples</a> for more details.</li>
+<li><a href="https://github.com/rust-lang/rust/labels?q=WG-"><code>WG-*</code></a>: Specifies the working groups that this issue is relevant to, for example <code>WG-debugging</code>.</li>
+<li><a href="https://github.com/rust-lang/rust/labels?q=PG-"><code>PG-*</code></a>: Specifies the project groups that this issue is relevant to, for example the <code>PG-exploit-mitigations</code>.</li>
+<li><a href="https://github.com/rust-lang/rust/labels?q=C-"><code>C-*</code></a>: Specifies the category of the label, for example a bug, tracking issue or discussion.
+<ul>
+<li><code>C-optimization</code>: For missed compiler optimizations.</li>
+<li><code>C-defective-hardware</code>: For hardware bugs that are beyond our control.</li>
+<li><code>C-gub</code>: If the problem is due to user error, e.g. undefined behavior.</li>
+<li><code>C-discussion</code>: Not a bug, but still worth discussing.</li>
+<li><code>C-external-bug</code>: For software bugs that affect us but we don’t have direct control over, but is worth tracking from our side.</li>
+</ul>
+</li>
+<li><a href="https://github.com/rust-lang/rust/labels?q=O-"><code>O-*</code></a>: For target-specific issues, specifies the compile target<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup> or compile target family (most notably the platform, i.e., the architecture or operating system). For example <code>O-macos</code>, <code>O-aarch64</code>, <code>O-windows</code>, <code>O-windows-msvc</code>.
+<ul>
+<li>Where possible, specify the most specific target-category. For instance, if an issue affects <code>*-windows-gnu</code> but not <code>*-windows-msvc</code>, prefer <code>O-windows-gnu</code> over the generic <code>O-windows</code>.</li>
+</ul>
+</li>
+<li><a href="https://github.com/rust-lang/rust/labels?q=A-"><code>A-*</code></a>: The areas that the issue is relevant to, for example <code>A-linkage</code>, <code>A-patterns</code> or <code>A-diagnostics</code>. This is particularly helpful for filtering issues.
+<ul>
+<li><code>A-diagnostics</code>: Issues created from the diagnostics issue template only have <code>A-diagnostics</code> and not <code>C-bug</code>.</li>
+</ul>
+</li>
+<li><a href="https://github.com/rust-lang/rust/labels?q=B-"><code>B-*</code></a>: Issues which are blockers.</li>
+<li><a href="https://github.com/rust-lang/rust/labels?q=D-"><code>D-*</code></a>: Labels for diagnostic issues.
+<ul>
+<li><code>D-diagnostic-infra</code>: This issue is about the diagnostics infrastructure itself.</li>
+</ul>
+</li>
+<li><a href="https://github.com/rust-lang/rust/labels?q=L-"><code>L-*</code></a>: When the issue concerns a specific lint.
+<ul>
+<li><code>L-false-positive</code> if the lint fires on a case that it should not have fired on.</li>
+<li><code>L-false-negative</code> if the lint misses a case where it should have fired.</li>
+</ul>
+</li>
+<li><a href="https://github.com/rust-lang/rust/labels?q=F-"><code>F-*</code></a>: When the issue concerns a specific (usually unstable, usually language) feature.</li>
+<li><a href="https://github.com/rust-lang/rust/labels?q=-Z"><code>-Z*</code></a>: When the issue concerns a specific unstable <code>-Z</code> compiler flag.</li>
+<li><code>requires-nightly</code>: This issue only affects the nightly channel compiler, and does not affect the beta or stable channel compiler.</li>
+<li><code>requires-{incomplete,internal}-features</code>: This issue requires an incomplete or internal feature. The latter often means that the issue should be closed in accordance with compiler <a href="https://github.com/rust-lang/compiler-team/issues/620">MCP 620</a>.</li>
+<li><a href="https://github.com/rust-lang/rust/labels?q=regression-"><code>regression-*</code></a>: Labels for tracking issues that are regressions.
+<ul>
+<li><code>regression-untriaged</code>: The nature and kind of regression is unclear; indicates further regression triage is necessary.</li>
+<li><code>regression-from-stable-to-stable</code>: Something that regressed from an older stable release, which has already reached the latest stable release or even earlier stable releases.</li>
+<li><code>regression-from-stable-to-{beta,nightly}</code>: Something that regressed from the a stable release to beta or nightly channel.</li>
+</ul>
+</li>
+<li><a href="https://github.com/rust-lang/rust/labels?q=I-"><code>I-*</code></a>: Different labels about the nature<sup class="footnote-reference" id="fr-2-1"><a href="#footnote-2">2</a></sup> of an issue.
+<ul>
+<li><code>I-ICE</code>: Internal compiler error.</li>
+<li><code>I-prioritize</code>: Indicates that the issue should be additionally triaged by <a href="../compiler/prioritization.html">T-compiler/ops</a> to assign a priority <code>P-*</code> if applicable to indicate the urgency.</li>
+<li><code>I-heavy</code>: Heavy code (binary size).</li>
+<li><code>I-slow</code>: Slow run-time performance.</li>
+<li><code>I-hang</code>: The compilation fails to complete after a long time.</li>
+<li><code>I-crash</code>: The compiler or generated code crashes but does not manifest as an ICE, e.g. SIGSEGV or access violations.</li>
+<li><code>I-unsound</code>: Library, compiler, type system or language unsoundness.</li>
+<li><code>I-compilemem</code>: Excessive memory usage during compilation.</li>
+<li><code>I-compiletime</code>: Slow compilation time.</li>
+<li><code>I-{team}-nominated</code>: Issue is nominated for discussion by <code>{team}</code>. E.g. <code>I-compiler-nominated</code>.</li>
+<li><code>I-lang-easy-decision</code>: The decision needed by T-lang is conjectured (by the person applying the label) to be easy or perfunctory. Note that this label does not imply <code>I-lang-nominated</code>; the nomination label should be applied simultaneously if the person apply the label wants to nominate the issue for T-lang discussion.</li>
+</ul>
+</li>
+<li><a href="https://github.com/rust-lang/rust/labels?q=P-"><code>P-*</code></a>: Priority labels. Applied using the <a href="../compiler/prioritization.html">compiler prioritization procedure</a>.</li>
+<li><a href="https://github.com/rust-lang/rust/labels?q=E-"><code>E-*</code></a>: Calls for participation<sup class="footnote-reference" id="fr-3-1"><a href="#footnote-3">3</a></sup>, for example to minimize an issue.
+<ul>
+<li><code>E-mentor</code>: A mentor is available to help with the issue, which makes for a good first issue. Make sure that the intended mentor is actually willing and available to mentor.</li>
+<li><code>E-needs-mcve</code>: This issue has a reproduction, but it is not minimal. It should be minimized.</li>
+<li><code>E-needs-bisection</code>: This issue needs a bisection, for example using <a href="https://github.com/rust-lang/cargo-bisect-rustc"><code>cargo-bisect-rustc</code></a>.</li>
+<li><code>E-needs-investigation</code>: This issue needs further investigation to determine root causes and the nature of the issue.</li>
+<li><code>E-needs-design</code>: This issue will require some substantial design effort (exploration, prototyping, discussions, etc.).</li>
+<li><code>E-needs-test</code>: The issue has been fixed, but no test has been added for it. After someone adds a test, it can be closed.</li>
+<li><code>E-{easy,medium,hard}</code>: Someone has estimated how hard the issue is to fix. This can help with finding good first issues, but is <a href="https://en.wikipedia.org/wiki/Curse_of_knowledge">bound to be inaccurate</a>.</li>
+</ul>
+</li>
+<li><a href="https://github.com/rust-lang/rust/labels?q=S-"><code>S-*</code></a>: The status of an issue, for example <code>S-needs-repro</code> or <code>S-needs-info</code>.
+<ul>
+<li><code>S-needs-info</code>: Needs more information from issue reporter.</li>
+<li><code>S-needs-repro</code>: Needs reproducer (code sample, repro steps, etc.).</li>
+<li><code>S-bug-has-test</code>: Issue has a known-bug test in <a href="https://github.com/rust-lang/rust"><code>rust-lang/rust</code></a> <code>tests/crashes</code> test suite or elsewhere.</li>
+<li><code>S-has-bisection</code>: A bisection has been performed and the bisection result is convincing.</li>
+<li><code>S-waiting-on-LLVM</code>: Waiting on upstream LLVM PR or fix.</li>
+<li><code>S-tracking-forever</code>: The tracking issue is never intended to be closed.</li>
+</ul>
+</li>
+<li><a href="https://github.com/rust-lang/rust/labels/beta-nominated"><code>beta-nominated</code></a>: Tracks changes nominated for being <a href="backporting.html#beta-backporting-in-rust-langrust">backported to beta</a>.</li>
+<li><a href="https://github.com/rust-lang/rust/labels/beta-accepted"><code>beta-accepted</code></a>: Tracks changes that have been approved for being <a href="backporting.html#beta-backporting-in-rust-langrust">backported to beta</a>. <code>T-release</code> will usually handle the backport.</li>
+<li><a href="https://github.com/rust-lang/rust/labels/stable-nominated"><code>stable-nominated</code></a>: Tracks changes nominated for being <a href="backporting.html#stable-backporting-in-rust-langrust">backported to stable</a>, in anticipation of a point release.</li>
+<li><a href="https://github.com/rust-lang/rust/labels/stable-accepted"><code>stable-accepted</code></a>: Tracks changes that have been approved for being <a href="backporting.html#stable-backporting-in-rust-langrust">backported to stable</a>. <code>T-release</code> will usually handle the backport.</li>
+<li><a href="https://github.com/rust-lang/rust/labels/relnotes"><code>relnotes</code></a>: Changes that are proposed to be documented in the release notes of the next release
+<ul>
+<li>It makes triagebot create a new relnotes issue (<a href="https://github.com/rust-lang/rust/issues/137132">example</a>)</li>
+<li>It also marks relnotes issues, so it can be processed by T-release relnotes tooling</li>
+<li>An FCP will also cause a relnotes issue to be created, if it’s started on an issue.</li>
+</ul>
+</li>
+<li><a href="https://github.com/rust-lang/rust/labels/metabug"><code>metabug</code></a>: Tracks other bugs.</li>
+</ul>
+<h4 id="team-examples"><a class="header" href="#team-examples">Team Examples</a></h4>
+<p>This section gives a list of examples of kinds of issues that should be assigned to a specific team.</p>
+<h5 id="t-compiler"><a class="header" href="#t-compiler">T-compiler</a></h5>
+<p>Anything related to the compiler implementation, such as diagnostics and ICEs.</p>
+<h5 id="t-libs"><a class="header" href="#t-libs">T-libs</a></h5>
+<ul>
+<li>Changes to implementation details of library functions</li>
+<li>Spelling, grammar, and organizational changes in library docs</li>
+</ul>
+<h5 id="t-libs-api"><a class="header" href="#t-libs-api">T-libs-api</a></h5>
+<ul>
+<li>New library apis, such as functions and methods</li>
+<li>Changes to signatures of unstable functions</li>
+<li>Semantic changes to library documentation,
+such as guaranteeing that a function will produce a certain error code in some situation</li>
+<li>Type inference breakage due to library changes, such as new trait implementations</li>
+</ul>
+<h5 id="t-lang"><a class="header" href="#t-lang">T-lang</a></h5>
+<ul>
+<li>New keywords/language features</li>
+<li>Changes to the keyword docs in the standard library</li>
+</ul>
+<h5 id="t-spec"><a class="header" href="#t-spec">T-spec</a></h5>
+<ul>
+<li>Changes to <a href="https://github.com/rust-lang/reference/">the reference</a></li>
+</ul>
+<h5 id="t-opsem"><a class="header" href="#t-opsem">T-opsem</a></h5>
+<ul>
+<li>Changes to <a href="https://doc.rust-lang.org/nomicon/">the nomicon</a></li>
+<li>Changes to the semantics of the abstract machine, such as the sematics of atomics.</li>
+<li>Changes to the docs of unsafe pointer functions</li>
+<li>Changes to the docs of <code>core::ptr</code></li>
+</ul>
+<h3 id="creating-labels"><a class="header" href="#creating-labels">Creating labels</a></h3>
+<div class="warning">
+Triagebot needs to support `@rustbot label: xxx` usages terminated with a period or whitespace (as inline invocation), so the label name must consist of only alphanumeric or hyphen (`-`) or underscore (`_`) characters.
+</div>
+<ul>
+<li>Check existing labels to make sure you’re not duplicating them.</li>
+<li>Discuss in <a href="https://rust-lang.zulipchat.com/#narrow/channel/242269-t-release.2Ftriage/topic/New.20labels">https://rust-lang.zulipchat.com/#narrow/channel/242269-t-release.2Ftriage/topic/New.20labels</a> if the new label may be non-conventional or controversial. Leave a comment about the new label as an FYI for others.</li>
+</ul>
+<h3 id="relnotes-issues"><a class="header" href="#relnotes-issues">Relnotes issues</a></h3>
+<p>Release note issues will currently come with <code>needs-triage</code> by default. The triage for relnotes is usually best done if you have sufficient context. Leave them as-is if you don’t.</p>
+<ul>
+<li>Remove unrelated area <code>A-*</code> labels that concern the actual PR, but not the actual user-facing relnotes.</li>
+<li>Remove unrelated <code>T-*</code> or <code>WG-*</code> labels.</li>
+<li>Remove <code>needs-triage</code> if the relnotes wording has been confirmed/changed by the PR author, reviewer or a relevant team member.</li>
+</ul>
+<h3 id="internal-compiler-error-ice-issue-triage"><a class="header" href="#internal-compiler-error-ice-issue-triage">Internal Compiler Error (ICE) issue triage</a></h3>
+<p>For issues that include an Internal Compiler Error (ICE):</p>
+<ul>
+<li>Make sure the issue is tagged with <code>I-ICE</code>, <code>T-compiler</code> and <code>C-bug</code>.</li>
+<li>Check that the issue is actually an ICE, and not more accurately described with <code>I-crash</code> or <code>I-hang</code>.</li>
+<li>If it is an older (like latest stable) version of rust, ask:
+<ul>
+<li>Does the ICE reproduce on beta and latest nightly.</li>
+<li>If older stable, ask if the ICE reproduces on latest stable.</li>
+</ul>
+</li>
+<li>Check for duplicates, but don’t close as duplicate unless you’re sure they represent the same underlying issue. Prefer simply linking to the issue as possibly related/duplicate.
+<ul>
+<li>A good way is to search the ICE message. Be careful to not close as duplicate when the same ICE message may have different root causes.</li>
+</ul>
+</li>
+<li>If it does not have a reproduction, comment asking for one and add <code> S-needs-repro</code>.
+<ul>
+<li>If there isn’t one for around a month it should generally be closed.</li>
+</ul>
+</li>
+<li>If the reproduction is not minimal, add <code>E-needs-mcve</code> or create a MCVE yourself. See the “Initial triaging” section for more details on MCVE procedure.</li>
+<li>Add <code>A-*</code> labels based on the code that causes the issue (check backtraces!), and the nature of the repro (e.g. if the repro is a weird trait impl or the backtrace points to <code>rustc_trait_selection</code>, add <code>A-traits</code>).</li>
+<li>Add <code>T-*</code>, <code>WG-*</code>, <code>PG-*</code>, <code>F-*</code>, <code>requires-*</code>, and <code>regression-*</code> labels as appropriate.
+<ul>
+<li>Usually the ICE should be tagged <code>T-compiler</code>. If the issue concerns the type system (e.g. trait solver), also tag the issue with <code>T-types</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="further-triaging"><a class="header" href="#further-triaging">Further triaging</a></h2>
+<p>For issues that have been through the initial triaging step (that is, don’t have the <code>needs-triage</code> label anymore), there are usually still things that can be improved. There are often many more labels that could be applied (using rustbot again if you don’t have write access to <a href="https://github.com/rust-lang/rust"><code>rust-lang/rust</code></a>).</p>
+<p>Additionally, old (there is no clear definition of old yet, but something on the order of months) <code>S-needs-repro</code> issues can be closed if there is no way to make progress without a reproduction. This requires write access to <a href="https://github.com/rust-lang/rust"><code>rust-lang/rust</code></a>, but if you don’t have them, you can just link the issue on Zulip (for example in <a href="https://rust-lang.zulipchat.com/#narrow/stream/242269-t-release.2Ftriage"><code>t-release/triage</code></a> or <code>general</code>) and someone with write access can close it for you.</p>
+<p>Another useful thing to do is to go through <code>E-needs-mcve</code> and <code>E-needs-bisection</code> issues and create minimizations or bisecting the issue (using <a href="https://github.com/rust-lang/cargo-bisect-rustc"><code>cargo-bisect-rustc</code></a>). When you provide one, you can also remove the label using rustbot (<code>@rustbot label -E-needs-bisection</code>).</p>
+<hr>
+<ol class="footnote-definition"><li id="footnote-1">
+<p>The <code>O</code> in <code>O-*</code> labels originally stood for <em>operating system (OS)</em>. <a href="#fr-1-1">↩</a></p>
+</li>
+<li id="footnote-2">
+<p>The <code>I</code> in <code>I-*</code> labels originally stood for <em>importance</em>. This makes the most sense for the <code>I-*-nominated</code> labels. For most <code>I-*</code> labels however it makes sense to interpret the <code>I</code> as <em>issue (kind)</em>. <a href="#fr-2-1">↩</a></p>
+</li>
+<li id="footnote-3">
+<p>The <code>E</code> in <code>E-*</code> labels stands for <em>experience</em>. <a href="#fr-3-1">↩</a></p>
+</li>
+</ol>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../release/triage-procedure.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../release/crater.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../release/triage-procedure.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../release/crater.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../js/moment.min.js"></script>
+        <script src="../js/index.js"></script>
+
+
+    </div>
+    </body>
+</html>

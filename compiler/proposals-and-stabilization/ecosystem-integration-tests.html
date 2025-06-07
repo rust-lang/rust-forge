@@ -1,0 +1,468 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Adding ecosystem/integration test jobs/components to rust-lang/rust CI - Rust Forge</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Supplemental documentation for contributing to The Rust Programming Language">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rust Forge</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/rust-forge" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/rust-forge/edit/master/src/compiler/proposals-and-stabilization/ecosystem-integration-tests.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="adding-ecosystemintegration-test-jobscomponents-to-rust-langrust-ci"><a class="header" href="#adding-ecosystemintegration-test-jobscomponents-to-rust-langrust-ci">Adding ecosystem/integration test jobs/components to rust-lang/rust CI</a></h1>
+<h2 id="scope"><a class="header" href="#scope">Scope</a></h2>
+<p>This policy is applicable to proposals for adding new ecosystem and integration test jobs/components
+that involve building and testing additional artifacts which may cause <a href="https://github.com/rust-lang/rust">rust-lang/rust</a> PR CI or
+Full CI (the “CI”) to fail, or produce a failure message, that may impact other <a href="https://github.com/rust-lang/rust">rust-lang/rust</a>
+contributors who also use the <a href="https://github.com/rust-lang/rust">rust-lang/rust</a> CI.</p>
+<p>For example (non-exhaustive):</p>
+<ul>
+<li>Ecosystem test jobs: Rust for Linux or Fuchsia.</li>
+<li>Integration test components: GCC codegen backend or Cranelift codegen backend.</li>
+</ul>
+<h2 id="background"><a class="header" href="#background">Background</a></h2>
+<p><a href="https://github.com/rust-lang/rust">rust-lang/rust</a> runs a small set of build/test jobs on PR CI (faster, less expensive/exhaustive),
+and runs a much larger set of build/test jobs on Full CI. PR CI usually takes around an hour, while
+Full CI usually takes around 3 hours. Having ecosystem and integration test jobs/components that:</p>
+<ul>
+<li>may spuriously fail; or</li>
+<li>may genuinely fail but it’s not clear who should be consulted about the failure or who is
+responsible for fixing the failure; or</li>
+<li>otherwise do not have well documented test job maintainers and failure protocol;</li>
+</ul>
+<p>can introduce a lot of friction and frustration for other contributors who now will have to deal
+with the failure or understand why the test job failed in the first place, which may now be blocking
+their PR. Everyone utilizing the <a href="https://github.com/rust-lang/rust">rust-lang/rust</a> CI is expected to use it responsibly.</p>
+<p>To help with this, please follow the process described below if you would like to propose adding an
+ecosystem/integration test job/component to the <a href="https://github.com/rust-lang/rust">rust-lang/rust</a> CI.</p>
+<h2 id="process-for-adding-an-ecosystemintegration-test-jobcomponent-to-rust-langrust-ci"><a class="header" href="#process-for-adding-an-ecosystemintegration-test-jobcomponent-to-rust-langrust-ci">Process for adding an ecosystem/integration test job/component to rust-lang/rust CI</a></h2>
+<p><img src="./ecosystem-integration-tests/test-job-flow.svg" alt="Flowchart of the process for adding an ecosystem/integration test job/component to rust-lang/rust CI" /></p>
+<ol>
+<li>Ask the Infrastructure Team on zulip
+(<a href="https://rust-lang.zulipchat.com/#narrow/channel/242791-t-infra">#t-infra</a>) to check if there
+would be capacity for the proposed test job/component.</li>
+<li>Propose using a <a href="../proposals-and-stabilization.html#how-do-i-submit-an-mcp">Major Change Proposal
+(MCP)</a>.
+<ul>
+<li>Including the filled out <em>Ecosystem and Integration Test Job/Component Policy</em> (see below).</li>
+</ul>
+</li>
+<li>Once the MCP is seconded and accepted, create a new issue on <a href="https://github.com/rust-lang/rust">rust-lang/rust</a> about the proposal,
+linking to the MCP, and then nominate the proposal for library team review via <code>@rustbot label +I-libs-nominated</code>.
+<ul>
+<li>Link to the MCP.</li>
+</ul>
+</li>
+<li>Once the library team reviews the proposal and has no blocking concerns, submit the
+implementation PR to <a href="https://github.com/rust-lang/rust">rust-lang/rust</a>.
+<ul>
+<li>The PR should include an accompanying Ecosystem/Integration Test Job/Component support page in
+the in-tree <a href="https://github.com/rust-lang/rustc-dev-guide">rustc-dev-guide</a>, ensuring that the <em>Failure Protocol</em> is well-documented (see
+below). Link to the MCP and issue.</li>
+</ul>
+</li>
+<li>The Infrastructure Team will review the implementation PR. Once approved, the
+ecosystem/integration test job/component will run in <a href="https://github.com/rust-lang/rust">rust-lang/rust</a> PR CI or Full Merge CI.</li>
+</ol>
+<h2 id="ecosystem-and-integration-test-jobcomponent-policy"><a class="header" href="#ecosystem-and-integration-test-jobcomponent-policy">Ecosystem and Integration Test Job/Component Policy</a></h2>
+<p>Please copy and fill out this template (below the separator) as part of the MCP. The policy
+questions/explanation themselves will be quoted blocks. Information that the MCP author is expected
+to provide are indicated by italicized sentences whose content should be replaced.</p>
+<p>NOTE: It is not the intention of this policy to make it frustrating annoying to add an ecosystem
+test job/component. We simply wish to gather the necessary background information upfront
+(especially working together to figure out a viable <em>Failure Protocol</em>) to minimize potential
+frustrations from other <a href="https://github.com/rust-lang/rust">rust-lang/rust</a> contributors if and when the the test job/component do
+fail, potentially blocking PR / Full Merge CI in completely unrelated PRs.</p>
+<hr />
+<pre><code class="language-markdown">## Ecosystem and Integration Test Job/Component Policy
+
+The ecosystem/integration test job/component ("test job/component") proposed for the
+[rust-lang/rust] CI must:
+
+- Be approved by the compiler team through a proposed MCP, where the MCP is seconded by a compiler
+  team member, and the MCP is accepted with no blocking concerns.
+- Have no blocking concerns from the library team.
+- Have the implementation PR be reviewed and approved by the infrastructure team.
+- Be properly documented on [rustc-dev-guide] (preferably as part of the implementation PR).
+
+Please complete the sections below so [rust-lang/rust] teams can have sufficient context about the 
+proposed test job/component.
+
+### Test job/component rationale
+
+&gt; What does this test job/component do?
+&gt;
+&gt; - If an ecosystem test job/component is being proposed, can you briefly describe the intended
+&gt;     ecosystem users?
+
+*Please provide responses here, replacing this sentence.*
+
+&gt; What [rust-lang/rust] changes can potentially break the test job/component?
+&gt;
+&gt; E.g. changes to rustc, standard library, bootstrap or tools (like clippy/rustfmt/cargo).
+
+*Please provide responses here, replacing this sentence.*
+
+&gt; Why does this test job/component need to be part of the [rust-lang/rust] PR and/or Full Merge CI?
+
+*Please provide responses here, replacing this sentence.*
+
+&gt; If the test job/component will block on failure, why does it need to block?
+
+*Please provide responses here, replacing this sentence.*
+
+&gt; If the test job/component will not block on failure initially but is intended to eventually become
+&gt; blocking:
+&gt;
+&gt; - Why will it become blocking?
+&gt; - When will it become blocking?
+
+*Please provide responses here, replacing this sentence.*
+
+### Test job/component maintainers
+
+&gt; The proposed test job/component for [rust-lang/rust] CI must have at least one dedicated test
+&gt; job/component maintainer. The test job/component maintainers understand that they will be pinged
+&gt; or otherwise contacted about the ecosystem/integration test job/component, particularly for (but 
+&gt; not limited to) its failures.
+&gt;
+&gt; **Please list who will be maintaining this ecosystem/integration test job/component here. Please
+&gt; format the github handles in the style:**
+&gt;
+&gt; ```
+&gt; [@github_handle_1](https://github.com/github_handle_1)
+&gt; [@github_handle_2](https://github.com/github_handle_2)
+&gt; ```
+&gt;
+&gt; NOTE: For future readers, you can paste the usernames without formatting them as links via
+&gt; **ctrl-shift-v**.
+
+*Please list test job/component maintainers here with the formatting advice above, replacing this
+sentence.*
+
+&gt; **NOTE: If an ecosystem/integration test job/component no longer has an active dedicated
+&gt; maintainer (or maintainers), and if [rust-lang/rust] teams find the ecosystem/integration test
+&gt; job/component causes significant burden or becomes irrelevant, then the ecosystem/integration test
+&gt; job/component may be removed.**
+
+### CI infrastructure considerations
+
+&gt; You should ask the Infrastructure Team on the
+&gt; [`#t-infra`](https://rust-lang.zulipchat.com/#narrow/channel/242791-t-infra) zulip channel when
+&gt; proposing a new ecosystem/integration test job/component to check if there's capacity for the test
+&gt; job/component.
+&gt;
+&gt; - Does the ecosystem/integration test job/component require substantial CI resources (storage and/
+&gt;   or CI time)? In particular, will it require large runners?
+
+*Please provide responses here, replacing this sentence. If there is a zulip topic discussing it
+with the Infrastructure Team, please include the zulip topic link here.*
+
+### Features and implementation details
+
+&gt; Does the proposed test job/component intend to use any unstable features?
+&gt;
+&gt; - If so, are the unstable features ready for exposure (e.g. must an unstable feature be completely
+&gt;   reworked)?
+&gt; - For ecosystem test jobs/components, are the unstable features ready for such exposure to the
+&gt;   ecosystem, and are the feature stakeholders ready for such usage?
+
+*Please provide responses here, replacing this sentence.*
+
+&gt; Does the proposed test job/component intend to intentionally depend on any implementation details?
+&gt; This may include but is not limited to: unstable/internal compiler/tool flags and behaviors,
+&gt; `RUSTC_BOOTSTRAP` usages, standard library implementation details, etc.
+&gt;
+&gt; - If so, are there plans to shrink or expand such dependencies in the future?
+
+*Please provide responses here, replacing this sentence.*
+
+### Failure protocol: what to do if the job/component breaks/fails?
+
+&gt; **NOTE: If the artifacts of an ecosystem/integration test job/component are not shipped as part of
+&gt; a distribution component/toolchain, the test job/component may be temporarily disabled to unblock
+&gt; [rust-lang/rust] PR CI or Full Merge CI without receiving prior approval from the test
+&gt; job/component maintainers. The test job/component maintainers will be pinged or otherwise notified
+&gt; about the test job/component being disabled.**
+
+&gt; How can the test job/component maintainers be contacted in case of failure? By default, it is
+&gt; assumed that the test job/component maintainer can be pinged via their GitHub handles.
+
+*Please provide responses here, replacing this sentence.*
+
+&gt; (If applicable) If the addition of an ecosystem/integration test job is being proposed:
+&gt;
+&gt; - How can the test job be run in CI? If so, is there a try job (`try-job: ...`) invocation? What's
+&gt;   the job name?
+&gt; - Can the test job be run locally? If so, how?
+
+*If applicable, please provide responses here, replacing this sentence. Otherwise, you can ignore
+this question.*
+
+&gt; (If applicable) If the addition of an ecosystem/integration test component is being proposed:
+&gt;
+&gt; - Which existing CI jobs will be building and testing this test component?
+&gt; - Can they be built and ran as part of a try job? If so, what are the job names and the try job
+&gt;   (`try-job: ...`) invocations?
+&gt; - Can the test component be built and run locally? If so, how?
+
+*If applicable, please provide responses here, replacing this sentence. Otherwise, you can ignore
+this question.*
+
+&gt; How can the test job/component be disabled in the event of spurious failures that are blocking PR
+&gt; and/or Full Merge CI?
+
+*Please provide responses here, replacing this sentence.*
+
+&gt; If a PR breaks the test job/component:
+&gt;
+&gt; - If the breakage seems **spurious** and retrying does not resolve the spurious breakage, the test
+&gt;   job may be **temporarily disabled** (see below).
+&gt; - If the breakage is **intentional**, how will this be resolved?
+&gt; - If the breakage is **unintentional**, is the PR author expected to fix the breakage?
+
+*Please provide responses here, replacing this sentence.*
+
+### Dependencies, build/test environments and reliability
+
+&gt; Does the test job/component involve any custom build systems that are not used in the regular
+&gt; [rust-lang/rust] CI jobs?
+
+*Please provide responses here, replacing this sentence.*
+
+&gt; Does the test job/component depend on external resources (e.g. external servers) that may be
+&gt; subject to network connectivity?
+&gt;
+&gt; - If so, does the infrastructure team need to help maintain a mirror of the required assets?
+
+*Please provide responses here, replacing this sentence.*
+
+&gt; Are there any potential sources of spurious failures due to the test job/component?
+
+*Please provide responses here, replacing this sentence.*
+
+&gt; Are there any other unusual requirements (build environment, dependencies, etc.)?
+
+*Please provide responses here, replacing this sentence.*
+
+
+[rust-lang/rust]: https://github.com/rust-lang/rust
+[rustc-dev-guide]: https://github.com/rust-lang/rustc-dev-guide
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../compiler/proposals-and-stabilization.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../compiler/backports.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../compiler/proposals-and-stabilization.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../compiler/backports.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../js/moment.min.js"></script>
+        <script src="../../js/index.js"></script>
+
+
+    </div>
+    </body>
+</html>

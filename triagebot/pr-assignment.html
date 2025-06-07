@@ -1,0 +1,333 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>PR Assignment - Rust Forge</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Supplemental documentation for contributing to The Rust Programming Language">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rust Forge</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/rust-forge" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/rust-forge/edit/master/src/triagebot/pr-assignment.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="pr-assignment"><a class="header" href="#pr-assignment">PR Assignment</a></h1>
+<p>Triagebot handles automatic and manual assignment of GitHub PRs.
+It also handles welcoming new users when they post a PR.</p>
+<p>Contributors to the <code>rust-lang/rust</code> repository can track and manage their own work queue using Zulip integration. See <a href="review-queue-tracking.html">Review queue tracking</a>.</p>
+<p>You can check which pull requests in the <code>rust-lang</code> organization are assigned to you at this <a href="https://github.com/pulls?q=org%3Arust-lang+is%3Aopen+is%3Apr+assignee%3A%40me+archived%3Afalse">GitHub URL</a>.</p>
+<h2 id="usage"><a class="header" href="#usage">Usage</a></h2>
+<p>Automatic assignment of new PRs is handled by the configuration in the <code>triagebot.toml</code>, described <a href="#configuration">below</a>.</p>
+<p>Manual assignment can be done by posting a comment on the PR with the text:</p>
+<ul>
+<li><code>r? @octocat</code> — Assigns a specific user.</li>
+<li><code>r? octocat</code> — The <code>@</code> is optional.</li>
+<li><code>r? libs</code> — Chooses a random person from the libs ad-hoc group defined in <code>triagebot.toml</code>.
+For example, for the <a href="https://github.com/rust-lang/rust">rust-lang/rust</a> repository, see <a href="https://github.com/rust-lang/rust/blob/master/triagebot.toml"><code>triagebot.toml</code></a> for a list of ad-hoc group names.</li>
+<li><code>r? rust-lang/libs</code> — The <code>rust-lang/</code> org name prefix is optional.</li>
+<li><code>r? rustdoc</code> — Chooses a random person from the rustdoc team.
+See the <a href="https://github.com/rust-lang/team/tree/master/teams">teams database</a> for a list of team names.</li>
+<li><code>r? rust-lang/rustdoc</code> — The org name prefix is optional.
+It is strongly recommended that you do not use <code>@</code>, as that will subscribe and notify the entire team to the PR.</li>
+</ul>
+<p>When choosing a user from a team, triagebot only looks at direct team members (it ignores subteams).</p>
+<p>When looking up a name, triagebot will first look at ad-hoc groups, then rust-lang teams, and if it doesn’t match either of those it assumes it is a GitHub user.</p>
+<p>PRs can only be assigned to users with write permissions to the repo, any rust-lang org members with read permissions, or anyone who has commented on the PR.</p>
+<p>To enable the ability for users to post a comment with <code>r? name</code> to set the assignment to a specific user, add a <code>[assign]</code> table to <code>triagebot.toml</code>.</p>
+<h3 id="ghost"><a class="header" href="#ghost">Ghost</a></h3>
+<p>Using <code>r? ghost</code> in the initial PR top-level comment when opening a PR will disable triagebot’s auto-assignment.
+<code>ghost</code> is GitHub’s placeholder account for deleted accounts.
+It is used here for convenience.
+This is typically used for rollups or experiments where you don’t want any assignments or noise.</p>
+<h2 id="configuration"><a class="header" href="#configuration">Configuration</a></h2>
+<p>PR assignment is enabled on the repository by having an <code>[assign.owners]</code> table in <code>triagebot.toml</code>:</p>
+<pre><code class="language-toml"># These are ad-hoc groups that can be referenced in `r?` and the `owners` table below.
+# The values may contain GitHub usernames, other groups, or rust-lang teams.
+# The `@` is optional.
+# Group names should be lowercase.
+[assign.adhoc_groups]
+libs = ["@joshtriplett", "@Mark-Simulacrum", "@kenntytm", "@m-ou-se", "@thomcc"]
+# Can reference other groups.
+compiler = ["compiler-team", "compiler-team-contributors"]
+compiler-team = ["cjgillot", "estebank"]
+compiler-team-contributors = ["compiler-errors", "jackh726"]
+# Can reference rust-lang teams.
+libs = ["rust-lang/libs-api"]
+# This is a special group that will be used if none of the `owners` entries matches.
+fallback = ["@Mark-Simulacrum"]
+
+# This specifies users, groups, or teams to assign for different paths.
+# Triagebot will pick one person to assign.
+# Paths are gitignore-style matches.
+[assign.owners]
+# Examples of assigning individuals.
+"Cargo.lock" = ["@Mark-Simulacrum"]
+"/library/std/src/sys/windows" = ["@ChrisDenton"]
+# Example of assigning to a group.
+"/library/std" = ["libs"]
+# Supports gitignore patterns.
+"*.js" = ["@octocat"]
+# If you want to match all files, `*` should be sufficient.
+"*" = ["@octocat"]
+# Can use teams from the rust-lang teams database.
+"/src/tools/cargo" = ["@rust-lang/cargo"]
+</code></pre>
+<p>If the <code>owners</code> map is configured, then triagebot will automatically select a reviewer based on which files were modified in the PR.</p>
+<h3 id="vacation"><a class="header" href="#vacation">Vacation</a></h3>
+<p>If a reviewer wants to temporarily prevent themselves from being assigned (automatically or manually) they can add themselves to the special
+<code>assign.users_on_vacation</code> group.</p>
+<pre><code class="language-toml">[assign]
+users_on_vacation = ["jyn514", "ChrisDenton"]
+</code></pre>
+<p>On <code>rust-lang/rust</code>, you can also configure vacation using <a href="review-queue-tracking.html#usage">Zulip integration</a>.</p>
+<h3 id="additional-new-pr-trigger-options"><a class="header" href="#additional-new-pr-trigger-options">Additional new PR trigger options</a></h3>
+<p>Triagebot will also post a welcome message to the user.
+Its behavior depends on a few factors:</p>
+<ul>
+<li>PR authors who have not previously made any commits will get a more detailed welcome message.</li>
+<li>PR authors who have made commits will get an abbreviated message.</li>
+<li>If the initial PR comment has an <code>r?</code> command, then no welcome will be posted.</li>
+</ul>
+<p>There are several options in <code>triagebot.toml</code> for controlling its behavior on new PRs:</p>
+<pre><code class="language-toml">[assign]
+# If set, posts a warning message if the PR is opened against a non-default
+# branch (usually main or master).
+warn_non_default_branch = true
+# If set, the welcome message to new contributors will include this link to
+# a contributing guide.
+contributing_url = "https://rustc-dev-guide.rust-lang.org/contributing.html"
+</code></pre>
+<p>Additionally, triagebot will post a comment with a warning if the PR modifies any submodules.</p>
+<h4 id="exceptions-to-default-branch-warning"><a class="header" href="#exceptions-to-default-branch-warning">Exceptions to default branch warning</a></h4>
+<p>Some PRs may have a different default branch than the rest of the PRs, in these cases it is possible to add exceptions based on the PR title, which will therefore warn if the PR is targeting a different branch than specified.</p>
+<pre><code class="language-toml">[assign]
+warn_non_default_branch.enable = true
+
+[[assign.warn_non_default_branch.exceptions]]
+title = "[beta" # title contains "[beta" in it
+branch = "beta"
+</code></pre>
+<h4 id="custom-welcome-messages"><a class="header" href="#custom-welcome-messages">Custom welcome messages</a></h4>
+<p>Some repositories may want to use custom welcome messages instead of the preconfigured ones. It is possible to customize the welcome message shown when an “auto reviewer” is found by triagebot and the one shown when no reviewer is found. If provided, the <code>contributing_url</code> will still be used.</p>
+<pre><code class="language-toml">[assign.custom_welcome_messages]
+welcome-message = "Welcome message, assigning {assignee}!"
+welcome-message-no-reviewer = "Welcome message for when no auto-reviewer could be selected!"
+</code></pre>
+<p>If <code>[assign.custom_welcome_messages]</code> is present, both custom messages must be provided.</p>
+<h2 id="implementation"><a class="header" href="#implementation">Implementation</a></h2>
+<p>See <a href="https://github.com/rust-lang/triagebot/blob/HEAD/parser/src/command/assign.rs"><code>parser/src/command/assign.rs</code></a> and <a href="https://github.com/rust-lang/triagebot/blob/HEAD/src/handlers/assign.rs"><code>src/handlers/assign.rs</code></a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../triagebot/issue-assignment.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../triagebot/review-queue-tracking.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../triagebot/issue-assignment.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../triagebot/review-queue-tracking.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../js/moment.min.js"></script>
+        <script src="../js/index.js"></script>
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Fixing bors queue - Rust Forge</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Supplemental documentation for contributing to The Rust Programming Language">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rust Forge</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/rust-forge" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/rust-forge/edit/master/src/infra/docs/bors/queue-resync.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="fixing-inconsistencies-in-the-bors-queue"><a class="header" href="#fixing-inconsistencies-in-the-bors-queue">Fixing inconsistencies in the bors queue</a></h1>
+<p>bors queue page: <a href="https://bors.rust-lang.org/queue/rust">https://bors.rust-lang.org/queue/rust</a>.</p>
+<div class="warning">
+**WARNING**: You should only do this if you have bors `r+` permissions on the
+rust-lang/rust repo. Please do not synchronize if you do not have `r+` permissions
+even if you have write access to the repo, as you will be unable to perform the
+required cleanup steps.
+<p>This is a <strong>destructive</strong> operation. If someone syncs, they need to
+baby-sit the queue for around 45 minutes: around 30 minutes to wait for PRs to
+be recollected, and 15 minutes after that to kick out PRs that should not be in
+the tree.</p>
+<p><strong>DO NOT CLICK THIS BUTTON IF YOU ARE NOT ABLE TO HANDLE THE CLEANUP.</strong></p>
+</div>
+<p>Sometimes you have to do a bors queue sync for various reasons. This is not
+trivial and requires you to be very careful, as otherwise we may accidentally
+merge PRs to <code>master</code> (or even <code>beta</code>) that should not have been merged
+otherwise.</p>
+<h2 id="steps"><a class="header" href="#steps">Steps</a></h2>
+<h3 id="step-0-announce-your-intention"><a class="header" href="#step-0-announce-your-intention">Step 0: Announce your intention</a></h3>
+<p>Let T-infra (and other reviewers) know that you plan to close the tree. Open a
+new <a href="https://rust-lang.zulipchat.com/#narrow/channel/242791-t-infra">T-infra zulip
+thread</a> to let
+other contributors know about the bors queue resync.</p>
+<h3 id="step-1-close-the-tree"><a class="header" href="#step-1-close-the-tree">Step 1: Close the tree</a></h3>
+<p>Find a PR that’s currently being tested (or any open PR in the queue really if
+the queue is <em>really</em> messed up).</p>
+<p>Issue <code>@bors treeclosed=1000</code> along with some brief explanation for why you are
+closing the tree so other reviewers (especially people doing rollups) have some
+context.</p>
+<p>Example:</p>
+<pre><code class="language-text">Closing the tree due to a resync.
+cc &lt;https://rust-lang.zulipchat.com/#narrow/channel/242791-t-infra/topic/try.20jobs.20not.20kicking.20off&gt;.
+
+@bors treeclosed=1000
+</code></pre>
+<h3 id="step-2-click-synchronize-button"><a class="header" href="#step-2-click-synchronize-button">Step 2: Click “synchronize” button</a></h3>
+<p>As a courtesy, you can record which PRs had try jobs starting on them. After a
+sync, the distinction between regular jobs and try jobs will be lost, so you’ll
+have to kick out all “pending” PRs.</p>
+<p>Click the “synchronize” button in the <a href="https://bors.rust-lang.org/queue/rust">bors queue page</a>. Then,
+immediately start performing the next step.</p>
+<h3 id="step-3-kick-out-all-actively-tested-prs"><a class="header" href="#step-3-kick-out-all-actively-tested-prs">Step 3: Kick out all actively tested PRs</a></h3>
+<p>Find <em>all</em> actively tested PRs. This includes both “auto” builds (or full CI)
+which show up as “pending”, or “try” builds which show up as “pending (try)”
+(but sometimes bors forget the distinction and try jobs can show up as “pending”
+too).</p>
+<p>On each “pending” or “pending (try)” PR, write:</p>
+<pre><code class="language-text">@bors retry r- (sync)
+</code></pre>
+<p>to suspend the current job and take it out of the queue (bors can confuse try
+jobs with full CI jobs).</p>
+<h3 id="step-4-wait"><a class="header" href="#step-4-wait">Step 4: Wait</a></h3>
+<p>Wait for around <strong>30-45 minutes</strong> to allow bors to recollect all the PRs. <strong>Do
+not</strong> reopen the tree beforehand, as it will cause bors to have an inconsistent
+view of the PRs, which will lead to unspecified behavior.</p>
+<h3 id="step-5-kick-out-ineligible-prs"><a class="header" href="#step-5-kick-out-ineligible-prs">Step 5: Kick out ineligible PRs</a></h3>
+<p>Check “approved” PRs in the queue. Some of them will actually not be eligible
+for merge, due to reasons such as:</p>
+<ul>
+<li>Merge conflicts</li>
+<li>Significant changes since last review</li>
+<li>Never has been approved</li>
+</ul>
+<p>But sometimes bors forget these distinction. You’ll need to manually visit each
+of the “approved” PRs and check their eligibility.</p>
+<p>For “approved” PRs that are not actually eligible, you should kick them out of
+the queue via <code>@bors r-</code>. Prefer to be cautious if you are not sure, and
+unapprove the PR in case of ambiguity.</p>
+<pre><code class="language-text">@bors r- (sync)
+</code></pre>
+<h3 id="step-6-double-check-approved-prs"><a class="header" href="#step-6-double-check-approved-prs">Step 6: Double-check approved PRs</a></h3>
+<p>Do another review pass of “approved” PRs in the queue, to make sure all approved
+PRs are actually eligible for merge.</p>
+<h3 id="step-7-re-open-the-tree-on-the-same-pr-where-you-closed-the-tree"><a class="header" href="#step-7-re-open-the-tree-on-the-same-pr-where-you-closed-the-tree">Step 7: Re-open the tree on the same PR where you closed the tree</a></h3>
+<p>Reopen the tree on the same PR that you issued the <code>treeclosed</code> command with</p>
+<pre><code class="language-text">@bors treeclosed-
+</code></pre>
+<p>Closely monitor bors’ behavior for around 5 minutes, to ensure that bors is
+correctly testing a PR that’s eligible for merge. Update the relevant T-infra
+zulip thread as suitable.</p>
+<h3 id="step-8-re-queue-try-jobs"><a class="header" href="#step-8-re-queue-try-jobs">Step 8: Re-queue try jobs</a></h3>
+<p>In Step 2, if you had to kick out try jobs, you can requeue the try jobs on the
+PRs that previously had try jobs started on them.</p>
+<p>Use the normal try-job command:</p>
+<pre><code class="language-text">@bors try
+</code></pre>
+<p>and not <code>@bors retry</code>.</p>
+<h3 id="step-9-edit-your-treeclose-commands-to-prevent-bors-from-picking-them-up"><a class="header" href="#step-9-edit-your-treeclose-commands-to-prevent-bors-from-picking-them-up">Step 9: Edit your <code>treeclose</code> commands to prevent bors from picking them up</a></h3>
+<p>Edit the <code>@bors treeclosed=xxxx</code> command and <code>@bors treeclosed-</code> command like</p>
+<pre><code class="language-text">~~@/bors treeclosed=xxxx~~
+
+EDIT(ferris): edited to prevent bors from picking up command in a future sync
+</code></pre>
+<p>AFTER the tree has been reopened to prevent bors from picking them up in a
+future sync.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../infra/docs/bors.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../infra/docs/cdn.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../infra/docs/bors.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../infra/docs/cdn.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../js/moment.min.js"></script>
+        <script src="../../../js/index.js"></script>
+
+
+    </div>
+    </body>
+</html>
