@@ -1,0 +1,276 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Rustc Dev Guide - Rust Forge</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Supplemental documentation for contributing to The Rust Programming Language">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rust Forge</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/rust-forge" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/rust-forge/edit/master/src/wg-rustc-dev-guide/README.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="rustc-dev-guide"><a class="header" href="#rustc-dev-guide">Rustc Dev Guide</a></h1>
+<p>The rustc-dev-guide working group is responsible for maintaining the rustc-dev-guide (located at
+<a href="https://github.com/rust-lang/rustc-dev-guide">rust-lang/rustc-dev-guide</a>). This includes things such
+as:</p>
+<ul>
+<li>Performing subtree syncs between the main rust repo and the rustc-dev-guide repo</li>
+<li>Triaging the state of the guide to look for out of date information or missing information</li>
+<li>Miscellaneous editorial work of the pages in the guide or fixing links that have bitrot</li>
+<li>Reviewing simple PRs to the guide that don’t need domain-specific expertise</li>
+<li>Connect domain-specific doc changes with domain expert reviewers</li>
+</ul>
+<h2 id="review-policy"><a class="header" href="#review-policy">Review Policy</a></h2>
+<p>The dev guide has a much lower bar for changes to merged compared to the compiler itself. Incomplete
+and/or WIP documentation is preferred over no documentation. Stubbed out TODOs with issues tracking
+the missing pieces for sub-parts of chapters are useful to indicate known gaps in documentation that
+may otherwise leave the reader confused.</p>
+<p>Contributors confident in the area being documented should also feel free to merge their own
+documentation without review. For this reason the dev guide does not have a reviewer automatically
+assigned to each PR, instead PR authors can manually request a PR reviewer if they believe it necessary.</p>
+<p>A reviewer can be assigned by writing a comment containing: <code>r? rustc-dev-guide</code> or <code>r? @username</code>.</p>
+<p>A good rule of thumb for whether you should feel comfortable merging your own rustc-dev-guide PR is whether
+you would feel comfortable approving an involved PR touching the relevant area of the compiler. See the
+compiler <a href="../compiler/reviews.html">review policy</a>.</p>
+<h2 id="subtree-syncs"><a class="header" href="#subtree-syncs">Subtree Syncs</a></h2>
+<p>The dev guide is a <a href="https://josh-project.github.io/josh/intro.html">josh</a> subtree of the main rust-lang/rust
+repo. This makes it easier for compiler contributors to update documentation in the dev guide in tandem with
+changes to the compiler itself.</p>
+<p>This necessitates a manual process of syncing any changes made to the dev guide between its own repo, and the
+copy maintained in the rust-lang/rust repo.</p>
+<ol>
+<li>Wait at least a week since the last subtree sync took place.</li>
+<li>There will either be an automatically opened rustc-pull PR, or performing a rustc-pull encountered merge
+conflicts. If there is a rustc-pull PR open, merge it<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup>, otherwise a manual rustc-pull should be performed.
+See <a href="https://github.com/rust-lang/rustc-dev-guide/pull/2451">rustc-dev-guide#2451</a> for an example rustc-pull.</li>
+<li>Post in the <a href="https://rust-lang.zulipchat.com/#narrow/channel/196385-t-compiler.2Frustc-dev-guide/topic/Subtree.20sync.20automation/with/522133712">zulip channel for coordinating subtree syncs</a> that you’re doing a sync</li>
+<li>Do a manual rustc-push and open the PR. The PR should be assigned to a rustc-dev-guide lead
+(currently @BoxyUwU or @jieyouxu). We tend to assign rustc-push PRs to people instead of self
+approving like some other teams. This is because there were some accidents when the subtree was originally
+setup so it felt scary to not have someone check things over.</li>
+<li>Post the rustc-push PR in the <a href="https://rust-lang.zulipchat.com/#narrow/channel/196385-t-compiler.2Frustc-dev-guide/topic/Subtree.20sync.20automation/with/522133712">zulip channel for coordinating subtree syncs</a> so everyone is aware that a subtree
+sync has been performed. See <a href="https://github.com/rust-lang/rust/pull/141962">rust-lang/rust#141962</a> for an example rustc-push.</li>
+</ol>
+<p>Documentation about <em>how</em> to perform a rustc-pull or rustc-push can be found in the dev guide’s README.</p>
+<hr>
+<ol class="footnote-definition"><li id="footnote-1">
+<p>If the automatically opened rustc-pull doesn’t contain any actual changes to the dev
+guide, then the subtree sync can be delayed until there are actual changes to sync. <a href="#fr-1-1">↩</a></p>
+</li>
+</ol>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../compiler/operations.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../crates-io/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../compiler/operations.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../crates-io/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../js/moment.min.js"></script>
+        <script src="../js/index.js"></script>
+
+
+    </div>
+    </body>
+</html>

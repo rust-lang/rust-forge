@@ -1,0 +1,419 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Project groups - Rust Forge</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Supplemental documentation for contributing to The Rust Programming Language">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rust Forge</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/rust-forge" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/rust-lang/rust-forge/edit/master/src/governance/project-groups.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="project-groups"><a class="header" href="#project-groups">Project groups</a></h1>
+<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
+<p>Project groups are a kind of Rust team intended to work on a specific project with the goal bringing the project to completion. They were first defined in <a href="https://rust-lang.github.io/rfcs/2856-project-groups.html">RFC 2856</a>. In summary:</p>
+<ul>
+<li>Project groups are created via team consensus (such as an RFC) and have a “parent team(s)”</li>
+<li>The groups then drive the project to completion, e.g. by authoring follow-up RFCs and doing design work.</li>
+<li>Once the work has been concluded, the group is archived.</li>
+<li>Each project group typically has:
+<ul>
+<li>A charter outlining the group’s scope and goals.</li>
+<li>Appointed shepherds and team liaisons.</li>
+<li>An associated repository.</li>
+<li>Dedicated streams on Discord/Zulip/etc.</li>
+</ul>
+</li>
+</ul>
+<h2 id="project-group-definition"><a class="header" href="#project-group-definition">Project group definition</a></h2>
+<p>A Project Group is a group of people working on a particular project or responsibilities at the behest of an official Rust team. Some project groups are ephemeral, meaning that they are archived once the project is complete. However, there are project groups that have continual work and maintenance.</p>
+<p>Examples of project groups around specific feature include <a href="https://github.com/rust-lang/project-ffi-unwind">FFI Unwind</a>, <a href="https://github.com/rust-lang/project-inline-asm">Inline ASM</a>, and <a href="https://github.com/rust-lang/project-safe-transmute">Safe Transmute</a>.</p>
+<p>The goal of a project is build a community or formalise an existing community around a particular feature or project in the organisation, and use this space to discuss and iterate on that feature.</p>
+<p>Part of building a community is removing some of the institutional memory that develops in the design process, and centralising the information and discussion around the feature so that we can provide better visibility into why certain decisions and trade offs were made over others.</p>
+<p>Previously a lot of the discussion and iteration for large features would happen in the initial RFC thread. This leads to a lot of discussion in the top of the thread and that often becomes completely irrelevant to the current iteration.</p>
+<p>This process has also been unsuitable to describe features that can take multiple years to develop and will become multiple RFCs over the course of its design process. Some examples of of this are the “<code>impl Trait</code>” and “macros 2.0” features, where the goals has shifted a lot from the initial RFCs, and it can be hard to know their current status.</p>
+<h2 id="project-group-creation"><a class="header" href="#project-group-creation">Project Group Creation</a></h2>
+<p>A project group should have the following;</p>
+<ul>
+<li><strong>Leads</strong> — At least one person who acts as the leader of the group and is typically responsible for writing the initial charter, handling administrative and communication tasks, as well as delegating those responsibilities to other members in the group.</li>
+<li><strong>Liaisons</strong> — A member from a official Rust team that is sponsoring the work, and acts as a point of contact between the team and the group. They may or may not be that directly involved, but they should check-in periodically and be able to represent the work in meetings with the team. They should also look out for when this might intersect with other work happening in the team that is beyond the working group itself.
+<ul>
+<li>Liaisons may also be but are not required to be one of the leads.</li>
+</ul>
+</li>
+<li><strong>Members</strong> — Individuals who regularly participate and/or contribute to the project group.
+<ul>
+<li>Membership requirements for groups are decided by the shepherd and should be stated in the charter.</li>
+<li>Initial membership should try to represent people who have already been participating regularly and productively in the respective area.</li>
+<li>It is not required for a project group to have a lot of members though, some project groups may only have one or two members including leads and liaisons.</li>
+</ul>
+</li>
+<li>A charter that defines the scope and intent of the group.</li>
+<li>A GitHub repository hosted under the <code>rust-lang</code> organization containing the charter and instructions for how community members can monitor or participate in the group.</li>
+<li>Representation on the official <a href="https://rust-lang.org">rust-lang.org</a> website.</li>
+<li>No <em>“formal decision making power”</em>: meaning that they are not able to accept RFCs on <code>rust-lang/rfcs</code>.
+<ul>
+<li>Groups are of course encouraged to create RFCs as well as advocate their concerns and desired changes to the Rust teams and community.</li>
+</ul>
+</li>
+<li>Dedicated space(s) in of Rust’s officially managed discussion platforms.
+<ul>
+<li>As of the time of this writing this includes <a href="https://rust-lang.zulipchat.com">Zulip</a> and <a href="https://discord.gg/rust-lang">Discord</a>.</li>
+<li>Ideally the group should use the same platform as their parent team to ease communication, though there may be cases where the team agrees to a group trying out a different platform.</li>
+</ul>
+</li>
+</ul>
+<h3 id="creating-the-charter"><a class="header" href="#creating-the-charter">Creating The Charter</a></h3>
+<p>Since project groups are approved by their relevant parent team, it’s up to each team decide their specific requirements. However the author recommends that a group should try to make a charter that addresses the following questions.</p>
+<ul>
+<li>What value do you see your group bringing to the organisation?</li>
+<li>What support do you need, and separately want, from the Rust organization?</li>
+<li>Why should this be a project group over a community effort?</li>
+<li>What are the goals of your group?
+<ul>
+<li>Both in the short term, and if relevant over a longer period.</li>
+</ul>
+</li>
+<li>What are explicitly non-goals of your group?</li>
+<li>What do you expect the relationship to the team be?</li>
+<li>How do you intend to make your work accessible to people outside your group?</li>
+<li>Who are the initial shepherds/leaders? (This is preferably 2–3 individuals, but not required.)</li>
+<li>Is your group long-running or temporary?</li>
+<li>If it is temporary, how long do you see it running for?
+<ul>
+<li>What is the long-term vision of your group?</li>
+</ul>
+</li>
+<li>If applicable, which other groups or teams do you expect to have close contact with?</li>
+<li>Where do you see your group needing help?</li>
+</ul>
+<h2 id="initial-setup"><a class="header" href="#initial-setup">Initial Setup</a></h2>
+<p>Once a group has been approved, a pull request with the initial set of members should be made to <a href="https://github.com/rust-lang/team"><code>rust-lang/team</code></a>. Please refer to team’s documentation for how to create a group.</p>
+<p>It is then recommended for the project group to create a repository under the <code>rust-lang</code> organisation using the <a href="https://github.com/rust-lang/project-group-template">project group template</a>, and making any relevant changes and personalisation.</p>
+<h2 id="evaluation"><a class="header" href="#evaluation">Evaluation</a></h2>
+<p>Parent teams should add checking in with their project groups as part of their regular triage. The project group is also encouraged to post their progress updates and meeting minutes as blog posts on the <a href="https://blog.rust-lang.org/inside-rust">“Inside Rust” blog</a>.</p>
+<h2 id="archival"><a class="header" href="#archival">Archival</a></h2>
+<p>At some point, the group’s work will conclude. Whether because the work is complete, or the members cannot finish the work, or the group feels like the project isn’t worth pursuing further. The author is calling this process “Archival”.</p>
+<h3 id="announcement"><a class="header" href="#announcement">Announcement</a></h3>
+<p>A group that is considering archival should first figure out what should happen to any crates, repositories, or projects that they started. In general these projects should be migrated to other groups or individuals, or archived if there isn’t any suitable candidate for maintaining the project.</p>
+<p>Once that has been resolved the group should write an announcement of their archival along with any relevant details about the migration and/or archival of projects.</p>
+<h3 id="retrospective"><a class="header" href="#retrospective">Retrospective</a></h3>
+<p>While this RFC attempts to address some of the current organisational problems within the organisation, the author doesn’t believe will be a panacea to those problems or that we won’t encounter new problems in the future. As part of that, the RFC introduce having retrospectives with the groups once significant time has past or the group has finished its project.</p>
+<p>This would involve a discussion between the members of the group, and ideally their parent team and the Governance working group. The retrospective should produce a public blog post on the Inside Rust blog, however any feedback a member has that they would want to keep private would be omitted.</p>
+<p>The blog post should try to cover the output of the group, such as RFCs or projects, as well what the group thought worked and importantly what didn’t work. This should help us iterate on this initial RFC and help us find and address issues that come up in the process.</p>
+<p>Both the retrospective and the archival announcement can and likely should be written as a single post. However there will be times where having a timely retrospective will not be possible, and in that case a shorter separate announcement post is appropriate.</p>
+<h2 id="life-cycle-of-a-project-group"><a class="header" href="#life-cycle-of-a-project-group">Life-cycle of a Project Group</a></h2>
+<p>This is a high level overview of the complete process of a project group.</p>
+<p align="center">
+    <img src="project-group-workflow.svg"
+        alt="A flow diagram showing each step of a project group"
+        height="800px">
+    <p align="center">Figure 1. Project Group Lifecycle</p>
+</p>
+<h3 id="steps"><a class="header" href="#steps">Steps</a></h3>
+<ol>
+<li>
+<p>Exploratory period.</p>
+<ul>
+<li>Initial discussions of the problem area.
+<ul>
+<li>Teams are not obligated to look at or respond to any of the initial discussions. Of course, interested members are free to participate.</li>
+</ul>
+</li>
+<li>Write a short motivation for the project.</li>
+<li>Find a person from the relevant team who’s willing to act as a liaison.
+<ul>
+<li>Finding a liaison is specific to each team, you should consult the team’s documentation on how to propose project groups.</li>
+<li>You may not always be able to find someone who is willing to act as liaison. It’s up to each team to decide how many new efforts they’ll have the bandwidth for, which may at times be none.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Obtain the consensus of the team to create group.</p>
+<ul>
+<li>Specify the liaison, and shepherd(s). (See <a href="#project-group-creation">Project Group Creation</a>)</li>
+<li>Write a short motivation, and some notes on possible solutions.</li>
+<li>How consensus is reached would vary from team to team, some would require an RFC while others could decide in a meeting.</li>
+</ul>
+</li>
+<li>
+<p>Create infrastructure for group.</p>
+<ul>
+<li>GitHub repository under <code>rust-lang</code> for hosting work and discussions, such as for draft RFCs.</li>
+<li>A Discord channel or a Zulip stream for communication.</li>
+<li>Project group in <a href="https://github.com/rust-lang/team"><code>rust-lang/team</code></a>, as well as a team on GitHub, for handling permissions.</li>
+</ul>
+</li>
+<li>
+<p>Create a post on the Inside Rust blog announcing creation of the group. Be sure to include the following information.</p>
+<ul>
+<li>An introduction</li>
+<li>The charter (either linked or inlined) [See <a href="#creating-the-charter">Creating The Charter</a>]</li>
+<li>A link to your group’s GitHub repository</li>
+<li>If your group is open for participants, provide information on how they can contribute.
+<ul>
+<li>If you’re also planning on running regular meetings, include when your group plans to meet along with a link to calendar event for the meeting.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>The group works towards the goals laid out in their charter.</p>
+</li>
+<li>
+<p>When active work has stopped a group is “archived”.</p>
+<ul>
+<li>Archival can be started by the project group shepherds, the liaison, or the lead(s) of the parent team if needed.</li>
+<li>Archival is not necessarily a permanent state, it is only a reflection on the current status of the group.
+<ul>
+<li>Similarly a groups archival doesn’t imply that work in that area has been exhausted</li>
+</ul>
+</li>
+<li>Reasons to archive (non-exhaustive):
+<ul>
+<li>Nobody in the group has time anymore or higher priority things arose.</li>
+<li>There’s a blocking issue that can’t be resolved.</li>
+<li>Don’t see any additional work to do in this area in the near future.</li>
+<li>The work was done to a satisfactory state.</li>
+<li>The group decided the idea wasn’t so good after all.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Create a blog post announcing the archival of the group.</p>
+<ul>
+<li>The scope of this post will vary based on the scope of the group, but ideally it would include some of the following.
+<ul>
+<li>Overview of decisions, RFCs, and other output the group produced.</li>
+<li>Thoughts on the process, how it worked (or didn’t as case may be), any difficulties encountered, and what they would want to be improved.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Archive infrastructure.</p>
+<ul>
+<li>Archive GitHub repository to be read-only.</li>
+<li>Archive chat channel(s) on any platforms.</li>
+</ul>
+</li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../governance/moderation.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../policies/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../governance/moderation.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../policies/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../js/moment.min.js"></script>
+        <script src="../js/index.js"></script>
+
+
+    </div>
+    </body>
+</html>
