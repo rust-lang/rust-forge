@@ -1,6 +1,6 @@
 # Major Changes
 
-Triagebot helps with automated processing of [Major Change Proposals](../compiler/mcp.md).
+Triagebot helps with automated processing of [Major Change Proposals](../compiler/proposals-and-stabilization.md#how-do-i-submit-an-mcp).
 
 ## Usage
 
