@@ -36,7 +36,7 @@ This necessitates a manual process of syncing any changes made to the dev guide 
 copy maintained in the rust-lang/rust repo.
 
 1. Wait at least a week since the last subtree sync took place.
-2. There will either be an automatically opened rustc-pull PR, or performing a rustc-pull encountered merge 
+2. There will either be an automatically opened rustc-pull PR, or a manual rustc-pull will be needed if there are merge 
 conflicts. If there is a rustc-pull PR open, merge it[^1], otherwise a manual rustc-pull should be performed.
 See [rustc-dev-guide#2451] for an example rustc-pull.
 3. Post in the [zulip channel for coordinating subtree syncs][subtree_coordination] that you're doing a sync
