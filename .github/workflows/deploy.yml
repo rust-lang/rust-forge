@@ -43,7 +43,7 @@ jobs:
       - id: deployment
         uses: actions/deploy-pages@v4
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::890664054962:role/forge-rust-lang-org-ci
           aws-region: us-east-1
