@@ -2,16 +2,16 @@
 
 Much of the ongoing work and initiatives from the compiler team are performed by groups of people interested in specific areas of work. These groups are a great way for new contributors to get involved as they provide a stream of tasks focused around one area and have designated channels for help and advice. Here is a list of areas where work is being carried on:
 
-Name                              | Short Description                                                                                  | Code | Zulip Stream
-----                              | -----------------                                                                                  | ---------- | ------------
-Async-await Implementation        | Implementing async-await                                                                           | [Link][async-await_code] | [#wg-async][async-await_stream]
-Diagnostics                       | Use crates.io crates for diagnostics rendering and make emitting diagnostics nicer.                | [rustc_errors], [rustc_lint], [annotate-snippets] | [#t-compiler/diagnostics][diagnostics_stream]
-LLVM                              | Working with LLVM upstream to represent Rust in its development                                    | [rustc], [LLVM][llvm_code] | [#t-compiler/llvm][llvm_stream]
-MIR Optimizations                 | Write MIR optimizations and refactor the MIR to be more optimizable.                               | [MIR transform](mir_transform_code) | [#t-compiler/mir-opts][mir-opts-stream]
-Parallel-rustc                    | Making parallel compilation the default for rustc                                                  | [rustc] | [#t-compiler/parallel-rustc][parallel-rustc_stream]
+Name                              | Short Description                                                                                  | Code                                                                        | Zulip Stream
+----                              | -----------------                                                                                  |-----------------------------------------------------------------------------| ------------
+Async-await Implementation        | Implementing async-await                                                                           | [Link][async-await_code]                                                    | [#wg-async][async-await_stream]
+Diagnostics                       | Use crates.io crates for diagnostics rendering and make emitting diagnostics nicer.                | [rustc_errors], [rustc_lint], [annotate-snippets]                           | [#t-compiler/diagnostics][diagnostics_stream]
+LLVM                              | Working with LLVM upstream to represent Rust in its development                                    | [rustc], [LLVM][llvm_code]                                                  | [#t-compiler/llvm][llvm_stream]
+MIR Optimizations                 | Write MIR optimizations and refactor the MIR to be more optimizable.                               | [MIR transform][mir_transform_code]                                         | [#t-compiler/mir-opts][mir-opts-stream]
+Parallel-rustc                    | Making parallel compilation the default for rustc                                                  | [rustc]                                                                     | [#t-compiler/parallel-rustc][parallel-rustc_stream]
 Polonius                          | Exploring the integration of the "NLL 2.0"-like ["Polonius analysis"][Polonius] into rustc         | [borrow check][borrowck], [rust-lang/polonius][P], [rust-lang/datafrog][DF] |  [#t-types/polonius][polonius_stream]
-RLS 2.0                           | Experimenting with a new compiler architecture tailored for IDEs                                   | [rust-analyzer][ra-repo] | [#t-compiler/rust-analyzer][rls20_stream]
-Rustc Dev Guide                   | Make the compiler easier to learn by ensuring that rustc-dev-guide is "complete"                   | [rustc], [rustc-dev-guide][rustc-dev-guide-repo] | [#t-compiler/rustc-dev-guide][rustc-dev-guide_stream]
+RLS 2.0                           | Experimenting with a new compiler architecture tailored for IDEs                                   | [rust-analyzer][ra-repo]                                                    | [#t-compiler/rust-analyzer][rls20_stream]
+Rustc Dev Guide                   | Make the compiler easier to learn by ensuring that rustc-dev-guide is "complete"                   | [rustc], [rustc-dev-guide][rustc-dev-guide-repo]                            | [#t-compiler/rustc-dev-guide][rustc-dev-guide_stream]
 
 For historical record here's a list of Working Groups that are not active anymore (either because they reached their goals or because work stalled):
 

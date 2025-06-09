@@ -10,7 +10,7 @@ label to a issue (you can include `@rustbot label +I-compiler-nominated` in
 your comment to do this).
 
 Once nominated, the issue will be discussed in a upcoming [triage
-meeting](./triage-meeting.html). The compiler team doesn't always get through
+meeting](./meetings.md#triage-meeting). The compiler team doesn't always get through
 all nominated issues each week, so it can take more than one meeting for your
 issue to be discussed.
 
@@ -60,7 +60,7 @@ Add the `I-compiler-nominated` label to a issue (you can use `@rustbot label
 +I-compiler-nominated` to do this).
 
 Once nominated, the issue will be discussed in a upcoming [triage
-meeting](./triage-meeting.html). The compiler team doesn't always get through
+meeting](./meetings.md#triage-meeting). The compiler team doesn't always get through
 all nominated issues each week, so it can take more than one meeting for your
 issue to be discussed. In the compiler team's discussion, the issue may..
 

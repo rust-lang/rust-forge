@@ -85,11 +85,11 @@ These should by and large not be considered to be "team managed" crates; this ca
 
 ## Transitions and new crates
 
-Teams should feel free to create new crates in any of these categories; however "Intentional Artifact" crates must be accompanied with an RFC. As we move towards having team charters, this can transition to being a charter change (which may require an RFC or use its own process). Teams should notify <council@rust-lang.org> when they've created such crates so that the Leadership Council may track these crates and ensure this policy is applied.
+Teams should feel free to create new crates in any of these categories; however "Intentional Artifact" crates must be accompanied with an RFC. As we move towards having team charters, this can transition to being a charter change (which may require an RFC or use its own process). Teams should notify `council@rust-lang.org` when they've created such crates so that the Leadership Council may track these crates and ensure this policy is applied.
 
 From time to time a team's plan for a crate may change: experiments may conclude, crates may need to be deprecated, or the team may decide to release something for wider usage.
 
-In general, teams should notify <council@rust-lang.org> when such a transition is being made.
+In general, teams should notify `council@rust-lang.org` when such a transition is being made.
 
 Any transition _away_ from "Intentional Artifact" requires an RFC.
 

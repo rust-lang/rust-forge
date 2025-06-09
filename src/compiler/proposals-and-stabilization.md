@@ -64,6 +64,7 @@ the nature of the proposal, described below.
 
 [rust-lang/compiler-team]: https://github.com/rust-lang/compiler-team
 [design meeting proposal]: ./meetings.md#steeringplanning-meeting
+[major change template]: https://github.com/rust-lang/compiler-team/issues/new?template=major_change.md
 
 #### What kinds of comments should go on a MCP in the compiler-team repo?
 Please direct technical conversation to the Zulip stream.
@@ -360,7 +361,7 @@ See [*Backports*](./backports.md).
 
 ### Adding ecosystem/integration test jobs/components to rust-lang/rust CI
 
-See [*Adding ecosystem/integration test jobs/components to rust-lang/rust CI*](./proposals-and-stabilization/custom-test-jobs.md).
+See [*Adding ecosystem/integration test jobs/components to rust-lang/rust CI*](./proposals-and-stabilization/ecosystem-integration-tests.md).
 
 
 [stabilization_guide]: https://rustc-dev-guide.rust-lang.org/stabilization_guide.html

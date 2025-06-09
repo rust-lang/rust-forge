@@ -10,7 +10,7 @@ in `rust-lang`) and that the experience is uniform across `rust-lang/rust` and t
 ### When should parts of the compiler be extracted into an out-of-tree crate?
 This is left to the discretion of compiler team members but should be discussed with the rest of
 the team, either through raising the question at the weekly triage meeting or asynchronously using
-[an approval decision](./proposals-and-stabilizations.md). If the crate is a product of a working
+[an approval decision](./proposals-and-stabilization.md). If the crate is a product of a working
 group, there should already be agreement within the working group that an out-of-tree crate is
 suitable.
 
@@ -123,9 +123,9 @@ In summary, the process for establishing an out-of-tree crate is as follows:
 
        > This crate is developed and maintained by the [Rust compiler team](https://github.com/rust-lang/compiler-team/tree/master/procedures) for use within
        > `rustc`, in particular, it is the responsibility of the
-       > [`.template`](../../working-groups/template) working group. This crate [will have regular
-       > breaking changes and provides no stability guarantees|is intended to remain stable and have
-       > limited breaking changes].
+       > [`.template`](./working-areas.md) working area. This crate will have regular
+       > breaking changes and provides no stability guarantees | is intended to remain stable and have
+       > limited breaking changes.
     1. Include the [LICENSE-APACHE][apache] and [LICENSE-MIT][mit] files from `rust-lang/rust`.
     1. Include or link the [CODE_OF_CONDUCT][coc] file from `rust-lang/rust`.
     1. Create a relevant `.gitignore` ([here's a sane default][gitignore]).
@@ -137,7 +137,7 @@ In summary, the process for establishing an out-of-tree crate is as follows:
 [gitignore]: https://gitignore.io/api/vim,rust,emacs,clion,visualstudio,visualstudiocode
 [triagebot]: https://github.com/rust-lang/rust/blob/master/triagebot.toml
 [apache]: https://github.com/rust-lang/rust/blob/master/LICENSE-APACHE
-[coc]: ../../about/code_of_conduct
+[coc]: https://www.rust-lang.org/policies/code-of-conduct
 [mit]: https://github.com/rust-lang/rust/blob/master/LICENSE-MIT
 
 ## Third-party crates
