@@ -1,4 +1,4 @@
-# Rustc Dev Guide
+# rustc-dev-guide
 
 The rustc-dev-guide working group is responsible for maintaining the rustc-dev-guide (located at 
 [rust-lang/rustc-dev-guide](https://github.com/rust-lang/rustc-dev-guide)). This includes things such
