@@ -2,7 +2,6 @@ name: Deploy To GitHub Pages
 on:
   schedule:
     - cron: '0 22 * * *'
-  pull_request:
   push:
     branches:
       - master
@@ -19,13 +18,12 @@ jobs:
       - name: Build book
         run: ./mdbook build
       - name: Upload artifact
-        if: github.ref == 'refs/heads/master'
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./book
 
   deploy:
-    if: github.ref == 'refs/heads/master' && github.repository_owner == 'rust-lang'
+    if: github.repository_owner == 'rust-lang'
     needs: build
 
     permissions:
