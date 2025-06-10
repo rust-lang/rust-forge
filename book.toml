@@ -61,3 +61,7 @@ smart-punctuation = true
 "platforms/zulip/triagebot.html" = "/triagebot/index.html"
 "core/blogs.html" = "/platforms/blogs.html"
 "core/index.html" = "/governance/council.html"
+
+[output.linkcheck]
+follow-web-links = false
+optional = true

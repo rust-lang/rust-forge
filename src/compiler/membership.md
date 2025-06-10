@@ -5,7 +5,7 @@ This team discusses membership in the compiler team. There are currently two lev
 * maintainers: members who have committed themselves to invest in the quality of the compiler and
   health of the compiler team
 
-[infrastructure]: ../infra/index.html
+[infrastructure]: ../infra/README.md
 
 ## The path to membership
 People who are looking to contribute to the compiler typically start in one of two ways. They may 
@@ -52,9 +52,8 @@ Being promoted to member implies a number of privileges:
 It also implies some obligations (in some cases, optional obligations):
 
 - Members will be asked if they wish to be added to the reviewer rotation.
-- Members may take part in various other [maintainer activities] to help the team. 
-- Members are held to a higher standard than ordinary folk when it comes to the [Code of
-  Conduct][CoC].
+- Members may take part in various other maintainer activities to help the team. 
+- Members are held to a higher standard than ordinary folk when it comes to the [Code of Conduct][CoC].
 
 [listed]: https://www.rust-lang.org/governance/teams/compiler
 
@@ -82,7 +81,7 @@ After being a compiler team member for a year, members can request or be asked t
 actively helping to shape the direction of the team or some part of the compiler (or multiple
 parts).
 
-- Compiler team maintainers are expected to participate in at least one [maintenance activities].
+- Compiler team maintainers are expected to participate in at least one maintenance activities.
 - Compiler team maintainers are identified with the "Maintainer" role on the rust-lang website.
 
 ## How promotion decisions are made

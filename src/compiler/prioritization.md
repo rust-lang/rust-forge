@@ -217,5 +217,5 @@ After the meeting, there are a few closing tasks:
 [forge_announce]: https://github.com/rust-lang/rust-forge/issues?q=label%3Afinished-final-comment-period+label%3Ato-announce
 [fcps]: https://github.com/rust-lang/compiler-team/issues?q=label%3Amajor-change+label%3Ato-announce
 [mcps]: https://github.com/rust-lang/compiler-team/issues?q=label%3Amajor-change+label%3Ato-announce
-[relese_backports]: ../release/backporting.md
+[release_backports]: ../release/backporting.md
 [compiler_nominated]: https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3AI-compiler-nominated+label%3AT-compiler

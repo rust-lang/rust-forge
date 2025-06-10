@@ -108,4 +108,4 @@ To add a new tool to be tracked, the following steps must be taken:
 [subup]: https://github.com/ehuss/subup
 [toolstate]: https://rust-lang-nursery.github.io/rust-toolstate/
 [toolstate repository]: https://github.com/rust-lang-nursery/rust-toolstate/
-[forge]: ../index.html
+[forge]: ../README.md

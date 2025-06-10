@@ -24,6 +24,12 @@ you to easily see and update changes you make.
 mdbook serve
 ```
 
+## Link checking
+
+On CI, we automatically check if all intra-doc links in the Forge Markdown files are valid. If you would like to
+perform this check locally, install `mdbook-linkcheck` using `cargo install mdbook-linkcheck@0.7.7 --locked` and then
+simply run `mdbook build` or `mdbook serve`.
+
 ## JavaScript
 
 Forge uses JavaScript to display dates for releases and "no tools breakage

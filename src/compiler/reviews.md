@@ -497,3 +497,4 @@ team](https://www.rust-lang.org/governance/teams/moderation) to step in.
 
 [coc]: https://www.rust-lang.org/policies/code-of-conduct
 [rollup]: ../release/rollups.md
+[MCP]: ./proposals-and-stabilization.md#how-do-i-submit-an-mcp

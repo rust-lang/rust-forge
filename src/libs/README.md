@@ -9,4 +9,4 @@ It has details on current project groups, upcoming meetings, and the status of t
 
 The Libs team hangs out primarily in [the rust-lang Zulip](https://rust-lang.zulipchat.com/) these days in the `#t-libs` stream.
 
-You can also find out more details about [Zulip and how the Rust community uses it](../../platforms/zulip.html).
+You can also find out more details about [Zulip and how the Rust community uses it](../platforms/zulip.md).
