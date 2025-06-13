@@ -10,6 +10,7 @@ command = "./build.bash"
 
 [output.html]
 additional-js = ["js/moment.min.js", "js/index.js"]
+additional-css = ["css/style.css"]
 no-section-label = true
 git-repository-url = "https://github.com/rust-lang/rust-forge"
 edit-url-template = "https://github.com/rust-lang/rust-forge/edit/master/{path}"
