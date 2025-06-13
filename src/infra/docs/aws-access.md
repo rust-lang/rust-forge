@@ -48,9 +48,14 @@ account.
 The [AWS CLI](https://aws.amazon.com/cli/) allows you to interact with our AWS
 account from a terminal or a script. To set it up the first time, follow
 Amazon's documentation to [install it][awscli-install] and [configure your
-credentials][awscli-configure]. The CLI doesn't use your console password to
+credentials][awscli-configure].
+
+The CLI doesn't use your console password to
 authenticate: you'll need to create an access key from the "My Security
 Credentials" page on the console.
+
+After you do that, run `aws configure` and paste the access key ID and the secret
+key from the console to configure it. Use `us-west-1` as the default region.
 
 ### 2-factor authentication
 
