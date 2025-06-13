@@ -116,7 +116,7 @@ There are various ways in which you can contribute to Rust projects:
   and you'll become a contributor! :)
 - Improving tests is also very valuable, as there is never enough of them. This can include also
   documenting existing tests or writing tests for already fixed issues that lack a proper test.
-- You can also help with improving issue trackers of our repositories, by helping with triaging issues
+- You can also help with improving issue trackers of our repositories, by helping with [triaging issues][issue-triage]
   or by reproducing old issues to find out whether they are still valid or not.
 - Or, if you like programming language discussions, you could participate in our [RFC process](https://github.com/rust-lang/rfcs).
 - You can also answer questions to help other Rust users, in the _Get Help!_ channels on the [Rust Discord
@@ -132,3 +132,4 @@ There are various ways in which you can contribute to Rust projects:
 [rust-discord]: http://discord.gg/rust-lang
 [rust-zulip]: https://rust-lang.zulipchat.com
 [coc]: https://www.rust-lang.org/policies/code-of-conduct
+[issue-triage]: ./release/issue-triaging.md
