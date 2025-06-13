@@ -112,8 +112,8 @@ There are various ways in which you can contribute to Rust projects:
   Play to your strengths!
 - Improving documentation is possibly one of the easiest starting points for contributions.
   Did you find a typo, something that was unclear, or do you miss some useful information on this
-  page, elsewhere in the Forge or in some other Rust documentation? Great, then send a pull request
-  and you'll become a contributor! :)
+  page, elsewhere in the Forge or in some other Rust (user-facing) documentation? Great, then send
+  a pull request and you'll become a contributor! :)
 - Improving tests is also very valuable, as there is never enough of them. This can include also
   documenting existing tests or writing tests for already fixed issues that lack a proper test.
 - You can also help with improving issue trackers of our repositories, by helping with [triaging issues][issue-triage]
