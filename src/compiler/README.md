@@ -29,6 +29,8 @@ NOTE: please keep the following alphabetically sorted.
   - *What useful resources are available for contributors and team members?*
 - [Review Policy](./reviews.md)
   - *How do I make a contribution which is easy to review? How do I start reviewing as a team member?*
+- [Supplemental Tools](./supplemental-tools.md)
+  - *When can I shell out to tools like `strip` in `rustc`? How should I triage issues with external tools?*
 - [Third-party and Out-of-tree Crates Policy](./third-party-out-of-tree.md)
   - *When can I add third-party crates to the compiler? When can I create a out-of-tree crate for
      the compiler?*
