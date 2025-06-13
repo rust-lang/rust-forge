@@ -30,6 +30,14 @@ On CI, we automatically check if all intra-doc links in the Forge Markdown files
 perform this check locally, install `mdbook-linkcheck` using `cargo install mdbook-linkcheck@0.7.7 --locked` and then
 simply run `mdbook build` or `mdbook serve`.
 
+## Blacksmith
+
+Blacksmith is a tool that can run before the Forge is built. It downloads information about Rust releases, which is used
+to render a page with historical Rust releases.
+
+Since it takes a while to compile and run, it is disabled by default. To enable it, run `mdbook serve` or `mdbook build`
+with the environment variable `RUN_BLACKSMITH=1`.
+
 ## JavaScript
 
 Forge uses JavaScript to display dates for releases and "no tools breakage
