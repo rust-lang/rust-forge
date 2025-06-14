@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       MDBOOK_VERSION: 0.4.51
+      RUN_BLACKSMITH: 1
     steps:
       - uses: actions/checkout@v4
       - name: Install mdbook
