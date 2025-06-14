@@ -9,21 +9,7 @@ file an issue or PR on the [Rust Forge GitHub].
 
 ### Help Wanted
 
-Want to contribute to Rust, but don't know where to start? Here's a list of
-`rust-lang` projects that have marked issues that need help and issues that are
-good first issues.
-
-Repository                  | Description
-----------------------------|-----------------------------------------------
-[rust][gh/rust]             | The Rust Language & Compiler
-[cargo][gh/cargo]           | The Rust package manager
-[crates.io][gh/crates.io]   | Source code for [crates.io](https://crates.io)
-[www.rust-lang.org][gh/www] | The Rust website
-
-[gh/rust]: https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+label%3AE-help-wanted+no%3Aassignee
-[gh/cargo]: https://github.com/rust-lang/cargo/issues?q=is%3Aopen+is%3Aissue+label%3AS-accepted+no%3Aassignee
-[gh/crates.io]: https://github.com/rust-lang/crates.io/issues?q=is%3Aopen+is%3Aissue+label%3AE-help-wanted+no%3Aassignee
-[gh/www]: https://github.com/rust-lang/www.rust-lang.org/issues?q=is%3Aopen+label%3A%22good+first+issue%22+no%3Aassignee
+Want to contribute to Rust, but don't know where to start? Check out [this guide](./how-to-start-contributing.md).
 
 ### Current Release Versions
 
