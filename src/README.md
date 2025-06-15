@@ -2,10 +2,10 @@
 Welcome to the Rust Forge! Rust Forge serves as a repository of supplementary
 documentation useful for members of [The Rust Programming Language]. If
 you find any mistakes, typos, or want to add to the Rust Forge, feel free to
-file an issue or PR on the [Rust Forge GitHub].
+file an issue or PR [on GitHub].
 
 [The Rust Programming Language]: https://rust-lang.org
-[Rust Forge GitHub]: https://github.com/rust-lang/rust-forge
+[on GitHub]: https://github.com/rust-lang/rust-forge
 
 ### Help Wanted
 
