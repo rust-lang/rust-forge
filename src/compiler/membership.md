@@ -5,7 +5,7 @@ This team discusses membership in the compiler team. There are currently two lev
 * maintainers: members who have committed themselves to invest in the quality of the compiler and
   health of the compiler team
 
-[infrastructure]: ../infra/README.md
+[infrastructure]: ../infra/index.md
 
 ## The path to membership
 People who are looking to contribute to the compiler typically start in one of two ways. They may 
