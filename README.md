@@ -72,12 +72,12 @@ First, please send a PR to add your team to the [`repos/rust-lang/rust-forge.tom
 To add your team to the book, add it to [`src/SUMMARY.md`], like below, replacing `<TEAM_NAME>` with a filesystem- and URL-friendly version of your team's name:
 
 ```markdown
-- [<TEAM NAME>](src/<TEAM_NAME>/README.md)
+- [<TEAM NAME>](src/<TEAM_NAME>/index.md)
 ```
 
 If you run `mdbook build`, `mdbook` will automatically create the folder and file for your team.
 
-It's recommended that you put general team information in `src/<TEAM_NAME>/README.md`, such as where the meetings happen, repositories that the team manages, links to chat platforms, etc. Larger topics should be made as a subpage, e.g. (`src/release/topic.md`).
+It's recommended that you put general team information in `src/<TEAM_NAME>/index.md`, such as where the meetings happen, repositories that the team manages, links to chat platforms, etc. Larger topics should be made as a subpage, e.g. (`src/release/topic.md`).
 
 ```markdown
 - [TOPIC](src/<TEAM_NAME>/TOPIC.md)

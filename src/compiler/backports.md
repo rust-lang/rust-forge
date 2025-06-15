@@ -68,7 +68,7 @@ stable point release.
 
 ## How are approved backports handled?
 
-The [release team](../release/README.md) (`T-release`) will handle the backport at the end of the
+The [release team](../release/index.md) (`T-release`) will handle the backport at the end of the
 current development cycle (see [release backporting](../release/backporting.md)). If a beta backport
 nomination is approved too late, the release team may be unable to backport the change.
 
