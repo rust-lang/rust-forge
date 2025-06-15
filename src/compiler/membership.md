@@ -104,7 +104,7 @@ repository to reflect their new role.
 It is worth emphasizing that becoming a member of the compiler team does not necessarily imply
 writing PRs. There are a wide variety of tasks that need to be done to support the compiler and
 which should make one eligible for membership. Such tasks would include organizing meetings,
-participating in meetings, bisecting and triaging issues, writing documentation, working on the 
+participating in meetings, bisecting and triaging issues, writing documentation, and working on the 
 rustc-dev-guide.
 
 It is worth emphasizing that becoming a member of the compiler team does not necessarily imply
