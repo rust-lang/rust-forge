@@ -41,6 +41,14 @@ concerns_label = "has-concerns"
 # Defaults to "major-change-accepted".
 accept_label = "major-change-accepted"
 
+# Waiting period (in days) before the MCP is considered accepted.
+# Defaults to 10 days.
+waiting_period = 10
+
+# Enables automatic closing of the major change when the waiting period is completed.
+# Defaults to false.
+auto_closing = true
+
 # Optional extra text that is included in the GitHub comment when the issue is opened.
 open_extra_text = "cc @rust-lang/compiler @rust-lang/compiler-contributors"
 
