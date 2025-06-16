@@ -18,8 +18,10 @@ are suitable for each method of making a proposal - see below):
     other team members to raise any concerns.
   - Seconding can only be used to approve a MCP.
 - FCP
-  - A final comment period will require sign-off from a majority of the compiler team to approve
-    a proposal and then a ten day waiting period.
+  - A Final Comment Period is started by a T-compiler member, it's a tool to get concrete consensus
+    from the team.
+  - Requires sign-off from a majority of the compiler team to approve a proposal and then a ten days
+    waiting period.
   - FCPs can be used to approve any form of proposal.
 
 ## Proposals
