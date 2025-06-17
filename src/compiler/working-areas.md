@@ -12,6 +12,7 @@ Parallel-rustc                    | Making parallel compilation the default for 
 Polonius                          | Exploring the integration of the "NLL 2.0"-like ["Polonius analysis"][Polonius] into rustc         | [borrow check][borrowck], [rust-lang/polonius][P], [rust-lang/datafrog][DF] |  [#t-types/polonius][polonius_stream]
 RLS 2.0                           | Experimenting with a new compiler architecture tailored for IDEs                                   | [rust-analyzer][ra-repo]                                                    | [#t-compiler/rust-analyzer][rls20_stream]
 Rustc Dev Guide                   | Make the compiler easier to learn by ensuring that rustc-dev-guide is "complete"                   | [rustc], [rustc-dev-guide][rustc-dev-guide-repo]                            | [#t-compiler/rustc-dev-guide][rustc-dev-guide_stream]
+Enzyme                            | Expose experimental LLVM features for GPU offloading                                               | [Project Goal][enzyme-project-goal] | [#wg-autodiff]
 
 For historical record here's a list of Working Groups that are not active anymore (either because they reached their goals or because work stalled):
 
@@ -59,3 +60,5 @@ Traits                           | Improving the trait-system design + implement
 [rustc_errors]: https://github.com/rust-lang/rust/tree/master/compiler/rustc_errors
 [rustc_lint]: https://github.com/rust-lang/rust/tree/master/compiler/rustc_lint
 [annotate-snippets]: https://crates.io/crates/annotate-snippets
+[#wg-autodiff]: https://rust-lang.zulipchat.com/#narrow/channel/390790-wg-autodiff
+[enzyme-project-goal]: https://github.com/rust-lang/rust-project-goals/issues/109
