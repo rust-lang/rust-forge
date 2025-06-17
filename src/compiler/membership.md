@@ -92,7 +92,7 @@ existing compiler team member or they may ask the compiler team leads if their c
 is sufficient for team membership.
 
 The compiler team leads will check with the rest of the compiler team to see if there are concerns
-with extending a membership invitation to the individual and after a week (barring no objections),
+with extending a membership invitation to the individual, and after a week (barring no objections),
 an invitation will be extended.
 
 If the invitation is accepted by the individual, the compiler team leads will update the [team]
