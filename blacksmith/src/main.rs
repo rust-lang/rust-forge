@@ -1,4 +1,4 @@
-use std::{env, io, path::Path, process};
+use std::{io, path::Path, process};
 
 use mdbook::{
     errors::Error,
@@ -12,13 +12,7 @@ const CACHE_TTL_SECONDS: u64 = 3600; // 1 hour
 
 fn main() {
     // If RUST_LOG is present use that, else default to info level printing.
-    if let Ok(v) = env::var("RUST_LOG") {
-        env_logger::init_from_env(v);
-    } else {
-        env_logger::builder()
-            .filter_level(log::LevelFilter::Info)
-            .init();
-    }
+    env_logger::Builder::from_env(env_logger::Env::default().default_filter_or("info")).init();
 
     macro_rules! log_unwrap {
         ($result:expr) => {
