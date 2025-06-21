@@ -31,14 +31,16 @@ release team later.
 
 The release note text is automatically pulled in subsequent steps, and should use headers from [this list] if possible:
 
-[this list]: https://github.com/rust-lang/relnotes/blob/33e78d703a439c8721705b26e2613ec6dac0cb4f/src/main.rs#L444-L449
+[this list]: https://github.com/rust-lang/relnotes/blob/21ed8b35851a34cae062bb342810a0280bbd19d7/src/main.rs#L454-L463
 
 * Compatibility Notes
 * Library
 * Stabilized APIs
 * Const Stabilized APIs
+* Rustdoc
 * Language
 * Compiler
+* Platform Support
 * Internal Changes
 * Other
 
