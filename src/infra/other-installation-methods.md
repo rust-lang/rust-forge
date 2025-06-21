@@ -39,8 +39,8 @@ might one _not_ want to install using those instructions?
 
 Rust's platform support is defined in [three tiers], which correspond closely
 with the installation methods available: in general, the Rust project provides
-binary builds for all tier 1 and tier 2 platforms, and they are all installable
-via `rustup`. Some tier 2 platforms though have only the standard library
+binary builds for all Tier 1 and Tier 2 platforms, and they are all installable
+via `rustup`. Some Tier 2 platforms though have only the standard library
 available, not the compiler itself; that is, they are cross-compilation targets
 only; Rust code can run on those platforms, but they do not run the compiler
 itself. Such targets can be installed with the `rustup target add` command.
