@@ -107,9 +107,10 @@ which should make one eligible for membership. Such tasks would include organizi
 participating in meetings, bisecting and triaging issues, writing documentation, and working on the 
 rustc-dev-guide.
 
-The most important criterion for elevation to compiler team member, in particular,
-is **regular and consistent** participation. The most important criterion for elevation to
-maintainer is **actively shaping the direction of the team or compiler**.
+The most important criterion for being a compiler team member, in particular,
+is **regular and consistent** participation.
+As for being a compiler team maintainer, the most important criterion is
+**actively shaping the direction of the team or compiler**.
 
 ## Alumni status
 If at any time a compiler team member or maintainer wishes to take a break from participating,
