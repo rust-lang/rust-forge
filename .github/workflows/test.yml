@@ -4,7 +4,7 @@ on:
 
 jobs:
   test:
-    name: CI
+    name: test
     runs-on: ubuntu-latest
     env:
       MDBOOK_VERSION: 0.4.51
