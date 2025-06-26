@@ -42,10 +42,13 @@ queue has been merged.
 
 2. Run the following command in the pull request thread:
 
-    ```
-    @bors r+ rollup=never p=5
-    ````
-   where 5 is the number of PRs contained in your rollup.
+   ```
+   @bors r+ rollup=never p=5
+   ````
+
+   Tools and subtree syncs should use `p=5`, like rollups, so they interleave between rollups, as
+   tools and subtree syncs are typically more tricky to fix than rebasing PRs.
+
 3. If the rollup fails, use the logs rust-log-analyzer
    provides to bisect the failure to a specific PR and
    `@bors r-` the PR. If the PR is running, you need to do `@bors r- retry`. Otherwise,
@@ -63,15 +66,22 @@ queue has been merged.
 
 ## Selecting Pull Requests
 
-The queue is sorted by rollup status. In general, a good rollup contains a bunch of `maybe` (unmarked) PRs, and a large pile of `always` PRs. You can include one or two `iffy` PRs if you are confident that they will pass. 
-If you have a lot of time, you can also make a rollup just from `iffy` PRs (if there are enough of them) and weed out the failures one by one.
-A rollup should never include `rollup=never` PRs.
+The queue is sorted by rollup status. In general:
+
+- A good rollup contains a bunch of `maybe` (unmarked) PRs, and a large pile of `always` PRs. You
+  can include one or two `iffy` PRs to amortize the cost of testing full CI.
+- If you have a lot of time, you can also make a rollup just from `iffy` PRs (if there are enough of
+  them) and weed out the failures one by one.
+- A rollup must **never** include `rollup=never` PRs.
 
 The actual absolute size of the rollup can depend based on experience and current length of the queue.
 People new to making rollups might start with including 1 `iffy`, 2 `maybe`s, and 4 `always`s. Usually 6-8 PRs per rollup is a good compromise.
 There is rarely a need to roll up more than 10 PRs at once (unless there are >30 PRs waiting the queue), keep in mind that we also try to minimize regressions per merge.
 
-Don't try to make mega-rollups (15-20 PRs that merge half or more of the entire queue all at once) to keep the number of perf or bug regressions per merge as low as possible and keep potential regressions [bisectable].
+Limit the size of rollups, *even if* the queue is backed up. Large rollups run the risk of failing
+or merge conflicts, and smaller rollups keep potential regressions [bisectable]. On average, rollups
+are 7 PRs large, often varying from 5 to 10 depending on the number of `rollup=always` PRs that can
+be included.
 
 Don't hesitate to downgrade the rollup status of a PR! If your intuition tells you that a `rollup=always` PR has some chances for failures, mark it `rollup=maybe` or better `rollup=iffy`. A lot of the unmarked `maybe` PRs are categorized as such because the reviewer may not have considered rollupability, so it's always worth picking them with a critical eye. Similarly, if a PR causes your rollup to fail, it's worth considering changing its rollup status.
 
@@ -84,36 +94,67 @@ If an `iffy` PR keeps failing in a rollups, it should be marked `never` to preve
 It should be noted which runner the PR failed on, to run this runner as a `try-job` job and make sure it succeeds there before another merge is attempted (example on syntax [here]).
 In general, if possible, try to test a failed PR via a handful of carefully selected try-jobs instead of having to run the full battery of all 60 runners on if it's likely a PR may fail again.
 
-To not have `never` or `iffy` PRs stuck in the queue indefinitely, it is recommended to alternate between rollup and non-rollup prs, so one `never`, one rollup, one `iffy`, one `rollup`, one `never` etc, until most of the `never`s are merged.
-If you are the only person making rollups, you can also leave a couple of `never`/`iffy`s for a time where you know nobody will be doing rollups actively, or for weekends which generally see a lower number of PR approvals.
+To not have `never` or `iffy` PRs stuck in the queue indefinitely, it is recommended to alternate
+between rollup and non-rollup prs, so one `never`, one rollup, one `iffy`, one `rollup`, one `never`
+etc, until most of the `never`s are merged. You can selectively bump the priority on certain
+`iffy`/`never` PRs to `p=1` (or even `p=5`) if you want to interleave them between rollups.
 
-Try to be fair with rollups: Rollups are a way for things to jump the queue. For `rollup=maybe` PRs, try to include the oldest one (at the top of the section) so that newer PRs aren't jumping the queue over older PRs entirely. You don't have to include every PR older than PRs included in your rollup, but try to include the oldest. Similar to the perspective around `iffy`, it's useful to look at a rollup as a way for other PRs to piggyback on the CI cycle of the oldest PR in queue.
-Very old (several months) or very large PRs that are extremely prone to merge conflicts may also be given a slight priority bump (`p=1`) to finally get them out of the queue without having to rebase them repeatedly.
-Ultimately, we want to keep the number of regressions per merge at a minimum while also minimizing the amount of time between approval and the final merge of a PR, to avoid unnecessary merge conflicts and rebases.
+If you are the only person making rollups, you can also leave a couple of `never`/`iffy`s for a time
+where you know nobody will be doing rollups actively, or for weekends which generally see a lower
+number of PR approvals.
 
+Try to be fair with rollups: Rollups are a way for things to jump the queue. For `rollup=maybe` PRs,
+try to include the oldest one (at the top of the section) so that newer PRs aren't jumping the queue
+over older PRs perpetually. You don't have to include every PR older than PRs included in your
+rollup, but try to include the oldest. Similar to the perspective around `iffy`, it's useful to look
+at a rollup as a way for other PRs to piggyback on the CI cycle of the oldest PR in queue.
+
+Very old (several months) or very large PRs that are extremely prone to merge conflicts may also be
+given a priority bump (`p=5`) to finally get them out of the queue without having to rebase them
+repeatedly, to have the same priority as rollups or sandwich between rollups.
+
+Ultimately, we want to keep the number of regressions per merge at a minimum while also minimizing
+the amount of time between approval and the final merge of a PR, to avoid unnecessary merge
+conflicts and rebases.
 
 ## Failed rollups
+
 If the rollup has failed, run the `@bors retry` command if the
 failure was spurious (e.g. due to a network problem or a timeout).
-There may be a matching `CI-spurious-fail-.*` label that you can use to tag the PR as such, to help discover common fail patterns.
-If it wasn't spurious, find the offending PR and throw it out by copying a link to the rust-logs-analyzer comment,
-and leaving a comment like `Failed in <link_to_comment>, @bors r-`.
-In case the log-analyzer does not give any meaningful output, you can directly open the ci-logs (the `(web)` link), find the point where the error was thrown
-and directly copy the URL to the respective line in the log output.
-Hopefully, the author or reviewer will give feedback to get the PR fixed or confirm that it's not
-at fault. The failed rollup PR should then be closed.
+There may be a matching `CI-spurious-fail-.*` label that you can use to tag the PR as such, to help
+discover common fail patterns.
+
+If it wasn't spurious, find the offending PR and return it to the author to be fixed by copying a
+link to the `rust-log-analyzer` comment, and leaving a comment like
+
+```text
+Failed in <link_to_comment>.
+@bors r-`.
+```
+
+In case `rust-log-analyzer` does not give any meaningful output, you can directly open the ci-logs
+(the `(web)` link), find the point where the error was thrown and directly copy the URL to the
+respective line in the log output. Hopefully, the author or reviewer will give feedback to get the
+PR fixed or confirm that it's not at fault. The failed rollup PR should then be closed.
 
 Once you've removed the offending PR, recreate your rollup without it (see 1.).
 Merge one batch of PRs by throwing out the failures one by one instead of adding new PRs to it, as this may introduce additional points of failure.
 
-Sometimes however, it is hard to find the offending PR. If so, use your intuition
-to avoid the PRs that you suspect are the problem and recreate the rollup.
-Another strategy is to raise the priority of the PRs you suspect,
-mark them as `rollup=never` (or `iffy`) and let bors test them standalone to dismiss
-or confirm your hypothesis, or split the rollup into 2 smaller ones until are certain of the failure cause. If a PR was found to be the cause and other PRs were "wrongfully" `iffy`'d, they can of course be reprioritised as `maybe` again.
+Sometimes it is hard to find the offending PR. There are usually three strategies to figure out the
+offending PR:
 
-If a PR in a rollup continues to fail you can run the `@bors rollup=never` command to
-never rollup the PR in question.
+1. **Avoid the problem**: Use your intuition to avoid the PRs that you suspect are the problem and
+   recreate the rollup.
+2. **Test suspected PRs alone**: Raise the priority of the PRs you suspect, mark them as
+   `rollup=never` (or `iffy`) and let bors test them standalone to dismiss or confirm your
+   hypothesis.
+3. **Divide and conquer**: Split rollup into 2 smaller ones until you are certain of the failure
+   cause. If a PR was found to be the cause and other PRs were "wrongfully" marked `iffy`, they can
+   of course be marked as `maybe` again with `@bors rollup=maybe` or `@bors rollup-`.
+
+If a PR in a rollup continues to fail you can run the `@bors rollup=never` command to ensure the PR
+gets tested independently, since it's likely it will fail again in the future.
+
 
 [Homu queue]: https://bors.rust-lang.org/queue/rust
 [the Rollups section]: ../compiler/reviews.md#rollups
