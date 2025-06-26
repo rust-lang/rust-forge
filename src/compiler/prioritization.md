@@ -197,7 +197,7 @@ After the meeting, there are a few closing tasks:
   the meeting (and therefore will be seen during the following meeting).
 - Remove `to-announce` FCPs from [`rust-lang/rust`][rust_announce], [`compiler-team`][team_announce]
   and the [forge][forge_announce]. Same disclaimer as before regarding changes during the meeting.
-- Accept or decline [`beta nominated`][beta_nominated] and [`stable nominated`][beta_nominated]
+- Accept or decline [`beta nominated`][beta_nominated] and [`stable nominated`][stable_nominated]
   backports that have been accepted during the meeting. For more info check [`t-release` backporting
   docs][release_backports]
   - To accept a backport, add a `{beta,stable}-accepted` label and keep the `{beta,stable}-nominated`
