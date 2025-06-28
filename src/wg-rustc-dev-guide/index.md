@@ -31,7 +31,7 @@ compiler [review policy](../compiler/reviews.md).
 If your change **only involves the documentation content of rustc-dev-guide** and **does not accompany `rust-lang/rust` code changes**,
 please submit your changes and PRs directly to the [rust-lang/rustc-dev-guide] repository.
 
-There are some benifits following this rule:
+There are some benefits following this rule:
 - Changes to `rustc-dev-guide` repo can be immediately reflected in [the live rustc-dev-guide](https://rustc-dev-guide.rust-lang.org/).
 - Changes to `rustc-dev-guide` repo do not need to go through bors CI in `rust-lang/rust`.
 - Less burden on bors queue in `rust-lang/rust`.
