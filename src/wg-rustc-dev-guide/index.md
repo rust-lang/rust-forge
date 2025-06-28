@@ -26,6 +26,16 @@ A good rule of thumb for whether you should feel comfortable merging your own ru
 you would feel comfortable approving an involved PR touching the relevant area of the compiler. See the
 compiler [review policy](../compiler/reviews.md).
 
+## Where to contribute `rustc-dev-guide` changes
+
+If your change **only involves the documentation content of rustc-dev-guide** and **does not accompany `rust-lang/rust` code changes**,
+please submit your changes and PRs directly to the [rust-lang/rustc-dev-guide](https://github.com/rust-lang/rustc-dev-guide) repository.
+
+There are some benifits following this rule:
+- Changes to `rustc-dev-guide` repo can be immediately reflected in [the live rustc-dev-guide](https://rustc-dev-guide.rust-lang.org/).
+- Changes to `rustc-dev-guide` repo do not need to go through bors CI in `rust-lang/rust`.
+- Less burden on bors queue in `rust-lang/rust`.
+
 ## Subtree Syncs
 
 The dev guide is a [josh](https://josh-project.github.io/josh/intro.html) subtree of the main rust-lang/rust
