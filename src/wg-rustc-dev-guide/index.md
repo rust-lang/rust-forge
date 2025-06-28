@@ -1,7 +1,7 @@
 # rustc-dev-guide
 
 The rustc-dev-guide working group is responsible for maintaining the rustc-dev-guide (located at 
-[rust-lang/rustc-dev-guide](https://github.com/rust-lang/rustc-dev-guide)). This includes things such
+[rust-lang/rustc-dev-guide]). This includes things such
 as: 
 - Performing subtree syncs between the main rust repo and the rustc-dev-guide repo
 - Triaging the state of the guide to look for out of date information or missing information
@@ -29,7 +29,7 @@ compiler [review policy](../compiler/reviews.md).
 ## Where to contribute `rustc-dev-guide` changes
 
 If your change **only involves the documentation content of rustc-dev-guide** and **does not accompany `rust-lang/rust` code changes**,
-please submit your changes and PRs directly to the [rust-lang/rustc-dev-guide](https://github.com/rust-lang/rustc-dev-guide) repository.
+please submit your changes and PRs directly to the [rust-lang/rustc-dev-guide] repository.
 
 There are some benifits following this rule:
 - Changes to `rustc-dev-guide` repo can be immediately reflected in [the live rustc-dev-guide](https://rustc-dev-guide.rust-lang.org/).
@@ -66,3 +66,4 @@ guide, then the subtree sync can be delayed until there are actual changes to sy
 [rust-lang/rust#141962]: https://github.com/rust-lang/rust/pull/141962
 [rustc-dev-guide#2451]: https://github.com/rust-lang/rustc-dev-guide/pull/2451
 [subtree_coordination]: https://rust-lang.zulipchat.com/#narrow/channel/196385-t-compiler.2Frustc-dev-guide/topic/Subtree.20sync.20automation/with/522133712
+[rust-lang/rustc-dev-guide]: https://github.com/rust-lang/rustc-dev-guide
