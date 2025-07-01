@@ -18,8 +18,10 @@ are suitable for each method of making a proposal - see below):
     other team members to raise any concerns.
   - Seconding can only be used to approve a MCP.
 - FCP
-  - A final comment period will require sign-off from a majority of the compiler team to approve
-    a proposal and then a ten day waiting period.
+  - A Final Comment Period is started by a T-compiler member, it's a tool to get concrete consensus
+    from the team.
+  - Requires sign-off from a majority of the compiler team to approve a proposal and then a ten days
+    waiting period.
   - FCPs can be used to approve any form of proposal.
 
 ## Proposals
@@ -254,7 +256,7 @@ circumstance.
   - **Approve using:** r+ (compiler leads)
   - You can `r? compiler_leads` on the PR to roll one of the compiler leads as the reviewer.
   - Open a PR with the new target (w/ relevant documentation updates) and document adherence to the
-    [target tier policy][tier_policy] in the description. New targets must start as tier three
+    [target tier policy][tier_policy] in the description. New targets must start as tier 3
   - New targets should be assigned to the compiler team co-leads to check for any licensing
     concerns
 - Promoting a target
@@ -264,18 +266,18 @@ circumstance.
     in the description
   - New targets should be assigned to the compiler team co-leads to ensure that any demands on
     the project infrastructure are considered and checked with relevant teams
-- Renaming a target or making a breaking change to a tier three target
+- Renaming a target or making a breaking change to a tier 3 target
   - **Propose using:** PR
   - **Approve using:** r+
   - Open an PR with the proposed rename and describe the motivation for the change and obtain a r+
     from the reviewer.
-- Renaming a target or making a breaking change to a tier two target
+- Renaming a target or making a breaking change to a tier 2 target
   - **Propose using:** MCP
   - **Approve using:** FCP
   - Open an MCP describing the motivation for the change and start an FCP to approve, start an FCP.
   - If approved, the change should be accompanied by a blog post announcing the change with a
     notice period of at least one release before the change applies.
-- Renaming a target or making a breaking change to a tier one target
+- Renaming a target or making a breaking change to a tier 1 target
   - **Propose using:** RFC
   - **Approve using:** FCP
   - Open an RFC describing the motivation for the change and start an FCP to approve, start an FCP.
@@ -286,7 +288,7 @@ circumstance.
   - **Approve using:** FCP
   - Write an MCP describing why the target should be demoted/removed and once discussion has
     concluded, an FCP can be started to approve the demotion/removal.
-  - If approved and affecting a tier two or one target , the change should be accompanied by a
+  - If approved and affecting a tier 2 or tier 1 target, the change should be accompanied by a
     blog post announcing the change with a notice period of at least one release before the change
     applies.
 - Changing target baseline (e.g. minimum Darwin or Windows version bump)
