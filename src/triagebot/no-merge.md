@@ -60,4 +60,4 @@ Your PR cannot be merged until it is rebased.
 
 ## Implementation
 
-See [`src/handlers/no_merges.rs`](https://github.com/rust-lang/triagebot/blob/HEAD/src/handlers/no_merges.rs).
+See [`src/handlers/check_commits/no_merges.rs`](https://github.com/rust-lang/triagebot/blob/HEAD/src/handlers/check_commits/no_merges.rs).
