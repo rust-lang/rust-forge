@@ -35,14 +35,18 @@ the nature of the proposal, described below.
     a new target).
   - PR proposals can be approved by *FCPs* or *r+*. See *When are FCPs/RFCs required?*
     section below when *r+* isn't sufficient alone.
+- Issues
+  - Opening an issue on the [`rust-lang/rust`][rust] repository are also a good starting
+    point if you don't know which of the previous ways is the best fit.
 
 [rustdoc zulip thread]: https://rust-lang.zulipchat.com/#narrow/channel/266220-t-rustdoc
 
 ### When are FCPs/RFCs required?
 
-An FCP will be needed for any stabilization of small user-facing changes, like UI/UX changes, new
-command-line arguments, new attributes, etc. However, if the change is considered too big/important,
-an RFC will need to be written and approved before the change will be accepted.
+An FCP will be needed for any stabilization of small user-facing changes, like UI/UX changes in
+the GUI web interface, new command-line arguments, new attributes, etc. However, if the change
+is considered too big/important, an RFC will need to be written and approved before the change
+will be accepted.
 
 When starting an FCP, make sure only the relevant subteam is labeled on the issue/PR, to avoid
 pinging people with changes they aren't interested in.

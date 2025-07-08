@@ -4,6 +4,9 @@ The rustdoc team hosts a meeting every second Monday on each month on the
 [t-rustdoc/meetings channel on zulip](https://rust-lang.zulipchat.com/#narrow/channel/393423-t-rustdoc.2Fmeetings)
 at 21:00 CET (UTC+1) and CEST on summer (UTC+2).
 
+This schedule might change, to be sure to be up to date, check
+[here](https://github.com/rust-lang/calendar/blob/main/rustdoc.toml).
+
 A new thread is open a month ahead of time to remind people who want to attend about the time
 and the agenda.
 

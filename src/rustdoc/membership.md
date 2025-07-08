@@ -46,7 +46,7 @@ Being promoted to member implies a number of privileges:
 It also implies some obligations (in some cases, optional obligations):
 
 - Members are expected to respond to FCPs in maximum 4 weeks (28 days).
-- Members may take part in various other [maintainer activities] to help the team.
+- Members may take part in various other maintainer activities to help the team.
 - Members are held to a higher standard than ordinary folk when it comes to the [Code of
   Conduct][CoC].
 
