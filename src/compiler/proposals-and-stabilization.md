@@ -18,10 +18,9 @@ are suitable for each method of making a proposal - see below):
     other team members to raise any concerns.
   - Seconding can only be used to approve a MCP.
 - FCP
-  - A Final Comment Period is started by a T-compiler member, it's a tool to get concrete consensus
-    from the team.
-  - Requires sign-off from a majority of the compiler team to approve a proposal and then a ten days
-    waiting period.
+  - A Final Comment Period is started by a T-compiler member. it's a tool to get concrete consensus
+    from the team. This requires sign-off from the compiler FCP reviewers (the [`compiler-fcp`
+    subteam][compiler-fcp]) to approve a proposal and then a ten day waiting period.
   - FCPs can be used to approve any form of proposal.
 
 ## Proposals
@@ -61,6 +60,9 @@ the nature of the proposal, described below.
         * The FCP can be skipped if the change is easily reversed and/or further objections are
           considered unlikely. This often happens if there has been a lot of prior discussion, for
           example.
+        * Outstanding concerns block the final comment period from completing.
+        * When all outstanding concerns are resolved, the final comment period countdown is
+          restarted.
 * Once the FCP completes, if there are no outstanding concerns, contributions can begin.
     * An earlier accepted MCP is not a substitute for any later necessary approvals.
 
@@ -373,3 +375,4 @@ See [*Adding ecosystem/integration test jobs/components to rust-lang/rust CI*](.
 [rust]: https://github.com/rust-lang/rust
 [compiler_lint_eg]: https://doc.rust-lang.org/rustc/lints/listing/deny-by-default.html#explicit-builtin-cfgs-in-flags
 [ecosystem_testing]: https://rustc-dev-guide.rust-lang.org/tests/ecosystem.html
+[compiler-fcp]: https://github.com/rust-lang/team/blob/master/teams/compiler-fcp.toml
