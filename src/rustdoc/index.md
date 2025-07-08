@@ -7,7 +7,7 @@ read about how the compiler and rustdoc work and instructions on how to set up a
 you're looking for the [rustc-dev-guide](https://rustc-dev-guide.rust-lang.org/rustdoc.html).
 
 - [Calendar](./calendar.md)
-  - *How do I subscribe to the compiler team's calendar?*
+  - *How do I subscribe to the rustdoc team's calendar?*
 - [Meetings](./meetings.md)
   - *What meetings do the rustdoc team run and how can I attend?*
 - [Membership](./membership.md)
