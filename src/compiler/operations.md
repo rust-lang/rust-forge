@@ -13,11 +13,11 @@ You can trigger a discussion about a specific topic, issue or pull request by op
 ## Issues hygiene
 
 - [Issue to be prioritized](https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+label%3AI-prioritize): see [prioritization](https://forge.rust-lang.org/compiler/prioritization.html).
-- [P-high issues without assignee](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3AT-compiler+label%3AP-high+no%3Aassignee): ideally this category of issues should have an assignee (filter out those without a PR).In rare cases it's fine if they don't.
+- [P-high issues without assignee](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3AT-compiler+label%3AP-high+no%3Aassignee): ideally this category of issues should have an assignee (filter out those without a PR). In rare cases it's fine if they don't.
 - [MCP in FCP status](https://github.com/rust-lang/compiler-team/issues?q=is%3Aissue+is%3Aopen+label%3Afinal-comment-period+sort%3Acreated-asc), close seconded since more 10 days, ensure no open concerns
 - [Check open MCPs](https://github.com/rust-lang/compiler-team/issues?q=is%3Aissue+is%3Aopen+label%3Amajor-change+-label%3Afinal-comment-period+sort%3Aupdated-asc): [MCP is a protocol](https://forge.rust-lang.org/compiler/proposals-and-stabilization.html) to bring proposals to the compiler team attention. Ensure MCPs are moving towards one of these two outcome, being seconded or being closed for lack of seconding. When it's clear that an MCP won't be seconded or is abandoned, after about two or three months is ok to query its status and evaluate closing it. Otherwise try to get them unstuck.
-- [Issues needing a reproducible](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3AE-needs-mcve+label%3AT-compiler+sort%3Acreated-asc)
-- [Issues and PRs that are going through FCP](https://github.com/rust-lang/rust/issues?q=sort%3Aupdated-desc+label%3Afinished-final-comment-period): check if the team need to check their box. These issues are in the weekly triage agenda.
+- [Issues needing a MCVE](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3AE-needs-mcve+label%3AT-compiler+sort%3Acreated-asc)
+- [Issues and PRs that are going through FCP](https://github.com/rust-lang/rust/issues?q=sort%3Aupdated-desc+label%3Afinished-final-comment-period): check if the team need to check their box. These issues are in the weekly triage meeting agenda.
 
 ## Prioritization for T-compiler
 
@@ -55,3 +55,31 @@ T-compiler has two kinds of meetings: triage and design meetings. Triage meeting
 These filters are for checking what's happening in other teams
 
 - [List of open RFCs](https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+label%3Aproposed-final-comment-period+label%3Adisposition-merge+sort%3Aupdated-asc) (all teams) waiting for the team to discuss or check the proposal, can anything be done to help moving them forward?
+
+## Useful tips
+
+### Github Issues Dashboard
+
+You can utilize the [GitHub Issues Dashboard](https://github.com/issues/) to create custom filters. The filters allow you to aggregate both issues and PRs from *multiple* repositories, and allows applying [advanced filters][adv-filters]. See <https://github.blog/changelog/2025-04-02-github-issues-dashboard-updates/>.
+
+[adv-filters]: https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/filtering-and-searching-issues-and-pull-requests#building-advanced-filters-for-issues
+
+#### Example custom filters
+
+Mostly intended for [rust-lang/rust]
+
+| Filter                                                                     | Description                                  |
+|----------------------------------------------------------------------------|----------------------------------------------|
+| `repo:rust-lang/rust label:P-critical is:open`                             | Open P-critical issues                       |
+| `repo:rust-lang/rust label:T-compiler label:P-high is:open`                | Open P-high T-compiler issues                |
+| `repo:rust-lang/rust label:needs-triage -label:relnotes`                   | Untriaged issues                             |
+| `repo:rust-lang/rust label:regression-untriaged`                           | Untriaged regressions                        |
+| `repo:rust-lang/rust label:proposed-final-comment-period`                  | Issues/PRs with on-going FCP                 |
+| `repo:rust-lang/rust label:proposed-final-comment-period label:T-compiler` | Issues/PRs with on-going T-compiler FCP      |
+| `repo:rust-lang/rust label:I-prioritize`                                   | Unprioritized issues                         |
+| `repo:rust-lang/rust label:needs-triage label:relnotes-tracking-issue`     | Untriaged/unedited relnotes issues           |
+| `repo:rust-lang/rfcs label:T-compiler is:pr is:open`                       | RFCs concerning T-compiler                   |
+| `repo:rust-lang/rfcs label:T-compiler label:proposed-final-comment-period` | RFCs concerning T-compiler with on-going FCP |
+
+
+[rust-lang/rust]: https://github.com/rust-lang/rust
