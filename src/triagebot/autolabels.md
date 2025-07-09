@@ -57,13 +57,28 @@ exclude_labels = [
 
 ### Triggered by new PRs
 
-Labels can be added to any PR when it is opened.
+Labels can be added to any PR in a non-draft state, either when opened or later when they switch status.
+The labels are removed when they don't meet those conditions anymore.
+
 Set the `new_pr = true` config option to enable this.
 For example:
 
 ```toml
 [autolabel."S-waiting-on-review"]
 new_pr = true
+```
+
+### Triggered by new draft PRs
+
+Labels can be added to any PR in a draft state, either when opened or later when they switch status.
+The labels are removed when they don't meet those conditions anymore.
+
+Set the `new_draft = true` config option to enable this.
+For example:
+
+```toml
+[autolabel."S-waiting-on-author"]
+new_draft = true
 ```
 
 ### Triggered by new issues
