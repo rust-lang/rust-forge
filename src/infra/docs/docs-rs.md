@@ -10,6 +10,6 @@
 [repo]: https://github.com/rust-lang/docs.rs
 [grafana-instance]: https://grafana.rust-lang.org/d/rpXrFfKWz/instance-metrics?orgId=1&var-instance=docsrs.infra.rust-lang.org:9100
 [grafana-app]: https://grafana.rust-lang.org/d/-wWFg2cZz/docs-rs?orgId=1
-[bastion-connect]: https://github.com/rust-lang/infra-team/blob/master/docs/hosts/bastion.md#logging-into-servers-through-the-bastion
+[bastion-connect]: ./bastion.md#logging-into-servers-through-the-bastion
 [Joshua Nelson]: https://github.com/jyn514
 [Pietro Albini]: https://github.com/pietroalbini
