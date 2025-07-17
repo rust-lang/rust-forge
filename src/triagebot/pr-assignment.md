@@ -125,17 +125,21 @@ title = "[beta" # title contains "[beta" in it
 branch = "beta"
 ```
 
-#### Custom welcome messages
+#### Custom messages
 
-Some repositories may want to use custom welcome messages instead of the preconfigured ones. It is possible to customize the welcome message shown when an "auto reviewer" is found by triagebot and the one shown when no reviewer is found. If provided, the `contributing_url` will still be used.
+Some repositories may want to use custom messages instead of the preconfigured ones. It is possible to customize the message shown when auto-assigning (or not) a reviewer. If provided, the `contributing_url` will still be used.
 
 ```toml
-[assign.custom_welcome_messages]
-welcome-message = "Welcome message, assigning {assignee}!"
-welcome-message-no-reviewer = "Welcome message for when no auto-reviewer could be selected!"
+[assign.custom_messages]
+auto-assign-someone = "Thanks for the contribution, assigning {assignee}!" # only required if auto-assign (`[assign.owners]` is configured
+auto-assign-no-one = """
+Thanks for the contribution!
+
+Unfortunately, no reviewer could be found at the moment.
+"""
 ```
 
-If `[assign.custom_welcome_messages]` is present, both custom messages must be provided.
+The messages content are given as-is to GitHub (modulo `{assignee}`), the content can therefore use whatever GitHub supports.
 
 ## Implementation
 
