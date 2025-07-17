@@ -135,11 +135,11 @@ auto-assign-someone = "Thanks for the contribution, assigning {assignee}!" # onl
 auto-assign-no-one = """
 Thanks for the contribution!
 
-Unfortunatly no reviewer could be found.
+Unfortunately, no reviewer could be found at the moment.
 """
 ```
 
-The messages content are given as-is to GitHub (modulo `{assignee}`), the content can therefor use whatever GitHub supports.
+The messages content are given as-is to GitHub (modulo `{assignee}`), the content can therefore use whatever GitHub supports.
 
 ## Implementation
 
