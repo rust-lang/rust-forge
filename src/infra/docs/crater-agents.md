@@ -51,7 +51,7 @@ systemctl start docker-images-update.service
 ```
 
 [repo]: https://github.com/rust-lang/docs.rs
-[bastion-connect]: https://github.com/rust-lang/infra-team/blob/master/docs/hosts/bastion.md#logging-into-servers-through-the-bastion
+[bastion-connect]: ./bastion.md#logging-into-servers-through-the-bastion
 [pietroalbini]: https://github.com/pietroalbini
 [grafana-instance-aws-1]: https://grafana.rust-lang.org/d/rpXrFfKWz/instance-metrics?orgId=1&var-instance=crater-aws-1.infra.rust-lang.org:9100
 [grafana-instance-azure-1]: https://grafana.rust-lang.org/d/rpXrFfKWz/instance-metrics?orgId=1&var-instance=crater-azure-1.infra.rust-lang.org:9100
