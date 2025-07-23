@@ -253,21 +253,66 @@ circumstance.
 
 ### Targets
 
+See the [Target Tier Policy][tier_policy] for detailed requirements for different Target Tiers.
+
+#### Promoting targets
+
+Quick overview for target promotions:
+
+| Current target tier          | Goal target tier | Proposal | Required approvals  |
+|------------------------------|------------------|----------|---------------------|
+| N/A (proposing a new target) | 3                | PR       | r+ (compiler leads) |
+| 3                            | 2                | MCP      | FCP                 |
+| 2                            | 1                | RFC      | FCP                 |
+
 - Proposing a new target
   - **Propose using:** PR
   - **Approve using:** r+ (compiler leads)
   - You can `r? compiler_leads` on the PR to roll one of the compiler leads as the reviewer.
   - Open a PR with the new target (w/ relevant documentation updates) and document adherence to the
-    [target tier policy][tier_policy] in the description. New targets must start as tier 3
-  - New targets should be assigned to the compiler team co-leads to check for any licensing
-    concerns
-- Promoting a target
+    [target tier policy][tier_policy] in the description.
+  - **New targets must start as Tier 3**.
+  - New targets should be assigned to the compiler team co-leads to check for any licensing concerns
+    and to ensure that any demands on the project infrastructure are considered and checked with
+    relevant teams.
+- Promoting a target from Tier 3 to Tier 2
+  - **Propose using:** MCP
+  - **Approve using:** FCP
+  - Open a MCP with the target and document adherence to the [Tier 2 target policy][tier_policy] in
+    the description.
+- Promoting a target from Tier 2 to Tier 1
+  - **Propose using:** RFC
+  - **Approve using:** FCP
+  - Open a RFC with the target and document adherence to the [Tier 1 target policy][tier_policy] in
+    the RFC text.
+
+#### Demoting or removing targets
+
+Quick overview for target demotions and removals:
+
+| Current target tier | Goal target tier               | Proposal | Required approvals  |
+|---------------------|--------------------------------|----------|---------------------|
+| 1                   | 2 (or removal)                 | RFC      | FCP                 |
+| 2                   | 3 (or removal)                 | MCP      | FCP                 |
+| 3                   | N/A (removing a tier 3 target) | PR       | r+ (compiler leads) |
+
+- Demoting a target from Tier 1 to Tier 2, or removing a Tier 1 target
+  - **Propose using:** RFC
+  - **Approve using:** FCP
+  - Open a RFC with the target and rationale.
+  - Example: [RFC: Demote i686-pc-windows-gnu to Tier 2
+    #3771](https://github.com/rust-lang/rfcs/pull/3771)
+- Demoting a target from Tier 2 to Tier 3, or removing a Tier 2 target
+  - **Propose using:** MCP
+  - **Approve using:** FCP
+  - Open a MCP with the target and rationale.
+- Removing a Tier 3 target
   - **Propose using:** PR
   - **Approve using:** r+ (compiler leads)
-  - Open a PR with the new target and document adherence to the [target tier policy][tier_policy]
-    in the description
-  - New targets should be assigned to the compiler team co-leads to ensure that any demands on
-    the project infrastructure are considered and checked with relevant teams
+  - Open a PR with the target and rationale for removing the Tier 3 target.
+
+#### Other kind of target changes
+
 - Renaming a target or making a breaking change to a tier 3 target
   - **Propose using:** PR
   - **Approve using:** r+
@@ -285,14 +330,6 @@ circumstance.
   - Open an RFC describing the motivation for the change and start an FCP to approve, start an FCP.
   - If approved, the change should be accompanied by a blog post announcing the change with a
     notice period of at least one release before the change applies.
-- Demoting/removing a target
-  - **Propose using:** MCP
-  - **Approve using:** FCP
-  - Write an MCP describing why the target should be demoted/removed and once discussion has
-    concluded, an FCP can be started to approve the demotion/removal.
-  - If approved and affecting a tier 2 or tier 1 target, the change should be accompanied by a
-    blog post announcing the change with a notice period of at least one release before the change
-    applies.
 - Changing target baseline (e.g. minimum Darwin or Windows version bump)
   - **Propose using:** MCP
   - **Approve using:** FCP
@@ -376,3 +413,4 @@ See [*Adding ecosystem/integration test jobs/components to rust-lang/rust CI*](.
 [compiler_lint_eg]: https://doc.rust-lang.org/rustc/lints/listing/deny-by-default.html#explicit-builtin-cfgs-in-flags
 [ecosystem_testing]: https://rustc-dev-guide.rust-lang.org/tests/ecosystem.html
 [compiler-fcp]: https://github.com/rust-lang/team/blob/master/teams/compiler-fcp.toml
+[tier-1-target-policy]: https://doc.rust-lang.org/rustc/target-tier-policy.html#tier-1-target-policy
