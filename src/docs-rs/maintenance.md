@@ -7,20 +7,20 @@ clogging up the queue and preventing other crates to build. In this case it's
 possible to temporarily remove the crate from the queue until the docs.rs's bug
 is fixed. To do that, log into the machine and open a PostgreSQL shell with:
 
-```
+```console
 $ psql
 ```
 
 Then you can run this SQL query to remove the crate:
 
-```
+```psql
 UPDATE queue SET attempt = 100 WHERE name = '<CRATE_NAME>';
 ```
 
 To add the crate back in the queue you can run in the PostgreSQL shell this
 query:
 
-```
+```psql
 UPDATE queue SET attempt = 0 WHERE name = '<CRATE_NAME>';
 ```
 
@@ -32,13 +32,13 @@ nightly and instead pin a specific release. To do that you need to edit the
 `/home/cratesfyi/.docs-rs-env` file, adding or changing this environment
 variable:
 
-```
+```console
 CRATESFYI_TOOLCHAIN=nightly-YYYY-MM-DD
 ```
 
 Once the file changed docs.rs needs to be restarted:
 
-```
+```console
 systemctl restart docs.rs
 ```
 
@@ -50,7 +50,7 @@ restart docs.rs again.
 If a bug was recently fixed, you may want to rebuild a crate so that it builds with the latest version.
 From the docs.rs machine:
 
-```
+```console
 cratesfyi queue add <crate> <version>
 ```
 
@@ -109,14 +109,14 @@ cratesfyi=> UPDATE queue SET priority = 1 WHERE name LIKE 'group-%';
 After an outage you might want to add all the failed builds back to the queue.
 To do that, log into the machine and open a PostgreSQL shell with:
 
-```
+```console
 psql
 ```
 
 Then you can run this SQL query to add all the crates failed after `YYYY-MM-DD
 HH:MM:SS` back in the queue:
 
-```
+```psql
 UPDATE queue SET attempt = 0 WHERE attempt >= 5 AND build_time > 'YYYY-MM-DD HH:MM:SS';
 ```
 
@@ -126,7 +126,7 @@ Sometimes it might be needed to remove all the content related to a crate from
 docs.rs (for example after receiving a DMCA). To do that, log into the server
 and run:
 
-```
+```console
 cratesfyi database delete-crate CRATE_NAME
 ```
 
@@ -139,7 +139,7 @@ Occasionally it might be needed to prevent a crate from being built on docs.rs,
 for example if we can't legally host the content of those crates. To add a
 crate to the blacklist, preventing new builds for it, you can run:
 
-```
+```console
 cratesfyi database blacklist add <CRATE_NAME>
 ```
 

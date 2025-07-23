@@ -37,9 +37,9 @@ queue has been merged.
 
 2. Run the following command in the pull request thread:
 
-    ```
+    ```console
     @bors r+ rollup=never p=5
-    ````
+    ```
 
 3. If the rollup fails, use the logs rust-log-analyzer
    provides to bisect the failure to a specific PR and do

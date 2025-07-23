@@ -16,7 +16,7 @@ need to invoke the script *multiple times* until everything is setup correctly.
 it finishes, you have to watch the logs. When the build finishes, a line like
 this will appear in the logs:
 
-```
+```console
 Phase complete: UPLOAD_ARTIFACTS State: SUCCEEDED
 ```
 
@@ -42,7 +42,7 @@ pre-release testing period).
 
 Run this command from the [rust-lang/release-team] repository[^auth]:
 
-```
+```console
 ./scripts/start-release.py update-rust-branches
 ```
 
@@ -59,7 +59,7 @@ following changes:
 
   - If the release notes PR was merged:
 
-    ```
+    ```console
     git checkout origin/master -- RELEASES.md
     ```
 
@@ -84,7 +84,7 @@ going to finish soon (use your judgement here), you can "yield"
 priority to the stable release PR by going into that PR and typing this
 comment:
 
-> @bors retry  
+> @bors retry
 > Yield priority to the stable release.
 
 ### `beta` PR
@@ -94,7 +94,7 @@ changes:
 
 * Run this command and create a **separate commit** with just its output:
 
-  ```
+  ```console
   ./x.py run replace-version-placeholder
   ```
 
@@ -107,7 +107,7 @@ Self-approve the PR with `r+ rollup=never p=10`.
 After the `stable` PR is merged you'll need to start the pre-release. Run this command from the
 [rust-lang/release-team] repository[^auth]:
 
-```
+```console
 ./scripts/start-release.py publish-rust-dev-stable YYYY-MM-DD
 ```
 
@@ -129,7 +129,7 @@ Send a PR to the master branch to:
 
 - Run this to update the bootstrap compiler to the beta you created yesterday:
 
-  ```
+  ```console
   ./x.py run src/tools/bump-stage0
   ```
 
@@ -137,7 +137,7 @@ Send a PR to the master branch to:
   compilation attributes. You can find all of them by installing [ripgrep] and
   running this command:
 
-  ```
+  ```console
   rg '#!?\[.*\(bootstrap' -t rust -t toml
   ```
 
@@ -157,7 +157,7 @@ Send a PR to the master branch to:
 
 - Ensure there are no new warnings or Clippy lints affecting the codebase:
 
-  ```
+  ```console
   ./x clippy ci
   ```
 
@@ -176,7 +176,7 @@ start the release process earlier enough to hit the time you planned.
 To start the release, Run this command in the [rust-lang/release-team]
 repository[^auth]:
 
-```
+```console
 ./scripts/start-release.py publish-rust-prod-stable
 ```
 
@@ -192,7 +192,7 @@ announce the release on social media. Finally, bask in your success 🎉
 Send a PR to the beta branch updating the stage0 to the stable release you
 published:
 
-```
+```console
 ./x run src/tools/bump-stage0
 ```
 
@@ -203,7 +203,7 @@ PR on the `stable` branch of the [rust-lang/rust] repository. Once the commit
 is merged, [authenticate with AWS][awscli] and run this command in the
 [rust-lang/release-team] repository:
 
-```
+```console
 ./scripts/start-release.py publish-rust-dev-stable-rebuild
 ```
 

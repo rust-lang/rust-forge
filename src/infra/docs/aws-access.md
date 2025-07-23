@@ -69,7 +69,7 @@ To use the script, clone the [rust-lang/simpleinfra][simpleinfra] repository in
 a directory. Then, every time you need to use the AWS CLI run this command in
 your shell:
 
-```
+```console
 eval $(~/PATH/TO/SIMPLEINFRA/aws-creds.py)
 ```
 
