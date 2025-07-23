@@ -16,7 +16,7 @@ To log into a server through the bastion, use one of the following methods:
 
 - Use SSH's `-J` flag:
 
-  ```
+  ```console
   ssh -J <username>@bastion.infra.rust-lang.org <username>@servername.infra.rust-lang.org
   ```
 
@@ -24,14 +24,14 @@ To log into a server through the bastion, use one of the following methods:
 
   - Add this snippet to your SSH configuration file (usually located in `~/.ssh/config`):
 
-    ```
+    ```console
     Host servername.infra.rust-lang.org
         ProxyJump <username>@bastion.infra.rust-lang.org
     ```
 
   - Use SSH:
 
-    ```
+    ```console
     ssh <username>@servername.infra.rust-lang.org
     ```
 

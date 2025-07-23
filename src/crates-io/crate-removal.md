@@ -12,11 +12,15 @@ whether we have to comply with it.
 
 * Remove it from the database:
 
-      heroku run -a crates-io -- target/release/crates-admin delete-crate [crate-name]
+  ```console
+  heroku run -a crates-io -- target/release/crates-admin delete-crate [crate-name]
+  ```
 
   or
 
-      heroku run -a crates-io -- target/release/crates-admin delete-version [crate-name] [version-number]
+  ```console
+  heroku run -a crates-io -- target/release/crates-admin delete-version [crate-name] [version-number]
+  ```
 
 * Remove the crate or version from the index. To remove an entire crate, remove
   the entire crate file. For a version, remove the line corresponding to the
@@ -26,7 +30,7 @@ whether we have to comply with it.
 
 * Invalidate the CloudFront cache:
 
-  ```
+  ```console
   aws cloudfront create-invalidation --distribution-id EJED5RT0WA7HA --paths '/*'
   ```
 

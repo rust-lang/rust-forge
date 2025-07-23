@@ -73,7 +73,7 @@ To help contain what crates' build scripts can access, documentation builds run 
 
 You'll also need to configure networking for the container. The following is a sample `/etc/default/lxc-net` that enables NAT networking for the container:
 
-```
+```console
 USE_LXC_BRIDGE="true"
 LXC_BRIDGE="lxcbr0"
 LXC_ADDR="10.0.3.1"
@@ -87,7 +87,7 @@ LXC_DOMAIN=""
 
 In addition, you'll need to set the container's configuration to use this. Add the following lines to `/cratesfyi-prefix/cratesfyi-container/config`:
 
-```
+```console
 lxc.net.0.type = veth
 lxc.net.0.link = lxcbr0
 ```
@@ -132,7 +132,7 @@ To ensure that the docs.rs server is configured properly, we need to set a few e
 
 Write the following into `/home/cratesfyi/.cratesfyi.env`. If you have a GitHub access token that the site can use to collect repository information, add it here, but otherwise leave it blank. The variables need to exist, but they can be blank to skip that collection.
 
-```
+```console
 CRATESFYI_PREFIX=/cratesfyi-prefix
 CRATESFYI_DATABASE_URL=postgresql://cratesfyi:password@localhost
 CRATESFYI_CONTAINER_NAME=cratesfyi-container

@@ -9,7 +9,7 @@
 
 First, edit `sudo vim /etc/nginx/nginx.conf` to edit the nginx configuration to add the domain.
 
-```
+```console
 server {
     listen 443 ssl;
     listen [::]:443 ssl;

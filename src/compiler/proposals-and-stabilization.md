@@ -83,7 +83,7 @@ These types of procedural comments can be left on the issue (it's also good to l
 Zulip). See the previous section. To facilitate a machine parsable scanning of the concerns
 please use the following syntax to formally register a concern:
 
-```
+```text
 @rustbot concern reason-for-concern
 
 <long description of the concern>
@@ -91,13 +91,13 @@ please use the following syntax to formally register a concern:
 
 And the following syntax to lift a concern when resolved:
 
-```
+```text
 @rustbot resolve reason-for-concern
 ```
 
 MCPs can be seconded using:
 
-```
+```text
 @rustbot second
 ```
 

@@ -41,7 +41,7 @@ can use:
 
 2. Scale the background worker to 0 instances:
 
-   ```
+   ```console
    heroku ps:scale -a crates-io background_worker=0
    ```
 
@@ -58,7 +58,7 @@ can use:
 
 3. Configure the application to be in read-only mode without the follower:
 
-   ```
+   ```console
    heroku config:set -a crates-io READ_ONLY_MODE=1 DB_OFFLINE=follower
    ```
 
@@ -69,37 +69,37 @@ can use:
 
 3. Wait for the application to be redeployed with the new configuration:
 
-    ```
+    ```console
     heroku ps:wait -a crates-io
     ```
 
 3. Run the database maintenance:
 
-   ```
+   ```console
    heroku pg:maintenance:run --force -a crates-io
    ```
 
 1. Wait for the maintenance to finish:
 
-    ```
+    ```console
     heroku pg:wait -a crates-io
     ```
 
 3. Confirm all the databases are online:
 
-   ```
+   ```console
    heroku pg:info -a crates-io
    ```
 
 3. Confirm the primary database fully recovered (should output `false`):
 
-   ```
+   ```console
    echo "SELECT pg_is_in_recovery();" | heroku pg:psql -a crates-io DATABASE
    ```
 
 3. Switch off read-only mode:
 
-   ```
+   ```console
    heroku config:unset -a crates-io READ_ONLY_MODE
    ```
 
@@ -110,7 +110,7 @@ can use:
 
 3. Wait for the application to be redeployed with the new configuration:
 
-    ```
+    ```console
     heroku ps:wait -a crates-io
     ```
 
@@ -124,19 +124,19 @@ can use:
 
 3. Scale the background worker up again:
 
-   ```
+   ```console
    heroku ps:scale -a crates-io background_worker=1
    ```
 
 3. Confirm the follower database is available:
 
-   ```
+   ```console
    echo "SELECT 1;" | heroku pg:psql -a crates-io READ_ONLY_REPLICA
    ```
 
 3. Enable connections to the follower:
 
-   ```
+   ```console
    heroku config:unset -a crates-io DB_OFFLINE
    ```
 
@@ -156,48 +156,48 @@ load by doing this.
 
 1. Configure the application to operate without the follower:
 
-    ```
+    ```console
     heroku config:set -a crates-io DB_OFFLINE=follower
     ```
 
 1. Wait for the application to be redeployed with the new configuration:
 
-    ```
+    ```console
     heroku ps:wait -a crates-io
     ```
 
 1. Start the database maintenance:
 
-    ```
+    ```console
     heroku pg:maintenance:run --force -a crates-io READ_ONLY_REPLICA
     ```
 
 1. Wait for the maintenance to finish:
 
-    ```
+    ```console
     heroku pg:wait -a crates-io READ_ONLY_REPLICA
     ```
 
 1. Confirm the follower database is ready:
 
-    ```
+    ```console
     heroku pg:info -a crates-io
     ```
 
 1. Confirm the follower database is responding to queries:
 
-    ```
+    ```console
     echo "SELECT 1;" | heroku pg:psql -a crates-io READ_ONLY_REPLICA
     ```
 
 1. Enable connections to the follower:
 
-    ```
+    ```console
     heroku config:unset -a crates-io DB_OFFLINE
     ```
 
 1. Wait for the application to be redeployed with the new configuration.
 
-    ```
+    ```console
     heroku ps:wait -a crates-io
     ```

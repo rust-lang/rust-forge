@@ -25,7 +25,7 @@ The agent is managed by the `container-crater-agent.service` systemd unit. That
 means it's possible to start, stop and restart it with the usual systemctl
 commands:
 
-```
+```console
 systemctl stop container-crater-agent.service
 systemctl start container-crater-agent.service
 systemctl restart container-crater-agent.service
@@ -36,7 +36,7 @@ systemctl restart container-crater-agent.service
 Logs of the agents are forwarded and collected by journald. To see them you can
 use journalctl:
 
-```
+```console
 journalctl -u container-crater-agent.service
 ```
 
@@ -46,7 +46,7 @@ The container is updated automatically every 5 minutes (provided a newer image
 is present). If you need to update them sooner you can manually start the
 updater service by running this command:
 
-```
+```console
 systemctl start docker-images-update.service
 ```
 
