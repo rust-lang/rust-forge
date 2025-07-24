@@ -71,7 +71,9 @@ One-off performance runs can done by addressing the
 ([bot user account](https://github.com/rust-timer)). You can trigger the
 necessary try-build and queue a perf run by saying
 
-    @bors try @rust-timer queue
+```console
+@bors try @rust-timer queue
+```
 
 (Technically, the requirement is that the `queue` command finishes executing prior
 to the try build completing successfully.)

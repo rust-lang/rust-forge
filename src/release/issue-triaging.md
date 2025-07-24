@@ -67,7 +67,7 @@ Users with write access should change the labels directly to avoid sending a not
 
 For example:
 
-```
+```console
 @rustbot label +T-compiler +C-bug +A-linkage +O-macos -needs-triage
 ```
 

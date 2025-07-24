@@ -17,7 +17,7 @@ $STABLE is e.g. 1.39.0 (the stable release)
 $BETA is beta-YYYY-MM-DD, get the date by looking at https://static.rust-lang.org/manifests.txt and
 get the date of the most recent channel-rust-beta.toml.
 
-```
+```console
 @craterbot run name=beta-$BETA_VERSION start=$STABLE end=$BETA mode=build-and-test cap-lints=warn p=10
 @craterbot run name=beta-rustdoc-$BETA_VERSION start=$STABLE end=$BETA mode=rustdoc cap-lints=warn p=5
 ```
@@ -74,7 +74,7 @@ crater run a couple times you get a pretty good sense of what is spurious and wh
 You can run crater on just a single crate by doing something like this (at least, as of now).
 Note that this will download several gigabytes (on first use) and requires Docker to be running.
 
-```
+```console
 git clone https://github.com/rust-lang/crater
 cd crater
 cargo run -- prepare-local
