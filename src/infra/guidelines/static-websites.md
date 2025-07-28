@@ -7,29 +7,29 @@ and how to setup one.
 ## Requirements for hosting websites
 
 * **The website must be managed by a Rust team, or be officially affiliated with
-  the project.**  
+  the project.**
   The infrastructure team has finite resources and we can't offer hosting for
   community projects.
 * **The website’s content and build tooling must be hosted on a GitHub
   repository in either the [rust-lang](https://github.com/rust-lang) or
-  [rust-lang-nursery](https://github.com/rust-lang-nursery) organizations.**  
+  [rust-lang-nursery](https://github.com/rust-lang-nursery) organizations.**
   The infrastructure team must be able to rebuild the website content at any
   time (for example if we need to switch hosting), and having it hosted on a
   GitHub repository inside infra-managed organizations is the best way for us
   to ensure that. Even though we'd prefer for all the repositories to be public
   it's not a requirement.
-* **The website must be built and deployed with a CI service.**  
+* **The website must be built and deployed with a CI service.**
   We have custom tooling built around hosting static websites on our infra, and
   at the moment they work with Travis CI and Azure Pipelines. If you need
   different CI services ask us in advance and we'll adapt the tooling to your
   provider of choice.
 * **The website must reach an A+ grade on the
-  [Mozilla Observatory](https://observatory.mozilla.org/).**  
+  [Mozilla Observatory](https://observatory.mozilla.org/).**
   Browsers have multiple security features toggleable only through HTTP
   response headers, and those features enhance users' privacy and prevent
   exploits from working. An A+ grade on the Observatory indicates all the
   important headers are correctly set.
-* **The website must be hosted on platforms vetted by the infra team.**  
+* **The website must be hosted on platforms vetted by the infra team.**
   We recommend either GitHub Pages or Amazon S3 (in the rust-lang AWS account)
   as the hosting and CloudFront as the CDN, but if you need other platforms
   that's good as long as we consider them secure and reliable.
@@ -120,7 +120,7 @@ To setup the deploy key you need to be an administrator on the repository,
 clone the [simpleinfra](https://github.com/rust-lang/simpleinfra) repository
 and run this command:
 
-```
+```console
 $ cargo run --bin setup-deploy-keys rust-lang/repo-name
 ```
 

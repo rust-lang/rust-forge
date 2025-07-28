@@ -46,7 +46,7 @@ The release note text is automatically pulled in subsequent steps, and should us
 
 Stabilized APIs and Const Stabilized APIs should both be formatted roughly as follows:
 
-```
+```md
 - [`std::ptr::null_mut`](https://doc.rust-lang.org/std/ptr/fn.null_mut.html)
 ```
 
@@ -149,7 +149,7 @@ adding themselves to the
 When creating a relnotes PR and release blog post, please ping this
 notification group via
 
-```
+```console
 @rustbot ping relnotes-interest-group
 ```
 

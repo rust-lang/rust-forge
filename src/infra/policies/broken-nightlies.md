@@ -26,7 +26,7 @@ Once any member of the infra team decides to roll back a nightly under this
 policy we will roll back to the most recent working nightly. The roll back has
 to fix installing the nightly with rustup:
 
-```
+```console
 $ rustup toolchain install nightly
 ```
 

@@ -139,7 +139,7 @@ module "redirect_<IDENTIFIER>" {
 
 Once you made all the changes you can apply the configuration with:
 
-```
+```console
 terraform init
 terraform apply
 ```

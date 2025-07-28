@@ -157,7 +157,7 @@ Finally, the meeting agenda can be generated. Clone and build [`triagebot`][tria
 
 [triagebot]: https://github.com/rust-lang/triagebot
 
-```
+```console
 $ cargo run --bin prioritization-agenda
 ```
 

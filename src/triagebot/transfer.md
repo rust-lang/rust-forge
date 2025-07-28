@@ -10,7 +10,7 @@ To transfer an issue to another repository, enter a comment with the form:
 
 It is recommended to also include a comment explaining why you are transferring. For example:
 
-```
+```text
 Transferring to rust-lang/cargo since this is an issue with how cargo
 implements diagnostic reports.
 

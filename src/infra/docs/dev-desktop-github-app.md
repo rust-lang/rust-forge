@@ -48,9 +48,8 @@ In our case, we just abort (`exit(0)`) for everything but `get`, as we regenerat
 
 The actual arguments are passed via stdin and usually look like
 
-```
+```console
 protocol=https
 host=github.com
 path=your_repo.git
 ```
-

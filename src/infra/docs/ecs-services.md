@@ -32,7 +32,7 @@ application).
 To restart an application, you can force a new deployment without actually
 pushing any new code beforehand. To do so, run this command:
 
-```
+```console
 aws ecs update-service --cluster rust-ecs-prod --service <service-name> --force-new-deployment
 ```
 
@@ -43,7 +43,7 @@ in the simpleinfra repository) with your [AWS credentials][aws-access] present
 in the shell. The script requires the name of the ECR container image
 repository as its first and only argument:
 
-```
+```console
 ./aws-rollback.py <image-repository-name>
 ```
 
@@ -65,20 +65,20 @@ For production applications it's recommended to setup automatic deployment.
 To manually deploy a local build you first need it to tag your built image
 with its ECR name:
 
-```
+```console
 docker tag <image-tag> 890664054962.dkr.ecr.us-west-1.amazonaws.com/<repository-name>:latest
 ```
 
 Then you can authenticate with ECR and push it:
 
-```
+```console
 $(aws ecr get-login --no-include-email --region us-west-1)
 docker push 890664054962.dkr.ecr.us-west-1.amazonaws.com/<repository-name>:latest
 ```
 
 Finally, you need to force a new deployment of the ECS service with:
 
-```
+```console
 aws ecs update-service --cluster rust-ecs-prod --service <service-name> --force-new-deployment
 ```
 
@@ -89,7 +89,7 @@ deployments from CI. To use it, ask a team member to setup AWS credentials in
 your repository, and then add this snippet to your workflow:
 
 
-```
+```yaml
 - name: Build the Docker image
   run: docker build -t deploy-image .
 
