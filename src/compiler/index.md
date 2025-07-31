@@ -11,7 +11,7 @@ NOTE: please keep the following alphabetically sorted.
 -->
 
 - [Backports](./backports.md)
-  - *How do I request a beta and/or stable backport of a compiler change? How will compiler 
+  - *How do I request a beta and/or stable backport of a compiler change? How will compiler
     backport nominations be handled?*
 - [Calendar](./calendar.md)
   - *How do I subscribe to the compiler team's calendar?*
@@ -23,8 +23,8 @@ NOTE: please keep the following alphabetically sorted.
   - *What is expected of compiler team members and how do I join?*
 - [Proposals, Approval and Stabilization](./proposals-and-stabilization.md)
   - *How do I propose a change to the compiler team? What approval is necessary for my change?*
-- [Repositories we maintain](https://github.com/orgs/rust-lang/teams/compiler/repositories)
-  - *Various code repositories maintained by the Compiler Team*
+- [Repositories we maintain](./repositories.md)
+  - *Various code repositories the team maintains and contributes to*
 - [Resources](./resources.md)
   - *What useful resources are available for contributors and team members?*
 - [Review Policy](./reviews.md)
