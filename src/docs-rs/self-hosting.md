@@ -69,7 +69,7 @@ To help contain what crates' build scripts can access, documentation builds run 
 # chmod 755 /var/lib/lxc
 ```
 
-(To make deployment simpler, it's important that the OS the container is using is the same as the host! In this case, the host is assumed to be running 64-bit Ubuntu 18.04. If you make the container use a different release or distribution, you'll need to build docs.rs separately inside the container when deploying.)
+(To make deployment simpler, it's important that the OS the container is using is the same as the host! In this case, the host is assumed to be running 64-bit Ubuntu 20.04. If you make the container use a different release or distribution, you'll need to build docs.rs separately inside the container when deploying.)
 
 You'll also need to configure networking for the container. The following is a sample `/etc/default/lxc-net` that enables NAT networking for the container:
 
