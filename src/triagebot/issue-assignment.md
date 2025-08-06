@@ -7,7 +7,7 @@ The issue assignment commands allows any user to assign themselves to a GitHub i
 Issue assignment is done by entering one of these commands in a GitHub comment:
 
 * `@rustbot claim` --- Assigns the issue to yourself.
-* `@rustbot release-assignment` --- Removes the current assignee.
+* `@rustbot release-assignment` or `@rustbot unclaim` --- Removes the current assignee.
   Only the current assignee or a team member can release an assignment.
 * `@rustbot assign @user` --- Assigns a specific user.
   Only team members can assign other users.
