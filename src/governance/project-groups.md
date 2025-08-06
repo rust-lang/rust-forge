@@ -11,7 +11,7 @@ Project groups are a kind of Rust team intended to work on a specific project wi
   - A charter outlining the group's scope and goals.
   - Appointed shepherds and team liaisons.
   - An associated repository.
-  - Dedicated streams on Discord/Zulip/etc.
+  - Dedicated streams on Zulip/etc.
 
 [RFC 2856]: https://rust-lang.github.io/rfcs/2856-project-groups.html
 
@@ -49,7 +49,7 @@ A project group should have the following;
 - No _"formal decision making power"_: meaning that they are not able to accept RFCs on `rust-lang/rfcs`.
   - Groups are of course encouraged to create RFCs as well as advocate their concerns and desired changes to the Rust teams and community.
 - Dedicated space(s) in of Rust's officially managed discussion platforms.
-  - As of the time of this writing this includes [Zulip] and [Discord].
+  - As of the time of this writing this is [Zulip].
   - Ideally the group should use the same platform as their parent team to ease communication, though there may be cases where the team agrees to a group trying out a different platform.
 
 ### Creating The Charter
@@ -73,7 +73,6 @@ Since project groups are approved by their relevant parent team, it's up to each
 
 [rust-lang.org]: https://rust-lang.org
 [zulip]: https://rust-lang.zulipchat.com
-[discord]: https://discord.gg/rust-lang
 
 ## Initial Setup
 
@@ -141,7 +140,7 @@ This is a high level overview of the complete process of a project group.
 3. Create infrastructure for group.
 
    - GitHub repository under `rust-lang` for hosting work and discussions, such as for draft RFCs.
-   - A Discord channel or a Zulip stream for communication.
+   - A Zulip stream for communication.
    - Project group in [`rust-lang/team`], as well as a team on GitHub, for handling permissions.
 
 4. Create a post on the Inside Rust blog announcing creation of the group. Be sure to include the following information.

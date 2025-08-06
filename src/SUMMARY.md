@@ -109,7 +109,6 @@
         - [Crater agents](./infra/docs/crater-agents.md)
         - [Dev Desktops](./infra/docs/dev-desktop.md)
         - [GitHub App for dev-desktops](./infra/docs/dev-desktop-github-app.md)
-        - [Discord moderation bot](./infra/docs/discord-mods-bot.md)
         - [Domain names and DNS](./infra/docs/dns.md)
         - [docs.rs](./infra/docs/docs-rs.md)
         - [ECS services management](./infra/docs/ecs-services.md)
