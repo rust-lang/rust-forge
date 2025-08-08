@@ -25,13 +25,13 @@ For more information about wg-triage, see [Triage Procedure].
 [Dylan-DPC]: https://rust-lang.zulipchat.com/#user/120823
 [Triage Procedure]: ./release/triage-procedure.md
 
-### Maintining components without being on a team
+### Maintaining components without being on a team
 
 If you have made large contributions to a specific module or file,
 but have not been contributing long enough to be added to a team,
-it may be benificial to [set up triagebot mentions](./triagebot/mentions.md)
+it may be beneficial to [set up triagebot mentions](./triagebot/mentions.md)
 for the files/directories you have done major work on.
-This will allow you to be notifed of and provide feedback/context on any PRs that change those files,
+This will allow you to be notified of and provide feedback/context on any PRs that change those files,
 which can help authors get feedback faster and reduce the amount of work that needs to be done by reviewers.
 
 ## Relationship to Council
