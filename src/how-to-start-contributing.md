@@ -14,8 +14,6 @@ other contributors on the following places:
   teams and contributors. It is also a great place to observe on what is going on.
   - You can check out e.g. the compiler team (`t-compiler`) Zulip ["channel"][t-compiler-channel]
 - [internals.rust-lang.org][internals] (IRLO) is a forum for discussing development of Rust.
-- [Rust Discord][rust-discord] can be used to ask about [Rustup][rustup] contributions
-  in the `#wg-rustup` channel.
 
 See also the [list of teams and working groups][governance] and [the Community page][community] on the
 official website for more resources.
@@ -128,17 +126,14 @@ There are various ways in which you can contribute to Rust projects:
 
 - Or, if you like programming language discussions, you could participate in our [RFC process](https://github.com/rust-lang/rfcs).
 
-- You can also answer questions to help other Rust users, in the _Get Help!_ channels on the [Rust Discord
-  server][rust-discord], on [users.rust-lang.org][users] (URLO), or on [StackOverflow][so].
+- You can also answer questions to help other Rust users, on [users.rust-lang.org][users] (URLO), or on [StackOverflow][so].
 
 [rustdoc-ui]: https://rustc-dev-guide.rust-lang.org/rustdoc-internals.html
 [rustc-perf-ui]: https://github.com/rust-lang/rustc-perf/tree/master/site
-[rust-discord]: https://discord.gg/rust-lang
 [users]: https://users.rust-lang.org/
 [so]: http://stackoverflow.com/questions/tagged/rust
 [rustup]: https://github.com/rust-lang/rustup
 [internals]: https://internals.rust-lang.org
-[rust-discord]: http://discord.gg/rust-lang
 [rust-zulip]: https://rust-lang.zulipchat.com
 [coc]: https://www.rust-lang.org/policies/code-of-conduct
 [issue-triage]: ./release/issue-triaging.md

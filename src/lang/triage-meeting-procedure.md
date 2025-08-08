@@ -40,8 +40,7 @@ To execute this meeting you:
 
 ## Main meeting
 
-* Ping the team on discord `@lang-team`
-* Begin the recording on Zoom, if you have acccess 
+* Begin the recording on Zoom, if you have access 
     * If nobody has access to the recording, oh well, we don't do it every week
 * Discuss item by item and take some notes on what was said
     * Add specific actions to the action items section above
