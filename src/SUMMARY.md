@@ -25,6 +25,7 @@
     - [Concern](./triagebot/concern.md)
     - [Documentation Updates](./triagebot/doc-updates.md)
     - [GitHub Releases](./triagebot/github-releases.md)
+    - [Git rebase (range) diff](./triagebot/range-diff.md)
     - [Issue Links](./triagebot/issue-links.md)
     - [Issue Transfer](./triagebot/transfer.md)
     - [Labeling](./triagebot/labeling.md)
