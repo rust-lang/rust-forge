@@ -52,7 +52,7 @@ have contributor guides and issues that are marked as needing help or being good
 | [MdBook][mdbook-repo]              | [MdBook Contribution Guide][mdbook-guide]       | [Good first issues][mdbook-issues]    | Book generator written in Rust          |
 
 [rustc-repo]: https://github.com/rust-lang/rust
-[rustc-issues]: https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+label%3AE-help-wanted+no%3Aassignee
+[rustc-issues]: https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+label%3AE-easy+no%3Aassignee
 [rustc-guide]: https://rustc-dev-guide.rust-lang.org
 [std-repo]: https://github.com/rust-lang/rust/tree/master/library
 [std-guide]: https://github.com/rust-lang/std-dev-guide
