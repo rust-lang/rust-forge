@@ -34,7 +34,7 @@ have contributor guides and issues that are marked as needing help or being good
 
 | Project                            | Contribution guide                              | Good first issues                     | Description                             |
 |------------------------------------|-------------------------------------------------|---------------------------------------|-----------------------------------------|
-| [Compiler][rustc-repo]             | [rustc-dev-guide][rustc-guide]                  | [Good first issues][rustc-issues]     | Rust compiler and associated tooling    |
+| [Compiler][rustc-repo]             | [rustc-dev-guide][rustc-guide]                  | [Help wanted][rustc-issues]     | Rust compiler and associated tooling    |
 | [Standard library][std-repo]       | [std-dev-guide][std-guide]                      |                                       | Rust standard library                   |
 | [Rustdoc][rustdoc-repo]            | [Rustdoc overview][rustdoc-guide]               |                                       | Rust documentation generator            |
 | [Cargo][cargo-repo]                | [Cargo Contributor Guide][cargo-guide]          | [Good first issues][cargo-issues]     | Rust package manager and build system   |
@@ -49,7 +49,7 @@ have contributor guides and issues that are marked as needing help or being good
 | [Triagebot][triagebot-repo]        |                                                 | [Good first issues][triagebot-issues] | Rust automation bot                     |
 | [Rust playground][playground-repo] |                                                 | [Help wanted][playground-issues]      | Rust online playground                  |
 | [Rustlings][rustlings-repo]        | [Rustlings Contribution Guide][rustlings-guide] | [Issue tracker][rustlings-issues]     | Rust exercises                          |
-| [MdBook][mdbook-repo]              | [MdBook Contribution Guide][mdbook-guide]       | [Good first issues][mdbook-issues]    | Book generator written in Rust          |
+| [MdBook][mdbook-repo]              | [MdBook Contribution Guide][mdbook-guide]       | [Help wanted][mdbook-issues]    | Book generator written in Rust          |
 
 [rustc-repo]: https://github.com/rust-lang/rust
 [rustc-issues]: https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+label%3AE-help-wanted+no%3Aassignee
