@@ -132,7 +132,6 @@ There are various ways in which you can contribute to Rust projects:
 [rustc-perf-ui]: https://github.com/rust-lang/rustc-perf/tree/master/site
 [users]: https://users.rust-lang.org/
 [so]: http://stackoverflow.com/questions/tagged/rust
-[rustup]: https://github.com/rust-lang/rustup
 [internals]: https://internals.rust-lang.org
 [rust-zulip]: https://rust-lang.zulipchat.com
 [coc]: https://www.rust-lang.org/policies/code-of-conduct
