@@ -51,9 +51,33 @@ not need a review yet.)
 
 ### Procedure
 
-We primarily triage three status labels: S-waiting-on-review,
-S-waiting-on-author, and (once in a while) S-blocked. Here is the procedure for
-each:
+We primarily triage Pull Requests with three status labels: `S-waiting-on-review`,
+`S-waiting-on-author`, and (once in a while) `S-blocked`.
+
+#### Checking for contributor activeness
+
+Some contributors are on leave (permanently or temporarily), and it can be quite
+annoying to get pinged (or can make them feel pressured otherwise, even if that's
+not the intention of the person doing PR triaging). We should **avoid pinging
+contributors who are on leave or inactive**.
+
+To check if a contributor is active or not, we can:
+
+- Check if contributor is in alumni status. If a contributor is alumni status, they
+  should be considered inactive. This can be checked by searching [rust-lang/team].
+  You can use a GitHub search query like
+  `repo:rust-lang/team path:/teams/ {GITHUB_HANDLE}` (with `GITHUB_HANDLE` being
+  the contributor).
+- If the contributor is the PR reviewer, check if contributor is in [active rotation
+  in the `[assign.adhoc_groups]` section][triagebot-toml]. Look for teams like e.g.
+  `compiler`, `library`, `rustdoc`, `bootstrap`, etc.
+- Check if the contributor have any activity at all, by seeing if they participate
+  some time recently in discussions on [Zulip](https://rust-lang.zulipchat.com/) or
+  [rust-lang/rust].
+
+If the contributor does not appear active in quite a long time based on the above
+avenues (say more than two months), avoid pinging the contributor, and instead
+only include the PR in the *Triage Report* described below.
 
 #### S-waiting-on-review
 
@@ -146,3 +170,8 @@ echo "$(date -I --date="$([ "z$(date +%a)" = "zMon" ] && echo 'today' || echo 'l
 Since triaging is sometimes done by looking at oldest issues first, re-applying
 one of the `S-*` labels will update an issue/PR's last-modified timestamp,
 signaling to other triagers that it has already been taken care of.
+
+
+[rust-lang/team]: https://github.com/rust-lang/team
+[rust-lang/rust]: https://github.com/rust-lang/rust/
+[triagebot-toml]: https://github.com/rust-lang/rust/blob/master/triagebot.toml
