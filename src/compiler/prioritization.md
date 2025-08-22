@@ -183,7 +183,7 @@ upcoming meeting (creating it if it does not already exist):
 ```text
 Hello @*T-compiler/meeting*, triage meeting in about 2h.
 Pre-triage done in #**t-compiler/prioritization/alerts**.
-Meeting agenda [on HackMD](https://hackmd.io/link_to_hackmd_agenda)
+Meeting agenda [on HackMD](https://hackmd.io/aaabbbccc123456)
 ```
 
 It is always recommended to re-run the generator and copy any new details over to the agenda as
@@ -191,9 +191,8 @@ issue statuses on GitHub may have changed.
 
 After the meeting, there are a few closing tasks:
 
-- Lock the agenda on HackMD assigning write permissions to `Owners`. Download the Markdown file and
-  commit the agenda as minutes to the `compiler-team` repository.
-- Remove the `to-announce` label from [MCPs][mcps], unless this label was added exactly during
+- Lock the agenda on HackMD assigning write permissions to `Owners`.
+- Remove the `to-announce` label from [MCPs], unless this label was added exactly during
   the meeting (and therefore will be seen during the following meeting).
 - Remove `to-announce` FCPs from [`rust-lang/rust`][rust_announce], [`compiler-team`][team_announce]
   and the [forge][forge_announce]. Same disclaimer as before regarding changes during the meeting.
@@ -206,16 +205,15 @@ After the meeting, there are a few closing tasks:
   - To decline a backport, simply remove `{beta,stable}-nominated` label. Add a comment on Github
   explaining why the backport was declined and link the Zulip discussion.
 - Remove [`I-compiler-nominated`][compiler_nominated] label from issues that were discussed.
-  Sometimes not all nominated issues are discussed (because of time constraints). In this example,
-  the `I-compiler-nominated` will stick until next meeting. Create a new agenda stub for the
-  following.
+  Sometimes not all nominated issues are discussed (because of time constraints) and can slip to the
+  next meeting.
 
 [beta_nominated]: https://github.com/rust-lang/rust/issues?q=is%3Apr+label%3Abeta-nominated+-label%3Abeta-accepted
 [stable_nominated]: https://github.com/rust-lang/rust/issues?q=is%3Apr+label%3Astable-nominated+-label%3Astable-accepted
-[rust_announce]: https://github.com/rust-lang/rust/issues?q=label%3Afinished-final-comment-period+label%3Ato-announce
-[team_announce]: https://github.com/rust-lang/compiler-team/issues?q=label%3Afinished-final-comment-period+label%3Ato-announce
-[forge_announce]: https://github.com/rust-lang/rust-forge/issues?q=label%3Afinished-final-comment-period+label%3Ato-announce
+[rust_announce]: https://github.com/rust-lang/rust/issues?q=label%3Afinished-final-comment-period%20label%3Ato-announce%20is%3Aissue
+[team_announce]: https://github.com/rust-lang/compiler-team/issues?q=label%3Afinished-final-comment-period%20label%3Ato-announce%20is%3Aissue
+[forge_announce]: https://github.com/rust-lang/rust-forge/issues?q=label%3Afinished-final-comment-period%20label%3Ato-announce%20is%3Aissue
 [fcps]: https://github.com/rust-lang/compiler-team/issues?q=label%3Amajor-change+label%3Ato-announce
-[mcps]: https://github.com/rust-lang/compiler-team/issues?q=label%3Amajor-change+label%3Ato-announce
+[mcps]: https://github.com/rust-lang/compiler-team/issues?q=label%3Amajor-change%20label%3Ato-announce%20is%3Aissue
 [release_backports]: ../release/backporting.md
 [compiler_nominated]: https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3AI-compiler-nominated+label%3AT-compiler
