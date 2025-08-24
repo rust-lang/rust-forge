@@ -3,6 +3,7 @@
 bors queue page: <https://bors.rust-lang.org/queue/rust>.
 
 <div class="warning">
+
 **WARNING**: You should only do this if you have bors `r+` permissions on the
 rust-lang/rust repo. Please do not synchronize if you do not have `r+` permissions
 even if you have write access to the repo, as you will be unable to perform the
@@ -14,6 +15,7 @@ be recollected, and 15 minutes after that to kick out PRs that should not be in
 the tree.
 
 **DO NOT CLICK THIS BUTTON IF YOU ARE NOT ABLE TO HANDLE THE CLEANUP.**
+
 </div>
 
 Sometimes you have to do a bors queue sync for various reasons. This is not

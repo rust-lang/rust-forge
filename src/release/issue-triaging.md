@@ -182,7 +182,9 @@ Anything related to the compiler implementation, such as diagnostics and ICEs.
 ### Creating labels
 
 <div class="warning">
+
 Triagebot needs to support `@rustbot label: xxx` usages terminated with a period or whitespace (as inline invocation), so the label name must consist of only alphanumeric or hyphen (`-`) or underscore (`_`) characters.
+
 </div>
 
 - Check existing labels to make sure you're not duplicating them.
