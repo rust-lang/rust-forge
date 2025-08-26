@@ -4,42 +4,59 @@ for permission to proceed with an experiment or refactoring, or when stabilizing
 document aims to summarise the various processes that the rustdoc team has for making approval
 decisions and when each should be used.
 
-## Approvals
-There are two mechanisms that the team can use to approve a proposal (not all approval mechanisms
-are suitable for each method of making a proposal - see below):
 
-- r+
-  - A proposal (an RFC or an FCP) is r+'d when it is approved to be merged.
-  - r+ can only be used to approve a PR.
-- FCP
-  - A final comment period will require sign-off from a majority (all members minus 2)
-    of the rustdoc team to approve a proposal and then a ten day waiting period.
-  - FCPs can be used to approve any form of proposal.
+[*r+*]: ../compiler/reviews.html#bors
 
 ## Proposals
-There are three ways to propose a change to the rustdoc team. The appropriate choice depends on
+There are four ways to propose a change to the rustdoc team. The appropriate choice depends on
 the nature of the proposal, described below.
 
-- Open a discussion on the [rustdoc zulip thread].
-  - This is the preferred way. It allows to prevent users to lose too much time implementing
+- Open a discussion in the [rustdoc Zulip channel].
+  - This is the preferred way <!-- FIXME(fmease): not always tho? Just open a PR dude -->.
+    It allows to prevent users to lose too much time implementing
     something if in the end, the team will ask major changes or even refuse it. After the
     discussion, if accepted and depending on the change, an RFC or a PR will be the next step.
+  - <!-- FIXME(fmease): Clarify what "approval" means. Namely the approvals are casual,
+    "non-binding". >=1 endorsements is fine/usual -->
 - Request For Comments (RFC)
-  - RFCs are pull requests to the [`rust-lang/rfcs`][rfcs] repository and are a heavy-weight
+  - RFCs are pull requests to the [`rust-lang/rfcs`] repository and are a heavy-weight
     proposal mechanism, reserved for significant changes.
   - RFC proposals can only be approved by *FCPs*.
+  - <!-- FIXME(fmease): Or mention the "r+ after FCP" topic from above here instead -->
 - Pull Request (PR)
-  - Opening a pull request on the [`rust-lang/rust`][rust] repository is a lightweight
+  - Opening a pull request on the [`rust-lang/rust`] repository is a lightweight
     mechanism suitable for most proposals. This is preferred in cases such as stabilization
     of a rustdoc flag or addition of a new target.
   - PR proposals can be approved by *FCPs* or *r+*. See *When are FCPs/RFCs required?*
     section below when *r+* isn't sufficient alone.
 - Issues
-  - Opening an issue on the [`rust-lang/rust`][rust] repository are also a good starting
+  - Opening an issue in the [`rust-lang/rust`] repository is also a good starting
     point if you don't know which of the previous ways is the best fit.
+  - <!-- FIXME(fmease): Clarify that there's no process for approvals for
+    GH issues; moreover mention that we usually don't FCP issue proposals but
+    instead the corresponding PR -->
 
-[rustdoc zulip thread]: https://rust-lang.zulipchat.com/#narrow/channel/266220-t-rustdoc
-[rust]: https://github.com/rust-lang/rust
+[rustdoc Zulip channel]: https://rust-lang.zulipchat.com/#narrow/channel/266220-t-rustdoc
+[`rust-lang/rust`]: https://github.com/rust-lang/rust
+[`rust-lang/rfcs`]: https://github.com/rust-lang/rfcs
+
+## Approvals
+There are two mechanisms that the team can use to approve a [proposal](#proposals). (not all approval mechanisms
+are suitable for each method of making a proposal -- [see below](#proposals)):
+
+- [*r+*] <!-- or GH approval or merge -->
+  - A proposal is *r+*'d when it is approved to be merged.
+  - *r+* can only be used to approve a PR.
+  - <!-- FIXME(fmease): *somewhere* I want to clarify *who* is in charge of the r+
+    (namely any team member(s) but usually PR assignee(s)) -->
+  - <!-- FIXME(fmease): r-l/r isn't the only repo (e.g., dev guide, forge, rustdoc-json-types, rfcs) -->
+- FCP
+  - A final comment period will require sign-off from a majority (all members minus 2)
+    of the rustdoc team to approve a proposal and then a ten day waiting period.
+  - FCPs can be used to approve any form of proposal.
+  - <!-- FIXME(fmease): Somewhere I want to clarify that after an FCP, in r-l/r
+    a separate r+ is still necessary by someone / a GH approval in other repos;
+    also I want to mention somewhere that any team is allowed to merge an FCP'ed RFC -->
 
 ### When are FCPs/RFCs required?
 
@@ -47,6 +64,9 @@ An FCP will be needed for any stabilization of small user-facing changes, like U
 the GUI web interface, new command-line arguments, new attributes, etc. However, if the change
 is considered too big/important, an RFC will need to be written and approved before the change
 will be accepted.
+
+<!-- FIXME(fmease): ^^^ Tweak phrasing. The stabilization of an already-RFC'ed feature
+always(?) requires an FCP (and doesn't need another RFC :P) -->
 
 When starting an FCP, make sure only the relevant subteam is labeled on the issue/PR, to avoid
 pinging people with changes they aren't interested in.
@@ -56,10 +76,14 @@ If the approval required for the contribution requires an RFC, then the contribu
 should be closed or marked as blocked, with a request to create an RFC first. If approval of
 a PR is acceptable for the specific contribution (see below), then the approval process can begin.
 
-### Can I work on code experimentally before a approval is gained?
+<!-- FIXME: Mention S-blocked -->
+
+### Can I work on code experimentally before an approval is gained?
 Of course! You are free to work on PRs or write code. But those PRs should be marked as
 experimental and they should not land, nor should anyone be expected to review them (unless
 folks want to).
+
+<!-- FIXME: Mention S-experimental -->
 
 ## What makes a good proposal?
 A good proposal will address the following:
@@ -74,7 +98,6 @@ A good proposal will address the following:
 * **Alternatives, concerns, and key decisions:** Were there any alternatives considered? If so, why
   did you pick this design?
 
-[rfcs]: https://github.com/rust-lang/rfcs
 [Haddock]: https://haskell-haddock.readthedocs.io/latest/
 [Wikipedia]: https://www.wikipedia.org/
 [Racket]: https://docs.racket-lang.org/

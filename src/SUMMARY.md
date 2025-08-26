@@ -80,6 +80,7 @@
     - [Calendar](./rustdoc/calendar.md)
     - [Meetings](./rustdoc/meetings.md)
     - [Membership](./rustdoc/membership.md)
+    - [Repositories](./rustdoc/repositories.md)
     - [Resources](./rustdoc/resources.md)
     - [Review Policy](./rustdoc/reviews.md)
     - [Proposals, Approval and Stabilization](./rustdoc/proposals-and-stabilization.md)
