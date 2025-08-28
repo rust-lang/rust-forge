@@ -75,6 +75,7 @@ A good proposal will address the following:
   did you pick this design?
 
 [rfcs]: https://github.com/rust-lang/rfcs
+[rust]: https://github.com/rust-lang/rust
 [Haddock]: https://haskell-haddock.readthedocs.io/latest/
 [Wikipedia]: https://www.wikipedia.org/
 [Racket]: https://docs.racket-lang.org/
