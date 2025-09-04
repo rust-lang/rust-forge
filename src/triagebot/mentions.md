@@ -14,7 +14,7 @@ Each key in the table should either be a path in the repo or should be a string 
 
 Triagebot will check for modifications:
  - to any file that **starts with** the given path when `type="filename"` (the default)
- - or to any modified lines of the PR when `type="content"`
+ - or to any added lines of the PR when `type="content"`
 
 For example, `library/std` would match anything under the `library/std` directory like `library/std/src/process.rs`.
 
