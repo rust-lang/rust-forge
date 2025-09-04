@@ -3,7 +3,7 @@
 ## Background
 
 The Rust project has a policy that every pull request must be tested after merge
-before it can be pushed to master. As PR volume increases this can scale poorly,
+before it can be pushed to the default branch. As PR volume increases this can scale poorly,
 especially given the long (~3.5hr) current CI duration for Rust.
 
 Enter rollups! Changes that are small, not performance sensitive, or not platform

@@ -20,7 +20,7 @@ the tree.
 
 Sometimes you have to do a bors queue sync for various reasons. This is not
 trivial and requires you to be very careful, as otherwise we may accidentally
-merge PRs to `master` (or even `beta`) that should not have been merged
+merge PRs to the default branch (or even `beta`) that should not have been merged
 otherwise.
 
 ## Steps

@@ -291,7 +291,7 @@ Changes to hot code might impact performance in consumers, for better or for wor
 
 ### Is the commit log tidy?
 
-PRs shouldn’t have merge commits in them. If they become out of date with `master` then they need to be rebased.
+PRs shouldn’t have merge commits in them. If they become out of date with the default branch then they need to be rebased.
 
 ## Merging PRs
 
