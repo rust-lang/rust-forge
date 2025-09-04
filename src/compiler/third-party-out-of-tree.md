@@ -102,7 +102,7 @@ should be labelled appropriately (eg. `relnotes`, `t-compiler`, `t-lang`) just a
 were implemented in `rust-lang/rust` directly, include a description of the changes when it is not
 obvious to those unfamiliar with the compiler or the out-of-tree crate.
 
-[licenses]: https://github.com/rust-lang/rust/blob/master/src/tools/tidy/src/deps.rs#L10-L19
+[licenses]: https://github.com/rust-lang/rust/blob/HEAD/src/tools/tidy/src/deps.rs#L10-L19
 [guide_issue]: https://github.com/rust-lang/rustc-dev-guide/issues/285
 
 ---
@@ -135,10 +135,10 @@ In summary, the process for establishing an out-of-tree crate is as follows:
 1. Add the crate as a dependency to the appropriate in-tree crate and start using.
 
 [gitignore]: https://gitignore.io/api/vim,rust,emacs,clion,visualstudio,visualstudiocode
-[triagebot]: https://github.com/rust-lang/rust/blob/master/triagebot.toml
-[apache]: https://github.com/rust-lang/rust/blob/master/LICENSE-APACHE
+[triagebot]: https://github.com/rust-lang/rust/blob/HEAD/triagebot.toml
+[apache]: https://github.com/rust-lang/rust/blob/HEAD/LICENSE-APACHE
 [coc]: https://www.rust-lang.org/policies/code-of-conduct
-[mit]: https://github.com/rust-lang/rust/blob/master/LICENSE-MIT
+[mit]: https://github.com/rust-lang/rust/blob/HEAD/LICENSE-MIT
 
 ## Third-party crates
 It is sometimes desirable to use the functionality of an existing third-party crate in the compiler.

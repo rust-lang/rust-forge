@@ -61,7 +61,7 @@ To do the initial triage and remove the `needs-triage` label, the following cond
 
 ### Applying and removing labels
 
-Users without write access to [`rust-lang/rust`] can use **@rustbot** to add or remove [the labels allowed by the `triagebot.toml` configuration](https://github.com/rust-lang/rust/blob/master/triagebot.toml) as a workaround.
+Users without write access to [`rust-lang/rust`] can use **@rustbot** to add or remove [the labels allowed by the `triagebot.toml` configuration](https://github.com/rust-lang/rust/blob/HEAD/triagebot.toml) as a workaround.
 
 Users with write access should change the labels directly to avoid sending a notification to everyone subscribed to the issue unnecessarily.
 
@@ -73,7 +73,7 @@ For example:
 
 To see a list of all labels, check out the "labels" page next to the search bar in the issue tracker.
 
-Note that some labels may only be applied by users with write access to [`rust-lang/rust`]. Refer to the `allow-unauthenticated` list under `[relabel]` section in [`triagebot.toml`](https://github.com/rust-lang/rust/blob/master/triagebot.toml) to see what labels users without write access may use.
+Note that some labels may only be applied by users with write access to [`rust-lang/rust`]. Refer to the `allow-unauthenticated` list under `[relabel]` section in [`triagebot.toml`](https://github.com/rust-lang/rust/blob/HEAD/triagebot.toml) to see what labels users without write access may use.
 
 ### Relnotes triage
 

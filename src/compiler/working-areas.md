@@ -30,7 +30,7 @@ Traits                           | Improving the trait-system design + implement
 
 [Weekly, in Zulip]: #meeting-calendar
 [Polonius]: https://github.com/rust-lang/polonius
-[rustc]: https://github.com/rust-lang/rust/tree/master/compiler
+[rustc]: https://github.com/rust-lang/rust/tree/HEAD/compiler
 [async-await_stream]: https://rust-lang.zulipchat.com/#narrow/channel/187312-wg-async
 [async-await_code]: https://github.com/rust-lang/wg-async-foundations
 [diagnostics_stream]: https://rust-lang.zulipchat.com/#narrow/channel/147480-t-compiler.2Fdiagnostics
@@ -38,7 +38,7 @@ Traits                           | Improving the trait-system design + implement
 [llvm_code]: https://github.com/rust-lang/llvm-project
 [meta_stream]: https://rust-lang.zulipchat.com/#narrow/channel/185694-z-archived-t-compiler.2Fwg-meta
 [mir-opts-stream]: https://rust-lang.zulipchat.com/#narrow/stream/189540-t-compiler.2Fwg-mir-opt
-[mir_transform_code]: https://github.com/rust-lang/rust/tree/master/compiler/rustc_mir_transform
+[mir_transform_code]: https://github.com/rust-lang/rust/tree/HEAD/compiler/rustc_mir_transform
 [nll_stream]: https://rust-lang.zulipchat.com/#narrow/channel/122657-z-archived-t-compiler.2Fwg-nll
 [parallel-rustc_stream]: https://rust-lang.zulipchat.com/#narrow/stream/187679-t-compiler.2Fwg-parallel-rustc
 [pgo_stream]: https://rust-lang.zulipchat.com/#narrow/channel/187830-z-archived-t-compiler.2Fwg-profile-guided-optimization
@@ -57,8 +57,8 @@ Traits                           | Improving the trait-system design + implement
 [borrowck]: https://github.com/rust-lang/rust/tree/ae9173d7dd4a31806c950c90dcc331f1508b4d17/compiler/rustc_borrowck
 [ra-repo]: https://github.com/rust-analyzer/rust-analyzer
 [rustc-dev-guide-repo]: https://github.com/rust-lang/rustc-dev-guide
-[rustc_errors]: https://github.com/rust-lang/rust/tree/master/compiler/rustc_errors
-[rustc_lint]: https://github.com/rust-lang/rust/tree/master/compiler/rustc_lint
+[rustc_errors]: https://github.com/rust-lang/rust/tree/HEAD/compiler/rustc_errors
+[rustc_lint]: https://github.com/rust-lang/rust/tree/HEAD/compiler/rustc_lint
 [annotate-snippets]: https://crates.io/crates/annotate-snippets
 [#wg-autodiff]: https://rust-lang.zulipchat.com/#narrow/channel/390790-wg-autodiff
 [enzyme-project-goal]: https://github.com/rust-lang/rust-project-goals/issues/109
