@@ -1,7 +1,7 @@
 # Bors
 
 The infrastructure team manages an instance of [Homu] called "Bors", to be used
-by repositories inside the `rust-lang` organization. The instance is available
+for `rust-lang/rust`. The instance is available
 at [bors.rust-lang.org], and is backed by the [@bors] GitHub account.
 
 The service is configured [with Terraform][tf], and it's automatically deployed
