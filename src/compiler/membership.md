@@ -37,8 +37,8 @@ Being promoted to member implies a number of privileges:
 
 - Members have `r+` (approve a pull request) privileges and can do reviews (they are expected to
   use those powers appropriately, as discussed previously). They also have access to control
-  perf/rustc-timer and other similar bots. See the documentation for `bors` and `r+`
-  [here](https://rustc-dev-guide.rust-lang.org/compiler-team.html#team-membership).
+  perf/rustc-timer and other similar bots.
+  See the documentation for `bors` and `r+` at <https://bors.rust-lang.org>.
 
   Tip: some baseline rules around bors permissions are: don't do a `try` build unless you have
   done a check for malicious code first and don't `r+` unless you are reasonably confident that
