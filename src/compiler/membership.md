@@ -1,5 +1,6 @@
 # Membership
-This team discusses membership in the compiler team. There are currently two levels of membership:
+
+There are currently two levels of membership:
 
 * members: regular contributors with r+ rights, bot privileges, and access to [infrastructure]
 * maintainers: members who have committed themselves to invest in the quality of the compiler and
