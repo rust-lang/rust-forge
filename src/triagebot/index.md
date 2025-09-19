@@ -30,7 +30,7 @@ However, if you modify an existing command, or add new ones, then those commands
 Individual GitHub repositories can configure triagebot features via a file called `triagebot.toml` in the root of the default branch.
 The following pages explain the syntax needed for each feature.
 
-For example, the `rust-lang/rust` configuration file is at <https://github.com/rust-lang/rust/blob/master/triagebot.toml>.
+For example, the `rust-lang/rust` configuration file is at <https://github.com/rust-lang/rust/blob/HEAD/triagebot.toml>.
 
 When first adding `triagebot.toml` to a new repository, you will need to enable permissions for the bot to operate.
 This can be done by posting a PR to the [`rust-lang/team`](https://github.com/rust-lang/team) database to add `bots = ["rustbot"]` to the repository in the `repos/rust-lang` directory.

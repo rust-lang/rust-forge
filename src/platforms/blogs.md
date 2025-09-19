@@ -87,7 +87,8 @@ Typical subjects for inside Rust blog posts include:
 
 ## Approval process
 
-For both the inside Rust and main blogs, we require an approval from:
+For both the inside Rust and main blogs, we require at least one approval.
+The approver should belong to one of the following groups:
 
 * Any team lead (top level or not)
 * Any leadership council member

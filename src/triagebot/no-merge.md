@@ -39,7 +39,7 @@ There are three optional values that can be specified in the table:
 > 
 > ```shell-session
 > $ # rebase
-> $ git pull --rebase https://github.com/rust-lang/rust.git master
+> $ git pull --rebase https://github.com/rust-lang/rust.git HEAD
 > $ git push --force-with-lease
 > ```
 

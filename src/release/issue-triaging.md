@@ -38,7 +38,7 @@ When an issue is opened, it usually receives the `needs-triage` label automatica
 To do the initial triage and remove the `needs-triage` label, the following conditions should be fulfilled/considered. It's okay if not all of these are always considered. Treat this non-exhaustive list as a guideline, not a hard checklist:
 
 - The issue should make sense, that is, it should present a problem.
-    - For example, if an issue is a question about Rust in general, the issue should be closed and the user redirected to [URLO]/[Discord]. You can, of course, answer the question too, but make sure to mention that the user should go to [URLO]/[Discord] next time.
+    - For example, if an issue is a question about Rust in general, the issue should be closed and the user redirected to [URLO]. You can, of course, answer the question too, but make sure to mention that the user should go to [URLO] next time.
 - Check if this issue is a duplicate of earlier-reported issues.
     - If you are certain this is a duplicate, close this issue as a duplicate of the earlier issue. Make sure this is obvious in the backlink of the earlier issue, or explicitly link to the duplicate issue.
     - If you are not sure, you can still leave a comment to indicate the other issue is possibly a duplicate, similar, or related.
@@ -61,7 +61,7 @@ To do the initial triage and remove the `needs-triage` label, the following cond
 
 ### Applying and removing labels
 
-Users without write access to [`rust-lang/rust`] can use **@rustbot** to add or remove [the labels allowed by the `triagebot.toml` configuration](https://github.com/rust-lang/rust/blob/master/triagebot.toml) as a workaround.
+Users without write access to [`rust-lang/rust`] can use **@rustbot** to add or remove [the labels allowed by the `triagebot.toml` configuration](https://github.com/rust-lang/rust/blob/HEAD/triagebot.toml) as a workaround.
 
 Users with write access should change the labels directly to avoid sending a notification to everyone subscribed to the issue unnecessarily.
 
@@ -73,7 +73,7 @@ For example:
 
 To see a list of all labels, check out the "labels" page next to the search bar in the issue tracker.
 
-Note that some labels may only be applied by users with write access to [`rust-lang/rust`]. Refer to the `allow-unauthenticated` list under `[relabel]` section in [`triagebot.toml`](https://github.com/rust-lang/rust/blob/master/triagebot.toml) to see what labels users without write access may use.
+Note that some labels may only be applied by users with write access to [`rust-lang/rust`]. Refer to the `allow-unauthenticated` list under `[relabel]` section in [`triagebot.toml`](https://github.com/rust-lang/rust/blob/HEAD/triagebot.toml) to see what labels users without write access may use.
 
 ### Relnotes triage
 
@@ -182,7 +182,9 @@ Anything related to the compiler implementation, such as diagnostics and ICEs.
 ### Creating labels
 
 <div class="warning">
+
 Triagebot needs to support `@rustbot label: xxx` usages terminated with a period or whitespace (as inline invocation), so the label name must consist of only alphanumeric or hyphen (`-`) or underscore (`_`) characters.
+
 </div>
 
 - Check existing labels to make sure you're not duplicating them.
@@ -225,7 +227,6 @@ Another useful thing to do is to go through `E-needs-mcve` and `E-needs-bisectio
 [`rust-lang/rust`]: https://github.com/rust-lang/rust
 [URLO]: https://users.rust-lang.org
 [IRLO]: https://internals.rust-lang.org/
-[Discord]: https://discord.gg/rust-lang
 [`cargo-bisect-rustc`]: https://github.com/rust-lang/cargo-bisect-rustc
 [`t-release/triage`]: https://rust-lang.zulipchat.com/#narrow/stream/242269-t-release.2Ftriage
 

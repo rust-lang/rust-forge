@@ -12,6 +12,14 @@ This feature is enabled on a repository by having a `[no-mentions]` table in `tr
 [no-mentions]
 ```
 
+Additionally, one can avoid checking certain pull requests with the `exclude-titles` configuration option.
+
+```toml
+[no-mentions]
+# It doesn't make sense checking subtree updates, ignore those by matching case-insensitively on the title
+exclude-titles = ["subtree update"]
+```
+
 ## Implementation
 
 See [`src/handlers/check_commits/no_mentions.rs`](https://github.com/rust-lang/triagebot/blob/HEAD/src/handlers/check_commits/no_mentions.rs).

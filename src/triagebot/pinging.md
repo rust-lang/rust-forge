@@ -59,7 +59,7 @@ This will allow the command `@rustbot ping cleanup-crew` to be understood with a
 ...
 ```
 
-Check out [the rust-lang/rust configuration](https://github.com/rust-lang/rust/blob/master/triagebot.toml) for an up-to-date examples.
+Check out [the rust-lang/rust configuration](https://github.com/rust-lang/rust/blob/HEAD/triagebot.toml) for an up-to-date examples.
 
 
 ## Implementation

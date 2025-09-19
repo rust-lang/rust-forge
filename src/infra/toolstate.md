@@ -39,7 +39,7 @@ rules are for when which tools are (not) allowed to break.
 
 * For all tools except for "nightly only" tools, the following extra rules are applied:
     * If a PR lands on the `beta` or `stable` branch, the tool has to be `test-pass`.
-    * If a PR lands on `master` in the week before the beta is cut, and that PR
+    * If a PR lands on the default branch in the week before the beta is cut, and that PR
       regresses the tool (if it makes the state "worse"), CI fails. This is to
       help make sure all these tools become `test-pass` so that a beta can be
       cut. (See the [Forge index][forge] for when the next beta cutoff is
@@ -55,7 +55,7 @@ runs on the `auto` branch (where bors moves a PR to test if it is good for
 integration), the "tool" runners for the individual platforms (at the time of
 writing, Linux and Windows) each submit a JSON file to the repository recording
 the state of each tool for the commit they are testing. Later, if that commit
-actually entirely passed CI and bors moves it to the `master` branch, the
+actually entirely passed CI and bors moves it to the default branch, the
 "current tool status" in the toolstate repository is updated appropriately.
 
 These scripts also automatically ping some people and create issues when tools
@@ -100,8 +100,8 @@ To add a new tool to be tracked, the following steps must be taken:
 4. Submit a PR to the [toolstate repository] to manually add the tool to the
    [`latest.json`] file.
 
-[`checktools.sh`]: https://github.com/rust-lang/rust/blob/master/src/ci/docker/x86_64-gnu-tools/checktools.sh
-[`publish_toolstate.py`]: https://github.com/rust-lang/rust/blob/master/src/tools/publish_toolstate.py
+[`checktools.sh`]: https://github.com/rust-lang/rust/blob/HEAD/src/ci/docker/x86_64-gnu-tools/checktools.sh
+[`publish_toolstate.py`]: https://github.com/rust-lang/rust/blob/HEAD/src/tools/publish_toolstate.py
 [`latest.json`]: https://github.com/rust-lang-nursery/rust-toolstate/blob/master/_data/latest.json
 [Book]: https://doc.rust-lang.org/book/
 [Reference]: https://doc.rust-lang.org/reference/

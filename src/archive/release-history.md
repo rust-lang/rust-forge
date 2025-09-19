@@ -96,7 +96,7 @@ older key][pre-0.5-key]).
 - [Release notes][1.3.0-notes]
 
 [1.3.0-announce]: http://blog.rust-lang.org/2015/09/17/Rust-1.3.html
-[1.3.0-notes]: https://github.com/rust-lang/rust/blob/master/RELEASES.md#version-130-september-2015
+[1.3.0-notes]: https://github.com/rust-lang/rust/blob/HEAD/RELEASES.md#version-130-september-2015
 
 ## 1.2.0
 
@@ -104,7 +104,7 @@ older key][pre-0.5-key]).
 - [Release notes][1.2.0-notes]
 
 [1.2.0-announce]: http://blog.rust-lang.org/2015/08/06/Rust-1.2.html
-[1.2.0-notes]: https://github.com/rust-lang/rust/blob/master/RELEASES.md#version-120-2015-08-07
+[1.2.0-notes]: https://github.com/rust-lang/rust/blob/HEAD/RELEASES.md#version-120-2015-08-07
 
 ## 1.1.0
 
@@ -112,7 +112,7 @@ older key][pre-0.5-key]).
 - [Release notes][1.1.0-notes]
 
 [1.1.0-announce]: http://blog.rust-lang.org/2015/06/25/Rust-1.1.html
-[1.1.0-notes]: https://github.com/rust-lang/rust/blob/master/RELEASES.md#version-110-2015-06-25
+[1.1.0-notes]: https://github.com/rust-lang/rust/blob/HEAD/RELEASES.md#version-110-2015-06-25
 
 ## 1.0.0
 
@@ -120,7 +120,7 @@ older key][pre-0.5-key]).
 - [Release notes][1.0.0-notes]
 
 [1.0.0-announce]: http://blog.rust-lang.org/2015/05/15/Rust-1.0.html
-[1.0.0-notes]: https://github.com/rust-lang/rust/blob/master/RELEASES.md#version-100-2015-05-15
+[1.0.0-notes]: https://github.com/rust-lang/rust/blob/HEAD/RELEASES.md#version-100-2015-05-15
 
 ## 1.0.0-beta
 

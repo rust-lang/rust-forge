@@ -1,5 +1,6 @@
 # Membership
-This team discusses membership in the compiler team. There are currently two levels of membership:
+
+There are currently two levels of membership:
 
 * members: regular contributors with r+ rights, bot privileges, and access to [infrastructure]
 * maintainers: members who have committed themselves to invest in the quality of the compiler and
@@ -37,8 +38,8 @@ Being promoted to member implies a number of privileges:
 
 - Members have `r+` (approve a pull request) privileges and can do reviews (they are expected to
   use those powers appropriately, as discussed previously). They also have access to control
-  perf/rustc-timer and other similar bots. See the documentation for `bors` and `r+`
-  [here](https://rustc-dev-guide.rust-lang.org/compiler-team.html#team-membership).
+  perf/rustc-timer and other similar bots.
+  See the documentation for `bors` and `r+` at <https://bors.rust-lang.org>.
 
   Tip: some baseline rules around bors permissions are: don't do a `try` build unless you have
   done a check for malicious code first and don't `r+` unless you are reasonably confident that
