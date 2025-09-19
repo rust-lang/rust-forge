@@ -1,6 +1,13 @@
 # Backporting
 
-There's a steady trickle of patches that need to be ported to the beta and stable branch.
+> ## What is a backport?
+
+> A **backport** is the act of taking a fix or feature that landed in a newer Rust release
+> (or any software) and re-applying it to an older supported branch. This is most often used
+> to ship critical bug-fixes or security patches on channels (like Stable or Beta)
+> that no longer receive every upstream change.
+
+There's a steady trickle of patches (mostly fixes of severe enough bugs) that need to be ported to the beta and stable branch after they're merged into the master branch.
 Only a few people are even aware of the process, but this is actually something anybody can do.
 
 ## Beta backporting in `rust-lang/rust`
