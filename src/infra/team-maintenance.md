@@ -1,7 +1,7 @@
 # Team Maintenance
 
 The roster of the Rust teams is always in flux. From time to time, new people
-are added, but also people sometimes opt to into "alumni status", meaning that
+are added, but also people sometimes opt into "alumni status", meaning that
 they are not currently an active part of the decision-making process.
 Unfortunately, whenever a new person is added or someone goes into alumni
 status, there are a number of disparate places that need to be updated.
