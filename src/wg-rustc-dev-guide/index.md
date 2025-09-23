@@ -9,7 +9,7 @@ as:
 - Reviewing simple PRs to the guide that don't need domain-specific expertise
 - Connect domain-specific doc changes with domain expert reviewers
 
-## Review Policy
+## Review policy
 
 The dev guide has a much lower bar for changes to merged compared to the compiler itself. Incomplete
 and/or WIP documentation is preferred over no documentation. Stubbed out TODOs with issues tracking 
@@ -36,7 +36,7 @@ There are some benefits following this rule:
 - Changes to `rustc-dev-guide` repo do not need to go through bors CI in `rust-lang/rust`.
 - Less burden on bors queue in `rust-lang/rust`.
 
-## Subtree Syncs
+## Subtree syncs
 
 The dev guide is a [josh](https://josh-project.github.io/josh/intro.html) subtree of the main rust-lang/rust
 repo. This makes it easier for compiler contributors to update documentation in the dev guide in tandem with
