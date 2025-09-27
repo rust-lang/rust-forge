@@ -68,7 +68,7 @@
     - [Third-party and Out-of-tree Crates Policy](./compiler/third-party-out-of-tree.md)
     - [Triage and Prioritization](./compiler/prioritization.md)
     - [Working Areas](./compiler/working-areas.md)
-- [rustc-dev-guide](./wg-rustc-dev-guide/index.md)
+- [rustc-dev-guide](./rustc-dev-guide/index.md)
 - [crates.io](./crates-io/index.md)
     - [Crate removal](./crates-io/crate-removal.md)
     - [Database maintenance](./crates-io/db-maintenance.md)

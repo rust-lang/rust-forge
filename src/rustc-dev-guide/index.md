@@ -1,15 +1,39 @@
 # rustc-dev-guide
 
-The rustc-dev-guide working group is responsible for maintaining the rustc-dev-guide (located at 
-[rust-lang/rustc-dev-guide]). This includes things such
-as: 
-- Performing subtree syncs between the main rust repo and the rustc-dev-guide repo
+The rustc-dev-guide team, a sub-team of the [compiler team](../compiler/index.md),
+is responsible for maintaining the rustc-dev-guide (located at  [rust-lang/rustc-dev-guide]).
+
+## Team responsibilities
+
 - Triaging the state of the guide to look for out of date information or missing information
 - Miscellaneous editorial work of the pages in the guide or fixing links that have bitrot
 - Reviewing simple PRs to the guide that don't need domain-specific expertise
 - Connect domain-specific doc changes with domain expert reviewers
+- Performing subtree syncs between the main rust repo and the rustc-dev-guide repo
 
-## Review Policy
+## Team membership
+
+- After sustained contributions, someone can be invited to join the team by a team lead.
+
+  Note that this requirement does not apply to those who are already members of the [compiler team](../compiler/index.md),
+  because they implicitly own the content of the guide,
+  as [they are able to merge their own changes](#review-policy).
+  For them, membership is more a signal of an intention of
+  [showing some extra loving](#team-responsibilities) for the guide.
+  Note also that being a compiler team member implies that this requirement is already fulfilled,
+  as shown in [Compiler team member](../compiler/membership.md#compiler-team-member).
+
+- Being inactive for 6 months will result in member be placed in alumni
+  - It is cordial to communicate this first before doing so
+
+## Team leadership
+
+- Leads approve new members
+  - There should not be objections by any member
+- Leads can approve subtree syncs on main rust repo
+- Becoming a team lead is ad-hoc and happens on invitation
+
+## Review policy
 
 The dev guide has a much lower bar for changes to merged compared to the compiler itself. Incomplete
 and/or WIP documentation is preferred over no documentation. Stubbed out TODOs with issues tracking 
@@ -36,7 +60,7 @@ There are some benefits following this rule:
 - Changes to `rustc-dev-guide` repo do not need to go through bors CI in `rust-lang/rust`.
 - Less burden on bors queue in `rust-lang/rust`.
 
-## Subtree Syncs
+## Subtree syncs
 
 The dev guide is a [josh](https://josh-project.github.io/josh/intro.html) subtree of the main rust-lang/rust
 repo. This makes it easier for compiler contributors to update documentation in the dev guide in tandem with
