@@ -214,6 +214,12 @@ suggestions, get in touch with the [infrastructure team]:
 
 We might ask you to create an issue in the [rust-lang/simpleinfra] repository.
 
+## Announcements of Dev Desktop changes
+
+The Infrastructure Team will announce significant Dev Desktop changes through the
+[`#t-infra/announcements`] Zulip channel.
+
+
 [cloud compute program]: https://foundation.rust-lang.org/news/2021-11-16-news-announcing-cloud-compute-initiative/
 [infra@rust-lang.org]: mailto:infra@rust-lang.org
 [infrastructure team]: https://www.rust-lang.org/governance/teams/infra
@@ -225,3 +231,5 @@ We might ask you to create an issue in the [rust-lang/simpleinfra] repository.
 [visual studio code]: https://code.visualstudio.com/
 [certain teams]: https://github.com/search?q=repo%3Arust-lang%2Fteam+path%3Ateams%2F*.toml+dev-desktop&type=code&ref=advsearch
 [simpleinfra-vars-user-config]: https://github.com/rust-lang/simpleinfra/blob/dbf839ef25155df1f33c18f151283436b0f70f3b/ansible/roles/dev-desktop/defaults/main.yml#L12:L16
+[`#t-infra/announcements`]:
+    https://rust-lang.zulipchat.com/#narrow/channel/533458-t-infra.2Fannouncements
