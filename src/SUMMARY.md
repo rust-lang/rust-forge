@@ -118,6 +118,7 @@
         - [rust-bots server](./infra/docs/rust-bots.md)
         - [rust-lang/rust CI](./infra/docs/rustc-ci.md)
         - [Sentry](./infra/docs/sentry.md)
+        - [Internal-facing infrastructure announcements](./infra/docs/internal-announcements.md)
 - [Language](./lang/index.md)
     - [RFC Merge Procedure](./lang/rfc-merge-procedure.md)
     - [Triage Meeting Procedure](./lang/triage-meeting-procedure.md)
