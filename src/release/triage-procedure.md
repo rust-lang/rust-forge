@@ -13,9 +13,9 @@
   Also used for work-in-progress PRs, sometimes the PR will also be marked as
   draft in GitHub.
 - [S-waiting-on-review] - Review is incomplete
-- [S-waiting-on-lang] - Waiting for T-lang feedback.
-- [S-waiting-on-compiler] - Waiting for T-compiler feedback.
-- [S-waiting-on-libs-api] - Waiting for T-libs-api feedback.
+- [S-waiting-on-t-lang] - Waiting for T-lang feedback.
+- [S-waiting-on-t-compiler] - Waiting for T-compiler feedback.
+- [S-waiting-on-t-libs-api] - Waiting for T-libs-api feedback.
 - [S-waiting-on-bors] - Currently approved, waiting to merge. Managed by [bors].
 - [S-waiting-on-crater] - Waiting to see what the impact the PR will have on the
   ecosystem
@@ -37,9 +37,9 @@ not need a review yet.)
 
 [s-waiting-on-author]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+draft%3Afalse+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-author+-label%3AI-nominated+-label%3Aneeds-fcp
 [s-waiting-on-review]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+draft%3Afalse+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-review+-label%3AI-nominated+-label%3Aneeds-fcp
-[s-waiting-on-lang]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-lang+sort%3Aupdated-asc
-[s-waiting-on-compiler]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-compiler+sort%3Aupdated-asc
-[s-waiting-on-libs-api]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-libs-api+sort%3Aupdated-asc
+[s-waiting-on-t-lang]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-t-lang+sort%3Aupdated-asc
+[s-waiting-on-t-compiler]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-t-compiler+sort%3Aupdated-asc
+[s-waiting-on-t-libs-api]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-t-libs-api+sort%3Aupdated-asc
 [s-waiting-on-bors]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-bors+sort%3Aupdated-asc
 [s-waiting-on-crater]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-crater+sort%3Aupdated-asc
 [s-waiting-on-bikeshed]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-bikeshed+sort%3Aupdated-asc
