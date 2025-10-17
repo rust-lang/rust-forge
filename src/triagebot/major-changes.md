@@ -60,6 +60,26 @@ zulip_stream = 233931
 # An Zulip group or username to tag in the Zulip message when a
 # proposal has been seconded.
 zulip_ping = "T-compiler"
+
+# An optional tracking issue template that is automatically created when the major
+# is accepted.
+#
+# There are currently three replacement variables:
+#  - ${mcp_number}: Issue number of the major change
+#  - ${mcp_title}: Title of the major change
+#  - ${mcp_author}: GitHub handle of the author of the major change
+[major-change.tracking-issue-template]
+# Name of the repository where the tracking issue should be created 
+repository = "rust"
+# Title of tracking issue to create
+title = "Tracking issue for MCP#${mcp_number}"
+# Body of the tracking issue to create
+body = """
+Multi line body for MCP#${mcp_number}: ${mcp_title}
+Created by @${mcp_author}
+"""
+# Labels to add to the tracking issue
+labels = ["C-tracking-issue", "T-compiler"]
 ```
 
 ## Implementation
