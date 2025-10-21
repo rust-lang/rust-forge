@@ -7,7 +7,7 @@ This procedure is usually reserved to *regressions*, the Rust project takes regr
 To learn more about this procedure, please visit the [prioritization] documentation.
 
 [gh-regression-tpl]: https://github.com/rust-lang/rust/blob/master/.github/ISSUE_TEMPLATE/regression.md
-[prioritization]: /compiler/prioritization.html
+[prioritization]: ../compiler/prioritization.md
 
 ## Usage
 
