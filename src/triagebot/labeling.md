@@ -15,6 +15,24 @@ Some examples:
 * `@rustbot label A-diagnostics A-macros`
 * `@rustbot label +T-lang -T-compiler` --- Removes `T-compiler` and adds `T-lang`.
 
+Labels are parsed from left to right and then applied by grouping *adding* labels and *removing* labels. Example:
+```
+# this command ...
+@rustbot label +Alpaca -Bench -Carlo +Esteban +Dwight
+
+# ... will be executed as:
+@rustbot label +Alpaca +Esteban +Dwight -Bench -Carlo
+```
+
+Labels are parsed and applied from left to right (canceling conflicting labels). Example:
+```
+# this command ...
+@rustbot label +Alpaca -Bench -Carlo +Esteban +Dwight +Bench
+
+# ... will be executed as:
+@rustbot label +Alpaca +Esteban +Dwight -Carlo
+```
+
 The syntax for the command is somewhat flexible, supporting a few different forms to suit your pleasure.
 Some examples of variants you can use:
 
@@ -79,6 +97,42 @@ allow-unauthenticated = [
     "C-*", # any C- prefixed label will be allowed for anyone, independent of authorization with rust-lang/team
     "!C-bug", # but not C-bug (order does not matter)
 ]
+```
+
+### Aliases
+
+The configuration also supports aliases, a single *word* that is expanded in a set of labels allowing setting multiple labels with a single command, useful when adding or removing the same set of labels over and over. To configure an alias, add to the triagebot the following item:
+```toml
+[relabel.alias-name]
+add-labels = ["Foo", "Bar"]
+rem-labels = ["Baz"]
+```
+
+`add-labels` and `rem-labels` and arrays of labels that the alias will expand to. For example, given the above configuration:
+```
+# the command
+@rustbot label alias-name
+
+# translates to
+@rustbot label +Foo +Bar -Baz
+```
+
+Aliases can also be *negative*, inverting the effect:
+```
+# this command
+@rustbot label -cmd-alias
+
+# translates to
+@rustbot label +Baz -Foo -Bar
+```
+
+You can also mix labels and aliases. Self-canceling labels will be omitted:
+```
+# this command
+@rustbot label cmd-alias +Baz
+
+# translates to:
+@rustbot label +Foo +Bar
 ```
 
 ## Implementation
