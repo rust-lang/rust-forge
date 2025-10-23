@@ -15,14 +15,6 @@ Some examples:
 * `@rustbot label A-diagnostics A-macros`
 * `@rustbot label +T-lang -T-compiler` --- Removes `T-compiler` and adds `T-lang`.
 
-Labels are parsed from left to right and then applied by grouping *adding* labels and *removing* labels. Example:
-```
-# this command ...
-@rustbot label +Alpaca -Bench -Carlo +Esteban +Dwight
-
-# ... will be executed as:
-@rustbot label +Alpaca +Esteban +Dwight -Bench -Carlo
-```
 
 Labels are parsed and applied from left to right (canceling conflicting labels). Example:
 ```
