@@ -112,7 +112,7 @@ rem-labels = ["Baz"]
 Aliases can also be *negative*, inverting the effect:
 ```
 # this command
-@rustbot label -cmd-alias
+@rustbot label -alias-name
 
 # translates to
 @rustbot label +Baz -Foo -Bar
