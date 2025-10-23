@@ -121,7 +121,7 @@ Aliases can also be *negative*, inverting the effect:
 You can also mix labels and aliases. Self-canceling labels will be omitted:
 ```
 # this command
-@rustbot label cmd-alias +Baz
+@rustbot label alias-name +Baz
 
 # translates to:
 @rustbot label +Foo +Bar
