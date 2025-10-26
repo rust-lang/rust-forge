@@ -1,6 +1,7 @@
 # Git rebase (range) diff
 
-GitHub native compare feature shows lots of unrelated changes when a force push changes the base commit of a PR. This handler post a comment after such scenario which links to triagebot `range-diff` feature.
+GitHub native compare feature shows lots of unrelated changes when a force push changes the base commit of a PR.
+This handler posts a comment after such a scenario, which links to triagebot `range-diff` feature.
 
 ## Configuration
 
