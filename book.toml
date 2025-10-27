@@ -36,7 +36,6 @@ smart-punctuation = true
 "rustc-diagnostic-code.html" = "/compiler/diagnostic-codes.html"
 "rustc-team-maintenance.html" = "/infra/team-maintenance.html"
 "stabilization-guide.html" = "https://rustc-dev-guide.rust-lang.org/stabilization_guide.html"
-"state-of-rust.html" = "https://github.com/rust-lang/rust/projects/8"
 "test-suite.html" = "https://rustc-dev-guide.rust-lang.org/tests/intro.html"
 "toolstate.html" = "/infra/toolstate.html"
 "triage-procedure.html" = "/release/triage-procedure.html"
