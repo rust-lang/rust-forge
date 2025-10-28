@@ -196,7 +196,7 @@ and take inspiration from the other domain names).
 
 If you notice some of the records are referring to HTTP redirect services
 provided by the current registrar then those will have to wait until the domain
-has been transferred. Once the transfer occured, add a new [domain
+has been transferred. Once the transfer occurred, add a new [domain
 redirect][redirects-file] on Terraform. This has to be done after the transfer
 to be able to request the TLS certificate for the HTTPS redirect.
 

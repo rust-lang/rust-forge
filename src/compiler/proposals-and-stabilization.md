@@ -12,7 +12,7 @@ are suitable for each method of making a proposal - see below):
   - A proposal is r+'d when it is approved to be merged.
   - r+ can only be used to approve a PR.
 - Seconding
-  - A proposal is second'ed when a team member formally endorses the proposal. Seconding tentatively
+  - A proposal is seconded when a team member formally endorses the proposal. Seconding tentatively
     accepts a proposal subject to a ten-day waiting period for other team members to raise any
     concerns.
   - Seconding can only be used to approve a MCP.

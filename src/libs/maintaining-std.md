@@ -156,7 +156,7 @@ This kind of breakage can be ok, but a [`crater`] run should estimate the scope.
 
 ### Could an implementation use existing functionality?
 
-Types like `String` are implemented in terms of `Vec<u8>` and can use methods on `str` through deref coersion. `Vec<T>` can use methods on `[T]` through deref coersion. When possible, methods on a wrapping type like `String` should defer to methods that already exist on their underlying storage or deref target.
+Types like `String` are implemented in terms of `Vec<u8>` and can use methods on `str` through deref coercion. `Vec<T>` can use methods on `[T]` through deref coercion. When possible, methods on a wrapping type like `String` should defer to methods that already exist on their underlying storage or deref target.
 
 ### Are there `#[fundamental]` items involved?
 

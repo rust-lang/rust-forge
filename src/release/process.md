@@ -6,7 +6,7 @@ Here's how Rust is currently released:
 
 Steps of the release process that require interacting with our production
 environment are executed through the `start-release.py` script. The script
-requires you to install programs and configure your local environmet, and it
+requires you to install programs and configure your local environment, and it
 will guide you through the setup.
 
 The first time you run the script (or when the pre-requisites change), you will

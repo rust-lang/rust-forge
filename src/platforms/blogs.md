@@ -107,7 +107,7 @@ This approval should evaluate:
 * Is the tone and content of the post appropriate for the official venue?
   * For example, we should avoid negative commentary about other ecosystems/languages.
 * Is it clear on whose behalf the post is written?
-  * This may not just be the by-line, but also the langauge used. If the post
+  * This may not just be the by-line, but also the language used. If the post
     takes official positions on behalf of the Rust Project as a whole, please
     make sure at least one member of the leadership council signs off on it. If the
     post is taking positions on behalf of a team, then that team should be in

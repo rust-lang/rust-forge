@@ -232,7 +232,7 @@ gets in the way of refactorings, and no hard stability guarantees are promised.
 
 ### The PR is very large and complicated
 Reviewers are **not** expected to stomach PRs that are very large and complicated. It is expected
-from contributors to split their work to make a review feasable, for example a series of more
+from contributors to split their work to make a review feasible, for example a series of more
 digestible PRs which are individually more logically self-contained. In general, before submitting
 large impact changes, it is expected the contributor to have discussed the design previously with
 the relevant team(s) so it is contributor's duty to reference such discussions.
