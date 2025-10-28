@@ -12,10 +12,9 @@ are suitable for each method of making a proposal - see below):
   - A proposal is r+'d when it is approved to be merged.
   - r+ can only be used to approve a PR.
 - Seconding
-  - A proposal is second'ed when a team member formally endorses the proposal. It is intended that
-    seconding only occur once discussion has concluded and team members have had time to raise
-    concerns. Seconding tentatively accepts a proposal subject to a ten-day waiting period for
-    other team members to raise any concerns.
+  - A proposal is second'ed when a team member formally endorses the proposal. Seconding tentatively
+    accepts a proposal subject to a ten-day waiting period for other team members to raise any
+    concerns.
   - Seconding can only be used to approve a MCP.
 - FCP
   - A Final Comment Period is started by a T-compiler member. it's a tool to get concrete consensus
