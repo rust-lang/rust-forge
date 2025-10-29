@@ -10,7 +10,6 @@ or implementing a new feature. If you need guidance or help, don't hesitate to a
 ## Rustdoc member
 Once an individual has been contributing regularly for some time, they can be promoted to the
 level of a **rustdoc team member** (see the section on [how decisions are made][hdam] below).
-This title indicates that they are someone who contributes regularly.
 
 It is hard to define the precise conditions when such a promotion is appropriate. Being promoted
 to member is not just a function of checking various boxes. But the general sense is that someone

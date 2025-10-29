@@ -39,6 +39,7 @@ the nature of the proposal, described below.
     point if you don't know which of the previous ways is the best fit.
 
 [rustdoc zulip thread]: https://rust-lang.zulipchat.com/#narrow/channel/266220-t-rustdoc
+[rust]: https://github.com/rust-lang/rust
 
 ### When are FCPs/RFCs required?
 

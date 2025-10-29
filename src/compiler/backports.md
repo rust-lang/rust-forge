@@ -72,7 +72,7 @@ The [release team](../release/index.md) (`T-release`) will handle the backport a
 current development cycle (see [release backporting](../release/backporting.md)). If a beta backport
 nomination is approved too late, the release team may be unable to backport the change.
 
-Most of the time, accepted backports target the `master` branch. In rare circumstances, a beta
+Most of the time, accepted backports target the default branch. In rare circumstances, a beta
 backport may need to *directly* target the `beta` branch. In this case, coordinate with the release
 team before merging, by opening a new thread on the Zulip [#t-release
 channel](https://rust-lang.zulipchat.com/#narrow/channel/241545-t-release)).

@@ -27,7 +27,7 @@ The `format` defines which format the changelog file adheres to, and it's used t
 You can add another format by changing triagebot's [`src/changelogs/`](https://github.com/rust-lang/triagebot/tree/master/src/changelogs).
 The currently supported formats are:
 
-* `rustc`: follows the custom style of rustc's [RELEASES.md](https://github.com/rust-lang/rust/blob/master/RELEASES.md).
+* `rustc`: follows the custom style of rustc's [RELEASES.md](https://github.com/rust-lang/rust/blob/HEAD/RELEASES.md).
 
 The `project-name` defines what the title of the release should be.
 The final title will be `{project-name} {tag}`.

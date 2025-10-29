@@ -14,12 +14,12 @@ warn_non_default_branch = true
 [assign.adhoc_groups]
 fallback = [
     "@Mark-Simulacrum",
-    "@ehuss",
+    "internal-sites",
 ]
 
 [assign.owners]
-"/blacksmith" = ["@ehuss"]
-"/js" = ["@ehuss"]
+"/blacksmith" = ["internal-sites"]
+"/js" = ["internal-sites"]
 "/src/community" = ["community"]
 "/src/compiler" = ["compiler"]
 "/src/crates-io" = ["crates-io"]

@@ -6,7 +6,7 @@ Here's how Rust is currently released:
 
 Steps of the release process that require interacting with our production
 environment are executed through the `start-release.py` script. The script
-requires you to install programs and configure your local environmet, and it
+requires you to install programs and configure your local environment, and it
 will guide you through the setup.
 
 The first time you run the script (or when the pre-requisites change), you will
@@ -60,7 +60,7 @@ following changes:
   - If the release notes PR was merged:
 
     ```console
-    git checkout origin/master -- RELEASES.md
+    git checkout origin/HEAD -- RELEASES.md
     ```
 
   - Otherwise, manually copy `RELEASES.md` from the pending release notes PR
@@ -113,18 +113,18 @@ After the `stable` PR is merged you'll need to start the pre-release. Run this c
 
 You need to replace `YYYY-MM-DD` with the date of the release (Thursday).
 
-## Master bootstrap update (Tuesday)
+## Default branch bootstrap update (Tuesday)
 
 This step can only be done after the new beta has been released. The release
 process for the beta happens automatically at 00:00 UTC every day, so if the
 beta PR landed after that you will have to wait another day. You can check
 whether beta has been released by installing it with rustup.
 
-Send a PR to the master branch to:
+Send a PR to the default branch to:
 
 - Cherry pick the commit that ran `replace-version-placeholder`
   from the now merged beta branch PR. Do not re-run the tool as there might
-  have been other stabilizations on master which were not included in the
+  have been other stabilizations on the default branch which were not included in the
   branched beta, so may not be attributed to the current release.
 
 - Run this to update the bootstrap compiler to the beta you created yesterday:
@@ -151,7 +151,7 @@ Send a PR to the master branch to:
   - Replace any `#[cfg_attr(not(bootstrap), $attr)]` with `#[$attr]`.
 
   Note that if a PR adds `cfg(bootstrap)` and is merged between the beta PR and
-  the master bootstrap update, the `rg` invocation will show them even though
+  the default branch bootstrap update, the `rg` invocation will show them even though
   they won't have to be removed. The easiest way to handle this is to change
   them anyway and let CI show you the failure.
 
