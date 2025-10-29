@@ -27,6 +27,7 @@ is ready when they have demonstrated three things:
 [CoC]: https://www.rust-lang.org/policies/code-of-conduct
 
 Being promoted to member implies a number of privileges:
+<!-- FIXME(fmease): Not only r+ but also GH approval/merge rights in certain other repos -->
 
 - Members have `r+` (approve a pull request) privileges and can do reviews (they are expected to
   use those powers appropriately, as discussed previously). They also have access to control
@@ -97,12 +98,18 @@ extended.
 If the invitation is accepted by the individual, the rustdoc team leads will update the [team]
 repository to reflect their new role.
 
+<!-- FIXME(fmease): Need to be manually added to private rustdoc team channel because it's
+not tracked by sync-team at the time of writing -->
+
 ## Alumni status
 If at any time a rustdoc team member wishes to take a break from participating, they can opt to put
 themselves into alumni status. When in alumni status, they will be removed from
 GitHub aliases and the like, so that they need not be bothered with pings and messages. They will
 also not have r+ privileges. **Alumni members will however still remain members of the GitHub
-org overall.**
+org overall.** <!-- FIXME(fmease): No longer accurate! -->
+
+<!-- FIXME(fmease): Need to be manually removed from private rustdoc team channel because it's
+not tracked by sync-team at the time of writing -->
 
 People in alumni status can ask to return to "active" status at any time. This request would
 ordinarily be granted automatically barring extraordinary circumstances.
