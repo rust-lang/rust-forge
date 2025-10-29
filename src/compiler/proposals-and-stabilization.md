@@ -16,7 +16,7 @@ are suitable for each method of making a proposal - see below):
     accepts a proposal subject to a ten-day waiting period for other team members to raise any
     concerns.
   - Seconding can only be used to approve a MCP.
-  - You can "unsecond" by removing the `seconded` label on the MCP.
+  - You can "unsecond" by removing the `final-comment-period` label on the MCP.
 - FCP
   - A Final Comment Period is started by a T-compiler member. it's a tool to get concrete consensus
     from the team. This requires sign-off from the compiler FCP reviewers (the [`compiler-fcp`
