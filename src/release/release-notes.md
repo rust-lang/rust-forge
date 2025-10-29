@@ -48,7 +48,7 @@ Stabilized APIs and Const Stabilized APIs should both be formatted roughly as fo
 
 ```md
 - [`std::ptr::null_mut`](https://doc.rust-lang.org/std/ptr/fn.null_mut.html)
-<!-- for trait implemenations: -->
+<!-- for trait implementations: -->
 - [`impl<T: Clone, const N: usize> From<&[T; N]> for Vec<T>`](https://doc.rust-lang.org/stable/std/vec/struct.Vec.html#impl-From%3C%26%5BT;+N%5D%3E-for-Vec%3CT,+Global%3E)
 ```
 
@@ -60,8 +60,8 @@ Note that:
   unsigned integers) to avoid too much text.
 * link fragments can be long and hard to predict, so it is often better to copy and paste the url than write it manually
   (if the item doesn't appear in stable docs, you can copy it from nightly and edit the url).
-* if the only thing being stablized is trait implementations (and not the corrosponding trait),
-  all impls are listed with links to the corrosponding impl blocks.
+* if the only thing being stabilized is trait implementations (and not the corresponding trait),
+  all impls are listed with links to the corresponding impl blocks.
 ## Release team: Step 3: Confirm all issues/PRs needing relnotes are labeled `relnotes`
 
 This steps should happen in the first 3 weeks of the beta period (earlier is

@@ -9,7 +9,7 @@ status, there are a number of disparate places that need to be updated.
 # Team repo
 
 Membership of teams is primarily driven by the config files in the
-[rust-lang/team repo][team repo]. See the README of that respository for the
+[rust-lang/team repo][team repo]. See the README of that repository for the
 systems integrated with it.
 
 # Rules for changes to team repo

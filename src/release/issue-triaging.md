@@ -175,7 +175,7 @@ Anything related to the compiler implementation, such as diagnostics and ICEs.
 
 ##### T-opsem
 * Changes to [the nomicon](https://doc.rust-lang.org/nomicon/)
-* Changes to the semantics of the abstract machine, such as the sematics of atomics.
+* Changes to the semantics of the abstract machine, such as the semantics of atomics.
 * Changes to the docs of unsafe pointer functions
 * Changes to the docs of `core::ptr`
 

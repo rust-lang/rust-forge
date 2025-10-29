@@ -9,7 +9,7 @@ free access to high-powered cloud compute. They are part of the
 | `dev-desktop-eu-1` | `aarch64`    | Yes          | Germany        |
 | `dev-desktop-us-1` | `aarch64`    | Yes          | N. Virgina, US |
 
-#### Decomissioned Machines
+#### Decommissioned Machines
 
 Previously, these machines were also available:
 
@@ -18,7 +18,7 @@ Previously, these machines were also available:
 | `dev-desktop-eu-2` | `amd64`      | No           | Netherlands    |
 | `dev-desktop-us-2` | `amd64`      | No           | Washington, US |
 
-They are currently being [decomissioned](https://rust-lang.zulipchat.com/#narrow/channel/242791-t-infra/topic/Shutting.20down.20dev-desktop-*-2.20instances).
+They are currently being [decommissioned](https://rust-lang.zulipchat.com/#narrow/channel/242791-t-infra/topic/Shutting.20down.20dev-desktop-*-2.20instances).
 
 ## How to apply to the program
 
