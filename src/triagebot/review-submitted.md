@@ -1,10 +1,13 @@
 # Review Changes Requested
 
-This feature will automatically adjust the labels on a pull request when a reviewer sends a review with changes requested.
+This feature will automatically adjust the labels on a pull request when a reviewer[^1] sends a review with changes requested.
+
+[^1]: For the purpose of this feature, a reviewer can either be one of the assignees or anyone who has "write" permissions on the repository.
 
 ## Usage
 
 When creating a pull request review, click the "Request Changes" option when finishing the review.
+
 This will automatically remove the review labels, and add a new label to indicate that the PR is waiting on the author.
 
 ## Configuration
