@@ -18,7 +18,7 @@ a [`T-compiler`] label as well.
 In any case, you should **add a comment when you nominate the pull request for backport** providing
 context for the compiler team backport reviewers about why it should be backported.
 
-**Backport nominations are not guaranteed be accepted**. Please refer to the [*Should the backport
+**Backport nominations are not guaranteed to be accepted**. Please refer to the [*Should the backport
 be approved*](#should-the-backport-be-approved) section below for the criteria on which backport
 nominations may be accepted or rejected.
 

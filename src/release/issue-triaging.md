@@ -190,6 +190,10 @@ Triagebot needs to support `@rustbot label: xxx` usages terminated with a period
 - Check existing labels to make sure you're not duplicating them.
 - Discuss in <https://rust-lang.zulipchat.com/#narrow/channel/242269-t-release.2Ftriage/topic/New.20labels> if the new label may be non-conventional or controversial. Leave a comment about the new label as an FYI for others.
 
+### Label aliases
+
+Multiple labels can be added or removed in a single blow using *aliases*. Please visit the [relevant documentation][label-aliases] to learn more about aliases.
+
 ### Relnotes issues
 
 Release note issues will currently come with `needs-triage` by default. The triage for relnotes is usually best done if you have sufficient context. Leave them as-is if you don't.
@@ -255,6 +259,7 @@ Another useful thing to do is to go through `E-needs-mcve` and `E-needs-bisectio
 [`relnotes`]: https://github.com/rust-lang/rust/labels/relnotes
 [`metabug`]: https://github.com/rust-lang/rust/labels/metabug
 [relnotes issue example]: https://github.com/rust-lang/rust/issues/137132
+[label-aliases]: ../triagebot/labeling.html
 
 [^1]: The `O` in `O-*` labels originally stood for *operating system (OS)*.
 [^2]: The `I` in `I-*` labels originally stood for *importance*. This makes the most sense for the `I-*-nominated` labels. For most `I-*` labels however it makes sense to interpret the `I` as *issue (kind)*.
