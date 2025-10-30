@@ -43,6 +43,9 @@ The following changes must be approved and merged by a `team-repo-admin`:
     added, the team-repo-admins are expected to exercise their understanding of
     which team owns the repository, when in doubt asking for clarification and
     codifying in a comment in the relevant repository.
+* Changing `bors.rust.review` permissions
+* Changing `perf` permissions
+* Changing `crater` permissions
 
 On the other hand, changes to the configuration or automation of repositories
 may be approved and merged by `infra-admins`:
@@ -50,6 +53,10 @@ may be approved and merged by `infra-admins`:
 * Changing the [general repository settings](https://github.com/rust-lang/team/blob/master/docs/toml-schema.md#general-repository-settings)
   * This includes granting bots access to the repository.
 * Changing the [repository branch protections](https://github.com/rust-lang/team/blob/master/docs/toml-schema.md#repository-branch-protections)
+
+Granting a team write access to `rust-lang/rust` requires approval from both an
+`infra-admin` and a `team-repo-admin` as that repository is particularly
+sensitive.
 
 ### Source code changes
 
