@@ -40,7 +40,7 @@ This is typically used for rollups or experiments where you don't want any assig
 
 ### Rerolling
 
-If you want to reroll a different reviewer based on the file diff of a pull request (in other words, if you want to replicate what happens when you open a PR without an explicit `r?`), you can use the `@rustbot reroll` command.
+If you want to assign the pull request to a different reviewer based on its file diff (in other words, if you want to replicate what happens when you open a PR without an explicit `r?`), you can use the `@rustbot reroll` command.
 
 ## Configuration
 
