@@ -38,6 +38,10 @@ Using `r? ghost` in the initial PR top-level comment when opening a PR will disa
 It is used here for convenience.
 This is typically used for rollups or experiments where you don't want any assignments or noise.
 
+### Rerolling
+
+If you want to reroll a different reviewer based on the file diff of a pull request (in other words, if you want to replicate what happens when you open a PR without an explicit `r?`), you can use the `@rustbot reroll` command.
+
 ## Configuration
 
 PR assignment is enabled on the repository by having an `[assign.owners]` table in `triagebot.toml`:
