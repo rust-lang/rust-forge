@@ -93,8 +93,9 @@ existing compiler team member or they may ask the compiler team leads if their c
 is sufficient for team membership.
 
 The compiler team leads will check with the rest of the compiler team to see if there are concerns
-with extending a membership invitation to the individual, and after a week (barring no objections),
-an invitation will be extended.
+with extending a membership invitation to the individual. If there are no objections, an invitation
+will be extended. We aim to provide a response within a week, but it can take longer (for reasons
+often outside the scope of the decision itself).
 
 If the invitation is accepted by the individual, the compiler team leads will update the [team]
 repository to reflect their new role.
