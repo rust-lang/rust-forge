@@ -1,7 +1,6 @@
 # Zulip
 
-[Rust's Zulip](https://rust-lang.zulipchat.com) is the primary communication channel of the Rust Project.
-It is used by most teams, notably the compiler, language, and library teams, along with their working groups.
+[Rust's Zulip](https://rust-lang.zulipchat.com) is a chat platform used by members of Rust teams to discuss the development of Rust.
 
 Zulip can be an unintuitive platform to get started with. To get started, take a
 look at the [getting started
