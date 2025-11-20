@@ -1,12 +1,15 @@
 # Zulip
 
-[Rust's Zulip](https://rust-lang.zulipchat.com) is used by a number of teams, notably
-the compiler, language, and library teams, along with their working groups.
+[Rust's Zulip](https://rust-lang.zulipchat.com) is a chat platform used by members of Rust teams to discuss the development of Rust.
 
 Zulip can be an unintuitive platform to get started with. To get started, take a
 look at the [getting started
 guide](https://zulipchat.com/help/getting-started-with-zulip). For more detail,
 examine the [Zulip user documentation](https://zulipchat.com/help/)!
+
+We require all Rust Project members to have a Zulip account, so that we have a way of contacting all Project members[^zulip-fcp].
+
+[^zulip-fcp]: See [this FCP](https://github.com/rust-lang/leadership-council/issues/228#issuecomment-3444066655) for more details.
 
 ## Where to go for help with using Zulip
 
