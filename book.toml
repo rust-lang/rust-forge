@@ -8,6 +8,9 @@ title = "Rust Forge"
 [preprocessor.blacksmith]
 command = "./build.bash"
 
+[build]
+extra-watch-dirs = ["blacksmith/src"]
+
 [output.html]
 additional-js = ["js/moment.min.js", "js/index.js"]
 additional-css = ["css/style.css"]
@@ -63,5 +66,6 @@ smart-punctuation = true
 "core/index.html" = "/governance/council.html"
 
 [output.linkcheck]
+command = "mdbook-linkcheck2"
 follow-web-links = false
 optional = true
