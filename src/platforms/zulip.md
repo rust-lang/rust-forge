@@ -190,3 +190,14 @@ Our Zulip instance has the web-public streams beta feature enabled, and we use
 it for all public streams. Please let us or Zulip developers know if there's any
 problems with this. The previous solution to the web-public view was the zulip
 archive, which now redirects to the web public view.
+
+## The `t-all/private` channel
+All Rust Project team members are automatically subscribed to the private [`t-all/private`](https://rust-lang.zulipchat.com/#narrow/channel/546943-all.2Fprivate) channel. This channel can be used as a way to contact all Project members, and should serve as a more reliable alternative to the `all@rust-lang.org` mailing list, where e-mails often end up in spam.
+
+This channel should primarily be used for two kinds of topics:
+1) Information that is *only* relevant to the Rust Project and no one else
+   - For example: tell people about changes in the `team` database or the Rust website that might be interesting to them
+2) Information that should only be shared within the Project and not outside
+   - For example: sharing Project-wide surveys that should not be filled by people outside the Project
+
+In both mentioned cases above, this channel should only be used when the message is relevant to the Project as a whole (and not e.g. only to a single team). Other communication should preferably be done through public and more scoped channels.
