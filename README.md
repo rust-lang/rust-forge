@@ -27,7 +27,7 @@ mdbook serve
 ## Link checking
 
 On CI, we automatically check if all intra-doc links in the Forge Markdown files are valid. If you would like to
-perform this check locally, install `mdbook-linkcheck` using `cargo install mdbook-linkcheck@0.7.7 --locked` and then
+perform this check locally, install `mdbook-linkcheck2` using `cargo install mdbook-linkcheck2@0.11.0 --locked` and then
 simply run `mdbook build` or `mdbook serve`.
 
 ## Blacksmith
