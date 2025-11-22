@@ -1,9 +1,6 @@
 use std::{io, path::Path, process};
 
-use mdbook::{
-    errors::Error,
-    preprocess::{CmdPreprocessor, Preprocessor},
-};
+use mdbook_preprocessor::{Preprocessor, errors::Error};
 
 use mdbook_blacksmith::Blacksmith;
 
@@ -67,16 +64,16 @@ fn main() {
 }
 
 fn handle_preprocessing(pre: &Blacksmith) -> Result<(), Error> {
-    let (ctx, book) = CmdPreprocessor::parse_input(io::stdin())?;
+    let (ctx, book) = mdbook_preprocessor::parse_input(io::stdin())?;
 
-    if ctx.mdbook_version != mdbook::MDBOOK_VERSION {
+    if ctx.mdbook_version != mdbook_preprocessor::MDBOOK_VERSION {
         // We should probably use the `semver` crate to check compatibility
         // here...
         log::warn!(
             "Warning: The {} plugin was built against version {} of mdbook, \
              but we're being called from version {}",
             pre.name(),
-            mdbook::MDBOOK_VERSION,
+            mdbook_preprocessor::MDBOOK_VERSION,
             ctx.mdbook_version
         );
     }
@@ -88,7 +85,7 @@ fn handle_preprocessing(pre: &Blacksmith) -> Result<(), Error> {
 }
 
 fn handle_supports(pre: &Blacksmith, renderer: &str) -> ! {
-    let supported = pre.supports_renderer(renderer);
+    let supported = pre.supports_renderer(renderer).unwrap();
 
     // Signal whether the renderer is supported by exiting with 1 or 0.
     if supported {

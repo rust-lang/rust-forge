@@ -7,7 +7,7 @@ jobs:
     name: test
     runs-on: ubuntu-latest
     env:
-      MDBOOK_VERSION: 0.4.51
+      MDBOOK_VERSION: 0.5.1
       RUN_BLACKSMITH: 1
     steps:
       - uses: actions/checkout@v4
