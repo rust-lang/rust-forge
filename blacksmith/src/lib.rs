@@ -259,7 +259,7 @@ impl Blacksmith {
         writeln!(buffer, "---------|--------|------|--------").unwrap();
 
         for (name, platform) in &self.platforms {
-            let extensions: &[&str] = if name.contains("windows") && !name.contains("gnullvm") {
+            let extensions: &[&str] = if name.contains("windows") {
                 &["msi", "tar.xz"]
             } else if name.contains("darwin") {
                 &["pkg", "tar.xz"]
@@ -312,7 +312,7 @@ impl Blacksmith {
             writeln!(buffer, "---------|--------").unwrap();
 
             for name in platforms {
-                let extensions: &[&str] = if name.contains("windows") && !name.contains("gnullvm") {
+                let extensions: &[&str] = if name.contains("windows") {
                     &["msi", "tar.gz"]
                 } else if name.contains("darwin") {
                     &["pkg", "tar.gz"]
