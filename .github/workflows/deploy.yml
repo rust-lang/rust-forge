@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     env:
-      MDBOOK_VERSION: 0.4.51
+      MDBOOK_VERSION: 0.5.1
       RUN_BLACKSMITH: 1
     runs-on: ubuntu-latest
     steps:
