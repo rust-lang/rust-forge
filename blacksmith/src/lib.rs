@@ -37,6 +37,7 @@ impl Default for Platform {
 pub struct Blacksmith {
     last_update: Option<u64>,
     stable_version: Option<String>,
+    stable_minor_version: Option<u32>,
     platforms: BTreeMap<String, Platform>,
     #[serde(default)]
     previous_stable_versions: Vec<(String, Vec<String>)>,
@@ -90,6 +91,7 @@ impl Blacksmith {
 
             if channel_name == "stable" {
                 blacksmith.stable_version = Some(vers.clone());
+                blacksmith.stable_minor_version = vers.split(".").nth(1).unwrap().parse().ok();
             }
 
             for platform in platforms {
@@ -259,7 +261,9 @@ impl Blacksmith {
         writeln!(buffer, "---------|--------|------|--------").unwrap();
 
         for (name, platform) in &self.platforms {
-            let extensions: &[&str] = if name.contains("windows") {
+            let extensions: &[&str] = if name.contains("windows")
+                && (!name.contains("gnullvm") || self.stable_minor_version.unwrap() >= 93)
+            {
                 &["msi", "tar.xz"]
             } else if name.contains("darwin") {
                 &["pkg", "tar.xz"]
@@ -312,7 +316,9 @@ impl Blacksmith {
             writeln!(buffer, "---------|--------").unwrap();
 
             for name in platforms {
-                let extensions: &[&str] = if name.contains("windows") {
+                let extensions: &[&str] = if name.contains("windows")
+                    && (!name.contains("gnullvm") || self.stable_minor_version.unwrap() >= 93)
+                {
                     &["msi", "tar.gz"]
                 } else if name.contains("darwin") {
                     &["pkg", "tar.gz"]
