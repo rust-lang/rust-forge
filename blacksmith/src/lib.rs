@@ -2,10 +2,10 @@ mod channel;
 
 use std::{collections::BTreeMap, fmt::Write, time::SystemTime};
 
-use mdbook::{
-    book::{Book, BookItem},
-    errors::Error,
-    preprocess::{Preprocessor, PreprocessorContext},
+use mdbook_preprocessor::{
+    Preprocessor, PreprocessorContext,
+    book::Book,
+    errors::{Error, Result},
 };
 
 const CHANNELS: &[&str] = &["stable", "beta", "nightly"];
@@ -431,45 +431,31 @@ impl Preprocessor for Blacksmith {
     }
 
     fn run(&self, _: &PreprocessorContext, mut book: Book) -> Result<Book, Error> {
-        fn recursive_replace(book_item: &mut BookItem, old: &str, new: &str) {
-            let chapter = match book_item {
-                BookItem::Chapter(chapter) => chapter,
-                _ => return,
-            };
-
-            chapter.content = chapter.content.replace(old, new);
-
-            for sub_item in &mut chapter.sub_items {
-                recursive_replace(sub_item, old, new);
-            }
-        }
-
         let standalone_installers_table = self.generate_standalone_installers_table();
         let previous_stable_standalone_installers_tables =
             self.generate_previous_stable_standalone_installers_tables();
         let source_code_table = self.generate_source_code_table();
 
-        // TODO: Currently we're performing a global search for any of the
-        // variables as that's the most flexible for adding more dynamic
-        // content, and the time to traverse is fast enough to not be noticeable.
-        // However if the processing time begins to become a bottleneck this
-        // should change.
-        for item in &mut book.sections {
-            recursive_replace(item, "{{#installer_table}}", &standalone_installers_table);
-            recursive_replace(
-                item,
+        book.for_each_chapter_mut(|chapter| {
+            let mut replace = |tag, value| {
+                if chapter.content.contains(tag) {
+                    chapter.content = chapter.content.replace(tag, value);
+                }
+            };
+            replace("{{#installer_table}}", &standalone_installers_table);
+            replace(
                 "{{#previous_stable_standalone_installers_tables}}",
                 &previous_stable_standalone_installers_tables,
             );
-            recursive_replace(item, "{{#source_code_table}}", &source_code_table);
-        }
+            replace("{{#source_code_table}}", &source_code_table);
+        });
 
         Ok(book)
     }
 
     /// `Blacksmith`'s operations are renderer independent as they output
     /// markdown.
-    fn supports_renderer(&self, _renderer: &str) -> bool {
-        true
+    fn supports_renderer(&self, _renderer: &str) -> Result<bool> {
+        Ok(true)
     }
 }
