@@ -42,6 +42,23 @@ pub struct Blacksmith {
     previous_stable_versions: Vec<(String, Vec<String>)>,
 }
 
+struct SemVer {
+    minor: u32,
+}
+
+impl From<&String> for SemVer {
+    fn from(s: &String) -> Self {
+        SemVer {
+            minor: s
+                .split(".")
+                .nth(1)
+                .unwrap()
+                .parse()
+                .expect("Invalid version string"),
+        }
+    }
+}
+
 impl Blacksmith {
     /// Creates a new instance of `Blacksmith`.
     pub fn new() -> Self {
@@ -259,7 +276,10 @@ impl Blacksmith {
         writeln!(buffer, "---------|--------|------|--------").unwrap();
 
         for (name, platform) in &self.platforms {
-            let extensions: &[&str] = if name.contains("windows") && !name.contains("gnullvm") {
+            let extensions: &[&str] = if name.contains("windows")
+                && (!name.contains("gnullvm")
+                    || SemVer::from(self.stable_version.as_ref().unwrap()).minor >= 93)
+            {
                 &["msi", "tar.xz"]
             } else if name.contains("darwin") {
                 &["pkg", "tar.xz"]
@@ -312,7 +332,9 @@ impl Blacksmith {
             writeln!(buffer, "---------|--------").unwrap();
 
             for name in platforms {
-                let extensions: &[&str] = if name.contains("windows") && !name.contains("gnullvm") {
+                let extensions: &[&str] = if name.contains("windows")
+                    && (!name.contains("gnullvm") || SemVer::from(stable_version).minor >= 93)
+                {
                     &["msi", "tar.gz"]
                 } else if name.contains("darwin") {
                     &["pkg", "tar.gz"]
