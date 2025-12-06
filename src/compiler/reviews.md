@@ -312,16 +312,15 @@ members pointing to this PR, or it's simply obvious to everyone involved). Only 
 certainty if the issue is particularly critical or urgent to fix.
 
 #### Creating reverts
-The easiest method for creating a revert is to use the "Revert" button on Github. This appears
-next to the "bors merged commit abcd" message on a pull request, and creates a new pull request.
-
-![Location of the "Revert" button](revert-button.png)
-
-Alternatively, a revert commit can be created using the git CLI and then uploaded as a pull request:
+A revert commit can be created using the git CLI and then uploaded as a pull request:
 
 ```terminal
-$ git revert -m 1 62d5bee
+$ git revert -m 1 $COMMIT_HASH
 ```
+
+where `$COMMIT_HASH` can be found next to the merged status message:
+
+![merged commit hash](./reviews/merged-commit-hash.png)
 
 Don't rely *only* on the default commit title and message created by git. Instead, title the revert
 commit meaningfully, and link to the relevant PR that introduced the regression. Link to the
