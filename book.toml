@@ -11,6 +11,10 @@ command = "./build.bash"
 [build]
 extra-watch-dirs = ["blacksmith/src"]
 
+[output.html.fold]
+enable = true
+level = 0
+
 [output.html]
 additional-js = ["js/moment.min.js", "js/index.js"]
 additional-css = ["css/style.css"]
