@@ -33,7 +33,6 @@
     - [Mentions](./triagebot/mentions.md)
     - [Merge Conflicts](./triagebot/merge-conflicts.md)
     - [No Merge Policy](./triagebot/no-merge.md)
-    - [No Mentions](./triagebot/no-mentions.md)
     - [Nominate](./triagebot/nominate.md)
     - [Note](./triagebot/note.md)
     - [Notifications](./triagebot/notifications.md)
