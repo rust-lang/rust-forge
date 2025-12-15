@@ -56,8 +56,9 @@ To do the initial triage and remove the `needs-triage` label, the following cond
 - Is the issue a regression? If so, apply the `regression-untriaged` label (or figure out what regression it is exactly). Generally speaking, an issue is considered a regression if something used to work, but no longer does.
 - If you happen to know people who this issue is relevant to, ping them.
     - For example, write `cc @ThatPerson` if `ThatPerson` has been working a lot on the feature in question recently.
-- Does this issue require nightly? Add `requires-nightly`.
-- Does this issue require incomplete or internal features? Add `requires-{incomplete,internal}-features`.
+- Does this issue use any features? Add the corresponding `F-*` label, e.g. `F-const_trait_impl`.
+- Does this issue require nightly without using features? Add `requires-nightly`.
+- Does this issue require internal features? Add `requires-internal-features`.
 
 ### Applying and removing labels
 
@@ -106,7 +107,7 @@ There are many different labels that can be applied to issues.
 - [`F-*`]: When the issue concerns a specific (usually unstable, usually language) feature.
 - [`-Z*`]: When the issue concerns a specific unstable `-Z` compiler flag.
 - `requires-nightly`: This issue only affects the nightly channel compiler, and does not affect the beta or stable channel compiler.
-- `requires-{incomplete,internal}-features`: This issue requires an incomplete or internal feature. The latter often means that the issue should be closed in accordance with compiler [MCP 620](https://github.com/rust-lang/compiler-team/issues/620).
+- `requires-internal-features`: This issue requires an internal feature. This often means that the issue should be closed in accordance with compiler [MCP 620](https://github.com/rust-lang/compiler-team/issues/620).
 - [`regression-*`]: Labels for tracking issues that are regressions.
     - `regression-untriaged`: The nature and kind of regression is unclear; indicates further regression triage is necessary.
     - `regression-from-stable-to-stable`: Something that regressed from an older stable release, which has already reached the latest stable release or even earlier stable releases.
@@ -219,6 +220,7 @@ For issues that include an Internal Compiler Error (ICE):
 - Add `A-*` labels based on the code that causes the issue (check backtraces!), and the nature of the repro (e.g. if the repro is a weird trait impl or the backtrace points to `rustc_trait_selection`, add `A-traits`).
 - Add `T-*`, `WG-*`, `PG-*`, `F-*`, `requires-*`, and `regression-*` labels as appropriate.
     - Usually the ICE should be tagged `T-compiler`. If the issue concerns the type system (e.g. trait solver), also tag the issue with `T-types`.
+- If it is an ICE in rustdoc, add `T-rustdoc` instead of `T-compiler`.
 
 ## Further triaging
 
@@ -226,7 +228,10 @@ For issues that have been through the initial triaging step (that is, don't have
 
 Additionally, old (there is no clear definition of old yet, but something on the order of months) `S-needs-repro` issues can be closed if there is no way to make progress without a reproduction. This requires write access to [`rust-lang/rust`], but if you don't have them, you can just link the issue on Zulip (for example in [`t-release/triage`] or `general`) and someone with write access can close it for you.
 
-Another useful thing to do is to go through `E-needs-mcve` and `E-needs-bisection` issues and create minimizations or bisecting the issue (using [`cargo-bisect-rustc`]). When you provide one, you can also remove the label using rustbot (`@rustbot label -E-needs-bisection`).
+Another useful thing to do is to go through `E-needs-mcve` and `E-needs-bisection` issues and create minimizations or bisecting the issue (using [`cargo-bisect-rustc`]).
+
+- When you provide a bisection, adjust the bisection status labels: `@rustbot label -E-needs-bisection +S-has-bisection`.
+- When you provide a MCVE, adjust the MCVE status labels: `@rustbot label -E-needs-mcve +S-has-mcve`.
 
 [`rust-lang/rust`]: https://github.com/rust-lang/rust
 [URLO]: https://users.rust-lang.org
