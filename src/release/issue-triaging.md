@@ -228,7 +228,10 @@ For issues that have been through the initial triaging step (that is, don't have
 
 Additionally, old (there is no clear definition of old yet, but something on the order of months) `S-needs-repro` issues can be closed if there is no way to make progress without a reproduction. This requires write access to [`rust-lang/rust`], but if you don't have them, you can just link the issue on Zulip (for example in [`t-release/triage`] or `general`) and someone with write access can close it for you.
 
-Another useful thing to do is to go through `E-needs-mcve` and `E-needs-bisection` issues and create minimizations or bisecting the issue (using [`cargo-bisect-rustc`]). When you provide one, you can also remove the label using rustbot (`@rustbot label -E-needs-bisection S-has-bisection`).
+Another useful thing to do is to go through `E-needs-mcve` and `E-needs-bisection` issues and create minimizations or bisecting the issue (using [`cargo-bisect-rustc`]).
+
+- When you provide a bisection, adjust the bisection status labels: `@rustbot label -E-needs-bisection +S-has-bisection`.
+- When you provide a MCVE, adjust the MCVE status labels: `@rustbot label -E-needs-mcve +S-has-mcve`.
 
 [`rust-lang/rust`]: https://github.com/rust-lang/rust
 [URLO]: https://users.rust-lang.org
