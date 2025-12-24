@@ -11,7 +11,7 @@ MIR Optimizations                 | Write MIR optimizations and refactor the MIR
 Parallel-rustc                    | Making parallel compilation the default for rustc                                                  | [rustc]                                                                     | [#t-compiler/parallel-rustc][parallel-rustc_stream]
 Polonius                          | Exploring the integration of the "NLL 2.0"-like ["Polonius analysis"][Polonius] into rustc         | [borrow check][borrowck], [rust-lang/polonius][P], [rust-lang/datafrog][DF] |  [#t-types/polonius][polonius_stream]
 RLS 2.0                           | Experimenting with a new compiler architecture tailored for IDEs                                   | [rust-analyzer][ra-repo]                                                    | [#t-compiler/rust-analyzer][rls20_stream]
-Rustc Dev Guide                   | Make the compiler easier to learn by ensuring that rustc-dev-guide is "complete"                   | [rustc], [rustc-dev-guide][rustc-dev-guide-repo]                            | [#t-compiler/rustc-dev-guide][rustc-dev-guide_stream]
+Rust Compiler Development Guide   | Make the compiler easier to learn by ensuring that rustc-dev-guide is "complete"                   | [rustc], [rustc-dev-guide][rustc-dev-guide-repo]                            | [#t-compiler/rustc-dev-guide][rustc-dev-guide_stream]
 Enzyme                            | Expose experimental LLVM features for GPU offloading                                               | [Project Goal][enzyme-project-goal] | [#wg-autodiff]
 
 For historical record here's a list of Working Groups that are not active anymore (either because they reached their goals or because work stalled):
