@@ -24,9 +24,19 @@ There are three optional values that can be specified in the table:
 
 ### Path-based mentions
 
-By default triagebot checks for any file that **starts with** the given path. Can be explicitly with `type="filename"`.
+By default triagebot checks for any file that **starts with**[^1] the given UNIX-style path. Can be explicitly requested with `type="filename"`.
 
-For example, `library/std` would match anything under the `library/std` directory like `library/std/src/process.rs`.
+[^1]: In order to achieve the *starts with* an implicit glob `*` is added an the end of path.
+
+Glob matching is supported with the following syntax:
+* `?` matches any single character.
+* `*` matches zero or more characters.
+* `**` recursively matches directories.
+* `{a,b}` matches `a` or `b` where `a` and `b` are arbitrary glob patterns.
+* `[ab]` matches `a` or `b` where `a` and `b` are characters.
+  `[!ab]` to match any character except for `a` and `b`.
+
+For example, `library/std` (or `library/std*`) would match anything under the `library/std` directory like `library/std/src/process.rs`.
 
 ### Content-based mentions
 
