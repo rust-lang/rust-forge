@@ -50,7 +50,7 @@ not need a review yet.)
 [s-experimental]: https://github.com/rust-lang/rust/pulls?q=is%3Apr+label%3AS-experimental+sort%3Aupdated-asc
 [no-status-tags]: https://github.com/rust-lang/rust/pulls?q=is%3Apr+is%3Aopen+-label%3AS-waiting-on-author+-label%3AS-waiting-on-review+-label%3AS-waiting-on-team+-label%3AS-waiting-on-bors+-label%3AS-waiting-on-crater+-label%3AS-waiting-on-bikeshed+-label%3AS-waiting-on-perf+-label%3AS-blocked+-label%3AS-inactive+-label%3AS-waiting-on-fcp+-label%3AS-waiting-on-ACP+-label%3AS-experimental
 [crater]: https://github.com/rust-lang-nursery/crater
-[bors]: https://github.com/rust-lang/homu
+[bors]: https://github.com/rust-lang/bors
 
 ### Procedure
 

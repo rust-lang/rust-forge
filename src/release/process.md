@@ -84,7 +84,7 @@ going to finish soon (use your judgement here), you can "yield"
 priority to the stable release PR by going into that PR and typing this
 comment:
 
-> @bors retry
+> @bors yield
 > Yield priority to the stable release.
 
 ### `beta` PR
