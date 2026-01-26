@@ -66,7 +66,7 @@ Once you're a member of the rustdoc team, a number of events will happen:
 Rustdoc has multiple different areas and team members are not working on all of them. Currently
 we have three main areas:
 
-- Front-end: Everything related to HTML/CSS/JS and (HTML) UI/UX changes.
+- Front-end: Everything related to HTML/CSS/JS and (HTML) UI/UX changes, including the search, front-end features and front-end settings.
 - JSON backend: Work on the `--output-format=json` backend, including the `rustdoc-json-types`
   crate.
 - Internals: The internals of rustdoc: interacting with the compiler, doctests, generating
