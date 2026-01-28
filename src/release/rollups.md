@@ -15,14 +15,14 @@ command accepts four values `always`, `maybe`, `iffy`, and `never`. See [the
 Rollups section] of the review policies for guidance on what these different
 statuses mean.
 
-You can see the list of rollup PRs on Rust's [Homu queue], they are
+You can see the list of rollup PRs on Rust's [bors queue], they are
 listed at the bottom of the 'approved' queue with a priority of 'rollup' meaning
 they will not be merged by themselves until everything in front of them in the
 queue has been merged.
 
 ## Making a Rollup
 
-1. Using the interface on [Homu queue], select pull requests and then
+1. Using the interface on [bors queue], select pull requests and then
    use "rollup" button to make a rollup pull request. (The text about
    fairness can be ignored.)
    **Important note**:  consider for addition PRs marked as
@@ -85,5 +85,5 @@ or confirm your hypothesis.
 If a rollup continues to fail you can run the `@bors rollup=never` command to
 never rollup the PR in question.
 
-[Homu queue]: https://bors.rust-lang.org/queue/rust
+[bors queue]: https://bors.rust-lang.org/queue/rust
 [the Rollups section]: ../compiler/reviews.md#rollups

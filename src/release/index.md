@@ -5,7 +5,7 @@ support.
 
 ### External Links
 
-* The [Homu/Bors] page provides links to the pull request testing queues for the
+* The [bors] page provides links to the pull request testing queues for the
   `rust-lang` GitHub organisation, as well as providing an overview of the bot's
   syntax you can use to interact with it.
 * [Rustup Component History] documents when a component was last available (if
@@ -17,5 +17,5 @@ support.
 
 [Rustup Component History]: https://rust-lang.github.io/rustup-components-history/index.html
 [PR Tracking]: https://rust-lang-nursery.github.io/rustc-pr-tracking/
-[Homu/Bors]: https://bors.rust-lang.org/
+[bors]: https://bors.rust-lang.org/
 [`rustup-toolchain-install-master`]: https://github.com/kennytm/rustup-toolchain-install-master
