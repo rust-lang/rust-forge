@@ -105,7 +105,6 @@
         - [AWS regions](./infra/docs/aws-regions.md)
         - [Bastion server](./infra/docs/bastion.md)
         - [Bors](./infra/docs/bors.md)
-            - [Fixing bors queue](./infra/docs/bors/queue-resync.md)
         - [CDN](./infra/docs/cdn.md)
         - [Crater agents](./infra/docs/crater-agents.md)
         - [Dev Desktops](./infra/docs/dev-desktop.md)
