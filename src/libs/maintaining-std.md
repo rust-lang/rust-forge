@@ -338,7 +338,7 @@ To try reduce noise in the docs from deprecated items, they should be moved to t
 [`rust-lang/rfcs`]: https://github.com/rust-lang/rfcs
 [`rust-lang/rust-forge`]: https://github.com/rust-lang/rust-forge
 [`rfcbot`]: https://github.com/rust-lang/rfcbot-rs
-[`bors`]: https://github.com/rust-lang/homu
+[`bors`]: https://github.com/rust-lang/bors
 [pr_assignment]: ../triagebot/pr-assignment.md
 [`crater`]: https://github.com/rust-lang/crater
 [`rust-timer`]: https://github.com/rust-lang-nursery/rustc-perf

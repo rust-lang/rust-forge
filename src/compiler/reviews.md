@@ -277,9 +277,7 @@ indicates that they approve the PR.
 People with bors privileges may also leave a `@bors r=username` command. This indicates that the
 PR was already approved by `@username`. This is commonly done after rebasing.
 
-Finally, in some cases, PRs can be "delegated" by writing `@bors delegate+` or
-`@bors delegate=username`. This will allow the PR author or the delegated user to approve the PR
-by issuing `@bors` commands like the ones above (but this privilege is limited to the single PR).
+Finally, in some cases, PRs can be "delegated" by writing `@bors delegate+`. This will allow the PR author or the delegated user to approve the PR by issuing `@bors` commands like the ones above (but this privilege is limited to the single PR).
 
 ### Reverts
 If a merged PR is found to have caused a meaningful unanticipated regression, the best policy is

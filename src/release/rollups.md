@@ -15,22 +15,22 @@ command accepts four values `always`, `maybe`, `iffy`, and `never`. See [the
 Rollups section] of the review policies for guidance on what these different
 statuses mean.
 
-You can see the list of rollup PRs on Rust's [Homu queue], they are
+You can see the list of rollup PRs on Rust's [Bors queue], they are
 listed at the bottom of the 'approved' queue with a priority of 'rollup' meaning
 they will not be merged by themselves until everything in front of them in the
 queue has been merged.
 
 ## Making a Rollup
 
-1. Using the interface on [Homu queue], select pull requests and then
-   use "rollup" button to make a rollup pull request. (The text about
+1. Using the interface on [Bors queue], select pull requests and then
+   use "Create rollup" button to make a rollup pull request. (The text about
    fairness can be ignored.)
-   **Important note**:  consider for addition PRs marked as
+   **Important note**: consider for addition PRs marked as
    `rollup=always`, `rollup=maybe` and `rollup=iffy`, based on the
    review policies of [the Rollups section].  Be extra careful when
    deciding what to include, in particular on `rollup=maybe` and
    `rollup=iffy` PRs. We should try as much as possible to avoid risking
-   and hit regressions (bugs or perf).  Also consider that contributors
+   and hit regressions (bugs or perf). Also consider that contributors
    often forget to tag things with rollup=never, when they should have
    done so, so when PRs are not explicitly tagged with rollup, be extra
    careful.
@@ -38,19 +38,18 @@ queue has been merged.
 2. Run the following command in the pull request thread:
 
     ```console
-    @bors r+ rollup=never p=5
+    @bors r+ p=5
     ```
 
 3. If the rollup fails, use the logs rust-log-analyzer
-   provides to bisect the failure to a specific PR and do
-   `@bors r-`. If the PR is running, you need to do `@bors r- retry`. Otherwise,
-   your rollup succeeded. If it did, proceed to the next rollup (every now and
-   then let `rollup=never` and toolstate PRs progress).
-4. Recreate the rollup without the offending PR starting again from **1.**. There's a link in the rollup PR's body to automatically prefill the rollup UI with the existing PRs (minus any PRs that have been `r-`d)
+   provides to bisect the failure to a specific PR and unapprove it with
+   `@bors r-`. Then close the rollup PR, and recreate it without the offending PR starting again from **1.** There's a link in the rollup PR's body to automatically prefill the rollup UI with the existing PRs (minus any PRs that have been `r-`d). See more information in [Failed rollups](#failed-rollups).
+4. If the rollup succeeds, you can proceed to the next rollup (every now and
+   then let `rollup=never` PRs progress).
 
 ## Selecting Pull Requests
 
-The queue is sorted by rollup status. In general, a good rollup includes one or two `iffy` PRs (if available), a bunch of `maybe` (unmarked) PRs, and a large pile of `always` PRs. A rollup should never include `rollup=never` PRs.
+The queue is sorted by rollup status. In general, a good rollup includes one or two `iffy` PRs (if available), a bunch of `maybe` (unmarked) PRs, and a large pile of `always` PRs. A rollup should never include `rollup=never` PRs (bors makes sure of that).
 
 The actual absolute size of the rollup can depend based on experience, people new to making rollups might start with including 1 `iffy`, 4 `maybe`s, and 5 `always`s, but more experienced people might even make a rollup of 1-2 `iffy`s, 8 `maybe`s, and 10 `always`s! Massive rollups are rarely needed, but as your intuition grows you'll get better at judging risk when including PRs in a rollup.
 
@@ -85,5 +84,5 @@ or confirm your hypothesis.
 If a rollup continues to fail you can run the `@bors rollup=never` command to
 never rollup the PR in question.
 
-[Homu queue]: https://bors.rust-lang.org/queue/rust
+[Bors queue]: https://bors.rust-lang.org/queue/rust
 [the Rollups section]: ../compiler/reviews.md#rollups
