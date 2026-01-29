@@ -64,7 +64,7 @@ shape and meet the above criteria:
 >    * ..if non-trivial and if suitable, **how** the bug is fixed or **how** the change is
 >      implemented?
 >    * ..a list of potential **points of contention**? alternatives? trade-offs? risks?
->    * **.links to relevant issues**, RFCs, MCPs, etc?
+>    * **..links to relevant issues**, RFCs, MCPs, etc?
 > * Does the PR need a **regression test**? Does the PR have **sufficient test coverage**?
 > * Does the change need to be covered by a **major change proposal ([MCP])**? Is it already
 >   covered? If there is already a MCP open, was it already accepted, or is the PR blocked on that?
