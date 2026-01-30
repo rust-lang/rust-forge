@@ -4,21 +4,12 @@ The dev desktops provide maintainers and contributors to the Rust Project with
 free access to high-powered cloud compute. They are part of the
 [Cloud Compute Program] by the [Rust Foundation].
 
-| Machine            | Architecture | Perf enabled | Location       |
-|--------------------|--------------|--------------|----------------|
-| `dev-desktop-eu-1` | `aarch64`    | Yes          | Germany        |
-| `dev-desktop-us-1` | `aarch64`    | Yes          | N. Virgina, US |
-
-#### Decommissioned Machines
-
-Previously, these machines were also available:
-
-| Machine            | Architecture | Perf enabled | Location       |
-|--------------------|--------------|--------------|----------------|
-| `dev-desktop-eu-2` | `amd64`      | No           | Netherlands    |
-| `dev-desktop-us-2` | `amd64`      | No           | Washington, US |
-
-They are currently being [decommissioned](https://rust-lang.zulipchat.com/#narrow/channel/242791-t-infra/topic/Shutting.20down.20dev-desktop-*-2.20instances).
+| Machine            | Architecture | Perf enabled | Location        |
+|--------------------|--------------|--------------|-----------------|
+| `dev-desktop-eu-1` | `aarch64`    | Yes          | Germany         |
+| `dev-desktop-us-1` | `aarch64`    | Yes          | N. Virginia, US |
+| `dev-desktop-eu-2` | `amd64`      | No           | Belgium         |
+| `dev-desktop-us-2` | `amd64`      | No           | Iowa, US        |
 
 ## How to apply to the program
 
