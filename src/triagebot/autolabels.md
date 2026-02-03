@@ -92,6 +92,17 @@ For example:
 new_issue = true
 ```
 
+### Triggered by merged PRs
+
+Labels can be added to any PRs when it is merged.
+Set the `pr_merged = true` config option to enable this.
+For example:
+
+```toml
+[autolabel."needs-relnotes-triage"]
+pr_merged = true
+```
+
 ## Implementation
 
 See [`src/handlers/autolabel.rs`](https://github.com/rust-lang/triagebot/blob/HEAD/src/handlers/autolabel.rs).
