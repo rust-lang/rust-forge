@@ -19,11 +19,10 @@ under development, it is limited to [certain teams]. If you are in one of these
 teams, you should automatically have access.
 
 If you feel like your work on the Rust project would be significantly improved
-by access to a powerful build machine, reach out to [infra@rust-lang.org] with
-the following information:
-
-- Your GitHub handle
-- A short description of how you would use and benefit from the dev desktops
+by access to a powerful build machine, open a pull request in the [team repo],
+where you add yourself to the `cloud-compute` team. Include a short description
+of how you would use and benefit from the dev desktops. You can find an example
+of such a PR [here][dev desktop pr].
 
 ## How to connect to a dev desktop
 
@@ -224,3 +223,5 @@ The Infrastructure Team will announce significant Dev Desktop changes through th
 [simpleinfra-vars-user-config]: https://github.com/rust-lang/simpleinfra/blob/dbf839ef25155df1f33c18f151283436b0f70f3b/ansible/roles/dev-desktop/defaults/main.yml#L12:L16
 [`#t-infra/announcements`]:
     https://rust-lang.zulipchat.com/#narrow/channel/533458-t-infra.2Fannouncements
+[team repo]: https://github.com/rust-lang/team/pulls
+[dev desktop pr]: https://github.com/rust-lang/team/pull/2226
