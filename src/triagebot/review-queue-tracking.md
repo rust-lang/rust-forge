@@ -32,6 +32,8 @@ Reviewers can configure *review preferences* that are taken into account when de
 - Review queue capacity (`C`) --- if the number of PRs in your review queue is at (or above) `C`, `triagebot` will not assign new pull requests to you.
 - Rotation mode (`on` or `off` rotation) --- if you set your rotation mode to be `off`, `triagebot` will not assign new pull requests to you.
   - This is an alternative to setting yourself as being ["on vacation"](pr-assignment.md#vacation) which does not require sending a pull request to modify the `triagebot.toml` file. `triagebot` takes both `users_on_vacation` in `triagebot.toml` and the rotation mode into account; if you are marked as being on vacation in either of them, it will not assign PRs to you.
+- Team rotation mode (`on` or `off` rotation) --- if you set your team rotation mode for team `foo` to be `off`, `triagebot` will not consider you when someone uses `r? foo`.
+  - This can be used to selectively decide for which teams you will be available for reviews. It also interacts with `assign.owners`, which can be configured to cause triagebot to automatically assign PRs to members of teams based on the files that a given PR modifies.
 
 Note that the review preferences only affect assignment based on adhoc groups or teams. If someone directly requests your review (`r? <user>`), triagebot will currently always assign you. If you are off rotation or at your maximum review capacity, triagebot will send a comment to the PR where you were directly assigned to let the PR author know that you might not be available for a timely review.
 
@@ -42,6 +44,7 @@ You can examine your review queue and configure your review preferences by sendi
 - `work show`: Show the contents of your review queue (in the `rust-lang/rust` repository) and your review preferences.
 - `work set-pr-limit <number>|unlimited`: Set your review capacity to `<number>` or remove the capacity limit (`unlimited`).
 - `work set-rotation-mode off|on`: Set your rotation mode to be `on` or `off`.
+- `work set-team-rotation-mode <team> off|on`: Set your rotation mode through the given `<team>` to be `on` or `off`.
 
 ## Implementation
 
