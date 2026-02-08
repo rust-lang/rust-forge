@@ -55,7 +55,7 @@ have contributor guides and issues that are marked as needing help or being good
 [rustc-issues]: https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+label%3AE-help-wanted+no%3Aassignee
 [rustc-guide]: https://rustc-dev-guide.rust-lang.org
 [std-repo]: https://github.com/rust-lang/rust/tree/master/library
-[std-guide]: https://github.com/rust-lang/std-dev-guide
+[std-guide]: https://std-dev-guide.rust-lang.org
 [rustdoc-repo]: https://github.com/rust-lang/rust/tree/master/src/librustdoc
 [rustdoc-guide]: https://rustc-dev-guide.rust-lang.org/rustdoc.html
 [cargo-repo]: https://github.com/rust-lang/cargo
