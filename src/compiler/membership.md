@@ -9,12 +9,12 @@ There are currently two levels of membership:
 [infrastructure]: ../infra/index.md
 
 ## The path to membership
-People who are looking to contribute to the compiler typically start in one of two ways. They may 
+People who are looking to contribute to the compiler typically start in one of two ways. They may
 tackle "one off" issues, or they may get involved in some kind of existing working group. They
 don't know much about the compiler yet and have no particular privileges. They are assigned to
 issues using the triagebot and (typically) work with a mentor or mentoring instructions.
 
-## Compiler team member  
+## Compiler team member
 Once an individual has been contributing regularly for some time, they can be promoted to the
 level of a **compiler team member** (see the section on [how decisions are made][hdam] below).
 This title indicates that they are someone who contributes regularly.
@@ -31,7 +31,7 @@ is ready when they have demonstrated three things:
 - "Cordiality" -- compiler team members will be part of the Rust organization and are held to a
   higher standard with respect to the [Code of Conduct][CoC]. They should not only obey the
   letter of the CoC but also its spirit.
-  
+
 [CoC]: https://www.rust-lang.org/policies/code-of-conduct
 
 Being promoted to member implies a number of privileges:
@@ -49,11 +49,11 @@ Being promoted to member implies a number of privileges:
 - Members become a part of the `rust-lang/compiler` team on GitHub, so that they receive pings
   when people are looking to address the team as a whole.
 - Members are [listed] on the rust-lang.org web page.
-  
+
 It also implies some obligations (in some cases, optional obligations):
 
 - Members will be asked if they wish to be added to the reviewer rotation.
-- Members may take part in various other maintainer activities to help the team. 
+- Members may take part in various other maintainer activities to help the team.
 - Members are held to a higher standard than ordinary folk when it comes to the [Code of Conduct][CoC].
 
 [listed]: https://www.rust-lang.org/governance/teams/compiler
@@ -106,7 +106,7 @@ repository to reflect their new role.
 It is worth emphasizing that becoming a member of the compiler team does not necessarily imply
 writing PRs. There are a wide variety of tasks that need to be done to support the compiler and
 which should make one eligible for membership. Such tasks would include organizing meetings,
-participating in meetings, bisecting and triaging issues, writing documentation, and working on the 
+participating in meetings, bisecting and triaging issues, writing documentation, and working on the
 rustc-dev-guide.
 
 The most important criterion for being a compiler team member, in particular,
