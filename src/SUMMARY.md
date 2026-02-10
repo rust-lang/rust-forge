@@ -45,6 +45,7 @@
     - [Rustc Commit Tracking](./triagebot/rustc-commit-list.md)
     - [Shortcuts](./triagebot/shortcuts.md)
     - [Triagebot Dashboard](./triagebot/triage-dashboard.md)
+    - [View all comments link](./triagebot/view-all-comments-link.md)
     - [Zulip Commands](./triagebot/zulip-commands.md)
     - [Zulip Meeting Management](./triagebot/zulip-meeting.md)
     - [Zulip Notifications](./triagebot/zulip-notifications.md)
