@@ -157,6 +157,9 @@ again periodically if they continue to be inactive.
 When a potential team member has been nominated by existing members, there is a standard process
 that can be followed by team leads to add the new team member:
 
+0. A team lead reaches out to the moderation team to ask if they are aware of any objections. If
+   none are found and team members agree, the new contributor is invited to join.
+
 1. Contact the nominees asking if they are interested in joining the team:
 
 ```quote
