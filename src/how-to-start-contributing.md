@@ -99,6 +99,20 @@ If you want to get inspired, check all the [rust-lang][rust-lang-repos] reposito
 
 [rust-lang-repos]: https://github.com/orgs/rust-lang/repositories?type=all&q=sort%3Astars
 
+### Etiquette
+
+We know that starting contributing in a FOSS[^1] project could be confusing at times and we want both contributors and reviewers have the best possible experience when collaborating in our project.
+
+To achieve this goal, we want to ensure trust and respect of each other's time and efforts. Our recommendation is to follow these simple guidelines:
+- Start small. A big ball of code as first contribution does not help building trust
+- The work you submit is your own, meaning that you fully understand every part of it
+- You take care of checking in detail your work before submitting it - ask questions or signal us (with inline comments or `todo!()`) the parts you're unsure about
+- If you want to fix an issue but have doubts about the design, you're welcome to join our [Zulip][rust-zulip] server and ask for tips
+- Please respect the reviewers' time: allow some days between reviews, don't send for review patches obviously broken without some context (you can keep them in draft state until they're ready for review)
+- Try to keep comments concise, don't worry about a perfect written communication. Strive for clarity and being to the point
+
+[^1]: Free-Open Source Project, see: https://en.wikipedia.org/wiki/Free_and_open-source_software
+
 ### Different kinds of contributions
 
 There are various ways in which you can contribute to Rust projects:
