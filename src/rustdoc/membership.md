@@ -66,10 +66,11 @@ Once you're a member of the rustdoc team, a number of events will happen:
 Rustdoc has multiple different areas and team members are not working on all of them. Currently
 we have three main areas:
 
-- Front-end: Everything related to HTML/CSS/JS
-- JSON backend: Work on the `--output-format=json` backend.
+- Front-end: Everything related to HTML/CSS/JS and (HTML) UI/UX changes, including the search, front-end features and front-end settings.
+- JSON backend: Work on the `--output-format=json` backend, including the `rustdoc-json-types`
+  crate.
 - Internals: The internals of rustdoc: interacting with the compiler, doctests, generating
-  rustdoc internal code representation, parsing command line arguments, lints, etc.
+  rustdoc internal code representation, parsing command line arguments, lints, intra-doc links, etc.
 
 These groups are NOT full-fledged teams, and as such, to be part of any of these groups, you need to
 be a member of the rustdoc team.
@@ -78,10 +79,13 @@ For now, only the front-end group has an official status in the
 [team repository](https://github.com/rust-lang/team) and is called `rustdoc-frontend`. If a rustdoc
 team member is interested to be part of this group, they can ask to be added into it.
 
+Rustdoc roles handle their own FCPs and RFCs if it only impacts their own area, otherwise other
+roles or even other teams will be added into the process as needed.
+
 Let's take the front-end group as an example. It is a part of the rustdoc team, so you need to be a
 member of the rustdoc team to be able to join this group. Being part of the front-end group means
 you are encouraged to be part of the review rotations for front-end pull requests and you will need
-to respond on front-end FCPs.
+to respond on front-end FCPs and RFCs.
 
 ## How promotion decisions are made
 [hdam]: #how-promotion-decisions-are-made
