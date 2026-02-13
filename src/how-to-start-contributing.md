@@ -105,7 +105,7 @@ We know that starting contributing in a FOSS[^1] project could be confusing at t
 both contributors and reviewers have the best possible experience when collaborating in our project.
 
 To achieve this goal, we want to build trust and respect of each other's time and efforts. Our recommendation is to follow these simple guidelines:
-- Start small. A big ball of code as first contribution does not help building trust
+- Start small. A big ball of code as first contribution does not help to build trust
 - The work you submit is your own, meaning that you fully understand every part of it
 - You take care of checking in detail your work before submitting it - ask questions or signal us (with inline comments or `todo!()`) the parts you're unsure about
 - If you want to fix an issue but have doubts about the design, you're welcome to join our [Zulip][rust-zulip] server and ask for tips
