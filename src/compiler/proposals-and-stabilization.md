@@ -1,8 +1,10 @@
 # Proposals, Approvals and Stabilization
 It is very common to need to gather feedback and approval when contributing to the compiler, either
-for permission to proceed with an experiment or refactoring, or when stabilizing a feature. This
-document aims to summarise the various processes that the compiler team has for making approval
-decisions and when each should be used.
+for permission to proceed with an experiment or refactoring, or when stabilizing a feature. Before
+submitting substantial changes, we encourage contributors to contact the team on [Zulip] in order to
+discuss such changes before submitting them for review. This document aims to
+summarise the various processes that the compiler team has for making approval decisions and when
+each should be used.
 
 ## Approvals
 There are three mechanisms that the team can use to approve a proposal (not all approval mechanisms
@@ -71,7 +73,7 @@ the nature of the proposal, described below.
 [major change template]: https://github.com/rust-lang/compiler-team/issues/new?template=major_change.md
 
 #### What kinds of comments should go on a MCP in the compiler-team repo?
-Please direct technical conversation to the Zulip stream.
+Please direct technical conversation to the [Zulip] stream.
 
 The compiler-team repo issues are intended to be low traffic and used for procedural purposes.
 
@@ -79,8 +81,8 @@ It is recommended that any team member who wishes to "second" a proposal be fami
 relevant code. Anyone can note concerns that shouldn't be overlooked.
 
 #### How does one second an MCP or raise an objection?
-These types of procedural comments can be left on the issue (it's also good to leave a message in
-Zulip). See the previous section. To facilitate a machine parsable scanning of the concerns
+These types of procedural comments can be left on the issue (it's also good to leave a message on
+[Zulip]). See the previous section. To facilitate a machine parsable scanning of the concerns
 please use the following syntax to formally register a concern:
 
 ```text
@@ -414,3 +416,4 @@ See [*Adding ecosystem/integration test jobs/components to rust-lang/rust CI*](.
 [ecosystem_testing]: https://rustc-dev-guide.rust-lang.org/tests/ecosystem.html
 [compiler-fcp]: https://github.com/rust-lang/team/blob/master/teams/compiler-fcp.toml
 [tier-1-target-policy]: https://doc.rust-lang.org/rustc/target-tier-policy.html#tier-1-target-policy
+[Zulip]: https://rust-lang.zulipchat.com/#narrow/channel/131828-t-compiler
