@@ -25,6 +25,23 @@ official website for more resources.
 **Please ask questions!** A lot of people report feeling that they are "wasting
 expert time", but we do not feel that way. Contributors are important to us.
 
+If you want to contribute substancial changes, we suggest first contacting the team relevant to
+these changes. Each teams has their own preferred workflow, please follow the recommended path in
+order to have a prior discussion and team buy-in:
+- Compiler team: a Major Change Proposal (MCP) or a Request For Comment (RFC) (read more [here][mcp-or-rfc-compiler])
+- Rustdoc team: Contact the team on their [Zulip channel][rustdoc-zulip]
+- Library team: open an API Change proposal (ACP) on [GitHub][acp-libs] or reach out the team [on Zulip][acp-zulip] (read more [here][libs-docs])
+- Bootstrap team: ask in the team [Zulip channel][t-boostrap-zulip]
+
+In case of doubt, feel free to ask on [Zulip][rust-zulip].
+
+[mcp-or-rfc-compiler]: compiler/proposals-and-stabilization.html
+[rustdoc-zulip]: https://rust-lang.zulipchat.com/#narrow/channel/266220-t-rustdoc
+[t-bootstrap-zulip]: https://rust-lang.zulipchat.com/#narrow/channel/326414-t-infra.2Fbootstrap
+[acp-libs]: https://github.com/rust-lang/libs-team/issues?q=sort%3Aupdated-desc+is%3Aissue+is%3Aopen
+[acp-zulip]: https://rust-lang.zulipchat.com/#narrow/channel/219381-t-libs
+[libs-doc]: https://forge.rust-lang.org/libs/maintaining-std.html
+
 ## How to start contributing?
 
 The Rust project is quite large and it can be difficult to know which parts of the project need
@@ -34,7 +51,7 @@ have contributor guides and issues that are marked as needing help or being good
 
 | Project                            | Contribution guide                              | Good first issues                     | Description                             |
 |------------------------------------|-------------------------------------------------|---------------------------------------|-----------------------------------------|
-| [Compiler][rustc-repo]             | [rustc-dev-guide][rustc-guide]                  | [Help wanted][rustc-issues]     | Rust compiler and associated tooling    |
+| [Compiler][rustc-repo]             | [rustc-dev-guide][rustc-guide]                  | [Help wanted][rustc-issues]           | Rust compiler and associated tooling    |
 | [Standard library][std-repo]       | [std-dev-guide][std-guide]                      |                                       | Rust standard library                   |
 | [Rustdoc][rustdoc-repo]            | [Rustdoc overview][rustdoc-guide]               |                                       | Rust documentation generator            |
 | [Cargo][cargo-repo]                | [Cargo Contributor Guide][cargo-guide]          | [Good first issues][cargo-issues]     | Rust package manager and build system   |
@@ -49,7 +66,7 @@ have contributor guides and issues that are marked as needing help or being good
 | [Triagebot][triagebot-repo]        |                                                 | [Good first issues][triagebot-issues] | Rust automation bot                     |
 | [Rust playground][playground-repo] |                                                 | [Help wanted][playground-issues]      | Rust online playground                  |
 | [Rustlings][rustlings-repo]        | [Rustlings Contribution Guide][rustlings-guide] | [Issue tracker][rustlings-issues]     | Rust exercises                          |
-| [MdBook][mdbook-repo]              | [MdBook Contribution Guide][mdbook-guide]       | [Help wanted][mdbook-issues]    | Book generator written in Rust          |
+| [MdBook][mdbook-repo]              | [MdBook Contribution Guide][mdbook-guide]       | [Help wanted][mdbook-issues]          | Book generator written in Rust          |
 
 [rustc-repo]: https://github.com/rust-lang/rust
 [rustc-issues]: https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+label%3AE-help-wanted+no%3Aassignee
