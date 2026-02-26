@@ -47,6 +47,11 @@ The following changes must be approved and merged by a `team-repo-admin`:
 * Changing `perf` permissions
 * Changing `crater` permissions
 
+<div class="warning">
+Individual accesses may not be given to a repository.
+Only team accesses should be given to a repository.
+</div>
+
 On the other hand, changes to the configuration or automation of repositories
 may be approved and merged by `infra-admins`:
 
@@ -54,9 +59,11 @@ may be approved and merged by `infra-admins`:
   * This includes granting bots access to the repository.
 * Changing the [repository branch protections](https://github.com/rust-lang/team/blob/master/docs/toml-schema.md#repository-branch-protections)
 
+<div class="warning">
 Granting a team write access to `rust-lang/rust` requires approval from both an
 `infra-admin` and a `team-repo-admin` as that repository is particularly
 sensitive.
+</div>
 
 ### Source code changes
 
