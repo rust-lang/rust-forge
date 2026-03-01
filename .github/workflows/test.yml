@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       MDBOOK_VERSION: 0.5.1
+      MDBOOK_OUTPUT__LINKCHECK__WARNING_POLICY: error
       RUN_BLACKSMITH: 1
     steps:
       - uses: actions/checkout@v4
