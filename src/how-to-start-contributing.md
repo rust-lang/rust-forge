@@ -31,7 +31,7 @@ order to have a prior discussion and team buy-in:
 - Compiler team: a Major Change Proposal (MCP) or a Request For Comment (RFC) (read more [here][mcp-or-rfc-compiler])
 - Rustdoc team: Contact the team on their [Zulip channel][rustdoc-zulip]
 - Library team: open an API Change proposal (ACP) on [GitHub][acp-libs] or reach out the team [on Zulip][acp-zulip] (read more [here][libs-docs])
-- Bootstrap team: ask in the team [Zulip channel][t-boostrap-zulip]
+- Bootstrap team: ask in the team [Zulip channel][t-bootstrap-zulip]
 
 In case of doubt, feel free to ask on [Zulip][rust-zulip].
 
@@ -40,7 +40,7 @@ In case of doubt, feel free to ask on [Zulip][rust-zulip].
 [t-bootstrap-zulip]: https://rust-lang.zulipchat.com/#narrow/channel/326414-t-infra.2Fbootstrap
 [acp-libs]: https://github.com/rust-lang/libs-team/issues?q=sort%3Aupdated-desc+is%3Aissue+is%3Aopen
 [acp-zulip]: https://rust-lang.zulipchat.com/#narrow/channel/219381-t-libs
-[libs-doc]: https://forge.rust-lang.org/libs/maintaining-std.html
+[libs-docs]: https://forge.rust-lang.org/libs/maintaining-std.html
 
 ## How to start contributing?
 
