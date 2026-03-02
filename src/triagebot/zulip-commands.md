@@ -14,6 +14,7 @@ You can send these commands as a direct message to the [triagebot][triagebot-dm]
 - `whoami`: shows the Rust teams that you are a part of
 - `lookup github <zulip-name>`: lookup the GitHub username of a user by their Zulip name
 - `lookup zulip <github-username>`: lookup the Zulip name of a user by their GitHub username
+- `user-info <user-name> [--org <org>]`: show basic information about the given GitHub account, including its recent comments and PRs created in the given GitHub organization (`org`
 - `team-stats <team-name>`: show the review workqueue statistics of all members of the given team
 - `team-stats <team-name> <repo>`: show the review workqueue statistics of all members of the given
   team in the context of a given repository (i.e. considering that repository's `triagebot.toml`)
