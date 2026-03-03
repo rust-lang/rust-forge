@@ -37,7 +37,7 @@ authentication, and automatically fetch the user’s public keys from GitHub.
 You can connect to the instance with the following command:
 
 ```shell
-ssh <your-username>@<name>.infra.rust-lang.org
+ssh gh-<your-username>@<name>.infra.rust-lang.org
 ```
 
 Replace `<name>` with the machine name from the table at the top of the page.
@@ -55,7 +55,7 @@ To make the command easier, you can configure an alias in your `~/.ssh/config` l
 
 ```ssh-config
 Host rustvm
-  User <your-username>
+  User gh-<your-username>
   HostName <name>.infra.rust-lang.org
 ```
 
@@ -165,7 +165,7 @@ In summary:
 2. Then open VS Code on your machine and install
    the [Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
 3. Open the command palette and search for “Remote-SSH: Connect to host”
-4. Enter your username and the instance name (`<your-username>@<instance>`)
+4. Enter your username and the instance name (`gh-<your-username>@<instance>`)
 5. Select the path for the cloned repository from step 1
 6. Install any extensions that you want to run on the server (e.g.
    rust-analyzer)
