@@ -135,7 +135,7 @@ Some repositories may want to use custom messages instead of the preconfigured o
 
 ```toml
 [assign.custom_messages]
-auto-assign-someone = "Thanks for the contribution, assigning {assignee}!" # only required if auto-assign (`[assign.owners]` is configured
+auto-assign-someone = "Thanks for the contribution, assigning {assignee}!" # only required if auto-assign (`[assign.owners]`) is configured
 auto-assign-no-one = """
 Thanks for the contribution!
 
