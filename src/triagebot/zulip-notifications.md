@@ -29,6 +29,11 @@ zulip_stream = 245100 # #t-compiler/prioritization/alerts
 # {title} is replaced with the issue/PR title.
 topic = "#{number} {title}"
 
+# Optional message to be posted on GitHub when opening the Zulip topic.
+# Useful to add a backlink from GitHub to the Zulip topic.
+# Supports {zulip_topic_url} substitution.
+github_comment = "[Zulip topic]({zulip_topic_url}) was opened to discuss this issue."
+
 # The message to post when the label is added.
 # Supports {number} and {title} substitution.
 message_on_add = "Issue #{number} \"{title}\" has been added."

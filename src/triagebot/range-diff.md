@@ -11,6 +11,10 @@ This feature is enabled on a repository by having a empty `[range-diff]` table i
 [range-diff]
 ```
 
+There are optional keys that you can include:
+
+- `consider-push-from-bots` (default: `false`) --- Should push from bots be consider for a range-diff comment.
+
 ## Implementation
 
 See [`src/handlers/check_commits/range_diff.rs`](https://github.com/rust-lang/triagebot/blob/HEAD/src/handlers/check_commits/force_push_range_diff.rs).
