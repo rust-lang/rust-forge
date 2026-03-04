@@ -18,6 +18,7 @@ manually resync the following Zulip groups to the stream:
 - `gsoc-contributors`, since they have access to Dev Desktops.
 - `ospp-contributors`, likewise.
 - `cloud-compute-users`, likewise.
+- `T-program`, likewise.
 
 This can be done in Zulip through:
 
