@@ -20,6 +20,7 @@ This feature is enabled on a repository by having a `[merge-conflicts]` table in
 
 There are several optional keys that you can include:
 
+- `consider-prs-from-bots` --- Should merge conflicts be reported for PR opened by bots.
 - `remove` --- A list of labels to remove from the PR when a conflict is detected.
 - `add` --- A list of labels to add to the PR when a conflict is detected.
 - `unless` --- A list of labels that, if already present on the PR, will prevent triagebot from adding or removing labels.
@@ -28,6 +29,7 @@ There are several optional keys that you can include:
 
 ```toml
 [merge-conflicts]
+consider-prs-from-bots = true
 remove = ['S-waiting-on-bors']
 add = ['S-waiting-on-author']
 unless = ['S-blocked', 'S-waiting-on-crater', 'S-waiting-on-team', 'S-waiting-on-review']
