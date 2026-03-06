@@ -32,8 +32,7 @@ can't make use of other features of a CDN such as caching.
 
 Most of the project's resources are hosted on [AWS]. Static content is stored in
 [Amazon S3], while dynamic content is loaded from a server. Both types of
-content are served through [Amazon CloudFront], the [Content Delivery Network]
-of AWS.
+content are served through the CDNs [Amazon CloudFront] and [Fastly].
 
 When a user access a resource, e.g. they are trying to download a crate, they
 will access the resource through the CDN. Different _distributions_ map domain
@@ -42,11 +41,11 @@ downloading a crate from `static.crates.io` goes through a _distribution_ that
 fetches the crate from an S3 bucket and then caches it for future requests.
 
 ```text
-                             ┌──► S3 (static content)
-                             │
-User ───────► CloudFront ────┤
-                             │
-                             └──► Server (dynamic content)
+                      ┌──► S3 (static content)
+                      │
+User ───────► CDN ────┤
+                      │
+                      └──► Server (dynamic content)
 ```
 
 ## Distributions
@@ -63,7 +62,7 @@ from `static.rust-lang.org`. The same is true when Rust is installed in a CI/CD
 pipeline, which is why this distribution has by far the highest traffic volume.
 
 Rust binaries are static and are stored in [Amazon S3], from where they are
-served by the CloudFront distribution.
+served by the CDNs.
 
 The distribution for `static.rust-lang.org` has a custom router that runs in a
 [AWS Lambda] function. The router provides a way to list files for a release and
@@ -85,4 +84,5 @@ distribution.
 [aws]: https://aws.amazon.com/
 [aws lambda]: https://aws.amazon.com/lambda/
 [content delivery network]: https://en.wikipedia.org/wiki/Content_delivery_network
+[fastly]: https://www.fastly.com/
 [rust-lang/simpleinfra]: https://github.com/rust-lang/simpleinfra
