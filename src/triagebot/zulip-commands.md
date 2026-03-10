@@ -3,7 +3,7 @@
 You can send commands to triagebot on the [Rust Zulip](https://rust-lang.zulipchat.com) server using two separate mechanisms:
 
 - Sending a direct message (DM) to the [triagebot][triagebot-dm] account.
-- Sending a message in some stream by tagging `@triagebot`, followed by a command (e.g. `@triagebot end-meeting`).
+- Sending a message in some stream by tagging `@**triagebot**`, followed by a command (e.g. `@**triagebot** end-meeting`).
 
 Triagebot commands can only be sent by users that are in the [team](https://github.com/rust-lang/team) database.
 
@@ -41,9 +41,12 @@ Note that the impersonation functionality is intended for inspecting the status 
 
 - *Meeting* commands serve for controlling the flow of Zulip meetings. They are documented [here](zulip-meeting.md).
 - *Rust Project Goals* commands serve for controlling Rust Project Goal tracking.
-  - `@triagebot ping-goals <threshold> <next-update>`: For use by the goals team to ping goal owners on Zulip to give an update on their goal. Will not ping if there has been a comment in `<threshold>` days. `<next-update>` is a string to say when the next blog update will start.
-- `@triagebot docs-update`: Generates a Pull Request ([example](https://github.com/rust-lang/rust/pull/141923)) to update the documentation submodules. See [Documentation Updates](doc-updates.md).
-- `@triagebot backport [stable | beta ] [approve | decline ] <PR>` (example: "@triagebot backport beta approve 123456") Will post a comment on GitHub to approve or decline a PR backport (see [Backports](../compiler/backports.md)).
+  - `@**triagebot** ping-goals <threshold> <next-update>`: For use by the goals team to ping goal owners on Zulip to give an update on their goal. Will not ping if there has been a comment in `<threshold>` days. `<next-update>` is a string to say when the next blog update will start.
+- `@**triagebot** docs-update`: Generates a Pull Request ([example](https://github.com/rust-lang/rust/pull/141923)) to update the documentation submodules. See [Documentation Updates](doc-updates.md).
+- `@**triagebot** backport [stable | beta ] [approve | decline ] <PR>` (example: "@triagebot backport beta approve 123456") Will post a comment on GitHub to approve or decline a PR backport (see [Backports](../compiler/backports.md)).
+- `@**triagebot** assign-prio <issue #> [ critical | high | medium | low | <empty>]` will assign a priority label to an issue (see [Prioritization][prio]).
+
+[prio]: ../compiler/prioritization.md
 
 ## Implementation
 
