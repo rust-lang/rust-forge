@@ -82,7 +82,9 @@ For issues labeled as `relnotes-tracking-issue`, the `needs-triage` tag should n
 
 ### Labels
 
-There are many different labels that can be applied to issues.
+There are many different labels that can be applied to issues. The set of labels we use for triaging
+is always changing according to our needs and we try to keep this list updated. Labels are manually
+added by team members as they see fit.
 
 - `needs-triage`: Signals that an issue is new and needs initial triage.
 - [`T-*`]: Specifies the team or teams that this issue is relevant to. For example `T-compiler`, `T-types` or `T-libs`.  See [Team Examples](#team-examples) for more details.
