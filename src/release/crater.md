@@ -10,7 +10,7 @@ First, file a new issue titled "Crater runs for 1.x" ([example](https://github.c
 A crater run for beta should be started as soon as we have beta out. Use the following craterbot
 invocations.
 
-$BETA_VERSION is e.g. 1.80.0-1, increment the 1 if it's not the first beta crater run, you can also
+$BETA_VERSION is e.g. 1.81.0-1, increment the 1 if it's not the first beta crater run, you can also
 use the auto-incremented counter on the beta `rustc --version`.
 
 $STABLE is e.g. `1.80.0` (the stable release) and $BETA is `1.81.0-beta.1`. You can also pick a beta
