@@ -68,6 +68,8 @@ smart-punctuation = true
 "platforms/zulip/triagebot.html" = "/triagebot/index.html"
 "core/blogs.html" = "/platforms/blogs.html"
 "core/index.html" = "/governance/council.html"
+"community/index.html" = "/archive/community.html"
+"community/survey-faq.html" = "/archive/community.html"
 
 [output.linkcheck]
 command = "mdbook-linkcheck2"
