@@ -81,6 +81,8 @@ It is required that out-of-tree crates must:
 - Use labels that are compatible with the existing triage process. This will allow nominated issues
   in your out-of-tree crate to be discussed during triage meetings.
     - eg. `T-compiler`, `I-compiler-nominated` (a full list is to be decided)
+- Use trusted publishing, if possible.
+- The compiler team should be added as owners of the crate on crates.io.
 
 ### Is there a requirement for community infrastructure for an out-of-tree crate?
 There is no requirement that community infrastructure (such as Zulip servers/streams) be created for
@@ -100,6 +102,17 @@ in stabilization or semantic changes to the language. Submodule changes in PRs t
 should be labelled appropriately (eg. `relnotes`, `t-compiler`, `t-lang`) just as if the change
 were implemented in `rust-lang/rust` directly, include a description of the changes when it is not
 obvious to those unfamiliar with the compiler or the out-of-tree crate.
+
+### When should releases happen in an out-of-tree crate?
+Any team member with permissions to merge a patch in an out-of-tree can create a pull request
+that would cut a new release when they think it is appropriate, and as long as this is reviewed by
+another team member (like any pull request). It is expected that any new release would be of a
+version of the crate that passes its tests and that warrants a new release (e.g. dependency
+upgrades, a new feature, a bug fix, etc).
+
+If the repository has trusted publishing configured then this should automatically
+publish to crates.io, otherwise the team member can publish to crates.io manually (and should have
+permissions to do so).
 
 [licenses]: https://github.com/rust-lang/rust/blob/HEAD/src/tools/tidy/src/deps.rs#L10-L19
 [Using external repositories]: https://rustc-dev-guide.rust-lang.org/external-repos
