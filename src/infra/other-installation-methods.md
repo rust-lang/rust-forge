@@ -14,7 +14,7 @@ want to install Rust in the most straightforward, recommended way, then follow
 the instructions on the main [installation page].
 
 That page describes installation via [`rustup`], a tool that manages multiple
-Rust toolchains in a consistent way across all platforms Rust supports. Why
+Rust toolchains in a consistent way across all platforms Rust supports (see [`rustup` documentation][rustup-docs]). Why
 might one _not_ want to install using those instructions?
 
 - Offline installation. `rustup` downloads components from the internet on
@@ -31,11 +31,6 @@ might one _not_ want to install using those instructions?
 - Validating signatures. Although `rustup` performs its downloads over HTTPS,
   the only way to verify the signatures of Rust installers today is to do so
   manually with the standalone installers.
-- GUI installation and integration with "Add/Remove Programs" on Windows.
-  `rustup` runs in the console and does not register its installation like
-  typical Windows programs. If you prefer a more typical GUI installation on
-  Windows there are standalone `.msi` installers. In the future `rustup` will
-  also have a GUI installer on Windows.
 
 Rust's platform support is defined in [three tiers], which correspond closely
 with the installation methods available: in general, the Rust project provides
@@ -44,6 +39,8 @@ via `rustup`. Some Tier 2 platforms though have only the standard library
 available, not the compiler itself; that is, they are cross-compilation targets
 only; Rust code can run on those platforms, but they do not run the compiler
 itself. Such targets can be installed with the `rustup target add` command.
+
+[rustup-docs]: https://rust-lang.github.io/rustup/
 
 ## Other ways to install `rustup`
 
