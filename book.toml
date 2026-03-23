@@ -15,6 +15,9 @@ extra-watch-dirs = ["blacksmith/src"]
 enable = true
 level = 0
 
+[output.html.search]
+use-boolean-and = true
+
 [output.html]
 additional-js = ["js/moment.min.js", "js/index.js"]
 additional-css = ["css/style.css"]
