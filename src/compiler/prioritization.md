@@ -12,12 +12,48 @@ of a prioritization process, described below.
    relevant teams
 1. Assign if possible
 
+## Request prioritization for an issue
+We generally prioritize regressions and unsound/miscompile issues.
+
+Anyone can request an issue to be prioritized by issuing the following command in a GitHub comment:
+```
+@rustbot prioritize
+```
+or if you are a team member, just add the `I-prioritize` label.
+
+Read more [here][requesting-prio] about how to enable issue prioritization in a repository.
+
+[requesting-prio]: ../triagebot/requesting-prioritization.html
+
+## Assigning priority to an issue
+To assign a priority, replace the `I-prioritize` label with one of `P-critical`, `P-high`,
+`P-medium` or `P-low` and add a succinct comment about the reasoning or link the Zulip discussion
+where the issue prioritization occurred, example:
+
+> Assigning priority (discussion on [Zulip](#)).
+>
+> @rustbot label -I-prioritize +P-XXX
+
+Tip: you can use [Github Saved Replies](https://docs.github.com/get-started/writing-on-github/working-with-saved-replies) to create a template comment.
+
+Priority can also be assigned from Zulip:
+```
+@**triagebot** assign-prio <issue #> [ critical | high | medium | low | <empty>]
+```
+
+Examples:
+- Assign high priority to issue 123456:
+  ```
+  @**triagebot** assign-prio 123456 high
+  ```
+- Remove priority from issue 123456:
+  ```
+  @**triagebot** assign-prio 123456
+  ```
+
 # Priority Levels
 As the compiler team's resources are limited, the primary goal of prioritization is to identify the
 most relevant issues to work on, so that the compiler team can focus on what matters the most.
-
-Issues relevant to prioritization are bugs and feature requests that are nominated for
-prioritization, by adding the `I-prioritize` label as described below.
 
 ## Labels
 Labeling an issue as `I-prioritize` starts the prioritization process, which will end by
@@ -101,119 +137,12 @@ until someone complains, a community member fixes it, or it gets fixed by accide
 `P-low` refer to issues issue that the compiler team doesn't plan to resolve, but are still worth
 fixing. Nominate the issue if it's unclear and needs to be discussed.
 
-# Generating the triage meeting agenda
-The triage meeting agenda is generated automatically using the prioritization efforts as input.
-It is generated from a template available on [HackMD][template_hackmd] or [GitHub][template_github].
+# Compiler triage
+Team Compiler meets every Thursday on [Zulip][zulip-compiler-meetings] to do triaging and talk about
+other topics. Feel free to participate, it's open to everyone.
 
-[template_hackmd]: https://hackmd.io/WQW0yzDDS16YvtBNurmj6A
-[template_github]: https://github.com/rust-lang/compiler-team/blob/master/templates/T-compiler%20Meeting%20Agenda%20YYYY-MM-DD.md
+The triage meeting agenda is generated using the prioritization efforts as input, read [here][meeting-agenda] how.
 
-First, ensure that relevant issues are labelled as `T-compiler`..
+[zulip-compiler-meetings]: https://rust-lang.zulipchat.com/#narrow/channel/238009-t-compiler.2Fmeetings/topic/.5Bweekly.5D.202026-03-05/with/577530236
 
-- [Issues labeled with `I-prioritize`](https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+label%3AI-prioritize+-label%3AT-compiler+-label%3AT-cargo+-label%3AT-core+-label%3AT-doc+-label%3AT-infra+-label%3AT-lang+-label%3AT-libs+-label%3AT-libs-api+-label%3AT-release+-label%3AT-rustdoc+-label%3AA-rustdoc+-label%3AA-rustdoc-ui)
-- [Pull requests nominated for the stable release channel backport](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Astable-nominated+-label%3Astable-accepted+-label%3AT-compiler+-label%3AT-cargo+-label%3AT-core+-label%3AT-doc+-label%3AT-infra+-label%3AT-lang+-label%3AT-libs+-label%3AT-libs-api+-label%3AT-release+-label%3AT-rustdoc+-label%3AA-rustdoc+-label%3AA-rustdoc-ui)
-- [Pull requests nominated for the beta release channel backport](https://github.com/rust-lang/rust/issues?q=is%3Aall+label%3Abeta-nominated+-label%3Abeta-accepted+-label%3AT-compiler+-label%3AT-cargo+-label%3AT-core+-label%3AT-doc+-label%3AT-infra+-label%3AT-lang+-label%3AT-libs+-label%3AT-libs-api+-label%3AT-release+-label%3AT-rustdoc+-label%3AA-rustdoc+-label%3AA-rustdoc-ui)
-- [Issues labeled `I-compiler-nominated`](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3AI-nominated+-label%3AT-compiler+-label%3AT-cargo+-label%3AT-core+-label%3AT-doc+-label%3AT-infra+-label%3AT-lang+-label%3AT-libs+-label%3AT-libs-api+-label%3AT-release+-label%3AT-rustdoc+-label%3AA-rustdoc+-label%3AA-rustdoc-ui) (i.e. needing a T-compiler discussion)
-- [Pull requests waiting on a team's feedback](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3AS-waiting-on-team+-label%3AT-compiler+-label%3AT-cargo+-label%3AT-core+-label%3AT-doc+-label%3AT-infra+-label%3AT-lang+-label%3AT-libs+-label%3AT-libs-api+-label%3AT-release+-label%3AT-rustdoc+-label%3AA-rustdoc+-label%3AA-rustdoc-ui)
-- [Issues classified with priority `P-high`](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3AP-high+-label%3AT-compiler+-label%3AT-cargo+-label%3AT-core+-label%3AT-doc+-label%3AT-infra+-label%3AT-lang+-label%3AT-libs+-label%3AT-libs-api+-label%3AT-release+-label%3AT-rustdoc+-label%3AA-rustdoc+-label%3AA-rustdoc-ui)
-
-..and that prioritization has been completed. Regressions labeled with `I-prioritize` are signaling
-that a priority assessment is waiting. When this label is added to an issue, the `triagebot` sends a
-notification to the [`#t-compiler/prioritization/alerts`][prio_channel] Zulip channel.
-
-[prio_channel]: https://rust-lang.zulipchat.com/#narrow/channel/245100-t-compiler.2Fprioritization.2Falerts
-
-To assign a priority, replace the `I-prioritize` label with one of `P-critical`, `P-high`,
-`P-medium` or `P-low` and add a succinct comment to link the Zulip discussion where the issue
-prioritization occurred, example of a template for the comment:
-
-> Assigning priority (discussion on [Zulip](#)).
->
-> @rustbot label -I-prioritize +P-XXX
-
-Tip: use [Github Saved Replies](https://docs.github.com/get-started/writing-on-github/working-with-saved-replies) to create a template comment.
-
-Ideally, all [`T-compiler` issues with a `I-prioritize` label][issues_needing_prio] should have a
-priority assigned, or strive to reach this goal: sometimes different factors are blocking issues
-from being assigned a priority label, either because the report or the context is unclear or because
-cannot be reproduced and an MCVE would help. Don't hesitate to ask for clarifications to the issue
-reporter or to other contributors.
-
-Review [stable][stable_regressions], [beta][beta_regressions] and [nightly][nightly_regressions] and
-try to ensure they are assigned when possikle.
-
-[issues_needing_prio]: https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+label%3AT-compiler+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+label%3AI-prioritize
-[stable_regressions]: https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3Aregression-from-stable-to-stable+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+-label%3AT-infra+-label%3AT-libs+-label%3AT-libs-api+-label%3AT-release+-label%3AT-rustdoc
-[beta_regressions]: https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3Aregression-from-stable-to-beta+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+-label%3AT-infra+-label%3AT-libs+-label%3AT-libs-api+-label%3AT-release+-label%3AT-rustdoc
-[nightly_regressions]: https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3Aregression-from-stable-to-nightly+-label%3AP-critical+-label%3AP-high+-label%3AP-medium+-label%3AP-low+-label%3AT-infra+-label%3AT-libs+-label%3AT-libs-api+-label%3AT-release+-label%3AT-rustdoc
-
-The final step prior to generating the agenda is to accept any MCPs. Any MCPs that have had [the `final-comment-period` label][mcp_fcp]
-for more than ten days can be accepted. Remove the `final-comment-period` label and add the `major-change-accepted` label and then
-close the issue.
-
-[mcp_fcp]: https://github.com/rust-lang/compiler-team/issues?q=is%3Aissue+is%3Aopen+label%3Amajor-change+label%3Afinal-comment-period
-
-Finally, the meeting agenda can be generated. Clone and build [`triagebot`][triagebot] and run:
-
-[triagebot]: https://github.com/rust-lang/triagebot
-
-```console
-$ cargo run --bin prioritization-agenda
-```
-
-Copy the content into a new HackMD in the "Rust Lang Compiler Team" space. Copy the most recent
-[performance triage logs][perf_triage_log] (doing a bit of cleanup, removing anything that won't display well in Zulip)
-
-[perf_triage_log]: https://github.com/rust-lang/rustc-perf/tree/master/triage#triage-logs
-
-Add additional manual details to the agenda:
-
-- Add summaries of stable/beta nominations (e.g. who nominated the backport and why)
-- Add summaries of PRs waiting on the team (i.e. why are they waiting)
-- Add initial impressions of `P-critical`/`P-high` bugs
-- Add summaries of nominated issues (e.g. who the assignee is, why it was nominated, etc)
-- Populate the oldest PRs waiting on review
-  - Use judgement to determine whether a ping is appropriate (e.g. if the pull request is an
-    experiment, it may not need a review; how long has it been since review activity; what do
-    recent comments say?)
-
-About two hours prior to the meeting, announce and share the completed agenda in the Zulip thread for the
-upcoming meeting (creating it if it does not already exist):
-
-```text
-Hello @*T-compiler/meeting*, triage meeting in about 2h.
-Pre-triage done in #**t-compiler/prioritization/alerts**.
-Meeting agenda [on HackMD](https://hackmd.io/aaabbbccc123456)
-```
-
-It is always recommended to re-run the generator and copy any new details over to the agenda as
-issue statuses on GitHub may have changed.
-
-After the meeting, there are a few closing tasks:
-
-- Lock the agenda on HackMD assigning write permissions to `Owners`.
-- Remove the `to-announce` label from [MCPs], unless this label was added exactly during
-  the meeting (and therefore will be seen during the following meeting).
-- Remove `to-announce` FCPs from [`rust-lang/rust`][rust_announce], [`compiler-team`][team_announce]
-  and the [forge][forge_announce]. Same disclaimer as before regarding changes during the meeting.
-- Accept or decline [`beta nominated`][beta_nominated] and [`stable nominated`][stable_nominated]
-  backports that have been accepted during the meeting. For more info check [`t-release` backporting
-  docs][release_backports]
-  - To accept a backport, add a `{beta,stable}-accepted` label and keep the `{beta,stable}-nominated`
-    label. Other automated procedures will process these pull requests, it's important to leave both
-  labels. Add a comment on Github linking the Zulip discussion.
-  - To decline a backport, simply remove `{beta,stable}-nominated` label. Add a comment on Github
-  explaining why the backport was declined and link the Zulip discussion.
-- Remove [`I-compiler-nominated`][compiler_nominated] label from issues that were discussed.
-  Sometimes not all nominated issues are discussed (because of time constraints) and can slip to the
-  next meeting.
-
-[beta_nominated]: https://github.com/rust-lang/rust/issues?q=is%3Apr+label%3Abeta-nominated+-label%3Abeta-accepted
-[stable_nominated]: https://github.com/rust-lang/rust/issues?q=is%3Apr+label%3Astable-nominated+-label%3Astable-accepted
-[rust_announce]: https://github.com/rust-lang/rust/issues?q=label%3Afinished-final-comment-period%20label%3Ato-announce%20is%3Aissue
-[team_announce]: https://github.com/rust-lang/compiler-team/issues?q=label%3Afinished-final-comment-period%20label%3Ato-announce%20is%3Aissue
-[forge_announce]: https://github.com/rust-lang/rust-forge/issues?q=label%3Afinished-final-comment-period%20label%3Ato-announce%20is%3Aissue
-[fcps]: https://github.com/rust-lang/compiler-team/issues?q=label%3Amajor-change+label%3Ato-announce
-[mcps]: https://github.com/rust-lang/compiler-team/issues?q=label%3Amajor-change%20label%3Ato-announce%20is%3Aissue
-[release_backports]: ../release/backporting.md
-[compiler_nominated]: https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3AI-compiler-nominated+label%3AT-compiler
+[meeting-agenda]: ./operations.html#triage-meetings
