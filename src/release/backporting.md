@@ -1,6 +1,6 @@
 # Backporting
 
-> ## What is a backport?
+## What is a backport?
 
 > A **backport** is the act of taking a fix or feature that landed in a newer Rust release
 > (or any software) and re-applying it to an older supported branch. This is most often used
