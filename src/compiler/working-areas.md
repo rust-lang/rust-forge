@@ -9,10 +9,11 @@ Diagnostics                       | Use crates.io crates for diagnostics renderi
 LLVM                              | Working with LLVM upstream to represent Rust in its development                                    | [rustc], [LLVM][llvm_code]                                                  | [#t-compiler/llvm][llvm_stream]
 MIR Optimizations                 | Write MIR optimizations and refactor the MIR to be more optimizable.                               | [MIR transform][mir_transform_code]                                         | [#t-compiler/mir-opts][mir-opts-stream]
 Parallel-rustc                    | Making parallel compilation the default for rustc                                                  | [rustc]                                                                     | [#t-compiler/parallel-rustc][parallel-rustc_stream]
-Polonius                          | Exploring the integration of the "NLL 2.0"-like ["Polonius analysis"][Polonius] into rustc         | [borrow check][borrowck], [rust-lang/polonius][P], [rust-lang/datafrog][DF] |  [#t-types/polonius][polonius_stream]
+Polonius                          | Exploring the integration of the "NLL 2.0"-like ["Polonius analysis"][Polonius] into rustc         | [borrow check][borrowck], [rust-lang/polonius][P], [rust-lang/datafrog][DF] | [#t-types/polonius][polonius_stream]
 RLS 2.0                           | Experimenting with a new compiler architecture tailored for IDEs                                   | [rust-analyzer][ra-repo]                                                    | [#t-compiler/rust-analyzer][rls20_stream]
 Rust Compiler Development Guide   | Make the compiler easier to learn by ensuring that rustc-dev-guide is "complete"                   | [rustc], [rustc-dev-guide][rustc-dev-guide-repo]                            | [#t-compiler/rustc-dev-guide][rustc-dev-guide_stream]
-Enzyme                            | Expose experimental LLVM features for GPU offloading                                               | [Project Goal][enzyme-project-goal] | [#wg-autodiff]
+Enzyme                            | Expose experimental LLVM features for GPU offloading                                               | [Project Goal][enzyme-project-goal]                                         | [#wg-autodiff]
+Linker                            | Helping deal with linker related issues and their integration within the compiler                  | -                                                                           | [#wg-linker]
 
 For historical record here's a list of Working Groups that are not active anymore (either because they reached their goals or because work stalled):
 
@@ -62,3 +63,4 @@ Traits                           | Improving the trait-system design + implement
 [annotate-snippets]: https://crates.io/crates/annotate-snippets
 [#wg-autodiff]: https://rust-lang.zulipchat.com/#narrow/channel/390790-wg-autodiff
 [enzyme-project-goal]: https://github.com/rust-lang/rust-project-goals/issues/109
+[#wg-linker]: https://rust-lang.zulipchat.com/#narrow/channel/585172-t-compiler.2Flinker
