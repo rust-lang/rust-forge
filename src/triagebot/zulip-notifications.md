@@ -15,7 +15,13 @@ For example, the `rust-lang/rust` repository is configured to automatically post
 
 ## Configuration
 
-This feature is enabled on a repository by having a `[notify-zulip]` table in `triagebot.toml`:
+This feature is enabled on a repository by having a `[notify-zulip]` table in `triagebot.toml`.
+
+Some of the messages support substitutions:
+- `{number}` is replaced with the issue/PR number.
+- `{title}` is replaced with the issue/PR title.
+- `{recipients}` is replaced with a list of mentions of the people involved in the
+  issue/PR: the author and the assignees.
 
 ```toml
 # Triggers a Zulip notification based on the given label name.
@@ -25,8 +31,7 @@ This feature is enabled on a repository by having a `[notify-zulip]` table in `t
 zulip_stream = 245100 # #t-compiler/prioritization/alerts
 
 # The Zulip topic to post to.
-# {number} is replaced with the issue/PR number.
-# {title} is replaced with the issue/PR title.
+# Supports {number} and {title} substitution.
 topic = "#{number} {title}"
 
 # Optional message to be posted on GitHub when opening the Zulip topic.
@@ -35,19 +40,19 @@ topic = "#{number} {title}"
 github_comment = "[Zulip topic]({zulip_topic_url}) was opened to discuss this issue."
 
 # The message to post when the label is added.
-# Supports {number} and {title} substitution.
+# Supports {number}, {title}, and {recipients} substitution.
 message_on_add = "Issue #{number} \"{title}\" has been added."
 
 # The message to post when the label is removed.
-# Supports {number} and {title} substitution.
+# Supports {number}, {title}, and {recipients} substitution.
 message_on_remove = "Issue #{number}'s nomination has been removed. Thanks all for participating!"
 
 # The message to post when the issue/PR is closed and it has the label.
-# Supports {number} and {title} substitution.
+# Supports {number}, {title}, and {recipients} substitution.
 message_on_close = "Issue #{number} has been closed. Thanks for participating!"
 
 # The message to post when the issue/PR is reopened and it has the label.
-# Supports {number} and {title} substitution.
+# Supports {number}, {title}, and {recipients} substitution.
 message_on_reopen = "Issue #{number} has been reopened. Pinging @*T-types*."
 
 # The Zulip notification will not be posted unless the issue/PR has all of these labels.
