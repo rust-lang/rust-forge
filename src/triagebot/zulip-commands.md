@@ -19,7 +19,6 @@ You can send these commands as a direct message to the [triagebot][triagebot-dm]
 - `team-stats <team-name> <repo>`: show the review workqueue statistics of all members of the given
   team in the context of a given repository (i.e. considering that repository's `triagebot.toml`)
 - Reviewer workqueue commands, which are documented [here](review-queue-tracking.md#usage).
-- Notification commands, which are documented [here](notifications.md#usage).
 
 You can use the `--help` flag or a `help` subcommand for any of these commands to find out more about their parameters.
 
