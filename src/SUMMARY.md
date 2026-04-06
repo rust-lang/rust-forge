@@ -35,7 +35,6 @@
     - [No Merge Policy](./triagebot/no-merge.md)
     - [Nominate](./triagebot/nominate.md)
     - [Note](./triagebot/note.md)
-    - [Notifications](./triagebot/notifications.md)
     - [Pinging](./triagebot/pinging.md)
     - [Rendered link](./triagebot/rendered-link.md)
     - [Requesting Prioritization](./triagebot/requesting-prioritization.md)
