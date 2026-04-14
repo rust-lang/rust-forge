@@ -10,6 +10,7 @@ command = "./build.bash"
 
 [build]
 extra-watch-dirs = ["blacksmith/src"]
+create-missing = false
 
 [output.html.fold]
 enable = true
