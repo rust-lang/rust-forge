@@ -112,6 +112,7 @@
         - [docs.rs](./infra/docs/docs-rs.md)
         - [ECS services management](./infra/docs/ecs-services.md)
         - [Monitoring](./infra/docs/monitoring.md)
+        - [Renovate](./infra/docs/renovate.md)
         - [rust-bots server](./infra/docs/rust-bots.md)
         - [rust-lang/rust CI](./infra/docs/rustc-ci.md)
         - [Sentry](./infra/docs/sentry.md)
