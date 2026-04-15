@@ -6,30 +6,44 @@ on:
     branches:
       - master
 
+# Limit concurrent workflow runs to prevent resource conflicts and ensure clean deployments
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+# Default permissions for all jobs - minimal access
+permissions: {}
+
 jobs:
   build:
+    name: Build site
     env:
       MDBOOK_VERSION: 0.5.1
       RUN_BLACKSMITH: 1
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      # Checkout repository without persisting credentials to reduce attack surface
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4
+        with:
+          persist-credentials: false
       - name: Install mdbook
         run: curl -sSL https://github.com/rust-lang/mdBook/releases/download/v${MDBOOK_VERSION}/mdbook-v${MDBOOK_VERSION}-x86_64-unknown-linux-gnu.tar.gz | tar -xz
       - name: Build book
         run: ./mdbook build
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa  # v3
         with:
           path: ./book/html
 
   deploy:
+    name: Deploy to GitHub Pages
     if: github.repository_owner == 'rust-lang'
     needs: build
 
+    # Required permissions for GitHub Pages deployment
     permissions:
-      pages: write
-      id-token: write
+      pages: write  # Required to deploy to GitHub Pages
+      id-token: write  # Required for OIDC authentication with GitHub Pages service
 
     environment:
       name: github-pages
@@ -38,4 +52,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e  # v4.0.5
