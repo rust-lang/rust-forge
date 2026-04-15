@@ -30,7 +30,10 @@ jobs:
           persist-credentials: false
 
       - name: Install zizmor
-        run: cargo install zizmor
+        run: |
+          curl -sSL https://github.com/woodruffw/zizmor/releases/download/v1.24.1/zizmor-x86_64-unknown-linux-gnu.tar.gz | tar -xz
+          chmod +x zizmor
+          sudo mv zizmor /usr/local/bin/
 
       - name: Run zizmor audit
         run: zizmor --persona pedantic --min-severity low .github/workflows
