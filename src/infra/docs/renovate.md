@@ -71,6 +71,25 @@ Check that Renovate created the
 GitHub issue, so that you can
 trigger PRs in the repository by interacting with that issue.
 
+### 4. Troubleshooting Renovate behavior
+
+If you don't understand why Renovate doesn't behave as you expect,
+you can run it locally in dry-run mode, and evaluate how it resolves
+dependency updates:
+
+```bash
+
+RENOVATE_DRYRUN_TOKEN=$(gh auth token) &&\
+docker run --rm -it\
+    -e RENOVATE_TOKEN="$RENOVATE_DRYRUN_TOKEN"\
+    -e GITHUB_COM_TOKEN="$RENOVATE_DRYRUN_TOKEN"\
+    -v /tmp:/tmp\
+    -v $PWD:/usr/src/app\
+    renovate/renovate:latest renovate --platform=local --repository-cache=reset --dry-run=lookup
+```
+
+If you need more logs, add `-e LOG_LEVEL=debug` to the command above.  
+
 ## Support
 
 If Renovate isn't working, or you have questions, ask in the
