@@ -85,7 +85,7 @@ docker run --rm -it\
     -e GITHUB_COM_TOKEN="$RENOVATE_DRYRUN_TOKEN"\
     -v /tmp:/tmp\
     -v $PWD:/usr/src/app\
-    renovate/renovate:latest renovate --platform=local --repository-cache=reset --dry-run
+    renovate/renovate:latest renovate --platform=local --repository-cache=reset --dry-run=lookup
 ```
 
 If you need more logs, add `-e LOG_LEVEL=debug` to the command above.  
