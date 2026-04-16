@@ -46,11 +46,23 @@ Here are the differences between the two apps:
 
 ### 2. Configure Renovate
 
-Create a `.github/renovate.json5` file.
-Other file formats and locations are also supported, see the [Renovate documentation](https://docs.renovatebot.com/configuration-options/).
+Create a `.github/renovate.json5` file with the following content:
 
-See the existing configuration files in the Rust organization for examples:
-[GitHub code search for `renovate.json` paths](https://github.com/search?q=org%3Arust-lang+path%3Arenovate.json&type=code).
+```json5
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>rust-lang/renovate"]
+}
+```
+
+Note:
+- If you don't like our default configuration, have a look at [rust-lang/renovate](https://github.com/rust-lang/renovate)
+  to learn how to customize our org presets.
+- If you don't like any of our org presets, you can also use your own configuration that don't extend any of our presets.
+  If you have ideas on how to improve our org presets, PRs are welcome!
+- Other file formats and locations are also supported, see the [Renovate documentation](https://docs.renovatebot.com/configuration-options/).
+- You can take inspiration from other configuration files in the Rust organization with a
+  [GitHub code search for `renovate.json` paths](https://github.com/search?q=org%3Arust-lang+path%3Arenovate.json&type=code).
 
 ### 3. Ensure Renovate is working
 
