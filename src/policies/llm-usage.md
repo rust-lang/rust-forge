@@ -43,7 +43,7 @@ The following are banned.
     - ℹ️ This also applies to issue bodies and PR descriptions.
     - ℹ️ See also "machine-translation" in ⚠️ below.
 - Documentation that is originally authored by an LLM.
-    - ℹ️ This includes non-trivial source comments, such as paragraph+ doc-comments or multiple inline paragraphs.
+    - ℹ️ This includes non-trivial source comments, such as doc-comments or multiple paragraphs of non-doc-comments.
     - ℹ️ This includes compiler diagnostics.
 - Code changes that are originally authored by an LLM.
   - This does not include "trivial" changes that do not meet the [threshold of originality](https://fsfe.org/news/2025/news-20250515-01.en.html), which fall under ⚠️ below.
@@ -52,6 +52,12 @@ The following are banned.
     - We do not accept PRs made up solely of trivial changes.
       See [the compiler team's typo fix policy](https://rustc-dev-guide.rust-lang.org/contributing.html#writing-documentation:~:text=Please%20notice%20that%20we%20don%E2%80%99t%20accept%20typography%2Fspellcheck%20fixes%20to%20internal%20documentation).
   - See also "learning from an LLM's solution" in ⚠️ below.
+- Treating an LLM review as a sufficient condition to merge a change.
+  LLM reviews, if enabled by a team, **must** be advisory-only.
+  Teams can have a policy that code can be merged without review, and they can have a policy that code must be reviewed by at least one person,
+  but they may not have a policy that an LLM counts as a person.
+    - ℹ️ See "review bots" in ⚠️ below.
+    - ℹ️ An LLM review does not substitute for self-review. Authors are expected to review their own code before posting and after each change.
 
 #### ⚠️ Allowed with caveats
 The following are decided on a case-by-case basis.
@@ -83,7 +89,7 @@ All of these **must** disclose that an LLM was used.
 Do not try to be the police for whether someone has used an LLM.
 If it's clear they've broken the rules, point them to this policy; if it's borderline, report it to the mods and move on.
 
-Conversely, lying about whether you've used an LLM is an instant code of conduct violation.
+Conversely, lying about whether you've used an LLM is an instant [code of conduct](https://rust-lang.org/policies/code-of-conduct/) violation.
 If you are not sure where you fall in this policy, please talk to us.
 Don't try to hide it.
 
@@ -105,3 +111,6 @@ This policy does not aim to be exhaustive.
 If you have a use of LLMs in mind that isn't on this list, judge it in the spirit of this overview:
 - Usages that do not use LLMs for creation and do not show LLM output to another human are likely allowed ✅ 
 - Usages that use LLMs for creation or show LLM output to another human are likely banned ❌
+
+This policy is not set in stone.
+We can evolve it as we gain more experience working with LLMs.
