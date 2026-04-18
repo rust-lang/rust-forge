@@ -1,4 +1,4 @@
-## Policy
+## LLM Usage Policy
 
 For additional information about the policy itself, see [the appendix](#appendix).
 
@@ -35,7 +35,7 @@ The following are allowed.
 - Writing dev-tools for your own personal use using an LLM, as long as you don't try to merge them into `rust-lang/rust`.
 - Using an LLM to discover bugs, as long as you personally verify the bug, write it up yourself, and disclose that an LLM was used.
   Please refer to [our guidelines for fuzzers](https://rustc-dev-guide.rust-lang.org/fuzzing.html#guidelines).
-    - ℹ️ This also includes reviewers who use LLMs to discover bugs in unmerged code.
+    - ℹ️ This also includes reviewers who use LLMs to discover flaws in unmerged code.
 
 #### ❌ Banned
 The following are banned.
@@ -62,20 +62,22 @@ The following are banned.
 #### ⚠️ Allowed with caveats
 The following are decided on a case-by-case basis.
 Please avoid them where possible.
-In general, existing contributors will be treated more leniently here than new contributors.
+In general, existing contributors will be treated more leniently here than new contributors,
+since they've already established trust with their reviewers.
 We may ask you for the original prompts or design documents that went into the LLM's output;
 please have them on-hand, and be available yourself to answer questions about your process.
 
 - Using an LLM to generate a solution to an issue, learning from its solution, and then rewriting it from scratch in your own style.
-- Using machine-translation from your native language without posting your original message.
+- Using machine-translation (e.g. Google Translate) from your native language without posting your original message.
   Doing so can introduce new miscommunications that weren't there originally, and prevents someone who speaks the language from providing a better translation.
     - ℹ️ Posting both your original message and the translated version is always ok, but you must still disclose that machine-translation was used.
-    - ℹ️ This policy also applies to non-LLM machine translations such as Google Translate.
 - Using an LLM as a "review bot" for PRs.
-    - ℹ️ Review bots **must** have a separate GitHub account that marks them as an LLM. They **must not** post under a personal account.
+    - ℹ️ Review bots **must** have a separate GitHub account that marks them as an LLM.
+      You **must not** post (or allow a tool to post) LLM reviews verbatim on your personal account unless clearly quoted with your own personal interpretation of the bot's analysis.
+    - ℹ️ Review bot accounts must be blockable by individual users via the standard GitHub user-blocking mechanism. (Note that some GitHub "app" accounts post comments that look like users but cannot be blocked.)
     - ℹ️ Review bots that post without being approved by a maintainer will be banned.
     - ℹ️ If a linter already exists for the language you're writing, we strongly suggest using that linter instead of or in addition to the LLM.
-    - ℹ️ Please keep in mind that it's easy for LLM reviews to have false positives or focus on trivialities. We suggest configuring it to the "least chatty" setting you can.
+    - ℹ️ Configure LLM review tools to reduce false positives and excessive focus on trivialities, as these are common, exhausting failure modes.
     - ℹ️ LLM comments **must not** be blocking; reviewers must indicate which comments they want addressed. It's ok to require a *response* to each comment but the response can be "the bot's wrong here".
         - In other words, reviewers must explicitly endorse an LLM comment before blocking a PR. They are responsible for their own analysis of the LLM's comment and cannot treat it as a CI failure.
     - ℹ️ This does not apply to private use of an LLM for reviews; see ✅ above.
@@ -84,21 +86,21 @@ All of these **must** disclose that an LLM was used.
 
 ## Appendix
 
-### No witch hunts
+### It's not your job to play detective
 ["The optimal amount of fraud is not zero"](https://www.bitsaboutmoney.com/archive/optimal-amount-of-fraud/).
 Do not try to be the police for whether someone has used an LLM.
 If it's clear they've broken the rules, point them to this policy; if it's borderline, report it to the mods and move on.
 
 Conversely, lying about whether you've used an LLM is an instant [code of conduct](https://rust-lang.org/policies/code-of-conduct/) violation.
-If you are not sure where you fall in this policy, please talk to us.
+If you are not sure where something you would like to do falls in this policy, please talk to us.
 Don't try to hide it.
 
 ### Responsibility
 
-All contributions are your responsibility; you cannot place any blame on an LLM.
+Your contributions are your responsibility; you cannot place any blame on an LLM.
 - ℹ️ This includes when asking people to address review comments originally authored by an LLM. See "review bots" under ⚠️ above.
 
-### "originally authored"
+### The meaning of "originally authored"
 
 This document uses the phrase "originally authored" to mean "text that was generated by an LLM (and then possibly edited by a human)".
 No amount of editing can change authorship; authorship sets the initial style and it is very hard to change once it's set.
