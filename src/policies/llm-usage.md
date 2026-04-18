@@ -65,7 +65,7 @@ Please avoid them where possible.
 In general, existing contributors will be treated more leniently here than new contributors,
 since they've already established trust with their reviewers.
 We may ask you for the original prompts or design documents that went into the LLM's output;
-please have them on-hand, and be available yourself to answer questions about your process.
+please have them on-hand, and be available to personally answer questions about your process.
 We may also ask for the exact LLM model used to generate the output.
 
 - Using an LLM to generate a solution to an issue, learning from its solution, and then rewriting it from scratch in your own style.
@@ -77,7 +77,7 @@ We may also ask for the exact LLM model used to generate the output.
       You **must not** post (or allow a tool to post) LLM reviews verbatim on your personal account unless clearly quoted with your own personal interpretation of the bot's analysis.
     - ℹ️ Review bot accounts must be blockable by individual users via the standard GitHub user-blocking mechanism. (Note that some GitHub "app" accounts post comments that look like users but cannot be blocked.)
     - ℹ️ Review bots that post without being approved by a maintainer will be banned.
-    - ℹ️ If a linter already exists for the language you're writing, we strongly suggest using that linter instead of or in addition to the LLM.
+    - ℹ️ If a more reliable tool, such as a linter or formatter, already exists for the language you're writing, we strongly suggest using that tool instead of or in addition to the LLM.
     - ℹ️ Configure LLM review tools to reduce false positives and excessive focus on trivialities, as these are common, exhausting failure modes.
     - ℹ️ LLM comments **must not** be blocking; reviewers must indicate which comments they want addressed. It's ok to require a *response* to each comment but the response can be "the bot's wrong here".
         - In other words, reviewers must explicitly endorse an LLM comment before blocking a PR. They are responsible for their own analysis of the LLM's comment and cannot treat it as a CI failure.
