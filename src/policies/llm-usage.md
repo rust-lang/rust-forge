@@ -52,7 +52,7 @@ The following are banned.
     - We do not accept PRs made up solely of trivial changes.
       See [the compiler team's typo fix policy](https://rustc-dev-guide.rust-lang.org/contributing.html#writing-documentation:~:text=Please%20notice%20that%20we%20don%E2%80%99t%20accept%20typography%2Fspellcheck%20fixes%20to%20internal%20documentation).
   - See also "learning from an LLM's solution" in ⚠️ below.
-- Treating an LLM review as a sufficient condition to merge a change.
+- Treating an LLM review as a sufficient condition to merge or reject a change.
   LLM reviews, if enabled by a team, **must** be advisory-only.
   Teams can have a policy that code can be merged without review, and they can have a policy that code must be reviewed by at least one person,
   but they may not have a policy that an LLM counts as a person.
@@ -66,6 +66,7 @@ In general, existing contributors will be treated more leniently here than new c
 since they've already established trust with their reviewers.
 We may ask you for the original prompts or design documents that went into the LLM's output;
 please have them on-hand, and be available yourself to answer questions about your process.
+We may also ask for the exact LLM model used to generate the output.
 
 - Using an LLM to generate a solution to an issue, learning from its solution, and then rewriting it from scratch in your own style.
 - Using machine-translation (e.g. Google Translate) from your native language without posting your original message.
