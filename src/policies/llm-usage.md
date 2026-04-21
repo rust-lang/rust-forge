@@ -95,8 +95,17 @@ If you are not sure where something you would like to do falls in this policy, p
 Don't try to hide it.
 
 #### Penalties
-This policy follows the same guidelines as the code of conduct:
+The policies below follow the same guidelines as the code of conduct:
 Violations will first result in a warning, and repeated violations may result in a ban.
+- 🔨 Comments from a personal account originally authored by an LLM
+- 🔨 Violations of the "Be honest" section
+
+Other violations are left up to the discretion of reviewers and moderators.
+For most cases we recommend closing and locking the PR or issue, but not escalating further.
+
+Using an LLM does **not** mean it's ok to harrass a contributor.
+All contributors must be treated with respect.
+The code-of-conduct applies to *all* conversations in the Rust project.
 
 ### Responsibility
 
