@@ -53,18 +53,14 @@ The following are banned.
 - Treating an LLM review as a sufficient condition to merge or reject a change.
   LLM reviews, if enabled by a team, **must** be advisory-only.
   Teams can have a policy that code can be merged without review, and they can have a policy that code must be reviewed by at least one person,
-  but they may not have a policy that an LLM counts as a person.
+  but they may not have a policy that an LLM review substitutes for a human review.
     - ℹ️ See "review bots" in ⚠️ below.
     - ℹ️ An LLM review does not substitute for self-review. Authors are expected to review their own code before posting and after each change.
 
 #### ⚠️ Allowed with caveats
 The following are decided on a case-by-case basis.
-Please avoid them where possible.
-In general, existing contributors will be treated more leniently here than new contributors,
-since they've already established trust with their reviewers.
-We may ask you for the original prompts or design documents that went into the LLM's output;
-please have them on-hand, and be available to personally answer questions about your process.
-We may also ask for the exact LLM model used to generate the output.
+In general, new contributors will be scrutinized more heavily than existing contributors,
+since they haven't yet established trust with their reviewers.
 
 - Using an LLM to generate a solution to an issue, learning from its solution, and then rewriting it from scratch in your own style.
 - Using machine-translation (e.g. Google Translate) from your native language without posting your original message.
