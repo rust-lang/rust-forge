@@ -46,12 +46,10 @@ The following are banned.
     - ℹ️ This includes non-trivial source comments, such as doc-comments or multiple paragraphs of non-doc-comments.
     - ℹ️ This includes compiler diagnostics.
 - Code changes that are originally authored by an LLM.
-  - This does not include "trivial" changes that do not meet the [threshold of originality](https://fsfe.org/news/2025/news-20250515-01.en.html), which fall under ⚠️ below.
-    We understand that while asking an LLM research questions it may, unprompted, suggest small changes where there really isn't another way to write it.
-    However, you must still type out the changes yourself; you cannot give the LLM write access to your source code.
-    - We do not accept PRs made up solely of trivial changes.
-      See [the compiler team's typo fix policy](https://rustc-dev-guide.rust-lang.org/contributing.html#writing-documentation:~:text=Please%20notice%20that%20we%20don%E2%80%99t%20accept%20typography%2Fspellcheck%20fixes%20to%20internal%20documentation).
-  - See also "learning from an LLM's solution" in ⚠️ below.
+    - ℹ️ This does not include "trivial" changes that do not meet the [threshold of originality](https://fsfe.org/news/2025/news-20250515-01.en.html), which fall under ⚠️ below.
+    - ℹ️ Be cautious about PRs that consist solely of trivial changes.
+      See also [the compiler team's typo fix policy](https://rustc-dev-guide.rust-lang.org/contributing.html#writing-documentation:~:text=Please%20notice%20that%20we%20don%E2%80%99t%20accept%20typography%2Fspellcheck%20fixes%20to%20internal%20documentation).
+    - See also "learning from an LLM's solution" in ⚠️ below.
 - Treating an LLM review as a sufficient condition to merge or reject a change.
   LLM reviews, if enabled by a team, **must** be advisory-only.
   Teams can have a policy that code can be merged without review, and they can have a policy that code must be reviewed by at least one person,
