@@ -81,14 +81,20 @@ All of these **must** disclose that an LLM was used.
 
 ## Appendix
 
-### It's not your job to play detective
+### Moderation policy
+#### It's not your job to play detective
 ["The optimal amount of fraud is not zero"](https://www.bitsaboutmoney.com/archive/optimal-amount-of-fraud/).
 Do not try to be the police for whether someone has used an LLM.
 If it's clear they've broken the rules, point them to this policy; if it's borderline, report it to the mods and move on.
 
-Conversely, lying about whether you've used an LLM is an instant [code of conduct](https://rust-lang.org/policies/code-of-conduct/) violation.
-If you are not sure where something you would like to do falls in this policy, please talk to us.
+#### Be honest
+Conversely, lying about whether or how you've used an LLM is considered a [code of conduct](https://rust-lang.org/policies/code-of-conduct/) violation.
+If you are not sure where something you would like to do falls in this policy, please talk to the [moderation team](mailto:rust-mods@rust-lang.org).
 Don't try to hide it.
+
+#### Penalties
+This policy follows the same guidelines as the code of conduct:
+Violations will first result in a warning, and repeated violations may result in a ban.
 
 ### Responsibility
 
