@@ -9,6 +9,8 @@ However, we find it important to keep the following points in mind:
 
 - Many people find LLM-generated code and writing deeply unpleasant to read or review.
 - Many people find LLMs to be a significant aid to learning and discovery.
+- LLMs are a new technology, and we are still learning how to use, moderate, and improve them.
+  Since we're still learning, we have chosen an intentionally conservative policy that lets us maintain the standard of quality that Rust is known for.
 
 Therefore, the guidelines are roughly as follows:
 
