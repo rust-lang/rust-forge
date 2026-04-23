@@ -95,7 +95,7 @@ If you are not sure where something you would like to do falls in this policy, p
 Don't try to hide it.
 
 #### Penalties
-The policies below follow the same guidelines as the code of conduct:
+The policies marked with a 🔨 follow the same guidelines as the code of conduct:
 Violations will first result in a warning, and repeated violations may result in a ban.
 - 🔨 Comments from a personal account originally authored by an LLM
 - 🔨 Violations of the "Be honest" section
