@@ -64,25 +64,25 @@ since they haven't yet established trust with their reviewers.
     - ℹ️ Be cautious about PRs that consist solely of trivial changes.
       See also [the compiler team's typo fix policy](https://rustc-dev-guide.rust-lang.org/contributing.html#writing-documentation:~:text=Please%20notice%20that%20we%20don%E2%80%99t%20accept%20typography%2Fspellcheck%20fixes%20to%20internal%20documentation).
 - Solicited, non-critical, high-quality, well-tested, and well-reviewed code changes that are originally authored by an LLM.
-    1. "Solicited" means that a reviewer has communicated *ahead of time* that they are willing to review an LLM-authored PR.
-      - ℹ️ New contributors are discouraged from using an LLM unless they first talk with a reviewer.
-    2. "Non-critical" means that it is extremely unlikely for the PR to cause a [soundness](https://jacko.io/safety_and_soundness.html) regression.
-      - ℹ️ Examples:
-        - Changes to internal tooling like `tidy`, `x setup`, and  `linkchecker` are probably ok.
-        - Changes that have a strong soundness impact, like the trait system, MIR building, or the query system are probably not ok.
-        - Changes that occasionally affect soundness, like `compiletest`, diagnostics, and feature-gated code, are discouraged and may be subject to additional scrutiny.
-    3. "High-quality" means that it is held to at least the same standard as other code changes.
-       Everyone reads code, not just the author and reviewer;
-       we are not interested in "vibe-coded" PRs that degrade the quality of the codebase.
-    4. "Well-tested" means that you have covered all edge-cases that either you or the reviewer can think of.
-      - ℹ️ LLM-authored PRs will be held to a higher standard than human-authored PRs, because LLMs make it easier to write tests.
-      - ℹ️ If there is no existing test suite for a section of code, you must either write a new test suite or close the PR.
-           There are no exceptions for "writing the tests seems hard".
-    5. "Well-reviewed" means the author and reviewer both commit to fully understanding the code.
-      - ℹ️ All review requirements in [our existing review policy](../compiler/reviews.md#basic-reviewing-requirements) still apply.
-      - ℹ️ A review from a project member does not substitute for self-review.
-           Authors are expected to review their own code before posting and after each change.
-      - ℹ️ We recommend, but do not require, using a second LLM for adversarial local review before publishing your changes.
+  1. "Solicited" means that a reviewer has communicated *ahead of time* that they are willing to review an LLM-authored PR.
+    - ℹ️ New contributors are discouraged from using an LLM unless they first talk with a reviewer.
+  2. "Non-critical" means that it is extremely unlikely for the PR to cause a [soundness](https://jacko.io/safety_and_soundness.html) regression.
+    - ℹ️ Examples:
+      - Changes to internal tooling like `tidy`, `x setup`, and  `linkchecker` are probably ok.
+      - Changes that have a strong soundness impact, like the trait system, MIR building, or the query system are probably not ok.
+      - Changes that occasionally affect soundness, like `compiletest`, diagnostics, and feature-gated code, are discouraged and may be subject to additional scrutiny.
+  3. "High-quality" means that it is held to at least the same standard as other code changes.
+      Everyone reads code, not just the author and reviewer;
+      we are not interested in "vibe-coded" PRs that degrade the quality of the codebase.
+  4. "Well-tested" means that you have covered all edge-cases that either you or the reviewer can think of.
+    - ℹ️ LLM-authored PRs will be held to a higher standard than human-authored PRs, because LLMs make it easier to write tests.
+    - ℹ️ If there is no existing test suite for a section of code, you must either write a new test suite or close the PR.
+          There are no exceptions for "writing the tests seems hard".
+  5. "Well-reviewed" means the author and reviewer both commit to fully understanding the code.
+    - ℹ️ All review requirements in [our existing review policy](../compiler/reviews.md#basic-reviewing-requirements) still apply.
+    - ℹ️ A review from a project member does not substitute for self-review.
+          Authors are expected to review their own code before posting and after each change.
+    - ℹ️ We recommend, but do not require, using a second LLM for adversarial local review before publishing your changes.
 - Using an LLM as a "review bot" for PRs.
     - ℹ️ Review bots **must** have a separate GitHub account that marks them as an LLM.
       You **must not** post (or allow a tool to post) LLM reviews verbatim on your personal account unless clearly quoted with your own personal interpretation of the bot's analysis.
