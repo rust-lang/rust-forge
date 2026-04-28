@@ -111,11 +111,10 @@ Don't try to hide it.
 #### Penalties
 The policies marked with a 🔨 follow the same guidelines as the code of conduct:
 Violations will first result in a warning, and repeated violations may result in a ban.
-- 🔨 Comments from a personal account originally authored by an LLM
 - 🔨 Violations of the "Be honest" section
 
 Other violations are left up to the discretion of reviewers and moderators.
-For most cases we recommend closing and locking the PR or issue, but not escalating further.
+For most first-time violations we recommend closing and locking the PR or issue.
 
 Using an LLM does **not** mean it's ok to harrass a contributor.
 All contributors must be treated with respect.
