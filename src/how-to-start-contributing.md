@@ -129,6 +129,8 @@ To achieve this goal, we want to build trust and respect of each other's time an
 - Please respect the reviewers' time: allow some days between reviews, only ask for reviews when your code compiles and tests pass, or give an explanation for why you are asking for a review at that stage (you can keep them in draft state until they're ready for review)
 - Try to keep comments concise, don't worry about a perfect written communication. Strive for clarity and being to the point
 
+See also our [LLM usage policy](./policies/llm-usage.md).
+
 [^1]: Free-Open Source Project, see: https://en.wikipedia.org/wiki/Free_and_open-source_software
 
 ### Different kinds of contributions
