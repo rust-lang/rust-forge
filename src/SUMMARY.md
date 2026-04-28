@@ -111,6 +111,7 @@
         - [Domain names and DNS](./infra/docs/dns.md)
         - [docs.rs](./infra/docs/docs-rs.md)
         - [ECS services management](./infra/docs/ecs-services.md)
+        - [Git Forges](./infra/docs/forges.md)
         - [Monitoring](./infra/docs/monitoring.md)
         - [Renovate](./infra/docs/renovate.md)
         - [rust-bots server](./infra/docs/rust-bots.md)
