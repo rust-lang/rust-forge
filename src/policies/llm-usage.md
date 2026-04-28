@@ -4,28 +4,23 @@ For additional information about the policy itself, see [the appendix](#appendix
 
 ### Overview
 
-Using an LLM while working on `rust-lang/rust` is conditionally allowed.
-However, we find it important to keep the following points in mind:
+Using LLMs while working on `rust-lang/rust` is conditionally allowed, when done with care.
+LLMs are not a substitute for thought,
+and we do not allow them to be used in ways that risk losing our shared social and technical understanding of the project,
+nor in ways that hurt our goals of creating a strong community.
 
-- Many people find LLM-generated code and writing deeply unpleasant to read or review.
-- Many people find LLMs to be a significant aid to learning and discovery.
-- LLMs are a new technology, and we are still learning how to use, moderate, and improve them.
-  Since we're still learning, we have chosen an intentionally conservative policy that lets us maintain the standard of quality that Rust is known for.
-
-Therefore, the guidelines are roughly as follows:
+The policy's guidelines are roughly as follows:
 
 > It's fine to use LLMs to answer questions, analyze, distill, refine, check, suggest, review. But not to **create**.
 
 > LLMs work best when used as a tool to write *better*, not *faster*.
 
+### Rules
 #### Legend
-
 - ✅ Allowed
 - ❌ Banned
 - ⚠️ Allowed with caveats. Must disclose that an LLM was used.
 - ℹ️ Adds additional detail to the policy. These bullets are normative.
-
-### Rules
 
 #### ✅ Allowed
 The following are allowed.
@@ -82,11 +77,30 @@ since they haven't yet established trust with their reviewers.
 All of these **must** disclose that an LLM was used.
 
 ## Appendix
+### Motivation and guiding principles
+
+There is not a consensus within the Rust project—and likely never will be—about when/how/where it is acceptable to use AI-based tools.
+Many members of the Rust project and community find value in AI;
+many others feel that its negative impact on society and the climate are severe enough that no use is acceptable.
+Still others are working out their opinion.
+
+Despite these differences, there are many common goals we all share:
+
+- Building a community of deep experts in our collective projects.
+- Building an inclusive community where all feel welcome and respected.
+
+To achieve those goals, this policy is designed with the following points in mind:
+
+- Many people find LLM-generated code and writing deeply unpleasant to read or review.
+- Many people find LLMs to be a significant aid to learning and discovery.
+- LLMs are a new technology, and we are still learning how to use, moderate, and improve them.
+  Since we're still learning, we have chosen an intentionally conservative policy that lets us maintain the standard of quality that Rust is known for.
+
 
 ### Moderation policy
 #### It's not your job to play detective
 ["The optimal amount of fraud is not zero"](https://www.bitsaboutmoney.com/archive/optimal-amount-of-fraud/).
-Do not try to be the police for whether someone has used an LLM.
+Don't try to be the police for whether someone has used an LLM.
 If it's clear they've broken the rules, point them to this policy; if it's borderline, report it to the mods and move on.
 
 #### Be honest
@@ -136,4 +150,4 @@ a simple majority of members of teams using rust-lang/rust (without concerns).
 This policy can be dissolved in a few ways:
 
 - An accepted FCP by teams using rust-lang/rust.
-- An objective concern raised about active harm the policy is having on the reputation of Rust, with evidence; as decided by a leadership council FCP.
+- An objective concern raised about active harm the policy is having on the reputation of Rust, with evidence, as decided by a leadership council FCP.
