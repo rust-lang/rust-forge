@@ -13,7 +13,7 @@ The policy's guidelines are roughly as follows:
 
 > It's fine to use LLMs to answer questions, analyze, distill, refine, check, suggest, review. But not to **create**.
 
-> LLMs work best when used as a tool to write *better*, not *faster*.
+> We carve out a space for "experimentation" to inform future revisions to this policy.
 
 ### Rules
 #### Legend
@@ -42,11 +42,8 @@ The following are banned.
 - Documentation that is originally authored by an LLM.
     - ℹ️ This includes non-trivial source comments, such as doc-comments or multiple paragraphs of non-doc-comments.
     - ℹ️ This includes compiler diagnostics.
-- Code changes that are originally authored by an LLM.
-    - ℹ️ This does not include "trivial" changes that do not meet the [threshold of originality](https://fsfe.org/news/2025/news-20250515-01.en.html), which fall under ⚠️ below.
-    - ℹ️ Be cautious about PRs that consist solely of trivial changes.
-      See also [the compiler team's typo fix policy](https://rustc-dev-guide.rust-lang.org/contributing.html#writing-documentation:~:text=Please%20notice%20that%20we%20don%E2%80%99t%20accept%20typography%2Fspellcheck%20fixes%20to%20internal%20documentation).
-    - See also "learning from an LLM's solution" in ⚠️ below.
+         LLMs are conditionally allowed to assist with the *logic* surrounding a diagnostic (see "code changes" under ⚠️ below),
+         but they must not be used to author the message itself.
 - Treating an LLM review as a sufficient condition to merge or reject a change.
   LLM reviews, if enabled by a team, **must** be advisory-only.
   Teams can have a policy that code can be merged without review, and they can have a policy that code must be reviewed by at least one person,
@@ -63,6 +60,28 @@ since they haven't yet established trust with their reviewers.
 - Using machine-translation (e.g. Google Translate) from your native language without posting your original message.
   Doing so can introduce new miscommunications that weren't there originally, and prevents someone who speaks the language from providing a better translation.
     - ℹ️ Posting both your original message and the translated version is always ok, but you must still disclose that machine-translation was used.
+- "Trivial" code changes that do not meet the [threshold of originality](https://fsfe.org/news/2025/news-20250515-01.en.html).
+    - ℹ️ Be cautious about PRs that consist solely of trivial changes.
+      See also [the compiler team's typo fix policy](https://rustc-dev-guide.rust-lang.org/contributing.html#writing-documentation:~:text=Please%20notice%20that%20we%20don%E2%80%99t%20accept%20typography%2Fspellcheck%20fixes%20to%20internal%20documentation).
+- Solicited, non-critical, high-quality, well-tested, and well-reviewed code changes that are originally authored by an LLM.
+    1. "Solicited" means that a reviewer has communicated *ahead of time* that they are willing to review an LLM-authored PR.
+      - ℹ️ New contributors are discouraged from using an LLM unless they first talk with a reviewer.
+    2. "Non-critical" means that it is extremely unlikely for the PR to cause a [soundness](https://jacko.io/safety_and_soundness.html) regression.
+      - ℹ️ Examples:
+        - Changes to internal tooling like `tidy`, `x setup`, and  `linkchecker` are probably ok.
+        - Changes that have a strong soundness impact, like the trait system, MIR building, or the query system are probably not ok.
+        - Changes that occasionally affect soundness, like `compiletest`, diagnostics, and feature-gated code, are discouraged and may be subject to additional scrutiny.
+    1. "High-quality" means that it is held to at least the same standard as other code changes.
+       Everyone reads code, not just the author and reviewer;
+       we are not interested in "vibe-coded" PRs that degrade the quality of the codebase.
+    4. "Well-tested" means that you have covered all edge-cases that either you or the reviewer can think of.
+      - ℹ️ LLM-authored PRs will be held to a higher standard than human-authored PRs, because LLMs make it easier to write tests.
+      - ℹ️ If there is no existing test suite for a section of code, you must either write a new test suite or close the PR.
+           There are no exceptions for "writing the tests seems hard".
+    5. "Well-reviewed" means the author and reviewer both commit to fully understanding the code.
+      - ℹ️ All review requirements in [our existing review policy](../compiler/reviews.md#basic-reviewing-requirements) still apply.
+      - ℹ️ A review from a project member does not substitute for self-review.
+           Authors are expected to review their own code before posting and after each change.
 - Using an LLM as a "review bot" for PRs.
     - ℹ️ Review bots **must** have a separate GitHub account that marks them as an LLM.
       You **must not** post (or allow a tool to post) LLM reviews verbatim on your personal account unless clearly quoted with your own personal interpretation of the bot's analysis.
@@ -94,7 +113,8 @@ To achieve those goals, this policy is designed with the following points in min
 - Many people find LLM-generated code and writing deeply unpleasant to read or review.
 - Many people find LLMs to be a significant aid to learning and discovery.
 - LLMs are a new technology, and we are still learning how to use, moderate, and improve them.
-  Since we're still learning, we have chosen an intentionally conservative policy that lets us maintain the standard of quality that Rust is known for.
+  Since we're still learning, we have chosen an intentionally conservative policy that lets us maintain the standard of quality that Rust is known for;
+  but leave space open to experiment with LLMs to inform future policies.
 
 
 ### Moderation policy
