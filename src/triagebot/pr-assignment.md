@@ -44,7 +44,9 @@ If you want to assign the pull request to a different reviewer based on its file
 
 ## Configuration
 
-PR assignment is enabled on the repository by having an `[assign.owners]` table in `triagebot.toml`:
+PR assignment with `r?` is enabled on the repository by having an `[assign]` table in `triagebot.toml`.
+
+If there is an `[assign.owners]` table, then triagebot will automatically select a reviewer based on which files were modified in the PR.
 
 ```toml
 # These are ad-hoc groups that can be referenced in `r?` and the `owners` table below.
@@ -78,8 +80,6 @@ fallback = ["@Mark-Simulacrum"]
 # Can use teams from the rust-lang teams database.
 "/src/tools/cargo" = ["@rust-lang/cargo"]
 ```
-
-If the `owners` map is configured, then triagebot will automatically select a reviewer based on which files were modified in the PR.
 
 ### Vacation
 
