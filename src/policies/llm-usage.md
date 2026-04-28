@@ -82,6 +82,7 @@ since they haven't yet established trust with their reviewers.
       - ℹ️ All review requirements in [our existing review policy](../compiler/reviews.md#basic-reviewing-requirements) still apply.
       - ℹ️ A review from a project member does not substitute for self-review.
            Authors are expected to review their own code before posting and after each change.
+      - ℹ️ We recommend, but do not require, using a second LLM for adversarial local review before publishing your changes.
 - Using an LLM as a "review bot" for PRs.
     - ℹ️ Review bots **must** have a separate GitHub account that marks them as an LLM.
       You **must not** post (or allow a tool to post) LLM reviews verbatim on your personal account unless clearly quoted with your own personal interpretation of the bot's analysis.
