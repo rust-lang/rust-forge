@@ -25,6 +25,9 @@ The transfer command is limited to team members of the rust-lang org, as well as
 
 ## Configuration
 
+> [!NOTE]
+> This feature is [enabled by default](https://github.com/rust-lang/triagebot/blob/master/rust-lang.triagebot.toml) in the rust-lang organization.
+
 The source repository must have an empty `transfer` table to enable transfers *from* that repository. Issues can be transferred to any repository in the rust-lang org (that has triagebot enabled).
 
 ```toml
