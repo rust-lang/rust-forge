@@ -9,7 +9,7 @@ This is useful when updating subtrees into the upstream repository as it avoids 
 
 ## Issue Links in Commits
 
-GitHub also permits having having issue links in commits which are then referenced in the issue. While useful, they often more than anything else spam the referenced issue. This handler puts a warning against them.
+GitHub also permits having issue links in commits which are then referenced in the issue. While useful, they often more than anything else spam the referenced issue. This handler puts a warning against them.
 
 ## Configuration
 

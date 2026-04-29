@@ -4,7 +4,7 @@
 
 Here is a list of recurring tasks. Ideally run through this list every week. If there are blockers or doubts, after having acquired the right context, don't hesitate to ping people around. Contributors are the best resource of the project (and we want to be mindful of their time) and are always helpful.
 
-You can trigger a discussion about a specific topic, issue or pull request by opening a new topic on Zulip in [#t-compiler][t-compiler] or, if it needs consensus and more focus from the team, it can can be labeled `I-compiler-nominated` and will be discussed in a meeting (see section [Meetings][meetings]).
+You can trigger a discussion about a specific topic, issue or pull request by opening a new topic on Zulip in [#t-compiler][t-compiler] or, if it needs consensus and more focus from the team, it can be labeled `I-compiler-nominated` and will be discussed in a meeting (see section [Meetings][meetings]).
 
 [meetings]: #meetings
 [t-compiler]: https://rust-lang.zulipchat.com/#narrow/channel/131828-t-compiler

@@ -25,7 +25,7 @@ official website for more resources.
 **Please ask questions!** A lot of people report feeling that they are "wasting
 expert time", but we do not feel that way. Contributors are important to us.
 
-If you want to contribute substancial changes, we suggest first contacting the team relevant to
+If you want to contribute substantial changes, we suggest first contacting the team relevant to
 these changes. Each teams has their own preferred workflow, please follow the recommended path in
 order to have a prior discussion and team buy-in:
 - Compiler team: a Major Change Proposal (MCP) or a Request For Comment (RFC) (read more [here][mcp-or-rfc-compiler])

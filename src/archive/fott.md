@@ -238,7 +238,7 @@ reviewer. Thanks, Kevin, for your contributions!
 
 Gabor's major contributions to Rust have been in the area of language design. In
 the last year he has produced a number of very high quality RFCs, and though
-many of them of not yet been accepted, his ideas are often thought-provoking and
+many of them have not yet been accepted, his ideas are often thought-provoking and
 have had a strong influence on the direction of the language. His [trait based
 exception handling RFC][tbeh] was particularly innovative, as well that [for
 future-proofing checked arithmetic][checked]. Gabor is an exceedingly clever
