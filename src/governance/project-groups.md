@@ -27,7 +27,7 @@ Part of building a community is removing some of the institutional memory that d
 
 Previously a lot of the discussion and iteration for large features would happen in the initial RFC thread. This leads to a lot of discussion in the top of the thread and that often becomes completely irrelevant to the current iteration.
 
-This process has also been unsuitable to describe features that can take multiple years to develop and will become multiple RFCs over the course of its design process. Some examples of of this are the "`impl Trait`" and "macros 2.0" features, where the goals has shifted a lot from the initial RFCs, and it can be hard to know their current status.
+This process has also been unsuitable to describe features that can take multiple years to develop and will become multiple RFCs over the course of its design process. Some examples of this are the "`impl Trait`" and "macros 2.0" features, where the goals has shifted a lot from the initial RFCs, and it can be hard to know their current status.
 
 [ffi unwind]: https://github.com/rust-lang/project-ffi-unwind
 [inline asm]: https://github.com/rust-lang/project-inline-asm
@@ -101,7 +101,7 @@ Once that has been resolved the group should write an announcement of their arch
 
 ### Retrospective
 
-While this RFC attempts to address some of the current organisational problems within the organisation, the author doesn't believe will be a panacea to those problems or that we won't encounter new problems in the future. As part of that, the RFC introduce having retrospectives with the groups once significant time has past or the group has finished its project.
+While this RFC attempts to address some of the current organisational problems within the organisation, the author doesn't believe will be a panacea to those problems or that we won't encounter new problems in the future. As part of that, the RFC introduce having retrospectives with the groups once significant time has passed or the group has finished its project.
 
 This would involve a discussion between the members of the group, and ideally their parent team and the Governance working group. The retrospective should produce a public blog post on the Inside Rust blog, however any feedback a member has that they would want to keep private would be omitted.
 

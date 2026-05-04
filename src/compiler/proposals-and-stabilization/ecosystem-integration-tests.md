@@ -62,7 +62,7 @@ to provide are indicated by italicized sentences whose content should be replace
 NOTE: It is not the intention of this policy to make it frustrating annoying to add an ecosystem
 test job/component. We simply wish to gather the necessary background information upfront
 (especially working together to figure out a viable *Failure Protocol*) to minimize potential
-frustrations from other [rust-lang/rust] contributors if and when the the test job/component do
+frustrations from other [rust-lang/rust] contributors if and when the test job/component does
 fail, potentially blocking PR / Full Merge CI in completely unrelated PRs.
 
 ---
