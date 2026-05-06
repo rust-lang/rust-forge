@@ -18,6 +18,9 @@ If triagebot is unable to directly assign the user, it will instead assign `@rus
 
 ## Configuration
 
+> [!NOTE]
+> This feature is [enabled by default](https://github.com/rust-lang/triagebot/blob/master/rust-lang.triagebot.toml) in the rust-lang organization.
+
 Issue assignment is enabled on a repository by the existence of the `[assign]` table in `triagebot.toml`:
 
 ```toml
