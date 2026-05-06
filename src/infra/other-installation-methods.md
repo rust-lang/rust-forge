@@ -114,10 +114,17 @@ wget https://ci-artifacts.rust-lang.org/rustc-builds/${TAG}/rustc-nightly-src.ta
 # Download a source tarball for a stable release
 # wget https://static.rust-lang.org/dist/rustc-${TAG}-src.tar.xz
 
-# Decompress the tarballs and check if they're the same
+# Decompress and extract the tarballs, then compare their contents
 xz --decompress rustc-*-src.tar.xz
 xz --decompress build/dist/rustc-*-src.tar.xz
-diff rustc-*-src.tar build/dist/rustc-*-src.tar
+
+rm -rf official built
+mkdir official built
+
+tar -xf rustc-*-src.tar -C official
+tar -xf build/dist/rustc-*-src.tar -C built
+
+diff -ru official built
 ```
 
 </details>
