@@ -3,8 +3,8 @@
 Users of the Rust programming language interact with the infrastructure of the
 project in various different ways. They access the project's website and
 documentation, query the crates index, and download Rust releases and crates.
-These resources are hosted by the Rust project and served through a [Content
-Delivery Network] (CDN).
+These resources are hosted by the Rust project and served through a
+[Content Delivery Network] (CDN).
 
 This document outlines why we use CDNs, for what, and how we have set them up.
 
@@ -63,6 +63,8 @@ pipeline, which is why this distribution has by far the highest traffic volume.
 
 Rust binaries are static and are stored in [Amazon S3], from where they are
 served by the CDNs.
+The supported public layout for release channel manifests
+is documented in the [release channel layout][release-channel-layout].
 
 The distribution for `static.rust-lang.org` has a custom router that runs in a
 [AWS Lambda] function. The router provides a way to list files for a release and
@@ -85,4 +87,5 @@ distribution.
 [aws lambda]: https://aws.amazon.com/lambda/
 [content delivery network]: https://en.wikipedia.org/wiki/Content_delivery_network
 [fastly]: https://www.fastly.com/
+[release-channel-layout]: ../channel-layout.md
 [rust-lang/simpleinfra]: https://github.com/rust-lang/simpleinfra

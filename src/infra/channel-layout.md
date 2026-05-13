@@ -9,10 +9,14 @@ A lot of the content herein is derived from
 
 
 Rust releases are deployed onto `static.rust-lang.org` where they are served via
-`https`. There are several parts to a release channel (`stable`, `beta`,
-`nightly`) but they all key off a manifest file and then go from there.
+`https` through our [CDNs](./docs/cdn.md).
+There are several parts to a release channel (`stable`, `beta`, `nightly`)
+but they all key off a manifest file and then go from there.
 
 ## Channel manifests
+
+The [`manifests.txt`](https://static.rust-lang.org/manifests.txt) file lists
+the paths of the channel manifest that have been published so far.
 
 There is a top level directory `/dist/` which contains the channel manifests.
 The manifests are named `channel-rust-[channelname].toml`. Each channel manifest
@@ -129,4 +133,3 @@ Since components and extensions are target-specific in the `pkg` tables, you
 will be able to see that `rust-std` for every target is specified in every
 `rust` target's extensions. This allows for cross-compilation by installation of
 any `rust-std` on any build system.
-
