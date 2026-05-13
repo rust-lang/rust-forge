@@ -38,6 +38,8 @@ The following are allowed.
 The following are banned.
 - Comments from a personal user account that are originally authored by an LLM.
     - ℹ️ This also applies to issue bodies and PR descriptions.
+    - ℹ️ This does not apply if the LLM content is clearly quoted and marked, you can post that.
+         However, the content of the comment must stand on its own even without the LLM content; it's not a substitute for your own words.
     - ℹ️ See also "machine-translation" in ⚠️ below.
 - Documentation that is originally authored by an LLM.
     - ℹ️ This includes non-trivial source comments, such as doc-comments or multiple paragraphs of non-doc-comments.
