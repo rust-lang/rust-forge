@@ -98,6 +98,10 @@ since they haven't yet established trust with their reviewers.
 
 All of these **must** disclose that an LLM was used.
 
+As a special case, T-security-response is exempt from the "solicited", "non-critical", and "well-tested" rules for LLM-authored code.
+This only applies to team members of T-security-response, and only for security bugs.
+If you believe your bug is security critical, please report it to security-response through [normal channels](https://rust-lang.org/policies/security/).
+
 ## Appendix
 ### Motivation and guiding principles
 
