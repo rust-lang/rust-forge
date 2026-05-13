@@ -68,6 +68,9 @@ since they haven't yet established trust with their reviewers.
 - Solicited, non-critical, high-quality, well-tested, and well-reviewed code changes that are originally authored by an LLM.
   1. "Solicited" means that a reviewer has communicated *ahead of time* that they are willing to review an LLM-authored PR.
       - ℹ️ New contributors are discouraged from using an LLM unless they first talk with a reviewer.
+      - ℹ️ As an additional check, the team that owns the code must be pinged on (but does not need to complete an MCP for) LLM-authored PRs,
+           and the reviewer must allow 48 hours to elapse after the ping before merging the PR.
+           Teams can choose to remove this requirement for code they own by completing an FCP.
   2. "Non-critical" means that it is extremely unlikely for the PR to cause a [soundness](https://jacko.io/safety_and_soundness.html) regression.
       - ℹ️ Examples:
         - Changes to internal tooling like `tidy`, `x setup`, and  `linkchecker` are probably ok.
