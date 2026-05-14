@@ -108,7 +108,7 @@ The goal of the channel is *not* to act as an additional gate-keeper on LLM-auth
 Instead, it's to collect information about *whether this experiment is working*:
 Are people doing interesting and useful things with LLMs? Are they learning? Are they making repeat contributions?
 
-This new channel will have higher-than-normal standards for what counts as on-topic.
+Because the new channel is private, it will have higher-than-normal standards for what counts as on-topic.
 For example, the following are on-topic:
 - Whether a PR meets the criteria for the experiment exception
 - Whether a PR follows the policy in general
