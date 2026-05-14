@@ -156,7 +156,8 @@ Violations will first result in a warning, and repeated violations may result in
 - 🔨 Violations of the "Be honest" section
 
 Other violations are left up to the discretion of reviewers and moderators.
-For most first-time violations we recommend closing and locking the PR or issue.
+For minor violations we recommend telling the author that we can't review the PR until it complies with the policy, with pointers to exactly what they need to do.
+For major violations or extractive PRs, we recommend closing the PR or issue.
 
 Using an LLM does **not** mean it's ok to harrass a contributor.
 All contributors must be treated with respect.
