@@ -69,15 +69,13 @@ since they haven't yet established trust with their reviewers.
       See also [the compiler team's typo fix policy](https://rustc-dev-guide.rust-lang.org/contributing.html#writing-documentation:~:text=Please%20notice%20that%20we%20don%E2%80%99t%20accept%20typography%2Fspellcheck%20fixes%20to%20internal%20documentation).
 - Solicited, non-critical, high-quality, well-tested, and well-reviewed code changes that are originally authored by an LLM.
   1. "Solicited" means that a reviewer has communicated *ahead of time* that they are willing to review an LLM-authored PR.
-      - ℹ️ New contributors are discouraged from using an LLM unless they first talk with a reviewer.
-      - ℹ️ As an additional check, the team that owns the code must be pinged on (but does not need to complete an MCP for) LLM-authored PRs,
-           and the reviewer must allow 48 hours to elapse after the ping before merging the PR.
-           Teams can choose to remove this requirement for code they own by completing an FCP.
+      - ℹ️ New contributors cannot use an LLM unless they first talk with a reviewer.
+           This must be the *same* reviewer who will be assigned to the PR.
   2. "Non-critical" means that it is extremely unlikely for the PR to cause a [soundness](https://jacko.io/safety_and_soundness.html) regression.
       - ℹ️ Examples:
         - Changes to internal tooling like `tidy`, `x setup`, and  `linkchecker` are probably ok.
         - Changes that have a strong soundness impact, like the trait system, MIR building, or the query system are probably not ok.
-        - Changes that occasionally affect soundness, like `compiletest`, diagnostics, and feature-gated code, are discouraged and may be subject to additional scrutiny.
+          - Changes that occasionally affect soundness, like `compiletest`, diagnostics, and feature-gated code, are discouraged and may be subject to additional scrutiny.
   3. "High-quality" means that it is held to at least the same standard as other code changes.
       Everyone reads code, not just the author and reviewer;
       we are not interested in "vibe-coded" PRs that degrade the quality of the codebase.
