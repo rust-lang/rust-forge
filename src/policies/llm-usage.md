@@ -81,7 +81,6 @@ since they haven't yet established trust with their reviewers.
 All of these **must** disclose that an LLM was used.
 
 #### Experiment: LLM-authored code changes
-
 Solicited, non-critical, high-quality, well-tested, and well-reviewed code changes that are originally authored by an LLM are allowed, with disclosure.
 1. "Solicited" means that a reviewer has communicated *ahead of time* that they are willing to review an LLM-authored PR.
     - ℹ️ New contributors cannot use an LLM unless they first talk with a reviewer.
@@ -109,6 +108,15 @@ The goal of the channel is *not* to act as an additional gate-keeper on LLM-auth
 Instead, it's to collect information about *whether this experiment is working*:
 Are people doing interesting and useful things with LLMs? Are they learning? Are they making repeat contributions?
 
+This new channel will have higher-than-normal standards for what counts as on-topic.
+For example, the following are on-topic:
+- Whether a PR meets the criteria for the experiment exception
+- Whether a PR follows the policy in general
+
+And the following are off-topic:
+- Technical and design discussions. These should be posted directly on the PR or in a public Zulip channel.
+- Discussions about effort, communication style, or intent
+- General discussions about the LLM policy
 ## Appendix
 ### Motivation and guiding principles
 
