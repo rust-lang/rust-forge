@@ -33,6 +33,9 @@ The following are allowed.
 - Using an LLM to discover bugs, as long as you personally verify the bug, write it up yourself, and disclose that an LLM was used.
   Please refer to [our guidelines for fuzzers](https://rustc-dev-guide.rust-lang.org/fuzzing.html#guidelines).
     - ℹ️ This also includes reviewers who use LLMs to discover flaws in unmerged code.
+- Using an LLM to generate possible solutions to an issue, learning from them, and then writing something from scratch in your own style.
+- Syncing code and documentation into `rust-lang/rust` (e.g., using submodules, subtrees, [josh](https://github.com/josh-project/josh), etc.) from other repositories that do not follow this policy.
+- Using an LLM in the creation of experimental code changes that are not meant to be reviewed and will never be merged but must live as draft PRs on `rust-lang/rust` for tooling reasons, such as to run crater or perf.
 
 #### ❌ Banned
 The following are banned.
@@ -58,7 +61,6 @@ The following are decided on a case-by-case basis.
 In general, new contributors will be scrutinized more heavily than existing contributors,
 since they haven't yet established trust with their reviewers.
 
-- Using an LLM to generate a solution to an issue, learning from its solution, and then rewriting it from scratch in your own style.
 - Using machine-translation (e.g. Google Translate) from your native language without posting your original message.
   Doing so can introduce new miscommunications that weren't there originally, and prevents someone who speaks the language from providing a better translation.
     - ℹ️ Posting both your original message and the translated version is always ok, but you must still disclose that machine-translation was used.
