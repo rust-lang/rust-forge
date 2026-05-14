@@ -30,9 +30,6 @@ The following are allowed.
 - Asking an LLM to privately review your code or writing.
     - ℹ️ This does not apply to public comments. See "review bots" under ⚠️ below.
 - Writing dev-tools for your own personal use using an LLM, as long as you don't try to merge them into `rust-lang/rust`.
-- Using an LLM to discover bugs, as long as you personally verify the bug, write it up yourself, and disclose that an LLM was used.
-  Please refer to [our guidelines for fuzzers](https://rustc-dev-guide.rust-lang.org/fuzzing.html#guidelines).
-    - ℹ️ This also includes reviewers who use LLMs to discover flaws in unmerged code.
 - Using an LLM to generate possible solutions to an issue, learning from them, and then writing something from scratch in your own style.
 - Syncing code and documentation into `rust-lang/rust` (e.g., using submodules, subtrees, [josh](https://github.com/josh-project/josh), etc.) from other repositories that do not follow this policy.
 - Using an LLM in the creation of experimental code changes that are not meant to be reviewed and will never be merged but must live as draft PRs on `rust-lang/rust` for tooling reasons, such as to run crater or perf.
@@ -67,6 +64,9 @@ since they haven't yet established trust with their reviewers.
 - "Trivial" code changes that do not meet the [threshold of originality](https://fsfe.org/news/2025/news-20250515-01.en.html).
     - ℹ️ Be cautious about PRs that consist solely of trivial changes.
       See also [the compiler team's typo fix policy](https://rustc-dev-guide.rust-lang.org/contributing.html#writing-documentation:~:text=Please%20notice%20that%20we%20don%E2%80%99t%20accept%20typography%2Fspellcheck%20fixes%20to%20internal%20documentation).
+- Using an LLM to discover bugs, as long as you personally verify the bug, write it up yourself, and disclose that an LLM was used.
+  Please refer to [our guidelines for fuzzers](https://rustc-dev-guide.rust-lang.org/fuzzing.html#guidelines).
+    - ℹ️ This also includes reviewers who use LLMs to discover flaws in unmerged code.
 - Solicited, non-critical, high-quality, well-tested, and well-reviewed code changes that are originally authored by an LLM.
   1. "Solicited" means that a reviewer has communicated *ahead of time* that they are willing to review an LLM-authored PR.
       - ℹ️ New contributors cannot use an LLM unless they first talk with a reviewer.
