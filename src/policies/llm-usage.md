@@ -75,7 +75,6 @@ since they haven't yet established trust with their reviewers.
       - ℹ️ Examples:
         - Changes to internal tooling like `tidy`, `x setup`, and  `linkchecker` are probably ok.
         - Changes that have a strong soundness impact, like the trait system, MIR building, or the query system are probably not ok.
-          - Changes that occasionally affect soundness, like `compiletest`, diagnostics, and feature-gated code, are discouraged and may be subject to additional scrutiny.
   3. "High-quality" means that it is held to at least the same standard as other code changes.
       Everyone reads code, not just the author and reviewer;
       we are not interested in "vibe-coded" PRs that degrade the quality of the codebase.
