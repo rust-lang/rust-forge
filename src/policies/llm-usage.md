@@ -149,7 +149,7 @@ Don't try to be the police for whether someone has used an LLM.
 If it's clear they've broken the rules, point them to this policy; if it's borderline, report it to the mods and move on.
 
 #### Be honest
-Conversely, lying about whether or how you've used an LLM is considered a [code of conduct](https://rust-lang.org/policies/code-of-conduct/) violation.
+Conversely, lying about whether you've used an LLM, or attempting to hide the extent of the use, is considered a [code of conduct](https://rust-lang.org/policies/code-of-conduct/) violation.
 If you are not sure where something you would like to do falls in this policy, please talk to the [moderation team](mailto:rust-mods@rust-lang.org).
 Don't try to hide it.
 
