@@ -39,6 +39,8 @@ The following are allowed.
 The following are banned.
 - Comments from a personal user account that are originally authored by an LLM.
     - ℹ️ This also applies to issue bodies and PR descriptions.
+    - ℹ️ This does *not* include stabilization reports, t-lang proposals, and changes to documentation owned by t-lang.
+         T-lang is free to set their own separate policy for those.
     - ℹ️ This does not apply if the LLM content is clearly quoted and marked, you can post that.
          However, the content of the comment must stand on its own even without the LLM content; it's not a substitute for your own words.
     - ℹ️ See also "machine-translation" in ⚠️ below.
