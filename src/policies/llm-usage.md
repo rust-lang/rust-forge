@@ -48,7 +48,7 @@ The following are banned.
          LLMs are conditionally allowed to assist with the *logic* surrounding a diagnostic (see "code changes" under ⚠️ below),
          but they must not be used to author the message itself.
 - Treating an LLM review as a sufficient condition to merge or reject a change.
-  LLM reviews, if enabled by a team, **must** be advisory-only.
+  LLM reviews, if enabled, **must** be advisory-only.
   Teams can have a policy that code can be merged without review, and they can have a policy that code must be reviewed by at least one person,
   but they may not have a policy that an LLM review substitutes for a human review.
     - ℹ️ See "review bots" in ⚠️ below.
@@ -69,10 +69,10 @@ since they haven't yet established trust with their reviewers.
   Please refer to [our guidelines for fuzzers](https://rustc-dev-guide.rust-lang.org/fuzzing.html#guidelines).
     - ℹ️ This also includes reviewers who use LLMs to discover flaws in unmerged code.
 - Using an LLM as a "review bot" for PRs.
+    - ℹ️ Review bots that post without being approved by a maintainer will be banned.
     - ℹ️ Review bots **must** have a separate GitHub account that marks them as an LLM.
       You **must not** post (or allow a tool to post) LLM reviews verbatim on your personal account unless clearly quoted with your own personal interpretation of the bot's analysis.
     - ℹ️ Review bot accounts must be blockable by individual users via the standard GitHub user-blocking mechanism. (Note that some GitHub "app" accounts post comments that look like users but cannot be blocked.)
-    - ℹ️ Review bots that post without being approved by a maintainer will be banned.
     - ℹ️ If a more reliable tool, such as a linter or formatter, already exists for the language you're writing, we strongly suggest using that tool instead of or in addition to the LLM.
     - ℹ️ Configure LLM review tools to reduce false positives and excessive focus on trivialities, as these are common, exhausting failure modes.
     - ℹ️ LLM comments **must not** be blocking; reviewers must indicate which comments they want addressed. It's ok to require a *response* to each comment but the response can be "the bot's wrong here".
