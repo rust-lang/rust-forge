@@ -37,18 +37,18 @@ The following are allowed.
 
 #### ❌ Banned
 The following are banned.
-- Comments from a personal user account that are originally authored by an LLM.
+- Comments from a personal user account that are originally created by an LLM.
     - ℹ️ This also applies to issue bodies and PR descriptions.
     - ℹ️ This does *not* include stabilization reports, t-lang proposals, and changes to documentation owned by t-lang.
          T-lang is free to set their own separate policy for those.
     - ℹ️ This does not apply if the LLM content is clearly quoted and marked, you can post that.
          However, the content of the comment must stand on its own even without the LLM content; it's not a substitute for your own words.
     - ℹ️ See also "machine-translation" in ⚠️ below.
-- Documentation that is originally authored by an LLM.
+- Documentation that is originally created by an LLM.
     - ℹ️ This includes non-trivial source comments, such as doc-comments, safety comments, or multiple paragraphs of non-doc-comments.
     - ℹ️ This includes compiler diagnostics.
          LLMs are conditionally allowed to assist with the *logic* surrounding a diagnostic (see "code changes" under ⚠️ below),
-         but they must not be used to author the message itself.
+         but they must not be used to create the message itself.
 - Treating an LLM review as a sufficient condition to merge or reject a change.
   LLM reviews, if enabled, **must** be advisory-only.
   Teams can have a policy that code can be merged without review, and they can have a policy that code must be reviewed by at least one person,
@@ -83,9 +83,9 @@ since they haven't yet established trust with their reviewers.
 
 All of these **must** disclose that an LLM was used.
 
-#### Experiment: LLM-authored code changes
-Solicited, non-critical, high-quality, well-tested, and well-reviewed code changes that are originally authored by an LLM are allowed, with disclosure.
-1. "Solicited" means that a reviewer has communicated *ahead of time* that they are willing to review an LLM-authored PR.
+#### Experiment: LLM-created code changes
+Solicited, non-critical, high-quality, well-tested, and well-reviewed code changes that are originally created by an LLM are allowed, with disclosure.
+1. "Solicited" means that a reviewer has communicated *ahead of time* that they are willing to review an LLM-created PR.
     - ℹ️ New contributors cannot use an LLM unless they first talk with a reviewer.
           This must be the *same* reviewer who will be assigned to the PR.
 2. "Non-critical" means that it is extremely unlikely for the PR to cause a [soundness](https://jacko.io/safety_and_soundness.html) regression.
@@ -96,7 +96,7 @@ Solicited, non-critical, high-quality, well-tested, and well-reviewed code chang
     Everyone reads code, not just the author and reviewer;
     we are not interested in "vibe-coded" PRs that degrade the quality of the codebase.
 4. "Well-tested" means that you have covered all edge-cases that either you or the reviewer can think of.
-    - ℹ️ LLM-authored PRs will be held to a higher standard than human-authored PRs, because LLMs make it easier to write tests.
+    - ℹ️ LLM-created PRs will be held to a higher standard than human-created PRs, because LLMs make it easier to write tests.
     - ℹ️ If there is no existing test suite for a section of code, you must either write a new test suite or close the PR.
           There are no exceptions for "writing the tests seems hard".
 5. "Well-reviewed" means the author and reviewer both commit to fully understanding the code.
@@ -105,9 +105,9 @@ Solicited, non-critical, high-quality, well-tested, and well-reviewed code chang
           Authors are expected to review their own code before posting and after each change.
     - ℹ️ We recommend, but do not require, using a second LLM for adversarial local review before publishing your changes.
 
-LLM-authored PRs must be tagged with a new `ai-assisted` label.
+LLM-created PRs must be tagged with a new `ai-assisted` label.
 All such PRs will be posted to a new (private) Zulip channel, which will be accessible to all members of the `rust-lang` organization.
-The goal of the channel is *not* to act as an additional gate-keeper on LLM-authored PRs.
+The goal of the channel is *not* to act as an additional gate-keeper on LLM-created PRs.
 Instead, it's to collect information about *whether this experiment is working*:
 Are people doing interesting and useful things with LLMs? Are they learning? Are they making repeat contributions?
 
@@ -169,12 +169,12 @@ The code-of-conduct applies to *all* conversations in the Rust project.
 ### Responsibility
 
 Your contributions are your responsibility; you cannot place any blame on an LLM.
-- ℹ️ This includes when asking people to address review comments originally authored by an LLM. See "review bots" under ⚠️ above.
+- ℹ️ This includes when asking people to address review comments originally created by an LLM. See "review bots" under ⚠️ above.
 
-### The meaning of "originally authored"
+### The meaning of "originally created"
 
-This document uses the phrase "originally authored" to mean "text that was generated by an LLM (and then possibly edited by a human)".
-No amount of editing can change authorship; authorship sets the initial style and it is very hard to change once it's set.
+This document uses the phrase "originally created" to mean "text that was generated by an LLM (and then possibly edited by a human)".
+No amount of editing can change how it was originally created; how it was generated sets the initial style and it's very hard to change once it's set.
 
 For more background about analogous reasoning, see ["What Colour are your bits?"](https://ansuz.sooke.bc.ca/entry/23)
 
