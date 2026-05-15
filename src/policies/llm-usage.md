@@ -160,7 +160,7 @@ Other violations are left up to the discretion of reviewers and moderators.
 For minor violations we recommend telling the author that we can't review the PR until it complies with the policy, with pointers to exactly what they need to do.
 For major violations or extractive PRs, we recommend closing the PR or issue.
 
-Using an LLM does **not** mean it's ok to harrass a contributor.
+It is **not** ok to harrass a contributor for using an LLM.
 All contributors must be treated with respect.
 The code-of-conduct applies to *all* conversations in the Rust project.
 
