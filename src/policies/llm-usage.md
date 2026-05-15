@@ -189,8 +189,9 @@ If you have a use of LLMs in mind that isn't on this list, judge it in the spiri
 This policy is not set in stone, and we can evolve it as we gain more experience working with LLMs.
 
 Minor changes, such as typo fixes, only require a normal PR approval.
-Major changes, such as adding a new rule or cancelling an existing rule, require
-a simple majority of members of teams using rust-lang/rust (without concerns).
+Major changes, such as adding a new rule or cancelling an existing rule, require:
+- A simple majority of members of teams using rust-lang/rust.
+- No outstanding concerns from those members.
 
 This policy can be dissolved in a few ways:
 
