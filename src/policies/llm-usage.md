@@ -182,8 +182,9 @@ For more background about analogous reasoning, see ["What Colour are your bits?"
 
 This policy does not aim to be exhaustive.
 If you have a use of LLMs in mind that isn't on this list, judge it in the spirit of this overview:
-- Usages that do not use LLMs for creation and do not show LLM output to another human are likely allowed ✅ 
-- Usages that use LLMs for creation or show LLM output to another human are likely banned ❌
+- Using an LLM for your own personal use is likely allowed ✅ 
+- Showing LLM output to another human without solicitation is likely banned ❌
+- Making a decision based on LLM output requires disclosure ⚠️
 
 ### Conditions for modification or dissolution
 This policy is not set in stone, and we can evolve it as we gain more experience working with LLMs.
