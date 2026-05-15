@@ -24,13 +24,14 @@ The policy's guidelines are roughly as follows:
 
 #### ✅ Allowed
 The following are allowed.
-- Asking an LLM questions about an existing codebase.
-- Asking an LLM to summarize comments on an issue, PR, or RFC.
-    - ℹ️ This does not allow reposting the summary publicly. This only includes your own personal use.
-- Asking an LLM to privately review your code or writing.
-    - ℹ️ This does not apply to public comments. See "review bots" under ⚠️ below.
-- Writing dev-tools for your own personal use using an LLM, as long as you don't try to merge them into `rust-lang/rust`.
-- Using an LLM to generate possible solutions to an issue, learning from them, and then writing something from scratch in your own style.
+- Any use of an LLM where you are the only one who sees the output. For example:
+  - Asking an LLM questions about an existing codebase.
+  - Asking an LLM to summarize comments on an issue, PR, or RFC.
+      - ℹ️ This does not allow reposting the summary publicly. This only includes your own personal use.
+  - Asking an LLM to privately review your code or writing.
+      - ℹ️ This does not apply to public comments. See "review bots" under ⚠️ below.
+  - Writing dev-tools for your own personal use using an LLM.
+  - Using an LLM to generate possible solutions to an issue, learning from them, and then writing something from scratch in your own style.
 - Syncing code and documentation into `rust-lang/rust` (e.g., using submodules, subtrees, [josh](https://github.com/josh-project/josh), etc.) from other repositories that do not follow this policy.
 - Using an LLM in the creation of experimental code changes that are not meant to be reviewed and will never be merged but must live as draft PRs on `rust-lang/rust` for tooling reasons, such as to run crater or perf.
 
