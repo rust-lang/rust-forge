@@ -42,7 +42,7 @@ The following are banned.
          However, the content of the comment must stand on its own even without the LLM content; it's not a substitute for your own words.
     - ℹ️ See also "machine-translation" in ⚠️ below.
 - Documentation that is originally authored by an LLM.
-    - ℹ️ This includes non-trivial source comments, such as doc-comments or multiple paragraphs of non-doc-comments.
+    - ℹ️ This includes non-trivial source comments, such as doc-comments, safety comments, or multiple paragraphs of non-doc-comments.
     - ℹ️ This includes compiler diagnostics.
          LLMs are conditionally allowed to assist with the *logic* surrounding a diagnostic (see "code changes" under ⚠️ below),
          but they must not be used to author the message itself.
