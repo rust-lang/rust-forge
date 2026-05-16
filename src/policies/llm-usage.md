@@ -67,9 +67,10 @@ since they haven't yet established trust with their reviewers.
 - "Trivial" code changes that do not meet the [threshold of originality](https://fsfe.org/news/2025/news-20250515-01.en.html).
     - ℹ️ Be cautious about PRs that consist solely of trivial changes.
       See also [the compiler team's typo fix policy](https://rustc-dev-guide.rust-lang.org/contributing.html#writing-documentation:~:text=Please%20notice%20that%20we%20don%E2%80%99t%20accept%20typography%2Fspellcheck%20fixes%20to%20internal%20documentation).
-- Using an LLM to discover bugs, as long as you personally verify the bug, write it up yourself, and disclose that an LLM was used.
+- Using an LLM to discover bugs, as long as you personally verify the bug.
   Please refer to [our guidelines for fuzzers](https://rustc-dev-guide.rust-lang.org/fuzzing.html#guidelines).
     - ℹ️ This also includes reviewers who use LLMs to discover flaws in unmerged code.
+    - ℹ️ See also "Comments from a personal user account" under ❌ above.
 - Using an LLM as a "review bot" for PRs.
     - ℹ️ Review bots that post without being approved by a maintainer will be banned.
     - ℹ️ Review bots **must** have a separate GitHub account that marks them as an LLM.
@@ -81,7 +82,7 @@ since they haven't yet established trust with their reviewers.
         - In other words, reviewers must explicitly endorse an LLM comment before blocking a PR. They are responsible for their own analysis of the LLM's comment and cannot treat it as a CI failure.
     - ℹ️ This does not apply to private use of an LLM for reviews; see ✅ above.
 
-All of these **must** disclose that an LLM was used.
+All uses under "⚠️ Allowed with caveats" **must** disclose that an LLM was used.
 
 #### Experiment: LLM-created code changes
 Solicited, non-critical, high-quality, well-tested, and well-reviewed code changes that are originally created by an LLM are allowed, with disclosure.
