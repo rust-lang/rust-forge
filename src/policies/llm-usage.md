@@ -26,7 +26,7 @@ The policy's guidelines are roughly as follows:
 The following are allowed.
 - Any use of an LLM where you are the only one who sees the output. For example:
   - Asking an LLM questions about an existing codebase.
-  - Asking an LLM to summarize comments on an issue, PR, or RFC.
+  - Asking an LLM to summarize comments on an issue or PR.
       - ℹ️ This does not allow reposting the summary publicly. This only includes your own personal use.
   - Asking an LLM to privately review your code or writing.
       - ℹ️ This does not apply to public comments. See "review bots" under ⚠️ below.
