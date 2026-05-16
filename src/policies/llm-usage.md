@@ -147,6 +147,11 @@ To achieve those goals, this policy is designed with the following points in min
 ["The optimal amount of fraud is not zero"](https://www.bitsaboutmoney.com/archive/optimal-amount-of-fraud/).
 Don't try to be the police for whether someone has used an LLM.
 If it's clear they've broken the rules, point them to this policy; if it's borderline, report it to the mods and move on.
+You are not required to "actively look" for whether an LLM was involved.
+
+Reporting to moderation is not intended to be a penalty.
+The mod team is interested in seeing non-violations as well as violations.
+As always, the mod team is free to exercise their own judgement and discretion.
 
 #### Be honest
 Conversely, lying about whether you've used an LLM, or attempting to hide the extent of the use, is considered a [code of conduct](https://rust-lang.org/policies/code-of-conduct/) violation.
