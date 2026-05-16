@@ -13,6 +13,8 @@ The policy's guidelines are roughly as follows:
 
 > It's fine to use LLMs to answer questions, analyze, distill, refine, check, suggest, review. But not to **create**.
 
+> LLMs work best when used as a tool to write *better*, not *faster*.
+
 > We carve out a space for "experimentation" to inform future revisions to this policy.
 
 ### Rules
