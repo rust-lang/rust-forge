@@ -32,18 +32,16 @@ The following are allowed.
       - ℹ️ This does not apply to public comments. See "review bots" under ⚠️ below.
   - Writing dev-tools for your own personal use using an LLM.
   - Using an LLM to generate possible solutions to an issue, learning from them, and then writing something from scratch in your own style.
-- Syncing code and documentation into `rust-lang/rust` (e.g., using submodules, subtrees, [josh](https://github.com/josh-project/josh), etc.) from other repositories that do not follow this policy.
 - Using an LLM in the creation of experimental code changes that are not meant to be reviewed and will never be merged but must live as draft PRs on `rust-lang/rust` for tooling reasons, such as to run crater or perf.
 
 #### ❌ Banned
 The following are banned.
 - Comments from a personal user account that are originally created by an LLM.
     - ℹ️ This also applies to issue bodies and PR descriptions.
-    - ℹ️ This does *not* include stabilization reports, t-lang proposals, and changes to documentation owned by t-lang.
-         T-lang is free to set their own separate policy for those.
     - ℹ️ This does not apply if the LLM content is clearly quoted and marked, you can post that.
          However, the content of the comment must stand on its own even without the LLM content; it's not a substitute for your own words.
     - ℹ️ See also "machine-translation" in ⚠️ below.
+    - ℹ️ See also "Scope" in the appendix below.
 - Documentation that is originally created by an LLM.
     - ℹ️ This includes non-trivial source comments, such as doc-comments, safety comments, or multiple paragraphs of non-doc-comments.
     - ℹ️ This includes compiler diagnostics.
@@ -121,6 +119,23 @@ And the following are off-topic:
 - Discussions about effort, communication style, or intent
 - General discussions about the LLM policy
 ## Appendix
+### Scope
+
+This policy only applies to `rust-lang/rust`, and only to the teams that have ratified it: compiler, libs, types, rustdoc, bootstrap, and their subteams.
+The following are not in scope and are free to set their own policies:
+- Other repositories in `rust-lang`
+- Submodules, subtrees, and crates.io dependencies
+- Teams that have not ratified the policy, such as lang and edition
+
+For example, the following do not fall under the policy:
+- Tracking issues for T-lang
+- T-lang proposals
+- Stabilization reports
+- Language documentation
+- The style guide
+- Names of compiler lints. This only applies to the names themselves; the diagnostic messages are still covered under this policy.
+- Direct quotes from any of the above in documentation or diagnostics.
+
 ### Motivation and guiding principles
 
 There is not a consensus within the Rust project—and likely never will be—about when/how/where it is acceptable to use AI-based tools.
