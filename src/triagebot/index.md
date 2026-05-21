@@ -35,6 +35,12 @@ For example, the `rust-lang/rust` configuration file is at <https://github.com/r
 When first adding `triagebot.toml` to a new repository, you will need to enable permissions for the bot to operate.
 This can be done by posting a PR to the [`rust-lang/team`](https://github.com/rust-lang/team) database to add `bots = ["rustbot"]` to the repository in the `repos/rust-lang` directory.
 
+### Global configuration
+
+GitHub organizations can have a global configuration that applies to all repositories in the organization. The rust-lang global configuration is located at <https://github.com/rust-lang/triagebot/blob/master/rust-lang.triagebot.toml>.
+
+The configuration options in the global configuration are the same as in a normal `triagebot.toml` file, except that each configuration entry can include an `excluded-repos = ["rust-lang/foo"]` option that disables that feature for the specified repositories.
+
 ## Common command summary
 
 The following are some common commands you may see on [rust-lang/rust](https://github.com/rust-lang/rust/).

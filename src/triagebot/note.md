@@ -52,6 +52,9 @@ Triagebot will remove the entry from the summary list.
 
 ## Configuration
 
+> [!NOTE]
+> This feature is [enabled by default](https://github.com/rust-lang/triagebot/blob/master/rust-lang.triagebot.toml) in the rust-lang organization.
+
 This feature is enabled by having a `[note]` table in `triagebot.toml`:
 
 ```toml

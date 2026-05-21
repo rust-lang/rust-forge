@@ -12,6 +12,9 @@ Note that it may take a minute or so for the comments to be posted.
 
 ## Configuration
 
+> [!NOTE]
+> This feature is [enabled by default](https://github.com/rust-lang/triagebot/blob/master/rust-lang.triagebot.toml) in the rust-lang organization, except when using bors which has its own notifications.
+
 This feature is enabled on a repository by having a `[merge-conflicts]` table in `triagebot.toml`:
 
 ```toml

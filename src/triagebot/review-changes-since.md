@@ -8,6 +8,9 @@ When creating a pull request review, the bot will automatically append at the en
 
 ## Configuration
 
+> [!NOTE]
+> This feature is [enabled by default](https://github.com/rust-lang/triagebot/blob/master/rust-lang.triagebot.toml) in the rust-lang organization.
+
 This feature is enabled on a repository by having a `[review-changes-since]` table in `triagebot.toml`:
 
 ```toml

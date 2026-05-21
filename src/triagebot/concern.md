@@ -26,6 +26,9 @@ The concern is then strikethrough and a link to the comment resolving the concer
 
 ## Configuration
 
+> [!NOTE]
+> This feature is [enabled by default](https://github.com/rust-lang/triagebot/blob/master/rust-lang.triagebot.toml) in the rust-lang organization.
+
 This feature is enabled by having a `[concern]` table in `triagebot.toml`:
 
 ```toml

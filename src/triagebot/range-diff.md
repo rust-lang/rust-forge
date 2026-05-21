@@ -5,6 +5,9 @@ This handler posts a comment after such a scenario, which links to triagebot `ra
 
 ## Configuration
 
+> [!NOTE]
+> This feature is [enabled by default](https://github.com/rust-lang/triagebot/blob/master/rust-lang.triagebot.toml) in the rust-lang organization.
+
 This feature is enabled on a repository by having a empty `[range-diff]` table in `triagebot.toml`:
 
 ```toml
