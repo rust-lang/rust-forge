@@ -113,7 +113,7 @@ After the `stable` PR is merged you'll need to start the pre-release. Run this c
 
 You need to replace `YYYY-MM-DD` with the date of the release (Thursday).
 
-## Default branch bootstrap update (Tuesday)
+## Default branch bootstrap update and Crater (Tuesday)
 
 This step can only be done after the new beta has been released. The release
 process for the beta happens automatically at 00:00 UTC every day, so if the
@@ -160,6 +160,14 @@ Send a PR to the default branch to:
   ```console
   ./x clippy ci
   ```
+
+It's also a good idea to kick off the crater runs for the next release cycle at this point now that the new beta is out. This can reduce the latency on getting results triaged from a few days up to a couple weeks depending on how long it would otherwise take for the runs to be started as part of the next cycle.
+
+Note that this is only *starting* the crater runs, actually triaging and handling the crater runs is not the responsibility of whoever is running the release. If you're short on time this step can be skipped and whoever is responsible for the crater runs for the next cycle will start them.
+
+- See the chapter on [release crater runs][crater] for how to start the crater runs
+
+[crater]: ./crater.md
 
 ## Release day (Thursday)
 
