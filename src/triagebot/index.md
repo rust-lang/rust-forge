@@ -25,6 +25,12 @@ Triagebot also allows editing of a comment.
 If you don't modify the text of the command, then triagebot will ignore the edit.
 However, if you modify an existing command, or add new ones, then those commands will be processed.
 
+## Zulip commands
+
+Commands on Zulip are either issued by sending a direct message to the [triagebot](https://rust-lang.zulipchat.com/#narrow/dm/261224-triagebot) account, or by pinging `@triagebot` on a Zulip stream and specifying a command that will then be executed within that stream.
+
+You can find the documentation of triagebot Zulip commands [here](zulip-commands.md).
+
 ## Configuration
 
 Individual GitHub repositories can configure triagebot features via a file called `triagebot.toml` in the root of the default branch.
@@ -74,6 +80,8 @@ The following are some common commands you may see on Zulip:
 | `@triagebot read` | Waits for people to read a document in a meeting. | [Zulip Meeting Management](zulip-meeting.md) |
 | `@triagebot end-topic` | Checks if everyone is done discussing a topic in a meeting. | [Zulip Meeting Management](zulip-meeting.md) |
 | `@triagebot end-meeting` | Checks if everyone is ready to finish a meeting. | [Zulip Meeting Management](zulip-meeting.md) |
+
+You can find more Zulip commands [here](zulip-commands.md).
 
 ## Implementation
 
