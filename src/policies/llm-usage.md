@@ -69,6 +69,8 @@ The following are decided on a case-by-case basis.
 In general, new contributors will be scrutinized more heavily than existing contributors,
 since they haven't yet established trust with their reviewers.
 
+All uses under "⚠️ Allowed with caveats" **must** disclose that an LLM was used.
+
 - Using machine-translation (e.g. Google Translate) from your native language without posting your original message.
   Doing so can introduce new miscommunications that weren't there originally, and prevents someone who speaks the language from providing a better translation.
     - ℹ️ Posting both your original message and the translated version is always ok, but you must still disclose that machine-translation was used.
@@ -89,8 +91,6 @@ since they haven't yet established trust with their reviewers.
     - ℹ️ LLM comments **must not** be blocking; reviewers must indicate which comments they want addressed.
         - In other words, reviewers must explicitly endorse an LLM comment before blocking a PR. They are responsible for their own analysis of the LLM's comment and cannot treat it as a CI failure.
     - ℹ️ This does not apply to private use of an LLM for reviews; see ✅ above.
-
-All uses under "⚠️ Allowed with caveats" **must** disclose that an LLM was used.
 
 #### Experiment: LLM-created code changes
 We leave space open to experiment with LLMs to inform future policies.
