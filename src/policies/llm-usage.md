@@ -36,7 +36,7 @@ For technical guidance and suggestions, see the [rustc-dev-guide][llm-guidance].
 #### Non-exhaustive policy
 
 This policy does not aim to be exhaustive.
-If you have a use of LLMs in mind that isn't on this list, judge it in the spirit of this overview:
+If you have a use of LLMs in mind that isn't on this list, talk to people about it, and judge it in the spirit of this overview:
 - Using an LLM for your own personal use is likely allowed ✅
 - Showing LLM output to another human without solicitation is likely banned ❌
 - Making a decision based on LLM output requires disclosure ⚠️
@@ -75,8 +75,8 @@ The following are banned.
 
 #### ⚠️ Allowed with caveats
 The following are decided on a case-by-case basis.
-In general, new contributors will be scrutinized more heavily than existing contributors,
-since they haven't yet established trust with their reviewers.
+If you are a new contributor, you should expect to be scrutinized more heavily than existing contributors,
+since you haven't yet established trust with your reviewers.
 
 All uses under "⚠️ Allowed with caveats" **must** disclose that an LLM was used.
 
