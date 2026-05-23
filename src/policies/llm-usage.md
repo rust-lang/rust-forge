@@ -24,6 +24,14 @@ The policy's guidelines are roughly as follows:
 - ⚠️ Allowed with caveats. Must disclose that an LLM was used.
 - ℹ️ Adds additional detail to the policy. These bullets are normative.
 
+#### Non-exhaustive policy
+
+This policy does not aim to be exhaustive.
+If you have a use of LLMs in mind that isn't on this list, judge it in the spirit of this overview:
+- Using an LLM for your own personal use is likely allowed ✅
+- Showing LLM output to another human without solicitation is likely banned ❌
+- Making a decision based on LLM output requires disclosure ⚠️
+
 #### ✅ Allowed
 The following are allowed.
 - Any use of an LLM where you are the only one who sees the output. For example:
@@ -201,14 +209,6 @@ This document uses the phrase "originally created" to mean "text that was genera
 No amount of editing can change how it was originally created; how it was generated sets the initial style and it's very hard to change once it's set.
 
 For more background about analogous reasoning, see ["What Colour are your bits?"](https://ansuz.sooke.bc.ca/entry/23)
-
-### Non-exhaustive policy
-
-This policy does not aim to be exhaustive.
-If you have a use of LLMs in mind that isn't on this list, judge it in the spirit of this overview:
-- Using an LLM for your own personal use is likely allowed ✅ 
-- Showing LLM output to another human without solicitation is likely banned ❌
-- Making a decision based on LLM output requires disclosure ⚠️
 
 ### Conditions for modification or dissolution
 This policy is not set in stone, and we can evolve it as we gain more experience working with LLMs.
