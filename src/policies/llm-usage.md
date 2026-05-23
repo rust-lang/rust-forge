@@ -81,7 +81,7 @@ since they haven't yet established trust with their reviewers.
     - ℹ️ See also "Comments from a personal user account" under ❌ above.
 - Using an LLM as a "review bot" for PRs.
     - ℹ️ Review bots that post without being approved by a maintainer will be banned.
-    - ℹ️ Review bots **must** have a separate GitHub account that marks them as an LLM.
+    - ℹ️ Review bots **must** have a separate GitHub account that clearly marks them as an LLM.
       You **must not** post (or allow a tool to post) LLM reviews verbatim on your personal account unless clearly quoted with your own personal interpretation of the bot's analysis.
     - ℹ️ Review bot accounts must be blockable by individual users via the standard GitHub user-blocking mechanism. (Note that some GitHub "app" accounts post comments that look like users but cannot be blocked.)
     - ℹ️ If a more reliable tool, such as a linter or formatter, already exists for the language you're writing, we strongly suggest using that tool instead of or in addition to the LLM.
@@ -93,7 +93,9 @@ since they haven't yet established trust with their reviewers.
 All uses under "⚠️ Allowed with caveats" **must** disclose that an LLM was used.
 
 #### Experiment: LLM-created code changes
-Solicited, non-critical, high-quality, well-tested, and well-reviewed code changes that are originally created by an LLM are allowed, with disclosure.
+We leave space open to experiment with LLMs to inform future policies.
+Solicited, non-critical, high-quality, well-tested, and well-reviewed code changes that are originally created by an LLM are allowed, **with disclosure**.
+
 1. "Solicited" means that a reviewer has communicated *ahead of time* that they are willing to review an LLM-created PR.
     - ℹ️ New contributors cannot use an LLM unless they first talk with a reviewer.
           This must be the *same* reviewer who will be assigned to the PR.
@@ -141,7 +143,7 @@ The following are not in scope and are free to set their own policies:
 For example, the following do not fall under the policy:
 - Tracking issues for T-lang
 - T-lang proposals
-- Stabilization reports
+- T-lang stabilization reports
 - Language documentation
 - The style guide
 - Names of compiler lints. This only applies to the names themselves; the diagnostic messages are still covered under this policy.
