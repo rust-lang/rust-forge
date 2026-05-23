@@ -1,5 +1,6 @@
 ## LLM Usage Policy
 
+This is a moderation policy for how LLMs are used in `rust-lang/rust`.
 For additional information about the policy itself, see [the appendix](#appendix).
 
 ### Overview
@@ -17,12 +18,20 @@ The policy's guidelines are roughly as follows:
 
 > We carve out a space for "experimentation" to inform future revisions to this policy.
 
+#### Moderation vs guidance
+
+This document only contains our moderation policy.
+For technical guidance and suggestions, see the [rustc-dev-guide][llm-guidance].
+
+[llm-guidance]: https://rustc-dev-guide.rust-lang.org/llm-guidance.html
+
 ### Rules
 #### Legend
-- ✅ Allowed
-- ❌ Banned
+- ✅ Allowed.
+- ❌ Banned.
 - ⚠️ Allowed with caveats. Must disclose that an LLM was used.
 - ℹ️ Adds additional detail to the policy. These bullets are normative.
+- 💡 Indicates that there are suggestions for this bullet in the dev-guide.
 
 #### Non-exhaustive policy
 
@@ -86,11 +95,10 @@ All uses under "⚠️ Allowed with caveats" **must** disclose that an LLM was u
     - ℹ️ Review bots **must** have a separate GitHub account that clearly marks them as an LLM.
       You **must not** post (or allow a tool to post) LLM reviews verbatim on your personal account unless clearly quoted with your own personal interpretation of the bot's analysis.
     - ℹ️ Review bot accounts must be blockable by individual users via the standard GitHub user-blocking mechanism. (Note that some GitHub "app" accounts post comments that look like users but cannot be blocked.)
-    - ℹ️ If a more reliable tool, such as a linter or formatter, already exists for the language you're writing, we strongly suggest using that tool instead of or in addition to the LLM.
-    - ℹ️ Configure LLM review tools to reduce false positives and excessive focus on trivialities, as these are common, exhausting failure modes.
     - ℹ️ LLM comments **must not** be blocking; reviewers must indicate which comments they want addressed.
         - In other words, reviewers must explicitly endorse an LLM comment before blocking a PR. They are responsible for their own analysis of the LLM's comment and cannot treat it as a CI failure.
     - ℹ️ This does not apply to private use of an LLM for reviews; see ✅ above.
+    - 💡 See the [dev-guide][llm-guidance] for additional suggestions.
 
 #### Experiment: LLM-created code changes
 We leave space open to experiment with LLMs to inform future policies.
@@ -114,7 +122,7 @@ Solicited, non-critical, high-quality, well-tested, and well-reviewed code chang
     - ℹ️ All review requirements in [our existing review policy](../compiler/reviews.md#basic-reviewing-requirements) still apply.
     - ℹ️ A review from a project member does not substitute for self-review.
           Authors are expected to review their own code before posting and after each change.
-    - ℹ️ We recommend, but do not require, using a second LLM for adversarial local review before publishing your changes.
+    - 💡 See the [dev-guide][llm-guidance] for additional suggestions.
 
 LLM-created PRs must be tagged with a new `ai-assisted` label.
 All such PRs will be posted to a new (private) Zulip channel, which will be accessible to all members of the `rust-lang` organization.
@@ -228,3 +236,5 @@ This policy can be dissolved in a few ways:
 
 - An accepted FCP by teams using rust-lang/rust.
 - An objective concern raised about active harm the policy is having on the reputation of Rust, with evidence, as decided by a leadership council FCP.
+
+Changes to the guidance in the rustc-dev-guide have no special requirements for modification.
