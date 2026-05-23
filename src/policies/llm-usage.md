@@ -110,9 +110,9 @@ All uses under "⚠️ Allowed with caveats" **must** disclose that an LLM was u
 
 #### Experiment: LLM-created code changes
 We leave space open to experiment with LLMs to inform future policies.
-Solicited, non-critical, high-quality, well-tested, and well-reviewed code changes that are originally created by an LLM are allowed, **with disclosure**.
+Pre-arranged, non-critical, high-quality, well-tested, and well-reviewed code changes that are originally created by an LLM are allowed, **with disclosure**.
 
-1. "Solicited" means that a reviewer has communicated *ahead of time* that they are willing to review an LLM-created PR.
+1. "Pre-arranged" means that a reviewer has communicated *ahead of time* that they are willing to review an LLM-created PR.
     - ℹ️ New contributors cannot use an LLM unless they first talk with a reviewer.
           This must be the *same* reviewer who will be assigned to the PR.
 2. "Non-critical" means that it is extremely unlikely for the PR to cause a [soundness](https://jacko.io/safety_and_soundness.html) regression.
