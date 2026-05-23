@@ -156,19 +156,23 @@ Many members of the Rust project and community find value in AI;
 many others feel that its negative impact on society and the climate are severe enough that no use is acceptable.
 Still others are working out their opinion.
 
-Despite these differences, there are many common goals we all share:
+Despite these differences, there are many values we all share:
 
 - Building a community of deep experts in our collective projects.
 - Building an inclusive community where all feel welcome and respected.
 
-To achieve those goals, this policy is designed with the following points in mind:
+And many facts we agree on:
 
 - Many people find LLM-generated code and writing deeply unpleasant to read or review.
 - Many people find LLMs to be a significant aid to learning and discovery.
 - LLMs are a new technology, and we are still learning how to use, moderate, and improve them.
-  Since we're still learning, we have chosen an intentionally conservative policy that lets us maintain the standard of quality that Rust is known for;
-  but leave space open to experiment with LLMs to inform future policies.
 
+With those facts and values in mind, the policy is designed with the following goals:
+
+- Build an intentionally conservative policy that lets us maintain the standard of quality that Rust is known for.
+- Limit LLM contributions to the very highest standard of quality, to show that our guideline of "better, not faster" isn't just words.
+- Make the policy enforceable and easy to moderate.
+- Make the policy consistent and easy to understand and summarize, even for people who haven't read it in detail.
 
 ### Moderation policy
 #### It's not your job to play detective
