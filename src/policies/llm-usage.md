@@ -92,6 +92,7 @@ All uses under "⚠️ Allowed with caveats" **must** disclose that an LLM was u
     - ℹ️ See also "Comments from a personal user account" under ❌ above.
 - Using an LLM as a "review bot" for PRs.
     - ℹ️ Review bots that post without being approved by a maintainer will be banned.
+         This is a one-time approval; maintainers don't need to approve individual reviews.
     - ℹ️ Review bots **must** have a separate GitHub account that clearly marks them as an LLM.
       You **must not** post (or allow a tool to post) LLM reviews verbatim on your personal account unless clearly quoted with your own personal interpretation of the bot's analysis.
     - ℹ️ Review bot accounts must be blockable by individual users via the standard GitHub user-blocking mechanism. (Note that some GitHub "app" accounts post comments that look like users but cannot be blocked.)
@@ -229,12 +230,12 @@ This policy is not set in stone, and we can evolve it as we gain more experience
 
 Minor changes, such as typo fixes, only require a normal PR approval.
 Major changes, such as adding a new rule or cancelling an existing rule, require:
-- A simple majority of members of teams using rust-lang/rust.
+- A simple majority of members of teams that have ratified the policy.
 - No outstanding concerns from those members.
 
 This policy can be dissolved in a few ways:
 
-- An accepted FCP by teams using rust-lang/rust.
+- An accepted FCP by the teams that ratified the policy.
 - An objective concern raised about active harm the policy is having on the reputation of Rust, with evidence, as decided by a leadership council FCP.
 
 Changes to the guidance in the rustc-dev-guide have no special requirements for modification.
