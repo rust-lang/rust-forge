@@ -83,9 +83,16 @@ All uses under "⚠️ Allowed with caveats" **must** disclose that an LLM was u
 - Using machine-translation (e.g. Google Translate) from your native language without posting your original message.
   Doing so can introduce new miscommunications that weren't there originally, and prevents someone who speaks the language from providing a better translation.
     - ℹ️ Posting both your original message and the translated version is always ok, but you must still disclose that machine-translation was used.
-- "Trivial" code changes that do not meet the [threshold of originality](https://fsfe.org/news/2025/news-20250515-01.en.html).
+- "Trivial" code changes.
+    - ℹ️ Changes are trivial if there is no other way to write them, or the other ways to write them are nearly identical. For example, the following are all trivial:
+          - Typo fixes.
+          - Markdown links
+          - Type signatures for a trait implementation
     - ℹ️ Be cautious about PRs that consist solely of trivial changes.
       See also [the compiler team's typo fix policy](https://rustc-dev-guide.rust-lang.org/contributing.html#writing-documentation:~:text=Please%20notice%20that%20we%20don%E2%80%99t%20accept%20typography%2Fspellcheck%20fixes%20to%20internal%20documentation).
+    - For more background about concepts that inspired this policy, see
+      [threshold of originality](https://fsfe.org/news/2025/news-20250515-01.en.html)
+      and [the Google v Oracle ruling](https://en.wikipedia.org/wiki/Google_LLC_v._Oracle_America,_Inc.) that copying API declarations are fair use.
 - Using an LLM to discover bugs, as long as you personally verify the bug.
   Please refer to [our guidelines for fuzzers](https://rustc-dev-guide.rust-lang.org/fuzzing.html#guidelines).
     - ℹ️ This also includes reviewers who use LLMs to discover flaws in unmerged code.
