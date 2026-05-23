@@ -232,6 +232,9 @@ No amount of editing can change how it was originally created; how it was genera
 
 For more background about analogous reasoning, see ["What Colour are your bits?"](https://ansuz.sooke.bc.ca/entry/23)
 
+This policy makes no distinction between LLM output that comes from a chat interface and output that comes from editor auto-completion.
+In most cases the output is "trivial" (see above under ⚠️), but regardless, it is not treated specially by this policy.
+
 ### Conditions for modification or dissolution
 This policy is not set in stone, and we can evolve it as we gain more experience working with LLMs.
 
