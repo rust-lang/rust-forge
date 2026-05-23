@@ -51,7 +51,9 @@ The following are allowed.
       - ℹ️ This does not apply to public comments. See "review bots" under ⚠️ below.
   - Writing dev-tools for your own personal use using an LLM.
   - Using an LLM to generate possible solutions to an issue, learning from them, and then writing something from scratch in your own style.
-- Using an LLM in the creation of experimental code changes that are not meant to be reviewed and will never be merged but must live as draft PRs on `rust-lang/rust` for tooling reasons, such as to run crater or perf.
+- Using an LLM in the creation of experimental code changes that are not meant to be reviewed and will never be merged but must live as `S-experimental` PRs on `rust-lang/rust` for tooling reasons, such as to run crater or perf.
+    - ℹ️ This does not apply to draft PRs, which still require disclosure.
+         See "LLM-created code changes", below.
 
 #### ❌ Banned
 The following are banned.
