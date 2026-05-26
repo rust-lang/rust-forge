@@ -243,9 +243,7 @@ In most cases the output is "trivial" (see above under ⚠️), but regardless, 
 This policy is not set in stone, and we can evolve it as we gain more experience working with LLMs.
 
 Minor changes, such as typo fixes, only require a normal PR approval.
-Major changes, such as adding a new rule or cancelling an existing rule, require:
-- A simple majority of members of teams that have ratified the policy.
-- No outstanding concerns from those members.
+Major changes, such as adding a new rule or cancelling an existing rule, require a successful MCP (2 approvals and no concerns) from each team that ratified the policy.
 
 This policy can be dissolved in a few ways:
 
