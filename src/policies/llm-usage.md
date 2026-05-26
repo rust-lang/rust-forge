@@ -47,8 +47,8 @@ The following are allowed.
   - Asking an LLM questions about an existing codebase.
   - Asking an LLM to summarize comments on an issue or PR.
       - ℹ️ This does not allow reposting the summary publicly. This only includes your own personal use.
-  - Asking an LLM to privately review your code or writing.
-      - ℹ️ This does not apply to public comments. See "review bots" under ⚠️ below.
+  - Asking an LLM to privately review your code or prose.
+      - ℹ️ This does not apply to public comments by the LLM. See "review bots" under ⚠️ below.
   - Writing dev-tools for your own personal use using an LLM.
   - Using an LLM to generate possible solutions to an issue, learning from them, and then writing something from scratch in your own style.
 - Using an LLM in the creation of clearly experimental code changes that are not meant to be reviewed but must live as PRs on `rust-lang/rust` for tooling reasons, such as to run crater or perf.
@@ -85,10 +85,11 @@ All uses under "⚠️ Allowed with caveats" **must** disclose that an LLM was u
 - Using machine-translation (e.g. Google Translate) from your native language without posting your original message.
   Doing so can introduce new miscommunications that weren't there originally, and prevents someone who speaks the language from providing a better translation.
     - ℹ️ Posting both your original message and the translated version is always ok, but you must still disclose that machine-translation was used.
-- "Trivial" code changes.
+- "Trivial" code or prose changes.
     - ℹ️ Changes are trivial if there is no other way to write them, or the other ways to write them are nearly identical. For example, the following are all trivial:
-        - Typo fixes.
+        - Typo fixes
         - Markdown links
+        - Changing a word to a synonym
         - Type signatures for a trait implementation
     - ℹ️ Be cautious about PRs that consist solely of trivial changes.
       See also [the compiler team's typo fix policy](https://rustc-dev-guide.rust-lang.org/contributing.html#writing-documentation:~:text=Please%20notice%20that%20we%20don%E2%80%99t%20accept%20typography%2Fspellcheck%20fixes%20to%20internal%20documentation).
