@@ -87,9 +87,9 @@ All uses under "⚠️ Allowed with caveats" **must** disclose that an LLM was u
     - ℹ️ Posting both your original message and the translated version is always ok, but you must still disclose that machine-translation was used.
 - "Trivial" code changes.
     - ℹ️ Changes are trivial if there is no other way to write them, or the other ways to write them are nearly identical. For example, the following are all trivial:
-          - Typo fixes.
-          - Markdown links
-          - Type signatures for a trait implementation
+        - Typo fixes.
+        - Markdown links
+        - Type signatures for a trait implementation
     - ℹ️ Be cautious about PRs that consist solely of trivial changes.
       See also [the compiler team's typo fix policy](https://rustc-dev-guide.rust-lang.org/contributing.html#writing-documentation:~:text=Please%20notice%20that%20we%20don%E2%80%99t%20accept%20typography%2Fspellcheck%20fixes%20to%20internal%20documentation).
     - For more background about concepts that inspired this policy, see
