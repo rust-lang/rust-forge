@@ -206,10 +206,11 @@ The mod team is interested in seeing non-violations as well as violations.
 As always, the mod team is free to exercise their own judgement and discretion.
 
 #### Be honest
-Conversely, lying about whether you've used an LLM, or attempting to hide the extent of the use, is considered a [code of conduct](https://rust-lang.org/policies/code-of-conduct/) violation.
+Conversely, you're expected to be honest about your use of LLMs and the extent of that use.
 If you are not sure where something you would like to do falls in this policy, please talk to the [moderation team](mailto:rust-mods@rust-lang.org).
 Don't try to hide it.
 
+Deliberately misrepresenting your use of LLMs is not welcome and [may result in moderation action](https://rust-lang.org/policies/code-of-conduct/#moderation).
 #### Penalties
 The policies marked with a 🔨 follow the same guidelines as the code of conduct:
 Violations will first result in a warning, and repeated violations may result in a ban.
