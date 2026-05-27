@@ -57,7 +57,7 @@ may be approved and merged by `infra-admins`:
 
 * Changing the [general repository settings](https://github.com/rust-lang/team/blob/master/docs/toml-schema.md#general-repository-settings)
   * This includes granting bots access to the repository.
-* Changing the [repository branch protections](https://github.com/rust-lang/team/blob/master/docs/toml-schema.md#repository-branch-protections)
+* Changing the [repository rulesets](https://github.com/rust-lang/team/blob/master/docs/toml-schema.md#repository-rulesets)
 * Changing [trusted publishing](./docs/trusted-publishing.md) configuration for
   crates published through GitHub Actions.
 
