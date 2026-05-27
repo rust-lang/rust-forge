@@ -42,14 +42,17 @@ team and asking them to do so.)
 
 ### Step 2: Merge the RFC PR itself
 
-In your local git checkout:
+Once FCP has completed with no concerns unaddressed, in your local git checkout:
 
-- Merge the RFC PR into master in your fork
+- Check out your RFC PR's branch
 - Add a commit that moves the file name from 0000- to its RFC number
 - Edit the new file to include links to the RFC PR and the tracking issue you
   just created in the header
-- Open a PR or push directly to the master branch on rust-lang/rfcs, as
-  appropriate
+- Push to your RFC PR
+
+If you have permissions to merge PRs to rust-lang/rfcs, click the merge button
+on your PR in the GitHub UI. If you don't have permission to merge the PR,
+comment with `r? internal-sites` to have a maintainer merge it on your behalf.
 
 ### Step 3: Leave a comment
 
