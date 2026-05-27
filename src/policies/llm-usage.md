@@ -220,7 +220,7 @@ Other violations are left up to the discretion of reviewers and moderators.
 For minor violations we recommend telling the author that we can't review the PR until it complies with the policy, with pointers to exactly what they need to do.
 For major violations or extractive PRs, we recommend closing the PR or issue.
 
-It is **not** ok to harrass a contributor for using an LLM.
+It is **not** ok to harass a contributor for using an LLM.
 All contributors must be treated with respect.
 The code-of-conduct applies to *all* conversations in the Rust project.
 
@@ -243,7 +243,7 @@ In most cases the output is "trivial" (see above under ⚠️), but regardless, 
 This policy is not set in stone, and we can evolve it as we gain more experience working with LLMs.
 
 Minor changes, such as typo fixes, only require a normal PR approval.
-Major changes, such as adding a new rule or cancelling an existing rule, require a successful MCP (2 approvals and no concerns) from each team that ratified the policy.
+Major changes, such as adding a new rule or canceling an existing rule, require a successful MCP (2 approvals and no concerns) from each team that ratified the policy.
 
 This policy can be dissolved in a few ways:
 
