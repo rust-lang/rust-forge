@@ -29,6 +29,7 @@
     - [Issue Links](./triagebot/issue-links.md)
     - [Issue Transfer](./triagebot/transfer.md)
     - [Labeling](./triagebot/labeling.md)
+    - [Lock](./triagebot/lock.md)
     - [Major Changes](./triagebot/major-changes.md)
     - [Mentions](./triagebot/mentions.md)
     - [Merge Conflicts](./triagebot/merge-conflicts.md)
