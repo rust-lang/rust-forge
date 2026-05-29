@@ -14,6 +14,7 @@ You can send these commands as a direct message to the [triagebot][triagebot-dm]
 - `whoami`: shows the Rust teams that you are a part of
 - `lookup github <zulip-name>`: lookup the GitHub username of a user by their Zulip name
 - `lookup zulip <github-username>`: lookup the Zulip name of a user by their GitHub username
+- `unlock [--org <org>] <repo> <issue-id>`: permits unlocking a given issue or pull request (default org: rust-lang)
 - `user-info <user-name> [--org <org>]`: show basic information about the given GitHub account, including its recent comments and PRs created in the given GitHub organization (`org`)
 - `team-stats <team-name>`: show the review workqueue statistics of all members of the given team
 - `team-stats <team-name> <repo>`: show the review workqueue statistics of all members of the given
@@ -44,6 +45,7 @@ Note that the impersonation functionality is intended for inspecting the status 
 - `@**triagebot** docs-update`: Generates a Pull Request ([example](https://github.com/rust-lang/rust/pull/141923)) to update the documentation submodules. See [Documentation Updates](doc-updates.md).
 - `@**triagebot** backport [stable | beta ] [approve | decline ] <PR>` (example: "@triagebot backport beta approve 123456") Will post a comment on GitHub to approve or decline a PR backport (see [Backports](../compiler/backports.md)).
 - `@**triagebot** assign-prio <issue #> [ critical | high | medium | low | none ]` will assign a priority label to an issue (see [Prioritization][prio]). "none" will just remove the `I-prioritize` label.
+- `@**triagebot** unlock [--org <org>] <repo> <issue-id>`: permits unlocking a given issue or pull request (default org: rust-lang).
 
 [prio]: ../compiler/prioritization.md
 
