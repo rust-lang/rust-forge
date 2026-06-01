@@ -28,6 +28,9 @@ To unlock an issue or pull request, any rust-lang team member may enter the comm
 
 ## Configuration
 
+> [!NOTE]
+> This feature is [enabled by default](https://github.com/rust-lang/triagebot/blob/master/rust-lang.triagebot.toml) in the rust-lang organization.
+
 This feature is enabled on a repository by having a `[lock]` table in `triagebot.toml`:
 
 ```toml
