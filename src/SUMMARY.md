@@ -69,8 +69,6 @@
     - [Working Areas](./compiler/working-areas.md)
 - [rustc-dev-guide](./rustc-dev-guide/index.md)
 - [crates.io](./crates-io/index.md)
-    - [Crate removal](./crates-io/crate-removal.md)
-    - [Database maintenance](./crates-io/db-maintenance.md)
 - [docs.rs](./docs-rs/index.md)
   - [Adding dependencies to the build environment](./docs-rs/add-dependencies.md)
   - [Self-hosting a docs.rs instance](./docs-rs/self-hosting.md)
