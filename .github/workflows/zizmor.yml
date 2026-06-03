@@ -1,0 +1,39 @@
+name: Security Audit with zizmor
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/**'
+  pull_request:
+    branches: [master]
+    paths:
+      - '.github/workflows/**'
+
+# Cancel in-progress runs for the same PR to save resources
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+# Minimal permissions for auditing
+permissions:
+  contents: read
+
+jobs:
+  zizmor:
+    name: Run zizmor security audit
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout repository without persisting credentials to reduce attack surface
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6
+        with:
+          persist-credentials: false
+
+      - name: Install zizmor
+        run: |
+          curl -sSL https://github.com/woodruffw/zizmor/releases/download/v1.24.1/zizmor-x86_64-unknown-linux-gnu.tar.gz | tar -xz
+          chmod +x zizmor
+          sudo mv zizmor /usr/local/bin/
+
+      - name: Run zizmor audit
+        run: zizmor --persona pedantic --min-severity low .github/workflows
