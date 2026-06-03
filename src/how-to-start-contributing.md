@@ -128,7 +128,7 @@ To achieve this goal, we want to build trust and respect of each other's time an
 - If you want to fix an issue but have doubts about the design, you're welcome to join our [Zulip][rust-zulip] server and ask for tips
 - Please respect the reviewers' time: allow some days between reviews, only ask for reviews when your code compiles and tests pass, or give an explanation for why you are asking for a review at that stage (you can keep them in draft state until they're ready for review)
 - Try to keep comments concise, don't worry about a perfect written communication. Strive for clarity and being to the point
-- We prefer using the English language to follow conventions of existing commits. Again, don't worry about writing a perfect prose
+- Please use English to communicate (including e.g. commit messages) for consistency with the communication in our project (English is the accepted common language in our project). The grammar or prose does not need to be perfect at all!
 
 [^1]: Free-Open Source Project, see: https://en.wikipedia.org/wiki/Free_and_open-source_software
 
