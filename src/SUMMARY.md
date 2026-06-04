@@ -96,6 +96,7 @@
     - [The Toolstate System](./infra/toolstate.md)
     - [Policies](./infra/policies/index.md)
         - [Broken nightlies](./infra/policies/broken-nightlies.md)
+        - [Multi-factor authentication in the Rust Project](./infra/policies/mfa-critical-systems.md)
     - [Guidelines](./infra/guidelines/index.md)
         - [Static websites](./infra/guidelines/static-websites.md)
     - [Documentation](./infra/docs/index.md)
