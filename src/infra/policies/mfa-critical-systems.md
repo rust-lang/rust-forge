@@ -43,9 +43,6 @@ configure additional YubiKey (AAL-3) for redundancy purposes, but **should not**
 (AAL-2) with the same intent, since this _could_ potentially decrease security, especially if TOTP the
 backup is configured in a way that makes it reachable to attack vectors during admin operations
 
-Project members holding several hardware security keys **must** uniquely identify the ones used to access
-Rust infrastructure, therefore guaranteeing non-ambiguity for the daily usage and revocation scenarios.
-
 Finally, when a Project member with access to critical infrastructure loses access to a hardware device
 used for MFA (e.g. a laptop was stolen or a YubiKey was lost), this must be disclosed with the Rust
 Infrastructure team, and that device **must** be immediately revoked from all systems it was configured as
