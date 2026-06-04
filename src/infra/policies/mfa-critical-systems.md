@@ -10,7 +10,7 @@ The Rust infrastructure team uses NIST's [Authentication Assurance Levels] to
 score different MFA methods according to the security expectations they bring. Thus, we consider
 as secure and approved MFA methods (in this order of preference): 
 
-1. Hardware security keys compatible with FIDO2 / Webauthn (e.g. YubiKeys)  as AAL-3 
+1. Hardware security keys compatible with FIDO2 / Webauthn (e.g. YubiKeys) as AAL-3
 2. Hardware enabled with Webauthn passkeys (e.g. Apple TouchId) as AAL-2 
 3. TOTP apps (e.g. Google Authenticator) as AAL-2
 
@@ -39,9 +39,9 @@ the Rust infrastructure team won't be able to offer support regarding bugs or co
 In addition to that, when multiple secure MFA methods and devices are supported by a service, Project
 members **should** configure at least one additional MFA method for redundancy purposes, as long as additional
 MFA devices or methods are in the same AAL. For example, when setting up MFA for a `heroku` account, one may
-configure additional YubiKey (AAL-3) for redundancy purposes, but **should not** configure `1password` as TOTP
+configure an additional YubiKey (AAL-3) for redundancy purposes, but **should not** configure `1password` as TOTP
 (AAL-2) with the same intent, since this _could_ potentially decrease security, especially if TOTP the
-backup is configured in a way that makes it reachable to attack vectors during admin operations
+backup is configured in a way that makes it reachable to attack vectors during admin operations.
 
 Finally, when a Project member with access to critical infrastructure loses access to a hardware device
 used for MFA (e.g. a laptop was stolen or a YubiKey was lost), this must be disclosed with the Rust
