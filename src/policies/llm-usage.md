@@ -68,6 +68,9 @@ The following are banned.
     - ℹ️ This includes compiler diagnostics.
          LLMs are conditionally allowed to assist with the *logic* surrounding a diagnostic (see "code changes" under ⚠️ below),
          but they must not be used to create the message itself.
+- Policies that are written such that an LLM is required to execute them.
+    - For example, you must not *only* document how to take meeting notes with an `AGENTS.md`.
+      Documentation must be authored for humans primarily, and LLM documentation may only summarize it, not add new detail.
 - Treating an LLM review as a sufficient condition to merge or reject a change.
   LLM reviews, if enabled, **must** be advisory-only.
   Teams can have a policy that code can be merged without review, and they can have a policy that code must be reviewed by at least one person,
@@ -93,6 +96,7 @@ All uses under "⚠️ Allowed with caveats" **must** disclose that an LLM was u
         - Type signatures for a trait implementation
     - ℹ️ Be cautious about PRs that consist solely of trivial changes.
       See also [the compiler team's typo fix policy](https://rustc-dev-guide.rust-lang.org/contributing.html#writing-documentation:~:text=Please%20notice%20that%20we%20don%E2%80%99t%20accept%20typography%2Fspellcheck%20fixes%20to%20internal%20documentation).
+    - 💡 See the [dev-guide][llm-guidance] for additional suggestions.
     - For more background about concepts that inspired this policy, see
       [threshold of originality](https://fsfe.org/news/2025/news-20250515-01.en.html)
       and [the Google v Oracle ruling](https://en.wikipedia.org/wiki/Google_LLC_v._Oracle_America,_Inc.) that copying API declarations are fair use.
@@ -151,6 +155,12 @@ And the following are off-topic:
 - Discussions about effort, communication style, or intent
 - General discussions about the LLM policy
 
+#### Circuit breaker
+
+To avoid the risk of LLMs "overwhelming" the codebase, or becoming de-facto required, we set a limit on how many LLM PRs can be merged.
+If more than half of PRs in a 6-week window are LLM-authored, we disallow merging new LLM PRs until we go back below 50%.
+This window is chosen to align with our existing release cycle.
+
 ## Appendix
 ### Scope
 
@@ -193,6 +203,7 @@ With those facts and values in mind, the policy is designed with the following g
 - Limit LLM contributions to the very highest standard of quality, to show that our guideline of "better, not faster" isn't just words.
 - Make the policy enforceable and easy to moderate.
 - Make the policy consistent and easy to understand and summarize, even for people who haven't read it in detail.
+- Avoid making LLMs a requirement to contribute, so that Rust does not become "pay-to-play".
 
 ### Moderation policy
 #### It's not your job to play detective
