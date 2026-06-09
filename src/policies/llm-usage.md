@@ -59,7 +59,8 @@ The following are allowed.
 #### ❌ Banned
 The following are banned.
 - Comments from a personal user account that are originally created by an LLM.
-    - ℹ️ This also applies to issue bodies and PR descriptions.
+    - ℹ️ This also applies to issue bodies, PR descriptions, team/meeting chats, and agendas.
+    - ℹ️ This also applies to voice/video content originally created or scripted by an LLM.
     - ℹ️ This does not apply if the LLM content is clearly quoted and marked, you can post that.
          However, the content of the comment must stand on its own even without the LLM content; it's not a substitute for your own words.
     - ℹ️ See also "machine-translation" in ⚠️ below.
