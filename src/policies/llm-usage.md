@@ -158,8 +158,9 @@ And the following are off-topic:
 #### Circuit breaker
 
 To avoid the risk of LLMs "overwhelming" the codebase, or becoming de-facto required, we set a limit on how many LLM PRs can be merged.
-If more than half of PRs in a 6-week window are LLM-authored, we disallow merging new LLM PRs until we go back below 50%.
+If more than half of PRs in a 6-week window are LLM-authored, we disallow merging new LLM PRs until we go back below 50%, with a minimum pause of 10 days to provide hysteresis and encourage discussion.
 This window is chosen to align with our existing release cycle.
+Such a pause also provides space to discuss the progress of the experiment, potential changes to the experiment parameters or other policy changes, and the sustainability and inclusivity of Rust's AI adoption, in order to avoid excluding contributors who choose not to use LLMs.
 
 ## Appendix
 ### Scope
