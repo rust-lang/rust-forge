@@ -69,7 +69,7 @@ The following are banned.
     - ℹ️ This includes compiler diagnostics.
          LLMs are conditionally allowed to assist with the *logic* surrounding a diagnostic (see "code changes" under ⚠️ below),
          but they must not be used to create the message itself.
-- Policies that are written such that an LLM is required to execute them.
+- Policies or processes that are written such that an LLM is required to execute them.
     - For example, you must not *only* document how to take meeting notes with an `AGENTS.md`.
       Documentation must be authored for humans primarily, and LLM documentation may only summarize it, not add new detail.
 - Treating an LLM review as a sufficient condition to merge or reject a change.
