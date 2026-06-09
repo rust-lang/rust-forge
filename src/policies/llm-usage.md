@@ -106,6 +106,7 @@ All uses under "⚠️ Allowed with caveats" **must** disclose that an LLM was u
 - Using an LLM to discover bugs, as long as you personally verify the bug.
   Please refer to [our guidelines for fuzzers](https://rustc-dev-guide.rust-lang.org/fuzzing.html#guidelines).
     - ℹ️ This also includes reviewers who use LLMs to discover flaws in unmerged code.
+        - Be advised, however, that LLMs sometimes demonstrate a preference for LLM output, particularly output from the same model.
     - ℹ️ See also "Comments from a personal user account" under ❌ above.
 - Using an LLM as a "review bot" for PRs.
     - ℹ️ Review bots that post without being approved by a maintainer will be banned.
