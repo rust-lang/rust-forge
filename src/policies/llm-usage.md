@@ -144,6 +144,7 @@ Pre-arranged, non-critical, high-quality, well-tested, and well-reviewed code ch
     - 💡 See the [dev-guide][llm-guidance] for additional suggestions.
 
 LLM-created PRs must be tagged with a new `ai-assisted` label.
+(We expect to also automatically reflect this label into the PR description or similar mechanism recorded into the git history.)
 All such PRs will be posted to a new (private) Zulip channel, which will be accessible to all members of the `rust-lang` organization.
 The goal of the channel is *not* to act as an additional gate-keeper on LLM-created PRs.
 Instead, it's to collect information about *whether this experiment is working*:
