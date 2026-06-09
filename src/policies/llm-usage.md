@@ -212,7 +212,7 @@ With those facts and values in mind, the policy is designed with the following g
 - Limit LLM contributions to the very highest standard of quality, to show that our guideline of "better, not faster" isn't just words.
 - Make the policy enforceable and easy to moderate.
 - Make the policy consistent and easy to understand and summarize, even for people who haven't read it in detail.
-- Avoid making LLMs a requirement to contribute, so that Rust does not become "pay-to-play".
+- Avoid making LLMs a requirement to contribute, to be inclusive of contributors who choose not use them, and to avoid making Rust "pay-to-play".
 
 ### Moderation policy
 #### It's not your job to play detective
