@@ -149,6 +149,8 @@ The goal of the channel is *not* to act as an additional gate-keeper on LLM-crea
 Instead, it's to collect information about *whether this experiment is working*:
 Are people doing interesting and useful things with LLMs? Are they learning? Are they making repeat contributions?
 
+The purpose of this experiment is to inform future non-experimental policy, not to serve as the perpetual LLM usage policy.
+
 Because the new channel is private, it will have higher-than-normal standards for what counts as on-topic.
 For example, the following are on-topic:
 - Whether a PR meets the criteria for the experiment exception
@@ -165,7 +167,7 @@ To avoid the risk of LLMs "overwhelming" the codebase, or becoming de-facto requ
 If more than half of PRs in a 6-week window are LLM-authored, we disallow merging new LLM PRs until we go back below 50%, with a minimum pause of 10 days to provide hysteresis and encourage discussion.
 (We expect to be able to automate this.)
 This window is chosen to align with our existing release cycle.
-Such a pause also provides space to discuss the progress of the experiment, potential changes to the experiment parameters or other policy changes, and the sustainability and inclusivity of Rust's AI adoption, in order to avoid excluding contributors who choose not to use LLMs.
+Such a pause also provides space to discuss and reflect on the progress of the experiment, potential changes to the experiment parameters or other policy changes, and the sustainability and inclusivity of Rust's AI adoption, in order to avoid excluding contributors who choose not to use LLMs.
 
 ## Appendix
 ### Scope
