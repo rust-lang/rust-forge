@@ -52,7 +52,7 @@ The following are allowed.
   - Writing dev-tools for your own personal use using an LLM.
   - Using an LLM to generate possible solutions to an issue, learning from them, and then writing something from scratch in your own style.
 - Using an LLM in the creation of clearly experimental code changes that are not meant to be reviewed but must live as PRs on `rust-lang/rust` for tooling reasons, such as to run crater or perf.
-    - "Clearly experimental" PRs includes things such `S-experimental` labels, `[PERF]` titles, or `r? ghost` comments.
+    - "Clearly experimental" PRs includes things such as `S-experimental` labels, `[PERF]` titles, or `r? ghost` comments.
     - Such PRs should ideally still disclose LLM usage, in case others wish to pick up and build on the experiment. This is a strong recommendation, rather than a requirement, to avoid adding friction to experiments.
     - ℹ️ If a PR is no longer marked as clearly experimental, at that point disclosure is required.
 
