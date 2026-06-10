@@ -120,7 +120,6 @@
         - [Internal-facing infrastructure announcements](./infra/docs/internal-announcements.md)
 - [Language](./lang/index.md)
     - [RFC Merge Procedure](./lang/rfc-merge-procedure.md)
-    - [Triage Meeting Procedure](./lang/triage-meeting-procedure.md)
     - [Stabilization procedure](./lang/stabilization-procedure.md)
 - [Libs](./libs/index.md)
     - [Maintaining the standard library](./libs/maintaining-std.md)
