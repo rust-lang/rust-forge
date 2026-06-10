@@ -13,16 +13,23 @@ free access to high-powered cloud compute. They are part of the
 
 ## How to apply to the program
 
-At this time, access to the program and the compute instances is limited to
-maintainers and core contributors of the Rust Project. While the program is
-under development, it is limited to [certain teams]. If you are in one of these
-teams, you should automatically have access.
+At this time, access to the program and the compute instances is selectively
+granted, primarily to Project maintainers and contributors from open-source
+programs like Google Summer of Code. While the program is under development, it
+is limited to [certain teams]. If you are in one of these teams, you should
+automatically have access.
 
 If you feel like your work on the Rust project would be significantly improved
 by access to a powerful build machine, open a pull request in the [team repo],
 where you add yourself to the `cloud-compute` team. Include a short description
 of how you would use and benefit from the dev desktops. You can find an example
 of such a PR [here][dev desktop pr].
+
+* If a maintainer from one of the Rust project teams is happy to vouch for your
+  contributions, the Infra team is generally happy to accept the request as per
+  the endorsement.
+* Otherwise, the Infra team will evaluate the access request on a case-by-case
+  basis.
 
 ## How to connect to a dev desktop
 
