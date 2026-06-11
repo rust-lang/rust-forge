@@ -53,7 +53,7 @@ The following are allowed.
   - Using an LLM to generate possible solutions to an issue, learning from them, and then writing something from scratch in your own style.
 - Using an LLM in the creation of clearly experimental code changes that are not meant to be reviewed but must live as PRs on `rust-lang/rust` for tooling reasons, such as to run crater or perf.
     - "Clearly experimental" PRs includes things such as `S-experimental` labels, `[PERF]` titles, or `r? ghost` comments.
-    - Such PRs should ideally still disclose LLM usage, in case others wish to pick up and build on the experiment. This is a strong recommendation, rather than a requirement, to avoid adding friction to experiments.
+    - We strongly recommend, but do not require, that experimental PRs disclose LLM usage.
     - ℹ️ If a PR is no longer marked as clearly experimental, at that point disclosure is required.
 
 #### ❌ Banned
@@ -119,8 +119,13 @@ All uses under "⚠️ Allowed with caveats" **must** disclose that an LLM was u
     - ℹ️ This does not apply to private use of an LLM for reviews; see ✅ above.
     - 💡 See the [dev-guide][llm-guidance] for additional suggestions.
 
-#### Experiment: LLM-created code changes
+### Experiment: LLM-created code changes
+
 We leave space open to experiment with LLMs to inform future policies.
+This experiment is meant to inform future non-experimental policy, not to serve as the perpetual LLM usage policy.
+
+#### Rules
+
 Pre-arranged, non-critical, high-quality, well-tested, and well-reviewed code changes that are originally created by an LLM are allowed, **with disclosure**.
 
 1. "Pre-arranged" means that a reviewer has communicated *ahead of time* that they are willing to review an LLM-created PR.
@@ -143,14 +148,14 @@ Pre-arranged, non-critical, high-quality, well-tested, and well-reviewed code ch
           Authors are expected to review their own code before posting and after each change.
     - 💡 See the [dev-guide][llm-guidance] for additional suggestions.
 
+#### Procedures
+
 LLM-created PRs must be tagged with a new `ai-assisted` label.
 (We expect to also automatically reflect this label into the PR description or similar mechanism recorded into the git history.)
 All such PRs will be posted to a new (private) Zulip channel, which will be accessible to all members of the `rust-lang` organization.
 The goal of the channel is *not* to act as an additional gate-keeper on LLM-created PRs.
 Instead, it's to collect information about *whether this experiment is working*:
 Are people doing interesting and useful things with LLMs? Are they learning? Are they making repeat contributions?
-
-The purpose of this experiment is to inform future non-experimental policy, not to serve as the perpetual LLM usage policy.
 
 Because the new channel is private, it will have higher-than-normal standards for what counts as on-topic.
 For example, the following are on-topic:
@@ -165,10 +170,15 @@ And the following are off-topic:
 #### Circuit breaker
 
 To avoid the risk of LLMs "overwhelming" the codebase, or becoming de-facto required, we set a limit on how many LLM PRs can be merged.
-If more than half of PRs in a 6-week window are LLM-authored, we disallow merging new LLM PRs until we go back below 50%, with a minimum pause of 10 days to provide hysteresis and encourage discussion.
-(We expect to be able to automate this.)
+If more than half of PRs in a 6-week window are LLM-authored, we disallow merging new LLM PRs until we go back below 50%, with a minimum cooldown of 10 days.
 This window is chosen to align with our existing release cycle.
-Such a pause also provides space to discuss and reflect on the progress of the experiment, potential changes to the experiment parameters or other policy changes, and the sustainability and inclusivity of Rust's AI adoption, in order to avoid excluding contributors who choose not to use LLMs.
+(We expect to be able to automate this.)
+
+The cooldown is intended to encourage discussion:
+- How is the experiment going?
+- Are we adopting AI sustainabily?
+  Are we including contributors who choose not to use LLMs?
+- Are there any changes we want to make to our policy?
 
 ## Appendix
 ### Scope
