@@ -74,6 +74,7 @@ The following are banned.
     - For example, you must not *only* document how to take meeting notes with an `AGENTS.md`.
       Documentation must be authored for humans primarily, and LLM documentation may only summarize it, not add new detail.
 - Using an LLM to attend a meeting in your place, or alongside you, without the consent of other team members present.
+  This is the same general principle as "no recording meetings without consent".
 - Treating an LLM review as a sufficient condition to merge or reject a change.
   LLM reviews, if enabled, **must** be advisory-only.
   Teams can have a policy that code can be merged without review, and they can have a policy that code must be reviewed by at least one person,
