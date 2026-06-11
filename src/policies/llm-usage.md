@@ -150,7 +150,6 @@ Pre-arranged, non-critical, high-quality, well-tested, and well-reviewed code ch
 #### Procedures
 
 LLM-created PRs must be tagged with a new `ai-assisted` label.
-(We expect to also automatically reflect this label into the PR description or similar mechanism recorded into the git history.)
 All such PRs will be posted to a new (private) Zulip channel, which will be accessible to all members of the `rust-lang` organization.
 The goal of the channel is *not* to act as an additional gate-keeper on LLM-created PRs.
 Instead, it's to collect information about *whether this experiment is working*:
@@ -171,7 +170,6 @@ And the following are off-topic:
 To avoid the risk of LLMs "overwhelming" the codebase, or becoming de-facto required, we set a limit on how many LLM PRs can be merged.
 If more than half of PRs in a 6-week window are LLM-authored, we disallow merging new LLM PRs until we go back below 50%, with a minimum cooldown of 10 days.
 This window is chosen to align with our existing release cycle.
-(We expect to be able to automate this.)
 
 The cooldown is intended to encourage discussion:
 - How is the experiment going?
