@@ -15,25 +15,21 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
-# Minimal permissions for auditing
-permissions:
-  contents: read
+permissions: {}
 
 jobs:
   zizmor:
     name: Run zizmor security audit
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
-      # Checkout repository without persisting credentials to reduce attack surface
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
         with:
           persist-credentials: false
 
-      - name: Install zizmor
-        run: |
-          curl -sSL https://github.com/woodruffw/zizmor/releases/download/v1.24.1/zizmor-x86_64-unknown-linux-gnu.tar.gz | tar -xz
-          chmod +x zizmor
-          sudo mv zizmor /usr/local/bin/
-
-      - name: Run zizmor audit
-        run: zizmor --persona pedantic --min-severity low .github/workflows
+      - name: Run zizmor
+        uses: zizmorcore/zizmor-action@5f14fd08f7cf1cb1609c1e344975f152c7ee938d  # v0.5.6
+        with:
+          persona: pedantic
+          advanced-security: false
