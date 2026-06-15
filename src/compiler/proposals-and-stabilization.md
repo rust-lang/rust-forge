@@ -414,6 +414,6 @@ See [*Adding ecosystem/integration test jobs/components to rust-lang/rust CI*](.
 [rust]: https://github.com/rust-lang/rust
 [compiler_lint_eg]: https://doc.rust-lang.org/rustc/lints/listing/deny-by-default.html#explicit-builtin-cfgs-in-flags
 [ecosystem_testing]: https://rustc-dev-guide.rust-lang.org/tests/ecosystem.html
-[compiler-fcp]: https://github.com/rust-lang/team/blob/master/teams/compiler-fcp.toml
+[compiler-fcp]: https://github.com/rust-lang/team/blob/main/teams/compiler-fcp.toml
 [tier-1-target-policy]: https://doc.rust-lang.org/rustc/target-tier-policy.html#tier-1-target-policy
 [Zulip]: https://rust-lang.zulipchat.com/#narrow/channel/131828-t-compiler

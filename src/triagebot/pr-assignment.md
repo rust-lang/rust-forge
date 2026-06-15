@@ -19,7 +19,7 @@ Manual assignment can be done by posting a comment on the PR with the text:
   For example, for the [rust-lang/rust](https://github.com/rust-lang/rust) repository, see [`triagebot.toml`](https://github.com/rust-lang/rust/blob/HEAD/triagebot.toml) for a list of ad-hoc group names.
 * `r? rust-lang/libs` --- The `rust-lang/` org name prefix is optional.
 * `r? rustdoc` --- Chooses a random person from the rustdoc team.
-  See the [teams database](https://github.com/rust-lang/team/tree/master/teams) for a list of team names.
+  See the [teams database](https://github.com/rust-lang/team/tree/main/teams) for a list of team names.
 * `r? rust-lang/rustdoc` --- The org name prefix is optional.
   It is strongly recommended that you do not use `@`, as that will subscribe and notify the entire team to the PR.
 

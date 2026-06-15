@@ -20,7 +20,7 @@ To enable automatically creating GitHub Releases, add this to the `triagebot.tom
 format = "rustc"
 project-name = "Rust"
 changelog-path = "RELEASES.md"
-changelog-branch = "master"
+changelog-branch = "main"
 ```
 
 The `format` defines which format the changelog file adheres to, and it's used to properly extract the relevant section from it.

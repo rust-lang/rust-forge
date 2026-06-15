@@ -46,7 +46,7 @@ API keys of the status accounts to automatically tweet about upcoming events on
 crates.io.
 
 Access is limited to a small set of folks in the
-[twitter](https://github.com/rust-lang/team/blob/master/teams/twitter.toml)
+[social-media](https://github.com/rust-lang/team/blob/main/teams/social-media.toml)
 marker team; this isn't automated (changes should ping infra admins for provisioning access).
 
 People with access to 1password should:

@@ -21,7 +21,7 @@ which would cause triagebot to post a comment notifying the members of the `wind
 
 To be pinged, teams have to be created in the [Rust team repository](https://github.com/rust-lang/team).
 Frequently those teams will be marked as `marker-team`, meaning that they do not appear on the website.
-The [WASM team](https://github.com/rust-lang/team/blob/master/teams/wasm.toml#L2) is an example.
+The [WASM team](https://github.com/rust-lang/team/blob/main/teams/wasm.toml#L2) is an example.
 
 Additionally, the team needs to be configured in the repository's `triagebot.toml` file.
 
