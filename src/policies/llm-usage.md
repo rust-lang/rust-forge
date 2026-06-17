@@ -54,6 +54,7 @@ The following are allowed.
 - Using an LLM in the creation of clearly experimental code changes that are not meant to be reviewed but must live as PRs on `rust-lang/rust` for tooling reasons, such as to run crater or perf.
     - "Clearly experimental" PRs includes things such as `S-experimental` labels, `[PERF]` titles, or `r? ghost` comments.
     - We strongly recommend, but do not require, that experimental PRs disclose LLM usage.
+      The goal here is to avoid other people picking up the draft work without knowing it's LLM-generated.
     - ℹ️ If a PR is no longer marked as clearly experimental, at that point disclosure is required.
 
 #### ❌ Banned
@@ -170,13 +171,16 @@ And the following are off-topic:
 
 To avoid the risk of LLMs "overwhelming" the codebase, or becoming de-facto required, we set a limit on how many LLM PRs can be merged.
 If more than half of PRs in a 6-week window are LLM-authored, we disallow merging new LLM PRs until we go back below 50%, with a minimum cooldown of 10 days.
-This window is chosen to align with our existing release cycle.
+This window is chosen to align with our existing release cycle, and the cooldown is to avoid flip-flopping between allowed and disallowed.
 
 The cooldown is intended to encourage discussion:
 - How is the experiment going?
-- Are we adopting AI sustainabily?
+- Are we adopting AI sustainably?
   Are we including contributors who choose not to use LLMs?
 - Are there any changes we want to make to our policy?
+
+To avoid forgetting to enforce it, and to avoid resentment from the policy being enforced inconsistently,
+we strongly suggest that this circuit breaker be automated.
 
 ## Appendix
 ### Scope
