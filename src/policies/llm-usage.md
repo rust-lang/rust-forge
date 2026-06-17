@@ -255,12 +255,14 @@ With those facts and values in mind, the policy is designed with the following g
 #### It's not your job to play detective
 ["The optimal amount of fraud is not zero"](https://www.bitsaboutmoney.com/archive/optimal-amount-of-fraud/).
 Don't try to be the police for whether someone has used an LLM.
-If it's clear they've broken the rules, point them to this policy;
-if it's borderline, [report it to the mods](https://rust-lang.org/policies/code-of-conduct/) and move on.
 You are not required to "actively look" for whether an LLM was involved.
 
-Reporting to moderation is not intended to be a penalty.
-The mod team is interested in seeing non-violations as well as violations.
+Style is not evidence, and English-as-a-second-language speakers, neurodivergent people, and over-explainers are the most likely to be accused of writing like an LLM.
+
+If it's clear someone's broken the rules, point them to this policy;
+otherwise, strongly prefer [reporting to mods](https://rust-lang.org/policies/code-of-conduct/) over public accusations.
+Reporting to moderation is not intended to be a penalty;
+the mod team is interested in seeing non-violations as well as violations.
 As always, the mod team is free to exercise their own judgement and discretion.
 
 #### Be honest
