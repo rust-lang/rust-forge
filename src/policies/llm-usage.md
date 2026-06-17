@@ -148,6 +148,7 @@ Pre-arranged, non-critical, high-quality, well-tested, and well-reviewed code ch
     - Authors are, of course, allowed to start work on a change before finding a reviewer.
       However, they must find a reviewer before opening a PR.
       It is allowed, but discouraged, to open a LLM-created PR with `r? @ghost` before finding a reviewer.
+      Such PRs still require disclosure.
 2. "Non-critical" means that it is extremely unlikely for the PR to cause a [soundness](https://jacko.io/safety_and_soundness.html) regression.
     - ℹ️ Examples:
       - Changes to internal tooling like `tidy`, `x setup`, and `linkchecker` are probably ok.
