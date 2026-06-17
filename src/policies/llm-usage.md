@@ -132,7 +132,7 @@ This experiment is meant to inform future non-experimental policy, not to serve 
 Pre-arranged, non-critical, high-quality, well-tested, and well-reviewed code changes that are originally created by an LLM are allowed, **with disclosure**.
 
 1. "Pre-arranged" means that a reviewer has communicated *ahead of time* that they are willing to review an LLM-created PR.
-    - ℹ️ New contributors cannot use an LLM unless they first talk with a reviewer.
+    - ℹ️ New contributors cannot create a PR using an LLM unless they first talk with a reviewer.
           This must be the *same* reviewer who will be assigned to the PR.
 2. "Non-critical" means that it is extremely unlikely for the PR to cause a [soundness](https://jacko.io/safety_and_soundness.html) regression.
     - ℹ️ Examples:
@@ -172,7 +172,7 @@ And the following are off-topic:
 ### Circuit breaker
 
 To avoid the risk of LLMs "overwhelming" the codebase, or becoming de-facto required, we set a limit on how many LLM PRs can be merged.
-If more than half of PRs in a 6-week window are LLM-authored, we disallow merging new LLM PRs until we go back below 50%, with a minimum cooldown of 10 days.
+If more than half of PRs merged in a 6-week window are LLM-authored, we disallow merging new LLM PRs until we go back below 50%, with a minimum cooldown of 10 days.
 This window is chosen to align with our existing release cycle, and the cooldown is to avoid flip-flopping between allowed and disallowed.
 
 The cooldown is intended to encourage discussion:
