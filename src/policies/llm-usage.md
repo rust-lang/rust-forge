@@ -162,6 +162,13 @@ Pre-arranged, non-critical, high-quality, well-tested, and well-reviewed code ch
           Authors are expected to review their own code before posting and after each change.
     - 💡 See the [dev-guide][llm-guidance] for additional suggestions.
 
+As an exception, members of the `rust-lang` organization are not bound by the "non-critical" clause;
+we trust authors and reviewers to make their own judgements.
+However, we *strongly discourage* making use of this provision.
+LLMs are very very good at generating plausible-looking code, and soundness is hard to test.
+
+As an exception, PRs written before this policy went into effect are exempt from the "non-critical" clause.
+
 ### Procedures
 
 LLM-created PRs must be tagged with a new `ai-assisted` label.
