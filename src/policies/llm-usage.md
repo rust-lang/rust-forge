@@ -299,10 +299,11 @@ This policy is not set in stone, and we can evolve it as we gain more experience
 
 Minor changes, such as typo fixes, only require a normal PR approval.
 Major changes, such as adding a new rule or canceling an existing rule, require a successful MCP (2 approvals and no concerns) from each team that ratified the policy.
+Changes to the guidance in the rustc-dev-guide have no special requirements for modification.
 
 This policy can be dissolved in a few ways:
 
 - An accepted FCP by the teams that ratified the policy.
-- An objective concern raised about active harm the policy is having on the reputation of Rust, with evidence, as decided by a leadership council FCP.
+- An objective concern raised about active harm the policy is having on the Rust project, with evidence, as decided by a leadership council FCP.
 
-Changes to the guidance in the rustc-dev-guide have no special requirements for modification.
+If evolving this policy with the above mechanism proves unworkable, especially if a team ends up significantly hindered in autonomously making decisions concerning its own purview, then these conditions for modification can be adjusted by a leadership council FCP.
