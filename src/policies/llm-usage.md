@@ -179,7 +179,7 @@ The cooldown is intended to encourage discussion:
   Are we including contributors who choose not to use LLMs?
 - Are there any changes we want to make to our policy?
 
-To avoid forgetting to enforce it, and to avoid resentment from the policy being enforced inconsistently,
+To avoid inconsistent enforcement, and the resulting resentment,
 we strongly suggest that this circuit breaker be automated.
 
 ## Appendix
