@@ -96,6 +96,20 @@ users_on_vacation = ["jyn514", "ChrisDenton"]
 
 On `rust-lang/rust`, you can also configure vacation using [Zulip integration](review-queue-tracking.md#usage).
 
+### Community reviews
+
+Repositories can setup a "Community reviews" first approach, where the automatic assignment of a reviewer is delayed until
+a minimum number of PR review approvals (from anyone) is reached.
+
+```toml
+[assign.community_reviews]
+# This is the minimun number of review approvals on the PR to be able to automatically assign a reviewer.
+# Manual assignments (r?, reroll) are exempted from this minimum.
+minimum_approvals = 2
+# Label on the PR that denote the need for a community reviews (manually removing it, triggers auto assignment).
+label = "S-waiting-on-community-reviews"
+```
+
 ### Additional new PR trigger options
 
 Triagebot will also post a welcome message to the user.
