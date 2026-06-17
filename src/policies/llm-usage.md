@@ -34,6 +34,12 @@ For technical guidance and suggestions, see the [rustc-dev-guide][llm-guidance].
 - 💡 Indicates that there are suggestions for this bullet in the dev-guide.
 - 🔨 Violating this clause counts as a violation of the Code of Conduct.
 
+### Summary
+- ✅ Allowed: Private use.
+- ❌ Banned: LLM-created comments, docs, or diagnostics. Replacing human judgement with LLM judgement. Requiring people to use an LLM to contribute.
+- ⚠️ Conditionally allowed: Trivial changes, machine translation, LLM reviews and review bots, LLM-created code *under the experiment rules*.
+- 🔨 Carries a moderation penalty: Lying.
+
 ### Non-exhaustive policy
 
 This policy does not aim to be exhaustive.
@@ -86,7 +92,7 @@ The following are banned.
     - ℹ️ An LLM review does not substitute for self-review. Authors are expected to review their own code before posting and after each change.
 
 ### ⚠️ Allowed with caveats
-The following are decided on a case-by-case basis.
+These uses are allowed on a case-by-case basis, under the rules below.
 If you are a new contributor, you should expect to be scrutinized more heavily than existing contributors,
 since you haven't yet established trust with your reviewers.
 
@@ -122,7 +128,7 @@ All uses under "⚠️ Allowed with caveats" **must** disclose that an LLM was u
     - ℹ️ This does not apply to private use of an LLM for reviews; see ✅ above.
     - 💡 See the [dev-guide][llm-guidance] for additional suggestions.
 
-## Experiment: LLM-created code changes
+## Experiment: LLM-created code changes intended for review
 
 We leave space open to experiment with LLMs to inform future policies.
 This experiment is meant to inform future non-experimental policy, not to serve as the perpetual LLM usage policy.
@@ -171,8 +177,8 @@ And the following are off-topic:
 
 ### Circuit breaker
 
-To avoid the risk of LLMs "overwhelming" the codebase, or becoming de-facto required, we set a limit on how many LLM PRs can be merged.
-If more than half of PRs merged in a 6-week window are LLM-authored, we disallow merging new LLM PRs until we go back below 50%, with a minimum cooldown of 10 days.
+To avoid the risk of LLMs "overwhelming" the codebase, or becoming de-facto required, we set a limit on how many LLM-created PRs can be merged.
+If more than half of PRs merged in a 6-week window are LLM-created, we disallow merging new LLM-created PRs until we go back below 50%, with a minimum cooldown of 10 days.
 This window is chosen to align with our existing release cycle, and the cooldown is to avoid flip-flopping between allowed and disallowed.
 
 The cooldown is intended to encourage discussion:
