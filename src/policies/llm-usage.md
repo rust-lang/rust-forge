@@ -10,6 +10,11 @@ LLMs are not a substitute for thought,
 and we do not allow them to be used in ways that risk losing our shared social and technical understanding of the project,
 nor in ways that hurt our goals of creating a strong community.
 
+We are aware that many clauses in this policy are unenforceable.
+Our goal is *not* to catch every violation (see "It's not your job to play detective", below).
+Instead, our goal is to remove plausible deniability: to force a choice between following the policy and intentionally violating it.
+See [Money laundering and AML compliance](https://www.bitsaboutmoney.com/archive/money-laundering-and-aml-compliance/) for more background about the motivation.
+
 The policy's guidelines are roughly as follows:
 
 > It's fine to use LLMs to answer questions, analyze, distill, refine, check, suggest, review. But not to **create**.
