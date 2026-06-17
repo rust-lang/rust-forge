@@ -1,9 +1,9 @@
-## LLM Usage Policy
+# LLM Usage Policy
 
 This is a moderation policy for how LLMs are used in `rust-lang/rust`.
 For additional information about the policy itself, see [the appendix](#appendix).
 
-### Overview
+## Overview
 
 Using LLMs while working on `rust-lang/rust` is conditionally allowed, when done with care.
 LLMs are not a substitute for thought,
@@ -18,30 +18,31 @@ The policy's guidelines are roughly as follows:
 
 > We carve out a space for "experimentation" to inform future revisions to this policy.
 
-#### Moderation vs guidance
+### Moderation vs guidance
 
 This document only contains our moderation policy.
 For technical guidance and suggestions, see the [rustc-dev-guide][llm-guidance].
 
 [llm-guidance]: https://rustc-dev-guide.rust-lang.org/llm-guidance.html
 
-### Rules
-#### Legend
+## Rules
+### Legend
 - ✅ Allowed.
 - ❌ Banned.
 - ⚠️ Allowed with caveats. Must disclose that an LLM was used.
 - ℹ️ Adds additional detail to the policy. These bullets are normative.
 - 💡 Indicates that there are suggestions for this bullet in the dev-guide.
+- 🔨 Violating this clause counts as a violation of the Code of Conduct.
 
-#### Non-exhaustive policy
+### Non-exhaustive policy
 
 This policy does not aim to be exhaustive.
 If you have a use of LLMs in mind that isn't on this list, talk to people about it, and judge it in the spirit of this overview:
 - Using an LLM for your own personal use is likely allowed ✅
 - Showing LLM output to another human without solicitation is likely banned ❌
-- Making a decision based on LLM output requires disclosure ⚠️
+- Making a decision that affects others based on LLM output requires disclosure ⚠️
 
-#### ✅ Allowed
+### ✅ Allowed
 The following are allowed.
 - Any use of an LLM where you are the only one who sees the output. For example:
   - Asking an LLM questions about an existing codebase.
@@ -57,7 +58,7 @@ The following are allowed.
       The goal here is to avoid other people picking up the draft work without knowing it's LLM-generated.
     - ℹ️ If a PR is no longer marked as clearly experimental, at that point disclosure is required.
 
-#### ❌ Banned
+### ❌ Banned
 The following are banned.
 - Comments from a personal user account that are originally created by an LLM.
     - ℹ️ This also applies to issue bodies, PR descriptions, team/meeting chats, and agendas.
@@ -69,8 +70,9 @@ The following are banned.
 - Documentation that is originally created by an LLM.
     - ℹ️ This includes non-trivial source comments, such as doc-comments, safety comments, or multiple paragraphs of non-doc-comments.
     - ℹ️ This includes compiler diagnostics.
-         LLMs are conditionally allowed to assist with the *logic* surrounding a diagnostic (see "code changes" under ⚠️ below),
+         LLMs are conditionally allowed to assist with the *logic* surrounding a diagnostic (see "Experiment: LLM-created code changes" below),
          but they must not be used to create the message itself.
+    - ℹ️ This does not include "trivial" changes (see ⚠️ below).
 - Policies or processes that are written such that an LLM is required to execute them.
     - For example, you must not *only* document how to take meeting notes with an `AGENTS.md`.
       Documentation must be authored for humans primarily, and LLM documentation may only summarize it, not add new detail.
@@ -83,7 +85,7 @@ The following are banned.
     - ℹ️ See "review bots" in ⚠️ below.
     - ℹ️ An LLM review does not substitute for self-review. Authors are expected to review their own code before posting and after each change.
 
-#### ⚠️ Allowed with caveats
+### ⚠️ Allowed with caveats
 The following are decided on a case-by-case basis.
 If you are a new contributor, you should expect to be scrutinized more heavily than existing contributors,
 since you haven't yet established trust with your reviewers.
@@ -120,12 +122,12 @@ All uses under "⚠️ Allowed with caveats" **must** disclose that an LLM was u
     - ℹ️ This does not apply to private use of an LLM for reviews; see ✅ above.
     - 💡 See the [dev-guide][llm-guidance] for additional suggestions.
 
-### Experiment: LLM-created code changes
+## Experiment: LLM-created code changes
 
 We leave space open to experiment with LLMs to inform future policies.
 This experiment is meant to inform future non-experimental policy, not to serve as the perpetual LLM usage policy.
 
-#### Rules
+### Rules
 
 Pre-arranged, non-critical, high-quality, well-tested, and well-reviewed code changes that are originally created by an LLM are allowed, **with disclosure**.
 
@@ -149,7 +151,7 @@ Pre-arranged, non-critical, high-quality, well-tested, and well-reviewed code ch
           Authors are expected to review their own code before posting and after each change.
     - 💡 See the [dev-guide][llm-guidance] for additional suggestions.
 
-#### Procedures
+### Procedures
 
 LLM-created PRs must be tagged with a new `ai-assisted` label.
 All such PRs will be posted to a new (private) Zulip channel, which will be accessible to all members of the `rust-lang` organization.
@@ -167,7 +169,7 @@ And the following are off-topic:
 - Discussions about effort, communication style, or intent
 - General discussions about the LLM policy
 
-#### Circuit breaker
+### Circuit breaker
 
 To avoid the risk of LLMs "overwhelming" the codebase, or becoming de-facto required, we set a limit on how many LLM PRs can be merged.
 If more than half of PRs in a 6-week window are LLM-authored, we disallow merging new LLM PRs until we go back below 50%, with a minimum cooldown of 10 days.
