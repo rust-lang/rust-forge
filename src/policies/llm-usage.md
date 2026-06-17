@@ -52,7 +52,7 @@ The following are allowed.
   - Writing dev-tools for your own personal use using an LLM.
   - Using an LLM to generate possible solutions to an issue, learning from them, and then writing something from scratch in your own style.
 - Using an LLM in the creation of clearly experimental code changes that are not meant to be reviewed but must live as PRs on `rust-lang/rust` for tooling reasons, such as to run crater or perf.
-    - "Clearly experimental" PRs includes things such as `S-experimental` labels, `[PERF]` titles, or `r? ghost` comments.
+    - "Clearly experimental" includes markers such as `S-experimental` labels, `[PERF]` titles, or `r? ghost` comments.
     - We strongly recommend, but do not require, that experimental PRs disclose LLM usage.
       The goal here is to avoid other people picking up the draft work without knowing it's LLM-generated.
     - ℹ️ If a PR is no longer marked as clearly experimental, at that point disclosure is required.
@@ -62,7 +62,7 @@ The following are banned.
 - Comments from a personal user account that are originally created by an LLM.
     - ℹ️ This also applies to issue bodies, PR descriptions, team/meeting chats, and agendas.
     - ℹ️ This also applies to voice/video content originally created or scripted by an LLM.
-    - ℹ️ This does not apply if the LLM content is clearly quoted and marked, you can post that.
+    - ℹ️ This does not apply if the LLM content is clearly quoted and marked; you can post that.
          However, the content of the comment must stand on its own even without the LLM content; it's not a substitute for your own words.
     - ℹ️ See also "machine-translation" in ⚠️ below.
     - ℹ️ See also "Scope" in the appendix below.
@@ -104,7 +104,7 @@ All uses under "⚠️ Allowed with caveats" **must** disclose that an LLM was u
     - 💡 See the [dev-guide][llm-guidance] for additional suggestions.
     - For more background about concepts that inspired this policy, see
       [threshold of originality](https://fsfe.org/news/2025/news-20250515-01.en.html)
-      and [the Google v Oracle ruling](https://en.wikipedia.org/wiki/Google_LLC_v._Oracle_America,_Inc.) that copying API declarations are fair use.
+      and [the Google v Oracle ruling](https://en.wikipedia.org/wiki/Google_LLC_v._Oracle_America,_Inc.) that copying API declarations is fair use.
 - Using an LLM to discover bugs, as long as you personally verify the bug.
   Please refer to [our guidelines for fuzzers](https://rustc-dev-guide.rust-lang.org/fuzzing.html#guidelines).
     - ℹ️ This also includes reviewers who use LLMs to discover flaws in unmerged code.
@@ -134,7 +134,7 @@ Pre-arranged, non-critical, high-quality, well-tested, and well-reviewed code ch
           This must be the *same* reviewer who will be assigned to the PR.
 2. "Non-critical" means that it is extremely unlikely for the PR to cause a [soundness](https://jacko.io/safety_and_soundness.html) regression.
     - ℹ️ Examples:
-      - Changes to internal tooling like `tidy`, `x setup`, and  `linkchecker` are probably ok.
+      - Changes to internal tooling like `tidy`, `x setup`, and `linkchecker` are probably ok.
       - Changes that have a strong soundness impact, like the trait system, MIR building, or the query system are probably not ok.
 3. "High-quality" means that it is held to at least the same standard as other code changes.
     Everyone reads code, not just the author and reviewer;
@@ -153,7 +153,7 @@ Pre-arranged, non-critical, high-quality, well-tested, and well-reviewed code ch
 
 LLM-created PRs must be tagged with a new `ai-assisted` label.
 All such PRs will be posted to a new (private) Zulip channel, which will be accessible to all members of the `rust-lang` organization.
-The goal of the channel is *not* to act as an additional gate-keeper on LLM-created PRs.
+The goal of the channel is *not* to act as an additional gatekeeper on LLM-created PRs.
 Instead, it's to collect information about *whether this experiment is working*:
 Are people doing interesting and useful things with LLMs? Are they learning? Are they making repeat contributions?
 
@@ -224,7 +224,7 @@ With those facts and values in mind, the policy is designed with the following g
 - Limit LLM contributions to the very highest standard of quality, to show that our guideline of "better, not faster" isn't just words.
 - Make the policy enforceable and easy to moderate.
 - Make the policy consistent and easy to understand and summarize, even for people who haven't read it in detail.
-- Avoid making LLMs a requirement to contribute, to be inclusive of contributors who choose not use them, and to avoid making Rust "pay-to-play".
+- Avoid making LLMs a requirement to contribute, to be inclusive of contributors who choose not to use them, and to avoid making Rust "pay-to-play".
 
 ### Moderation policy
 #### It's not your job to play detective
@@ -256,7 +256,7 @@ For major violations or extractive PRs, we recommend closing the PR or issue.
 
 It is **not** ok to harass a contributor for using an LLM.
 All contributors must be treated with respect.
-The code-of-conduct applies to *all* conversations in the Rust project.
+The Code of Conduct applies to *all* conversations in the Rust project.
 
 ### Responsibility
 
@@ -268,7 +268,7 @@ Your contributions are your responsibility; you cannot place any blame on an LLM
 This document uses the phrase "originally created by an LLM" to mean "text that was generated by an LLM (and then possibly edited by a human)".
 No amount of editing can change how it was originally created; how it was generated sets the initial style and it's very hard to change once it's set.
 
-For more background about analogous reasoning, see ["What Colour are your bits?"](https://ansuz.sooke.bc.ca/entry/23)
+For more background about analogous reasoning, see ["What Colour are your bits?"](https://ansuz.sooke.bc.ca/entry/23).
 
 This policy makes no distinction between LLM output that comes from a chat interface and output that comes from editor auto-completion.
 In most cases the output is "trivial" (see above under ⚠️), but regardless, it is not treated specially by this policy.
