@@ -21,7 +21,7 @@ Avoid changing the "Current Release Versions" without also updating the selector
 in `js/index.js`.
 -->
 
-Channel    | Version | Will be stable on | Will branch from master on |
+Channel    | Version | Will be stable on | Will branch from main on |
 -----------|---------|-------------------|----------------------------|
 Stable     | <span id="stable-version"></span>  | <span id="stable-release-date"></span>  | <span id="stable-branch-date"></span>
 Beta       | <span id="beta-version"></span>    | <span id="beta-release-date"></span>    | <span id="beta-branch-date"></span>

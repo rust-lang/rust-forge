@@ -158,7 +158,7 @@ notification group via
 @rustbot ping relnotes-interest-group
 ```
 
-[relnotes-interest-group]: https://github.com/rust-lang/team/blob/master/teams/relnotes-interest-group.toml
+[relnotes-interest-group]: https://github.com/rust-lang/team/blob/main/teams/relnotes-interest-group.toml
 
 ## All: Step 6: Incorporate edits from relnotes PR
 

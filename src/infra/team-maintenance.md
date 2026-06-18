@@ -55,9 +55,9 @@ Only team accesses should be given to a repository.
 On the other hand, changes to the configuration or automation of repositories
 may be approved and merged by `infra-admins`:
 
-* Changing the [general repository settings](https://github.com/rust-lang/team/blob/master/docs/toml-schema.md#general-repository-settings)
+* Changing the [general repository settings](https://github.com/rust-lang/team/blob/main/docs/toml-schema.md#general-repository-settings)
   * This includes granting bots access to the repository.
-* Changing the [repository rulesets](https://github.com/rust-lang/team/blob/master/docs/toml-schema.md#repository-rulesets)
+* Changing the [repository rulesets](https://github.com/rust-lang/team/blob/main/docs/toml-schema.md#repository-rulesets)
 * Changing [trusted publishing](./docs/trusted-publishing.md) configuration for
   crates published through GitHub Actions.
 
@@ -107,7 +107,7 @@ Remove the team member from any and all places:
 
 [gh-team]: https://github.com/orgs/rust-lang/teams
 [gh-nursery-team]: https://github.com/orgs/rust-lang-nursery/teams
-[team repo]: https://github.com/rust-lang/team/tree/master/teams
+[team repo]: https://github.com/rust-lang/team/tree/main/teams
 [team website]: https://www.rust-lang.org/governance
-[team-repo-admins]: https://github.com/rust-lang/team/blob/master/teams/team-repo-admins.toml
-[infra-admins]: https://github.com/rust-lang/team/blob/master/teams/infra-admins.toml
+[team-repo-admins]: https://github.com/rust-lang/team/blob/main/teams/team-repo-admins.toml
+[infra-admins]: https://github.com/rust-lang/team/blob/main/teams/infra-admins.toml

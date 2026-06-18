@@ -132,7 +132,7 @@ To perform a crater run, a modified version of `cargo` must be used which will p
 [#87190](https://github.com/rust-lang/rust/pull/87190) contains an example of what this looks like.
 This roughly performs the following steps:
 
-1. Crater runs `cargo check` using the previous master build.
+1. Crater runs `cargo check` using the previous main branch build.
 1. Crater runs `cargo check` using the modified `cargo`. This modified `cargo check` will perform the following steps instead of doing a normal check.
 1. Copies the package to a temp directory (since the source directory is read-only in crater).
 1. Checks if the package's edition is older than the current edition. If so, skip it, since we only want to test migration of the current edition.
@@ -142,7 +142,7 @@ This roughly performs the following steps:
 
 The modified cargo also allows setting the new edition without `cargo-features` being used.
 
-If the final `cargo fix` or `cargo check` steps fail, and the check succeeded on the previous master build, then that signals a regression where the migration failed.
+If the final `cargo fix` or `cargo check` steps fail, and the check succeeded on the previous main branch build, then that signals a regression where the migration failed.
 
 The Edition Project Group is then responsible for analyzing the report, and filing issues for any problems, and following up with teams for getting those fixed.
 

@@ -133,7 +133,7 @@ In summary, the process for establishing an out-of-tree crate is as follows:
        responsible (link to their page in this repository) and the intended level of maintenance and
        stability.
 
-       > This crate is developed and maintained by the [Rust compiler team](https://github.com/rust-lang/compiler-team/tree/master/procedures) for use within
+       > This crate is developed and maintained by the [Rust compiler team](https://rust-lang.org/governance/teams/compiler/) for use within
        > `rustc`, in particular, it is the responsibility of the
        > [`.template`](./working-areas.md) working area. This crate will have regular
        > breaking changes and provides no stability guarantees | is intended to remain stable and have

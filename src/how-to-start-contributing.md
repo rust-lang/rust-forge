@@ -71,9 +71,9 @@ have contributor guides and issues that are marked as needing help or being good
 [rustc-repo]: https://github.com/rust-lang/rust
 [rustc-issues]: https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+label%3AE-help-wanted+no%3Aassignee
 [rustc-guide]: https://rustc-dev-guide.rust-lang.org
-[std-repo]: https://github.com/rust-lang/rust/tree/master/library
+[std-repo]: https://github.com/rust-lang/rust/tree/main/library
 [std-guide]: https://std-dev-guide.rust-lang.org
-[rustdoc-repo]: https://github.com/rust-lang/rust/tree/master/src/librustdoc
+[rustdoc-repo]: https://github.com/rust-lang/rust/tree/main/src/librustdoc
 [rustdoc-guide]: https://rustc-dev-guide.rust-lang.org/rustdoc.html
 [cargo-repo]: https://github.com/rust-lang/cargo
 [cargo-issues]: https://github.com/rust-lang/cargo/issues?q=is%3Aopen+is%3Aissue+label%3AS-accepted+no%3Aassignee
@@ -82,7 +82,7 @@ have contributor guides and issues that are marked as needing help or being good
 [clippy-guide]: https://github.com/rust-lang/rust-clippy/blob/master/CONTRIBUTING.md
 [clippy-issues]: https://github.com/rust-lang/rust-clippy/issues?q=is%3Aopen%20is%3Aissue%20no%3Aassignee%20label%3A%22good%20first%20issue%22
 [rustfmt-repo]: https://github.com/rust-lang/rustfmt
-[rustfmt-guide]: https://github.com/rust-lang/rustfmt/blob/master/Contributing.md
+[rustfmt-guide]: https://github.com/rust-lang/rustfmt/blob/main/Contributing.md
 [rustfmt-issues]: https://github.com/rust-lang/rustfmt/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22
 [analyzer-repo]: https://github.com/rust-lang/rust-analyzer
 [analyzer-guide]: https://rust-analyzer.github.io/book/contributing

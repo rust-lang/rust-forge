@@ -182,6 +182,6 @@ If you would like to accept, please let me know and I can update the teams repo 
 3. Draft a Inside Rust blog post introducing the new team members. See [previous][p1] [examples][p2]
    for a template.
 
-[team]: https://github.com/rust-lang/team/blob/master/teams/compiler.toml
+[team]: https://github.com/rust-lang/team/blob/main/teams/compiler.toml
 [p1]: https://blog.rust-lang.org/inside-rust/2024/11/12/compiler-team-new-members/
 [p2]: https://blog.rust-lang.org/inside-rust/2024/11/01/compiler-team-reorg/

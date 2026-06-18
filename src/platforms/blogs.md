@@ -95,7 +95,7 @@ The approver should belong to one of the following groups:
 * Rust Foundation project director
 
 These are primarily the members of the
-[inside-rust-reviewers](https://github.com/rust-lang/team/blob/master/teams/inside-rust-reviewers.toml)
+[inside-rust-reviewers](https://github.com/rust-lang/team/blob/main/teams/inside-rust-reviewers.toml)
 marker team[^1]. Note that this applies to *both* the main and inside Rust blogs
 (renaming will happen at some later point).
 
