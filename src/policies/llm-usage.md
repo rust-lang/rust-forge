@@ -72,7 +72,7 @@ The following are allowed.
 ### ❌ Banned
 The following are banned.
 - Comments from a personal user account that are originally created by an LLM.
-    - ℹ️ This also applies to issue bodies, PR descriptions, team/meeting chats, and agendas.
+    - ℹ️ This also applies to issue bodies and PR descriptions.
     - ℹ️ This also applies to voice/video content originally created or scripted by an LLM.
     - ℹ️ This does not apply if the LLM content is clearly quoted and marked; you can post that.
          However, the content of the comment must stand on its own even without the LLM content; it's not a substitute for your own words.
@@ -84,11 +84,6 @@ The following are banned.
          LLMs are conditionally allowed to assist with the *logic* surrounding a diagnostic (see "Experiment: LLM-created code changes" below),
          but they must not be used to create the message itself.
     - ℹ️ This does not include "trivial" changes (see ⚠️ below).
-- Policies or processes that are written such that an LLM is required to execute them.
-    - For example, you must not *only* document how to take meeting notes with an `AGENTS.md`.
-      Documentation must be authored for humans primarily, and LLM documentation may only summarize it, not add new detail.
-- Using an LLM to attend a meeting in your place, or alongside you, without the consent of other team members present.
-  This is the same general principle as "no recording meetings without consent".
 - Treating an LLM review as a sufficient condition to merge or reject a change.
   LLM reviews, if enabled, **must** be advisory-only.
   Teams can have a policy that code can be merged without review, and they can have a policy that code must be reviewed by at least one person,
