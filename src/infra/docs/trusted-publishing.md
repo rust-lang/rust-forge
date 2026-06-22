@@ -43,6 +43,26 @@ publish-environment = "publish"
 ...
 ```
 
+### Environment rules
+
+The environment rules should match the event that triggers the publish
+GitHub Actions workflow.
+
+For example, if the publish is triggered by:
+
+```yaml
+on:
+  push:
+    tags: ["v*"]
+```
+
+then the environment should allow the workflow to run on the same tags pushes:
+
+```toml
+[environments.publish]
+tags = ["v*"]
+```
+
 ## 3. Write the GitHub Actions workflow
 
 Every workflow that publishes to crates.io through trusted publishing needs:
