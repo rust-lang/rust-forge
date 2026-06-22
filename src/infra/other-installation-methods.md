@@ -91,6 +91,7 @@ TAG=a8cfc83801301c2b4f0fd030192e268eeb15d473
 git clone https://github.com/rust-lang/rust
 cd rust
 git reset --hard ${TAG}
+git submodule update --init --recursive
 
 cat >config.toml << EOF
 [rust]
