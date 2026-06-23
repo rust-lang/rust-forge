@@ -1,8 +1,22 @@
 # External CI Runners
 
 The Rust Project mainly runs Continuous Integration (CI) in GitHub Actions.
-When GitHub Actions does not natively support a target, we use
+When GitHub Actions do not natively support a target, we use
 [self-hosted runners](https://docs.github.com/en/actions/concepts/runners/self-hosted-runners).
+
+## Available software
+
+GitHub Actions self-hosted runners usually do not contain all the software that
+is available in GitHub Actions hosted runners (e.g. `ubuntu-latest`).
+
+If you see a CI failure on a self-hosted runner, check if the software you need
+is available. If it is not, you can install it in your GitHub Actions workflow.
+
+## Policy
+
+If you want to add a new external CI runner, please read our
+[policy](https://github.com/rust-lang/infra-team/blob/main/service-catalog/rust-ci/external-runners/README.md)
+first.
 
 ## Configured external CI runners
 
