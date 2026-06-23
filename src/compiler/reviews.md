@@ -420,8 +420,7 @@ or with `@bors $ROLLUP_STATUS` where `$ROLLUP_STATUS` is substituted with one of
     rollup).
   - Has platform-specific changes that are not checked by the normal PR checks.
   - May be affected by MIR migrate mode.
-- `rollup=never`: This should *never* be included in a rollup (**please** include a comment
-  explaining why you have chosen this). Example scenarios:
+- `rollup=never`: This should *never* be included in a rollup. Example scenarios:
   - May have performance implications.
   - May cause unclear regressions (we would likely want to bisect to this PR specifically, as it
     would be hard to identify as the cause from a rollup).
@@ -433,6 +432,8 @@ or with `@bors $ROLLUP_STATUS` where `$ROLLUP_STATUS` is substituted with one of
     - build-manifest
 - `rollup`: this is equivalent to `rollup=always`
 - `rollup-`: this is equivalent to `rollup=maybe`
+
+When setting `rollup=iffy` or `rollup=never`, include a short reason in the approval comment explaining why you have chosen this when it is not obvious.
 
 ### Priority
 Reviewers are encouraged to set one of the rollup statuses listed above instead of setting
@@ -461,6 +462,8 @@ The following is some guidance for setting priorities:
 - 1000
     - Absolutely critical fixes
     - Release promotions
+
+When setting a priority, include a short reason in the approval comment explaining why you have chosen this when it is not obvious.
 
 ### Expectations for r+
 bors privileges are binary: the bot doesn't know which code you are familiar with and what code
