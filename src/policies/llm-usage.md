@@ -84,6 +84,9 @@ The following are banned.
          LLMs are conditionally allowed to assist with the *logic* surrounding a diagnostic (see "Experiment: LLM-created code changes" below),
          but they must not be used to create the message itself.
     - ℹ️ This does not include "trivial" changes (see ⚠️ below).
+- Policies or processes that are written such that an LLM is required to execute them.
+    - For example, you must not *only* document where tests live with an `AGENTS.md`.
+      Documentation must be authored for humans primarily, and LLM documentation may only summarize it, not add new detail.
 - Treating an LLM review as a sufficient condition to merge or reject a change.
   LLM reviews, if enabled, **must** be advisory-only.
   Teams can have a policy that code can be merged without review, and they can have a policy that code must be reviewed by at least one person,
