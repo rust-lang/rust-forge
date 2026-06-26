@@ -194,7 +194,7 @@ And the following are off-topic:
 
 To avoid the risk of LLMs "overwhelming" the codebase, or becoming de-facto required, we set a limit on how many LLM-created PRs can be merged.
 If more than half of PRs merged in a 6-week window are LLM-created, we disallow merging new LLM-created PRs until we go back below 50%, with a minimum cooldown of 10 days.
-This window is chosen to align with our existing release cycle, and the cooldown is to avoid flip-flopping between allowed and disallowed.
+This window is chosen to align with our existing release cycle, and the cooldown is to avoid flip-flopping between allowed and disallowed, with a period chosen to align with our FCP process.
 
 The cooldown is intended to encourage discussion:
 - How is the experiment going?
