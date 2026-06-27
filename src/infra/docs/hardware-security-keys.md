@@ -2,7 +2,7 @@
 
 ## Overview
 
-### Security hardware keys in Rust Infrastructure
+### Hardware security keys in Rust Infrastructure
 
 Hardware security keys drastically improve security by providing unphishable
 protection for sensitive code and infrastructure.The Rust infrastructure team
@@ -181,7 +181,7 @@ For Gcloud CLI, the [web-based authentication flow] will automatically prompt yo
 need to configure it as your preferred [MFA method in your Google account].
 
 For AWS CLI, you should stick with [AWS SSO user sessions] rather than IAM user
-sessions when setting up your CLI configuration. This flow willprompt your 2FA
+sessions when setting up your CLI configuration. This flow will prompt your 2FA
 method when signing with your web browser of choice.
 
 The Rust infrastructure provides SSO access to Project members through our
