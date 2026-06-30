@@ -4,15 +4,10 @@
 
 ### Hardware security keys in Rust Infrastructure
 
-Hardware security keys drastically improve security by providing unphishable
-protection for sensitive code and infrastructure.The Rust infrastructure team
+Hardware security keys improve security by providing unphishable
+protection for sensitive code and infrastructure. The Rust infrastructure team
 officially supports hardware security keys in partnership with
 [Yubico Secure it Forward] program.
-
-The Rust Foundation provides YubiKeys to Rust Project members who need access
-to critical infrastructure systems. If you are eligible for such a grant and
-would like to get the recommended YubiKeys for free, get in touch with the
-[T-infra in Zulip].
 
 Currently, the members of the following teams are eligible for this grant:
 
@@ -23,18 +18,23 @@ Currently, the members of the following teams are eligible for this grant:
 * `triagebot`
 * `bors`
 
+The Rust Foundation provides YubiKeys to Rust Project members who need access
+to critical infrastructure systems. If you are eligible for such a grant and
+would like to get the recommended YubiKeys for free, get in touch with the
+[T-infra in Zulip].
+
 ## YubiKeys support in the Rust infrastructure
 
 ### Supported models
 
 The Rust infrastructure team has validated the [Yubico Series 5 USB/NFC models]
-products and will officially support Yubico Series 5 keys for any issues a
+products and officially supports the Yubico Series 5 keys for any issues a
 Project member might have.
 
 ### Supported firmware versions
 
 Based on existing [security advisories], only YubiKeys with firmware
-**version v5.7.4** or newer are fully supported. You can use either the `ykman`
+**version v5.7.4** or newer are allowed. You can use either the `ykman`
 CLI or Yubico Authenticator to [check the current firmware version] of a YubiKey.
 
 ### Recommended first steps
@@ -45,10 +45,10 @@ help setting up an Yubikey:
 * [Yubico Authenticator] (sources : [Desktop and Android] | [iOS]):  
   * The Desktop app is pretty capable of handling most of the tasks.  
   * You can download the Mobile App directly on Google Play or Apple App Store.  
-* Yubico Manager CLI (sources: [yubikey-manager]): for advanced use cases
+* Yubico Manager CLI (sources: [yubikey-manager]): for advanced use cases.
 
 As a good first step, the Rust infrastructure team recommends using the Yubico
-Authenticator Desktop app to change the default values for :
+Authenticator Desktop app to change the default values for:
 
 * The [Passkeys PIN default value reference]
 * The [PIV app PIN and PUK default values reference]
@@ -60,19 +60,6 @@ about subcommands.
 
 ```shell
 ➜  uvx --from yubikey-manager ykman --help
-Installed 15 packages in 15ms
-Usage: ykman [OPTIONS] COMMAND [ARGS]...
-
-  Configure your YubiKey via the command line.
-
-  Examples:
-
-    List connected YubiKeys, only output serial number:
-    $ ykman list --serials
-
-    Show information about YubiKey with serial number 123456:
-    $ ykman --device 123456 info
-
 ```
 
 ### Multifactor authentication with webauthn
@@ -107,13 +94,13 @@ Yubico Authenticator app to set up [hardware-backed TOTP code generation].
 
 This option provides a way to have working TOTP codes in both a mobile phone
 and a desktop system without relying on third-party cloud systems, but also
-has the con of coupling TOTP code generation with a physical device : similarly
+has the con of coupling TOTP code generation with a physical device: similarly
 to using an offline-only TOTP authenticator app, losing the Yubikey means
 losing access to TOTP codes, which requires additional diligence regarding
 backing up recovery codes.
 
-Note that setting up hardware-backed TOTP codes is totally optional for
-Rust Project members.
+Note that setting up hardware-backed TOTP codes is optional for Rust Project
+members.
 
 ### Hardware-backed SSH keys
 
