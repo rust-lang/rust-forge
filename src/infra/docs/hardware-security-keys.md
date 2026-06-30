@@ -5,8 +5,8 @@
 ### Hardware security keys in Rust Infrastructure
 
 Hardware security keys improve security by providing unphishable
-protection for sensitive code and infrastructure. The Rust infrastructure team
-officially supports hardware security keys in partnership with
+protection for sensitive systems and infrastructure. The Rust infrastructure
+team officially supports hardware security keys in partnership with
 [Yubico Secure it Forward] program.
 
 Currently, the members of the following teams are eligible for this grant:
