@@ -68,6 +68,34 @@ Host rustvm
 
 Then you can connect with `ssh rustvm`.
 
+## SSH host key fingerprints
+
+When connecting to a dev desktop for the first time, you should verify the
+SSH host key fingerprint. The following fingerprints are used by the dev
+desktops.
+
+| Machine             | ED25519                                                    |
+|---------------------|------------------------------------------------------------|
+| `dev-desktop-eu-1`  | `SHA256:QPuC8ODm+no9wjAtrSMCuqj+iGXsFI5ZGR3C+nX7Im0`    |
+| `dev-desktop-us-1`  | `SHA256:UOZn6OKFrCRt+CLPl5fHZd93Tym4ckBrr8rgfgEPT5g`    |
+| `dev-desktop-eu-2`  | `SHA256:biz6c8LJ6cdb6Ku9mlELzl1qh8sODZWtpNfAJPxBi2I`    |
+| `dev-desktop-us-2`  | `SHA256:u6SNCQw++6LV+IhQYEqIcuFo4GIaiU7DyUhaqWEmQdI`    |
+
+You can verify the fingerprint by running:
+
+```shell
+ssh-keygen -lf <(ssh-keyscan <name>.infra.rust-lang.org 2>/dev/null | grep -v '^#')
+```
+
+For convenience, the host keys are also available as `known_hosts` entries:
+
+```text
+dev-desktop-eu-1.infra.rust-lang.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAIIWlDvWkMEX8XIu6lxvd4cFOxeFUpH4ZReKuyS3h9l
+dev-desktop-us-1.infra.rust-lang.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEj0DZ/r/Sq5GdK8j80rNjCs6ctwptcHnFvP3bdjhv/5
+dev-desktop-eu-2.infra.rust-lang.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOmnv10fXAimjPPfwiutVmJifRS+85rmN/zyIP/QNby6
+dev-desktop-us-2.infra.rust-lang.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA2bWm/W7J3QJGRb2z63Mp8nP5rAXOEd1Owd54Wtt5AX
+```
+
 ## How to set up your account
 
 When connecting to the machine for the first time, there are a few things you
