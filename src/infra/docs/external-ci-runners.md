@@ -46,3 +46,12 @@ Here is an explanation of the fields in the list below:
 - contact:
   - Zulip: [Aelin](https://rust-lang.zulipchat.com/#user/338253)
   - Email: `aelin@postmarketos.org` (faster response)
+
+### `ubuntu-2X.04-riscv`
+
+- variants:
+  - `ubuntu-24.04-riscv`
+  - `ubuntu-26.04-riscv`
+- repositories:
+  - [`rustc_codegen_cranelift`](https://github.com/rust-lang/rustc_codegen_cranelift) (enabled, unused)
+- [documentation](https://riscv-runners.riseproject.dev/)
