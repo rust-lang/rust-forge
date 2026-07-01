@@ -136,7 +136,7 @@ SSH keys are available in your YubiKey either with CLI or Yubico Authenticator
 app.
 
 ```shell
-uvx --from yubikey-manager ykman fido credentials list
+$ uvx --from yubikey-manager ykman fido credentials list
 Enter your PIN:
 Credential ID  RP ID    Username  Display name
 86707903...    ssh:git  openssh   openssh
