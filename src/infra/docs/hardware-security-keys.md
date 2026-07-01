@@ -59,7 +59,7 @@ installations. You can refer to the [ykman online documentation] to learn more
 about subcommands.
 
 ```shell
-➜  uvx --from yubikey-manager ykman --help
+uvx --from yubikey-manager ykman --help
 ```
 
 ### Multifactor authentication with webauthn
@@ -124,10 +124,9 @@ and won't prompt your passkey everytime, nor will it require touching the
 hardware key for Git operations.
 
 ```shell
-➜  ssh-keygen -t ed25519-sk \
+ssh-keygen -t ed25519-sk \
   -O resident \
   -O application=ssh:git \
-  -O no-touch-required \
   -C "me@email.com"
 ```
 
@@ -137,11 +136,10 @@ SSH keys are available in your YubiKey either with CLI or Yubico Authenticator
 app.
 
 ```shell
-➜  uvx --from yubikey-manager ykman fido credentials list
+uvx --from yubikey-manager ykman fido credentials list
 Enter your PIN:
 Credential ID  RP ID    Username  Display name
 86707903...    ssh:git  openssh   openssh
-
 ```
 
 ![yubikeys ssh setup](img/yubikey-sshkey.jpg)
