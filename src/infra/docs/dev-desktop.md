@@ -81,7 +81,7 @@ desktops.
 | `dev-desktop-eu-2` | `SHA256:biz6c8LJ6cdb6Ku9mlELzl1qh8sODZWtpNfAJPxBi2I` |
 | `dev-desktop-us-2` | `SHA256:u6SNCQw++6LV+IhQYEqIcuFo4GIaiU7DyUhaqWEmQdI` |
 
-You can verify the fingerprint by running:
+You can verify the fingerprint by running this script and compare the output with the table above:
 
 ```shell
 ssh-keygen -lf <(ssh-keyscan -t ed25519 <name>.infra.rust-lang.org 2>/dev/null | grep -v '^#')
