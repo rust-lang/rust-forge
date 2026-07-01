@@ -74,12 +74,12 @@ When connecting to a dev desktop for the first time, you should verify the
 SSH host key fingerprint. The following fingerprints are used by the dev
 desktops.
 
-| Machine             | ED25519                                                    |
-|---------------------|------------------------------------------------------------|
-| `dev-desktop-eu-1`  | `SHA256:QPuC8ODm+no9wjAtrSMCuqj+iGXsFI5ZGR3C+nX7Im0`    |
-| `dev-desktop-us-1`  | `SHA256:UOZn6OKFrCRt+CLPl5fHZd93Tym4ckBrr8rgfgEPT5g`    |
-| `dev-desktop-eu-2`  | `SHA256:biz6c8LJ6cdb6Ku9mlELzl1qh8sODZWtpNfAJPxBi2I`    |
-| `dev-desktop-us-2`  | `SHA256:u6SNCQw++6LV+IhQYEqIcuFo4GIaiU7DyUhaqWEmQdI`    |
+| Machine            | ED25519                                              |
+|--------------------|------------------------------------------------------|
+| `dev-desktop-eu-1` | `SHA256:QPuC8ODm+no9wjAtrSMCuqj+iGXsFI5ZGR3C+nX7Im0` |
+| `dev-desktop-us-1` | `SHA256:UOZn6OKFrCRt+CLPl5fHZd93Tym4ckBrr8rgfgEPT5g` |
+| `dev-desktop-eu-2` | `SHA256:biz6c8LJ6cdb6Ku9mlELzl1qh8sODZWtpNfAJPxBi2I` |
+| `dev-desktop-us-2` | `SHA256:u6SNCQw++6LV+IhQYEqIcuFo4GIaiU7DyUhaqWEmQdI` |
 
 You can verify the fingerprint by running:
 
