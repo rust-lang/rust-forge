@@ -84,7 +84,7 @@ desktops.
 You can verify the fingerprint by running:
 
 ```shell
-ssh-keygen -lf <(ssh-keyscan <name>.infra.rust-lang.org 2>/dev/null | grep -v '^#')
+ssh-keygen -lf <(ssh-keyscan -t ed25519 <name>.infra.rust-lang.org 2>/dev/null | grep -v '^#')
 ```
 
 For convenience, the host keys are also available as `known_hosts` entries:
