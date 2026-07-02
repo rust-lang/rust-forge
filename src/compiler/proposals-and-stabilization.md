@@ -13,11 +13,10 @@ are suitable for each method of making a proposal - see below):
 - r+
   - A proposal is r+'d when it is approved to be merged.
   - r+ can only be used to approve a PR.
-- Seconding
-  - A proposal is seconded when a team member formally endorses the proposal. Seconding tentatively
-    accepts a proposal subject to a ten-day waiting period for other team members to raise any
-    concerns.
-  - Seconding can only be used to approve a MCP.
+- Seconding (only for a Major Change Proposal, see below)
+  - A proposal is seconded when a team member having formally endorses the proposal. Seconding
+    tentatively accepts a proposal subject to a ten-day waiting period for other team members to
+    raise any concerns.
   - You can "unsecond" by removing the `final-comment-period` label on the MCP.
 - FCP
   - A Final Comment Period is started by a T-compiler member. it's a tool to get concrete consensus
@@ -33,12 +32,12 @@ the nature of the proposal, described below.
   - RFCs are pull requests to the [`rust-lang/rfcs`][rfcs] repository and are a heavy-weight
     proposal mechanism, reserved for significant changes.
   - RFC proposals can only be approved by *FCPs*.
-- Major Change Proposal (MCP)
+- Major Change Proposal (MCP) (introduced in [RFC 2904][rfc_2904])
   - MCPs are issues in the [`rust-lang/compiler-team`][mcps] repository and are a medium-weight
     proposal mechanism, suitable for most proposals. MCPs are recommended for written proposals
     that are not end-user facing.
-  - Introduced in [RFC 2904][rfc_2904].
-  - MCP proposals can be approved by *FCPs* or *Seconding*.
+  - MCP proposals can be approved by *FCPs* or *Seconding* (single team member
+    endorsement).
 - Pull Request (PR)
   - PRs are pull requests to the [`rust-lang/rust`][rust] repository and are a light-weight
     proposal mechanism, suitable for most proposals. PRs are preferred when the proposal is
@@ -73,17 +72,23 @@ the nature of the proposal, described below.
 [major change template]: https://github.com/rust-lang/compiler-team/issues/new?template=major_change.md
 
 #### What kinds of comments should go on a MCP in the compiler-team repo?
-Please direct technical conversation to the [Zulip] stream.
-
-The compiler-team repo issues are intended to be low traffic and used for procedural purposes.
+Please direct technical conversation to the [Zulip] stream. The compiler-team repo issues are
+intended to be low traffic and used for procedural purposes.
 
 It is recommended that any team member who wishes to "second" a proposal be familiar with the
 relevant code. Anyone can note concerns that shouldn't be overlooked.
 
-#### How does one second an MCP or raise an objection?
+It is expected that team members raising concerns later follow-up when the proposal is
+changed and resolve the concern.
+
+#### How does one raise an objection?
 These types of procedural comments can be left on the issue (it's also good to leave a message on
-[Zulip]). See the previous section. To facilitate a machine parsable scanning of the concerns
-please use the following syntax to formally register a concern:
+[Zulip]). See the previous section. It is important to remember that concerns are **blocking**,
+therefore they should be filed as soon as possible and in the most unambiguous way ("mild concerns"
+not registered are not considered blocking).
+
+To facilitate a machine parsable scanning of the concerns please use the following syntax to
+formally register a concern:
 
 ```text
 @rustbot concern reason-for-concern
@@ -96,6 +101,11 @@ And the following syntax to lift a concern when resolved:
 ```text
 @rustbot resolve reason-for-concern
 ```
+
+#### How does one second an MCP?
+It is generally advisable to wait for a bit of time (say a few days) before approving (seconding) an
+MCP to allow people on different timezones and working schedules to look at it. Unless the proposal
+is so straightforward and clear that approving is a no-brainer.
 
 MCPs can be seconded using:
 
@@ -110,10 +120,11 @@ need for a "tie breaker" vote or judgment call, the compiler team leads make the
 #### When should MCPs be closed?
 MCPs can be closed:
 
-* by the author, if they have lost interest in pursuing it.
+* by the author, if they have lost interest in pursuing it. In these cases, it is appreciated if MCP
+  authors close their proposals to help us keep things tidy
 * by a team lead or expert, if there are strong objections from key members of the team that
   don't look likely to be overcome.
-* by folks doing triage, if there have been three months of inactivity. In this case, people
+* by folks doing triage, if there have been about three months of inactivity. In this case, people
   should feel free to re-open the issue if they would like to "rejuvenate" it.
 
 ### What happens if someone makes a contribution that requires an approval and doesn't have one?
@@ -122,9 +133,12 @@ should be closed or marked as blocked, with a request to create an MCP or RFC fi
 a PR is acceptable for the specific contribution (see below), then the approval process can begin.
 
 ### Can I work on code experimentally before a approval is gained?
-Of course! You are free to work on PRs or write code. But those PRs should be marked as
-experimental and they should not land, nor should anyone be expected to review them (unless
-folks want to).
+Of course! You are free to work on PRs or write code. But those PRs should be marked as experimental
+and they should not land, nor should anyone be expected to review them (unless folks want to). Also,
+try to get a *feel* of how the team feels about the proposal: we appreciated code demonstrating the
+proposal but at the same time we don't want you to work on somehing that might not get approved, so
+keep in mind that a proof-of-concept or more elaborate patches can facilitate but are not a
+guarantee for approval.
 
 ## What makes a good proposal?
 A good proposal will address the following:
