@@ -38,3 +38,18 @@ Bot accounts controlled by the Infrastructure Team (such as the triagebot) can b
 [Infrastructure Team]: https://github.com/rust-lang/infra-team/
 [team]: https://github.com/rust-lang/team
 [2FA]: https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa
+
+## Transfer repositories
+
+To transfer a repository to the `rust-lang` organization:
+
+1. Write in the [#t-infra] Zulip channel saying that you want to transfer the repository
+2. Open a Pull Request in [team] to add the repository
+3. Transfer the repository to the GitHub profile of an [infrastructure admin]
+   (only infra-admins can transfer repositories into `rust-lang`)
+4. Wait for the infra admin to:
+   - Accept the transfer
+   - Merge the PR in the team repo
+
+[#t-infra]: https://rust-lang.zulipchat.com/#narrow/channel/242791-t-infra
+[infrastructure admin]: https://github.com/rust-lang/team/blob/main/teams/infra-admins.toml
