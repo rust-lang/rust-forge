@@ -310,5 +310,6 @@ This policy can be dissolved in a few ways:
 
 - An accepted FCP by the teams that ratified the policy.
 - An objective concern raised about active harm the policy is having on the Rust project, with evidence, as decided by a leadership council FCP.
+- If the proposed [LLM committee](https://github.com/rust-lang/leadership-council/issues/308) (or any similar dedicated project-wide body) is formed, any policy it sets will take precedence over this policy.
 
 If evolving this policy with the above mechanism proves unworkable, especially if a team ends up significantly hindered in autonomously making decisions concerning its own purview, then these conditions for modification can be adjusted by a leadership council FCP.
