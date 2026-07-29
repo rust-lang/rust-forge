@@ -155,33 +155,28 @@ Credential ID  RP ID    Username  Display name
 
 YubiKeys are compatible with [Personal Identity Verification (PIV)] for smart
 cards, which allows using them for encryption and signing operations on top
-of this particular standard. Project members operating critical infrastructure
-or driving releases should mind the following instructions to setup PIV-backed
-keys.
+of this particular standard.
 
 #### Conventions and requirements
 
-To leverage PIV capabilities, **it's mandatory to change** the PIN and PUK
-default values. You can do that using either `ykman` or the Yubico
-Authenticator app.
+Before using PIV, **you must change** the default PIN and PUK. Use `ykman` or
+the Yubico Authenticator app. With `ykman`, run:
 
 ```shell
 ykman piv access change-pin
 ykman piv access change-puk
 ```
 
-Although it is possible to create and manage PIV keys using the Yubico
-Authenticator, you must use `ykman` to have access to security options
-not available through the desktop application.
+Yubico Authenticator can create and manage PIV keys, but some security
+options are available only in `ykman`.
 
 #### Generating PIV-backed keys
 
-When creating PIV-backed keys with your YubiKey, you must note the following
-security requirements:
+When creating PIV-backed keys, follow these
 
-* `ECCP256` should be favored as the encryption algorithm
-* PIN confirmation must be required at least `once` when accessing a PIV slot
-* human interaction against the YubiKey (touching it) is always required
+* Prefer the `ECCP256` encryption algorithm.
+* Require PIN confirmation at least `once` when accessing a PIV slot.
+* Require human interaction against the YubiKey (touching it).
 
 To generate a key and store it into the slot `9a` (authentication use cases)
 with recommended security defaults, run:
@@ -209,8 +204,7 @@ ykman piv keys export 9c pubkey-9c.pem
 
 These public keys are also required to generate self-signed `X.509`
 certificates and to have them physically stored in the same PIV slots.
-For example, to generate and store such a certificate for the `9a` PIV slot
-already storing a key:
+For example, to generate and store such a certificate for the `9a` PIV, run:
 
 ```shell
 ykman piv certificates generate 9a pubkey-9a.pem --subject "CN=<your name>" --valid-days 2000
@@ -218,8 +212,8 @@ ykman piv certificates generate 9a pubkey-9a.pem --subject "CN=<your name>" --va
 
 Note that:
 
-* `subject` should be a [RFC-4514 string]
-* `valid-days` directly impacts certificate rotation (default is 365 days)
+* `subject` should be an [RFC-4514 string]
+* `valid-days` sets the certificate lifetime (default is 365 days)
 
 #### Exporting attestations and sharing them through team DB
 
@@ -239,16 +233,14 @@ with Yubico's root attestation CA:
 ykman piv certificates export f9 f9-intermediate.pem
 ```
 
-We expect these files to be shared for further verification through the
-[Project members DB]. To bring these files to `team`, you must:
+Add these files to the [team DB]:
 
-* create a new folder under `team/hardware-keys`
-* add to it any `attestation-9*.pem` files related to the PIV slots you set up
-* add to it the `f9-intermediate.pem` attestation file for your YubiKey
-* link these files with your member information under `team/people/<your-user>.toml`
+* Create a directory under [team/hardware-keys] named after your YubiKey's serial number.
+* Add the `attestation-9*.pem` files for the PIV slots you configured.
+* Add the YubiKey's `f9-intermediate.pem` attestation file.
+* Link to these files from `team/people/<your-user>.toml`.
 
-Preferably, name each folder you create at `team/hardware-keys` after your YubiKey
-serial number. Check the [TOML schema] for additional details.
+See the [TOML schema] for details.
 
 ## FAQ
 
@@ -296,7 +288,8 @@ your [MFA method of choice in your AWS user account], though.
 [AWS SSO user sessions]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sso.html
 [AWS Identity Center configuration]: https://forge.rust-lang.org/infra/docs/aws-access.html
 [MFA method of choice in your AWS user account]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html
-[Project members DB]: https://github.com/rust-lang/team
+[team DB]: https://github.com/rust-lang/team
+[team/hardware-keys]: https://github.com/rust-lang/team/tree/main/hardware-keys
 [RFC-4514 string]: https://www.rfc-editor.org/info/rfc4514/#section-4
 [attestation certificate]: https://developers.yubico.com/PIV/Introduction/PIV_attestation.html
 [TOML schema]: https://github.com/rust-lang/team/blob/main/docs/toml-schema.md#people
