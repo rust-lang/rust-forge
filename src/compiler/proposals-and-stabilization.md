@@ -351,6 +351,15 @@ Quick overview for target demotions and removals:
   - Open an RFC describing the motivation for the change and start an FCP to approve, start an FCP.
   - If approved, the change should be accompanied by a blog post announcing the change with a
     notice period of at least one release before the change applies.
+- Changing a tier 1 target's host tools status (without host tools => with host tools, with host
+  tools => without host tools)
+  - **Propose using:** RFC
+  - **Approve using:** FCP
+  - Open an RFC describing the motivation for the change and start an FCP to approve, start an FCP.
+  - If approved, the change should be accompanied by a blog post announcing the change with a
+    notice period of at least one release before the change applies.
+  - For dropping host tools, sometimes the one release grace period may need to be waived out of
+    necessity.
 - Changing target baseline (e.g. minimum Darwin or Windows version bump)
   - **Propose using:** MCP
   - **Approve using:** FCP
