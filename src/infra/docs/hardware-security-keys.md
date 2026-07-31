@@ -172,7 +172,7 @@ options are available only in `ykman`.
 
 #### Generating PIV-backed keys
 
-When creating PIV-backed keys, follow these
+When creating PIV-backed keys, follow these security requirements:
 
 * Prefer the `ECCP256` encryption algorithm.
 * Require PIN confirmation at least `once` when accessing a PIV slot.
@@ -203,8 +203,8 @@ ykman piv keys export 9c pubkey-9c.pem
 ```
 
 These public keys are also required to generate self-signed `X.509`
-certificates and to have them physically stored in the same PIV slots.
-For example, to generate and store such a certificate for the `9a` PIV, run:
+certificates. For example, to generate a certificate associated with
+the `9a` PIV slot, run:
 
 ```shell
 ykman piv certificates generate 9a pubkey-9a.pem --subject "CN=<your name>" --valid-days 2000
@@ -233,7 +233,7 @@ with Yubico's root attestation CA:
 ykman piv certificates export f9 f9-intermediate.pem
 ```
 
-Add these files to the [team DB]:
+To add these files to the [team DB], follow the following steps:
 
 * Create a directory under [team/hardware-keys] named after your YubiKey's serial number.
 * Add the `attestation-9*.pem` files for the PIV slots you configured.
