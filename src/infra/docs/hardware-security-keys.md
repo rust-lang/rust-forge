@@ -62,6 +62,13 @@ about subcommands.
 uvx --from yubikey-manager ykman --help
 ```
 
+or alternatively
+
+```shell
+alias ykman="uvx --from yubikey-manager ykman"
+ykman --help
+```
+
 ### Multifactor authentication with webauthn
 
 Yubico implements the [FIDO2 standard] in all its products, and therefore,
@@ -136,7 +143,7 @@ SSH keys are available in your YubiKey either with CLI or Yubico Authenticator
 app.
 
 ```shell
-$ uvx --from yubikey-manager ykman fido credentials list
+$ ykman fido credentials list
 Enter your PIN:
 Credential ID  RP ID    Username  Display name
 86707903...    ssh:git  openssh   openssh
@@ -144,14 +151,96 @@ Credential ID  RP ID    Username  Display name
 
 ![yubikeys ssh setup](img/yubikey-sshkey.jpg)
 
-### PIV and attestations
+### PIV-backed keys and attestations
 
 YubiKeys are compatible with [Personal Identity Verification (PIV)] for smart
 cards, which allows using them for encryption and signing operations on top
 of this particular standard.
 
-Some capabilities backed by PIV will be introduced later in the Rust Project.
-For now, you may want to [watch this issue] to follow-up on this topic.
+#### Conventions and requirements
+
+Before using PIV, **you must change** the default PIN and PUK. Use `ykman` or
+the Yubico Authenticator app. With `ykman`, run:
+
+```shell
+ykman piv access change-pin
+ykman piv access change-puk
+```
+
+Yubico Authenticator can create and manage PIV keys, but some security
+options are available only in `ykman`.
+
+#### Generating PIV-backed keys
+
+When creating PIV-backed keys, follow these security requirements:
+
+* Prefer the `ECCP256` encryption algorithm.
+* Require PIN confirmation at least `once` when accessing a PIV slot.
+* Require human interaction against the YubiKey (touching it).
+
+To generate a key and store it into the slot `9a` (authentication use cases)
+with recommended security defaults, run:
+
+```shell
+ykman piv keys generate 9a - --algorithm ECCP256 --pin-policy once --touch-policy always
+```
+
+Similarly, to generate a key and store it into the slot `9c`
+(signing use cases):
+
+```shell
+ykman piv keys generate 9c - --algorithm ECCP256 --pin-policy once --touch-policy always
+```
+
+#### Exporting public keys and certificates from PIV slots
+
+After generating keys, you can export the public keys related to the PIV
+slots and store them externally:
+
+```shell
+ykman piv keys export 9a pubkey-9a.pem
+ykman piv keys export 9c pubkey-9c.pem
+```
+
+These public keys are also required to generate self-signed `X.509`
+certificates. For example, to generate a certificate associated with
+the `9a` PIV slot, run:
+
+```shell
+ykman piv certificates generate 9a pubkey-9a.pem --subject "CN=<your name>" --valid-days 2000
+```
+
+Note that:
+
+* `subject` should be an [RFC-4514 string]
+* `valid-days` sets the certificate lifetime (default is 365 days)
+
+#### Exporting attestations and sharing them through team DB
+
+In addition to self-signed certificates, you can also generate an
+[attestation certificate] for a PIV-backed key pair.
+
+```shell
+ykman piv keys attest 9a attestation-9a.pem
+ykman piv keys attest 9c attestation-9c.pem
+```
+
+To allow verification for these attestations, you must also export Yubico's
+intermediate attestation certificate pre-loaded in the YubiKey and signed
+with Yubico's root attestation CA:
+
+```shell
+ykman piv certificates export f9 f9-intermediate.pem
+```
+
+To add these files to the [team DB], follow the following steps:
+
+* Create a directory under [team/hardware-keys] named after your YubiKey's serial number.
+* Add the `attestation-9*.pem` files for the PIV slots you configured.
+* Add the YubiKey's `f9-intermediate.pem` attestation file.
+* Link to these files from `team/people/<your-user>.toml`.
+
+See the [TOML schema] for details.
 
 ## FAQ
 
@@ -170,8 +259,8 @@ sessions when setting up your CLI configuration. This flow will prompt your 2FA
 method when signing with your web browser of choice.
 
 The Rust infrastructure provides SSO access to Project members through our
-[AWS Identity Center configuration]. You still need to configure your YubiKey as your
-[MFA method of choice in your AWS user account], though.
+[AWS Identity Center configuration]. You still need to configure your YubiKey as
+your [MFA method of choice in your AWS user account], though.
 
 [Yubico Secure it Forward]: https://www.yubico.com/why-yubico/secure-it-forward
 [T-infra in Zulip]: https://rust-lang.zulipchat.com/#narrow/channel/242791-t-infra
@@ -194,9 +283,13 @@ The Rust infrastructure provides SSO access to Project members through our
 [options for hardware-backed SSH key pairs]: https://developers.yubico.com/SSH
 [OpenSSH built-in support for FIDO2 authentication]: https://developers.yubico.com/SSH/Securing_SSH_with_FIDO2.html
 [Personal Identity Verification (PIV)]: https://developers.yubico.com/PIV
-[watch this issue]: https://github.com/rust-lang/team/issues/2501
 [web-based authentication flow]: https://docs.cloud.google.com/sdk/docs/authenticate#humans
 [MFA method in your Google account]: https://support.google.com/accounts/answer/6103523?hl=en&co=GENIE.Platform%3DDesktop
 [AWS SSO user sessions]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sso.html
 [AWS Identity Center configuration]: https://forge.rust-lang.org/infra/docs/aws-access.html
 [MFA method of choice in your AWS user account]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html
+[team DB]: https://github.com/rust-lang/team
+[team/hardware-keys]: https://github.com/rust-lang/team/tree/main/hardware-keys
+[RFC-4514 string]: https://www.rfc-editor.org/info/rfc4514/#section-4
+[attestation certificate]: https://developers.yubico.com/PIV/Introduction/PIV_attestation.html
+[TOML schema]: https://github.com/rust-lang/team/blob/main/docs/toml-schema.md#people
