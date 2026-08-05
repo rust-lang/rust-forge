@@ -130,6 +130,8 @@ To achieve this goal, we want to build trust and respect of each other's time an
 - Try to keep comments concise, don't worry about a perfect written communication. Strive for clarity and being to the point
 - Please use English to communicate (including e.g. commit messages) for consistency with the communication in our project (English is the accepted common language in our project). The grammar or prose does not need to be perfect at all!
 
+See also our [LLM usage policy](./policies/llm-usage.md).
+
 [^1]: Free-Open Source Project, see: https://en.wikipedia.org/wiki/Free_and_open-source_software
 
 ### Different kinds of contributions

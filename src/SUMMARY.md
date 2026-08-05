@@ -87,6 +87,7 @@
     - [Project groups](./governance/project-groups.md)
 - [Policies](./policies/index.md)
     - [Crate ownership policy](./policies/crate-ownership.md)
+    - [LLM usage policy](./policies/llm-usage.md)
 - [Infrastructure](./infra/index.md)
     - [Other Installation Methods](./infra/other-installation-methods.md)
     - [Archive of Rust Stable Standalone Installers](./infra/archive-stable-version-installers.md)
