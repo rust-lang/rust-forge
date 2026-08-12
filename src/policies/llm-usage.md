@@ -174,7 +174,7 @@ As an exception, PRs written before this policy went into effect are exempt from
 
 ### Procedures
 
-LLM-created PRs must be tagged with a new `ai-assisted` label.
+LLM-created PRs must be tagged with a new `llm-assisted` label.
 All such PRs will be posted to a new (private) Zulip channel, which will be accessible to all members of the `rust-lang` organization.
 The goal of the channel is *not* to act as an additional gatekeeper on LLM-created PRs.
 Instead, it's to collect information about *whether this experiment is working*:
