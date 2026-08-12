@@ -28,7 +28,7 @@ required-issue-label = "regression-from-stable-to-stable"
 add-labels = ["beta-nominated", "stable-nominated"]
 
 [backport.baz]
-required-pr-labels = ["T-libs", "T-libs-api"]
+required-pr-labels = ["T-libs"]
 required-issue-label = "regression-from-stable-to-stable"
 add-labels = ["stable-nominated"]
 ```

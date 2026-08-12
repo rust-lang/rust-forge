@@ -63,7 +63,7 @@ compiler = ["compiler-team", "compiler-team-contributors"]
 compiler-team = ["cjgillot", "estebank"]
 compiler-team-contributors = ["compiler-errors", "jackh726"]
 # Can reference rust-lang teams.
-libs = ["rust-lang/libs-api"]
+libs = ["rust-lang/libs"]
 # This is a special group that will be used if none of the `owners` entries matches.
 fallback = ["@Mark-Simulacrum"]
 

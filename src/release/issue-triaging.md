@@ -47,7 +47,7 @@ To do the initial triage and remove the `needs-triage` label, the following cond
 - If the issue contains no reproduction but needs one (when in doubt, it needs one), ask for one and add the `S-needs-repro` label.
 - If the issue lacks information (e.g. system information, the exact invocation used), then request that the reporter provide the information that is important to reproduce the problem. Add the `S-needs-info` label.
 - The issue tracker is the wrong place for some kinds of feature requests. Redirect the author to proper channels:
-    - Standard library API requests should follow [libs-api processes](https://std-dev-guide.rust-lang.org/development/feature-lifecycle.html).
+    - Standard library API requests should follow [libs processes](https://std-dev-guide.rust-lang.org/development/feature-lifecycle.html).
     - Language changes should be redirected to [IRLO] or T-lang zulip channel ([t-lang](https://rust-lang.zulipchat.com/#narrow/stream/213817-t-lang)).
 - If the issue could benefit from bisecting the regression (when in doubt, it can), add `E-needs-bisection` (or do the bisection yourself). An useful bisection tool is [`cargo-bisect-rustc`].
     - If there is a bisection and the bisection outcome is convincing, add `S-has-bisection`.
@@ -161,8 +161,6 @@ Anything related to the compiler implementation, such as diagnostics and ICEs.
 ##### T-libs
 * Changes to implementation details of library functions
 * Spelling, grammar, and organizational changes in library docs
-
-##### T-libs-api
 * New library apis, such as functions and methods
 * Changes to signatures of unstable functions
 * Semantic changes to library documentation,
