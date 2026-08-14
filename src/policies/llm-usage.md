@@ -303,7 +303,7 @@ In most cases the output is "trivial" (see above under ⚠️), but regardless, 
 This policy is not set in stone, and we can evolve it as we gain more experience working with LLMs.
 
 Minor changes, such as typo fixes, only require a normal PR approval.
-Major changes, such as adding a new rule or canceling an existing rule, require a successful MCP (2 approvals and no concerns) from each team that ratified the policy.
+Major changes, such as adding a new rule or canceling an existing rule, require a successful [MCP (Major Change Proposal)](../compiler/proposals-and-stabilization.html#proposals) (2 approvals and no concerns) from each team that ratified the policy.
 Changes to the guidance in the rustc-dev-guide have no special requirements for modification.
 
 This policy can be dissolved in a few ways:
