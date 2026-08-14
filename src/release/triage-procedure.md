@@ -15,7 +15,7 @@
 - [S-waiting-on-review] - Review is incomplete
 - [S-waiting-on-t-lang] - Waiting for T-lang feedback.
 - [S-waiting-on-t-compiler] - Waiting for T-compiler feedback.
-- [S-waiting-on-t-libs-api] - Waiting for T-libs-api feedback.
+- [S-waiting-on-t-libs] - Waiting for T-libs feedback.
 - [S-waiting-on-bors] - Currently approved, waiting to merge. Managed by [bors].
 - [S-waiting-on-crater] - Waiting to see what the impact the PR will have on the
   ecosystem
@@ -39,7 +39,7 @@ not need a review yet.)
 [s-waiting-on-review]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+draft%3Afalse+is%3Apr+sort%3Aupdated-asc+label%3AS-waiting-on-review+-label%3AI-nominated+-label%3Aneeds-fcp
 [s-waiting-on-t-lang]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-t-lang+sort%3Aupdated-asc
 [s-waiting-on-t-compiler]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-t-compiler+sort%3Aupdated-asc
-[s-waiting-on-t-libs-api]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-t-libs-api+sort%3Aupdated-asc
+[s-waiting-on-t-libs]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-t-libs+sort%3Aupdated-asc
 [s-waiting-on-bors]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-bors+sort%3Aupdated-asc
 [s-waiting-on-crater]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-crater+sort%3Aupdated-asc
 [s-waiting-on-bikeshed]: https://github.com/rust-lang/rust/pulls?q=is%3Aopen+is%3Apr+label%3AS-waiting-on-bikeshed+sort%3Aupdated-asc
