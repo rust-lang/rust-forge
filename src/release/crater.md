@@ -20,15 +20,16 @@ the date of the most recent channel-rust-beta.toml.
 ```console
 @craterbot run name=beta-$BETA_VERSION start=$STABLE end=$BETA mode=build-and-test cap-lints=warn p=10
 @craterbot run name=beta-rustdoc-$BETA_VERSION start=$STABLE end=$BETA mode=rustdoc cap-lints=warn p=5
+@craterbot run name=beta-release-$BETA_VERSION start=$STABLE+cargoflags=--release end=$BETA+cargoflags=--release mode=build-and-test cap-lints=warn p=3
 ```
 
 Once the runs complete, you want to triage them
 
 ## Triaging
 
-These steps should generally be done for the normal rustc run, and then followed up by a triage of
-the rustdoc run. Ignore failures in rustdoc that look to be rooted in rustc (i.e., duplicate
-failures).
+These steps should generally be done for the normal rustc run, then followed up by a triage of
+the rustdoc run, and then followed by that of the `--release` run. Ignore failures in the rustdoc and
+`--release` runs that are duplicates of the normal rustc run.
 
 There will usually be quite a few regressions -- there are a couple tools that can help reduce the
 amount of work that you need to do. It's mostly a matter of personal preference which is more
