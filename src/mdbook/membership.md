@@ -52,11 +52,6 @@ It also implies some obligations (in some cases, optional obligations):
 Once you're a member of the mdBook team, a number of events will happen:
 
 - You will gain access to a private Zulip stream, where internal discussions happen.
-- You will also be subscribed to the `all@rust-lang.org` and `mdbook@rust-lang.org` mailing lists.
-  See [this file](https://github.com/rust-lang/team/blob/HEAD/teams/all.toml) to check how
-  subscriptions to mailing lists work. Both are very low-volume mailing list (maybe a few emails per
-  year). About `all@rust-lang.org`: it's a way to communicate things to all contributors. We will
-  not send you spam from this address.
 
 ## How promotion decisions are made
 
