@@ -349,7 +349,7 @@ To try reduce noise in the docs from deprecated items, they should be moved to t
 [RFC 1023]: https://rust-lang.github.io/rfcs/1023-rebalancing-coherence.html
 [RFC 1105]: https://rust-lang.github.io/rfcs/1105-api-evolution.html
 [RFC 0769 PhantomData]: https://github.com/rust-lang/rfcs/blob/master/text/0769-sound-generic-drop.md#phantom-data
-[Everyone Poops]: http://cglab.ca/~abeinges/blah/everyone-poops
+[Everyone Poops]: https://faultlore.com/blah/everyone-poops/
 [rust/pull/46799]: https://github.com/rust-lang/rust/pull/46799
 [rust/issues/76367]: https://github.com/rust-lang/rust/issues/76367
 [rust/issues/31844]: https://github.com/rust-lang/rust/issues/31844
