@@ -22,7 +22,7 @@ To join this team, simply talk to [Dylan-DPC] and then open a PR to [rust-lang/t
 For more information about wg-triage, see [Triage Procedure].
 
 [team-repo]: https://github.com/rust-lang/team
-[team#1826]: https://github.com/rust-lang/team/pull/2447
+[team#2447]: https://github.com/rust-lang/team/pull/2447
 [Dylan-DPC]: https://rust-lang.zulipchat.com/#user/120823
 [Triage Procedure]: ./release/triage-procedure.md
 
