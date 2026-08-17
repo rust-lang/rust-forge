@@ -27,7 +27,7 @@ the nature of the proposal, described below.
     something if in the end, the team will ask major changes or even refuse it. After the
     discussion, if accepted and depending on the change, an RFC or a PR will be the next step.
 - Pull Request (PR)
-  - Opening a pull request on the [`rust-lang/mdBook`][mdbbok] repository is a lightweight
+  - Opening a pull request on the [`rust-lang/mdBook`][mdbook] repository is a lightweight
     mechanism suitable for most proposals.
   - PR proposals can be approved by *FCPs* or *by being added to the merge queue*. See
     *When are FCPs required?* section below when *being added to the merge queue* isn't
@@ -65,3 +65,6 @@ A good proposal will address the following:
   equivalent tooks?
 * **Alternatives, concerns, and key decisions:** Were there any alternatives considered? If so, why
   did you pick this design?
+
+[mdbook]: https://github.com/rust-lang/mdBook/
+
