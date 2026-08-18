@@ -85,6 +85,7 @@
     - [Leadership Council](./governance/council.md)
     - [Moderation](./governance/moderation.md)
     - [Project groups](./governance/project-groups.md)
+    - [Project goals](./governance/project-goals.md)
 - [Policies](./policies/index.md)
     - [Crate ownership policy](./policies/crate-ownership.md)
     - [LLM usage policy](./policies/llm-usage.md)
