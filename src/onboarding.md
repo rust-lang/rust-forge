@@ -12,16 +12,17 @@ Each team has different policies for joining new team members, as well as differ
 
 [fcps]: https://rust-lang.github.io/rfcs/#what-the-process-is
 
-### Joining wg-triage
+### Joining triage
+<a name="joining-wg-triage"></a><!-- preserve links to the old team name -->
 
-One exception to the above is wg-triage, which we highly recommend as an introduction to working on the project. wg-triage works on triaging issues and PRs in the rust-lang/rust repository, and does not require prior experience with programming or compilers. Feel free to join wg-triage if you have ever interacted with the Rust project (interacting frequently enough that we recognize you is encouraged but not required).
+One exception to the above is the triage team, which we highly recommend as an introduction to working on the project. The team works on triaging issues and PRs in the rust-lang/rust repository, and does not require prior experience with programming or compilers. Feel free to join triage if you have ever interacted with the Rust project (interacting frequently enough that we recognize you is encouraged but not required).
 
-To join this team, simply talk to [Dylan-DPC] and then open a PR to [rust-lang/team][team-repo]. See [team#1826] for an example of what changes to make.
+To join this team, simply talk to [Dylan-DPC] and then open a PR to [rust-lang/team][team-repo]. See [team#2447] for an example of what changes to make.
 
 For more information about wg-triage, see [Triage Procedure].
 
 [team-repo]: https://github.com/rust-lang/team
-[team#1826]: https://github.com/rust-lang/team/pull/1826
+[team#2447]: https://github.com/rust-lang/team/pull/2447
 [Dylan-DPC]: https://rust-lang.zulipchat.com/#user/120823
 [Triage Procedure]: ./release/triage-procedure.md
 
