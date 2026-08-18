@@ -53,11 +53,11 @@ Some useful filters when looking at regressions.
 ## Meetings
 
 T-compiler has two kinds of meetings: triage and design meetings. Triage meetings happen weekly on Thursdays (you can subscribe to the Team Compiler calendar [from this repository][compiler-calendar]
-), there is a [tool](https://github.com/rust-lang/triagebot/blob/master/src/bin/prioritization-agenda.rs) to generate 80% of the meeting's agenda (see [Triage meetings](#triage-meetings) for details). Design meetings proposals are advanced on the [T-compiler repository](https://github.com/rust-lang/compiler-team/issues?q=sort%3Aupdated-desc%20is%3Aissue%20is%3Aopen%20label%3Ameeting-proposal) and scheduled during recurrent *steering* meetings (where the next *design* meetings are scheduled). Design meetings also need an agenda and a bit of work to summarize the topic and bring together documentation, invite relevant people and so on.
+), there is a [tool](https://github.com/rust-lang/triagebot/blob/master/src/bin/prioritization-agenda.rs) to generate most of the meeting's agenda (see [Triage meetings](#triage-meetings) for details). Design meetings proposals are advanced on the [T-compiler repository](https://github.com/rust-lang/compiler-team/issues?q=sort%3Aupdated-desc%20is%3Aissue%20is%3Aopen%20label%3Ameeting-proposal) and scheduled during recurrent *steering* meetings (where the next *design* meetings are scheduled). Design meetings also need an agenda and a bit of work to summarize the topic and bring together documentation, invite relevant people and so on.
 
 [compiler-calendar]: https://github.com/rust-lang/calendar
 
-### Triage meetings
+### Weekly triage meeting
 
 First, ensure that relevant issues are labelled as `T-compiler`:
 
@@ -163,6 +163,14 @@ After the meeting, there are a few closing tasks:
 [mcps]: https://github.com/rust-lang/compiler-team/issues?q=label%3Amajor-change%20label%3Ato-announce%20is%3Aissue
 [release_backports]: ../release/backporting.md
 [compiler_nominated]: https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3AI-compiler-nominated+label%3AT-compiler
+
+### P-high issues triage meeting
+
+About every 6 months we review the queue of open issues labeled with `P-high` (here the list of [past meetings](https://github.com/rust-lang/compiler-team/issues/900)): goal of this meeting is to re-evaluate the priority of these `P-high` issues, which for a reason or another could be downgraded (too many `P-high` issues lingering for too long becomes background noise and shadows the real high-priority ones).
+
+We use [this tool](https://github.com/apiraino/compiler-p-high-issues-triage) to generate the agenda.
+
+Triage meetings notes are then uploaded on [HackMD](https://hackmd.io/team/rust-compiler-team?nav=overview&tags=%5B%22p-high-issues%22%5D).
 
 ## Rest of the world
 
