@@ -41,12 +41,12 @@ the nature of the proposal, described below.
 ### When are FCPs required?
 
 An FCP will be needed for any stabilization of user-facing changes, like UI/UX changes,
-new command-line arguments, new attributes, etc.
+new command-line arguments, new attributes, etc. It also includes breaking changes.
 
 When starting an FCP, make sure only the relevant subteam is labeled on the issue/PR, to avoid
 pinging people with changes they aren't interested in.
 
-### Can I work on code experimentally before a approval is gained?
+### Can I work on code experimentally before an approval is gained?
 
 Of course! You are free to work on PRs or write code. But those PRs should be marked as
 experimental and they should not land, nor should anyone be expected to review them (unless
@@ -67,4 +67,3 @@ A good proposal will address the following:
   did you pick this design?
 
 [mdbook]: https://github.com/rust-lang/mdBook/
-

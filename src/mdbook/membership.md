@@ -52,6 +52,7 @@ It also implies some obligations (in some cases, optional obligations):
 Once you're a member of the mdBook team, a number of events will happen:
 
 - You will gain access to a private Zulip stream, where internal discussions happen.
+- You will be able to add pull requests to the merge queue.
 
 ## How promotion decisions are made
 
@@ -85,7 +86,7 @@ active as well.
 
 ### Automatic alumni status after 6 months of inactivity
 
-If a member or maintainer has been inactive in mdBook for 6 months, they will be moved to the
+If a member or maintainer has been nonresponsive in mdBook for 6 months, they will be moved to the
 alumni status.
 
 [team]: https://github.com/rust-lang/team
