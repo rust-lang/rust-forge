@@ -53,6 +53,7 @@ Once you're a member of the mdBook team, a number of events will happen:
 
 - You will gain access to a private Zulip stream, where internal discussions happen.
 - You will be able to add pull requests to the merge queue.
+- You will be able to start FCPs, but also approve and/or raise concerns on them.
 
 ## How promotion decisions are made
 
