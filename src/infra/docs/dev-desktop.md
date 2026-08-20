@@ -224,7 +224,7 @@ desktops are currently running Ubuntu 22.04 LTS.
 
 Every user has a quota of how much disk space they can use.
 Currently, the quota is set to
-[150GB](https://github.com/rust-lang/simpleinfra/blob/8a59e4faeb75a09b072671c74a7cb70160ebef50/ansible/roles/dev-desktop/defaults/main.yml#L7).
+[200GB](https://github.com/rust-lang/simpleinfra/blob/master/ansible/roles/dev-desktop/defaults/main.yml#L9).
 
 Exceeding the quota will result in the error `Disk quota exceeded (os error 122)`.
 
