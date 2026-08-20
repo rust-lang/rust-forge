@@ -129,6 +129,9 @@ warn_non_default_branch = true
 # If set, the welcome message to new contributors will include this link to
 # a contributing guide.
 contributing_url = "https://rustc-dev-guide.rust-lang.org/contributing.html"
+# If set, the welcome message to new contributors will include this link to
+# a LLM policy.
+llm_policy_url = "https://<llm policy link>"
 ```
 
 Additionally, triagebot will post a comment with a warning if the PR modifies any submodules.
