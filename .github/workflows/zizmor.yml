@@ -2,11 +2,11 @@ name: Security Audit with zizmor
 
 on:
   push:
-    branches: [master]
+    branches: [main]
     paths:
       - '.github/workflows/**'
   pull_request:
-    branches: [master]
+    branches: [main]
     paths:
       - '.github/workflows/**'
 

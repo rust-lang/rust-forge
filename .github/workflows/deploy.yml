@@ -4,7 +4,7 @@ on:
     - cron: '0 22 * * *'
   push:
     branches:
-      - master
+      - main
 
 # Limit concurrent workflow runs to prevent resource conflicts and ensure clean deployments
 concurrency:
