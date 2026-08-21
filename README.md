@@ -87,8 +87,8 @@ Teams are responsible for merging their own content.
 Please add your team to the `[assign.owners]` section of [`triagebot.toml`] so that the bot will auto-assign someone from the team.
 
 [team-repo]: https://github.com/rust-lang/team/blob/main/repos/rust-lang/rust-forge.toml
-[`src/SUMMARY.md`]: https://github.com/rust-lang/rust-forge/blob/master/src/SUMMARY.md
-[`triagebot.toml`]: https://github.com/rust-lang/rust-forge/blob/master/triagebot.toml
+[`src/SUMMARY.md`]: https://github.com/rust-lang/rust-forge/blob/main/src/SUMMARY.md
+[`triagebot.toml`]: https://github.com/rust-lang/rust-forge/blob/main/triagebot.toml
 
 ## Maintenance of Rust Forge
 
