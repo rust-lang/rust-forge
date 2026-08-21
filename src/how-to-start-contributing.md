@@ -12,7 +12,8 @@ First, if you have any questions regarding your potential contributions, you can
 other contributors on the following places:
 - [Rust Zulip server][rust-zulip] is the primary communication space for most Rust
   teams and contributors. It is also a great place to observe on what is going on.
-  - You can check out e.g. the compiler team (`t-compiler`) Zulip ["channel"][t-compiler-channel]
+  - You can check out e.g. the compiler team (`t-compiler`) Zulip ["channel"][t-compiler-channel],
+    or [`t-compiler/help`](https://rust-lang.zulipchat.com/#narrow/channel/182449-t-compiler.2Fhelp).
 - [internals.rust-lang.org][internals] (IRLO) is a forum for discussing development of Rust.
 
 See also the [list of teams and working groups][governance] and [the Community page][community] on the
@@ -25,6 +26,16 @@ official website for more resources.
 **Please ask questions!** A lot of people report feeling that they are "wasting
 expert time", but we do not feel that way. Contributors are important to us.
 
+Also, if you feel comfortable, prefer public topics, as this means others can
+see the questions and answers, and perhaps even integrate them back into this guide :)
+
+**Tip**: If you're not a native English speaker and feel unsure about writing, try using a translator to help.
+But avoid using LLM tools that generate long, complex words.
+In daily teamwork, **simple and clear words** are best for easy understanding.
+Even small typos or grammar mistakes can make you seem more human, and people connect better with humans.
+
+See also [our LLM policy](https://forge.rust-lang.org/policies/llm-usage.html).
+
 If you want to contribute substantial changes, we suggest first contacting the team relevant to
 these changes. Each teams has their own preferred workflow, please follow the recommended path in
 order to have a prior discussion and team buy-in:
@@ -34,6 +45,14 @@ order to have a prior discussion and team buy-in:
 - Bootstrap team: ask in the team [Zulip channel][t-bootstrap-zulip]
 
 In case of doubt, feel free to ask on [Zulip][rust-zulip].
+
+### Etiquette
+
+We do ask that you be mindful to include as much useful information as you can
+in your question, but we recognize this can be hard if you are unfamiliar with contributing to Rust.
+
+Just pinging someone without providing any context can be a bit annoying and
+just create noise, so we ask that you be mindful of the fact that team members get a lot of pings in a day.
 
 [mcp-or-rfc-compiler]: compiler/proposals-and-stabilization.html
 [rustdoc-zulip]: https://rust-lang.zulipchat.com/#narrow/channel/266220-t-rustdoc
