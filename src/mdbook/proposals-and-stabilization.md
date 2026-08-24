@@ -11,10 +11,11 @@ There are two mechanisms that the team can use to approve a proposal (not all ap
 are suitable for each method of making a proposal - see below):
 
 - Add to the merge queue
-  - A proposal (an RFC or an FCP) is added to the merge queue when it is approved to be merged.
+  - A pull request is added to the merge queue when it is approved to be merged.
 - FCP
-  - A final comment period will require sign-off from a majority (all members minus 2)
-    of the mdBook team to approve a proposal and then a ten day waiting period.
+  - A final comment period will require sign-off from members of the mdBook (exact number depends
+    on the size of the team, refer to the FCP process to know exactly) to approve a proposal and
+    then a ten day waiting period.
   - FCPs can be used to approve any form of proposal.
 
 ## Proposals
@@ -23,9 +24,10 @@ There are three ways to propose a change to the mdBook team. The appropriate cho
 the nature of the proposal, described below.
 
 - Open a discussion on the [mdBook zulip thread].
-  - This is the preferred way. It allows to prevent users to lose too much time implementing
-    something if in the end, the team will ask major changes or even refuse it. After the
-    discussion, if accepted and depending on the change, an RFC or a PR will be the next step.
+  - This is the preferred way. It reduces the risk of contributors losing too much time
+    implementing something if in the end, the team will ask major changes or even refuse it.
+    After the discussion, if accepted and depending on the change, an RFC or a PR will be the
+    next step.
 - Pull Request (PR)
   - Opening a pull request on the [`rust-lang/mdBook`][mdbook] repository is a lightweight
     mechanism suitable for most proposals.
@@ -40,8 +42,8 @@ the nature of the proposal, described below.
 
 ### When are FCPs required?
 
-An FCP will be needed for any stabilization of user-facing changes, like UI/UX changes,
-new command-line arguments, new attributes, etc. It also includes breaking changes.
+An FCP will be needed for any stabilization of user-facing changes, like major UI/UX
+changes, new command-line arguments, new attributes, etc. It also includes breaking changes.
 
 When starting an FCP, make sure only the relevant subteam is labeled on the issue/PR, to avoid
 pinging people with changes they aren't interested in.

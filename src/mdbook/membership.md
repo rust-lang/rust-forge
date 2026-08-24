@@ -34,7 +34,7 @@ Being promoted to member implies a number of privileges:
   use those powers appropriately, as discussed previously).
 - mdBook team members are members of the Rust organization so they can modify labels and be
   assigned to issues.
-- Members become a part of the `rust-lang/mdBook` team on GitHub, so that they receive pings
+- Members become a part of the `rust-lang/mdbook` team on GitHub, so that they receive pings
   when people are looking to address the team as a whole.
 - Members are listed on the [rust-lang.org web page].
 
@@ -45,7 +45,7 @@ It also implies some obligations (in some cases, optional obligations):
 - Members are held to a higher standard than ordinary folk when it comes to the [Code of
   Conduct][CoC].
 
-[rust-lang.org web page]: https://www.rust-lang.org/governance/teams/dev-tools#team-rustdoc
+[rust-lang.org web page]: https://www.rust-lang.org/governance/teams/dev-tools#team-mdbook
 
 ## What it means to be a mdBook team member
 
