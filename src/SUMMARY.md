@@ -110,7 +110,6 @@
         - [External CI Runners](./infra/docs/external-ci-runners.md)
         - [GitHub App for dev-desktops](./infra/docs/dev-desktop-github-app.md)
         - [Domain names and DNS](./infra/docs/dns.md)
-        - [docs.rs](./infra/docs/docs-rs.md)
         - [ECS services management](./infra/docs/ecs-services.md)
         - [Hardware Security Keys](./infra/docs/hardware-security-keys.md)
         - [Monitoring](./infra/docs/monitoring.md)
