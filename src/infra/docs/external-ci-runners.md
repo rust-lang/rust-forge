@@ -71,7 +71,7 @@ This target is available in various external runners.
 
 *Canonical runner:*
 
-- `runs-on`: `self-hosted-linux-s390x-resolute-medium-rust`
+- `runs-on`: `self-hosted-linux-s390x-resolute-large-rust` (ubuntu-26.04)
 - repositories: it works on all repositories, there's no need to enable it.
 - type: [Canonical runners](#canonical-runners).
 
