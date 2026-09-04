@@ -47,7 +47,7 @@ The release note text is automatically pulled in subsequent steps, and should us
 Stabilized APIs and Const Stabilized APIs should both be formatted roughly as follows:
 
 ```md
-- [`std::ptr::null_mut`](https://doc.rust-lang.org/std/ptr/fn.null_mut.html)
+- [`std::ptr::null_mut`](https://doc.rust-lang.org/stable/std/ptr/fn.null_mut.html)
 <!-- for trait implementations: -->
 - [`impl<T: Clone, const N: usize> From<&[T; N]> for Vec<T>`](https://doc.rust-lang.org/stable/std/vec/struct.Vec.html#impl-From%3C%26%5BT;+N%5D%3E-for-Vec%3CT,+Global%3E)
 ```
@@ -56,18 +56,32 @@ Note that:
 
 * this is not a PR link, but directly links the standard library docs.
 * the link is to stable docs (and so may not actually work at time of writing).
+  * Link to the *beta* channel docs: https://doc.rust-lang.org/beta/std/.
 * the API is directly noted. Sometimes we compress APIs (e.g., `uN` for
   unsigned integers) to avoid too much text.
 * link fragments can be long and hard to predict, so it is often better to copy and paste the url than write it manually
   (if the item doesn't appear in stable docs, you can copy it from nightly and edit the url).
 * if the only thing being stabilized is trait implementations (and not the corresponding trait),
   all impls are listed with links to the corresponding impl blocks.
+
+Entries should only be placed in the Const Stabilized section if they were *previously* stable but now stable in const contexts.
+
+Platform Support should be formatted as follows:
+
+```md
+- [Promote `powerpc64-unknown-linux-musl` to Tier 2 with host tools](github.com/rust-lang/rust/pull/149962)
+- [Promote `riscv64a23-unknown-linux-gnu` to Tier 2 (without host tools)](https://github.com/rust-lang/rust/pull/148435)
+- [Demote `x86_64-apple-darwin` to Tier 2 with host tools](https://github.com/rust-lang/rust/pull/145252)
+- [Add `aarch64-unknown-linux-pauthtest` as Tier 3](https://github.com/rust-lang/rust/pull/155722)
+```
+
+
 ## Release team: Step 3: Confirm all issues/PRs needing relnotes are labeled `relnotes`
 
 This steps should happen in the first 3 weeks of the beta period (earlier is
 better). This can be done with help from the wider Rust project too.
 
-[Search] for `is:pr milestone:1.85.0 is:merged -label:relnotes -label:relnotes-perf -label:finished-final-comment-period` in GitHub on rust-lang/rust PRs, updating the milestone appropriately.
+[Search] for `is:pr milestone:1.85.0 is:merged -label:rollup -label:relnotes -label:relnotes-perf -label:finished-final-comment-period` in GitHub on rust-lang/rust PRs, updating the milestone appropriately.
 
 This should find all merged PRs that haven't already been nominated. Typically
 there are several hundred of them; the goal is to try to find anything that
