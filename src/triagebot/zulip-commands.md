@@ -46,8 +46,10 @@ Note that the impersonation functionality is intended for inspecting the status 
 - `@**triagebot** backport [approve | decline ] [stable | beta ] <PR>` (example: "@triagebot backport approve beta 123456") Will post a comment on GitHub to approve or decline a PR backport (see [Backports](../compiler/backports.md)).
 - `@**triagebot** assign-prio <issue #> [ critical | high | medium | low | none ]` will assign a priority label to an issue (see [Prioritization][prio]). "none" will just remove the `I-prioritize` label.
 - `@**triagebot** unlock [--org <org>] <repo> <issue-id>`: permits unlocking a given issue or pull request (default org: rust-lang).
+- `@**triagebot** yank/unyank <crate-name> <crate-version>`: yank or unyank a given version of a crate on crates.io. See [Crate yanking and unyanking][yanking].
 
 [prio]: ../compiler/prioritization.md
+[yanking]: crate-yanking.md
 
 ## Implementation
 

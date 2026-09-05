@@ -23,6 +23,7 @@
     - [Canonicalize Issue Links](./triagebot/canonicalize-issue-links.md)
     - [Close](./triagebot/close.md)
     - [Concern](./triagebot/concern.md)
+    - [Crate yanking and unyanking](triagebot/crate-yanking.md)
     - [Documentation Updates](./triagebot/doc-updates.md)
     - [GitHub Releases](./triagebot/github-releases.md)
     - [Git rebase (range) diff](./triagebot/range-diff.md)
