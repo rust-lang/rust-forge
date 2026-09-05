@@ -108,6 +108,7 @@
         - [CDN](./infra/docs/cdn.md)
         - [Crater agents](./infra/docs/crater-agents.md)
         - [Dev Desktops](./infra/docs/dev-desktop.md)
+        - [CI Runners on AWS](./infra/docs/ci-runners-aws.md)
         - [External CI Runners](./infra/docs/external-ci-runners.md)
         - [GitHub App for dev-desktops](./infra/docs/dev-desktop-github-app.md)
         - [Domain names and DNS](./infra/docs/dns.md)
