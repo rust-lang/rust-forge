@@ -1,11 +1,15 @@
 # LLM Usage Policy
 
-This is a moderation policy for how LLMs are used in `rust-lang/rust`.
-For additional information about the policy itself, see [the appendix](#appendix).
+This is a moderation policy for how LLMs are used in `rust-lang/rust` and other related repositories.
+For additional information about the policy itself, including the list of repositories that have adopted this policy,
+see [the appendix](#appendix).
+For the rationale on why this policy exists, see [the blog post](https://blog.rust-lang.org/inside-rust/2026/08/05/rust-langrust-is-adopting-an-llm-policy/)
+where this policy was announced.
 
 ## Overview
 
-Using LLMs while working on `rust-lang/rust` is conditionally allowed, when done with care.
+Using LLMs while working on `rust-lang/rust`, and other repositories that have adopted this policy,
+is conditionally allowed, when done with care.
 LLMs are not a substitute for thought,
 and we do not allow them to be used in ways that risk losing our shared social and technical understanding of the project,
 nor in ways that hurt our goals of creating a strong community.
@@ -208,7 +212,16 @@ we strongly suggest that this circuit breaker be automated.
 ## Appendix
 ### Scope
 
-This policy only applies to `rust-lang/rust`, and only to the teams that have ratified it: compiler, libs, types, rustdoc, bootstrap, and their subteams.
+This policy only applies to the repositories that have adopted it, and only to the teams that have ratified it: compiler, libs, types, rustdoc, bootstrap, and their subteams.
+
+Currently, the following repositories have adopted this policy:
+- [`rust-lang/rust`](https://github.com/rust-lang/rust)
+- [`rust-lang/rustlings`](https://github.com/rust-lang/rustlings)
+- [`rust-lang/mdBook`](https://github.com/rust-lang/mdBook)
+- [`rust-lang/cargo`](https://github.com/rust-lang/cargo)
+- [`rust-lang/rust-clippy`](https://github.com/rust-lang/rust-clippy)
+- [`rust-lang/rustfmt`](https://github.com/rust-lang/rustfmt)
+
 The following are not in scope and are free to set their own policies:
 - Other repositories in `rust-lang`
 - Submodules, subtrees, and crates.io dependencies
