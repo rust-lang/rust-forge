@@ -3,6 +3,8 @@
 This is a moderation policy for how LLMs are used in `rust-lang/rust` and other related repositories.
 For additional information about the policy itself, including the list of repositories that have adopted this policy,
 see [the appendix](#appendix).
+For the rationale on why this policy exists, see [the blog post](https://blog.rust-lang.org/inside-rust/2026/08/05/rust-langrust-is-adopting-an-llm-policy/)
+where this policy was announced.
 
 ## Overview
 
