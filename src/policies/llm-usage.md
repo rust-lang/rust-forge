@@ -80,7 +80,7 @@ The following are banned.
     - ℹ️ This also applies to voice/video content originally created or scripted by an LLM.
     - ℹ️ This does not apply if the LLM content is clearly quoted and marked; you can post that.
          However, the content of the comment must stand on its own even without the LLM content; it's not a substitute for your own words.
-    - ℹ️ See also "machine-translation" in ⚠️ below.
+    - ℹ️ See also [machine-translation](#machine-translation) in ⚠️ below.
     - ℹ️ See also "Scope" in the appendix below.
 - Documentation that is originally created by an LLM.
     - ℹ️ This includes non-trivial source comments, such as doc-comments, safety comments, or multiple paragraphs of non-doc-comments.
@@ -105,7 +105,7 @@ since you haven't yet established trust with your reviewers.
 
 All uses under "⚠️ Allowed with caveats" **must** disclose that an LLM was used.
 
-- Using machine-translation (e.g. Google Translate) from your native language without posting your original message is allowed but discouraged.
+- <a id="machine-translation"></a>Using machine-translation (e.g. Google Translate) from your native language without posting your original message is allowed but discouraged.
   Doing so can introduce new miscommunications that weren't there originally, and prevents someone who speaks the language from providing a better translation.
     - ℹ️ Posting both your original message and the translated version is always ok, but you must still disclose that machine-translation was used.
 - "Trivial" code or prose changes.
