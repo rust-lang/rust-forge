@@ -115,7 +115,7 @@ All uses under "⚠️ Allowed with caveats" **must** disclose that an LLM was u
         - Changing a word to a synonym
         - Type signatures for a trait implementation
     - ℹ️ Be cautious about PRs that consist solely of trivial changes.
-      See also [the compiler team's typo fix policy](https://rustc-dev-guide.rust-lang.org/contributing.html#writing-documentation:~:text=Please%20notice%20that%20we%20don%E2%80%99t%20accept%20typography%2Fspellcheck%20fixes%20to%20internal%20documentation).
+      See also [the compiler team's typo fix policy](https://rustc-dev-guide.rust-lang.org/building/compiler-documenting.html#contributing-documentation:~:text=Please%20notice%20that%20we%20don%E2%80%99t%20accept%20typography%2Fspellcheck%20fixes%20to%20internal%20documentation).
     - 💡 See the [dev-guide][llm-guidance] for additional suggestions.
     - For more background about concepts that inspired this policy, see
       [threshold of originality](https://fsfe.org/news/2025/news-20250515-01.en.html)
