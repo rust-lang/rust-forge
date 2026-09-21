@@ -16,6 +16,6 @@ support.
   the latest generated artifacts from CI into `rustup`.
 
 [Rustup Component History]: https://rust-lang.github.io/rustup-components-history/index.html
-[PR Tracking]: https://rust-lang-nursery.github.io/rustc-pr-tracking/
+[PR Tracking]: https://rust-lang.github.io/rustc-pr-tracking/
 [Bors]: https://bors.rust-lang.org/
 [`rustup-toolchain-install-master`]: https://github.com/kennytm/rustup-toolchain-install-master

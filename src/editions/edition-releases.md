@@ -156,7 +156,7 @@ The 2021 Edition took about a month, which involved analyzing hundreds of regres
 Once the edition team has approved the stabilization, actually stabilizing can be done by anyone. Stabilizing the edition involves getting the compiler, documentation, and all the tools updated:
 
 - Stabilize in rustc. See [rustc stabilization instructions](https://rustc-dev-guide.rust-lang.org/guides/editions.html#stabilizing-an-edition).
-- Stabilize in cargo (after rustc update hits nightly). See [cargo stabilization instructions](https://doc.rust-lang.org/nightly/nightly-rustc/cargo/core/features/enum.Edition.html#stabilization-instructions).
+- Stabilize in cargo (after rustc update hits nightly). See [cargo stabilization instructions](https://doc.rust-lang.org/nightly/nightly-rustc/cargo/workspace/features/enum.Edition.html#stabilization-instructions).
     - Update the cargo submodule.
 - Update the edition guide to indicate it is stabilized. [Example for Rust 2024](https://github.com/rust-lang/edition-guide/pull/338).
 - Merge all pending edition PRs to the reference, and update it to default to the newly stabilized edition ([example for Rust 2024](https://github.com/rust-lang/reference/pull/1684)).
