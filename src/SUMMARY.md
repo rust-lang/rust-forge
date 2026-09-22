@@ -40,6 +40,7 @@
     - [Note](./triagebot/note.md)
     - [Pinging](./triagebot/pinging.md)
     - [Rendered link](./triagebot/rendered-link.md)
+    - [Large Pull Requests](./triagebot/large-pull-requests.md)
     - [Requesting Prioritization](./triagebot/requesting-prioritization.md)
     - [Review Changes Since](./triagebot/review-changes-since.md)
     - [Review Changes Requested](./triagebot/review-submitted.md)
