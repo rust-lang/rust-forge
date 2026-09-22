@@ -6,7 +6,7 @@ There are several studies showing that pull requests go expontentially unmerged 
 
 We can use the `[large-pull-requests]` configuration option to automatically warn users if they go over this threshold. The warning looks like this:
 
-> Seems that this commit is larger than expected (threshold: {threshold} lines of code changed) \
+> Seems that this commit is larger than expected (threshold: {threshold} lines of code changed)
 > Big pull requests are reviewed much slower than small ones, consider splitting it.
 
 ## Configuration
