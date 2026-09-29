@@ -68,7 +68,7 @@ table td:nth-child(1) {
 | `@rustbot label A-diagnostics A-macros` | Adds two labels to an issue or PR. | [Labeling](labeling.md) |
 | `@rustbot label -P-high` | Removes a label from an issue or PR. | [Labeling](labeling.md) |
 | `@rustbot ping windows` | Posts a comment pinging the Windows ping group. | [Pinging](pinging.md) |
-| `@rustbot prioritize` | Requests prioritization from the Prioritization WG. | [Prioritization](requesting-prioritization.md) |
+| `@rustbot prioritize` | Requests prioritization of a regression. | [Prioritization](requesting-prioritization.md) |
 | `r? @octocat` | Assigns a PR to a user. | [PR Assignment](pr-assignment.md) |
 | `r? libs` | Assigns to a random person in the libs review group. | [PR Assignment](pr-assignment.md) |
 | `r? rust-lang/cargo` | Assigns a random person from the cargo team. | [PR Assignment](pr-assignment.md) |

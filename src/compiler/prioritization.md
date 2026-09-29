@@ -38,17 +38,21 @@ Tip: you can use [Github Saved Replies](https://docs.github.com/get-started/writ
 
 Priority can also be assigned from Zulip:
 ```
-@**triagebot** assign-prio <issue #> [ critical | high | medium | low | <empty>]
+@**triagebot** [assign-priority|prio] [critical|high|medium|low|none] <issue_num>
 ```
 
 Examples:
 - Assign high priority to issue 123456:
   ```
-  @**triagebot** assign-prio 123456 high
+  @**triagebot** assign-priority high 123456
   ```
-- Remove priority from issue 123456:
+- Remove any priority label (using the shortcut version of the command) from issue 123456:
   ```
-  @**triagebot** assign-prio 123456
+  @**triagebot** prio none 123456
+  ```
+- If the command is executed from a issue prioritization Zulip topic (here an [example](https://rust-lang.zulipchat.com/#narrow/channel/245100-t-compiler.2Fprioritization.2Falerts/topic/.E2.9C.94.20.23163320.20.5BICE.5D.3A.20ICE.20with.20next-solver/near/626904371)), an even shorter version of the command also works:
+  ```
+  @**triagebot** prio medium
   ```
 
 # Priority Levels
