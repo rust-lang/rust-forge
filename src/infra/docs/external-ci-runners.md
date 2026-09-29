@@ -72,7 +72,7 @@ Here is an explanation of the fields in the list below:
 - type: [Canonical runners](#canonical-runners).
 
 This runner is 32-bit armhf build, but the VM runs an arm64 kernel with AArch32/EL0 support enabled.
-To run test binaries natively please refer to [this example](https://github.com/rust-lang/compiler-builtins/pull/1320) 
+To run test binaries natively refer to [this example](https://github.com/rust-lang/compiler-builtins/pull/1320) 
 on how to cross-link from an arm64 host.
 
 ### `s390x-unknown-linux-gnu`
