@@ -33,7 +33,7 @@ Some examples of variants you can use:
 * `@rustbot modify labels to +T-lang and -T-compiler`
 * `@rustbot modify labels: +T-lang and -T-compiler`
 * `@rustbot modify labels to +T-lang -T-compiler`
-* `@rustbot labels "+good first issue"`
+* `@rustbot labels "+very important issue"` (note: fictional example)
 
 The command can be terminated with a `.`, `;`, or the end of the line.
 
