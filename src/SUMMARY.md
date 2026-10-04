@@ -120,6 +120,7 @@
         - [rust-bots server](./infra/docs/rust-bots.md)
         - [rust-lang/rust CI](./infra/docs/rustc-ci.md)
         - [Sentry](./infra/docs/sentry.md)
+        - [Trusted contributors](./infra/docs/trusted-contributors.md)
         - [Trusted publishing](./infra/docs/trusted-publishing.md)
         - [Internal-facing infrastructure announcements](./infra/docs/internal-announcements.md)
 - [Language](./lang/index.md)
