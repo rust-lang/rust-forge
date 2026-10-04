@@ -244,7 +244,7 @@ circumstance.
   - Follow the language team's process and have the removal PR reviewed by a member of the compiler
     team
 - Stabilizing an attribute
-  - Follow the language team's process and have the stabiization PR reviewed by a member of the
+  - Follow the language team's process and have the stabilization PR reviewed by a member of the
     compiler team
 - Reverting stabilization of an attribute
   - Follow the language team's process and have the revert PR reviewed by a member of the
@@ -261,7 +261,7 @@ circumstance.
     then they can second the MCP and implementation can proceed.
   - This isn't necessary if the owner of the implementation is a member of the compiler team
 - Stabilizing a language feature
-  - Follow the language team's process and have the stabiization PR reviewed by a member of the
+  - Follow the language team's process and have the stabilization PR reviewed by a member of the
     compiler team
 - Reverting stabilization of a language feature
   - Follow the language team's process and have the revert PR reviewed by a member of the
