@@ -58,6 +58,8 @@ Python utility without installing it globally in your system or managing Python
 installations. You can refer to the [ykman online documentation] to learn more
 about subcommands.
 
+PIN and PUK can also be changed using GnuPG, see the [Dr Duh guide](https://github.com/drduh/YubiKey-Guide#configure-yubikey)
+
 ```shell
 uvx --from yubikey-manager ykman --help
 ```
