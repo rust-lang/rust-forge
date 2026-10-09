@@ -244,7 +244,7 @@ circumstance.
   - Follow the language team's process and have the removal PR reviewed by a member of the compiler
     team
 - Stabilizing an attribute
-  - Follow the language team's process and have the stabiization PR reviewed by a member of the
+  - Follow the language team's process and have the stabilization PR reviewed by a member of the
     compiler team
 - Reverting stabilization of an attribute
   - Follow the language team's process and have the revert PR reviewed by a member of the
@@ -261,7 +261,7 @@ circumstance.
     then they can second the MCP and implementation can proceed.
   - This isn't necessary if the owner of the implementation is a member of the compiler team
 - Stabilizing a language feature
-  - Follow the language team's process and have the stabiization PR reviewed by a member of the
+  - Follow the language team's process and have the stabilization PR reviewed by a member of the
     compiler team
 - Reverting stabilization of a language feature
   - Follow the language team's process and have the revert PR reviewed by a member of the
@@ -369,15 +369,17 @@ Quick overview for target demotions and removals:
   - **Propose using:** PR
   - **Approve using:** r+
   - Open a PR with the changes to the target documentation and obtain an r+ from the reviewer.
-- Adding a target feature
+- Adding an unstable target feature
   - **Propose using:** PR
   - **Approve using:** r+
-  - Open a PR adding the target feature and obtain an r+ from the reviewer.
+  - Open a PR adding the unstable target feature and obtain an r+ from the reviewer.
 - Stabilizing a target feature
+  - Follow the language team's process
   - **Propose using:** PR
-  - **Approve using:** FCP
-  - Open a PR stabilizing the target feature and once the reviewer is happy with the changes,
-    an FCP can be started
+  - **Approve using:** Joint FCP between language team and compiler team
+- Reverting stabilization of a target feature
+  - Follow the language team's process and have the revert PR reviewed by a member of the
+    compiler team
 
 ### Lints, errors and warnings
 
