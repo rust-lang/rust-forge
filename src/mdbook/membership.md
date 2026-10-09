@@ -81,10 +81,6 @@ will however still remain members of the GitHub org overall.**
 People in alumni status can ask to return to "active" status at any time. This request would
 ordinarily be granted automatically barring extraordinary circumstances.
 
-People in alumni status are still members of the team at the level they previously attained and
-they may publicly indicate that, though they should indicate the time period for which they were
-active as well.
-
 ### Automatic alumni status after 6 months of inactivity
 
 If a member or maintainer has been nonresponsive in mdBook for 6 months, they will be moved to the

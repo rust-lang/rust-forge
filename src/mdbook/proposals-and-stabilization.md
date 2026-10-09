@@ -29,8 +29,8 @@ the nature of the proposal, described below.
     After the discussion, if accepted and depending on the change, an RFC or a PR will be the
     next step.
 - Pull Request (PR)
-  - Opening a pull request on the [`rust-lang/mdBook`][mdbook] repository is a lightweight
-    mechanism suitable for most proposals.
+  - If the changes are trivial, you can open a pull request on the [`rust-lang/mdBook`][mdbook]
+    repository.
   - PR proposals can be approved by *FCPs* or *by being added to the merge queue*. See
     *When are FCPs required?* section below when *being added to the merge queue* isn't
     sufficient alone.
@@ -50,9 +50,8 @@ pinging people with changes they aren't interested in.
 
 ### Can I work on code experimentally before an approval is gained?
 
-Of course! You are free to work on PRs or write code. But those PRs should be marked as
-experimental and they should not land, nor should anyone be expected to review them (unless
-folks want to).
+Of course! You are free to work on PRs or write code. Please keep them in draft status to
+avoid notifying team members until you think it's ready for the team to review it.
 
 ## What makes a good proposal?
 
