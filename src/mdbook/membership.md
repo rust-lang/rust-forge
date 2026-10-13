@@ -10,7 +10,7 @@ hesitate to ask on the [t-mdbook channel on Zulip](https://rust-lang.zulipchat.c
 ## mdBook member
 
 Once an individual has been contributing regularly for some time, they can be promoted to the
-level of a **mdBook team member** (see the section on [how decisions are made][hdam] below).
+level of an **mdBook team member** (see the section on [how decisions are made][hdam] below).
 This title indicates that they are someone who contributes regularly.
 
 It is hard to define the precise conditions when such a promotion is appropriate. Being promoted
@@ -72,11 +72,10 @@ repository to reflect their new role.
 
 ## Alumni status
 
-If at any time a mdBook team member wishes to take a break from participating, they can opt to put
+If at any time an mdBook team member wishes to take a break from participating, they can opt to put
 themselves into alumni status. When in alumni status, they will be removed from
 GitHub aliases and the like, so that they need not be bothered with pings and messages. They will
-also not have the possibility to add pull requests to the merge queue anymore. **Alumni members
-will however still remain members of the GitHub org overall.**
+also not have the possibility to add pull requests to the merge queue anymore.
 
 People in alumni status can ask to return to "active" status at any time. This request would
 ordinarily be granted automatically barring extraordinary circumstances.

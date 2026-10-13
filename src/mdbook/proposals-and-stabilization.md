@@ -13,9 +13,9 @@ are suitable for each method of making a proposal - see below):
 - Add to the merge queue
   - A pull request is added to the merge queue when it is approved to be merged.
 - FCP
-  - A final comment period will require sign-off from members of the mdBook (exact number depends
-    on the size of the team, refer to the FCP process to know exactly) to approve a proposal and
-    then a ten day waiting period.
+  - A final comment period will require sign-off from members of the mdBook team (exact number
+    depends on the size of the team, refer to the FCP process to know exactly) to approve a proposal
+    and then a ten day waiting period.
   - FCPs can be used to approve any form of proposal.
 
 ## Proposals
@@ -35,7 +35,7 @@ the nature of the proposal, described below.
     *When are FCPs required?* section below when *being added to the merge queue* isn't
     sufficient alone.
 - Issues
-  - Opening an issue on the [`rust-lang/mdBook`][mdbook] repository are also a good starting
+  - Opening an issue on the [`rust-lang/mdBook`][mdbook] repository is also a good starting
     point if you don't know which of the previous ways is the best fit.
 
 [mdBook zulip thread]: https://rust-lang.zulipchat.com/#narrow/channel/507422-t-mdbook
