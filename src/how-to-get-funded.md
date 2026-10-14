@@ -13,7 +13,7 @@ If you are maintaining some upstream Rust project (e.g. the compiler, standard l
 
 To apply for being funded by RFMF, please fill out [this form][rfmf-funding-form]. The Funding team is continuously looking out for Rust teams that need more maintenance support, and matching them with Rust Project maintainers who ask to be funded. If your situation changes over time, you can fill out the form again to provide up-to-date information.
 
-It should be noted that the funds available for supporting maintainers are limited, and at the same time there are always many applicants. Applying for this funding thus unfortunately does not guarantee that you will receive funding in a short time period.
+It should be noted that the funds available for supporting maintainers are limited, and at the same time there are always many applicants. Applying for this funding thus unfortunately does not guarantee that you will receive funding.
 
 > Applying for maintenance funding is currently only available to members of the [Rust Project][rust-project-members].
 
