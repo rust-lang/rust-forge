@@ -2,6 +2,7 @@
 
 [Overview](./index.md)
 - [How to start contributing](./how-to-start-contributing.md)
+  - [How to get funded for contributions](./how-to-get-funded.md)
 - [Onboarding to the project](./onboarding.md)
 - [Platforms](./platforms/index.md)
   - [Twitter](./platforms/twitter.md)
