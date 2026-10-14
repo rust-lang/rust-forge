@@ -29,6 +29,14 @@ expert time", but we do not feel that way. Contributors are important to us.
 Also, if you feel comfortable, prefer public topics, as this means others can
 see the questions and answers, and perhaps even integrate them back into this guide :)
 
+We do ask that you be mindful to include as much useful information as you can
+in your question, but we recognize this can be hard if you are unfamiliar with
+contributing to Rust.
+
+Just pinging someone without providing any context can be a bit annoying and
+just create noise, so we ask that you be mindful of the fact that team members
+get a lot of pings in a day.
+
 **Tip**: If you're not a native English speaker and feel unsure about writing, try using a translator to help.
 But avoid using LLM tools that generate long, complex words.
 In daily teamwork, **simple and clear words** are best for easy understanding.
@@ -45,14 +53,6 @@ order to have a prior discussion and team buy-in:
 - Bootstrap team: ask in the team [Zulip channel][t-bootstrap-zulip]
 
 In case of doubt, feel free to ask on [Zulip][rust-zulip].
-
-### Etiquette
-
-We do ask that you be mindful to include as much useful information as you can
-in your question, but we recognize this can be hard if you are unfamiliar with contributing to Rust.
-
-Just pinging someone without providing any context can be a bit annoying and
-just create noise, so we ask that you be mindful of the fact that team members get a lot of pings in a day.
 
 [mcp-or-rfc-compiler]: compiler/proposals-and-stabilization.html
 [rustdoc-zulip]: https://rust-lang.zulipchat.com/#narrow/channel/266220-t-rustdoc
@@ -140,7 +140,9 @@ If you want to get inspired, check all the [rust-lang][rust-lang-repos] reposito
 We know that starting contributing in a FOSS[^1] project could be confusing at times and we want
 both contributors and reviewers have the best possible experience when collaborating in our project.
 
-To achieve this goal, we want to build trust and respect of each other's time and efforts. Our recommendation is to follow these simple guidelines:
+To achieve this goal, we want to build trust and respect of each other's time and efforts.
+
+Our recommendation is to follow these simple guidelines:
 - Start small. A big ball of code as first contribution does not help to build trust
 - The work you submit is your own, meaning that you fully understand every part of it
 - You take care of checking in detail your work before submitting it - ask questions or signal us (with inline comments or `todo!()`) the parts you're unsure about
