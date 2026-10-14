@@ -135,6 +135,22 @@ If you want to get inspired, check all the [rust-lang][rust-lang-repos] reposito
 
 [rust-lang-repos]: https://github.com/orgs/rust-lang/repositories?type=all&q=sort%3Astars
 
+### Rust Project Goals
+
+The Rust Project tracks various initiatives for implementing new features and improvements to the language and its toolchain through [Rust Project Goals][goals]. Some of those goals are looking for contributors that could help drive the implementation forward. You can find such goals [here][goals-looking-for-contributors].
+
+Note that contributing to Project Goals might require some prior knowledge in a given area, and usually involves larger effort than just solving a specific GitHub issue. Nevertheless, it can still serve as an entrypoint to Rust contributions.
+
+[goals]: https://goals.rust-lang.org
+[goals-looking-for-contributors]: https://goals.rust-lang.org/2026/contributors.html
+
+### Google Summer of Code
+
+The Rust Project participates in the [Google Summer of Code][gsoc] (GSoC) mentorship program. You can check out [GSoC ideas][rust-gsoc] page to find out projects that might be good candidates for GSoC.
+
+[gsoc]: https://summerofcode.withgoogle.com
+[rust-gsoc]: https://github.com/rust-lang/google-summer-of-code
+
 ### Etiquette
 
 We know that starting contributing in a FOSS[^1] project could be confusing at times and we want
