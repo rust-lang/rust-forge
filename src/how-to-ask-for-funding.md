@@ -1,4 +1,4 @@
-# How to get funded for Rust contributions
+# How to ask for funding for Rust contributions
 
 There are many people contributing to Rust purely on a volunteer basis. Many of them would like to be funded for their contributions, so that they could dedicate more time and focus to Rust or simply to avoid burning out from all that unpaid work.
 
@@ -26,7 +26,7 @@ It should be noted that the funds available for supporting maintainers are limit
 
 The Rust Project tracks various concrete initiatives for implementing new features and making improvements to the Rust language and its toolchain through [Rust Project Goals][goals]. If you would like to get funding for implementing such a feature or improvement to Rust, consider [proposing][propose-goal] a Project Goal and including a funding ask with it.
 
-Your goal will then appear on [this page][goals-funding], which lists Goals looking for funding. If you have suggestions for specific companies that might be interested in funding your work, or you want help finding them, consider asking about funding your Project Goal in the [#funding][funding-stream] or [#rcn][rcn-stream] (Rust Commercial Network) Zulip streams.
+If accepted, your Goal will then appear on [this page][goals-funding], which lists Goals looking for funding. If you want to help companies find out about the possibility of funding your Goal, consider discussing it in the [#funding][funding-stream] or [#rcn][rcn-stream] (Rust Commercial Network) Zulip streams.
 
 > Goals are usually funded by companies that want to help move a specific initiative forward. You do not have to be a member of the Rust Project to work on a Project Goal or be funded for driving it. 
 
