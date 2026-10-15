@@ -146,7 +146,7 @@ Note that contributing to Project Goals might require some prior knowledge in a 
 
 ### Google Summer of Code
 
-The Rust Project participates in the [Google Summer of Code][gsoc] (GSoC) mentorship program. You can check out [GSoC ideas][rust-gsoc] page to find out projects that might be good candidates for GSoC.
+The Rust Project participates in the [Google Summer of Code][gsoc] (GSoC) mentorship program. You can check out the [GSoC ideas][rust-gsoc] page to find out projects that might be good candidates for GSoC.
 
 [gsoc]: https://summerofcode.withgoogle.com
 [rust-gsoc]: https://github.com/rust-lang/google-summer-of-code
