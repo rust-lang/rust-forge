@@ -9,7 +9,7 @@ While getting funded for open source contributions in general can be quite diffi
 
 ## Funding maintenance
 
-If you are maintaining some upstream Rust project (e.g. the compiler, standard library, Cargo, Rust Analyzer, Clippy, etc.), and you would like to get funded for it, then you can get supported by the [Rust Foundation Maintainers Fund][rfmf] (RFMF), either by becoming a [Maintainer in Residence][rfmf-rfc] or receiving a smaller maintainer grant.
+If you are a member of the [Rust Project][rust-project-members] and you want to be funded for maintaining Rust projects (e.g. the compiler, standard library, Cargo, Rust Analyzer, Clippy, etc.), then you can get supported by the [Rust Foundation Maintainers Fund][rfmf] (RFMF), either by becoming a [Maintainer in Residence][rfmf-rfc] or by receiving a smaller maintainer grant.
 
 To apply for being funded by RFMF, please fill out [this form][rfmf-funding-form]. The Funding team is continuously looking out for Rust teams that need more maintenance support, and matching them with Rust Project maintainers who ask to be funded. If your situation changes over time, you can fill out the form again to provide up-to-date information.
 
