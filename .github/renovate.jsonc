@@ -1,0 +1,8 @@
+// Config docs: <https://docs.renovatebot.com/configuration-options/>
+// Shared rust-lang presets: <https://github.com/rust-lang/renovate>
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "github>rust-lang/renovate:actions"
+  ]
+}
