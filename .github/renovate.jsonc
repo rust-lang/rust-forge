@@ -4,5 +4,9 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "github>rust-lang/renovate:actions"
+  ],
+  // Only enable GHA bumps.
+  "enabledManagers": [
+    "github-actions"
   ]
 }
