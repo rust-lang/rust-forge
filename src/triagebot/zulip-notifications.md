@@ -18,6 +18,7 @@ For example, the `rust-lang/rust` repository is configured to automatically post
 This feature is enabled on a repository by having a `[notify-zulip]` table in `triagebot.toml`.
 
 Some of the messages support substitutions:
+
 - `{number}` is replaced with the issue/PR number.
 - `{title}` is replaced with the issue/PR title.
 - `{recipients}` is replaced with a list of mentions of the people involved in the
@@ -50,6 +51,13 @@ message_on_remove = "Issue #{number}'s nomination has been removed. Thanks all f
 # The message to post when the issue/PR is closed and it has the label.
 # Supports {number}, {title}, and {recipients} substitution.
 message_on_close = "Issue #{number} has been closed. Thanks for participating!"
+
+# The message to post when the issue/PR is closed successfully and it has the label.
+# A successful close is a merged pull request or an issue closed as completed.
+# When not set, a successful close uses `message_on_close`.
+# When only this is set, other unsuccessful closes do not trigger a message.
+# Supports {number}, {title}, and {recipients} substitution.
+message_on_close_success = "Issue #{number} has been completed. Thanks for participating!"
 
 # The message to post when the issue/PR is reopened and it has the label.
 # Supports {number}, {title}, and {recipients} substitution.
