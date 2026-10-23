@@ -134,7 +134,7 @@ reviewers will have less work to do, and you might also improve your own underst
 areas in the compiler.
 
 ### It is unclear if a contribution requires an approval decision
-If you think a might contribution require broader team approval, check the [*Proposals, Approvals
+If you think a contribution might require broader team approval, check the [*Proposals, Approvals
 and Stabilization*](./proposals-and-stabilization.md) documentation. If a contribution doesn't
 match any of the examples in that documentation, open a thread in `#t-compiler/private` and ask.
 
@@ -168,7 +168,7 @@ the reasoning and reconstruct what's going on? Have points of contention been di
 cleared up? Then you are in the clear.
 
 If you are in doubt if something is contentious, give a heads up to `@rust-lang/compiler` and ask
-for another opinion. If you think a might contribution require broader team approval, check
+for another opinion. If you think a contribution might require broader team approval, check
 the [*Proposals, Approvals and Stabilization*](./proposals-and-stabilization.md) documentation.
 
 ### Reviewing and Mentoring
@@ -222,7 +222,7 @@ want to get pinged on changes to these parts).
 Require a doc comment on such APIs identifying which external consumers the API concerns, and for
 what kinds of purpose.
 
-If you think a might contribution require broader team approval, check the [*Proposals, Approvals
+If you think a contribution might require broader team approval, check the [*Proposals, Approvals
 and Stabilization*](./proposals-and-stabilization.md) documentation.
 
 Note that this can non-obviously bound supposedly-internal compiler APIs to external consumers.
