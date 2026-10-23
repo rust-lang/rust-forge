@@ -47,7 +47,7 @@ The release note text is automatically pulled in subsequent steps, and should us
 Stabilized APIs and Const Stabilized APIs should both be formatted roughly as follows:
 
 ```md
-- [`std::ptr::null_mut`](https://doc.rust-lang.org/std/ptr/fn.null_mut.html)
+- [`std::ptr::null_mut`](https://doc.rust-lang.org/stable/std/ptr/fn.null_mut.html)
 <!-- for trait implementations: -->
 - [`impl<T: Clone, const N: usize> From<&[T; N]> for Vec<T>`](https://doc.rust-lang.org/stable/std/vec/struct.Vec.html#impl-From%3C%26%5BT;+N%5D%3E-for-Vec%3CT,+Global%3E)
 ```
@@ -56,18 +56,32 @@ Note that:
 
 * this is not a PR link, but directly links the standard library docs.
 * the link is to stable docs (and so may not actually work at time of writing).
+  * Link to the *beta* channel docs: https://doc.rust-lang.org/beta/std/.
 * the API is directly noted. Sometimes we compress APIs (e.g., `uN` for
   unsigned integers) to avoid too much text.
 * link fragments can be long and hard to predict, so it is often better to copy and paste the url than write it manually
   (if the item doesn't appear in stable docs, you can copy it from nightly and edit the url).
 * if the only thing being stabilized is trait implementations (and not the corresponding trait),
   all impls are listed with links to the corresponding impl blocks.
+
+Entries should only be placed in the Const Stabilized section if they were *previously* stable but now stable in const contexts.
+
+Platform Support should be formatted as follows:
+
+```md
+- [Promote `powerpc64-unknown-linux-musl` to Tier 2 with host tools](github.com/rust-lang/rust/pull/149962)
+- [Promote `riscv64a23-unknown-linux-gnu` to Tier 2 (without host tools)](https://github.com/rust-lang/rust/pull/148435)
+- [Demote `x86_64-apple-darwin` to Tier 2 with host tools](https://github.com/rust-lang/rust/pull/145252)
+- [Add `aarch64-unknown-linux-pauthtest` as Tier 3](https://github.com/rust-lang/rust/pull/155722)
+```
+
+
 ## Release team: Step 3: Confirm all issues/PRs needing relnotes are labeled `relnotes`
 
 This steps should happen in the first 3 weeks of the beta period (earlier is
 better). This can be done with help from the wider Rust project too.
 
-[Search] for `is:pr milestone:1.85.0 is:merged -label:relnotes -label:relnotes-perf -label:finished-final-comment-period` in GitHub on rust-lang/rust PRs, updating the milestone appropriately.
+[Search] for `is:pr milestone:1.85.0 is:merged -label:rollup -label:relnotes -label:relnotes-perf -label:finished-final-comment-period` in GitHub on rust-lang/rust PRs, updating the milestone appropriately.
 
 This should find all merged PRs that haven't already been nominated. Typically
 there are several hundred of them; the goal is to try to find anything that
@@ -75,11 +89,16 @@ jumps out as *should have been nominated* and nominate it by tagging with
 relnotes. Scrolling through the list without clicking through and using the
 GitHub checkbox UI to mass-label issues is a good strategy.
 
+Standard library stabilizations are often missed as FCPs happen on unmilestoned
+issues rather than stabilization PRs. It can be useful to search the standard
+library for any APIs with stability attributes with `since = "1.xx.0"` and then
+find the corresponding stabilization PR to tag with `relnotes`.
+
 The goal here is mostly **catching obvious things**, not 100% exhaustiveness.
 It's generally OK if we miss something. If there's a consistent pattern, note
 it down for inclusion in triagebot's automatic issue filing.
 
-[Search]: https://github.com/rust-lang/rust/pulls?q=is%3Apr+milestone%3A1.85.0+is%3Amerged+-label%3Arelnotes+-label%3Arelnotes-perf+-label%3Afinished-final-comment-period
+[Search]: https://github.com/rust-lang/rust/pulls?q=is%3Apr+milestone%3A1.97.0+is%3Amerged+-label%3Arelnotes+-label%3Arollup+-label%3Arelnotes-perf+-label%3Afinished-final-comment-period+
 
 FIXME: This step may also need to include an attempt to milestone any
 **issues** that got tagged relnotes and closed -- those currently don't get
@@ -96,8 +115,10 @@ tool.
 
 ```shell
 cargo build
-GITHUB_TOKEN=$(gh auth token) cargo run --bin relnotes -- 1.85.0 > relnotes.md
+GITHUB_TOKEN=$(gh auth token) cargo run --release 1.85.0  --draft > relnotes.md
 ```
+
+Note that the release number should include the patch version (`.0`).
 
 This produces console output (stderr) like this:
 
@@ -127,31 +148,32 @@ present *but shouldn't be*, the best thing is to tag it with relnotes (or find
 the pre-existing relnotes tracking issue) and *close that tracking issue*. This
 will also drop the item from the tool's output.
 
-## Release team: Step 5: Publish relnotes PR
+## Release team: Step 5: Open draft relnotes issue
 
-See example from 1.84: <https://github.com/rust-lang/rust/pull/134568>
+An issue titled "Draft release notes for 1.xx.0" should be opened with the output
+of the relnotes tool pasted into the description. Then, as a comment the release team
+and relnotes-interest-group should be pinged:
+```console
+@rustbot ping relnotes-interest-group
 
-Take the `relnotes.md` you have locally (typically without library
-stabilizations in today's world, you'll add them at a later point -- we want
-the copy without them as early as possible), and insert it at the top of
-RELEASES.md in rust-lang/rust, and open a new PR with those contents. You can
-`r?` the owner for actually publishing the release for this cycle and cc the
-release team.
+cc @rust-lang/release
+```
 
-Include a link to this document (https://forge.rust-lang.org/release/release-notes.html)
-in the PR description, pointing at step 6 (i.e., prefer suggesting updates not on the PR).
+This issue should be labelled as `T-release` and `relnotes-tracking-issue` then
+pinned so that it appears at the top of the issue tracker. 
 
-The next release team meeting should also discuss this PR for selecting blog
-post topics (see below for blog post process).
+The draft of the release notes should be periodicially regenerated until it is
+time to finalize the release notes with a PR.
 
-### Pinging `relnotes-interest-group` for relnotes PR and release blog post
 
-Contributors may be interested to help review the relnotes PRs and release
+### Pinging `relnotes-interest-group` for relnotes and release blog posts
+
+Contributors may be interested to help review the relnotes and release
 blog posts (e.g. on behalf of their team). They can opt-in to being pinged by
 adding themselves to the
 [`relnotes-interest-group` marker team][relnotes-interest-group].
 
-When creating a relnotes PR and release blog post, please ping this
+When creating a relnotes draft, relnotes PR or the release blog post, please ping this
 notification group via
 
 ```console
@@ -160,21 +182,39 @@ notification group via
 
 [relnotes-interest-group]: https://github.com/rust-lang/team/blob/main/teams/relnotes-interest-group.toml
 
-## All: Step 6: Incorporate edits from relnotes PR
+## All: Step 6: Incorporate reviews on the draft
 
-You'll typically get a lot (several dozen) of comments on the PR with typo
-fixes, suggestions for alternative text, etc. A good strategy is to try to
-update the originating issues for issues/PRs (or file them and update them),
-essentially matching the iteration already done locally in step 4. The longer
-state stays in issues the easier it is to notice and incorporate updates from
-those into the PR (just rerun the tool).
+You'll typically get a lot (several dozen) of comments on the issue with typo
+fixes, suggestions for alternative text, etc. The originating issues tracking
+the release notes should be updated in response, essentially matching the iteration
+already done locally in step 4.
 
 Pushing edits into the issues helps bring the right people (e.g., PR
 author/reviewer) into the loop on what is getting discussed.
 
-## Release team: Step 7: Close tracking issues
+## Release team: Step 7: Publish relnotes PR
 
-At some point, the release team owner should declare the PR authoritative and
+See example from 1.84: <https://github.com/rust-lang/rust/pull/134568>
+
+The relnotes tool should be re-invoked this time without `--draft` and 
+insert the output at the top of RELEASES.md in rust-lang/rust, and open
+a new PR with those contents. You can `r?` the owner for actually publishing
+the release for this cycle and cc the release team.
+
+Include a link to this document (https://forge.rust-lang.org/release/release-notes.html)
+in the PR description, pointing at step 6 (i.e., prefer suggesting updates not on the PR).
+
+The relnotes-interest-group should once again by pinged:
+```console
+@rustbot ping relnotes-interest-group
+```
+
+The next release team meeting should also discuss this PR for selecting blog
+post topics (see below for blog post process).
+
+## Release team: Step 8: Close tracking issues
+
+At some point, the release cycle owner should declare the PR authoritative and
 close all relnotes tracking issues associated with the current milestone ([sample search](https://github.com/rust-lang/rust/issues?q=is%3Aissue%20state%3Aopen%20milestone%3A1.85.0%20label%3Arelnotes-tracking-issue)). Doing this in the GitHub UI is easiest.
 
 FIXME: Ideally those would all get linked from the relnotes PR, so it's easier
