@@ -256,7 +256,7 @@ for compiler triage meeting), and the team can decide if:
   smaller logical PRs that are possible to review on their own, but also in the context of the
   larger change.
 - It has the bandwidth, or team members are ready or willing or able to
-  accept the large change as-is. In not, the team should make a decision to postpone or
+  accept the large change as-is. If not, the team should make a decision to postpone or
   close, and clearly communicate the decision to the PR author to explain the reasoning. It is
   very frustrating if a PR stalls for many months only for it to be rejected anyway.
 
@@ -449,6 +449,7 @@ or with `@bors $ROLLUP_STATUS` where `$ROLLUP_STATUS` is substituted with one of
       - LLVM or code generation
       - bootstrap or the build system
       - build-manifest
+      - CI
 - `rollup`: this is equivalent to `rollup=always`
 - `rollup-`: this is equivalent to `rollup=maybe`
 
