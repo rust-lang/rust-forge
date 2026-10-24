@@ -1,15 +1,16 @@
 # Review Policy
+
 This document describes our review policy for contributions to the Rust compiler. Its intended
 audience are contributors and reviewers as well.
 
 The purpose of this policy is to help contributors shape pull requests that are easier to review -
 by clarifying the Rust project expectations - and for reviewers as well - by having a handy list of
-common things to check. The project will benefit if both parties have clear how to work together.
+common things to check. The project will benefit if both parties are clear on how to work together.
 
 It is the purpose of code reviews to:
 
 - **Reduce** the risk of introducing **bugs** and usability and performance **regressions**.
-- Keep our code **maintainable**: **readable**, **documented** and **well-tested**.
+- Keep our code **maintainable**: **readable**, **documented**, and **well-tested**.
 - Ensure that changes are made with the big picture and **appropriate context in mind**. This is
   particularly relevant for changes that seem harmless in isolation but are problematic or
   undesirable in the larger context.
@@ -19,6 +20,7 @@ different perspective, which increases the chance of catching mistakes early and
 potential blind spots in the reasoning behind the change.
 
 ## Basic Reviewing Requirements
+
 There are a number of requirements that need to be met in order for reviewing to
 be effective:
 
@@ -30,10 +32,10 @@ be effective:
   2. For the rationale to be even more useful, authors are encouraged to list potential
      **points of contention**, **compromises** that needed to be made, **alternative approaches**
      that have been considered, **relevant documentation, discussions and context**, etc.
-    - Reviewing code is difficult, and reviewers only have a **limited amount of time** to do it.
-      Jump-starting the review process by not making the reviewer puzzle together the intention
-      and context of a pull request will not only speed things up but also improve the quality of
-      the review.
+     - Reviewing code is difficult, and reviewers only have a **limited amount of time** to do it.
+       Jump-starting the review process by not making the reviewer puzzle together the intention
+       and context of a pull request will not only speed things up but also improve the quality of
+       the review.
 - Reviewers must have a good idea on whether they are the **right person to approve** the change.
   - Knowledge of the code under review is an obvious but not the only criteria for answering
     this question.
@@ -54,6 +56,7 @@ be effective:
 [rfc]: https://github.com/rust-lang/rfcs
 
 ## Reviewing Checklist
+
 The following list of questions will help reviewers and PR authors alike to bring PRs into good
 shape and meet the above criteria:
 
@@ -70,9 +73,9 @@ shape and meet the above criteria:
 >   covered? If there is already a MCP open, was it already accepted, or is the PR blocked on that?
 > * Does the PR need a **perf run**?
 > * Does the PR need reviews and/or sign-offs from **other teams**?
->   * e.g. `t-lang` for lint expansions if the ecosystem impact is large or language changes
+>   * e.g. `t-lang` for language changes, or lint expansions if the ecosystem impact is large
 > * Does the PR affect other teams in a non-trivial way? Should the affected teams get a heads-up?
->   * e.g. changes to rustfmt or rust-analyzer or subtrees.
+>   * e.g. changes to rustfmt or rust-analyzer or subtrees
 > * Would someone trying to understand the PR in a year's time be able to quickly **reconstruct
 >   what's going on**?
 > * Is the new code **properly documented**? Is existing documentation still up-to-date?
@@ -104,11 +107,13 @@ shape and meet the above criteria:
 
 
 ## Guidance for dealing with common situations
+
 In most cases common sense is enough for deciding how to apply this policy. However, sometimes
 there are gray areas where it is not immediately clear how to proceed. This section lists a few
 common cases together with guidance on how to deal with them.
 
 ### I don't think I am a good fit for reviewing - what now?
+
 It is completely normal that you get (randomly) assigned a PR (via rustbot or otherwise) but don't
 feel comfortable reviewing it. Here is what you can do, depending on the concrete case:
 
@@ -134,11 +139,13 @@ reviewers will have less work to do, and you might also improve your own underst
 areas in the compiler.
 
 ### It is unclear if a contribution requires an approval decision
-If you think a might contribution require broader team approval, check the [*Proposals, Approvals
+
+If you think a contribution might require broader team approval, check the [*Proposals, Approvals
 and Stabilization*](./proposals-and-stabilization.md) documentation. If a contribution doesn't
 match any of the examples in that documentation, open a thread in `#t-compiler/private` and ask.
 
 ### Discussion or rationale is too intransparent
+
 Sometimes there are PRs that seem to be the result of some prior discussion, with no description
 or rationale. They usually have a title like "Change X" and the only content of the PR message
 is "r? @xyz". Even though the change might make sense and may even have been suggested by a
@@ -150,15 +157,16 @@ available to future contributors. This is not good for maintainability. Includin
 will very often help the PR author themselves in the future!
 
 The PR message should give a self-contained description of what is being changed, why it is
-being changed and anything else that might be of interest.
+being changed, and anything else that might be of interest.
 
 **Try to put yourself in the shoes of someone who, a few years down the road, needs to fix a bug
 related to the code touched by the PR and needs to reconstruct the rationale for the way things
 are.**
 
 ### Reviewer and PR author report to the same entity / work for the same employer
+
 There is no rule that prevents two employees of the same company from reviewing each other's PRs.
-We assume compiler team reviewers to act in good faith, and vest trust in team members to do so.
+We assume that compiler team reviewers act in good faith, and vest trust in team members to do so.
 
 The concerns in such a case are no different than for any other two reviewers. We expect the
 mechanisms and principles we articulated above to be respected by *all* reviewers, whatever their
@@ -168,32 +176,34 @@ the reasoning and reconstruct what's going on? Have points of contention been di
 cleared up? Then you are in the clear.
 
 If you are in doubt if something is contentious, give a heads up to `@rust-lang/compiler` and ask
-for another opinion. If you think a might contribution require broader team approval, check
+for another opinion. If you think a contribution might require broader team approval, check
 the [*Proposals, Approvals and Stabilization*](./proposals-and-stabilization.md) documentation.
 
-### Reviewing and Mentoring
-In the course of mentoring someone through a PR it often happens that the reviewer has ended up
+### Reviewing and mentoring
+
+In the course of mentoring someone through a PR, it often happens that the reviewer has ended up
 effectively co-writing the changes. This can be a tricky case because the reviewer is effectively
 approving their own changes. There are a number of considerations to take into account when deciding
 how to proceed:
 
-- If the general direction of the changes has already been approved as part of an approval decision
+- If the general direction of the changes has already been approved as part of an approval decision,
   and the concrete advice given during mentoring was only concerned with resolving minor technical
   issues, then no further review is required.
 - Similarly, if any contentious decisions have visibly been discussed and resolved on the PR with
-  other compiler team members and the rest of the changes don't deviate from the general direction
-  that has been agreed upon then no further review is required either.
+  other compiler team members, and the rest of the changes don't deviate from the general direction
+  that has been agreed upon, then no further review is required either.
 - If the PR was opened as a response to a concrete suggestion by the reviewer (and the changes are
   not entirely trivial) then it is advisable that the final review is done by someone else. However,
   the initial reviewer/mentor is encouraged to help bring the PR into good shape before handing it
   off.
 
-In general, it is advisable to ask for a second opinion by someone knowledgable in the field in
+In general, it is advisable to ask for a second opinion by someone knowledgable in the area in
 such cases, just to increase the chance of uncovering oversights and blindspots a mentor might have.
 
 ### Nobody understands the code that's being changed
+
 Sometimes there is a bug in some code that nobody understands anymore. The original authors are
-unavailable and it is hard to gauge the implications of a proposed fix. In such a case it is a good
+unavailable and it is hard to gauge the implications of a proposed fix. In such a case, it is a good
 idea for reviewers to `I-compiler-nominated` the PR (if they intend to stay the main reviewer) or
 assign a compiler team lead to the issue and add the `S-waiting-on-team` label.
 
@@ -208,21 +218,22 @@ Reviewers should ask PR authors to add this kind of information as comments in t
 the PR message (which will become part of the git commit history).
 
 ### PR makes a change to support use of rustc internals for external projects
+
 This will need to be determined on a case-by-case basis.
 
 In general, we should allow changes making things public, cleaning up things or making them more
-general, as long as the owners of the compiler region agree (so just assign to them).
+general, as long as the owners of the compiler area agree (so just assign to them).
 
 As a concrete example: if someone is using the mir interpreter, and they want to make something
 public, it is likely not a problem, but there are some functions that are module- or crate-private
 on purpose, as they uphold invariants within the MIR interpreter. So basically, just assign such
 PRs to the relevant people (usually they get pinged anyway due to having told rustbot that they
-want to get pinged on changes to these parts).
+want to get pinged on changes to the relevant files).
 
 Require a doc comment on such APIs identifying which external consumers the API concerns, and for
 what kinds of purpose.
 
-If you think a might contribution require broader team approval, check the [*Proposals, Approvals
+If you think a contribution might require broader team approval, check the [*Proposals, Approvals
 and Stabilization*](./proposals-and-stabilization.md) documentation.
 
 Note that this can non-obviously bound supposedly-internal compiler APIs to external consumers.
@@ -231,24 +242,26 @@ convenience so as long as it does not impose significant maintenance burden on t
 gets in the way of refactorings, and no hard stability guarantees are promised.
 
 ### The PR is very large and complicated
+
 Reviewers are **not** expected to stomach PRs that are very large and complicated. It is expected
 from contributors to split their work to make a review feasible, for example a series of more
 digestible PRs which are individually more logically self-contained. In general, before submitting
-large impact changes, it is expected the contributor to have discussed the design previously with
-the relevant team(s) so it is contributor's duty to reference such discussions.
+large impact changes, it is expected of the contributor to have discussed the design previously with
+the relevant team(s), making it the contributor's duty to reference such discussions.
 
 When in doubt, bring the PR to the attention of the team (through zulip threads and/or nominate
 for compiler triage meeting), and the team can decide if:
 
-- The team can find suitable reviewers who can aid the PR author to break up the large change into
+- It can find suitable reviewers who can aid the PR author to break up the large change into
   smaller logical PRs that are possible to review on their own, but also in the context of the
   larger change.
-- The team does not have the bandwidth, or team members are is not ready or willing or able to
-  accept the large change as-is. In such cases, the team should make a decision to postpone or
+- It has the bandwidth, or team members are ready or willing or able to
+  accept the large change as-is. If not, the team should make a decision to postpone or
   close, and clearly communicate the decision to the PR author to explain the reasoning. It is
   very frustrating if a PR stalls for many months only for it to be rejected anyway.
 
-## Technical Aspects of Reviewing
+## Technical aspects of reviewing
+
 Every PR that lands in the compiler and its associated crates must be reviewed by at least one
 person who is knowledgeable with the code in question.
 
@@ -270,6 +283,7 @@ r? bootstrap
 ```
 
 ### bors
+
 We never merge PRs directly. Instead, we use bors. A qualified reviewer with bors privileges
 (e.g., a [compiler team member](./membership.md)) will leave a comment like `@bors r+`. This
 indicates that they approve the PR.
@@ -277,9 +291,11 @@ indicates that they approve the PR.
 People with bors privileges may also leave a `@bors r=username` command. This indicates that the
 PR was already approved by `@username`. This is commonly done after rebasing.
 
-Finally, in some cases, PRs can be "delegated" by writing `@bors delegate+`. This will allow the PR author or the delegated user to approve the PR by issuing `@bors` commands like the ones above (but this privilege is limited to the single PR).
+Finally, in some cases, PRs can be "delegated" by writing `@bors delegate+`.
+This will allow the PR author or the delegated user to approve the PR by issuing `@bors` commands like the ones above (but this privilege is limited to the single PR).
 
 ### Reverts
+
 If a merged PR is found to have caused a meaningful unanticipated regression, the best policy is
 to revert it quickly and re-land it later once a fix and regression test are added.
 
@@ -288,8 +304,8 @@ A "meaningful regression" in this case is up to the judgment of the person appro
 Some criteria to consider if a revert is warranted:
 
 - A bug in a stable or otherwise important feature that causes code to stop compiling, changes
-  runtime behavior, or triggers a (warn-by-default or higher) lint incorrectly in real-world code.
-  Especially if the bug is reachable without any unstable feature gates.
+  runtime behavior, or triggers a (warn-by-default or higher) lint incorrectly in real-world code
+  (especially if the bug is reachable without any unstable feature gates).
 - If a bug or change (incl. ICEs) is particularly easy to hit.
 - If a bug or change significantly degrades contributor experience.
 - If a test is flaky and unreliable.
@@ -310,13 +326,14 @@ members pointing to this PR, or it's simply obvious to everyone involved). Only 
 certainty if the issue is particularly critical or urgent to fix.
 
 #### Creating reverts
+
 A revert commit can be created using the git CLI and then uploaded as a pull request:
 
 ```terminal
-$ git revert -m 1 $COMMIT_HASH
+$ git revert --mainline 1 $COMMIT_HASH
 ```
 
-where `$COMMIT_HASH` can be found next to the merged status message:
+`$COMMIT_HASH` can be found next to the merged status message:
 
 ![merged commit hash](./reviews/merged-commit-hash.png)
 
@@ -381,7 +398,8 @@ they are reverting. If a non-rollup PR is shown to have no impact on performance
 rollups or interleave the revert PR between rollups if suitable.
 
 #### Forward fixes
-Often it is tempting to address a regression by posting a follow-up PR that, rather than reverting
+
+It is often tempting to address a regression by posting a follow-up PR that, rather than reverting
 the regressing PR, instead augments the original in small ways without reverting its changes
 overall. However, if real-world users have reported being affected, this practice is strongly
 discouraged unless one of the following is true:
@@ -400,6 +418,7 @@ off of you and your reviewers to act quickly and gives you time to address the i
 is an opportunity to take a step back and reassess the test coverage.
 
 ### Rollups
+
 All reviewers are strongly encouraged to explicitly mark a PR as to whether or not it should be
 part of a [rollup]. This is usually done either when approving a PR with `@bors r+ $ROLLUP_STATUS`
 or with `@bors $ROLLUP_STATUS` where `$ROLLUP_STATUS` is substituted with one of the following:
@@ -410,7 +429,7 @@ or with `@bors $ROLLUP_STATUS` where `$ROLLUP_STATUS` is substituted with one of
   - Changes cannot have performance implications.
   - Your PR is not landing possibly-breaking or behavior altering changes.
     - Feature stabilization without other changes is likely fine to rollup, though.
-  - When in doubt do not use this option!
+  - When in doubt, do not use this option!
 - `rollup=maybe`: This is the default if `@bors r+` does not specify any rollup status at all. Use
   this if you have some doubt that the change won't break tests. This can be used if you aren't sure
   if it should be one of the other categories. Since this is the default, there is usually no need
@@ -427,15 +446,17 @@ or with `@bors $ROLLUP_STATUS` where `$ROLLUP_STATUS` is substituted with one of
   - Has a high chance of failure.
   - Is otherwise dangerous to rollup.
     - Messes too much with:
-    - LLVM or code generation
-    - bootstrap or the build system
-    - build-manifest
+      - LLVM or code generation
+      - bootstrap or the build system
+      - build-manifest
+      - CI
 - `rollup`: this is equivalent to `rollup=always`
 - `rollup-`: this is equivalent to `rollup=maybe`
 
 When setting `rollup=iffy` or `rollup=never`, include a short reason in the approval comment explaining why you have chosen this when it is not obvious.
 
 ### Priority
+
 Reviewers are encouraged to set one of the rollup statuses listed above instead of setting
 priority. Bors automatically sorts based on the rollup status (never is the highest priority,
 always is the lowest), and also by PR age. If you do change the priority, please use your best
@@ -466,6 +487,7 @@ The following is some guidance for setting priorities:
 When setting a priority, include a short reason in the approval comment explaining why you have chosen this when it is not obvious.
 
 ### Expectations for r+
+
 bors privileges are binary: the bot doesn't know which code you are familiar with and what code
 you are not. They must therefore be used with discretion. Do not r+ code that you do not know
 well -- you can definitely **review** such code, but try to hand off reviewing to someone else
@@ -482,15 +504,17 @@ changed since last review, in addition to responding to individual review commen
 Please refer to [bors documentation for bot usage](https://bors.rust-lang.org/help).
 
 ## Social aspects of reviewing
+
 First and foremost, PR authors and compiler reviews alike are expected to uphold the [Code of
 Conduct][coc]. Simply speaking, a reviewer is expected to be respectful to the PR author, even if
 the reviewer disagrees with the changes.
 
 Reviewers are encouraged to consider matters from the perspectives of the PR author too. If a
-change is stuck due to procedural reasons or reviewer bandwidth for months without any resolution
-(including a resolution that the compiler might not be ready to accept such a change at present
-time, but thank the PR author for the contributions anyway), and accrues constant merge conflicts,
+change is stuck due to procedural reasons or reviewer bandwidth for months without any resolution,
+and accrues constant merge conflicts,
 it can be very frustrating.
+Note that a resolution can be that the team is not ready to accept such a change at that moment,
+and that they should ideally still thank the author for their controbution.
 
 If some discussions are getting heated, ask the [moderation
 team](https://www.rust-lang.org/governance/teams/moderation) to step in.
