@@ -6,7 +6,7 @@ get in touch with other Rust contributors and start contributing to Rust project
 
 As a reminder, all contributors are expected to follow our [Code of Conduct][coc].
 
-## Asking Questions
+## Asking questions
 
 First, if you have any questions regarding your potential contributions, you can ask
 other contributors on the following places:
