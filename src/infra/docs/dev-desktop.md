@@ -79,7 +79,7 @@ desktops.
 | `dev-desktop-eu-1` | `SHA256:QPuC8ODm+no9wjAtrSMCuqj+iGXsFI5ZGR3C+nX7Im0` |
 | `dev-desktop-us-1` | `SHA256:UOZn6OKFrCRt+CLPl5fHZd93Tym4ckBrr8rgfgEPT5g` |
 | `dev-desktop-eu-2` | `SHA256:biz6c8LJ6cdb6Ku9mlELzl1qh8sODZWtpNfAJPxBi2I` |
-| `dev-desktop-us-2` | `SHA256:u6SNCQw++6LV+IhQYEqIcuFo4GIaiU7DyUhaqWEmQdI` |
+| `dev-desktop-us-2` | `SHA256:57s6k2sgArca2rlrYiDUMjumVMiL7PF68zkjmYwD3bI` |
 
 You can verify the fingerprint by running this script and compare the output with the table above:
 
@@ -93,7 +93,7 @@ For convenience, the host keys are also available as `known_hosts` entries:
 dev-desktop-eu-1.infra.rust-lang.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAIIWlDvWkMEX8XIu6lxvd4cFOxeFUpH4ZReKuyS3h9l
 dev-desktop-us-1.infra.rust-lang.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEj0DZ/r/Sq5GdK8j80rNjCs6ctwptcHnFvP3bdjhv/5
 dev-desktop-eu-2.infra.rust-lang.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOmnv10fXAimjPPfwiutVmJifRS+85rmN/zyIP/QNby6
-dev-desktop-us-2.infra.rust-lang.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA2bWm/W7J3QJGRb2z63Mp8nP5rAXOEd1Owd54Wtt5AX
+dev-desktop-us-2.infra.rust-lang.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFp7jUvbqkGIswNRDaVy+eb2cHDJHJG7aCs1omwjpEm+
 ```
 
 ## How to set up your account
