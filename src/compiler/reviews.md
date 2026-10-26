@@ -407,7 +407,7 @@ or with `@bors $ROLLUP_STATUS` where `$ROLLUP_STATUS` is substituted with one of
 - `rollup=always`: These PRs are very unlikely to break tests or have performance implications.
   Example scenarios:
   - Changes are limited to documentation, comments, etc. that is highly unlikely to fail a build.
-  - Changes cannot have performance implications.
+  - Changes cannot have performance implications. If you have any doubt, do a perf run using rust-timer first.
   - Your PR is not landing possibly-breaking or behavior altering changes.
     - Feature stabilization without other changes is likely fine to rollup, though.
   - When in doubt do not use this option!
@@ -420,8 +420,11 @@ or with `@bors $ROLLUP_STATUS` where `$ROLLUP_STATUS` is substituted with one of
     rollup).
   - Has platform-specific changes that are not checked by the normal PR checks.
   - May be affected by MIR migrate mode.
+  - Has small performance implications. When you do a perf run using rust-timer, 
+    it will automatically mark the PR as `iffy` or `never` based on the amount of affected benchmarks.
 - `rollup=never`: This should *never* be included in a rollup. Example scenarios:
-  - May have performance implications.
+  - Has large performance implications. When you do a perf run using rust-timer,
+    it will automatically mark the PR as `iffy` or `never` based on the amount of affected benchmarks.
   - May cause unclear regressions (we would likely want to bisect to this PR specifically, as it
     would be hard to identify as the cause from a rollup).
   - Has a high chance of failure.
