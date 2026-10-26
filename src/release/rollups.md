@@ -84,5 +84,25 @@ or confirm your hypothesis.
 If a rollup continues to fail you can run the `@bors rollup=never` command to
 never rollup the PR in question.
 
+## Perf-sensitive rollups
+If the amount of PRs in queue that are `rollup=never` due to performance effects gets quite large,
+it can be useful to roll them up together. This is called a perf-sensitive rollup.
+
+The procedure to make such a rollup is:
+
+1. Go through each PR in queue that is marked `rollup=never`, 
+   and carefully judge if the only reason it is not rollupable is performance.
+   Post the following comment in each such PR:
+   ```
+   Making a rollup of perf-sensitive PRs
+   @bors rollup=iffy
+   ```
+2. Create a rollup as normal. Only include the PRs that you marked as perf-sensitive.
+   Optionally also include PRs that were already `rollup=iffy` due to performance.
+3. Change the rollup title to `Rollup of N perf-sensitive pull requests`.
+   It is important that the title still starts with `Rollup of `, since rust-timer uses this to recognize rollups.
+4. Approve the rollup and wait for it to be merged.
+5. When both rust-timer has finished benchmarking the PR, and perf builds are available, run `@rust-timer triage all`.
+
 [Bors queue]: https://bors.rust-lang.org/queue/rust
 [the Rollups section]: ../compiler/reviews.md#rollups
