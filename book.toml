@@ -74,6 +74,7 @@ smart-punctuation = true
 "core/index.html" = "/governance/council.html"
 "community/index.html" = "/archive/community.html"
 "community/survey-faq.html" = "/archive/community.html"
+"platforms/twitter.html" = "/platforms/social-media.html"
 
 [output.linkcheck]
 command = "mdbook-linkcheck2"
