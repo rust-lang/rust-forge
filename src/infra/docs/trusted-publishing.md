@@ -1,25 +1,25 @@
-# Trusted publishing
+# Trusted Publishing
 
-[Crates.io trusted publishing] lets a GitHub Actions workflow publish a crate
+[Crates.io Trusted Publishing] lets a GitHub Actions workflow publish a crate
 without storing a long-lived crates.io API token in GitHub Actions secrets.
 
 Trusted publishing is the recommended way to publish Rust Project crates.
 
-This page explains how to configure trusted publishing in Rust Project
+This page explains how to configure Trusted Publishing in Rust Project
 repositories using the [`rust-lang/team`] repository and describes the
 most common publishing patterns.
 
 <div class="warning">
 
 If your repository is not hosted under a Rust GitHub organization, you can't
-configure trusted publishing through the `rust-lang/team` repository. Follow
-the instructions in the [crates.io trusted publishing] documentation instead.
+configure Trusted Publishing through the `rust-lang/team` repository. Follow
+the instructions in the [crates.io Trusted Publishing] documentation instead.
 
 </div>
 
 ## 1. Set crate ownership
 
-Make sure the crates you want to manage with trusted publishing are owned by the
+Make sure the crates you want to manage with Trusted Publishing are owned by the
 [rust-lang-owner](https://crates.io/users/rust-lang-owner) account.
 If they aren't, invite that account as an owner and ask in the `#t-infra` Zulip
 channel to accept the invitation.
@@ -65,7 +65,7 @@ tags = ["v*"]
 
 ## 3. Write the GitHub Actions workflow
 
-Every workflow that publishes to crates.io through trusted publishing needs:
+Every workflow that publishes to crates.io through Trusted Publishing needs:
 
 - a job with `environment: <publish-environment>`;
 - `permissions: id-token: write` on that job, so GitHub can issue an OIDC token;
@@ -80,7 +80,7 @@ Use this approach if you want to use the [crates-io-auth-action] and run
 `cargo publish` directly in the workflow.
 
 See the "GitHub Actions Setup" section of the
-[crates.io trusted publishing] documentation for more details on how to set up
+[crates.io Trusted Publishing] documentation for more details on how to set up
 the workflow and use the action.
 
 <div class="warning">
@@ -136,7 +136,7 @@ workflow, check out [release-plz].
 You can find examples of `release-plz` in Rust Project repositories by using
 [this GitHub search](https://github.com/search?q=org%3Arust-lang+AND+%28path%3A*.yml+OR+path%3A*.yaml%29++release-plz%2Faction%40&type=code).
 
-[crates.io trusted publishing]: https://crates.io/docs/trusted-publishing
+[crates.io Trusted Publishing]: https://crates.io/docs/trusted-publishing
 [release-plz]: https://release-plz.ieni.dev/
 [crates-io-auth-action]: https://github.com/rust-lang/crates-io-auth-action
 [`rust-lang/team`]: https://github.com/rust-lang/team

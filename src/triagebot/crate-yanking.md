@@ -1,8 +1,8 @@
 # Crate yanking
 
-For security reasons, we want all `rust-lang` crates on crates.io to be owned by the [rust-lang-owner] account, and handle all crate publishing from CI, using [trusted publishing]. That means that individuals and teams from the Rust Project will not own the crates on crates.io. However, we still want to offer them a way to yank or unyank crates easily. This is implemented in triagebot.
+For security reasons, we want all `rust-lang` crates on crates.io to be owned by the [rust-lang-owner] account, and handle all crate publishing from CI, using [Trusted Publishing]. That means that individuals and teams from the Rust Project will not own the crates on crates.io. However, we still want to offer them a way to yank or unyank crates easily. This is implemented in triagebot.
 
-[trusted publishing]: https://crates.io/docs/trusted-publishing
+[Trusted Publishing]: https://crates.io/docs/trusted-publishing
 
 ## Yanking a crate
 

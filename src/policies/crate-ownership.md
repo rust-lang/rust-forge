@@ -21,7 +21,7 @@ Rust crates published by the Rust project fall into one of the following categor
 
 Every crate in the organization must be owned by at least one team on crates.io. Teams should use `rust-lang/foo` teams for this. Non-expatriated crates may not have personal accounts as owners; if a crate needs additional owners that are not part of teams; the team should create a project group. Note that this does not forbid non-team (or project group) users from having maintainer access to the repository; it simply forbids them from _publishing_.
 
-Currently it is not possible for a crate to be owned by _only_ a team; the `rust-lang-owner` account (or a similar account to be decided by the infra team) can be used as a stopgap in such cases. We should try to phase this account out as much as possible, in order to make sure it is clear who is responsible for each crate. For crates being auto-published, use [trusted publishing][trusted-publishing] from GitHub Actions.
+Currently it is not possible for a crate to be owned by _only_ a team; the `rust-lang-owner` account (or a similar account to be decided by the infra team) can be used as a stopgap in such cases. We should try to phase this account out as much as possible, in order to make sure it is clear who is responsible for each crate. For crates being auto-published, use [Trusted Publishing][trusted-publishing] from GitHub Actions.
 
 Each crate in the organization, and any future crates in the organization, must decide which to which category they belong in according to the above categorization. If you're not sure what the category should be when registering a crate, or do not wish to make a decision just yet, pick "Experimental".
 
