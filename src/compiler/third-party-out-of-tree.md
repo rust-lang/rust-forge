@@ -81,7 +81,7 @@ It is required that out-of-tree crates must:
 - Use labels that are compatible with the existing triage process. This will allow nominated issues
   in your out-of-tree crate to be discussed during triage meetings.
     - eg. `T-compiler`, `I-compiler-nominated` (a full list is to be decided)
-- Use trusted publishing, if possible.
+- Use Trusted Publishing, if possible.
 - The compiler team should be added as owners of the crate on crates.io.
 
 ### Is there a requirement for community infrastructure for an out-of-tree crate?
@@ -110,7 +110,7 @@ another team member (like any pull request). It is expected that any new release
 version of the crate that passes its tests and that warrants a new release (e.g. dependency
 upgrades, a new feature, a bug fix, etc).
 
-If the repository has trusted publishing configured then this should automatically
+If the repository has Trusted Publishing configured then this should automatically
 publish to crates.io, otherwise the team member can publish to crates.io manually (and should have
 permissions to do so).
 
