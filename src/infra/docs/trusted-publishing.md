@@ -3,7 +3,7 @@
 [Crates.io Trusted Publishing] lets a GitHub Actions workflow publish a crate
 without storing a long-lived crates.io API token in GitHub Actions secrets.
 
-Trusted publishing is the recommended way to publish Rust Project crates.
+Trusted Publishing is the recommended way to publish Rust Project crates.
 
 This page explains how to configure Trusted Publishing in Rust Project
 repositories using the [`rust-lang/team`] repository and describes the
