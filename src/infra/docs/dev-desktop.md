@@ -218,7 +218,7 @@ for a review.
 
 It helps to check <https://packages.ubuntu.com/> first and make sure that the
 package is available for both `arm64` and `amd64` architectures. The dev
-desktops are currently running Ubuntu 22.04 LTS.
+desktops are currently running Ubuntu 24.04 LTS.
 
 ## Available disk space
 
