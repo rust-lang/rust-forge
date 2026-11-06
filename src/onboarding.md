@@ -24,7 +24,7 @@ Triage team members do a first pass applying labels to classify issues, they can
 
 ### Alumni status
 
-Team triage adopts the suggested [Council policy] in order to keep the team roster actual. In short, after 6 months of inactivity the team member will be put to alumni status, unless they manifest interest to contribute again. The alumni status is reversible at any time, past team members are always welcome to contribute again.
+Team triage adopts the suggested [Council policy] in order to keep the team roster actual. After 6 months of inactivity the team member may be put to alumni status, unless they manifest interest to contribute again. The alumni status is reversible at any time; past team members are always welcome to contribute again.
 
 If at any time a team member or maintainer wishes to take a break from participating, they can opt to put themselves into alumni status. When in alumni status, they will be removed from GitHub aliases and the like, so that they need not be bothered with pings and messages. Alumni members will however still remain members of the GitHub org overall.
 
