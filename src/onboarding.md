@@ -9,8 +9,7 @@ project, in particular in terms of where to raise concerns or get help.
 Each team has different policies for joining new team members, as well as different responsibilities once you join. For now, you should talk to a team lead to learn what the team's policy is (and please encourage them to document the policy here!). In general, most teams expect you to at least:
 - Contribute to the team for at least a couple months before joining
 - Respond within a reasonable time to [Final Comment Periods][fcps] on RFCs and PRs.
-
-All teams in the project expected to respect and uphold the [Code of Conduct][coc].
+- Respect and uphold the [Code of Conduct][coc].
 
 [fcps]: https://rust-lang.github.io/rfcs/#what-the-process-is
 [coc]: https://rust-lang.org/policies/code-of-conduct/
