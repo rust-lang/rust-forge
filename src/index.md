@@ -45,8 +45,5 @@ Beta Cut | No Breakage Week
 ### External Links
 
 * [Bibliography] of research papers and other projects that influenced Rust.
-* [Rust Pontoon] is a translation management system used to localize the Rust
-  website.
 
 [Bibliography]: https://rustc-dev-guide.rust-lang.org/appendix/bibliography.html
-[Rust Pontoon]: https://pontoon.rust-lang.org/
