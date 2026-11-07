@@ -17,21 +17,20 @@ Each team has different policies for joining new team members, as well as differ
 ### Joining triage
 <a name="joining-wg-triage"></a><!-- preserve links to the old team name -->
 
-The triage team, which we highly recommend as an introduction to working on the project, works on triaging issues and PRs in the rust-lang/rust repository, does not require prior experience with programming or compilers. If you're interested in joining this team, contact us [on Zulip](https://rust-lang.zulipchat.com/#narrow/channel/242269-t-release.2Ftriage) and tells us more.
+The triage team, which we highly recommend as an introduction to working on the project, works on triaging issues and pull requests in the rust-lang/rust repository, does not require prior experience with programming or compilers. If you're interested in joining this team, contact us [on Zulip](https://rust-lang.zulipchat.com/#narrow/channel/242269-t-release.2Ftriage) and tells us more.
 
-Triage team members do a first pass applying labels to classify issues, they can issue command with `@rustbot`, no special project permissions are needed. Other members of the team work on more specialized tasks like triaging [beta crater runs]. For more information about triage, see [Triage Procedure].
+Triage team members do a first pass applying labels to classify issues, they can issue command with `@rustbot`, no special project permissions are needed. For more information about issue triaging, see the documentation [here][triage-issue-docs].
+
+The team also keep an eye on pull requests: the work here is ensuring that labels reflect the current status, for example the review (is it waiting on the author or on the reviewer? Is it blocked on something else?), ensure they're not forgotten (so that contributor receives a feedback) and eventually closed if abandoned or supersed by other work. Documentation for triaging pull request is [here][triage-pr-docs].
 
 ### Alumni status
 
 Team triage adopts the suggested [Council policy] in order to keep the team roster actual. After 6 months of inactivity the team member may be put to alumni status, unless they manifest interest to contribute again. The alumni status is reversible at any time; past team members are always welcome to contribute again.
 
-If at any time a team member or maintainer wishes to take a break from participating, they can opt to put themselves into alumni status. When in alumni status, they will be removed from GitHub aliases and the like, so that they need not be bothered with pings and messages. Alumni members will however still remain members of the GitHub org overall.
+If at any time a team member or maintainer wishes to take a break from participating, they can opt to put themselves into alumni status. When in alumni status, they will be removed from GitHub aliases and the like, so that they need not be bothered with pings and messages. Alumni members will however still remain members of the GitHub org overall (if they're member of other teams as well).
 
-[team-repo]: https://github.com/rust-lang/team
-[team#2447]: https://github.com/rust-lang/team/pull/2447
-[Dylan-DPC]: https://rust-lang.zulipchat.com/#user/120823
-[Triage Procedure]: ./release/triage-procedure.md
-[beta crater runs]: ./release/crater.md
+[triage-pr-docs]: ./release/triage-procedure.md
+[triage-issue-docs]: ./release/issue-triaging.md
 [Council policy]: https://github.com/rust-lang/leadership-council/blob/main/policies/membership/auto-alumni.md
 
 ### Maintaining components without being on a team

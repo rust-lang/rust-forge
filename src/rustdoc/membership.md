@@ -106,7 +106,7 @@ If at any time a rustdoc team member wishes to take a break from participating, 
 themselves into alumni status. When in alumni status, they will be removed from
 GitHub aliases and the like, so that they need not be bothered with pings and messages. They will
 also not have r+ privileges. **Alumni members will however still remain members of the GitHub
-org overall.**
+org overall (if they're member of other teams as well).**
 
 People in alumni status can ask to return to "active" status at any time. This request would
 ordinarily be granted automatically barring extraordinary circumstances.
