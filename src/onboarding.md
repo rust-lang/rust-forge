@@ -27,9 +27,6 @@ Team triage adopts the suggested [Council policy] in order to keep the team rost
 
 If at any time a team member or maintainer wishes to take a break from participating, they can opt to put themselves into alumni status. When in alumni status, they will be removed from GitHub aliases and the like, so that they need not be bothered with pings and messages. Alumni members will however still remain members of the GitHub org overall.
 
-[team-repo]: https://github.com/rust-lang/team
-[team#2447]: https://github.com/rust-lang/team/pull/2447
-[Dylan-DPC]: https://rust-lang.zulipchat.com/#user/120823
 [Triage Procedure]: ./release/triage-procedure.md
 [beta crater runs]: ./release/crater.md
 [Council policy]: https://github.com/rust-lang/leadership-council/blob/main/policies/membership/auto-alumni.md
