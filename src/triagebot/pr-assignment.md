@@ -136,6 +136,8 @@ llm_policy_url = "https://<llm policy link>"
 
 Additionally, triagebot will post a comment with a warning if the PR modifies any submodules.
 
+`contributing_url` and `llvm_policy_url` require a welcome message to be posted, which happen with automatic assignment (via `[assign.owners]`) or with custom messages (via `[assign.custom_messages]`).
+
 #### Exceptions to default branch warning
 
 Some PRs may have a different default branch than the rest of the PRs, in these cases it is possible to add exceptions based on the PR title, which will therefore warn if the PR is targeting a different branch than specified.
