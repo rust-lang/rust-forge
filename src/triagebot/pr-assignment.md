@@ -151,7 +151,7 @@ branch = "beta"
 
 #### Custom messages
 
-Some repositories may want to use custom messages instead of the preconfigured ones. It is possible to customize the message shown when auto-assigning (or not) a reviewer. If provided, the `contributing_url` will still be used.
+Some repositories may want to use custom messages instead of the preconfigured ones. It is possible to customize the message shown when auto-assigning (or not) a reviewer.
 
 ```toml
 [assign.custom_messages]
@@ -161,9 +161,17 @@ Thanks for the contribution!
 
 Unfortunately, no reviewer could be found at the moment.
 """
+
+# welcome variants are used for first time contributor to the repository (if unset the non-welcome messages are used instead)
+auto-assign-someone-welcome = "Welcome and thanks for the contribution. {assignee} will look at your PR." 
+auto-assign-no-one-welcome = "Welcome and thanks for the contribution. Unfortunately, no reviewer could be found at the moment." 
 ```
 
 The messages content are given as-is to GitHub (modulo `{assignee}`), the content can therefore use whatever GitHub supports.
+
+If provided, the `contributing_url` and `llm_policy_url` links will be used in the welcome messages.
+
+All the messages are optional and can be omited, though there is no fallback if missing.
 
 ## Implementation
 
