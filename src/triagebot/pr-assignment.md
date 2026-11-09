@@ -136,6 +136,8 @@ llm_policy_url = "https://<llm policy link>"
 
 Additionally, triagebot will post a comment with a warning if the PR modifies any submodules.
 
+`contributing_url` and `llvm_policy_url` require a welcome message to be posted for first-time contributors, which happens with automatic assignment (via `[assign.owners]`) or with custom messages (via `[assign.custom_messages]`).
+
 #### Exceptions to default branch warning
 
 Some PRs may have a different default branch than the rest of the PRs, in these cases it is possible to add exceptions based on the PR title, which will therefore warn if the PR is targeting a different branch than specified.
@@ -151,7 +153,7 @@ branch = "beta"
 
 #### Custom messages
 
-Some repositories may want to use custom messages instead of the preconfigured ones. It is possible to customize the message shown when auto-assigning (or not) a reviewer. If provided, the `contributing_url` will still be used.
+Some repositories may want to use custom messages instead of the preconfigured ones. It is possible to customize the message shown when auto-assigning (or not) a reviewer.
 
 ```toml
 [assign.custom_messages]
@@ -161,9 +163,18 @@ Thanks for the contribution!
 
 Unfortunately, no reviewer could be found at the moment.
 """
+
+# The welcome variants are used for first-time contributors to the repository
+# (if unset, the regular messages above are used instead).
+auto-assign-someone-welcome = "Welcome and thanks for the contribution. {assignee} will look at your PR." 
+auto-assign-no-one-welcome = "Welcome and thanks for the contribution. Unfortunately, no reviewer could be found at the moment." 
 ```
 
 The messages content are given as-is to GitHub (modulo `{assignee}`), the content can therefore use whatever GitHub supports.
+
+If provided, the `contributing_url` and `llm_policy_url` links will be used in the welcome messages.
+
+All the messages are optional and can be omitted, though there is no fallback for `auto-assign-someone` and `auto-assign-no-one` if missing.
 
 ## Implementation
 
