@@ -136,7 +136,7 @@ llm_policy_url = "https://<llm policy link>"
 
 Additionally, triagebot will post a comment with a warning if the PR modifies any submodules.
 
-`contributing_url` and `llvm_policy_url` require a welcome message to be posted, which happen with automatic assignment (via `[assign.owners]`) or with custom messages (via `[assign.custom_messages]`).
+`contributing_url` and `llvm_policy_url` require a welcome message to be posted for first-time contributors, which happens with automatic assignment (via `[assign.owners]`) or with custom messages (via `[assign.custom_messages]`).
 
 #### Exceptions to default branch warning
 
@@ -164,7 +164,8 @@ Thanks for the contribution!
 Unfortunately, no reviewer could be found at the moment.
 """
 
-# welcome variants are used for first time contributor to the repository (if unset the non-welcome messages are used instead)
+# The welcome variants are used for first-time contributors to the repository
+# (if unset, the regular messages above are used instead).
 auto-assign-someone-welcome = "Welcome and thanks for the contribution. {assignee} will look at your PR." 
 auto-assign-no-one-welcome = "Welcome and thanks for the contribution. Unfortunately, no reviewer could be found at the moment." 
 ```
@@ -173,7 +174,7 @@ The messages content are given as-is to GitHub (modulo `{assignee}`), the conten
 
 If provided, the `contributing_url` and `llm_policy_url` links will be used in the welcome messages.
 
-All the messages are optional and can be omited, though there is no fallback if missing.
+All the messages are optional and can be omitted, though there is no fallback for `auto-assign-someone` and `auto-assign-no-one` if missing.
 
 ## Implementation
 
