@@ -46,6 +46,7 @@
     - [Review Changes Since](./triagebot/review-changes-since.md)
     - [Review Changes Requested](./triagebot/review-submitted.md)
     - [Review Requested](./triagebot/review-requested.md)
+    - [Undraft Comment](./triagebot/undraft-comment.md)
     - [Rustc Commit Tracking](./triagebot/rustc-commit-list.md)
     - [Shortcuts](./triagebot/shortcuts.md)
     - [Triagebot Dashboard](./triagebot/triage-dashboard.md)
