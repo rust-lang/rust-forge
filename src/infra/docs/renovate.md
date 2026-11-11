@@ -46,9 +46,9 @@ Here are the differences between the two apps:
 
 ### 2. Configure Renovate
 
-Create a `.github/renovate.json5` file with the following content:
+Create a `.github/renovate.jsonc` file with the following content:
 
-```json5
+```jsonc
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["github>rust-lang/renovate"]
