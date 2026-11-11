@@ -29,7 +29,7 @@ Getting a PR backported to the beta branch involves the following process:
    1. Create a local branch off the `beta` branch.
    2. Cherry-pick all of the PRs that have both [`beta-nominated` and `beta-accepted`][nominated-plus-accepted] labels.
       It is usually preferred to not include PRs that have not been merged in case there are any last minute changes, or it fails when running the full CI tests.
-      Below is a useful command to cherry-pick an entire PR from its merge commit
+      Below is a useful git alias to cherry-pick an entire PR from its merge commit
       ```
       mergepick = "!f() { git log --oneline --reverse $1^..$1^2 && git cherry-pick -x $1^..$1^2 ; }; f"
       ```
