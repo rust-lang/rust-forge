@@ -29,15 +29,20 @@ Getting a PR backported to the beta branch involves the following process:
    1. Create a local branch off the `beta` branch.
    2. Cherry-pick all of the PRs that have both [`beta-nominated` and `beta-accepted`][nominated-plus-accepted] labels.
       It is usually preferred to not include PRs that have not been merged in case there are any last minute changes, or it fails when running the full CI tests.
+      Below is a useful git alias to cherry-pick an entire PR from its merge commit
+      ```
+      mergepick = "!f() { git log --oneline --reverse $1^..$1^2 && git cherry-pick -x $1^..$1^2 ; }; f"
+      ```
    3. Run `./x.py run replace-version-placeholder` and if there were any changes, put them into a new commit.
-   3. (Recommended) Run some tests locally.
+   4. (Recommended) Run some tests locally.
       It is not uncommon that the backports may not apply cleanly, or the UI tests need to be re-blessed if there are differences in the output.
-   4. Open a PR **against the beta branch** with a title that starts with `[beta]` (so reviewers can see its specialness).
-   5. List all of the PRs being backported in the PR description.
+   5. Open a PR **against the beta branch** with a title that starts with `[beta]` (so reviewers can see its specialness).
+   6. List all of the PRs being backported in the PR description.
       [Here's an example](https://github.com/rust-lang/rust/pull/64097).
-   6. Go through all of the PRs being backported and:
+   7. Go through all of the PRs being backported and:
 
       * Change the milestone to the correct value for the beta release.
+        If the PR has not yet been merged into nightly, be aware that bors will override the milestone when it merges the PR, and you should set it back after.
       * Remove the `beta-nominated` label.
         This indicates that the backport has been completed.
 
