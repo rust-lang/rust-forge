@@ -14,7 +14,7 @@ To merge a pull request, any authorized users (see below) may enter the command:
 @rustbot merge
 ```
 
-This will enqueue the PR in the merge queue.
+This will resolve all pending "Changes requested" reviews and enqueue the PR in the merge queue.
 
 The command is only available for:
  - members with at least write permissions on the repository
