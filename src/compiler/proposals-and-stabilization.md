@@ -150,7 +150,7 @@ A good proposal will address the following:
   are any key things to note (i.e., it was very invasive to implement), you might note them here.
 * **Precedent, links, and related material:** Have there been similar proposals on other
   compilers/linkers/tools, like `clang` or `lld`?
-* **Alternatives, concerns, and key decisions:** Were there any alernatives considered? If so, why
+* **Alternatives, concerns, and key decisions:** Were there any alternatives considered? If so, why
   did you pick this design?
 
 ## What proposal/approval do I need?
