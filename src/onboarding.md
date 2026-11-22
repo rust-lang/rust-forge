@@ -21,7 +21,7 @@ The triage team, which we highly recommend as an introduction to working on the 
 
 Triage team members do a first pass applying labels to classify issues, they can issue command with `@rustbot`, no special project permissions are needed. For more information about issue triaging, see the documentation [here][triage-issue-docs].
 
-The team also keep an eye on pull requests: the work here is ensuring that labels reflect the current status, for example the review (is it waiting on the author or on the reviewer? Is it blocked on something else?), ensure they're not forgotten (so that contributor receives a feedback) and eventually closed if abandoned or supersed by other work. Documentation for triaging pull request is [here][triage-pr-docs].
+The team also keep an eye on pull requests: the work here is ensuring that labels reflect the current status, for example the review (is it waiting on the author or on the reviewer? Is it blocked on something else?), ensure they're not forgotten (so that contributor receives a feedback) and eventually closed if abandoned or superseded by other work. Documentation for triaging pull request is [here][triage-pr-docs].
 
 ### Alumni status
 

@@ -136,7 +136,7 @@ a PR is acceptable for the specific contribution (see below), then the approval 
 Of course! You are free to work on PRs or write code. But those PRs should be marked as experimental
 and they should not land, nor should anyone be expected to review them (unless folks want to). Also,
 try to get a *feel* of how the team feels about the proposal: we appreciated code demonstrating the
-proposal but at the same time we don't want you to work on somehing that might not get approved, so
+proposal but at the same time we don't want you to work on something that might not get approved, so
 keep in mind that a proof-of-concept or more elaborate patches can facilitate but are not a
 guarantee for approval.
 
@@ -150,7 +150,7 @@ A good proposal will address the following:
   are any key things to note (i.e., it was very invasive to implement), you might note them here.
 * **Precedent, links, and related material:** Have there been similar proposals on other
   compilers/linkers/tools, like `clang` or `lld`?
-* **Alternatives, concerns, and key decisions:** Were there any alernatives considered? If so, why
+* **Alternatives, concerns, and key decisions:** Were there any alternatives considered? If so, why
   did you pick this design?
 
 ## What proposal/approval do I need?

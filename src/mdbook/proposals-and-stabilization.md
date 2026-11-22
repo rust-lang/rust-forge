@@ -63,7 +63,7 @@ A good proposal will address the following:
 * **Implementation notes:** You don't have to talk about the implementation normally, but if there
   are any key things to note (i.e., it was very invasive to implement), you might note them here.
 * **Precedent, links, and related material:** Have there been similar proposals on other
-  equivalent tooks?
+  equivalent tools?
 * **Alternatives, concerns, and key decisions:** Were there any alternatives considered? If so, why
   did you pick this design?
 

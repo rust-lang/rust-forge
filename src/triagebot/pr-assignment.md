@@ -103,7 +103,7 @@ a minimum number of PR review approvals (from anyone) is reached.
 
 ```toml
 [assign.community_reviews]
-# This is the minimun number of review approvals on the PR to be able to automatically assign a reviewer.
+# This is the minimum number of review approvals on the PR to be able to automatically assign a reviewer.
 # Manual assignments (r?, reroll) are exempted from this minimum.
 minimum_approvals = 2
 # Label on the PR that denote the need for a community reviews (manually removing it, triggers auto assignment).

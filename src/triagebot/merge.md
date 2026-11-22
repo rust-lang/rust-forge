@@ -37,7 +37,7 @@ or
 @rustbot delegate
 ```
 
-and will post a message roughtly like this:
+and will post a message roughly like this:
 
 > :v: @User, you can now merge this pull request!
 >
