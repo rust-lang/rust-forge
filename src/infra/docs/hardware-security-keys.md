@@ -129,7 +129,7 @@ not prompting the passkey PIN for every Git operation, since it might be
 counterproductive.
 
 As an example, this command will define a new resident SSH key through FIDO2
-and won't prompt your passkey everytime, nor will it require touching the
+and won't prompt your passkey every time, nor will it require touching the
 hardware key for Git operations.
 
 ```shell
