@@ -197,7 +197,7 @@ how to proceed:
   the initial reviewer/mentor is encouraged to help bring the PR into good shape before handing it
   off.
 
-In general, it is advisable to ask for a second opinion by someone knowledgable in the area in
+In general, it is advisable to ask for a second opinion by someone knowledgeable in the area in
 such cases, just to increase the chance of uncovering oversights and blindspots a mentor might have.
 
 ### Nobody understands the code that's being changed
