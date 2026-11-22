@@ -18,7 +18,7 @@ Project goal proposals are tracked on [GitHub][goals-issue-tracker].
 
 Project goal proponents can ask to apply for funding. See [documentation][goals-funding] for more information.
 
-For more informations about how to get funding, get in contact with the [funding team] on [Zulip][zulip-t-funding].
+For more information about how to get funding, get in contact with the [funding team] on [Zulip][zulip-t-funding].
 
 [goals team]: https://rust-lang.org/governance/teams/#team-goals
 [goals-docs]: https://goals.rust-lang.org/index.html
