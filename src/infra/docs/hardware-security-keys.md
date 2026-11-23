@@ -165,6 +165,7 @@ Before using PIV, **you must change** the default PIN and PUK. Use `ykman` or
 the Yubico Authenticator app. With `ykman`, run:
 
 ```shell
+ykman piv access change-management-key --touch --generate
 ykman piv access change-pin
 ykman piv access change-puk
 ```
