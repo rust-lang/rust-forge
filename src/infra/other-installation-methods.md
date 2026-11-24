@@ -21,9 +21,9 @@ might one _not_ want to install using those instructions?
   demand. If you need to install Rust without access to the internet, `rustup`
   is not suitable.
 - Preference for the system package manager. On Linux in particular, but also on
-  macOS with [Homebrew], [MacPorts] or [pkgsrc], and Windows with [Chocolatey]
-  or [Scoop], developers sometimes prefer to install Rust with their platform's
-  package manager.
+  macOS with [Homebrew], [MacPorts] or [pkgsrc], and Windows with [WinGet],
+  [Chocolatey] or [Scoop], developers sometimes prefer to install Rust with
+  their platform's package manager.
 - Preference against `curl | sh`. On Unix, we usually install `rustup` by
   running a shell script via `curl`. Some have concerns about the security of
   this arrangement and would prefer to download and run the installer
@@ -54,6 +54,11 @@ methods](https://rust-lang.github.io/rustup/installation/other.html).
 <span id="standalone"></span>
 
 {{#include shared-standalone-installers.md}}
+
+The Windows `-msvc` MSI installers need the [MSVC prerequisites] (a linker and
+Windows SDK), just like `rustup`. The current stable MSI is also available with
+`winget install -e --id Rustlang.Rust.MSVC`, which doesn't install the
+prerequisites.
 
 Past releases can be found in [the archive].
 
@@ -131,7 +136,9 @@ diff rustc-*-src.tar build/dist/rustc-*-src.tar
 [homebrew]: http://brew.sh/
 [macports]: https://www.macports.org/
 [pkgsrc]: https://pkgsrc.joyent.com/install-on-osx/
+[winget]: https://learn.microsoft.com/windows/package-manager/winget/
 [chocolatey]: http://chocolatey.org/
 [scoop]: https://scoop.sh/
 [three tiers]: https://doc.rust-lang.org/nightly/rustc/platform-support.html
 [the archive]: ../infra/archive-stable-version-installers.md
+[MSVC prerequisites]: https://rust-lang.github.io/rustup/installation/windows-msvc.html
