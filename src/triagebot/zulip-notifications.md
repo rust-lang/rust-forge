@@ -67,6 +67,9 @@ message_on_reopen = "Issue #{number} has been reopened. Pinging @*T-types*."
 # Please replace the `{team}` placeholder with the appropriate team to be notified for the nomination
 # (ex. `I-compiler-nominated`, `I-lang-nominated`, ...)
 required_labels = ["I-{team}-nominated"]
+
+# The Zulip notification will not be posted if the issue/PR has any of these labels.
+excluded_labels = []
 ```
 
 ## Implementation
