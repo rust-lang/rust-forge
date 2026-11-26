@@ -142,10 +142,6 @@ added by team members as they see fit.
     - `S-has-bisection`: A bisection has been performed and the bisection result is convincing.
     - `S-waiting-on-LLVM`: Waiting on upstream LLVM PR or fix.
     - `S-tracking-forever`: The tracking issue is never intended to be closed.
-- [`beta-nominated`]: Tracks changes nominated for being [backported to beta].
-- [`beta-accepted`]: Tracks changes that have been approved for being [backported to beta]. `T-release` will usually handle the backport.
-- [`stable-nominated`]: Tracks changes nominated for being [backported to stable], in anticipation of a point release.
-- [`stable-accepted`]: Tracks changes that have been approved for being [backported to stable]. `T-release` will usually handle the backport.
 - [`relnotes`]: Changes that are proposed to be documented in the release notes of the next release
   - It makes triagebot create a new relnotes issue ([example][relnotes issue example])
   - It also marks relnotes issues, so it can be processed by T-release relnotes tooling
@@ -255,12 +251,6 @@ Another useful thing to do is to go through `E-needs-mcve` and `E-needs-bisectio
 [`P-*`]: https://github.com/rust-lang/rust/labels?q=P-
 [`S-*`]: https://github.com/rust-lang/rust/labels?q=S-
 [`E-*`]: https://github.com/rust-lang/rust/labels?q=E-
-[`beta-nominated`]: https://github.com/rust-lang/rust/labels/beta-nominated
-[`stable-nominated`]: https://github.com/rust-lang/rust/labels/stable-nominated
-[`beta-accepted`]: https://github.com/rust-lang/rust/labels/beta-accepted
-[`stable-accepted`]: https://github.com/rust-lang/rust/labels/stable-accepted
-[backported to beta]: backporting.md#beta-backporting-in-rust-langrust
-[backported to stable]: backporting.md#stable-backporting-in-rust-langrust
 [`relnotes`]: https://github.com/rust-lang/rust/labels/relnotes
 [`metabug`]: https://github.com/rust-lang/rust/labels/metabug
 [relnotes issue example]: https://github.com/rust-lang/rust/issues/137132
