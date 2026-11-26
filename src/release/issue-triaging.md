@@ -124,6 +124,7 @@ added by team members as they see fit.
     - `I-unsound`: Library, compiler, type system or language unsoundness.
     - `I-compilemem`: Excessive memory usage during compilation.
     - `I-compiletime`: Slow compilation time.
+    - `I-should-compile` and `I-should-error`: usually mutually exclusive. These are to distinguish ICEs, hangs, or whatever that should work (the former) from those that should emit a nicer error than whatever they currently do (the latter)
     - `I-{team}-nominated`: Issue is nominated for discussion by `{team}`. E.g. `I-compiler-nominated`.
     - `I-lang-easy-decision`: The decision needed by T-lang is conjectured (by the person applying the label) to be easy or perfunctory. Note that this label does not imply `I-lang-nominated`; the nomination label should be applied simultaneously if the person apply the label wants to nominate the issue for T-lang discussion.
 - [`P-*`]: Priority labels. Applied using the [compiler prioritization procedure](../compiler/prioritization.md).
@@ -142,6 +143,7 @@ added by team members as they see fit.
     - `S-has-bisection`: A bisection has been performed and the bisection result is convincing.
     - `S-waiting-on-LLVM`: Waiting on upstream LLVM PR or fix.
     - `S-tracking-forever`: The tracking issue is never intended to be closed.
+    - `S-found-by-fuzzing` and `S-found-in-wild`: The former is to identify issues found by automated fuzzing (like LLMs), and the latter is to identify issues found "in the wild", so a codebase that isn't built deliberately as a stress test on rustc. Fuzzed issues carry in general lower priority.
 - [`relnotes`]: Changes that are proposed to be documented in the release notes of the next release
   - It makes triagebot create a new relnotes issue ([example][relnotes issue example])
   - It also marks relnotes issues, so it can be processed by T-release relnotes tooling
