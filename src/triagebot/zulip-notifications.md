@@ -40,6 +40,11 @@ topic = "#{number} {title}"
 # Supports {zulip_topic_url} substitution.
 github_comment = "[Zulip topic]({zulip_topic_url}) was opened to discuss this issue."
 
+# Optional message to be appended as a header to the issue, where the notification originated.
+# It will always link to the Zulip topic. Very useful for long threads, removing the need to scroll.
+# Depends on `github_comment` being also enabled.
+github_body_link_text = "Go to the Zulip topic associated with this PR"
+
 # The message to post when the label is added.
 # Supports {number}, {title}, and {recipients} substitution.
 message_on_add = "Issue #{number} \"{title}\" has been added."
